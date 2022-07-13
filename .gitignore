@@ -1,2 +1,11 @@
-*.class
-*.log
+.idea
+*.iml
+*.pdf
+bin
+.idea/workspace.xml
+.idea/libraries
+out
+project/target
+target
+build
+.gradle
