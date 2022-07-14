@@ -29,3 +29,41 @@ Il committente ha richiesto un sistema che rispetti la seguente descrizione:
 > - isolando l'area interessata e impostando la temperatura interna della stessa;
 > - annaffiando o smuovendo il terreno, rispettivamente in caso di bassa o alta umidità del suolo;
 > - nebulizzando o ventilando l'ambiente, rispettivamente in caso di bassa o alta umidità ambientale."
+
+Chi farà uso dell'applicazione potrà quindi:
+
+1. impostare i seguenti parametri della simulazione:
+	1. la località di ubicazione della serra
+	2. il numero di aree
+	3. per ogni area, la tipologia di pianta da coltivare all'interno di essa
+	
+2. visualizzare le variazioni ambientali nell'arco della giornata, relative a:
+	1. luminosità
+	2. temperatura
+	3. umidità
+
+3. osservare lo stato globale della serra, in particolare:
+	1. la suddivisione in aree
+	2. il nome della pianta coltivata per ogni rispettiva area 
+	3. lo stato dell'area, nello specifico se risulta essere o meno in allarme
+
+4. osservare lo stato all'interno di una specifica area, includendo:
+	1. le informazioni riguardanti la coltivazione
+		1. immagine
+		2. nome
+		3. descrizione
+		4. parametri ottimali di riferimento
+	2. i parametri rilevati dai sensori
+	3. indicazione dello stato attuale dell'area, se risulta essere o meno in allarme
+
+5. compiere operazioni per la cura ordinaria delle coltivazioni all'interno delle singole aree, le quali potranno essere messe in atto anche per far fronte alle diverse situazioni di allarme, in particolare:
+	1. regolare l'intensità luminosa delle lampade
+	2. schermare l'area
+	3. isolare l'area
+	4. impostare la temperatura interna all'area
+	5. annaffiare il terreno
+	6. smuovere il terreno
+	7. nebulizzare l'ambiente
+	8. ventilare l'ambiente
+
+6. in caso di allarme, visualizzare i suggerimenti rispetto alle azioni da compiere per ristabilire lo stato dell'area
