@@ -67,3 +67,49 @@ Chi farà uso dell'applicazione potrà quindi:
 	8. ventilare l'ambiente
 
 6. in caso di allarme, visualizzare i suggerimenti rispetto alle azioni da compiere per ristabilire lo stato dell'area
+
+## Requisiti funzionali
+
+Sono stati identificati i seguenti requisiti funzionali:
+
+1. la personalizzazione della simulazione, permettendo all'utente di specificare:
+	1. la località 
+	2. le tipologie di piante da coltivare, scegliendo tra quelle disponibili e visualizzando quelle selezionate
+	
+2. all'avvio della simulazione da parte dell'utente, il sistema dovrà essere in grado di:
+	1. richiedere le previsioni metereologiche previste per il giorno stesso
+	2. dedurre il numero di aree in base alla quantità di diverse specie scelte e di conseguenza disegnarne la struttura della serra
+
+3. l'osservazione dello stato di esecuzione della simulazione, visualizzando:
+	1. lo scorrere del tempo e permettendo all'utente di impostare la velocità di quest'ultimo
+
+4. l'osservazione dello stato globale della serra, visualizzando:
+	1. i parametri ambientali che verranno aggiornati durante tutta l'esecuzione in base alle previsioni metereologiche
+	2. la suddivisione in aree
+	3. il nome della pianta presente in ogni area
+	4. i parametri rilevati dai sensori all'interno delle singole aree
+	5. l'eventuale stato di allarme per ogni area
+
+5. alla richiesta di accesso ad una specifica area, mostrare:
+	1. lo scorrere del tempo
+	2. le informazioni relative alla coltivazione (immagine, nome, descrizione)
+	3. lo stato attuale 
+	4. i suggerimenti per guidare le azioni da intraprendere in caso di allarme
+	5. i valori ottimali per ogni parametro
+	6. i valori attuali per ogni grandezza misurata, evidenziando quando questi non rientrano nel range ottimale
+	7. le possibili azioni che possono essere intraprese, associandole ai parametri che influenzano, queste includono:
+		1. aprire e chiudere la schermatura dell'area
+		2. regolare l'intensità luminosa delle lampade, una volta schermata l'area
+		3. isolare termicamente la struttura
+		4. regolare la temperatura, una volta isolata l'area
+		5. nebulizzare l'ambiente
+		6. ventilare l'ambiente
+		7. smuovere il terreno 
+		8. innaffiare
+
+6. visualizzare in tempo reale l'aggiornamento dei valori a seguito di:
+	1. modifiche dei parametri ambientali
+	2. operazioni da parte dell'utente
+
+7. la possibilità, una volta avviata, di terminare la simulazione in qualsiasi momento:
+	1. dare la possibilità di avviare una nuova simulazione
