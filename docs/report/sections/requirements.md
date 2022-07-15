@@ -113,3 +113,17 @@ Sono stati identificati i seguenti requisiti funzionali:
 
 7. la possibilità, una volta avviata, di terminare la simulazione in qualsiasi momento:
 	1. dare la possibilità di avviare una nuova simulazione
+
+## Requisiti non funzionali
+Sono stati identificati i seguenti requisiti non funzionali:
+- l'applicazione deve essere _cross-platform_, cioè eseguibile sia su Windows, sia su MacOS, che su Linux, o comunque su qualsiasi sistema operativo capace di supportare Java Runtime Environment versione 16 e successive;
+- l'interfaccia deve essere reattiva alle azioni dell'utente;
+- l'applicazione non deve mai interrompersi qualora si verifichi un errore, deve invece mostrare un messaggio di errore all'utente.
+- l'applicazione deve essere sufficientemente modulare in modo tale che sia possibile riutilizzare i suoi componenti in contesti diversi senza problemi. Non ci devono essere dipendenze tra le classi dei componenti, ma solo verso interfacce liberamente re-implementabili.
+- il sistema deve essere capace di scalare a seguito dell'aggiunta di nuovi componenti, quali ad esempio l'aggiunta di nuovi sensori.
+
+## Requisiti implementativi
+Di seguito vengono riportati i requisiti relativi all'implementazione del sistema:
+- il sistema sarà sviluppato in Scala 3 e per eventuali feature sarà possibile integrare delle teorie Prolog;
+- il sistema farà riferimento al JDK 11, eventuali librerie esterne utilizzate dovranno supportare almeno tale versione;
+- il testing del sistema sarà effettuato utilizzando ScalaTest.
