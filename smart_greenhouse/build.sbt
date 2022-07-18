@@ -1,3 +1,5 @@
+import sbt.addSbtPlugin
+
 ThisBuild / resolvers += Resolver.jcenterRepo
 
 val junitJupiterVersion = "5.7.1"
@@ -23,7 +25,7 @@ lazy val root = (project in file("."))
       "org.scalatestplus" %% "mockito-3-12" % "3.2.10.0" % Test,
       "com.tngtech.archunit" % "archunit" % "0.18.0" % Test,
       "org.slf4j" % "slf4j-log4j12" % "1.7.26" % Test
-),
+    ),
     crossPaths := false, // https://github.com/sbt/junit-interface/issues/35
     Test / parallelExecution := false
   )
@@ -31,7 +33,12 @@ lazy val root = (project in file("."))
 // Cucumber configuration
 // Run by:  sbt> cucumber
 enablePlugins(CucumberPlugin)
-CucumberPlugin.glues := List("testLecture/code/e4bdd/steps") //testlecture isn't correct for greenhouse project fullpath is test/scala/testLecture/code/e4bdd/steps
+CucumberPlugin.glues := List(
+  "testLecture/code/e4bdd/steps"
+) //testlecture isn't correct for greenhouse project fullpath is test/scala/testLecture/code/e4bdd/steps
+
+wartremoverErrors ++= Warts.unsafe
+wartremoverWarnings ++= Warts.all
 /*
 lazy val core = crossProject(JVMPlatform, JSPlatform)
   .crossType(CrossType.Pure)
