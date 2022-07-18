@@ -1,7 +1,6 @@
 name: test workflow
 on:
   push:
-    paths: [smart_greenhouse/src/**']
   workflow_dispatch:
 jobs:
   run-tests:
