@@ -10,6 +10,7 @@ jobs:
       - name: Setup JDK
         uses: actions/setup-java@v2
         with:
+          distribution: temurin 
           java-version: 11
       - name: Run test
         run: sbt test
