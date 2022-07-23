@@ -4,6 +4,7 @@ import alice.tuprolog.Theory
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 
+/** This class contains the tests realized to verify that {@link PlantSelector} behaves correctly */
 class PlantSelectorTest extends AnyFunSuite with Matchers:
 
   private val PS = "Plant Selector"
