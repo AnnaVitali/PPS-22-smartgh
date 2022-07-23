@@ -107,7 +107,7 @@
             <td>Realizzazione meccanismo di salvataggio delle piante selezionate</td>
             <td>Anna</td>
             <td>5</td>
-            <td></td>
+            <td>1</td>
             <td></td>
             <td></td>
             <td></td>
