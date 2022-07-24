@@ -19,6 +19,14 @@ trait PlantSelector:
     */
   def selectPlant(plantName: String): Unit
 
+  /** Method that need to be call to deselect a plants that you don't want to cultivate
+    * @param plantName
+    *   the name of the plant to deselect
+    * @throws NoSuchElementException
+    *   if the specified plant has not been previously selected
+    */
+  def deselectPlant(plantName: String): Unit
+
   /** Method that returns the name of the plants selected for cultivation in the greenhouse
     * @return
     *   the {@link List} of the neme of the plants selected
@@ -71,6 +79,11 @@ object PlantSelector:
 
     override def selectPlant(plantName: String): Unit = selectedPlants = selectedPlants :+ plantName
 
+    override def deselectPlant(plantName: String): Unit =
+      if selectedPlants.contains(plantName) then selectedPlants = selectedPlants.take(selectedPlants.indexOf(plantName))
+      else throw new NoSuchElementException("This plant hasn't been selected")
+
     override def getPlantsSelectedName: List[String] = selectedPlants
+
     override def getPlantsSelectedIdentifier: List[String] =
       selectedPlants.map(s => (prologEngine("plant(" + s + ", Y)") map (_.getTerm("Y").toString)).toList).flatten
