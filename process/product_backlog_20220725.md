@@ -1,6 +1,6 @@
-# Sprint Backlog "inserisci data"
+# Sprint Backlog 2022-07-25
 ## Sprint goal:
-//TODO (Obiettivo generale dello sprint)
+Realizzare le funzinalità di base, per poter impostare l'ambiente della simulazione.
 
 <table>
     <thead>
