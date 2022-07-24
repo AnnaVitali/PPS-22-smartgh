@@ -108,12 +108,12 @@
             <td>Anna</td>
             <td>5</td>
             <td>1</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Creare interfaccia componente pianta</td>
