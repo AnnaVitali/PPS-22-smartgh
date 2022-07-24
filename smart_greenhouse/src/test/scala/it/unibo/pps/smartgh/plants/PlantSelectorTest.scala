@@ -1,4 +1,4 @@
-package plant
+package it.unibo.pps.smartgh.plants
 
 import alice.tuprolog.Theory
 import org.scalatest.funsuite.AnyFunSuite
