@@ -1,26 +1,34 @@
 package it.unibo.pps.smartgh.view.component
 
-import it.unibo.pps.smartgh.view.SimulationView
 import it.unibo.pps.smartgh.view.component.ViewComponent
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
-import javafx.fxml.{FXML, FXMLLoader, Initializable}
-import javafx.scene.Scene
+import javafx.fxml.FXML
+import javafx.scene.layout.VBox
 import javafx.scene.control.Label
-import javafx.scene.layout.{Pane, StackPane, VBox}
-import scalafx.scene.Parent
 
-import java.net.URL
-import java.util.ResourceBundle
-
+/** A trait that represents the base view of the application. */
 trait BaseView extends ViewComponent[VBox]
 
+/** Object that can be used to create new instances of [[BaseView]]. */
 object BaseView:
 
-  def apply(view: SimulationView, title: String, subtitle: String): BaseViewImpl = BaseViewImpl(view, title, subtitle)
+  /** Creates a new [[BaseView]] component that contains the common parts of all layouts.
+    * @param title
+    *   the title of the application
+    * @param subtitle
+    *   the subtitle of the application
+    * @return
+    *   a new instance of [[BaseView]]
+    */
+  def apply(title: String, subtitle: String): BaseViewImpl = BaseViewImpl(title, subtitle)
 
-  class BaseViewImpl(view: SimulationView, title: String, subtitle: String)
-      extends AbstractViewComponent[VBox]("base.fxml")
-      with BaseView:
+  /** Implementation of [[BaseView]].
+    * @param title
+    *   the title of the application
+    * @param subtitle
+    *   the subtitle of the application
+    */
+  class BaseViewImpl(title: String, subtitle: String) extends AbstractViewComponent[VBox]("base.fxml") with BaseView:
 
     override val component: VBox = loader.load[VBox]
 
