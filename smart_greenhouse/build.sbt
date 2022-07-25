@@ -1,9 +1,14 @@
-import sbt.addSbtPlugin
-
 ThisBuild / resolvers += Resolver.jcenterRepo
 
 val junitJupiterVersion = "5.7.1"
 val junitPlatformVersion = "1.8.2"
+
+lazy val osName = System.getProperty("os.name") match {
+  case n if n.startsWith("Linux") => "linux"
+  case n if n.startsWith("Mac") => "mac"
+  case n if n.startsWith("Windows") => "win"
+  case _ => throw new Exception("Unknown platform!")
+}
 
 lazy val root = (project in file("."))
   .settings(
@@ -24,8 +29,10 @@ lazy val root = (project in file("."))
       "org.scalatestplus" %% "scalacheck-1-15" % "3.2.10.0" % Test,
       "org.scalatestplus" %% "mockito-3-12" % "3.2.10.0" % Test,
       "com.tngtech.archunit" % "archunit" % "0.18.0" % Test,
-      "org.slf4j" % "slf4j-log4j12" % "1.7.26" % Test
-    ),
+      "org.slf4j" % "slf4j-log4j12" % "1.7.26" % Test,
+      "org.scalafx" %% "scalafx" % "16.0.0-R24"
+    ) ++ Seq("base", "controls", "fxml", "graphics", "media", "swing", "web")
+      .map(m => "org.openjfx" % s"javafx-$m" % "16" classifier osName),
     crossPaths := false, // https://github.com/sbt/junit-interface/issues/35
     Test / parallelExecution := false
   )
@@ -37,7 +44,6 @@ CucumberPlugin.glues := List(
   "testLecture/code/e4bdd/steps"
 ) //testlecture isn't correct for greenhouse project fullpath is test/scala/testLecture/code/e4bdd/steps
 
-wartremoverErrors ++= Warts.unsafe
 wartremoverWarnings ++= Warts.all
 /*
 lazy val core = crossProject(JVMPlatform, JSPlatform)
