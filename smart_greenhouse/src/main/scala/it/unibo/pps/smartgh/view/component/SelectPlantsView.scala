@@ -10,7 +10,7 @@ trait SelectPlantsView extends ViewComponent[HBox]
 object SelectPlantsView:
 
   def apply(): SelectPlantsView =
-    SelectPlantsViewImpl()
+    SelectPlantsViewImpl().build()
 
   private class SelectPlantsViewImpl() extends AbstractViewComponent[HBox]("select_plants.fxml") with SelectPlantsView:
 
@@ -28,8 +28,7 @@ object SelectPlantsView:
     @FXML
     var plantsSelectedLabel: Label = _
 
-
-    def build(): this =
+    def build(): SelectPlantsView =
       selectYourPlantLabel.setText("Select your plants:")
       plantsSelectedLabel.setText("Plants selected:")
-
+      this
