@@ -95,9 +95,9 @@ Realizzare le funzinalità di base, per poter impostare l'ambiente della simulaz
             <td>Creare layout schermata di selezione delle piante</td>
             <td>Anna</td>
             <td>4</td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>4</td>
+            <td>4</td>
+            <td>1</td>
             <td></td>
             <td></td>
             <td></td>
