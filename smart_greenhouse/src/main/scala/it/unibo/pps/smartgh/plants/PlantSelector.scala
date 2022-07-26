@@ -9,7 +9,7 @@ trait PlantSelector:
 
   /** Method for obtaining all the available plants that can be cultivated in the greenhouse
     * @return
-    *   the {@link List} of the name of all the plants available
+    *   the [[List]] of the name of all the plants available
     */
   def getAllAvailablePlants: List[String]
 
@@ -29,13 +29,13 @@ trait PlantSelector:
 
   /** Method that returns the name of the plants selected for cultivation in the greenhouse
     * @return
-    *   the {@link List} of the neme of the plants selected
+    *   the [[List]] of the neme of the plants selected
     */
   def getPlantsSelectedName: List[String]
 
   /** Method that returns the identifier of the plants selected for cultivation in the greenhouse
     * @return
-    *   the {@link List} of the identifier of the plants selected
+    *   the [[List]] of the identifier of the plants selected
     */
   def getPlantsSelectedIdentifier: List[String]
 
@@ -44,8 +44,9 @@ object PlantSelector:
   given Conversion[String, Term] = Term.createTerm(_)
   given Conversion[Seq[_], Term] = _.mkString("[", ",", "]")
 
-  /** Apply method for the {@link PlantSelector}
+  /** Apply method for the [[PlantSelector]]
     * @return
+    *   the [[PlantSelector]] object
     */
   def apply(): PlantSelector = PlantSelectorImpl()
 
