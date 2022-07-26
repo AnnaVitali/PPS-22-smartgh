@@ -1,10 +1,11 @@
 package it.unibo.pps.smartgh.view.component
 
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
-import javafx.scene.layout.VBox
+import javafx.fxml.FXML
+import javafx.scene.layout.BorderPane
 
 /** A trait that represents the select city view of the application. */
-trait SelectCityView extends ViewComponent[VBox]
+trait SelectCityView extends ViewComponent[BorderPane]
 
 /** Object that can be used to create new instances of [[SelectCityView]]. */
 object SelectCityView:
@@ -13,9 +14,13 @@ object SelectCityView:
     * @return
     *   a new instance of [[SelectCityView]]
     */
-  def apply(): SelectCityViewImpl = SelectCityViewImpl()
+  def apply(): SelectCityView = SelectCityViewImpl()
 
   /** Implementation of [[SelectCityView]]. */
-  class SelectCityViewImpl() extends AbstractViewComponent[VBox]("select_city.fxml") with SelectCityView:
+  private class SelectCityViewImpl() extends AbstractViewComponent[BorderPane]("select_city.fxml") with SelectCityView:
 
-    override val component: VBox = loader.load[VBox]
+    override val component: BorderPane = loader.load[BorderPane]
+
+    @FXML
+    def nextClicked(): Unit =
+      println("next clicked")

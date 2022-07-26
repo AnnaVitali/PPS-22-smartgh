@@ -20,7 +20,7 @@ object BaseView:
     * @return
     *   a new instance of [[BaseView]]
     */
-  def apply(title: String, subtitle: String): BaseViewImpl = BaseViewImpl(title, subtitle)
+  def apply(title: String, subtitle: String): BaseView = BaseViewImpl(title, subtitle)
 
   /** Implementation of [[BaseView]].
     * @param title
@@ -28,7 +28,9 @@ object BaseView:
     * @param subtitle
     *   the subtitle of the application
     */
-  class BaseViewImpl(title: String, subtitle: String) extends AbstractViewComponent[VBox]("base.fxml") with BaseView:
+  private class BaseViewImpl(title: String, subtitle: String)
+      extends AbstractViewComponent[VBox]("base.fxml")
+      with BaseView:
 
     override val component: VBox = loader.load[VBox]
 
