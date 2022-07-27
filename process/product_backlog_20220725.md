@@ -98,10 +98,10 @@ Realizzare le funzinalità di base, per poter impostare l'ambiente della simulaz
             <td>4</td>
             <td>4</td>
             <td>1</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Realizzazione meccanismo di salvataggio delle piante selezionate</td>
@@ -204,13 +204,13 @@ Realizzare le funzinalità di base, per poter impostare l'ambiente della simulaz
             <td>Creare layout schermata di fine simulazione</td>
             <td>Anna</td>
             <td>1</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
     </tbody>
 </table>
