@@ -37,7 +37,7 @@ CucumberPlugin.glues := List(
   "testLecture/code/e4bdd/steps"
 ) //testlecture isn't correct for greenhouse project fullpath is test/scala/testLecture/code/e4bdd/steps
 
-wartremoverErrors ++= Warts.unsafe
+//wartremoverErrors ++= Warts.unsafe
 wartremoverWarnings ++= Warts.all
 /*
 lazy val core = crossProject(JVMPlatform, JSPlatform)

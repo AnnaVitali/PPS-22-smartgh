@@ -62,11 +62,10 @@ object UploadCities extends UploadCities :
     try {
       Using(getBufferedSource(inputFile)) {
         _.getLines() foreach (c =>
-          //replace accents characters and remove whitespaces
-          val s = Normalizer.normalize(c.filterNot(_.isWhitespace).replaceAll("\'", "").toLowerCase, Normalizer.Form.NFD) replaceAll("\\p{M}", "")
-            printWriter.println(s"citta([H|T]) :- atom_chars(\"${s}\", [H|T]).")
+            printWriter.println(s"citta(\"$c\").")
           )
       }
+      printWriter.println(s"ricerca_citta([H|T], X) :- citta(X), atom_chars(X, [H|T]).")
     }
     finally {
       printWriter.close()
