@@ -4,6 +4,7 @@ import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers as ShouldMatchers
 import org.scalatest.matchers.must.Matchers as MustMatchers
 
+/** This class contains the tests to verify that the [[CitiesSearcher]] work correctly. */
 class CitiesSearcherTest extends AnyFunSuite:
 
   private val citiesSearcher = CitiesSearcher()
