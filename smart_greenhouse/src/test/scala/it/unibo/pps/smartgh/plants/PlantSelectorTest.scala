@@ -6,7 +6,7 @@ import org.scalatest.matchers.should.Matchers
 
 import java.util.NoSuchElementException
 
-/** This class contains the tests realized to verify that {@link PlantSelector} behaves correctly */
+/** This class contains the tests realized to verify that [[PlantSelector]] behaves correctly. */
 class PlantSelectorTest extends AnyFunSuite with Matchers:
 
   private val PS = "Plant Selector"
