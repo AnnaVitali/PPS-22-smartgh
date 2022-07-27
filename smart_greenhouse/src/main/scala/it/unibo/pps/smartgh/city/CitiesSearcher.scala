@@ -7,9 +7,9 @@ trait CitiesSearcher:
 
   /** Retrieves all cities.
     * @return
-    *   a list of city names
+    *   a sequences of city names
     */
-  def getAllCities: List[String]
+  def getAllCities: Seq[String]
 
   /** Method for searching cities beginning with the given characters.
     * @param charSequence
@@ -17,7 +17,7 @@ trait CitiesSearcher:
     * @return
     *   a list of city names
     */
-  def searchCities(charSequence: Seq[Char]): List[String]
+  def searchCities(charSequence: Seq[Char]): Seq[String]
 
 /** Object that can used to create a new instances of [[CitiesSearcher]]. */
 object CitiesSearcher:
@@ -58,10 +58,10 @@ object CitiesSearcher:
               try solution.get
               finally solution = if (solution.get.hasOpenAlternatives) Some(engine.solveNext()) else None
 
-    override def getAllCities: List[String] =
-      engine("citta(X)").map(extractTermToString(_, "X")).toList
+    override def getAllCities: Seq[String] =
+      engine("citta(X)").map(extractTermToString(_, "X")).toSeq
 
-    override def searchCities(charSequence: Seq[Char]): List[String] =
+    override def searchCities(charSequence: Seq[Char]): Seq[String] =
       engine("ricerca_citta(" + charSequence.mkString("['", "','", "'|_]") + ", X)")
         .map(extractTermToString(_, "X"))
-        .toList
+        .toSeq
