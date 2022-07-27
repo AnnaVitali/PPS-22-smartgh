@@ -16,9 +16,9 @@ class UploadCitiesTest extends AnyFunSuite with Matchers:
     uploader.countResourcesFileLines(file) shouldEqual 7978
   }
 
-  test(s"$prologFile should have the same number of lines of $file"){
+  test(s"$prologFile should have the same number of lines of $file + 1"){
     uploader.writePrologFile(file, prologFile)
-    uploader.countPrologFileLines(prologFile) shouldEqual  uploader.countResourcesFileLines(file)
+    uploader.countPrologFileLines(prologFile) shouldEqual  uploader.countResourcesFileLines(file) + 1
   }
 
   test("passing a file that does not exist should yield a FileNotFoundException"){
