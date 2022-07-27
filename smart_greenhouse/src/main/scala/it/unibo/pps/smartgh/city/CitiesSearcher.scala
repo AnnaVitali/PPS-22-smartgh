@@ -2,6 +2,9 @@ package it.unibo.pps.smartgh.city
 
 import alice.tuprolog.{Prolog, SolveInfo, Struct, Term, Theory}
 
+import scala.io.Source
+import scala.util.Using
+
 /** A trait exposing methods for managing city searches */
 trait CitiesSearcher:
 
@@ -29,11 +32,14 @@ object CitiesSearcher:
     * @return
     *   a new instance of [[CitiesSearcher]]
     */
-  def apply(): CitiesSearcher = CitiesSearcherImpl()
+  def apply(fileName: String): CitiesSearcher = CitiesSearcherImpl(fileName)
 
-  private class CitiesSearcherImpl() extends CitiesSearcher:
+  private class CitiesSearcherImpl(fileName: String) extends CitiesSearcher:
+    private val prologFile = Using(Source.fromFile(fileName)) {
+      _.mkString
+    }.get
     private val engine = prologEngine(
-      Theory.parseLazilyWithStandardOperators(getClass.getResourceAsStream("/cities.pl"))
+      Theory.parseLazilyWithStandardOperators(prologFile)
     )
 
     private def extractTerm(t: Term, i: Int): Term =

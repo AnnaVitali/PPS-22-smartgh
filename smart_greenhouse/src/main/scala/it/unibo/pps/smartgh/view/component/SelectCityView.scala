@@ -1,6 +1,6 @@
 package it.unibo.pps.smartgh.view.component
 
-import it.unibo.pps.smartgh.city.CitiesSearcher
+import it.unibo.pps.smartgh.city.{CitiesSearcher, CityImpl}
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.fxml.FXML
 import javafx.scene.control.{Label, TextField}
@@ -41,6 +41,8 @@ object SelectCityView:
       )
       .setDelay(0)
 
-//    @FXML
+    @FXML
     def nextClicked(): Unit =
       println("[next clicked] selected city: " + selectCityTextField.getText)
+      val city = CityImpl(selectCityTextField.getText) //todo: da sistemare
+      println(city.environmentValues)
