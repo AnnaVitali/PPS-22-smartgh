@@ -29,8 +29,9 @@ trait UploadCities:
   def countPrologFileLines(fileName: String): Int
 
   /** function that write the content of the input file into the output file formatted with the following prolog Theory:
-   * "citta([H|T]) :- atom_chars("cityName", [H|T])."
-   * cityName is cleaned from ' and whitespaces and all the accent chars are substituted with the correspondent without accent
+   * citta("cityName").
+   * ricerca_citta([H|T], X) :- citta(X), atom_chars(X, [H|T]).
+   *
    * @param inputFile input file that contains cities names
    * @param outFile   prolog output file with the cities theories
    * @return number of lines */
