@@ -10,6 +10,7 @@ import org.testfx.matcher.base.NodeMatchers.isVisible
 import org.testfx.matcher.control.LabeledMatchers.hasText
 import scalafx.scene.Scene
 
+/** This class contains the tests realized to verify the correct behavior of [[FinishSimulationView]]. */
 class FinishSimulationViewTest extends ApplicationTest:
 
   val finishSimulationLabelId = "#simulationEndedLabel"
