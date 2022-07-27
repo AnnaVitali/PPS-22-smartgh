@@ -67,3 +67,6 @@
 */project/**/metals.sbt
 
 */.bsp
+
+# prolog folder generated
+*/prolog/
