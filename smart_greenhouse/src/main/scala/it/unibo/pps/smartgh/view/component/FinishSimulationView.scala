@@ -5,10 +5,16 @@ import javafx.fxml.FXML
 import javafx.scene.layout.BorderPane
 import javafx.scene.control.{Button, Label}
 
+/** A trait that represents the view of the last scene of the simulation. */
 trait FinishSimulationView extends ViewComponent[BorderPane]
 
+/** Object that can be used to create a new instance of [[FinishSimulationView]]. */
 object FinishSimulationView:
 
+  /** Create a new [[FinishSimulationView]] ocmponent.
+    * @return
+    *   a new instance of [[FinishSimulationView]]
+    */
   def apply(): FinishSimulationView = FinishSimulationViewImpl().build()
 
   private class FinishSimulationViewImpl()
