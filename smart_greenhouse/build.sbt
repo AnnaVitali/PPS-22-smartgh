@@ -27,7 +27,6 @@ lazy val root = (project in file("."))
       "org.slf4j" % "slf4j-log4j12" % "1.7.26" % Test,
       "com.lihaoyi" %% "requests" % "0.6.9",
       "org.json4s" %% "json4s-jackson" % "4.0.3"
-
     ),
     crossPaths := false, // https://github.com/sbt/junit-interface/issues/35
     Test / parallelExecution := false
