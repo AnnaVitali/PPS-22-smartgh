@@ -1,7978 +1,7979 @@
-citta([H|T]) :- atom_chars("abanoterme", [H|T]).
-citta([H|T]) :- atom_chars("abbadiacerreto", [H|T]).
-citta([H|T]) :- atom_chars("abbadialariana", [H|T]).
-citta([H|T]) :- atom_chars("abbadiasansalvatore", [H|T]).
-citta([H|T]) :- atom_chars("abbasanta", [H|T]).
-citta([H|T]) :- atom_chars("abbateggio", [H|T]).
-citta([H|T]) :- atom_chars("abbiategrasso", [H|T]).
-citta([H|T]) :- atom_chars("abetonecutigliano", [H|T]).
-citta([H|T]) :- atom_chars("abriola", [H|T]).
-citta([H|T]) :- atom_chars("acate", [H|T]).
-citta([H|T]) :- atom_chars("accadia", [H|T]).
-citta([H|T]) :- atom_chars("acceglio", [H|T]).
-citta([H|T]) :- atom_chars("accettura", [H|T]).
-citta([H|T]) :- atom_chars("acciano", [H|T]).
-citta([H|T]) :- atom_chars("accumoli", [H|T]).
-citta([H|T]) :- atom_chars("acerenza", [H|T]).
-citta([H|T]) :- atom_chars("acerno", [H|T]).
-citta([H|T]) :- atom_chars("acerra", [H|T]).
-citta([H|T]) :- atom_chars("acibonaccorsi", [H|T]).
-citta([H|T]) :- atom_chars("acicastello", [H|T]).
-citta([H|T]) :- atom_chars("acicatena", [H|T]).
-citta([H|T]) :- atom_chars("acisantantonio", [H|T]).
-citta([H|T]) :- atom_chars("acireale", [H|T]).
-citta([H|T]) :- atom_chars("acquafondata", [H|T]).
-citta([H|T]) :- atom_chars("acquaformosa", [H|T]).
-citta([H|T]) :- atom_chars("acquafredda", [H|T]).
-citta([H|T]) :- atom_chars("acqualagna", [H|T]).
-citta([H|T]) :- atom_chars("acquanegracremonese", [H|T]).
-citta([H|T]) :- atom_chars("acquanegrasulchiese", [H|T]).
-citta([H|T]) :- atom_chars("acquapendente", [H|T]).
-citta([H|T]) :- atom_chars("acquappesa", [H|T]).
-citta([H|T]) :- atom_chars("acquaricadelcapo", [H|T]).
-citta([H|T]) :- atom_chars("acquaro", [H|T]).
-citta([H|T]) :- atom_chars("acquasantaterme", [H|T]).
-citta([H|T]) :- atom_chars("acquasparta", [H|T]).
-citta([H|T]) :- atom_chars("acquavivacollecroce", [H|T]).
-citta([H|T]) :- atom_chars("acquavivadellefonti", [H|T]).
-citta([H|T]) :- atom_chars("acquavivadisernia", [H|T]).
-citta([H|T]) :- atom_chars("acquavivapicena", [H|T]).
-citta([H|T]) :- atom_chars("acquavivaplatani", [H|T]).
-citta([H|T]) :- atom_chars("acquedolci", [H|T]).
-citta([H|T]) :- atom_chars("acquiterme", [H|T]).
-citta([H|T]) :- atom_chars("acri", [H|T]).
-citta([H|T]) :- atom_chars("acuto", [H|T]).
-citta([H|T]) :- atom_chars("adelfia", [H|T]).
-citta([H|T]) :- atom_chars("adrano", [H|T]).
-citta([H|T]) :- atom_chars("adrarasanmartino", [H|T]).
-citta([H|T]) :- atom_chars("adrarasanrocco", [H|T]).
-citta([H|T]) :- atom_chars("adria", [H|T]).
-citta([H|T]) :- atom_chars("adro", [H|T]).
-citta([H|T]) :- atom_chars("affi", [H|T]).
-citta([H|T]) :- atom_chars("affile", [H|T]).
-citta([H|T]) :- atom_chars("afragola", [H|T]).
-citta([H|T]) :- atom_chars("africo", [H|T]).
-citta([H|T]) :- atom_chars("agazzano", [H|T]).
-citta([H|T]) :- atom_chars("agerola", [H|T]).
-citta([H|T]) :- atom_chars("aggius", [H|T]).
-citta([H|T]) :- atom_chars("agira", [H|T]).
-citta([H|T]) :- atom_chars("agliana", [H|T]).
-citta([H|T]) :- atom_chars("aglianoterme", [H|T]).
-citta([H|T]) :- atom_chars("aglie", [H|T]).
-citta([H|T]) :- atom_chars("aglientu", [H|T]).
-citta([H|T]) :- atom_chars("agna", [H|T]).
-citta([H|T]) :- atom_chars("agnadello", [H|T]).
-citta([H|T]) :- atom_chars("agnanacalabra", [H|T]).
-citta([H|T]) :- atom_chars("agnone", [H|T]).
-citta([H|T]) :- atom_chars("agnosine", [H|T]).
-citta([H|T]) :- atom_chars("agordo", [H|T]).
-citta([H|T]) :- atom_chars("agosta", [H|T]).
-citta([H|T]) :- atom_chars("agra", [H|T]).
-citta([H|T]) :- atom_chars("agratebrianza", [H|T]).
-citta([H|T]) :- atom_chars("agrateconturbia", [H|T]).
-citta([H|T]) :- atom_chars("agrigento", [H|T]).
-citta([H|T]) :- atom_chars("agropoli", [H|T]).
-citta([H|T]) :- atom_chars("agugliano", [H|T]).
-citta([H|T]) :- atom_chars("agugliaro", [H|T]).
-citta([H|T]) :- atom_chars("aicurzio", [H|T]).
-citta([H|T]) :- atom_chars("aidomaggiore", [H|T]).
-citta([H|T]) :- atom_chars("aidone", [H|T]).
-citta([H|T]) :- atom_chars("aielli", [H|T]).
-citta([H|T]) :- atom_chars("aiellocalabro", [H|T]).
-citta([H|T]) :- atom_chars("aiellodelfriuli", [H|T]).
-citta([H|T]) :- atom_chars("aiellodelsabato", [H|T]).
-citta([H|T]) :- atom_chars("aieta", [H|T]).
-citta([H|T]) :- atom_chars("ailano", [H|T]).
-citta([H|T]) :- atom_chars("ailoche", [H|T]).
-citta([H|T]) :- atom_chars("airasca", [H|T]).
-citta([H|T]) :- atom_chars("airola", [H|T]).
-citta([H|T]) :- atom_chars("airole", [H|T]).
-citta([H|T]) :- atom_chars("airuno", [H|T]).
-citta([H|T]) :- atom_chars("aisone", [H|T]).
-citta([H|T]) :- atom_chars("ala", [H|T]).
-citta([H|T]) :- atom_chars("aladeisardi", [H|T]).
-citta([H|T]) :- atom_chars("aladistura", [H|T]).
-citta([H|T]) :- atom_chars("alagna", [H|T]).
-citta([H|T]) :- atom_chars("alagnavalsesia", [H|T]).
-citta([H|T]) :- atom_chars("alanno", [H|T]).
-citta([H|T]) :- atom_chars("alanodipiave", [H|T]).
-citta([H|T]) :- atom_chars("alassio", [H|T]).
-citta([H|T]) :- atom_chars("alatri", [H|T]).
-citta([H|T]) :- atom_chars("alba", [H|T]).
-citta([H|T]) :- atom_chars("albaadriatica", [H|T]).
-citta([H|T]) :- atom_chars("albagiara", [H|T]).
-citta([H|T]) :- atom_chars("albairate", [H|T]).
-citta([H|T]) :- atom_chars("albanella", [H|T]).
-citta([H|T]) :- atom_chars("albanodilucania", [H|T]).
-citta([H|T]) :- atom_chars("albanolaziale", [H|T]).
-citta([H|T]) :- atom_chars("albanosantalessandro", [H|T]).
-citta([H|T]) :- atom_chars("albanovercellese", [H|T]).
-citta([H|T]) :- atom_chars("albaredoarnaboldi", [H|T]).
-citta([H|T]) :- atom_chars("albaredodadige", [H|T]).
-citta([H|T]) :- atom_chars("albaredopersanmarco", [H|T]).
-citta([H|T]) :- atom_chars("albareto", [H|T]).
-citta([H|T]) :- atom_chars("albarettodellatorre", [H|T]).
-citta([H|T]) :- atom_chars("albavilla", [H|T]).
-citta([H|T]) :- atom_chars("albenga", [H|T]).
-citta([H|T]) :- atom_chars("alberaligure", [H|T]).
-citta([H|T]) :- atom_chars("alberobello", [H|T]).
-citta([H|T]) :- atom_chars("alberona", [H|T]).
-citta([H|T]) :- atom_chars("albeseconcassano", [H|T]).
-citta([H|T]) :- atom_chars("albettone", [H|T]).
-citta([H|T]) :- atom_chars("albi", [H|T]).
-citta([H|T]) :- atom_chars("albiano", [H|T]).
-citta([H|T]) :- atom_chars("albianodivrea", [H|T]).
-citta([H|T]) :- atom_chars("albiate", [H|T]).
-citta([H|T]) :- atom_chars("albidona", [H|T]).
-citta([H|T]) :- atom_chars("albignasego", [H|T]).
-citta([H|T]) :- atom_chars("albinea", [H|T]).
-citta([H|T]) :- atom_chars("albino", [H|T]).
-citta([H|T]) :- atom_chars("albiolo", [H|T]).
-citta([H|T]) :- atom_chars("albisolasuperiore", [H|T]).
-citta([H|T]) :- atom_chars("albissolamarina", [H|T]).
-citta([H|T]) :- atom_chars("albizzate", [H|T]).
-citta([H|T]) :- atom_chars("albonese", [H|T]).
-citta([H|T]) :- atom_chars("albosaggia", [H|T]).
-citta([H|T]) :- atom_chars("albugnano", [H|T]).
-citta([H|T]) :- atom_chars("albuzzano", [H|T]).
-citta([H|T]) :- atom_chars("alcamo", [H|T]).
-citta([H|T]) :- atom_chars("alcaralifusi", [H|T]).
-citta([H|T]) :- atom_chars("aldeno", [H|T]).
-citta([H|T]) :- atom_chars("aldino/aldein", [H|T]).
-citta([H|T]) :- atom_chars("ales", [H|T]).
-citta([H|T]) :- atom_chars("alessandria", [H|T]).
-citta([H|T]) :- atom_chars("alessandriadelcarretto", [H|T]).
-citta([H|T]) :- atom_chars("alessandriadellarocca", [H|T]).
-citta([H|T]) :- atom_chars("alessano", [H|T]).
-citta([H|T]) :- atom_chars("alezio", [H|T]).
-citta([H|T]) :- atom_chars("alfano", [H|T]).
-citta([H|T]) :- atom_chars("alfedena", [H|T]).
-citta([H|T]) :- atom_chars("alfianello", [H|T]).
-citta([H|T]) :- atom_chars("alfianonatta", [H|T]).
-citta([H|T]) :- atom_chars("alfonsine", [H|T]).
-citta([H|T]) :- atom_chars("alghero", [H|T]).
-citta([H|T]) :- atom_chars("algua", [H|T]).
-citta([H|T]) :- atom_chars("ali", [H|T]).
-citta([H|T]) :- atom_chars("aliterme", [H|T]).
-citta([H|T]) :- atom_chars("alia", [H|T]).
-citta([H|T]) :- atom_chars("aliano", [H|T]).
-citta([H|T]) :- atom_chars("alicebelcolle", [H|T]).
-citta([H|T]) :- atom_chars("alicecastello", [H|T]).
-citta([H|T]) :- atom_chars("alicesuperiore", [H|T]).
-citta([H|T]) :- atom_chars("alife", [H|T]).
-citta([H|T]) :- atom_chars("alimena", [H|T]).
-citta([H|T]) :- atom_chars("aliminusa", [H|T]).
-citta([H|T]) :- atom_chars("allai", [H|T]).
-citta([H|T]) :- atom_chars("alleghe", [H|T]).
-citta([H|T]) :- atom_chars("allein", [H|T]).
-citta([H|T]) :- atom_chars("allerona", [H|T]).
-citta([H|T]) :- atom_chars("alliste", [H|T]).
-citta([H|T]) :- atom_chars("allumiere", [H|T]).
-citta([H|T]) :- atom_chars("alluvionicambio", [H|T]).
-citta([H|T]) :- atom_chars("alme", [H|T]).
-citta([H|T]) :- atom_chars("almennosanbartolomeo", [H|T]).
-citta([H|T]) :- atom_chars("almennosansalvatore", [H|T]).
-citta([H|T]) :- atom_chars("almese", [H|T]).
-citta([H|T]) :- atom_chars("alonte", [H|T]).
-citta([H|T]) :- atom_chars("alpago", [H|T]).
-citta([H|T]) :- atom_chars("alpette", [H|T]).
-citta([H|T]) :- atom_chars("alpignano", [H|T]).
-citta([H|T]) :- atom_chars("alseno", [H|T]).
-citta([H|T]) :- atom_chars("alserio", [H|T]).
-citta([H|T]) :- atom_chars("altavalleintelvi", [H|T]).
-citta([H|T]) :- atom_chars("altamura", [H|T]).
-citta([H|T]) :- atom_chars("altare", [H|T]).
-citta([H|T]) :- atom_chars("altavalle", [H|T]).
-citta([H|T]) :- atom_chars("altavillairpina", [H|T]).
-citta([H|T]) :- atom_chars("altavillamilicia", [H|T]).
-citta([H|T]) :- atom_chars("altavillamonferrato", [H|T]).
-citta([H|T]) :- atom_chars("altavillasilentina", [H|T]).
-citta([H|T]) :- atom_chars("altavillavicentina", [H|T]).
-citta([H|T]) :- atom_chars("altidona", [H|T]).
-citta([H|T]) :- atom_chars("altilia", [H|T]).
-citta([H|T]) :- atom_chars("altino", [H|T]).
-citta([H|T]) :- atom_chars("altissimo", [H|T]).
-citta([H|T]) :- atom_chars("altivole", [H|T]).
-citta([H|T]) :- atom_chars("alto", [H|T]).
-citta([H|T]) :- atom_chars("altorenoterme", [H|T]).
-citta([H|T]) :- atom_chars("altofonte", [H|T]).
-citta([H|T]) :- atom_chars("altomonte", [H|T]).
-citta([H|T]) :- atom_chars("altopascio", [H|T]).
-citta([H|T]) :- atom_chars("altopianodellavigolana", [H|T]).
-citta([H|T]) :- atom_chars("alviano", [H|T]).
-citta([H|T]) :- atom_chars("alvignano", [H|T]).
-citta([H|T]) :- atom_chars("alvito", [H|T]).
-citta([H|T]) :- atom_chars("alzanolombardo", [H|T]).
-citta([H|T]) :- atom_chars("alzanoscrivia", [H|T]).
-citta([H|T]) :- atom_chars("alzatebrianza", [H|T]).
-citta([H|T]) :- atom_chars("amalfi", [H|T]).
-citta([H|T]) :- atom_chars("amandola", [H|T]).
-citta([H|T]) :- atom_chars("amantea", [H|T]).
-citta([H|T]) :- atom_chars("amaro", [H|T]).
-citta([H|T]) :- atom_chars("amaroni", [H|T]).
-citta([H|T]) :- atom_chars("amaseno", [H|T]).
-citta([H|T]) :- atom_chars("amato", [H|T]).
-citta([H|T]) :- atom_chars("amatrice", [H|T]).
-citta([H|T]) :- atom_chars("ambivere", [H|T]).
-citta([H|T]) :- atom_chars("amblar-don", [H|T]).
-citta([H|T]) :- atom_chars("ameglia", [H|T]).
-citta([H|T]) :- atom_chars("amelia", [H|T]).
-citta([H|T]) :- atom_chars("amendolara", [H|T]).
-citta([H|T]) :- atom_chars("ameno", [H|T]).
-citta([H|T]) :- atom_chars("amorosi", [H|T]).
-citta([H|T]) :- atom_chars("ampezzo", [H|T]).
-citta([H|T]) :- atom_chars("anacapri", [H|T]).
-citta([H|T]) :- atom_chars("anagni", [H|T]).
-citta([H|T]) :- atom_chars("ancarano", [H|T]).
-citta([H|T]) :- atom_chars("ancona", [H|T]).
-citta([H|T]) :- atom_chars("andali", [H|T]).
-citta([H|T]) :- atom_chars("andalo", [H|T]).
-citta([H|T]) :- atom_chars("andalovaltellino", [H|T]).
-citta([H|T]) :- atom_chars("andezeno", [H|T]).
-citta([H|T]) :- atom_chars("andora", [H|T]).
-citta([H|T]) :- atom_chars("andornomicca", [H|T]).
-citta([H|T]) :- atom_chars("andrano", [H|T]).
-citta([H|T]) :- atom_chars("andrate", [H|T]).
-citta([H|T]) :- atom_chars("andreis", [H|T]).
-citta([H|T]) :- atom_chars("andretta", [H|T]).
-citta([H|T]) :- atom_chars("andria", [H|T]).
-citta([H|T]) :- atom_chars("andriano/andrian", [H|T]).
-citta([H|T]) :- atom_chars("anela", [H|T]).
-citta([H|T]) :- atom_chars("anfo", [H|T]).
-citta([H|T]) :- atom_chars("angera", [H|T]).
-citta([H|T]) :- atom_chars("anghiari", [H|T]).
-citta([H|T]) :- atom_chars("angiari", [H|T]).
-citta([H|T]) :- atom_chars("angoloterme", [H|T]).
-citta([H|T]) :- atom_chars("angri", [H|T]).
-citta([H|T]) :- atom_chars("angrogna", [H|T]).
-citta([H|T]) :- atom_chars("anguillarasabazia", [H|T]).
-citta([H|T]) :- atom_chars("anguillaraveneta", [H|T]).
-citta([H|T]) :- atom_chars("annicco", [H|T]).
-citta([H|T]) :- atom_chars("annonedibrianza", [H|T]).
-citta([H|T]) :- atom_chars("annoneveneto", [H|T]).
-citta([H|T]) :- atom_chars("anoia", [H|T]).
-citta([H|T]) :- atom_chars("antegnate", [H|T]).
-citta([H|T]) :- atom_chars("anterivo/altrei", [H|T]).
-citta([H|T]) :- atom_chars("antey-saint-andre", [H|T]).
-citta([H|T]) :- atom_chars("anticolicorrado", [H|T]).
-citta([H|T]) :- atom_chars("antignano", [H|T]).
-citta([H|T]) :- atom_chars("antillo", [H|T]).
-citta([H|T]) :- atom_chars("antonimina", [H|T]).
-citta([H|T]) :- atom_chars("antrodoco", [H|T]).
-citta([H|T]) :- atom_chars("antronaschieranco", [H|T]).
-citta([H|T]) :- atom_chars("anversadegliabruzzi", [H|T]).
-citta([H|T]) :- atom_chars("anzanodelparco", [H|T]).
-citta([H|T]) :- atom_chars("anzanodipuglia", [H|T]).
-citta([H|T]) :- atom_chars("anzi", [H|T]).
-citta([H|T]) :- atom_chars("anzio", [H|T]).
-citta([H|T]) :- atom_chars("anzoladellemilia", [H|T]).
-citta([H|T]) :- atom_chars("anzoladossola", [H|T]).
-citta([H|T]) :- atom_chars("aosta", [H|T]).
-citta([H|T]) :- atom_chars("apecchio", [H|T]).
-citta([H|T]) :- atom_chars("apice", [H|T]).
-citta([H|T]) :- atom_chars("apiro", [H|T]).
-citta([H|T]) :- atom_chars("apollosa", [H|T]).
-citta([H|T]) :- atom_chars("appianogentile", [H|T]).
-citta([H|T]) :- atom_chars("appianosullastradadelvino/eppananderweinstraße", [H|T]).
-citta([H|T]) :- atom_chars("appignano", [H|T]).
-citta([H|T]) :- atom_chars("appignanodeltronto", [H|T]).
-citta([H|T]) :- atom_chars("aprica", [H|T]).
-citta([H|T]) :- atom_chars("apricale", [H|T]).
-citta([H|T]) :- atom_chars("apricena", [H|T]).
-citta([H|T]) :- atom_chars("aprigliano", [H|T]).
-citta([H|T]) :- atom_chars("aprilia", [H|T]).
-citta([H|T]) :- atom_chars("aquara", [H|T]).
-citta([H|T]) :- atom_chars("aquiladarroscia", [H|T]).
-citta([H|T]) :- atom_chars("aquileia", [H|T]).
-citta([H|T]) :- atom_chars("aquilonia", [H|T]).
-citta([H|T]) :- atom_chars("aquino", [H|T]).
-citta([H|T]) :- atom_chars("aradeo", [H|T]).
-citta([H|T]) :- atom_chars("aragona", [H|T]).
-citta([H|T]) :- atom_chars("aramengo", [H|T]).
-citta([H|T]) :- atom_chars("arba", [H|T]).
-citta([H|T]) :- atom_chars("arborea", [H|T]).
-citta([H|T]) :- atom_chars("arborio", [H|T]).
-citta([H|T]) :- atom_chars("arbus", [H|T]).
-citta([H|T]) :- atom_chars("arcade", [H|T]).
-citta([H|T]) :- atom_chars("arce", [H|T]).
-citta([H|T]) :- atom_chars("arcene", [H|T]).
-citta([H|T]) :- atom_chars("arcevia", [H|T]).
-citta([H|T]) :- atom_chars("archi", [H|T]).
-citta([H|T]) :- atom_chars("arcidosso", [H|T]).
-citta([H|T]) :- atom_chars("arcinazzoromano", [H|T]).
-citta([H|T]) :- atom_chars("arcisate", [H|T]).
-citta([H|T]) :- atom_chars("arco", [H|T]).
-citta([H|T]) :- atom_chars("arcola", [H|T]).
-citta([H|T]) :- atom_chars("arcole", [H|T]).
-citta([H|T]) :- atom_chars("arconate", [H|T]).
-citta([H|T]) :- atom_chars("arcore", [H|T]).
-citta([H|T]) :- atom_chars("arcugnano", [H|T]).
-citta([H|T]) :- atom_chars("ardara", [H|T]).
-citta([H|T]) :- atom_chars("ardauli", [H|T]).
-citta([H|T]) :- atom_chars("ardea", [H|T]).
-citta([H|T]) :- atom_chars("ardenno", [H|T]).
-citta([H|T]) :- atom_chars("ardesio", [H|T]).
-citta([H|T]) :- atom_chars("ardore", [H|T]).
-citta([H|T]) :- atom_chars("arena", [H|T]).
-citta([H|T]) :- atom_chars("arenapo", [H|T]).
-citta([H|T]) :- atom_chars("arenzano", [H|T]).
-citta([H|T]) :- atom_chars("arese", [H|T]).
-citta([H|T]) :- atom_chars("arezzo", [H|T]).
-citta([H|T]) :- atom_chars("argegno", [H|T]).
-citta([H|T]) :- atom_chars("argelato", [H|T]).
-citta([H|T]) :- atom_chars("argenta", [H|T]).
-citta([H|T]) :- atom_chars("argentera", [H|T]).
-citta([H|T]) :- atom_chars("arguello", [H|T]).
-citta([H|T]) :- atom_chars("argusto", [H|T]).
-citta([H|T]) :- atom_chars("ari", [H|T]).
-citta([H|T]) :- atom_chars("arianoirpino", [H|T]).
-citta([H|T]) :- atom_chars("arianonelpolesine", [H|T]).
-citta([H|T]) :- atom_chars("ariccia", [H|T]).
-citta([H|T]) :- atom_chars("arielli", [H|T]).
-citta([H|T]) :- atom_chars("arienzo", [H|T]).
-citta([H|T]) :- atom_chars("arignano", [H|T]).
-citta([H|T]) :- atom_chars("aritzo", [H|T]).
-citta([H|T]) :- atom_chars("arizzano", [H|T]).
-citta([H|T]) :- atom_chars("arlenadicastro", [H|T]).
-citta([H|T]) :- atom_chars("arluno", [H|T]).
-citta([H|T]) :- atom_chars("armeno", [H|T]).
-citta([H|T]) :- atom_chars("armento", [H|T]).
-citta([H|T]) :- atom_chars("armo", [H|T]).
-citta([H|T]) :- atom_chars("armungia", [H|T]).
-citta([H|T]) :- atom_chars("arnad", [H|T]).
-citta([H|T]) :- atom_chars("arnara", [H|T]).
-citta([H|T]) :- atom_chars("arnasco", [H|T]).
-citta([H|T]) :- atom_chars("arnesano", [H|T]).
-citta([H|T]) :- atom_chars("arola", [H|T]).
-citta([H|T]) :- atom_chars("arona", [H|T]).
-citta([H|T]) :- atom_chars("arosio", [H|T]).
-citta([H|T]) :- atom_chars("arpaia", [H|T]).
-citta([H|T]) :- atom_chars("arpaise", [H|T]).
-citta([H|T]) :- atom_chars("arpino", [H|T]).
-citta([H|T]) :- atom_chars("arquapetrarca", [H|T]).
-citta([H|T]) :- atom_chars("arquapolesine", [H|T]).
-citta([H|T]) :- atom_chars("arquatadeltronto", [H|T]).
-citta([H|T]) :- atom_chars("arquatascrivia", [H|T]).
-citta([H|T]) :- atom_chars("arre", [H|T]).
-citta([H|T]) :- atom_chars("arrone", [H|T]).
-citta([H|T]) :- atom_chars("arsagoseprio", [H|T]).
-citta([H|T]) :- atom_chars("arsie", [H|T]).
-citta([H|T]) :- atom_chars("arsiero", [H|T]).
-citta([H|T]) :- atom_chars("arsita", [H|T]).
-citta([H|T]) :- atom_chars("arsoli", [H|T]).
-citta([H|T]) :- atom_chars("artaterme", [H|T]).
-citta([H|T]) :- atom_chars("artegna", [H|T]).
-citta([H|T]) :- atom_chars("artena", [H|T]).
-citta([H|T]) :- atom_chars("artogne", [H|T]).
-citta([H|T]) :- atom_chars("arvier", [H|T]).
-citta([H|T]) :- atom_chars("arzachena", [H|T]).
-citta([H|T]) :- atom_chars("arzagodadda", [H|T]).
-citta([H|T]) :- atom_chars("arzana", [H|T]).
-citta([H|T]) :- atom_chars("arzano", [H|T]).
-citta([H|T]) :- atom_chars("arzergrande", [H|T]).
-citta([H|T]) :- atom_chars("arzignano", [H|T]).
-citta([H|T]) :- atom_chars("ascea", [H|T]).
-citta([H|T]) :- atom_chars("asciano", [H|T]).
-citta([H|T]) :- atom_chars("ascolipiceno", [H|T]).
-citta([H|T]) :- atom_chars("ascolisatriano", [H|T]).
-citta([H|T]) :- atom_chars("ascrea", [H|T]).
-citta([H|T]) :- atom_chars("asiago", [H|T]).
-citta([H|T]) :- atom_chars("asiglianoveneto", [H|T]).
-citta([H|T]) :- atom_chars("asiglianovercellese", [H|T]).
-citta([H|T]) :- atom_chars("asola", [H|T]).
-citta([H|T]) :- atom_chars("asolo", [H|T]).
-citta([H|T]) :- atom_chars("assago", [H|T]).
-citta([H|T]) :- atom_chars("assemini", [H|T]).
-citta([H|T]) :- atom_chars("assisi", [H|T]).
-citta([H|T]) :- atom_chars("asso", [H|T]).
-citta([H|T]) :- atom_chars("assolo", [H|T]).
-citta([H|T]) :- atom_chars("assoro", [H|T]).
-citta([H|T]) :- atom_chars("asti", [H|T]).
-citta([H|T]) :- atom_chars("asuni", [H|T]).
-citta([H|T]) :- atom_chars("ateleta", [H|T]).
-citta([H|T]) :- atom_chars("atella", [H|T]).
-citta([H|T]) :- atom_chars("atenalucana", [H|T]).
-citta([H|T]) :- atom_chars("atessa", [H|T]).
-citta([H|T]) :- atom_chars("atina", [H|T]).
-citta([H|T]) :- atom_chars("atrani", [H|T]).
-citta([H|T]) :- atom_chars("atri", [H|T]).
-citta([H|T]) :- atom_chars("atripalda", [H|T]).
-citta([H|T]) :- atom_chars("attigliano", [H|T]).
-citta([H|T]) :- atom_chars("attimis", [H|T]).
-citta([H|T]) :- atom_chars("atzara", [H|T]).
-citta([H|T]) :- atom_chars("auditore", [H|T]).
-citta([H|T]) :- atom_chars("augusta", [H|T]).
-citta([H|T]) :- atom_chars("auletta", [H|T]).
-citta([H|T]) :- atom_chars("aulla", [H|T]).
-citta([H|T]) :- atom_chars("aurano", [H|T]).
-citta([H|T]) :- atom_chars("aurigo", [H|T]).
-citta([H|T]) :- atom_chars("auronzodicadore", [H|T]).
-citta([H|T]) :- atom_chars("ausonia", [H|T]).
-citta([H|T]) :- atom_chars("austis", [H|T]).
-citta([H|T]) :- atom_chars("avegno", [H|T]).
-citta([H|T]) :- atom_chars("avelengo/hafling", [H|T]).
-citta([H|T]) :- atom_chars("avella", [H|T]).
-citta([H|T]) :- atom_chars("avellino", [H|T]).
-citta([H|T]) :- atom_chars("averara", [H|T]).
-citta([H|T]) :- atom_chars("aversa", [H|T]).
-citta([H|T]) :- atom_chars("avetrana", [H|T]).
-citta([H|T]) :- atom_chars("avezzano", [H|T]).
-citta([H|T]) :- atom_chars("aviano", [H|T]).
-citta([H|T]) :- atom_chars("aviatico", [H|T]).
-citta([H|T]) :- atom_chars("avigliana", [H|T]).
-citta([H|T]) :- atom_chars("avigliano", [H|T]).
-citta([H|T]) :- atom_chars("aviglianoumbro", [H|T]).
-citta([H|T]) :- atom_chars("avio", [H|T]).
-citta([H|T]) :- atom_chars("avise", [H|T]).
-citta([H|T]) :- atom_chars("avola", [H|T]).
-citta([H|T]) :- atom_chars("avolasca", [H|T]).
-citta([H|T]) :- atom_chars("ayas", [H|T]).
-citta([H|T]) :- atom_chars("aymavilles", [H|T]).
-citta([H|T]) :- atom_chars("azeglio", [H|T]).
-citta([H|T]) :- atom_chars("azzanello", [H|T]).
-citta([H|T]) :- atom_chars("azzanodasti", [H|T]).
-citta([H|T]) :- atom_chars("azzanodecimo", [H|T]).
-citta([H|T]) :- atom_chars("azzanomella", [H|T]).
-citta([H|T]) :- atom_chars("azzanosanpaolo", [H|T]).
-citta([H|T]) :- atom_chars("azzate", [H|T]).
-citta([H|T]) :- atom_chars("azzio", [H|T]).
-citta([H|T]) :- atom_chars("azzone", [H|T]).
-citta([H|T]) :- atom_chars("baceno", [H|T]).
-citta([H|T]) :- atom_chars("bacoli", [H|T]).
-citta([H|T]) :- atom_chars("badalucco", [H|T]).
-citta([H|T]) :- atom_chars("badesi", [H|T]).
-citta([H|T]) :- atom_chars("badiacalavena", [H|T]).
-citta([H|T]) :- atom_chars("badiapavese", [H|T]).
-citta([H|T]) :- atom_chars("badiapolesine", [H|T]).
-citta([H|T]) :- atom_chars("badiatedalda", [H|T]).
-citta([H|T]) :- atom_chars("badia/abtei", [H|T]).
-citta([H|T]) :- atom_chars("badolato", [H|T]).
-citta([H|T]) :- atom_chars("bagaladi", [H|T]).
-citta([H|T]) :- atom_chars("bagheria", [H|T]).
-citta([H|T]) :- atom_chars("bagnacavallo", [H|T]).
-citta([H|T]) :- atom_chars("bagnaracalabra", [H|T]).
-citta([H|T]) :- atom_chars("bagnaradiromagna", [H|T]).
-citta([H|T]) :- atom_chars("bagnaria", [H|T]).
-citta([H|T]) :- atom_chars("bagnariaarsa", [H|T]).
-citta([H|T]) :- atom_chars("bagnasco", [H|T]).
-citta([H|T]) :- atom_chars("bagnatica", [H|T]).
-citta([H|T]) :- atom_chars("bagnidilucca", [H|T]).
-citta([H|T]) :- atom_chars("bagnoaripoli", [H|T]).
-citta([H|T]) :- atom_chars("bagnodiromagna", [H|T]).
-citta([H|T]) :- atom_chars("bagnolideltrigno", [H|T]).
-citta([H|T]) :- atom_chars("bagnolidisopra", [H|T]).
-citta([H|T]) :- atom_chars("bagnoliirpino", [H|T]).
-citta([H|T]) :- atom_chars("bagnolocremasco", [H|T]).
-citta([H|T]) :- atom_chars("bagnolodelsalento", [H|T]).
-citta([H|T]) :- atom_chars("bagnolodipo", [H|T]).
-citta([H|T]) :- atom_chars("bagnoloinpiano", [H|T]).
-citta([H|T]) :- atom_chars("bagnolomella", [H|T]).
-citta([H|T]) :- atom_chars("bagnolopiemonte", [H|T]).
-citta([H|T]) :- atom_chars("bagnolosanvito", [H|T]).
-citta([H|T]) :- atom_chars("bagnone", [H|T]).
-citta([H|T]) :- atom_chars("bagnoregio", [H|T]).
-citta([H|T]) :- atom_chars("bagolino", [H|T]).
-citta([H|T]) :- atom_chars("baiaelatina", [H|T]).
-citta([H|T]) :- atom_chars("baiano", [H|T]).
-citta([H|T]) :- atom_chars("bairo", [H|T]).
-citta([H|T]) :- atom_chars("baiso", [H|T]).
-citta([H|T]) :- atom_chars("bajardo", [H|T]).
-citta([H|T]) :- atom_chars("balangero", [H|T]).
-citta([H|T]) :- atom_chars("baldichieridasti", [H|T]).
-citta([H|T]) :- atom_chars("baldisserocanavese", [H|T]).
-citta([H|T]) :- atom_chars("baldisserodalba", [H|T]).
-citta([H|T]) :- atom_chars("baldisserotorinese", [H|T]).
-citta([H|T]) :- atom_chars("balestrate", [H|T]).
-citta([H|T]) :- atom_chars("balestrino", [H|T]).
-citta([H|T]) :- atom_chars("ballabio", [H|T]).
-citta([H|T]) :- atom_chars("ballao", [H|T]).
-citta([H|T]) :- atom_chars("balme", [H|T]).
-citta([H|T]) :- atom_chars("balmuccia", [H|T]).
-citta([H|T]) :- atom_chars("balocco", [H|T]).
-citta([H|T]) :- atom_chars("balsorano", [H|T]).
-citta([H|T]) :- atom_chars("balvano", [H|T]).
-citta([H|T]) :- atom_chars("balzola", [H|T]).
-citta([H|T]) :- atom_chars("banari", [H|T]).
-citta([H|T]) :- atom_chars("banchette", [H|T]).
-citta([H|T]) :- atom_chars("bannioanzino", [H|T]).
-citta([H|T]) :- atom_chars("banzi", [H|T]).
-citta([H|T]) :- atom_chars("baone", [H|T]).
-citta([H|T]) :- atom_chars("baradili", [H|T]).
-citta([H|T]) :- atom_chars("baragiano", [H|T]).
-citta([H|T]) :- atom_chars("baranello", [H|T]).
-citta([H|T]) :- atom_chars("baranodischia", [H|T]).
-citta([H|T]) :- atom_chars("baranzate", [H|T]).
-citta([H|T]) :- atom_chars("barasso", [H|T]).
-citta([H|T]) :- atom_chars("baratilisanpietro", [H|T]).
-citta([H|T]) :- atom_chars("barbania", [H|T]).
-citta([H|T]) :- atom_chars("barbara", [H|T]).
-citta([H|T]) :- atom_chars("barbaranoromano", [H|T]).
-citta([H|T]) :- atom_chars("barbaranovicentino", [H|T]).
-citta([H|T]) :- atom_chars("barbaresco", [H|T]).
-citta([H|T]) :- atom_chars("barbariga", [H|T]).
-citta([H|T]) :- atom_chars("barbata", [H|T]).
-citta([H|T]) :- atom_chars("barberinodimugello", [H|T]).
-citta([H|T]) :- atom_chars("barberinovaldelsa", [H|T]).
-citta([H|T]) :- atom_chars("barbianello", [H|T]).
-citta([H|T]) :- atom_chars("barbiano/barbian", [H|T]).
-citta([H|T]) :- atom_chars("barbona", [H|T]).
-citta([H|T]) :- atom_chars("barcellonapozzodigotto", [H|T]).
-citta([H|T]) :- atom_chars("barcis", [H|T]).
-citta([H|T]) :- atom_chars("bard", [H|T]).
-citta([H|T]) :- atom_chars("bardello", [H|T]).
-citta([H|T]) :- atom_chars("bardi", [H|T]).
-citta([H|T]) :- atom_chars("bardineto", [H|T]).
-citta([H|T]) :- atom_chars("bardolino", [H|T]).
-citta([H|T]) :- atom_chars("bardonecchia", [H|T]).
-citta([H|T]) :- atom_chars("bareggio", [H|T]).
-citta([H|T]) :- atom_chars("barengo", [H|T]).
-citta([H|T]) :- atom_chars("baressa", [H|T]).
-citta([H|T]) :- atom_chars("barete", [H|T]).
-citta([H|T]) :- atom_chars("barga", [H|T]).
-citta([H|T]) :- atom_chars("bargagli", [H|T]).
-citta([H|T]) :- atom_chars("barge", [H|T]).
-citta([H|T]) :- atom_chars("barghe", [H|T]).
-citta([H|T]) :- atom_chars("bari", [H|T]).
-citta([H|T]) :- atom_chars("barisardo", [H|T]).
-citta([H|T]) :- atom_chars("bariano", [H|T]).
-citta([H|T]) :- atom_chars("baricella", [H|T]).
-citta([H|T]) :- atom_chars("barile", [H|T]).
-citta([H|T]) :- atom_chars("barisciano", [H|T]).
-citta([H|T]) :- atom_chars("barlassina", [H|T]).
-citta([H|T]) :- atom_chars("barletta", [H|T]).
-citta([H|T]) :- atom_chars("barni", [H|T]).
-citta([H|T]) :- atom_chars("barolo", [H|T]).
-citta([H|T]) :- atom_chars("baronecanavese", [H|T]).
-citta([H|T]) :- atom_chars("baronissi", [H|T]).
-citta([H|T]) :- atom_chars("barrafranca", [H|T]).
-citta([H|T]) :- atom_chars("barrali", [H|T]).
-citta([H|T]) :- atom_chars("barrea", [H|T]).
-citta([H|T]) :- atom_chars("barumini", [H|T]).
-citta([H|T]) :- atom_chars("barzago", [H|T]).
-citta([H|T]) :- atom_chars("barzana", [H|T]).
-citta([H|T]) :- atom_chars("barzano", [H|T]).
-citta([H|T]) :- atom_chars("barzio", [H|T]).
-citta([H|T]) :- atom_chars("basaluzzo", [H|T]).
-citta([H|T]) :- atom_chars("bascape", [H|T]).
-citta([H|T]) :- atom_chars("baschi", [H|T]).
-citta([H|T]) :- atom_chars("basciano", [H|T]).
-citta([H|T]) :- atom_chars("baselgadipine", [H|T]).
-citta([H|T]) :- atom_chars("baselice", [H|T]).
-citta([H|T]) :- atom_chars("basiano", [H|T]).
-citta([H|T]) :- atom_chars("basico", [H|T]).
-citta([H|T]) :- atom_chars("basiglio", [H|T]).
-citta([H|T]) :- atom_chars("basiliano", [H|T]).
-citta([H|T]) :- atom_chars("bassanobresciano", [H|T]).
-citta([H|T]) :- atom_chars("bassanodelgrappa", [H|T]).
-citta([H|T]) :- atom_chars("bassanointeverina", [H|T]).
-citta([H|T]) :- atom_chars("bassanoromano", [H|T]).
-citta([H|T]) :- atom_chars("bassiano", [H|T]).
-citta([H|T]) :- atom_chars("bassignana", [H|T]).
-citta([H|T]) :- atom_chars("bastiamondovi", [H|T]).
-citta([H|T]) :- atom_chars("bastiaumbra", [H|T]).
-citta([H|T]) :- atom_chars("bastidapancarana", [H|T]).
-citta([H|T]) :- atom_chars("bastiglia", [H|T]).
-citta([H|T]) :- atom_chars("battagliaterme", [H|T]).
-citta([H|T]) :- atom_chars("battifollo", [H|T]).
-citta([H|T]) :- atom_chars("battipaglia", [H|T]).
-citta([H|T]) :- atom_chars("battuda", [H|T]).
-citta([H|T]) :- atom_chars("baucina", [H|T]).
-citta([H|T]) :- atom_chars("bauladu", [H|T]).
-citta([H|T]) :- atom_chars("baunei", [H|T]).
-citta([H|T]) :- atom_chars("baveno", [H|T]).
-citta([H|T]) :- atom_chars("bederovalcuvia", [H|T]).
-citta([H|T]) :- atom_chars("bedizzole", [H|T]).
-citta([H|T]) :- atom_chars("bedollo", [H|T]).
-citta([H|T]) :- atom_chars("bedonia", [H|T]).
-citta([H|T]) :- atom_chars("bedulita", [H|T]).
-citta([H|T]) :- atom_chars("bee", [H|T]).
-citta([H|T]) :- atom_chars("beinasco", [H|T]).
-citta([H|T]) :- atom_chars("beinette", [H|T]).
-citta([H|T]) :- atom_chars("belcastro", [H|T]).
-citta([H|T]) :- atom_chars("belfiore", [H|T]).
-citta([H|T]) :- atom_chars("belforteallisauro", [H|T]).
-citta([H|T]) :- atom_chars("belfortedelchienti", [H|T]).
-citta([H|T]) :- atom_chars("belfortemonferrato", [H|T]).
-citta([H|T]) :- atom_chars("belgioioso", [H|T]).
-citta([H|T]) :- atom_chars("belgirate", [H|T]).
-citta([H|T]) :- atom_chars("bella", [H|T]).
-citta([H|T]) :- atom_chars("bellagio", [H|T]).
-citta([H|T]) :- atom_chars("bellano", [H|T]).
-citta([H|T]) :- atom_chars("bellante", [H|T]).
-citta([H|T]) :- atom_chars("bellaria-igeamarina", [H|T]).
-citta([H|T]) :- atom_chars("bellegra", [H|T]).
-citta([H|T]) :- atom_chars("bellino", [H|T]).
-citta([H|T]) :- atom_chars("bellinzagolombardo", [H|T]).
-citta([H|T]) :- atom_chars("bellinzagonovarese", [H|T]).
-citta([H|T]) :- atom_chars("bellizzi", [H|T]).
-citta([H|T]) :- atom_chars("bellona", [H|T]).
-citta([H|T]) :- atom_chars("bellosguardo", [H|T]).
-citta([H|T]) :- atom_chars("belluno", [H|T]).
-citta([H|T]) :- atom_chars("bellusco", [H|T]).
-citta([H|T]) :- atom_chars("belmontecalabro", [H|T]).
-citta([H|T]) :- atom_chars("belmontecastello", [H|T]).
-citta([H|T]) :- atom_chars("belmontedelsannio", [H|T]).
-citta([H|T]) :- atom_chars("belmonteinsabina", [H|T]).
-citta([H|T]) :- atom_chars("belmontemezzagno", [H|T]).
-citta([H|T]) :- atom_chars("belmontepiceno", [H|T]).
-citta([H|T]) :- atom_chars("belpasso", [H|T]).
-citta([H|T]) :- atom_chars("belsito", [H|T]).
-citta([H|T]) :- atom_chars("belvederedispinello", [H|T]).
-citta([H|T]) :- atom_chars("belvederelanghe", [H|T]).
-citta([H|T]) :- atom_chars("belvederemarittimo", [H|T]).
-citta([H|T]) :- atom_chars("belvedereostrense", [H|T]).
-citta([H|T]) :- atom_chars("belveglio", [H|T]).
-citta([H|T]) :- atom_chars("belvi", [H|T]).
-citta([H|T]) :- atom_chars("bema", [H|T]).
-citta([H|T]) :- atom_chars("benelario", [H|T]).
-citta([H|T]) :- atom_chars("benevagienna", [H|T]).
-citta([H|T]) :- atom_chars("benestare", [H|T]).
-citta([H|T]) :- atom_chars("benetutti", [H|T]).
-citta([H|T]) :- atom_chars("benevello", [H|T]).
-citta([H|T]) :- atom_chars("benevento", [H|T]).
-citta([H|T]) :- atom_chars("benna", [H|T]).
-citta([H|T]) :- atom_chars("bentivoglio", [H|T]).
-citta([H|T]) :- atom_chars("berbenno", [H|T]).
-citta([H|T]) :- atom_chars("berbennodivaltellina", [H|T]).
-citta([H|T]) :- atom_chars("berceto", [H|T]).
-citta([H|T]) :- atom_chars("berchidda", [H|T]).
-citta([H|T]) :- atom_chars("beregazzoconfigliaro", [H|T]).
-citta([H|T]) :- atom_chars("bereguardo", [H|T]).
-citta([H|T]) :- atom_chars("bergamasco", [H|T]).
-citta([H|T]) :- atom_chars("bergamo", [H|T]).
-citta([H|T]) :- atom_chars("bergantino", [H|T]).
-citta([H|T]) :- atom_chars("bergeggi", [H|T]).
-citta([H|T]) :- atom_chars("bergolo", [H|T]).
-citta([H|T]) :- atom_chars("berlingo", [H|T]).
-citta([H|T]) :- atom_chars("bernalda", [H|T]).
-citta([H|T]) :- atom_chars("bernareggio", [H|T]).
-citta([H|T]) :- atom_chars("bernateticino", [H|T]).
-citta([H|T]) :- atom_chars("bernezzo", [H|T]).
-citta([H|T]) :- atom_chars("berra", [H|T]).
-citta([H|T]) :- atom_chars("bertinoro", [H|T]).
-citta([H|T]) :- atom_chars("bertiolo", [H|T]).
-citta([H|T]) :- atom_chars("bertonico", [H|T]).
-citta([H|T]) :- atom_chars("berzanodisanpietro", [H|T]).
-citta([H|T]) :- atom_chars("berzanoditortona", [H|T]).
-citta([H|T]) :- atom_chars("berzodemo", [H|T]).
-citta([H|T]) :- atom_chars("berzoinferiore", [H|T]).
-citta([H|T]) :- atom_chars("berzosanfermo", [H|T]).
-citta([H|T]) :- atom_chars("besanainbrianza", [H|T]).
-citta([H|T]) :- atom_chars("besano", [H|T]).
-citta([H|T]) :- atom_chars("besate", [H|T]).
-citta([H|T]) :- atom_chars("besenello", [H|T]).
-citta([H|T]) :- atom_chars("besenzone", [H|T]).
-citta([H|T]) :- atom_chars("besnate", [H|T]).
-citta([H|T]) :- atom_chars("besozzo", [H|T]).
-citta([H|T]) :- atom_chars("bessude", [H|T]).
-citta([H|T]) :- atom_chars("bettola", [H|T]).
-citta([H|T]) :- atom_chars("bettona", [H|T]).
-citta([H|T]) :- atom_chars("beura-cardezza", [H|T]).
-citta([H|T]) :- atom_chars("bevagna", [H|T]).
-citta([H|T]) :- atom_chars("beverino", [H|T]).
-citta([H|T]) :- atom_chars("bevilacqua", [H|T]).
-citta([H|T]) :- atom_chars("biancavilla", [H|T]).
-citta([H|T]) :- atom_chars("bianchi", [H|T]).
-citta([H|T]) :- atom_chars("bianco", [H|T]).
-citta([H|T]) :- atom_chars("biandrate", [H|T]).
-citta([H|T]) :- atom_chars("biandronno", [H|T]).
-citta([H|T]) :- atom_chars("bianzano", [H|T]).
-citta([H|T]) :- atom_chars("bianze", [H|T]).
-citta([H|T]) :- atom_chars("bianzone", [H|T]).
-citta([H|T]) :- atom_chars("biassono", [H|T]).
-citta([H|T]) :- atom_chars("bibbiano", [H|T]).
-citta([H|T]) :- atom_chars("bibbiena", [H|T]).
-citta([H|T]) :- atom_chars("bibbona", [H|T]).
-citta([H|T]) :- atom_chars("bibiana", [H|T]).
-citta([H|T]) :- atom_chars("biccari", [H|T]).
-citta([H|T]) :- atom_chars("bicinicco", [H|T]).
-citta([H|T]) :- atom_chars("bidoni", [H|T]).
-citta([H|T]) :- atom_chars("biella", [H|T]).
-citta([H|T]) :- atom_chars("bienno", [H|T]).
-citta([H|T]) :- atom_chars("bieno", [H|T]).
-citta([H|T]) :- atom_chars("bientina", [H|T]).
-citta([H|T]) :- atom_chars("bigarello", [H|T]).
-citta([H|T]) :- atom_chars("binago", [H|T]).
-citta([H|T]) :- atom_chars("binasco", [H|T]).
-citta([H|T]) :- atom_chars("binetto", [H|T]).
-citta([H|T]) :- atom_chars("bioglio", [H|T]).
-citta([H|T]) :- atom_chars("bionaz", [H|T]).
-citta([H|T]) :- atom_chars("bione", [H|T]).
-citta([H|T]) :- atom_chars("birori", [H|T]).
-citta([H|T]) :- atom_chars("bisaccia", [H|T]).
-citta([H|T]) :- atom_chars("bisacquino", [H|T]).
-citta([H|T]) :- atom_chars("bisceglie", [H|T]).
-citta([H|T]) :- atom_chars("bisegna", [H|T]).
-citta([H|T]) :- atom_chars("bisenti", [H|T]).
-citta([H|T]) :- atom_chars("bisignano", [H|T]).
-citta([H|T]) :- atom_chars("bistagno", [H|T]).
-citta([H|T]) :- atom_chars("bisuschio", [H|T]).
-citta([H|T]) :- atom_chars("bitetto", [H|T]).
-citta([H|T]) :- atom_chars("bitonto", [H|T]).
-citta([H|T]) :- atom_chars("bitritto", [H|T]).
-citta([H|T]) :- atom_chars("bitti", [H|T]).
-citta([H|T]) :- atom_chars("bivona", [H|T]).
-citta([H|T]) :- atom_chars("bivongi", [H|T]).
-citta([H|T]) :- atom_chars("bizzarone", [H|T]).
-citta([H|T]) :- atom_chars("bleggiosuperiore", [H|T]).
-citta([H|T]) :- atom_chars("blello", [H|T]).
-citta([H|T]) :- atom_chars("blera", [H|T]).
-citta([H|T]) :- atom_chars("blessagno", [H|T]).
-citta([H|T]) :- atom_chars("blevio", [H|T]).
-citta([H|T]) :- atom_chars("blufi", [H|T]).
-citta([H|T]) :- atom_chars("boarapisani", [H|T]).
-citta([H|T]) :- atom_chars("bobbio", [H|T]).
-citta([H|T]) :- atom_chars("bobbiopellice", [H|T]).
-citta([H|T]) :- atom_chars("boca", [H|T]).
-citta([H|T]) :- atom_chars("bocchigliero", [H|T]).
-citta([H|T]) :- atom_chars("boccioleto", [H|T]).
-citta([H|T]) :- atom_chars("bocenago", [H|T]).
-citta([H|T]) :- atom_chars("bodiolomnago", [H|T]).
-citta([H|T]) :- atom_chars("boffaloradadda", [H|T]).
-citta([H|T]) :- atom_chars("boffalorasopraticino", [H|T]).
-citta([H|T]) :- atom_chars("bogliasco", [H|T]).
-citta([H|T]) :- atom_chars("bognanco", [H|T]).
-citta([H|T]) :- atom_chars("bogogno", [H|T]).
-citta([H|T]) :- atom_chars("boissano", [H|T]).
-citta([H|T]) :- atom_chars("bojano", [H|T]).
-citta([H|T]) :- atom_chars("bolano", [H|T]).
-citta([H|T]) :- atom_chars("bolgare", [H|T]).
-citta([H|T]) :- atom_chars("bollate", [H|T]).
-citta([H|T]) :- atom_chars("bollengo", [H|T]).
-citta([H|T]) :- atom_chars("bologna", [H|T]).
-citta([H|T]) :- atom_chars("bolognano", [H|T]).
-citta([H|T]) :- atom_chars("bolognetta", [H|T]).
-citta([H|T]) :- atom_chars("bolognola", [H|T]).
-citta([H|T]) :- atom_chars("bolotana", [H|T]).
-citta([H|T]) :- atom_chars("bolsena", [H|T]).
-citta([H|T]) :- atom_chars("boltiere", [H|T]).
-citta([H|T]) :- atom_chars("bolzanonovarese", [H|T]).
-citta([H|T]) :- atom_chars("bolzanovicentino", [H|T]).
-citta([H|T]) :- atom_chars("bolzano/bozen", [H|T]).
-citta([H|T]) :- atom_chars("bomarzo", [H|T]).
-citta([H|T]) :- atom_chars("bomba", [H|T]).
-citta([H|T]) :- atom_chars("bompensiere", [H|T]).
-citta([H|T]) :- atom_chars("bompietro", [H|T]).
-citta([H|T]) :- atom_chars("bomporto", [H|T]).
-citta([H|T]) :- atom_chars("bonarcado", [H|T]).
-citta([H|T]) :- atom_chars("bonassola", [H|T]).
-citta([H|T]) :- atom_chars("bonatesopra", [H|T]).
-citta([H|T]) :- atom_chars("bonatesotto", [H|T]).
-citta([H|T]) :- atom_chars("bonavigo", [H|T]).
-citta([H|T]) :- atom_chars("bondeno", [H|T]).
-citta([H|T]) :- atom_chars("bondone", [H|T]).
-citta([H|T]) :- atom_chars("bonea", [H|T]).
-citta([H|T]) :- atom_chars("bonefro", [H|T]).
-citta([H|T]) :- atom_chars("bonemerse", [H|T]).
-citta([H|T]) :- atom_chars("bonifati", [H|T]).
-citta([H|T]) :- atom_chars("bonito", [H|T]).
-citta([H|T]) :- atom_chars("bonnanaro", [H|T]).
-citta([H|T]) :- atom_chars("bono", [H|T]).
-citta([H|T]) :- atom_chars("bonorva", [H|T]).
-citta([H|T]) :- atom_chars("bonvicino", [H|T]).
-citta([H|T]) :- atom_chars("borbona", [H|T]).
-citta([H|T]) :- atom_chars("borcadicadore", [H|T]).
-citta([H|T]) :- atom_chars("bordano", [H|T]).
-citta([H|T]) :- atom_chars("bordighera", [H|T]).
-citta([H|T]) :- atom_chars("bordolano", [H|T]).
-citta([H|T]) :- atom_chars("bore", [H|T]).
-citta([H|T]) :- atom_chars("boretto", [H|T]).
-citta([H|T]) :- atom_chars("borgarello", [H|T]).
-citta([H|T]) :- atom_chars("borgarotorinese", [H|T]).
-citta([H|T]) :- atom_chars("borgetto", [H|T]).
-citta([H|T]) :- atom_chars("borghettodarroscia", [H|T]).
-citta([H|T]) :- atom_chars("borghettodiborbera", [H|T]).
-citta([H|T]) :- atom_chars("borghettodivara", [H|T]).
-citta([H|T]) :- atom_chars("borghettolodigiano", [H|T]).
-citta([H|T]) :- atom_chars("borghettosantospirito", [H|T]).
-citta([H|T]) :- atom_chars("borghi", [H|T]).
-citta([H|T]) :- atom_chars("borgia", [H|T]).
-citta([H|T]) :- atom_chars("borgiallo", [H|T]).
-citta([H|T]) :- atom_chars("borgioverezzi", [H|T]).
-citta([H|T]) :- atom_chars("borgoamozzano", [H|T]).
-citta([H|T]) :- atom_chars("borgochiese", [H|T]).
-citta([H|T]) :- atom_chars("borgodale", [H|T]).
-citta([H|T]) :- atom_chars("borgoditerzo", [H|T]).
-citta([H|T]) :- atom_chars("borgolares", [H|T]).
-citta([H|T]) :- atom_chars("borgopace", [H|T]).
-citta([H|T]) :- atom_chars("borgopriolo", [H|T]).
-citta([H|T]) :- atom_chars("borgosandalmazzo", [H|T]).
-citta([H|T]) :- atom_chars("borgosangiacomo", [H|T]).
-citta([H|T]) :- atom_chars("borgosangiovanni", [H|T]).
-citta([H|T]) :- atom_chars("borgosanlorenzo", [H|T]).
-citta([H|T]) :- atom_chars("borgosanmartino", [H|T]).
-citta([H|T]) :- atom_chars("borgosansiro", [H|T]).
-citta([H|T]) :- atom_chars("borgoticino", [H|T]).
-citta([H|T]) :- atom_chars("borgotossignano", [H|T]).
-citta([H|T]) :- atom_chars("borgovalditaro", [H|T]).
-citta([H|T]) :- atom_chars("borgovalsugana", [H|T]).
-citta([H|T]) :- atom_chars("borgovelino", [H|T]).
-citta([H|T]) :- atom_chars("borgovercelli", [H|T]).
-citta([H|T]) :- atom_chars("borgovirgilio", [H|T]).
-citta([H|T]) :- atom_chars("borgofrancodivrea", [H|T]).
-citta([H|T]) :- atom_chars("borgofrancosulpo", [H|T]).
-citta([H|T]) :- atom_chars("borgolavezzaro", [H|T]).
-citta([H|T]) :- atom_chars("borgomale", [H|T]).
-citta([H|T]) :- atom_chars("borgomanero", [H|T]).
-citta([H|T]) :- atom_chars("borgomaro", [H|T]).
-citta([H|T]) :- atom_chars("borgomasino", [H|T]).
-citta([H|T]) :- atom_chars("borgomezzavalle", [H|T]).
-citta([H|T]) :- atom_chars("borgonesusa", [H|T]).
-citta([H|T]) :- atom_chars("borgonovovaltidone", [H|T]).
-citta([H|T]) :- atom_chars("borgorattoalessandrino", [H|T]).
-citta([H|T]) :- atom_chars("borgorattomormorolo", [H|T]).
-citta([H|T]) :- atom_chars("borgoricco", [H|T]).
-citta([H|T]) :- atom_chars("borgorose", [H|T]).
-citta([H|T]) :- atom_chars("borgosatollo", [H|T]).
-citta([H|T]) :- atom_chars("borgosesia", [H|T]).
-citta([H|T]) :- atom_chars("bormida", [H|T]).
-citta([H|T]) :- atom_chars("bormio", [H|T]).
-citta([H|T]) :- atom_chars("bornasco", [H|T]).
-citta([H|T]) :- atom_chars("borno", [H|T]).
-citta([H|T]) :- atom_chars("boroneddu", [H|T]).
-citta([H|T]) :- atom_chars("borore", [H|T]).
-citta([H|T]) :- atom_chars("borrello", [H|T]).
-citta([H|T]) :- atom_chars("borriana", [H|T]).
-citta([H|T]) :- atom_chars("borsodelgrappa", [H|T]).
-citta([H|T]) :- atom_chars("bortigali", [H|T]).
-citta([H|T]) :- atom_chars("bortigiadas", [H|T]).
-citta([H|T]) :- atom_chars("borutta", [H|T]).
-citta([H|T]) :- atom_chars("borzonasca", [H|T]).
-citta([H|T]) :- atom_chars("bosa", [H|T]).
-citta([H|T]) :- atom_chars("bosaro", [H|T]).
-citta([H|T]) :- atom_chars("boschisantanna", [H|T]).
-citta([H|T]) :- atom_chars("boscochiesanuova", [H|T]).
-citta([H|T]) :- atom_chars("boscomarengo", [H|T]).
-citta([H|T]) :- atom_chars("bosconero", [H|T]).
-citta([H|T]) :- atom_chars("boscoreale", [H|T]).
-citta([H|T]) :- atom_chars("boscotrecase", [H|T]).
-citta([H|T]) :- atom_chars("bosia", [H|T]).
-citta([H|T]) :- atom_chars("bosio", [H|T]).
-citta([H|T]) :- atom_chars("bosisioparini", [H|T]).
-citta([H|T]) :- atom_chars("bosnasco", [H|T]).
-citta([H|T]) :- atom_chars("bossico", [H|T]).
-citta([H|T]) :- atom_chars("bossolasco", [H|T]).
-citta([H|T]) :- atom_chars("botricello", [H|T]).
-citta([H|T]) :- atom_chars("botrugno", [H|T]).
-citta([H|T]) :- atom_chars("bottanuco", [H|T]).
-citta([H|T]) :- atom_chars("botticino", [H|T]).
-citta([H|T]) :- atom_chars("bottidda", [H|T]).
-citta([H|T]) :- atom_chars("bova", [H|T]).
-citta([H|T]) :- atom_chars("bovamarina", [H|T]).
-citta([H|T]) :- atom_chars("bovalino", [H|T]).
-citta([H|T]) :- atom_chars("bovegno", [H|T]).
-citta([H|T]) :- atom_chars("boves", [H|T]).
-citta([H|T]) :- atom_chars("bovezzo", [H|T]).
-citta([H|T]) :- atom_chars("bovilleernica", [H|T]).
-citta([H|T]) :- atom_chars("bovino", [H|T]).
-citta([H|T]) :- atom_chars("bovisio-masciago", [H|T]).
-citta([H|T]) :- atom_chars("bovolenta", [H|T]).
-citta([H|T]) :- atom_chars("bovolone", [H|T]).
-citta([H|T]) :- atom_chars("bozzole", [H|T]).
-citta([H|T]) :- atom_chars("bozzolo", [H|T]).
-citta([H|T]) :- atom_chars("bra", [H|T]).
-citta([H|T]) :- atom_chars("bracca", [H|T]).
-citta([H|T]) :- atom_chars("bracciano", [H|T]).
-citta([H|T]) :- atom_chars("bracigliano", [H|T]).
-citta([H|T]) :- atom_chars("braies/prags", [H|T]).
-citta([H|T]) :- atom_chars("brallodipregola", [H|T]).
-citta([H|T]) :- atom_chars("brancaleone", [H|T]).
-citta([H|T]) :- atom_chars("brandico", [H|T]).
-citta([H|T]) :- atom_chars("brandizzo", [H|T]).
-citta([H|T]) :- atom_chars("branzi", [H|T]).
-citta([H|T]) :- atom_chars("braone", [H|T]).
-citta([H|T]) :- atom_chars("brebbia", [H|T]).
-citta([H|T]) :- atom_chars("bredadipiave", [H|T]).
-citta([H|T]) :- atom_chars("bregano", [H|T]).
-citta([H|T]) :- atom_chars("breganze", [H|T]).
-citta([H|T]) :- atom_chars("bregnano", [H|T]).
-citta([H|T]) :- atom_chars("breia", [H|T]).
-citta([H|T]) :- atom_chars("brembate", [H|T]).
-citta([H|T]) :- atom_chars("brembatedisopra", [H|T]).
-citta([H|T]) :- atom_chars("brembio", [H|T]).
-citta([H|T]) :- atom_chars("breme", [H|T]).
-citta([H|T]) :- atom_chars("brendola", [H|T]).
-citta([H|T]) :- atom_chars("brenna", [H|T]).
-citta([H|T]) :- atom_chars("brennero/brenner", [H|T]).
-citta([H|T]) :- atom_chars("breno", [H|T]).
-citta([H|T]) :- atom_chars("brenta", [H|T]).
-citta([H|T]) :- atom_chars("brentinobelluno", [H|T]).
-citta([H|T]) :- atom_chars("brentonico", [H|T]).
-citta([H|T]) :- atom_chars("brenzonesulgarda", [H|T]).
-citta([H|T]) :- atom_chars("brescello", [H|T]).
-citta([H|T]) :- atom_chars("brescia", [H|T]).
-citta([H|T]) :- atom_chars("bresimo", [H|T]).
-citta([H|T]) :- atom_chars("bressanabottarone", [H|T]).
-citta([H|T]) :- atom_chars("bressanone/brixen", [H|T]).
-citta([H|T]) :- atom_chars("bressanvido", [H|T]).
-citta([H|T]) :- atom_chars("bresso", [H|T]).
-citta([H|T]) :- atom_chars("brez", [H|T]).
-citta([H|T]) :- atom_chars("brezzodibedero", [H|T]).
-citta([H|T]) :- atom_chars("briaglia", [H|T]).
-citta([H|T]) :- atom_chars("briatico", [H|T]).
-citta([H|T]) :- atom_chars("bricherasio", [H|T]).
-citta([H|T]) :- atom_chars("brienno", [H|T]).
-citta([H|T]) :- atom_chars("brienza", [H|T]).
-citta([H|T]) :- atom_chars("brigaalta", [H|T]).
-citta([H|T]) :- atom_chars("briganovarese", [H|T]).
-citta([H|T]) :- atom_chars("brignanogeradadda", [H|T]).
-citta([H|T]) :- atom_chars("brignano-frascata", [H|T]).
-citta([H|T]) :- atom_chars("brindisi", [H|T]).
-citta([H|T]) :- atom_chars("brindisimontagna", [H|T]).
-citta([H|T]) :- atom_chars("brinzio", [H|T]).
-citta([H|T]) :- atom_chars("briona", [H|T]).
-citta([H|T]) :- atom_chars("brione", [H|T]).
-citta([H|T]) :- atom_chars("briosco", [H|T]).
-citta([H|T]) :- atom_chars("brisighella", [H|T]).
-citta([H|T]) :- atom_chars("brissago-valtravaglia", [H|T]).
-citta([H|T]) :- atom_chars("brissogne", [H|T]).
-citta([H|T]) :- atom_chars("brittoli", [H|T]).
-citta([H|T]) :- atom_chars("brivio", [H|T]).
-citta([H|T]) :- atom_chars("broccostella", [H|T]).
-citta([H|T]) :- atom_chars("brogliano", [H|T]).
-citta([H|T]) :- atom_chars("brognaturo", [H|T]).
-citta([H|T]) :- atom_chars("brolo", [H|T]).
-citta([H|T]) :- atom_chars("brondello", [H|T]).
-citta([H|T]) :- atom_chars("broni", [H|T]).
-citta([H|T]) :- atom_chars("bronte", [H|T]).
-citta([H|T]) :- atom_chars("bronzolo/branzoll", [H|T]).
-citta([H|T]) :- atom_chars("brossasco", [H|T]).
-citta([H|T]) :- atom_chars("brosso", [H|T]).
-citta([H|T]) :- atom_chars("brovello-carpugnino", [H|T]).
-citta([H|T]) :- atom_chars("brozolo", [H|T]).
-citta([H|T]) :- atom_chars("brugherio", [H|T]).
-citta([H|T]) :- atom_chars("brugine", [H|T]).
-citta([H|T]) :- atom_chars("brugnato", [H|T]).
-citta([H|T]) :- atom_chars("brugnera", [H|T]).
-citta([H|T]) :- atom_chars("bruino", [H|T]).
-citta([H|T]) :- atom_chars("brumano", [H|T]).
-citta([H|T]) :- atom_chars("brunate", [H|T]).
-citta([H|T]) :- atom_chars("brunello", [H|T]).
-citta([H|T]) :- atom_chars("brunico/bruneck", [H|T]).
-citta([H|T]) :- atom_chars("bruno", [H|T]).
-citta([H|T]) :- atom_chars("brusaporto", [H|T]).
-citta([H|T]) :- atom_chars("brusasco", [H|T]).
-citta([H|T]) :- atom_chars("brusciano", [H|T]).
-citta([H|T]) :- atom_chars("brusimpiano", [H|T]).
-citta([H|T]) :- atom_chars("brusnengo", [H|T]).
-citta([H|T]) :- atom_chars("brusson", [H|T]).
-citta([H|T]) :- atom_chars("bruzolo", [H|T]).
-citta([H|T]) :- atom_chars("bruzzanozeffirio", [H|T]).
-citta([H|T]) :- atom_chars("bubbiano", [H|T]).
-citta([H|T]) :- atom_chars("bubbio", [H|T]).
-citta([H|T]) :- atom_chars("buccheri", [H|T]).
-citta([H|T]) :- atom_chars("bucchianico", [H|T]).
-citta([H|T]) :- atom_chars("bucciano", [H|T]).
-citta([H|T]) :- atom_chars("buccinasco", [H|T]).
-citta([H|T]) :- atom_chars("buccino", [H|T]).
-citta([H|T]) :- atom_chars("bucine", [H|T]).
-citta([H|T]) :- atom_chars("budduso", [H|T]).
-citta([H|T]) :- atom_chars("budoia", [H|T]).
-citta([H|T]) :- atom_chars("budoni", [H|T]).
-citta([H|T]) :- atom_chars("budrio", [H|T]).
-citta([H|T]) :- atom_chars("buggerru", [H|T]).
-citta([H|T]) :- atom_chars("buggiano", [H|T]).
-citta([H|T]) :- atom_chars("buglioinmonte", [H|T]).
-citta([H|T]) :- atom_chars("bugnara", [H|T]).
-citta([H|T]) :- atom_chars("buguggiate", [H|T]).
-citta([H|T]) :- atom_chars("buja", [H|T]).
-citta([H|T]) :- atom_chars("bulciago", [H|T]).
-citta([H|T]) :- atom_chars("bulgarograsso", [H|T]).
-citta([H|T]) :- atom_chars("bultei", [H|T]).
-citta([H|T]) :- atom_chars("bulzi", [H|T]).
-citta([H|T]) :- atom_chars("buonabitacolo", [H|T]).
-citta([H|T]) :- atom_chars("buonalbergo", [H|T]).
-citta([H|T]) :- atom_chars("buonconvento", [H|T]).
-citta([H|T]) :- atom_chars("buonvicino", [H|T]).
-citta([H|T]) :- atom_chars("buragodimolgora", [H|T]).
-citta([H|T]) :- atom_chars("burcei", [H|T]).
-citta([H|T]) :- atom_chars("burgio", [H|T]).
-citta([H|T]) :- atom_chars("burgos", [H|T]).
-citta([H|T]) :- atom_chars("buriasco", [H|T]).
-citta([H|T]) :- atom_chars("burolo", [H|T]).
-citta([H|T]) :- atom_chars("buronzo", [H|T]).
-citta([H|T]) :- atom_chars("busachi", [H|T]).
-citta([H|T]) :- atom_chars("busalla", [H|T]).
-citta([H|T]) :- atom_chars("busano", [H|T]).
-citta([H|T]) :- atom_chars("busca", [H|T]).
-citta([H|T]) :- atom_chars("buscate", [H|T]).
-citta([H|T]) :- atom_chars("buscemi", [H|T]).
-citta([H|T]) :- atom_chars("busetopalizzolo", [H|T]).
-citta([H|T]) :- atom_chars("busnago", [H|T]).
-citta([H|T]) :- atom_chars("bussero", [H|T]).
-citta([H|T]) :- atom_chars("busseto", [H|T]).
-citta([H|T]) :- atom_chars("bussisultirino", [H|T]).
-citta([H|T]) :- atom_chars("busso", [H|T]).
-citta([H|T]) :- atom_chars("bussolengo", [H|T]).
-citta([H|T]) :- atom_chars("bussoleno", [H|T]).
-citta([H|T]) :- atom_chars("bustoarsizio", [H|T]).
-citta([H|T]) :- atom_chars("bustogarolfo", [H|T]).
-citta([H|T]) :- atom_chars("butera", [H|T]).
-citta([H|T]) :- atom_chars("buti", [H|T]).
-citta([H|T]) :- atom_chars("buttapietra", [H|T]).
-citta([H|T]) :- atom_chars("buttiglieraalta", [H|T]).
-citta([H|T]) :- atom_chars("buttiglieradasti", [H|T]).
-citta([H|T]) :- atom_chars("buttrio", [H|T]).
-citta([H|T]) :- atom_chars("cadandrea", [H|T]).
-citta([H|T]) :- atom_chars("cabellaligure", [H|T]).
-citta([H|T]) :- atom_chars("cabiate", [H|T]).
-citta([H|T]) :- atom_chars("cabras", [H|T]).
-citta([H|T]) :- atom_chars("caccamo", [H|T]).
-citta([H|T]) :- atom_chars("caccuri", [H|T]).
-citta([H|T]) :- atom_chars("cadegliano-viconago", [H|T]).
-citta([H|T]) :- atom_chars("cadelboscodisopra", [H|T]).
-citta([H|T]) :- atom_chars("cadeo", [H|T]).
-citta([H|T]) :- atom_chars("caderzoneterme", [H|T]).
-citta([H|T]) :- atom_chars("cadoneghe", [H|T]).
-citta([H|T]) :- atom_chars("cadorago", [H|T]).
-citta([H|T]) :- atom_chars("cadrezzate", [H|T]).
-citta([H|T]) :- atom_chars("caeranodisanmarco", [H|T]).
-citta([H|T]) :- atom_chars("cafasse", [H|T]).
-citta([H|T]) :- atom_chars("caggiano", [H|T]).
-citta([H|T]) :- atom_chars("cagli", [H|T]).
-citta([H|T]) :- atom_chars("cagliari", [H|T]).
-citta([H|T]) :- atom_chars("caglio", [H|T]).
-citta([H|T]) :- atom_chars("cagnanoamiterno", [H|T]).
-citta([H|T]) :- atom_chars("cagnanovarano", [H|T]).
-citta([H|T]) :- atom_chars("cagno", [H|T]).
-citta([H|T]) :- atom_chars("cagno", [H|T]).
-citta([H|T]) :- atom_chars("caianello", [H|T]).
-citta([H|T]) :- atom_chars("caiazzo", [H|T]).
-citta([H|T]) :- atom_chars("caines/kuens", [H|T]).
-citta([H|T]) :- atom_chars("caino", [H|T]).
-citta([H|T]) :- atom_chars("caiolo", [H|T]).
-citta([H|T]) :- atom_chars("cairano", [H|T]).
-citta([H|T]) :- atom_chars("cairate", [H|T]).
-citta([H|T]) :- atom_chars("cairomontenotte", [H|T]).
-citta([H|T]) :- atom_chars("caivano", [H|T]).
-citta([H|T]) :- atom_chars("calabritto", [H|T]).
-citta([H|T]) :- atom_chars("calalzodicadore", [H|T]).
-citta([H|T]) :- atom_chars("calamandrana", [H|T]).
-citta([H|T]) :- atom_chars("calamonaci", [H|T]).
-citta([H|T]) :- atom_chars("calangianus", [H|T]).
-citta([H|T]) :- atom_chars("calanna", [H|T]).
-citta([H|T]) :- atom_chars("calasca-castiglione", [H|T]).
-citta([H|T]) :- atom_chars("calascibetta", [H|T]).
-citta([H|T]) :- atom_chars("calascio", [H|T]).
-citta([H|T]) :- atom_chars("calasetta", [H|T]).
-citta([H|T]) :- atom_chars("calatabiano", [H|T]).
-citta([H|T]) :- atom_chars("calatafimi-segesta", [H|T]).
-citta([H|T]) :- atom_chars("calcata", [H|T]).
-citta([H|T]) :- atom_chars("calceranicaallago", [H|T]).
-citta([H|T]) :- atom_chars("calci", [H|T]).
-citta([H|T]) :- atom_chars("calciano", [H|T]).
-citta([H|T]) :- atom_chars("calcinaia", [H|T]).
-citta([H|T]) :- atom_chars("calcinate", [H|T]).
-citta([H|T]) :- atom_chars("calcinato", [H|T]).
-citta([H|T]) :- atom_chars("calcio", [H|T]).
-citta([H|T]) :- atom_chars("calco", [H|T]).
-citta([H|T]) :- atom_chars("caldarosullastradadelvino/kalternanderweinstraße", [H|T]).
-citta([H|T]) :- atom_chars("caldarola", [H|T]).
-citta([H|T]) :- atom_chars("calderaradireno", [H|T]).
-citta([H|T]) :- atom_chars("caldes", [H|T]).
-citta([H|T]) :- atom_chars("caldiero", [H|T]).
-citta([H|T]) :- atom_chars("caldogno", [H|T]).
-citta([H|T]) :- atom_chars("caldonazzo", [H|T]).
-citta([H|T]) :- atom_chars("calendasco", [H|T]).
-citta([H|T]) :- atom_chars("calenzano", [H|T]).
-citta([H|T]) :- atom_chars("calestano", [H|T]).
-citta([H|T]) :- atom_chars("calicealcornoviglio", [H|T]).
-citta([H|T]) :- atom_chars("caliceligure", [H|T]).
-citta([H|T]) :- atom_chars("calimera", [H|T]).
-citta([H|T]) :- atom_chars("calitri", [H|T]).
-citta([H|T]) :- atom_chars("calizzano", [H|T]).
-citta([H|T]) :- atom_chars("callabiana", [H|T]).
-citta([H|T]) :- atom_chars("calliano", [H|T]).
-citta([H|T]) :- atom_chars("calliano", [H|T]).
-citta([H|T]) :- atom_chars("calolziocorte", [H|T]).
-citta([H|T]) :- atom_chars("calopezzati", [H|T]).
-citta([H|T]) :- atom_chars("calosso", [H|T]).
-citta([H|T]) :- atom_chars("caloveto", [H|T]).
-citta([H|T]) :- atom_chars("caltabellotta", [H|T]).
-citta([H|T]) :- atom_chars("caltagirone", [H|T]).
-citta([H|T]) :- atom_chars("caltanissetta", [H|T]).
-citta([H|T]) :- atom_chars("caltavuturo", [H|T]).
-citta([H|T]) :- atom_chars("caltignaga", [H|T]).
-citta([H|T]) :- atom_chars("calto", [H|T]).
-citta([H|T]) :- atom_chars("caltrano", [H|T]).
-citta([H|T]) :- atom_chars("caluscodadda", [H|T]).
-citta([H|T]) :- atom_chars("caluso", [H|T]).
-citta([H|T]) :- atom_chars("calvagesedellariviera", [H|T]).
-citta([H|T]) :- atom_chars("calvanico", [H|T]).
-citta([H|T]) :- atom_chars("calvatone", [H|T]).
-citta([H|T]) :- atom_chars("calvello", [H|T]).
-citta([H|T]) :- atom_chars("calvene", [H|T]).
-citta([H|T]) :- atom_chars("calvenzano", [H|T]).
-citta([H|T]) :- atom_chars("calvera", [H|T]).
-citta([H|T]) :- atom_chars("calvi", [H|T]).
-citta([H|T]) :- atom_chars("calvidellumbria", [H|T]).
-citta([H|T]) :- atom_chars("calvirisorta", [H|T]).
-citta([H|T]) :- atom_chars("calvignano", [H|T]).
-citta([H|T]) :- atom_chars("calvignasco", [H|T]).
-citta([H|T]) :- atom_chars("calvisano", [H|T]).
-citta([H|T]) :- atom_chars("calvizzano", [H|T]).
-citta([H|T]) :- atom_chars("camagnamonferrato", [H|T]).
-citta([H|T]) :- atom_chars("camaiore", [H|T]).
-citta([H|T]) :- atom_chars("camairago", [H|T]).
-citta([H|T]) :- atom_chars("camandona", [H|T]).
-citta([H|T]) :- atom_chars("camastra", [H|T]).
-citta([H|T]) :- atom_chars("cambiago", [H|T]).
-citta([H|T]) :- atom_chars("cambiano", [H|T]).
-citta([H|T]) :- atom_chars("cambiasca", [H|T]).
-citta([H|T]) :- atom_chars("camburzano", [H|T]).
-citta([H|T]) :- atom_chars("camerana", [H|T]).
-citta([H|T]) :- atom_chars("camerano", [H|T]).
-citta([H|T]) :- atom_chars("cameranocasasco", [H|T]).
-citta([H|T]) :- atom_chars("cameratacornello", [H|T]).
-citta([H|T]) :- atom_chars("cameratanuova", [H|T]).
-citta([H|T]) :- atom_chars("cameratapicena", [H|T]).
-citta([H|T]) :- atom_chars("cameri", [H|T]).
-citta([H|T]) :- atom_chars("camerino", [H|T]).
-citta([H|T]) :- atom_chars("camerota", [H|T]).
-citta([H|T]) :- atom_chars("camigliano", [H|T]).
-citta([H|T]) :- atom_chars("caminata", [H|T]).
-citta([H|T]) :- atom_chars("camini", [H|T]).
-citta([H|T]) :- atom_chars("camino", [H|T]).
-citta([H|T]) :- atom_chars("caminoaltagliamento", [H|T]).
-citta([H|T]) :- atom_chars("camisano", [H|T]).
-citta([H|T]) :- atom_chars("camisanovicentino", [H|T]).
-citta([H|T]) :- atom_chars("cammarata", [H|T]).
-citta([H|T]) :- atom_chars("camo", [H|T]).
-citta([H|T]) :- atom_chars("camogli", [H|T]).
-citta([H|T]) :- atom_chars("campagna", [H|T]).
-citta([H|T]) :- atom_chars("campagnalupia", [H|T]).
-citta([H|T]) :- atom_chars("campagnanodiroma", [H|T]).
-citta([H|T]) :- atom_chars("campagnatico", [H|T]).
-citta([H|T]) :- atom_chars("campagnolacremasca", [H|T]).
-citta([H|T]) :- atom_chars("campagnolaemilia", [H|T]).
-citta([H|T]) :- atom_chars("campana", [H|T]).
-citta([H|T]) :- atom_chars("camparada", [H|T]).
-citta([H|T]) :- atom_chars("campegine", [H|T]).
-citta([H|T]) :- atom_chars("campellosulclitunno", [H|T]).
-citta([H|T]) :- atom_chars("campertogno", [H|T]).
-citta([H|T]) :- atom_chars("campibisenzio", [H|T]).
-citta([H|T]) :- atom_chars("campisalentina", [H|T]).
-citta([H|T]) :- atom_chars("campigliacervo", [H|T]).
-citta([H|T]) :- atom_chars("campigliadeiberici", [H|T]).
-citta([H|T]) :- atom_chars("campigliamarittima", [H|T]).
-citta([H|T]) :- atom_chars("campiglionefenile", [H|T]).
-citta([H|T]) :- atom_chars("campioneditalia", [H|T]).
-citta([H|T]) :- atom_chars("campitellodifassa", [H|T]).
-citta([H|T]) :- atom_chars("campli", [H|T]).
-citta([H|T]) :- atom_chars("campocalabro", [H|T]).
-citta([H|T]) :- atom_chars("campodigiove", [H|T]).
-citta([H|T]) :- atom_chars("campoditrens/freienfeld", [H|T]).
-citta([H|T]) :- atom_chars("campoligure", [H|T]).
-citta([H|T]) :- atom_chars("camponellelba", [H|T]).
-citta([H|T]) :- atom_chars("camposanmartino", [H|T]).
-citta([H|T]) :- atom_chars("campotures/sandintaufers", [H|T]).
-citta([H|T]) :- atom_chars("campobasso", [H|T]).
-citta([H|T]) :- atom_chars("campobellodilicata", [H|T]).
-citta([H|T]) :- atom_chars("campobellodimazara", [H|T]).
-citta([H|T]) :- atom_chars("campochiaro", [H|T]).
-citta([H|T]) :- atom_chars("campodarsego", [H|T]).
-citta([H|T]) :- atom_chars("campodenno", [H|T]).
-citta([H|T]) :- atom_chars("campodimele", [H|T]).
-citta([H|T]) :- atom_chars("campodipietra", [H|T]).
-citta([H|T]) :- atom_chars("campodolcino", [H|T]).
-citta([H|T]) :- atom_chars("campodoro", [H|T]).
-citta([H|T]) :- atom_chars("campofelicedifitalia", [H|T]).
-citta([H|T]) :- atom_chars("campofelicediroccella", [H|T]).
-citta([H|T]) :- atom_chars("campofilone", [H|T]).
-citta([H|T]) :- atom_chars("campofiorito", [H|T]).
-citta([H|T]) :- atom_chars("campoformido", [H|T]).
-citta([H|T]) :- atom_chars("campofranco", [H|T]).
-citta([H|T]) :- atom_chars("campogalliano", [H|T]).
-citta([H|T]) :- atom_chars("campolattaro", [H|T]).
-citta([H|T]) :- atom_chars("campoliappennino", [H|T]).
-citta([H|T]) :- atom_chars("campolidelmontetaburno", [H|T]).
-citta([H|T]) :- atom_chars("campolieto", [H|T]).
-citta([H|T]) :- atom_chars("campolongomaggiore", [H|T]).
-citta([H|T]) :- atom_chars("campolongosulbrenta", [H|T]).
-citta([H|T]) :- atom_chars("campolongotapogliano", [H|T]).
-citta([H|T]) :- atom_chars("campomaggiore", [H|T]).
-citta([H|T]) :- atom_chars("campomarino", [H|T]).
-citta([H|T]) :- atom_chars("campomorone", [H|T]).
-citta([H|T]) :- atom_chars("camponogara", [H|T]).
-citta([H|T]) :- atom_chars("campora", [H|T]).
-citta([H|T]) :- atom_chars("camporeale", [H|T]).
-citta([H|T]) :- atom_chars("camporgiano", [H|T]).
-citta([H|T]) :- atom_chars("camporosso", [H|T]).
-citta([H|T]) :- atom_chars("camporotondodifiastrone", [H|T]).
-citta([H|T]) :- atom_chars("camporotondoetneo", [H|T]).
-citta([H|T]) :- atom_chars("camposampiero", [H|T]).
-citta([H|T]) :- atom_chars("camposano", [H|T]).
-citta([H|T]) :- atom_chars("camposanto", [H|T]).
-citta([H|T]) :- atom_chars("campospinoso", [H|T]).
-citta([H|T]) :- atom_chars("campotosto", [H|T]).
-citta([H|T]) :- atom_chars("camugnano", [H|T]).
-citta([H|T]) :- atom_chars("canalsanbovo", [H|T]).
-citta([H|T]) :- atom_chars("canale", [H|T]).
-citta([H|T]) :- atom_chars("canaledagordo", [H|T]).
-citta([H|T]) :- atom_chars("canalemonterano", [H|T]).
-citta([H|T]) :- atom_chars("canaro", [H|T]).
-citta([H|T]) :- atom_chars("canazei", [H|T]).
-citta([H|T]) :- atom_chars("cancellara", [H|T]).
-citta([H|T]) :- atom_chars("cancelloedarnone", [H|T]).
-citta([H|T]) :- atom_chars("canda", [H|T]).
-citta([H|T]) :- atom_chars("candela", [H|T]).
-citta([H|T]) :- atom_chars("candelo", [H|T]).
-citta([H|T]) :- atom_chars("candiacanavese", [H|T]).
-citta([H|T]) :- atom_chars("candialomellina", [H|T]).
-citta([H|T]) :- atom_chars("candiana", [H|T]).
-citta([H|T]) :- atom_chars("candida", [H|T]).
-citta([H|T]) :- atom_chars("candidoni", [H|T]).
-citta([H|T]) :- atom_chars("candiolo", [H|T]).
-citta([H|T]) :- atom_chars("canegrate", [H|T]).
-citta([H|T]) :- atom_chars("canelli", [H|T]).
-citta([H|T]) :- atom_chars("canepina", [H|T]).
-citta([H|T]) :- atom_chars("caneva", [H|T]).
-citta([H|T]) :- atom_chars("canevino", [H|T]).
-citta([H|T]) :- atom_chars("canicatti", [H|T]).
-citta([H|T]) :- atom_chars("canicattinibagni", [H|T]).
-citta([H|T]) :- atom_chars("canino", [H|T]).
-citta([H|T]) :- atom_chars("canischio", [H|T]).
-citta([H|T]) :- atom_chars("canistro", [H|T]).
-citta([H|T]) :- atom_chars("canna", [H|T]).
-citta([H|T]) :- atom_chars("cannalonga", [H|T]).
-citta([H|T]) :- atom_chars("cannara", [H|T]).
-citta([H|T]) :- atom_chars("canneroriviera", [H|T]).
-citta([H|T]) :- atom_chars("cannetopavese", [H|T]).
-citta([H|T]) :- atom_chars("cannetosulloglio", [H|T]).
-citta([H|T]) :- atom_chars("cannobio", [H|T]).
-citta([H|T]) :- atom_chars("cannole", [H|T]).
-citta([H|T]) :- atom_chars("canolo", [H|T]).
-citta([H|T]) :- atom_chars("canonicadadda", [H|T]).
-citta([H|T]) :- atom_chars("canosadipuglia", [H|T]).
-citta([H|T]) :- atom_chars("canosasannita", [H|T]).
-citta([H|T]) :- atom_chars("canosio", [H|T]).
-citta([H|T]) :- atom_chars("canossa", [H|T]).
-citta([H|T]) :- atom_chars("cansano", [H|T]).
-citta([H|T]) :- atom_chars("cantagallo", [H|T]).
-citta([H|T]) :- atom_chars("cantalice", [H|T]).
-citta([H|T]) :- atom_chars("cantalupa", [H|T]).
-citta([H|T]) :- atom_chars("cantalupoinsabina", [H|T]).
-citta([H|T]) :- atom_chars("cantalupoligure", [H|T]).
-citta([H|T]) :- atom_chars("cantaluponelsannio", [H|T]).
-citta([H|T]) :- atom_chars("cantarana", [H|T]).
-citta([H|T]) :- atom_chars("cantello", [H|T]).
-citta([H|T]) :- atom_chars("canterano", [H|T]).
-citta([H|T]) :- atom_chars("cantiano", [H|T]).
-citta([H|T]) :- atom_chars("cantoira", [H|T]).
-citta([H|T]) :- atom_chars("cantu", [H|T]).
-citta([H|T]) :- atom_chars("canzano", [H|T]).
-citta([H|T]) :- atom_chars("canzo", [H|T]).
-citta([H|T]) :- atom_chars("caorle", [H|T]).
-citta([H|T]) :- atom_chars("caorso", [H|T]).
-citta([H|T]) :- atom_chars("capacciopaestum", [H|T]).
-citta([H|T]) :- atom_chars("capaci", [H|T]).
-citta([H|T]) :- atom_chars("capalbio", [H|T]).
-citta([H|T]) :- atom_chars("capannoli", [H|T]).
-citta([H|T]) :- atom_chars("capannori", [H|T]).
-citta([H|T]) :- atom_chars("capena", [H|T]).
-citta([H|T]) :- atom_chars("capergnanica", [H|T]).
-citta([H|T]) :- atom_chars("capestrano", [H|T]).
-citta([H|T]) :- atom_chars("capiagointimiano", [H|T]).
-citta([H|T]) :- atom_chars("capistrano", [H|T]).
-citta([H|T]) :- atom_chars("capistrello", [H|T]).
-citta([H|T]) :- atom_chars("capitignano", [H|T]).
-citta([H|T]) :- atom_chars("capizzi", [H|T]).
-citta([H|T]) :- atom_chars("capizzone", [H|T]).
-citta([H|T]) :- atom_chars("capodiponte", [H|T]).
-citta([H|T]) :- atom_chars("capodorlando", [H|T]).
-citta([H|T]) :- atom_chars("capodimonte", [H|T]).
-citta([H|T]) :- atom_chars("capodrise", [H|T]).
-citta([H|T]) :- atom_chars("capoliveri", [H|T]).
-citta([H|T]) :- atom_chars("capolona", [H|T]).
-citta([H|T]) :- atom_chars("caponago", [H|T]).
-citta([H|T]) :- atom_chars("caporciano", [H|T]).
-citta([H|T]) :- atom_chars("caposele", [H|T]).
-citta([H|T]) :- atom_chars("capoterra", [H|T]).
-citta([H|T]) :- atom_chars("capovalle", [H|T]).
-citta([H|T]) :- atom_chars("cappadocia", [H|T]).
-citta([H|T]) :- atom_chars("cappellacantone", [H|T]).
-citta([H|T]) :- atom_chars("cappelladepicenardi", [H|T]).
-citta([H|T]) :- atom_chars("cappellamaggiore", [H|T]).
-citta([H|T]) :- atom_chars("cappellesultavo", [H|T]).
-citta([H|T]) :- atom_chars("capracotta", [H|T]).
-citta([H|T]) :- atom_chars("capraiaelimite", [H|T]).
-citta([H|T]) :- atom_chars("capraiaisola", [H|T]).
-citta([H|T]) :- atom_chars("capralba", [H|T]).
-citta([H|T]) :- atom_chars("capranica", [H|T]).
-citta([H|T]) :- atom_chars("capranicaprenestina", [H|T]).
-citta([H|T]) :- atom_chars("capraricadilecce", [H|T]).
-citta([H|T]) :- atom_chars("caprarola", [H|T]).
-citta([H|T]) :- atom_chars("caprauna", [H|T]).
-citta([H|T]) :- atom_chars("capresemichelangelo", [H|T]).
-citta([H|T]) :- atom_chars("caprezzo", [H|T]).
-citta([H|T]) :- atom_chars("capri", [H|T]).
-citta([H|T]) :- atom_chars("caprileone", [H|T]).
-citta([H|T]) :- atom_chars("capriana", [H|T]).
-citta([H|T]) :- atom_chars("caprianodelcolle", [H|T]).
-citta([H|T]) :- atom_chars("capriatadorba", [H|T]).
-citta([H|T]) :- atom_chars("capriatesangervasio", [H|T]).
-citta([H|T]) :- atom_chars("capriatiavolturno", [H|T]).
-citta([H|T]) :- atom_chars("caprie", [H|T]).
-citta([H|T]) :- atom_chars("caprigliairpina", [H|T]).
-citta([H|T]) :- atom_chars("capriglio", [H|T]).
-citta([H|T]) :- atom_chars("caprile", [H|T]).
-citta([H|T]) :- atom_chars("caprinobergamasco", [H|T]).
-citta([H|T]) :- atom_chars("caprinoveronese", [H|T]).
-citta([H|T]) :- atom_chars("capriolo", [H|T]).
-citta([H|T]) :- atom_chars("caprivadelfriuli", [H|T]).
-citta([H|T]) :- atom_chars("capua", [H|T]).
-citta([H|T]) :- atom_chars("capurso", [H|T]).
-citta([H|T]) :- atom_chars("caraffadelbianco", [H|T]).
-citta([H|T]) :- atom_chars("caraffadicatanzaro", [H|T]).
-citta([H|T]) :- atom_chars("caraglio", [H|T]).
-citta([H|T]) :- atom_chars("caramagnapiemonte", [H|T]).
-citta([H|T]) :- atom_chars("caramanicoterme", [H|T]).
-citta([H|T]) :- atom_chars("carano", [H|T]).
-citta([H|T]) :- atom_chars("carapelle", [H|T]).
-citta([H|T]) :- atom_chars("carapellecalvisio", [H|T]).
-citta([H|T]) :- atom_chars("carasco", [H|T]).
-citta([H|T]) :- atom_chars("carassai", [H|T]).
-citta([H|T]) :- atom_chars("caratebrianza", [H|T]).
-citta([H|T]) :- atom_chars("carateurio", [H|T]).
-citta([H|T]) :- atom_chars("caravaggio", [H|T]).
-citta([H|T]) :- atom_chars("caravate", [H|T]).
-citta([H|T]) :- atom_chars("caravino", [H|T]).
-citta([H|T]) :- atom_chars("caravonica", [H|T]).
-citta([H|T]) :- atom_chars("carbognano", [H|T]).
-citta([H|T]) :- atom_chars("carbonaraalticino", [H|T]).
-citta([H|T]) :- atom_chars("carbonaradinola", [H|T]).
-citta([H|T]) :- atom_chars("carbonaradipo", [H|T]).
-citta([H|T]) :- atom_chars("carbonarascrivia", [H|T]).
-citta([H|T]) :- atom_chars("carbonate", [H|T]).
-citta([H|T]) :- atom_chars("carbone", [H|T]).
-citta([H|T]) :- atom_chars("carbonera", [H|T]).
-citta([H|T]) :- atom_chars("carbonia", [H|T]).
-citta([H|T]) :- atom_chars("carcare", [H|T]).
-citta([H|T]) :- atom_chars("carceri", [H|T]).
-citta([H|T]) :- atom_chars("carcoforo", [H|T]).
-citta([H|T]) :- atom_chars("cardanoalcampo", [H|T]).
-citta([H|T]) :- atom_chars("carde", [H|T]).
-citta([H|T]) :- atom_chars("cardedu", [H|T]).
-citta([H|T]) :- atom_chars("cardeto", [H|T]).
-citta([H|T]) :- atom_chars("cardinale", [H|T]).
-citta([H|T]) :- atom_chars("cardito", [H|T]).
-citta([H|T]) :- atom_chars("careggine", [H|T]).
-citta([H|T]) :- atom_chars("carema", [H|T]).
-citta([H|T]) :- atom_chars("carenno", [H|T]).
-citta([H|T]) :- atom_chars("carentino", [H|T]).
-citta([H|T]) :- atom_chars("careri", [H|T]).
-citta([H|T]) :- atom_chars("caresana", [H|T]).
-citta([H|T]) :- atom_chars("caresanablot", [H|T]).
-citta([H|T]) :- atom_chars("carezzano", [H|T]).
-citta([H|T]) :- atom_chars("carfizzi", [H|T]).
-citta([H|T]) :- atom_chars("cargeghe", [H|T]).
-citta([H|T]) :- atom_chars("cariati", [H|T]).
-citta([H|T]) :- atom_chars("carife", [H|T]).
-citta([H|T]) :- atom_chars("carignano", [H|T]).
-citta([H|T]) :- atom_chars("carimate", [H|T]).
-citta([H|T]) :- atom_chars("carinaro", [H|T]).
-citta([H|T]) :- atom_chars("carini", [H|T]).
-citta([H|T]) :- atom_chars("carinola", [H|T]).
-citta([H|T]) :- atom_chars("carisio", [H|T]).
-citta([H|T]) :- atom_chars("carisolo", [H|T]).
-citta([H|T]) :- atom_chars("carlantino", [H|T]).
-citta([H|T]) :- atom_chars("carlazzo", [H|T]).
-citta([H|T]) :- atom_chars("carlentini", [H|T]).
-citta([H|T]) :- atom_chars("carlino", [H|T]).
-citta([H|T]) :- atom_chars("carloforte", [H|T]).
-citta([H|T]) :- atom_chars("carlopoli", [H|T]).
-citta([H|T]) :- atom_chars("carmagnola", [H|T]).
-citta([H|T]) :- atom_chars("carmiano", [H|T]).
-citta([H|T]) :- atom_chars("carmignano", [H|T]).
-citta([H|T]) :- atom_chars("carmignanodibrenta", [H|T]).
-citta([H|T]) :- atom_chars("carnago", [H|T]).
-citta([H|T]) :- atom_chars("carnate", [H|T]).
-citta([H|T]) :- atom_chars("carobbiodegliangeli", [H|T]).
-citta([H|T]) :- atom_chars("carolei", [H|T]).
-citta([H|T]) :- atom_chars("carona", [H|T]).
-citta([H|T]) :- atom_chars("caronia", [H|T]).
-citta([H|T]) :- atom_chars("caronnopertusella", [H|T]).
-citta([H|T]) :- atom_chars("caronnovaresino", [H|T]).
-citta([H|T]) :- atom_chars("carosino", [H|T]).
-citta([H|T]) :- atom_chars("carovigno", [H|T]).
-citta([H|T]) :- atom_chars("carovilli", [H|T]).
-citta([H|T]) :- atom_chars("carpanetopiacentino", [H|T]).
-citta([H|T]) :- atom_chars("carpanzano", [H|T]).
-citta([H|T]) :- atom_chars("carpasio", [H|T]).
-citta([H|T]) :- atom_chars("carpegna", [H|T]).
-citta([H|T]) :- atom_chars("carpenedolo", [H|T]).
-citta([H|T]) :- atom_chars("carpeneto", [H|T]).
-citta([H|T]) :- atom_chars("carpi", [H|T]).
-citta([H|T]) :- atom_chars("carpiano", [H|T]).
-citta([H|T]) :- atom_chars("carpignanosalentino", [H|T]).
-citta([H|T]) :- atom_chars("carpignanosesia", [H|T]).
-citta([H|T]) :- atom_chars("carpineti", [H|T]).
-citta([H|T]) :- atom_chars("carpinetodellanora", [H|T]).
-citta([H|T]) :- atom_chars("carpinetoromano", [H|T]).
-citta([H|T]) :- atom_chars("carpinetosinello", [H|T]).
-citta([H|T]) :- atom_chars("carpino", [H|T]).
-citta([H|T]) :- atom_chars("carpinone", [H|T]).
-citta([H|T]) :- atom_chars("carrara", [H|T]).
-citta([H|T]) :- atom_chars("carre", [H|T]).
-citta([H|T]) :- atom_chars("carregaligure", [H|T]).
-citta([H|T]) :- atom_chars("carro", [H|T]).
-citta([H|T]) :- atom_chars("carrodano", [H|T]).
-citta([H|T]) :- atom_chars("carrosio", [H|T]).
-citta([H|T]) :- atom_chars("carru", [H|T]).
-citta([H|T]) :- atom_chars("carsoli", [H|T]).
-citta([H|T]) :- atom_chars("cartigliano", [H|T]).
-citta([H|T]) :- atom_chars("cartignano", [H|T]).
-citta([H|T]) :- atom_chars("cartoceto", [H|T]).
-citta([H|T]) :- atom_chars("cartosio", [H|T]).
-citta([H|T]) :- atom_chars("cartura", [H|T]).
-citta([H|T]) :- atom_chars("carugate", [H|T]).
-citta([H|T]) :- atom_chars("carugo", [H|T]).
-citta([H|T]) :- atom_chars("carunchio", [H|T]).
-citta([H|T]) :- atom_chars("carvico", [H|T]).
-citta([H|T]) :- atom_chars("carzano", [H|T]).
-citta([H|T]) :- atom_chars("casabona", [H|T]).
-citta([H|T]) :- atom_chars("casacalenda", [H|T]).
-citta([H|T]) :- atom_chars("casacanditella", [H|T]).
-citta([H|T]) :- atom_chars("casagiove", [H|T]).
-citta([H|T]) :- atom_chars("casalcermelli", [H|T]).
-citta([H|T]) :- atom_chars("casaldiprincipe", [H|T]).
-citta([H|T]) :- atom_chars("casalvelino", [H|T]).
-citta([H|T]) :- atom_chars("casalanguida", [H|T]).
-citta([H|T]) :- atom_chars("casalattico", [H|T]).
-citta([H|T]) :- atom_chars("casalbeltrame", [H|T]).
-citta([H|T]) :- atom_chars("casalbordino", [H|T]).
-citta([H|T]) :- atom_chars("casalbore", [H|T]).
-citta([H|T]) :- atom_chars("casalborgone", [H|T]).
-citta([H|T]) :- atom_chars("casalbuono", [H|T]).
-citta([H|T]) :- atom_chars("casalbuttanoeduniti", [H|T]).
-citta([H|T]) :- atom_chars("casalciprano", [H|T]).
-citta([H|T]) :- atom_chars("casalduni", [H|T]).
-citta([H|T]) :- atom_chars("casalecortecerro", [H|T]).
-citta([H|T]) :- atom_chars("casalecremasco-vidolasco", [H|T]).
-citta([H|T]) :- atom_chars("casalediscodosia", [H|T]).
-citta([H|T]) :- atom_chars("casalelitta", [H|T]).
-citta([H|T]) :- atom_chars("casalemarittimo", [H|T]).
-citta([H|T]) :- atom_chars("casalemonferrato", [H|T]).
-citta([H|T]) :- atom_chars("casalesulsile", [H|T]).
-citta([H|T]) :- atom_chars("casalecchiodireno", [H|T]).
-citta([H|T]) :- atom_chars("casaleggioboiro", [H|T]).
-citta([H|T]) :- atom_chars("casaleggionovara", [H|T]).
-citta([H|T]) :- atom_chars("casaleone", [H|T]).
-citta([H|T]) :- atom_chars("casalettoceredano", [H|T]).
-citta([H|T]) :- atom_chars("casalettodisopra", [H|T]).
-citta([H|T]) :- atom_chars("casalettolodigiano", [H|T]).
-citta([H|T]) :- atom_chars("casalettospartano", [H|T]).
-citta([H|T]) :- atom_chars("casalettovaprio", [H|T]).
-citta([H|T]) :- atom_chars("casalfiumanese", [H|T]).
-citta([H|T]) :- atom_chars("casalgrande", [H|T]).
-citta([H|T]) :- atom_chars("casalgrasso", [H|T]).
-citta([H|T]) :- atom_chars("casalidelmanco", [H|T]).
-citta([H|T]) :- atom_chars("casalincontrada", [H|T]).
-citta([H|T]) :- atom_chars("casalino", [H|T]).
-citta([H|T]) :- atom_chars("casalmaggiore", [H|T]).
-citta([H|T]) :- atom_chars("casalmaiocco", [H|T]).
-citta([H|T]) :- atom_chars("casalmorano", [H|T]).
-citta([H|T]) :- atom_chars("casalmoro", [H|T]).
-citta([H|T]) :- atom_chars("casalnoceto", [H|T]).
-citta([H|T]) :- atom_chars("casalnuovodinapoli", [H|T]).
-citta([H|T]) :- atom_chars("casalnuovomonterotaro", [H|T]).
-citta([H|T]) :- atom_chars("casaloldo", [H|T]).
-citta([H|T]) :- atom_chars("casalpusterlengo", [H|T]).
-citta([H|T]) :- atom_chars("casalromano", [H|T]).
-citta([H|T]) :- atom_chars("casalserugo", [H|T]).
-citta([H|T]) :- atom_chars("casaluce", [H|T]).
-citta([H|T]) :- atom_chars("casalvecchiodipuglia", [H|T]).
-citta([H|T]) :- atom_chars("casalvecchiosiculo", [H|T]).
-citta([H|T]) :- atom_chars("casalvieri", [H|T]).
-citta([H|T]) :- atom_chars("casalvolone", [H|T]).
-citta([H|T]) :- atom_chars("casalzuigno", [H|T]).
-citta([H|T]) :- atom_chars("casamarciano", [H|T]).
-citta([H|T]) :- atom_chars("casamassima", [H|T]).
-citta([H|T]) :- atom_chars("casamicciolaterme", [H|T]).
-citta([H|T]) :- atom_chars("casandrino", [H|T]).
-citta([H|T]) :- atom_chars("casanovaelvo", [H|T]).
-citta([H|T]) :- atom_chars("casanovalerrone", [H|T]).
-citta([H|T]) :- atom_chars("casanovalonati", [H|T]).
-citta([H|T]) :- atom_chars("casape", [H|T]).
-citta([H|T]) :- atom_chars("casapesenna", [H|T]).
-citta([H|T]) :- atom_chars("casapinta", [H|T]).
-citta([H|T]) :- atom_chars("casaprota", [H|T]).
-citta([H|T]) :- atom_chars("casapulla", [H|T]).
-citta([H|T]) :- atom_chars("casarano", [H|T]).
-citta([H|T]) :- atom_chars("casargo", [H|T]).
-citta([H|T]) :- atom_chars("casarile", [H|T]).
-citta([H|T]) :- atom_chars("casarsadelladelizia", [H|T]).
-citta([H|T]) :- atom_chars("casarzaligure", [H|T]).
-citta([H|T]) :- atom_chars("casasco", [H|T]).
-citta([H|T]) :- atom_chars("casascodintelvi", [H|T]).
-citta([H|T]) :- atom_chars("casatenovo", [H|T]).
-citta([H|T]) :- atom_chars("casatisma", [H|T]).
-citta([H|T]) :- atom_chars("casavatore", [H|T]).
-citta([H|T]) :- atom_chars("casazza", [H|T]).
-citta([H|T]) :- atom_chars("cascia", [H|T]).
-citta([H|T]) :- atom_chars("casciago", [H|T]).
-citta([H|T]) :- atom_chars("cascianatermelari", [H|T]).
-citta([H|T]) :- atom_chars("cascina", [H|T]).
-citta([H|T]) :- atom_chars("cascinettedivrea", [H|T]).
-citta([H|T]) :- atom_chars("caseigerola", [H|T]).
-citta([H|T]) :- atom_chars("caselette", [H|T]).
-citta([H|T]) :- atom_chars("casella", [H|T]).
-citta([H|T]) :- atom_chars("caselleinpittari", [H|T]).
-citta([H|T]) :- atom_chars("casellelandi", [H|T]).
-citta([H|T]) :- atom_chars("casellelurani", [H|T]).
-citta([H|T]) :- atom_chars("caselletorinese", [H|T]).
-citta([H|T]) :- atom_chars("caserta", [H|T]).
-citta([H|T]) :- atom_chars("casier", [H|T]).
-citta([H|T]) :- atom_chars("casignana", [H|T]).
-citta([H|T]) :- atom_chars("casina", [H|T]).
-citta([H|T]) :- atom_chars("casiratedadda", [H|T]).
-citta([H|T]) :- atom_chars("caslinoderba", [H|T]).
-citta([H|T]) :- atom_chars("casnateconbernate", [H|T]).
-citta([H|T]) :- atom_chars("casnigo", [H|T]).
-citta([H|T]) :- atom_chars("casoladinapoli", [H|T]).
-citta([H|T]) :- atom_chars("casolainlunigiana", [H|T]).
-citta([H|T]) :- atom_chars("casolavalsenio", [H|T]).
-citta([H|T]) :- atom_chars("casoledelsa", [H|T]).
-citta([H|T]) :- atom_chars("casoli", [H|T]).
-citta([H|T]) :- atom_chars("casorateprimo", [H|T]).
-citta([H|T]) :- atom_chars("casoratesempione", [H|T]).
-citta([H|T]) :- atom_chars("casorezzo", [H|T]).
-citta([H|T]) :- atom_chars("casoria", [H|T]).
-citta([H|T]) :- atom_chars("casorzo", [H|T]).
-citta([H|T]) :- atom_chars("casperia", [H|T]).
-citta([H|T]) :- atom_chars("caspoggio", [H|T]).
-citta([H|T]) :- atom_chars("cassacco", [H|T]).
-citta([H|T]) :- atom_chars("cassagobrianza", [H|T]).
-citta([H|T]) :- atom_chars("cassanoallionio", [H|T]).
-citta([H|T]) :- atom_chars("cassanodadda", [H|T]).
-citta([H|T]) :- atom_chars("cassanodellemurge", [H|T]).
-citta([H|T]) :- atom_chars("cassanoirpino", [H|T]).
-citta([H|T]) :- atom_chars("cassanomagnago", [H|T]).
-citta([H|T]) :- atom_chars("cassanospinola", [H|T]).
-citta([H|T]) :- atom_chars("cassanovalcuvia", [H|T]).
-citta([H|T]) :- atom_chars("cassaro", [H|T]).
-citta([H|T]) :- atom_chars("cassiglio", [H|T]).
-citta([H|T]) :- atom_chars("cassinadepecchi", [H|T]).
-citta([H|T]) :- atom_chars("cassinarizzardi", [H|T]).
-citta([H|T]) :- atom_chars("cassinavalsassina", [H|T]).
-citta([H|T]) :- atom_chars("cassinasco", [H|T]).
-citta([H|T]) :- atom_chars("cassine", [H|T]).
-citta([H|T]) :- atom_chars("cassinelle", [H|T]).
-citta([H|T]) :- atom_chars("cassinettadilugagnano", [H|T]).
-citta([H|T]) :- atom_chars("cassino", [H|T]).
-citta([H|T]) :- atom_chars("cassola", [H|T]).
-citta([H|T]) :- atom_chars("cassolnovo", [H|T]).
-citta([H|T]) :- atom_chars("castagnaro", [H|T]).
-citta([H|T]) :- atom_chars("castagnetocarducci", [H|T]).
-citta([H|T]) :- atom_chars("castagnetopo", [H|T]).
-citta([H|T]) :- atom_chars("castagnito", [H|T]).
-citta([H|T]) :- atom_chars("castagnoledellelanze", [H|T]).
-citta([H|T]) :- atom_chars("castagnolemonferrato", [H|T]).
-citta([H|T]) :- atom_chars("castagnolepiemonte", [H|T]).
-citta([H|T]) :- atom_chars("castana", [H|T]).
-citta([H|T]) :- atom_chars("castanoprimo", [H|T]).
-citta([H|T]) :- atom_chars("casteggio", [H|T]).
-citta([H|T]) :- atom_chars("castegnato", [H|T]).
-citta([H|T]) :- atom_chars("castegnero", [H|T]).
-citta([H|T]) :- atom_chars("castelbaronia", [H|T]).
-citta([H|T]) :- atom_chars("castelboglione", [H|T]).
-citta([H|T]) :- atom_chars("castelbolognese", [H|T]).
-citta([H|T]) :- atom_chars("castelcampagnano", [H|T]).
-citta([H|T]) :- atom_chars("castelcastagna", [H|T]).
-citta([H|T]) :- atom_chars("castelcondino", [H|T]).
-citta([H|T]) :- atom_chars("casteldaiano", [H|T]).
-citta([H|T]) :- atom_chars("casteldario", [H|T]).
-citta([H|T]) :- atom_chars("casteldazzano", [H|T]).
-citta([H|T]) :- atom_chars("casteldelgiudice", [H|T]).
-citta([H|T]) :- atom_chars("casteldelmonte", [H|T]).
-citta([H|T]) :- atom_chars("casteldelpiano", [H|T]).
-citta([H|T]) :- atom_chars("casteldelrio", [H|T]).
-citta([H|T]) :- atom_chars("casteldicasio", [H|T]).
-citta([H|T]) :- atom_chars("casteldiieri", [H|T]).
-citta([H|T]) :- atom_chars("casteldiiudica", [H|T]).
-citta([H|T]) :- atom_chars("casteldilama", [H|T]).
-citta([H|T]) :- atom_chars("casteldilucio", [H|T]).
-citta([H|T]) :- atom_chars("casteldisangro", [H|T]).
-citta([H|T]) :- atom_chars("casteldisasso", [H|T]).
-citta([H|T]) :- atom_chars("castelditora", [H|T]).
-citta([H|T]) :- atom_chars("castelfocognano", [H|T]).
-citta([H|T]) :- atom_chars("castelfrentano", [H|T]).
-citta([H|T]) :- atom_chars("castelgabbiano", [H|T]).
-citta([H|T]) :- atom_chars("castelgandolfo", [H|T]).
-citta([H|T]) :- atom_chars("castelgiorgio", [H|T]).
-citta([H|T]) :- atom_chars("castelgoffredo", [H|T]).
-citta([H|T]) :- atom_chars("castelguelfodibologna", [H|T]).
-citta([H|T]) :- atom_chars("castelivano", [H|T]).
-citta([H|T]) :- atom_chars("castelmadama", [H|T]).
-citta([H|T]) :- atom_chars("castelmaggiore", [H|T]).
-citta([H|T]) :- atom_chars("castelmella", [H|T]).
-citta([H|T]) :- atom_chars("castelmorrone", [H|T]).
-citta([H|T]) :- atom_chars("castelritaldi", [H|T]).
-citta([H|T]) :- atom_chars("castelrocchero", [H|T]).
-citta([H|T]) :- atom_chars("castelrozzone", [H|T]).
-citta([H|T]) :- atom_chars("castelsangiorgio", [H|T]).
-citta([H|T]) :- atom_chars("castelsangiovanni", [H|T]).
-citta([H|T]) :- atom_chars("castelsanlorenzo", [H|T]).
-citta([H|T]) :- atom_chars("castelsanniccolo", [H|T]).
-citta([H|T]) :- atom_chars("castelsanpietroromano", [H|T]).
-citta([H|T]) :- atom_chars("castelsanpietroterme", [H|T]).
-citta([H|T]) :- atom_chars("castelsanvincenzo", [H|T]).
-citta([H|T]) :- atom_chars("castelsantangelo", [H|T]).
-citta([H|T]) :- atom_chars("castelsantelia", [H|T]).
-citta([H|T]) :- atom_chars("castelviscardo", [H|T]).
-citta([H|T]) :- atom_chars("castelvittorio", [H|T]).
-citta([H|T]) :- atom_chars("castelvolturno", [H|T]).
-citta([H|T]) :- atom_chars("castelbaldo", [H|T]).
-citta([H|T]) :- atom_chars("castelbelforte", [H|T]).
-citta([H|T]) :- atom_chars("castelbellino", [H|T]).
-citta([H|T]) :- atom_chars("castelbello-ciardes/kastelbell-tschars", [H|T]).
-citta([H|T]) :- atom_chars("castelbianco", [H|T]).
-citta([H|T]) :- atom_chars("castelbottaccio", [H|T]).
-citta([H|T]) :- atom_chars("castelbuono", [H|T]).
-citta([H|T]) :- atom_chars("castelcivita", [H|T]).
-citta([H|T]) :- atom_chars("castelcovati", [H|T]).
-citta([H|T]) :- atom_chars("castelcucco", [H|T]).
-citta([H|T]) :- atom_chars("casteldaccia", [H|T]).
-citta([H|T]) :- atom_chars("casteldelci", [H|T]).
-citta([H|T]) :- atom_chars("casteldelfino", [H|T]).
-citta([H|T]) :- atom_chars("casteldidone", [H|T]).
-citta([H|T]) :- atom_chars("castelfidardo", [H|T]).
-citta([H|T]) :- atom_chars("castelfiorentino", [H|T]).
-citta([H|T]) :- atom_chars("castelfondo", [H|T]).
-citta([H|T]) :- atom_chars("castelforte", [H|T]).
-citta([H|T]) :- atom_chars("castelfranci", [H|T]).
-citta([H|T]) :- atom_chars("castelfrancodisotto", [H|T]).
-citta([H|T]) :- atom_chars("castelfrancoemilia", [H|T]).
-citta([H|T]) :- atom_chars("castelfrancoinmiscano", [H|T]).
-citta([H|T]) :- atom_chars("castelfrancopiandisco", [H|T]).
-citta([H|T]) :- atom_chars("castelfrancoveneto", [H|T]).
-citta([H|T]) :- atom_chars("castelgomberto", [H|T]).
-citta([H|T]) :- atom_chars("castelgrande", [H|T]).
-citta([H|T]) :- atom_chars("castelguglielmo", [H|T]).
-citta([H|T]) :- atom_chars("castelguidone", [H|T]).
-citta([H|T]) :- atom_chars("castellabate", [H|T]).
-citta([H|T]) :- atom_chars("castellafiume", [H|T]).
-citta([H|T]) :- atom_chars("castellalfero", [H|T]).
-citta([H|T]) :- atom_chars("castellalto", [H|T]).
-citta([H|T]) :- atom_chars("castellammaredelgolfo", [H|T]).
-citta([H|T]) :- atom_chars("castellammaredistabia", [H|T]).
-citta([H|T]) :- atom_chars("castellamonte", [H|T]).
-citta([H|T]) :- atom_chars("castellanagrotte", [H|T]).
-citta([H|T]) :- atom_chars("castellanasicula", [H|T]).
-citta([H|T]) :- atom_chars("castellaneta", [H|T]).
-citta([H|T]) :- atom_chars("castellania", [H|T]).
-citta([H|T]) :- atom_chars("castellanza", [H|T]).
-citta([H|T]) :- atom_chars("castellar", [H|T]).
-citta([H|T]) :- atom_chars("castellarguidobono", [H|T]).
-citta([H|T]) :- atom_chars("castellarano", [H|T]).
-citta([H|T]) :- atom_chars("castellaro", [H|T]).
-citta([H|T]) :- atom_chars("castellarquato", [H|T]).
-citta([H|T]) :- atom_chars("castellazzara", [H|T]).
-citta([H|T]) :- atom_chars("castellazzobormida", [H|T]).
-citta([H|T]) :- atom_chars("castellazzonovarese", [H|T]).
-citta([H|T]) :- atom_chars("castelleone", [H|T]).
-citta([H|T]) :- atom_chars("castelleonedisuasa", [H|T]).
-citta([H|T]) :- atom_chars("castellero", [H|T]).
-citta([H|T]) :- atom_chars("castellettocervo", [H|T]).
-citta([H|T]) :- atom_chars("castellettoderro", [H|T]).
-citta([H|T]) :- atom_chars("castellettodibranduzzo", [H|T]).
-citta([H|T]) :- atom_chars("castellettodorba", [H|T]).
-citta([H|T]) :- atom_chars("castellettomerli", [H|T]).
-citta([H|T]) :- atom_chars("castellettomolina", [H|T]).
-citta([H|T]) :- atom_chars("castellettomonferrato", [H|T]).
-citta([H|T]) :- atom_chars("castellettosopraticino", [H|T]).
-citta([H|T]) :- atom_chars("castellettostura", [H|T]).
-citta([H|T]) :- atom_chars("castellettouzzone", [H|T]).
-citta([H|T]) :- atom_chars("castelli", [H|T]).
-citta([H|T]) :- atom_chars("castellicalepio", [H|T]).
-citta([H|T]) :- atom_chars("castellinainchianti", [H|T]).
-citta([H|T]) :- atom_chars("castellinamarittima", [H|T]).
-citta([H|T]) :- atom_chars("castellinaldodalba", [H|T]).
-citta([H|T]) :- atom_chars("castellinodelbiferno", [H|T]).
-citta([H|T]) :- atom_chars("castellinotanaro", [H|T]).
-citta([H|T]) :- atom_chars("castelliri", [H|T]).
-citta([H|T]) :- atom_chars("castellocabiaglio", [H|T]).
-citta([H|T]) :- atom_chars("castellodagogna", [H|T]).
-citta([H|T]) :- atom_chars("castellodargile", [H|T]).
-citta([H|T]) :- atom_chars("castellodelmatese", [H|T]).
-citta([H|T]) :- atom_chars("castellodellacqua", [H|T]).
-citta([H|T]) :- atom_chars("castellodiannone", [H|T]).
-citta([H|T]) :- atom_chars("castellodibrianza", [H|T]).
-citta([H|T]) :- atom_chars("castellodicisterna", [H|T]).
-citta([H|T]) :- atom_chars("castellodigodego", [H|T]).
-citta([H|T]) :- atom_chars("castellotesino", [H|T]).
-citta([H|T]) :- atom_chars("castello-molinadifiemme", [H|T]).
-citta([H|T]) :- atom_chars("castellucchio", [H|T]).
-citta([H|T]) :- atom_chars("castellucciodeisauri", [H|T]).
-citta([H|T]) :- atom_chars("castelluccioinferiore", [H|T]).
-citta([H|T]) :- atom_chars("castellucciosuperiore", [H|T]).
-citta([H|T]) :- atom_chars("castellucciovalmaggiore", [H|T]).
-citta([H|T]) :- atom_chars("castellumberto", [H|T]).
-citta([H|T]) :- atom_chars("castelmagno", [H|T]).
-citta([H|T]) :- atom_chars("castelmarte", [H|T]).
-citta([H|T]) :- atom_chars("castelmassa", [H|T]).
-citta([H|T]) :- atom_chars("castelmauro", [H|T]).
-citta([H|T]) :- atom_chars("castelmezzano", [H|T]).
-citta([H|T]) :- atom_chars("castelmola", [H|T]).
-citta([H|T]) :- atom_chars("castelnovetto", [H|T]).
-citta([H|T]) :- atom_chars("castelnovobariano", [H|T]).
-citta([H|T]) :- atom_chars("castelnovodelfriuli", [H|T]).
-citta([H|T]) :- atom_chars("castelnovodisotto", [H|T]).
-citta([H|T]) :- atom_chars("castelnovonemonti", [H|T]).
-citta([H|T]) :- atom_chars("castelnuovo", [H|T]).
-citta([H|T]) :- atom_chars("castelnuovobelbo", [H|T]).
-citta([H|T]) :- atom_chars("castelnuovoberardenga", [H|T]).
-citta([H|T]) :- atom_chars("castelnuovoboccadadda", [H|T]).
-citta([H|T]) :- atom_chars("castelnuovobormida", [H|T]).
-citta([H|T]) :- atom_chars("castelnuovobozzente", [H|T]).
-citta([H|T]) :- atom_chars("castelnuovocalcea", [H|T]).
-citta([H|T]) :- atom_chars("castelnuovocilento", [H|T]).
-citta([H|T]) :- atom_chars("castelnuovodelgarda", [H|T]).
-citta([H|T]) :- atom_chars("castelnuovodelladaunia", [H|T]).
-citta([H|T]) :- atom_chars("castelnuovodiceva", [H|T]).
-citta([H|T]) :- atom_chars("castelnuovodiconza", [H|T]).
-citta([H|T]) :- atom_chars("castelnuovodifarfa", [H|T]).
-citta([H|T]) :- atom_chars("castelnuovodigarfagnana", [H|T]).
-citta([H|T]) :- atom_chars("castelnuovodiporto", [H|T]).
-citta([H|T]) :- atom_chars("castelnuovodivaldicecina", [H|T]).
-citta([H|T]) :- atom_chars("castelnuovodonbosco", [H|T]).
-citta([H|T]) :- atom_chars("castelnuovomagra", [H|T]).
-citta([H|T]) :- atom_chars("castelnuovonigra", [H|T]).
-citta([H|T]) :- atom_chars("castelnuovoparano", [H|T]).
-citta([H|T]) :- atom_chars("castelnuovorangone", [H|T]).
-citta([H|T]) :- atom_chars("castelnuovoscrivia", [H|T]).
-citta([H|T]) :- atom_chars("castelpagano", [H|T]).
-citta([H|T]) :- atom_chars("castelpetroso", [H|T]).
-citta([H|T]) :- atom_chars("castelpizzuto", [H|T]).
-citta([H|T]) :- atom_chars("castelplanio", [H|T]).
-citta([H|T]) :- atom_chars("castelpoto", [H|T]).
-citta([H|T]) :- atom_chars("castelraimondo", [H|T]).
-citta([H|T]) :- atom_chars("castelrotto/kastelruth", [H|T]).
-citta([H|T]) :- atom_chars("castelsantangelosulnera", [H|T]).
-citta([H|T]) :- atom_chars("castelsaraceno", [H|T]).
-citta([H|T]) :- atom_chars("castelsardo", [H|T]).
-citta([H|T]) :- atom_chars("castelseprio", [H|T]).
-citta([H|T]) :- atom_chars("castelsilano", [H|T]).
-citta([H|T]) :- atom_chars("castelspina", [H|T]).
-citta([H|T]) :- atom_chars("casteltermini", [H|T]).
-citta([H|T]) :- atom_chars("castelveccana", [H|T]).
-citta([H|T]) :- atom_chars("castelvecchiocalvisio", [H|T]).
-citta([H|T]) :- atom_chars("castelvecchiodiroccabarbena", [H|T]).
-citta([H|T]) :- atom_chars("castelvecchiosubequo", [H|T]).
-citta([H|T]) :- atom_chars("castelvenere", [H|T]).
-citta([H|T]) :- atom_chars("castelverde", [H|T]).
-citta([H|T]) :- atom_chars("castelverrino", [H|T]).
-citta([H|T]) :- atom_chars("castelvetereinvalfortore", [H|T]).
-citta([H|T]) :- atom_chars("castelveteresulcalore", [H|T]).
-citta([H|T]) :- atom_chars("castelvetrano", [H|T]).
-citta([H|T]) :- atom_chars("castelvetrodimodena", [H|T]).
-citta([H|T]) :- atom_chars("castelvetropiacentino", [H|T]).
-citta([H|T]) :- atom_chars("castelvisconti", [H|T]).
-citta([H|T]) :- atom_chars("castenaso", [H|T]).
-citta([H|T]) :- atom_chars("castenedolo", [H|T]).
-citta([H|T]) :- atom_chars("castiadas", [H|T]).
-citta([H|T]) :- atom_chars("castiglionfibocchi", [H|T]).
-citta([H|T]) :- atom_chars("castiglionfiorentino", [H|T]).
-citta([H|T]) :- atom_chars("castiglioneacasauria", [H|T]).
-citta([H|T]) :- atom_chars("castiglionechiavarese", [H|T]).
-citta([H|T]) :- atom_chars("castiglionecosentino", [H|T]).
-citta([H|T]) :- atom_chars("castiglionedadda", [H|T]).
-citta([H|T]) :- atom_chars("castiglionedeipepoli", [H|T]).
-citta([H|T]) :- atom_chars("castiglionedelgenovesi", [H|T]).
-citta([H|T]) :- atom_chars("castiglionedellago", [H|T]).
-citta([H|T]) :- atom_chars("castiglionedellapescaia", [H|T]).
-citta([H|T]) :- atom_chars("castiglionedellestiviere", [H|T]).
-citta([H|T]) :- atom_chars("castiglionedigarfagnana", [H|T]).
-citta([H|T]) :- atom_chars("castiglionedisicilia", [H|T]).
-citta([H|T]) :- atom_chars("castiglionedintelvi", [H|T]).
-citta([H|T]) :- atom_chars("castiglionedorcia", [H|T]).
-citta([H|T]) :- atom_chars("castiglionefalletto", [H|T]).
-citta([H|T]) :- atom_chars("castiglioneinteverina", [H|T]).
-citta([H|T]) :- atom_chars("castiglionemessermarino", [H|T]).
-citta([H|T]) :- atom_chars("castiglionemesserraimondo", [H|T]).
-citta([H|T]) :- atom_chars("castiglioneolona", [H|T]).
-citta([H|T]) :- atom_chars("castiglionetinella", [H|T]).
-citta([H|T]) :- atom_chars("castiglionetorinese", [H|T]).
-citta([H|T]) :- atom_chars("castignano", [H|T]).
-citta([H|T]) :- atom_chars("castilenti", [H|T]).
-citta([H|T]) :- atom_chars("castino", [H|T]).
-citta([H|T]) :- atom_chars("castioneandevenno", [H|T]).
-citta([H|T]) :- atom_chars("castionedellapresolana", [H|T]).
-citta([H|T]) :- atom_chars("castionsdistrada", [H|T]).
-citta([H|T]) :- atom_chars("castiragavidardo", [H|T]).
-citta([H|T]) :- atom_chars("casto", [H|T]).
-citta([H|T]) :- atom_chars("castorano", [H|T]).
-citta([H|T]) :- atom_chars("castrezzato", [H|T]).
-citta([H|T]) :- atom_chars("castridilecce", [H|T]).
-citta([H|T]) :- atom_chars("castrignanodegreci", [H|T]).
-citta([H|T]) :- atom_chars("castrignanodelcapo", [H|T]).
-citta([H|T]) :- atom_chars("castro", [H|T]).
-citta([H|T]) :- atom_chars("castro", [H|T]).
-citta([H|T]) :- atom_chars("castrodeivolsci", [H|T]).
-citta([H|T]) :- atom_chars("castrocarotermeeterradelsole", [H|T]).
-citta([H|T]) :- atom_chars("castrocielo", [H|T]).
-citta([H|T]) :- atom_chars("castrofilippo", [H|T]).
-citta([H|T]) :- atom_chars("castrolibero", [H|T]).
-citta([H|T]) :- atom_chars("castronno", [H|T]).
-citta([H|T]) :- atom_chars("castronovodisicilia", [H|T]).
-citta([H|T]) :- atom_chars("castronuovodisantandrea", [H|T]).
-citta([H|T]) :- atom_chars("castropignano", [H|T]).
-citta([H|T]) :- atom_chars("castroreale", [H|T]).
-citta([H|T]) :- atom_chars("castroregio", [H|T]).
-citta([H|T]) :- atom_chars("castrovillari", [H|T]).
-citta([H|T]) :- atom_chars("catania", [H|T]).
-citta([H|T]) :- atom_chars("catanzaro", [H|T]).
-citta([H|T]) :- atom_chars("catenanuova", [H|T]).
-citta([H|T]) :- atom_chars("catignano", [H|T]).
-citta([H|T]) :- atom_chars("cattolica", [H|T]).
-citta([H|T]) :- atom_chars("cattolicaeraclea", [H|T]).
-citta([H|T]) :- atom_chars("caulonia", [H|T]).
-citta([H|T]) :- atom_chars("cautano", [H|T]).
-citta([H|T]) :- atom_chars("cavadetirreni", [H|T]).
-citta([H|T]) :- atom_chars("cavamanara", [H|T]).
-citta([H|T]) :- atom_chars("cavacurta", [H|T]).
-citta([H|T]) :- atom_chars("cavaglia", [H|T]).
-citta([H|T]) :- atom_chars("cavaglietto", [H|T]).
-citta([H|T]) :- atom_chars("cavagliodagogna", [H|T]).
-citta([H|T]) :- atom_chars("cavaglio-spoccia", [H|T]).
-citta([H|T]) :- atom_chars("cavagnolo", [H|T]).
-citta([H|T]) :- atom_chars("cavaionveronese", [H|T]).
-citta([H|T]) :- atom_chars("cavalese", [H|T]).
-citta([H|T]) :- atom_chars("cavallerleone", [H|T]).
-citta([H|T]) :- atom_chars("cavallermaggiore", [H|T]).
-citta([H|T]) :- atom_chars("cavallino", [H|T]).
-citta([H|T]) :- atom_chars("cavallino-treporti", [H|T]).
-citta([H|T]) :- atom_chars("cavallirio", [H|T]).
-citta([H|T]) :- atom_chars("cavareno", [H|T]).
-citta([H|T]) :- atom_chars("cavargna", [H|T]).
-citta([H|T]) :- atom_chars("cavariaconpremezzo", [H|T]).
-citta([H|T]) :- atom_chars("cavarzere", [H|T]).
-citta([H|T]) :- atom_chars("cavasodeltomba", [H|T]).
-citta([H|T]) :- atom_chars("cavassonuovo", [H|T]).
-citta([H|T]) :- atom_chars("cavatore", [H|T]).
-citta([H|T]) :- atom_chars("cavazzocarnico", [H|T]).
-citta([H|T]) :- atom_chars("cave", [H|T]).
-citta([H|T]) :- atom_chars("cavedago", [H|T]).
-citta([H|T]) :- atom_chars("cavedine", [H|T]).
-citta([H|T]) :- atom_chars("cavenagodadda", [H|T]).
-citta([H|T]) :- atom_chars("cavenagodibrianza", [H|T]).
-citta([H|T]) :- atom_chars("cavernago", [H|T]).
-citta([H|T]) :- atom_chars("cavezzo", [H|T]).
-citta([H|T]) :- atom_chars("cavizzana", [H|T]).
-citta([H|T]) :- atom_chars("cavour", [H|T]).
-citta([H|T]) :- atom_chars("cavriago", [H|T]).
-citta([H|T]) :- atom_chars("cavriana", [H|T]).
-citta([H|T]) :- atom_chars("cavriglia", [H|T]).
-citta([H|T]) :- atom_chars("cazzagobrabbia", [H|T]).
-citta([H|T]) :- atom_chars("cazzagosanmartino", [H|T]).
-citta([H|T]) :- atom_chars("cazzanoditramigna", [H|T]).
-citta([H|T]) :- atom_chars("cazzanosantandrea", [H|T]).
-citta([H|T]) :- atom_chars("ceccano", [H|T]).
-citta([H|T]) :- atom_chars("cecima", [H|T]).
-citta([H|T]) :- atom_chars("cecina", [H|T]).
-citta([H|T]) :- atom_chars("cedegolo", [H|T]).
-citta([H|T]) :- atom_chars("cedrasco", [H|T]).
-citta([H|T]) :- atom_chars("cefaladiana", [H|T]).
-citta([H|T]) :- atom_chars("cefalu", [H|T]).
-citta([H|T]) :- atom_chars("ceggia", [H|T]).
-citta([H|T]) :- atom_chars("cegliemessapica", [H|T]).
-citta([H|T]) :- atom_chars("celano", [H|T]).
-citta([H|T]) :- atom_chars("celenzasultrigno", [H|T]).
-citta([H|T]) :- atom_chars("celenzavalfortore", [H|T]).
-citta([H|T]) :- atom_chars("celico", [H|T]).
-citta([H|T]) :- atom_chars("celladati", [H|T]).
-citta([H|T]) :- atom_chars("cellamonte", [H|T]).
-citta([H|T]) :- atom_chars("cellamare", [H|T]).
-citta([H|T]) :- atom_chars("cellara", [H|T]).
-citta([H|T]) :- atom_chars("cellarengo", [H|T]).
-citta([H|T]) :- atom_chars("cellatica", [H|T]).
-citta([H|T]) :- atom_chars("celledibulgheria", [H|T]).
-citta([H|T]) :- atom_chars("celledimacra", [H|T]).
-citta([H|T]) :- atom_chars("celledisanvito", [H|T]).
-citta([H|T]) :- atom_chars("celleenomondo", [H|T]).
-citta([H|T]) :- atom_chars("celleligure", [H|T]).
-citta([H|T]) :- atom_chars("celleno", [H|T]).
-citta([H|T]) :- atom_chars("cellere", [H|T]).
-citta([H|T]) :- atom_chars("cellinoattanasio", [H|T]).
-citta([H|T]) :- atom_chars("cellinosanmarco", [H|T]).
-citta([H|T]) :- atom_chars("cellio", [H|T]).
-citta([H|T]) :- atom_chars("cellole", [H|T]).
-citta([H|T]) :- atom_chars("cembralisignago", [H|T]).
-citta([H|T]) :- atom_chars("cenadi", [H|T]).
-citta([H|T]) :- atom_chars("cenatesopra", [H|T]).
-citta([H|T]) :- atom_chars("cenatesotto", [H|T]).
-citta([H|T]) :- atom_chars("cencenigheagordino", [H|T]).
-citta([H|T]) :- atom_chars("cene", [H|T]).
-citta([H|T]) :- atom_chars("ceneselli", [H|T]).
-citta([H|T]) :- atom_chars("cengio", [H|T]).
-citta([H|T]) :- atom_chars("centallo", [H|T]).
-citta([H|T]) :- atom_chars("cento", [H|T]).
-citta([H|T]) :- atom_chars("centola", [H|T]).
-citta([H|T]) :- atom_chars("centrache", [H|T]).
-citta([H|T]) :- atom_chars("centuripe", [H|T]).
-citta([H|T]) :- atom_chars("cepagatti", [H|T]).
-citta([H|T]) :- atom_chars("ceppaloni", [H|T]).
-citta([H|T]) :- atom_chars("ceppomorelli", [H|T]).
-citta([H|T]) :- atom_chars("ceprano", [H|T]).
-citta([H|T]) :- atom_chars("cerami", [H|T]).
-citta([H|T]) :- atom_chars("ceranesi", [H|T]).
-citta([H|T]) :- atom_chars("cerano", [H|T]).
-citta([H|T]) :- atom_chars("ceranodintelvi", [H|T]).
-citta([H|T]) :- atom_chars("ceranova", [H|T]).
-citta([H|T]) :- atom_chars("ceraso", [H|T]).
-citta([H|T]) :- atom_chars("cercemaggiore", [H|T]).
-citta([H|T]) :- atom_chars("cercenasco", [H|T]).
-citta([H|T]) :- atom_chars("cercepiccola", [H|T]).
-citta([H|T]) :- atom_chars("cerchiaradicalabria", [H|T]).
-citta([H|T]) :- atom_chars("cerchio", [H|T]).
-citta([H|T]) :- atom_chars("cercino", [H|T]).
-citta([H|T]) :- atom_chars("cercivento", [H|T]).
-citta([H|T]) :- atom_chars("cercola", [H|T]).
-citta([H|T]) :- atom_chars("cerda", [H|T]).
-citta([H|T]) :- atom_chars("cerea", [H|T]).
-citta([H|T]) :- atom_chars("ceregnano", [H|T]).
-citta([H|T]) :- atom_chars("cerenzia", [H|T]).
-citta([H|T]) :- atom_chars("ceres", [H|T]).
-citta([H|T]) :- atom_chars("ceresara", [H|T]).
-citta([H|T]) :- atom_chars("cereseto", [H|T]).
-citta([H|T]) :- atom_chars("ceresolealba", [H|T]).
-citta([H|T]) :- atom_chars("ceresolereale", [H|T]).
-citta([H|T]) :- atom_chars("cerete", [H|T]).
-citta([H|T]) :- atom_chars("cerettolomellina", [H|T]).
-citta([H|T]) :- atom_chars("cergnago", [H|T]).
-citta([H|T]) :- atom_chars("ceriale", [H|T]).
-citta([H|T]) :- atom_chars("ceriana", [H|T]).
-citta([H|T]) :- atom_chars("cerianolaghetto", [H|T]).
-citta([H|T]) :- atom_chars("cerignale", [H|T]).
-citta([H|T]) :- atom_chars("cerignola", [H|T]).
-citta([H|T]) :- atom_chars("cerisano", [H|T]).
-citta([H|T]) :- atom_chars("cermenate", [H|T]).
-citta([H|T]) :- atom_chars("cermes/tscherms", [H|T]).
-citta([H|T]) :- atom_chars("cermignano", [H|T]).
-citta([H|T]) :- atom_chars("cernobbio", [H|T]).
-citta([H|T]) :- atom_chars("cernuscolombardone", [H|T]).
-citta([H|T]) :- atom_chars("cernuscosulnaviglio", [H|T]).
-citta([H|T]) :- atom_chars("cerretocastello", [H|T]).
-citta([H|T]) :- atom_chars("cerretodasti", [H|T]).
-citta([H|T]) :- atom_chars("cerretodesi", [H|T]).
-citta([H|T]) :- atom_chars("cerretodispoleto", [H|T]).
-citta([H|T]) :- atom_chars("cerretogrue", [H|T]).
-citta([H|T]) :- atom_chars("cerretoguidi", [H|T]).
-citta([H|T]) :- atom_chars("cerretolaziale", [H|T]).
-citta([H|T]) :- atom_chars("cerretosannita", [H|T]).
-citta([H|T]) :- atom_chars("cerrettolanghe", [H|T]).
-citta([H|T]) :- atom_chars("cerrinamonferrato", [H|T]).
-citta([H|T]) :- atom_chars("cerrione", [H|T]).
-citta([H|T]) :- atom_chars("cerroallambro", [H|T]).
-citta([H|T]) :- atom_chars("cerroalvolturno", [H|T]).
-citta([H|T]) :- atom_chars("cerromaggiore", [H|T]).
-citta([H|T]) :- atom_chars("cerrotanaro", [H|T]).
-citta([H|T]) :- atom_chars("cerroveronese", [H|T]).
-citta([H|T]) :- atom_chars("cersosimo", [H|T]).
-citta([H|T]) :- atom_chars("certaldo", [H|T]).
-citta([H|T]) :- atom_chars("certosadipavia", [H|T]).
-citta([H|T]) :- atom_chars("cerva", [H|T]).
-citta([H|T]) :- atom_chars("cervaradiroma", [H|T]).
-citta([H|T]) :- atom_chars("cervaresesantacroce", [H|T]).
-citta([H|T]) :- atom_chars("cervaro", [H|T]).
-citta([H|T]) :- atom_chars("cervasca", [H|T]).
-citta([H|T]) :- atom_chars("cervatto", [H|T]).
-citta([H|T]) :- atom_chars("cerveno", [H|T]).
-citta([H|T]) :- atom_chars("cervere", [H|T]).
-citta([H|T]) :- atom_chars("cervesina", [H|T]).
-citta([H|T]) :- atom_chars("cerveteri", [H|T]).
-citta([H|T]) :- atom_chars("cervia", [H|T]).
-citta([H|T]) :- atom_chars("cervicati", [H|T]).
-citta([H|T]) :- atom_chars("cervignanodadda", [H|T]).
-citta([H|T]) :- atom_chars("cervignanodelfriuli", [H|T]).
-citta([H|T]) :- atom_chars("cervinara", [H|T]).
-citta([H|T]) :- atom_chars("cervino", [H|T]).
-citta([H|T]) :- atom_chars("cervo", [H|T]).
-citta([H|T]) :- atom_chars("cerzeto", [H|T]).
-citta([H|T]) :- atom_chars("cesa", [H|T]).
-citta([H|T]) :- atom_chars("cesanabrianza", [H|T]).
-citta([H|T]) :- atom_chars("cesanatorinese", [H|T]).
-citta([H|T]) :- atom_chars("cesanoboscone", [H|T]).
-citta([H|T]) :- atom_chars("cesanomaderno", [H|T]).
-citta([H|T]) :- atom_chars("cesara", [H|T]).
-citta([H|T]) :- atom_chars("cesaro", [H|T]).
-citta([H|T]) :- atom_chars("cesate", [H|T]).
-citta([H|T]) :- atom_chars("cesena", [H|T]).
-citta([H|T]) :- atom_chars("cesenatico", [H|T]).
-citta([H|T]) :- atom_chars("cesinali", [H|T]).
-citta([H|T]) :- atom_chars("cesio", [H|T]).
-citta([H|T]) :- atom_chars("cesiomaggiore", [H|T]).
-citta([H|T]) :- atom_chars("cessalto", [H|T]).
-citta([H|T]) :- atom_chars("cessaniti", [H|T]).
-citta([H|T]) :- atom_chars("cessapalombo", [H|T]).
-citta([H|T]) :- atom_chars("cessole", [H|T]).
-citta([H|T]) :- atom_chars("cetara", [H|T]).
-citta([H|T]) :- atom_chars("ceto", [H|T]).
-citta([H|T]) :- atom_chars("cetona", [H|T]).
-citta([H|T]) :- atom_chars("cetraro", [H|T]).
-citta([H|T]) :- atom_chars("ceva", [H|T]).
-citta([H|T]) :- atom_chars("cevo", [H|T]).
-citta([H|T]) :- atom_chars("challand-saint-anselme", [H|T]).
-citta([H|T]) :- atom_chars("challand-saint-victor", [H|T]).
-citta([H|T]) :- atom_chars("chambave", [H|T]).
-citta([H|T]) :- atom_chars("chamois", [H|T]).
-citta([H|T]) :- atom_chars("champdepraz", [H|T]).
-citta([H|T]) :- atom_chars("champorcher", [H|T]).
-citta([H|T]) :- atom_chars("charvensod", [H|T]).
-citta([H|T]) :- atom_chars("chatillon", [H|T]).
-citta([H|T]) :- atom_chars("cherasco", [H|T]).
-citta([H|T]) :- atom_chars("cheremule", [H|T]).
-citta([H|T]) :- atom_chars("chialamberto", [H|T]).
-citta([H|T]) :- atom_chars("chiampo", [H|T]).
-citta([H|T]) :- atom_chars("chianche", [H|T]).
-citta([H|T]) :- atom_chars("chiancianoterme", [H|T]).
-citta([H|T]) :- atom_chars("chianni", [H|T]).
-citta([H|T]) :- atom_chars("chianocco", [H|T]).
-citta([H|T]) :- atom_chars("chiaramontegulfi", [H|T]).
-citta([H|T]) :- atom_chars("chiaramonti", [H|T]).
-citta([H|T]) :- atom_chars("chiarano", [H|T]).
-citta([H|T]) :- atom_chars("chiaravalle", [H|T]).
-citta([H|T]) :- atom_chars("chiaravallecentrale", [H|T]).
-citta([H|T]) :- atom_chars("chiari", [H|T]).
-citta([H|T]) :- atom_chars("chiaromonte", [H|T]).
-citta([H|T]) :- atom_chars("chiauci", [H|T]).
-citta([H|T]) :- atom_chars("chiavari", [H|T]).
-citta([H|T]) :- atom_chars("chiavenna", [H|T]).
-citta([H|T]) :- atom_chars("chiaverano", [H|T]).
-citta([H|T]) :- atom_chars("chienes/kiens", [H|T]).
-citta([H|T]) :- atom_chars("chieri", [H|T]).
-citta([H|T]) :- atom_chars("chiesdalpago", [H|T]).
-citta([H|T]) :- atom_chars("chiesainvalmalenco", [H|T]).
-citta([H|T]) :- atom_chars("chiesanuova", [H|T]).
-citta([H|T]) :- atom_chars("chiesinauzzanese", [H|T]).
-citta([H|T]) :- atom_chars("chieti", [H|T]).
-citta([H|T]) :- atom_chars("chieuti", [H|T]).
-citta([H|T]) :- atom_chars("chieve", [H|T]).
-citta([H|T]) :- atom_chars("chignolodisola", [H|T]).
-citta([H|T]) :- atom_chars("chignolopo", [H|T]).
-citta([H|T]) :- atom_chars("chioggia", [H|T]).
-citta([H|T]) :- atom_chars("chiomonte", [H|T]).
-citta([H|T]) :- atom_chars("chions", [H|T]).
-citta([H|T]) :- atom_chars("chiopris-viscone", [H|T]).
-citta([H|T]) :- atom_chars("chitignano", [H|T]).
-citta([H|T]) :- atom_chars("chiuduno", [H|T]).
-citta([H|T]) :- atom_chars("chiuppano", [H|T]).
-citta([H|T]) :- atom_chars("chiuro", [H|T]).
-citta([H|T]) :- atom_chars("chiusadipesio", [H|T]).
-citta([H|T]) :- atom_chars("chiusadisanmichele", [H|T]).
-citta([H|T]) :- atom_chars("chiusasclafani", [H|T]).
-citta([H|T]) :- atom_chars("chiusa/klausen", [H|T]).
-citta([H|T]) :- atom_chars("chiusaforte", [H|T]).
-citta([H|T]) :- atom_chars("chiusanico", [H|T]).
-citta([H|T]) :- atom_chars("chiusanodasti", [H|T]).
-citta([H|T]) :- atom_chars("chiusanodisandomenico", [H|T]).
-citta([H|T]) :- atom_chars("chiusavecchia", [H|T]).
-citta([H|T]) :- atom_chars("chiusdino", [H|T]).
-citta([H|T]) :- atom_chars("chiusi", [H|T]).
-citta([H|T]) :- atom_chars("chiusidellaverna", [H|T]).
-citta([H|T]) :- atom_chars("chivasso", [H|T]).
-citta([H|T]) :- atom_chars("ciampino", [H|T]).
-citta([H|T]) :- atom_chars("cianciana", [H|T]).
-citta([H|T]) :- atom_chars("cibianadicadore", [H|T]).
-citta([H|T]) :- atom_chars("cicagna", [H|T]).
-citta([H|T]) :- atom_chars("cicala", [H|T]).
-citta([H|T]) :- atom_chars("cicciano", [H|T]).
-citta([H|T]) :- atom_chars("cicerale", [H|T]).
-citta([H|T]) :- atom_chars("ciciliano", [H|T]).
-citta([H|T]) :- atom_chars("cicognolo", [H|T]).
-citta([H|T]) :- atom_chars("ciconio", [H|T]).
-citta([H|T]) :- atom_chars("cigliano", [H|T]).
-citta([H|T]) :- atom_chars("ciglie", [H|T]).
-citta([H|T]) :- atom_chars("cigognola", [H|T]).
-citta([H|T]) :- atom_chars("cigole", [H|T]).
-citta([H|T]) :- atom_chars("cilavegna", [H|T]).
-citta([H|T]) :- atom_chars("cimadolmo", [H|T]).
-citta([H|T]) :- atom_chars("cimbergo", [H|T]).
-citta([H|T]) :- atom_chars("cimina", [H|T]).
-citta([H|T]) :- atom_chars("ciminna", [H|T]).
-citta([H|T]) :- atom_chars("cimitile", [H|T]).
-citta([H|T]) :- atom_chars("cimolais", [H|T]).
-citta([H|T]) :- atom_chars("cimone", [H|T]).
-citta([H|T]) :- atom_chars("cinaglio", [H|T]).
-citta([H|T]) :- atom_chars("cinetoromano", [H|T]).
-citta([H|T]) :- atom_chars("cingiadebotti", [H|T]).
-citta([H|T]) :- atom_chars("cingoli", [H|T]).
-citta([H|T]) :- atom_chars("cinigiano", [H|T]).
-citta([H|T]) :- atom_chars("cinisellobalsamo", [H|T]).
-citta([H|T]) :- atom_chars("cinisi", [H|T]).
-citta([H|T]) :- atom_chars("cino", [H|T]).
-citta([H|T]) :- atom_chars("cinquefrondi", [H|T]).
-citta([H|T]) :- atom_chars("cintano", [H|T]).
-citta([H|T]) :- atom_chars("cintetesino", [H|T]).
-citta([H|T]) :- atom_chars("cintocaomaggiore", [H|T]).
-citta([H|T]) :- atom_chars("cintoeuganeo", [H|T]).
-citta([H|T]) :- atom_chars("cinzano", [H|T]).
-citta([H|T]) :- atom_chars("ciorlano", [H|T]).
-citta([H|T]) :- atom_chars("cipressa", [H|T]).
-citta([H|T]) :- atom_chars("circello", [H|T]).
-citta([H|T]) :- atom_chars("cirie", [H|T]).
-citta([H|T]) :- atom_chars("cirigliano", [H|T]).
-citta([H|T]) :- atom_chars("cirimido", [H|T]).
-citta([H|T]) :- atom_chars("ciro", [H|T]).
-citta([H|T]) :- atom_chars("ciromarina", [H|T]).
-citta([H|T]) :- atom_chars("cis", [H|T]).
-citta([H|T]) :- atom_chars("cisanobergamasco", [H|T]).
-citta([H|T]) :- atom_chars("cisanosulneva", [H|T]).
-citta([H|T]) :- atom_chars("ciserano", [H|T]).
-citta([H|T]) :- atom_chars("cislago", [H|T]).
-citta([H|T]) :- atom_chars("cisliano", [H|T]).
-citta([H|T]) :- atom_chars("cismondelgrappa", [H|T]).
-citta([H|T]) :- atom_chars("cisondivalmarino", [H|T]).
-citta([H|T]) :- atom_chars("cissone", [H|T]).
-citta([H|T]) :- atom_chars("cisternadasti", [H|T]).
-citta([H|T]) :- atom_chars("cisternadilatina", [H|T]).
-citta([H|T]) :- atom_chars("cisternino", [H|T]).
-citta([H|T]) :- atom_chars("citerna", [H|T]).
-citta([H|T]) :- atom_chars("cittadellapieve", [H|T]).
-citta([H|T]) :- atom_chars("cittadicastello", [H|T]).
-citta([H|T]) :- atom_chars("cittasantangelo", [H|T]).
-citta([H|T]) :- atom_chars("cittadella", [H|T]).
-citta([H|T]) :- atom_chars("cittaducale", [H|T]).
-citta([H|T]) :- atom_chars("cittanova", [H|T]).
-citta([H|T]) :- atom_chars("cittareale", [H|T]).
-citta([H|T]) :- atom_chars("cittiglio", [H|T]).
-citta([H|T]) :- atom_chars("civate", [H|T]).
-citta([H|T]) :- atom_chars("civezza", [H|T]).
-citta([H|T]) :- atom_chars("civezzano", [H|T]).
-citta([H|T]) :- atom_chars("civiasco", [H|T]).
-citta([H|T]) :- atom_chars("cividaledelfriuli", [H|T]).
-citta([H|T]) :- atom_chars("cividatealpiano", [H|T]).
-citta([H|T]) :- atom_chars("cividatecamuno", [H|T]).
-citta([H|T]) :- atom_chars("civita", [H|T]).
-citta([H|T]) :- atom_chars("civitacastellana", [H|T]).
-citta([H|T]) :- atom_chars("civitadantino", [H|T]).
-citta([H|T]) :- atom_chars("civitacampomarano", [H|T]).
-citta([H|T]) :- atom_chars("civitaluparella", [H|T]).
-citta([H|T]) :- atom_chars("civitanovadelsannio", [H|T]).
-citta([H|T]) :- atom_chars("civitanovamarche", [H|T]).
-citta([H|T]) :- atom_chars("civitaquana", [H|T]).
-citta([H|T]) :- atom_chars("civitavecchia", [H|T]).
-citta([H|T]) :- atom_chars("civitellaalfedena", [H|T]).
-citta([H|T]) :- atom_chars("civitellacasanova", [H|T]).
-citta([H|T]) :- atom_chars("civitelladagliano", [H|T]).
-citta([H|T]) :- atom_chars("civitelladeltronto", [H|T]).
-citta([H|T]) :- atom_chars("civitelladiromagna", [H|T]).
-citta([H|T]) :- atom_chars("civitellainvaldichiana", [H|T]).
-citta([H|T]) :- atom_chars("civitellamesserraimondo", [H|T]).
-citta([H|T]) :- atom_chars("civitellapaganico", [H|T]).
-citta([H|T]) :- atom_chars("civitellaroveto", [H|T]).
-citta([H|T]) :- atom_chars("civitellasanpaolo", [H|T]).
-citta([H|T]) :- atom_chars("civo", [H|T]).
-citta([H|T]) :- atom_chars("clainoconosteno", [H|T]).
-citta([H|T]) :- atom_chars("claut", [H|T]).
-citta([H|T]) :- atom_chars("clauzetto", [H|T]).
-citta([H|T]) :- atom_chars("clavesana", [H|T]).
-citta([H|T]) :- atom_chars("claviere", [H|T]).
-citta([H|T]) :- atom_chars("cles", [H|T]).
-citta([H|T]) :- atom_chars("cleto", [H|T]).
-citta([H|T]) :- atom_chars("clivio", [H|T]).
-citta([H|T]) :- atom_chars("cloz", [H|T]).
-citta([H|T]) :- atom_chars("clusone", [H|T]).
-citta([H|T]) :- atom_chars("coassolotorinese", [H|T]).
-citta([H|T]) :- atom_chars("coazze", [H|T]).
-citta([H|T]) :- atom_chars("coazzolo", [H|T]).
-citta([H|T]) :- atom_chars("coccaglio", [H|T]).
-citta([H|T]) :- atom_chars("cocconato", [H|T]).
-citta([H|T]) :- atom_chars("cocquio-trevisago", [H|T]).
-citta([H|T]) :- atom_chars("cocullo", [H|T]).
-citta([H|T]) :- atom_chars("codevigo", [H|T]).
-citta([H|T]) :- atom_chars("codevilla", [H|T]).
-citta([H|T]) :- atom_chars("codigoro", [H|T]).
-citta([H|T]) :- atom_chars("codogne", [H|T]).
-citta([H|T]) :- atom_chars("codogno", [H|T]).
-citta([H|T]) :- atom_chars("codroipo", [H|T]).
-citta([H|T]) :- atom_chars("codrongianos", [H|T]).
-citta([H|T]) :- atom_chars("coggiola", [H|T]).
-citta([H|T]) :- atom_chars("cogliate", [H|T]).
-citta([H|T]) :- atom_chars("cogne", [H|T]).
-citta([H|T]) :- atom_chars("cogoleto", [H|T]).
-citta([H|T]) :- atom_chars("cogollodelcengio", [H|T]).
-citta([H|T]) :- atom_chars("cogorno", [H|T]).
-citta([H|T]) :- atom_chars("colazza", [H|T]).
-citta([H|T]) :- atom_chars("colere", [H|T]).
-citta([H|T]) :- atom_chars("colfelice", [H|T]).
-citta([H|T]) :- atom_chars("coli", [H|T]).
-citta([H|T]) :- atom_chars("colico", [H|T]).
-citta([H|T]) :- atom_chars("collaltosabino", [H|T]).
-citta([H|T]) :- atom_chars("collarmele", [H|T]).
-citta([H|T]) :- atom_chars("collazzone", [H|T]).
-citta([H|T]) :- atom_chars("collebrianza", [H|T]).
-citta([H|T]) :- atom_chars("colledanchise", [H|T]).
-citta([H|T]) :- atom_chars("colleditora", [H|T]).
-citta([H|T]) :- atom_chars("colledivaldelsa", [H|T]).
-citta([H|T]) :- atom_chars("collesanmagno", [H|T]).
-citta([H|T]) :- atom_chars("collesannita", [H|T]).
-citta([H|T]) :- atom_chars("collesantalucia", [H|T]).
-citta([H|T]) :- atom_chars("colleumberto", [H|T]).
-citta([H|T]) :- atom_chars("collebeato", [H|T]).
-citta([H|T]) :- atom_chars("collecchio", [H|T]).
-citta([H|T]) :- atom_chars("collecorvino", [H|T]).
-citta([H|T]) :- atom_chars("colledara", [H|T]).
-citta([H|T]) :- atom_chars("colledimacine", [H|T]).
-citta([H|T]) :- atom_chars("colledimezzo", [H|T]).
-citta([H|T]) :- atom_chars("colleferro", [H|T]).
-citta([H|T]) :- atom_chars("collegiove", [H|T]).
-citta([H|T]) :- atom_chars("collegno", [H|T]).
-citta([H|T]) :- atom_chars("collelongo", [H|T]).
-citta([H|T]) :- atom_chars("collepardo", [H|T]).
-citta([H|T]) :- atom_chars("collepasso", [H|T]).
-citta([H|T]) :- atom_chars("collepietro", [H|T]).
-citta([H|T]) :- atom_chars("collerettocastelnuovo", [H|T]).
-citta([H|T]) :- atom_chars("collerettogiacosa", [H|T]).
-citta([H|T]) :- atom_chars("collesalvetti", [H|T]).
-citta([H|T]) :- atom_chars("collesano", [H|T]).
-citta([H|T]) :- atom_chars("colletorto", [H|T]).
-citta([H|T]) :- atom_chars("collevecchio", [H|T]).
-citta([H|T]) :- atom_chars("colliavolturno", [H|T]).
-citta([H|T]) :- atom_chars("collialmetauro", [H|T]).
-citta([H|T]) :- atom_chars("collideltronto", [H|T]).
-citta([H|T]) :- atom_chars("collisulvelino", [H|T]).
-citta([H|T]) :- atom_chars("colliano", [H|T]).
-citta([H|T]) :- atom_chars("collinas", [H|T]).
-citta([H|T]) :- atom_chars("collio", [H|T]).
-citta([H|T]) :- atom_chars("collobiano", [H|T]).
-citta([H|T]) :- atom_chars("colloredodimontealbano", [H|T]).
-citta([H|T]) :- atom_chars("colmurano", [H|T]).
-citta([H|T]) :- atom_chars("colobraro", [H|T]).
-citta([H|T]) :- atom_chars("colognaveneta", [H|T]).
-citta([H|T]) :- atom_chars("cologne", [H|T]).
-citta([H|T]) :- atom_chars("colognoalserio", [H|T]).
-citta([H|T]) :- atom_chars("colognomonzese", [H|T]).
-citta([H|T]) :- atom_chars("colognolaaicolli", [H|T]).
-citta([H|T]) :- atom_chars("colonna", [H|T]).
-citta([H|T]) :- atom_chars("colonnella", [H|T]).
-citta([H|T]) :- atom_chars("colonno", [H|T]).
-citta([H|T]) :- atom_chars("colorina", [H|T]).
-citta([H|T]) :- atom_chars("colorno", [H|T]).
-citta([H|T]) :- atom_chars("colosimi", [H|T]).
-citta([H|T]) :- atom_chars("colturano", [H|T]).
-citta([H|T]) :- atom_chars("colverde", [H|T]).
-citta([H|T]) :- atom_chars("colzate", [H|T]).
-citta([H|T]) :- atom_chars("comabbio", [H|T]).
-citta([H|T]) :- atom_chars("comacchio", [H|T]).
-citta([H|T]) :- atom_chars("comano", [H|T]).
-citta([H|T]) :- atom_chars("comanoterme", [H|T]).
-citta([H|T]) :- atom_chars("comazzo", [H|T]).
-citta([H|T]) :- atom_chars("comeglians", [H|T]).
-citta([H|T]) :- atom_chars("comelicosuperiore", [H|T]).
-citta([H|T]) :- atom_chars("comerio", [H|T]).
-citta([H|T]) :- atom_chars("comezzano-cizzago", [H|T]).
-citta([H|T]) :- atom_chars("comignago", [H|T]).
-citta([H|T]) :- atom_chars("comiso", [H|T]).
-citta([H|T]) :- atom_chars("comitini", [H|T]).
-citta([H|T]) :- atom_chars("comiziano", [H|T]).
-citta([H|T]) :- atom_chars("commessaggio", [H|T]).
-citta([H|T]) :- atom_chars("commezzadura", [H|T]).
-citta([H|T]) :- atom_chars("como", [H|T]).
-citta([H|T]) :- atom_chars("compiano", [H|T]).
-citta([H|T]) :- atom_chars("comunnuovo", [H|T]).
-citta([H|T]) :- atom_chars("comunanza", [H|T]).
-citta([H|T]) :- atom_chars("cona", [H|T]).
-citta([H|T]) :- atom_chars("concacasale", [H|T]).
-citta([H|T]) :- atom_chars("concadeimarini", [H|T]).
-citta([H|T]) :- atom_chars("concadellacampania", [H|T]).
-citta([H|T]) :- atom_chars("concamarise", [H|T]).
-citta([H|T]) :- atom_chars("concerviano", [H|T]).
-citta([H|T]) :- atom_chars("concesio", [H|T]).
-citta([H|T]) :- atom_chars("conco", [H|T]).
-citta([H|T]) :- atom_chars("concordiasagittaria", [H|T]).
-citta([H|T]) :- atom_chars("concordiasullasecchia", [H|T]).
-citta([H|T]) :- atom_chars("concorezzo", [H|T]).
-citta([H|T]) :- atom_chars("condofuri", [H|T]).
-citta([H|T]) :- atom_chars("condove", [H|T]).
-citta([H|T]) :- atom_chars("condro", [H|T]).
-citta([H|T]) :- atom_chars("conegliano", [H|T]).
-citta([H|T]) :- atom_chars("confienza", [H|T]).
-citta([H|T]) :- atom_chars("configni", [H|T]).
-citta([H|T]) :- atom_chars("conflenti", [H|T]).
-citta([H|T]) :- atom_chars("coniolo", [H|T]).
-citta([H|T]) :- atom_chars("conselice", [H|T]).
-citta([H|T]) :- atom_chars("conselve", [H|T]).
-citta([H|T]) :- atom_chars("conta", [H|T]).
-citta([H|T]) :- atom_chars("contessaentellina", [H|T]).
-citta([H|T]) :- atom_chars("contigliano", [H|T]).
-citta([H|T]) :- atom_chars("contrada", [H|T]).
-citta([H|T]) :- atom_chars("controguerra", [H|T]).
-citta([H|T]) :- atom_chars("controne", [H|T]).
-citta([H|T]) :- atom_chars("contursiterme", [H|T]).
-citta([H|T]) :- atom_chars("conversano", [H|T]).
-citta([H|T]) :- atom_chars("conzadellacampania", [H|T]).
-citta([H|T]) :- atom_chars("conzano", [H|T]).
-citta([H|T]) :- atom_chars("copertino", [H|T]).
-citta([H|T]) :- atom_chars("copiano", [H|T]).
-citta([H|T]) :- atom_chars("copparo", [H|T]).
-citta([H|T]) :- atom_chars("corana", [H|T]).
-citta([H|T]) :- atom_chars("corato", [H|T]).
-citta([H|T]) :- atom_chars("corbara", [H|T]).
-citta([H|T]) :- atom_chars("corbetta", [H|T]).
-citta([H|T]) :- atom_chars("corbola", [H|T]).
-citta([H|T]) :- atom_chars("corchiano", [H|T]).
-citta([H|T]) :- atom_chars("corciano", [H|T]).
-citta([H|T]) :- atom_chars("cordenons", [H|T]).
-citta([H|T]) :- atom_chars("cordignano", [H|T]).
-citta([H|T]) :- atom_chars("cordovado", [H|T]).
-citta([H|T]) :- atom_chars("coregliaantelminelli", [H|T]).
-citta([H|T]) :- atom_chars("coreglialigure", [H|T]).
-citta([H|T]) :- atom_chars("corenoausonio", [H|T]).
-citta([H|T]) :- atom_chars("corfinio", [H|T]).
-citta([H|T]) :- atom_chars("cori", [H|T]).
-citta([H|T]) :- atom_chars("coriano", [H|T]).
-citta([H|T]) :- atom_chars("coriglianocalabro", [H|T]).
-citta([H|T]) :- atom_chars("coriglianodotranto", [H|T]).
-citta([H|T]) :- atom_chars("corinaldo", [H|T]).
-citta([H|T]) :- atom_chars("corio", [H|T]).
-citta([H|T]) :- atom_chars("corleone", [H|T]).
-citta([H|T]) :- atom_chars("corletomonforte", [H|T]).
-citta([H|T]) :- atom_chars("corletoperticara", [H|T]).
-citta([H|T]) :- atom_chars("cormano", [H|T]).
-citta([H|T]) :- atom_chars("cormons", [H|T]).
-citta([H|T]) :- atom_chars("cornaimagna", [H|T]).
-citta([H|T]) :- atom_chars("cornalba", [H|T]).
-citta([H|T]) :- atom_chars("cornaleebastida", [H|T]).
-citta([H|T]) :- atom_chars("cornaredo", [H|T]).
-citta([H|T]) :- atom_chars("cornatedadda", [H|T]).
-citta([H|T]) :- atom_chars("cornedoallisarco/karneid", [H|T]).
-citta([H|T]) :- atom_chars("cornedovicentino", [H|T]).
-citta([H|T]) :- atom_chars("corneglianolaudense", [H|T]).
-citta([H|T]) :- atom_chars("cornelianodalba", [H|T]).
-citta([H|T]) :- atom_chars("corniglio", [H|T]).
-citta([H|T]) :- atom_chars("cornodirosazzo", [H|T]).
-citta([H|T]) :- atom_chars("cornogiovine", [H|T]).
-citta([H|T]) :- atom_chars("cornovecchio", [H|T]).
-citta([H|T]) :- atom_chars("cornuda", [H|T]).
-citta([H|T]) :- atom_chars("correggio", [H|T]).
-citta([H|T]) :- atom_chars("correzzana", [H|T]).
-citta([H|T]) :- atom_chars("correzzola", [H|T]).
-citta([H|T]) :- atom_chars("corrido", [H|T]).
-citta([H|T]) :- atom_chars("corridonia", [H|T]).
-citta([H|T]) :- atom_chars("corropoli", [H|T]).
-citta([H|T]) :- atom_chars("corsano", [H|T]).
-citta([H|T]) :- atom_chars("corsico", [H|T]).
-citta([H|T]) :- atom_chars("corsione", [H|T]).
-citta([H|T]) :- atom_chars("cortacciasullastradadelvino/kurtatschanderweinstraße", [H|T]).
-citta([H|T]) :- atom_chars("cortale", [H|T]).
-citta([H|T]) :- atom_chars("cortandone", [H|T]).
-citta([H|T]) :- atom_chars("cortanze", [H|T]).
-citta([H|T]) :- atom_chars("cortazzone", [H|T]).
-citta([H|T]) :- atom_chars("cortebrugnatella", [H|T]).
-citta([H|T]) :- atom_chars("cortedecortesiconcignone", [H|T]).
-citta([H|T]) :- atom_chars("cortedefrati", [H|T]).
-citta([H|T]) :- atom_chars("cortefranca", [H|T]).
-citta([H|T]) :- atom_chars("cortepalasio", [H|T]).
-citta([H|T]) :- atom_chars("cortemaggiore", [H|T]).
-citta([H|T]) :- atom_chars("cortemilia", [H|T]).
-citta([H|T]) :- atom_chars("cortenogolgi", [H|T]).
-citta([H|T]) :- atom_chars("cortenova", [H|T]).
-citta([H|T]) :- atom_chars("cortenuova", [H|T]).
-citta([H|T]) :- atom_chars("corteolonaegenzone", [H|T]).
-citta([H|T]) :- atom_chars("cortiglione", [H|T]).
-citta([H|T]) :- atom_chars("cortinadampezzo", [H|T]).
-citta([H|T]) :- atom_chars("cortinasullastradadelvino/kurtiniganderweinstraße", [H|T]).
-citta([H|T]) :- atom_chars("cortino", [H|T]).
-citta([H|T]) :- atom_chars("cortona", [H|T]).
-citta([H|T]) :- atom_chars("corvara", [H|T]).
-citta([H|T]) :- atom_chars("corvarainbadia/corvara", [H|T]).
-citta([H|T]) :- atom_chars("corvinosanquirico", [H|T]).
-citta([H|T]) :- atom_chars("corzano", [H|T]).
-citta([H|T]) :- atom_chars("coseano", [H|T]).
-citta([H|T]) :- atom_chars("cosenza", [H|T]).
-citta([H|T]) :- atom_chars("cosiodarroscia", [H|T]).
-citta([H|T]) :- atom_chars("cosiovaltellino", [H|T]).
-citta([H|T]) :- atom_chars("cosoleto", [H|T]).
-citta([H|T]) :- atom_chars("cossanobelbo", [H|T]).
-citta([H|T]) :- atom_chars("cossanocanavese", [H|T]).
-citta([H|T]) :- atom_chars("cossato", [H|T]).
-citta([H|T]) :- atom_chars("cosseria", [H|T]).
-citta([H|T]) :- atom_chars("cossignano", [H|T]).
-citta([H|T]) :- atom_chars("cossogno", [H|T]).
-citta([H|T]) :- atom_chars("cossoine", [H|T]).
-citta([H|T]) :- atom_chars("cossombrato", [H|T]).
-citta([H|T]) :- atom_chars("costadenobili", [H|T]).
-citta([H|T]) :- atom_chars("costadimezzate", [H|T]).
-citta([H|T]) :- atom_chars("costadirovigo", [H|T]).
-citta([H|T]) :- atom_chars("costamasnaga", [H|T]).
-citta([H|T]) :- atom_chars("costaserina", [H|T]).
-citta([H|T]) :- atom_chars("costavalleimagna", [H|T]).
-citta([H|T]) :- atom_chars("costavescovato", [H|T]).
-citta([H|T]) :- atom_chars("costavolpino", [H|T]).
-citta([H|T]) :- atom_chars("costabissara", [H|T]).
-citta([H|T]) :- atom_chars("costacciaro", [H|T]).
-citta([H|T]) :- atom_chars("costanzana", [H|T]).
-citta([H|T]) :- atom_chars("costarainera", [H|T]).
-citta([H|T]) :- atom_chars("costermanosulgarda", [H|T]).
-citta([H|T]) :- atom_chars("costiglioledasti", [H|T]).
-citta([H|T]) :- atom_chars("costigliolesaluzzo", [H|T]).
-citta([H|T]) :- atom_chars("cotignola", [H|T]).
-citta([H|T]) :- atom_chars("cotronei", [H|T]).
-citta([H|T]) :- atom_chars("cottanello", [H|T]).
-citta([H|T]) :- atom_chars("courmayeur", [H|T]).
-citta([H|T]) :- atom_chars("covo", [H|T]).
-citta([H|T]) :- atom_chars("cozzo", [H|T]).
-citta([H|T]) :- atom_chars("craco", [H|T]).
-citta([H|T]) :- atom_chars("crandolavalsassina", [H|T]).
-citta([H|T]) :- atom_chars("cravagliana", [H|T]).
-citta([H|T]) :- atom_chars("cravanzana", [H|T]).
-citta([H|T]) :- atom_chars("craveggia", [H|T]).
-citta([H|T]) :- atom_chars("creazzo", [H|T]).
-citta([H|T]) :- atom_chars("crecchio", [H|T]).
-citta([H|T]) :- atom_chars("credaro", [H|T]).
-citta([H|T]) :- atom_chars("crederarubbiano", [H|T]).
-citta([H|T]) :- atom_chars("crema", [H|T]).
-citta([H|T]) :- atom_chars("cremella", [H|T]).
-citta([H|T]) :- atom_chars("cremenaga", [H|T]).
-citta([H|T]) :- atom_chars("cremeno", [H|T]).
-citta([H|T]) :- atom_chars("cremia", [H|T]).
-citta([H|T]) :- atom_chars("cremolino", [H|T]).
-citta([H|T]) :- atom_chars("cremona", [H|T]).
-citta([H|T]) :- atom_chars("cremosano", [H|T]).
-citta([H|T]) :- atom_chars("crescentino", [H|T]).
-citta([H|T]) :- atom_chars("crespadoro", [H|T]).
-citta([H|T]) :- atom_chars("crespanodelgrappa", [H|T]).
-citta([H|T]) :- atom_chars("crespiatica", [H|T]).
-citta([H|T]) :- atom_chars("crespinalorenzana", [H|T]).
-citta([H|T]) :- atom_chars("crespino", [H|T]).
-citta([H|T]) :- atom_chars("cressa", [H|T]).
-citta([H|T]) :- atom_chars("crevacuore", [H|T]).
-citta([H|T]) :- atom_chars("crevalcore", [H|T]).
-citta([H|T]) :- atom_chars("crevoladossola", [H|T]).
-citta([H|T]) :- atom_chars("crispano", [H|T]).
-citta([H|T]) :- atom_chars("crispiano", [H|T]).
-citta([H|T]) :- atom_chars("crissolo", [H|T]).
-citta([H|T]) :- atom_chars("crocefieschi", [H|T]).
-citta([H|T]) :- atom_chars("crocettadelmontello", [H|T]).
-citta([H|T]) :- atom_chars("crodo", [H|T]).
-citta([H|T]) :- atom_chars("crognaleto", [H|T]).
-citta([H|T]) :- atom_chars("cropalati", [H|T]).
-citta([H|T]) :- atom_chars("cropani", [H|T]).
-citta([H|T]) :- atom_chars("crosia", [H|T]).
-citta([H|T]) :- atom_chars("crosiodellavalle", [H|T]).
-citta([H|T]) :- atom_chars("crotone", [H|T]).
-citta([H|T]) :- atom_chars("crottadadda", [H|T]).
-citta([H|T]) :- atom_chars("crova", [H|T]).
-citta([H|T]) :- atom_chars("croviana", [H|T]).
-citta([H|T]) :- atom_chars("crucoli", [H|T]).
-citta([H|T]) :- atom_chars("cuassoalmonte", [H|T]).
-citta([H|T]) :- atom_chars("cuccaromonferrato", [H|T]).
-citta([H|T]) :- atom_chars("cuccarovetere", [H|T]).
-citta([H|T]) :- atom_chars("cucciago", [H|T]).
-citta([H|T]) :- atom_chars("cuceglio", [H|T]).
-citta([H|T]) :- atom_chars("cuggiono", [H|T]).
-citta([H|T]) :- atom_chars("cugliate-fabiasco", [H|T]).
-citta([H|T]) :- atom_chars("cuglieri", [H|T]).
-citta([H|T]) :- atom_chars("cugnoli", [H|T]).
-citta([H|T]) :- atom_chars("cumiana", [H|T]).
-citta([H|T]) :- atom_chars("cumignanosulnaviglio", [H|T]).
-citta([H|T]) :- atom_chars("cunardo", [H|T]).
-citta([H|T]) :- atom_chars("cuneo", [H|T]).
-citta([H|T]) :- atom_chars("cunico", [H|T]).
-citta([H|T]) :- atom_chars("cuorgne", [H|T]).
-citta([H|T]) :- atom_chars("cupello", [H|T]).
-citta([H|T]) :- atom_chars("cupramarittima", [H|T]).
-citta([H|T]) :- atom_chars("cupramontana", [H|T]).
-citta([H|T]) :- atom_chars("curacarpignano", [H|T]).
-citta([H|T]) :- atom_chars("curcuris", [H|T]).
-citta([H|T]) :- atom_chars("cureggio", [H|T]).
-citta([H|T]) :- atom_chars("curigliaconmonteviasco", [H|T]).
-citta([H|T]) :- atom_chars("curinga", [H|T]).
-citta([H|T]) :- atom_chars("curino", [H|T]).
-citta([H|T]) :- atom_chars("curno", [H|T]).
-citta([H|T]) :- atom_chars("curonvenosta/graunimvinschgau", [H|T]).
-citta([H|T]) :- atom_chars("cursi", [H|T]).
-citta([H|T]) :- atom_chars("cursolo-orasso", [H|T]).
-citta([H|T]) :- atom_chars("curtarolo", [H|T]).
-citta([H|T]) :- atom_chars("curtatone", [H|T]).
-citta([H|T]) :- atom_chars("curti", [H|T]).
-citta([H|T]) :- atom_chars("cusago", [H|T]).
-citta([H|T]) :- atom_chars("cusanomilanino", [H|T]).
-citta([H|T]) :- atom_chars("cusanomutri", [H|T]).
-citta([H|T]) :- atom_chars("cusino", [H|T]).
-citta([H|T]) :- atom_chars("cusio", [H|T]).
-citta([H|T]) :- atom_chars("custonaci", [H|T]).
-citta([H|T]) :- atom_chars("cutro", [H|T]).
-citta([H|T]) :- atom_chars("cutrofiano", [H|T]).
-citta([H|T]) :- atom_chars("cuveglio", [H|T]).
-citta([H|T]) :- atom_chars("cuvio", [H|T]).
-citta([H|T]) :- atom_chars("daiano", [H|T]).
-citta([H|T]) :- atom_chars("dairago", [H|T]).
-citta([H|T]) :- atom_chars("dalmine", [H|T]).
-citta([H|T]) :- atom_chars("dambel", [H|T]).
-citta([H|T]) :- atom_chars("dantadicadore", [H|T]).
-citta([H|T]) :- atom_chars("darfoboarioterme", [H|T]).
-citta([H|T]) :- atom_chars("dasa", [H|T]).
-citta([H|T]) :- atom_chars("davagna", [H|T]).
-citta([H|T]) :- atom_chars("daverio", [H|T]).
-citta([H|T]) :- atom_chars("davoli", [H|T]).
-citta([H|T]) :- atom_chars("dazio", [H|T]).
-citta([H|T]) :- atom_chars("decimomannu", [H|T]).
-citta([H|T]) :- atom_chars("decimoputzu", [H|T]).
-citta([H|T]) :- atom_chars("decollatura", [H|T]).
-citta([H|T]) :- atom_chars("dego", [H|T]).
-citta([H|T]) :- atom_chars("deivamarina", [H|T]).
-citta([H|T]) :- atom_chars("delebio", [H|T]).
-citta([H|T]) :- atom_chars("delia", [H|T]).
-citta([H|T]) :- atom_chars("delianuova", [H|T]).
-citta([H|T]) :- atom_chars("deliceto", [H|T]).
-citta([H|T]) :- atom_chars("dello", [H|T]).
-citta([H|T]) :- atom_chars("demonte", [H|T]).
-citta([H|T]) :- atom_chars("denice", [H|T]).
-citta([H|T]) :- atom_chars("denno", [H|T]).
-citta([H|T]) :- atom_chars("dernice", [H|T]).
-citta([H|T]) :- atom_chars("derovere", [H|T]).
-citta([H|T]) :- atom_chars("deruta", [H|T]).
-citta([H|T]) :- atom_chars("dervio", [H|T]).
-citta([H|T]) :- atom_chars("desana", [H|T]).
-citta([H|T]) :- atom_chars("desenzanodelgarda", [H|T]).
-citta([H|T]) :- atom_chars("desio", [H|T]).
-citta([H|T]) :- atom_chars("desulo", [H|T]).
-citta([H|T]) :- atom_chars("diamante", [H|T]).
-citta([H|T]) :- atom_chars("dianoarentino", [H|T]).
-citta([H|T]) :- atom_chars("dianocastello", [H|T]).
-citta([H|T]) :- atom_chars("dianodalba", [H|T]).
-citta([H|T]) :- atom_chars("dianomarina", [H|T]).
-citta([H|T]) :- atom_chars("dianosanpietro", [H|T]).
-citta([H|T]) :- atom_chars("dicomano", [H|T]).
-citta([H|T]) :- atom_chars("dignano", [H|T]).
-citta([H|T]) :- atom_chars("dimarofolgarida", [H|T]).
-citta([H|T]) :- atom_chars("dinami", [H|T]).
-citta([H|T]) :- atom_chars("dipignano", [H|T]).
-citta([H|T]) :- atom_chars("diso", [H|T]).
-citta([H|T]) :- atom_chars("divignano", [H|T]).
-citta([H|T]) :- atom_chars("dizzasco", [H|T]).
-citta([H|T]) :- atom_chars("dobbiaco/toblach", [H|T]).
-citta([H|T]) :- atom_chars("doberdodellago", [H|T]).
-citta([H|T]) :- atom_chars("dogliani", [H|T]).
-citta([H|T]) :- atom_chars("dogliola", [H|T]).
-citta([H|T]) :- atom_chars("dogna", [H|T]).
-citta([H|T]) :- atom_chars("dolce", [H|T]).
-citta([H|T]) :- atom_chars("dolceacqua", [H|T]).
-citta([H|T]) :- atom_chars("dolcedo", [H|T]).
-citta([H|T]) :- atom_chars("dolegnadelcollio", [H|T]).
-citta([H|T]) :- atom_chars("dolianova", [H|T]).
-citta([H|T]) :- atom_chars("dolo", [H|T]).
-citta([H|T]) :- atom_chars("dolzago", [H|T]).
-citta([H|T]) :- atom_chars("domanico", [H|T]).
-citta([H|T]) :- atom_chars("domaso", [H|T]).
-citta([H|T]) :- atom_chars("domeggedicadore", [H|T]).
-citta([H|T]) :- atom_chars("domicella", [H|T]).
-citta([H|T]) :- atom_chars("domodossola", [H|T]).
-citta([H|T]) :- atom_chars("domusdemaria", [H|T]).
-citta([H|T]) :- atom_chars("domusnovas", [H|T]).
-citta([H|T]) :- atom_chars("donato", [H|T]).
-citta([H|T]) :- atom_chars("dongo", [H|T]).
-citta([H|T]) :- atom_chars("donnas", [H|T]).
-citta([H|T]) :- atom_chars("donori", [H|T]).
-citta([H|T]) :- atom_chars("dorgali", [H|T]).
-citta([H|T]) :- atom_chars("dorio", [H|T]).
-citta([H|T]) :- atom_chars("dormelletto", [H|T]).
-citta([H|T]) :- atom_chars("dorno", [H|T]).
-citta([H|T]) :- atom_chars("dorzano", [H|T]).
-citta([H|T]) :- atom_chars("dosolo", [H|T]).
-citta([H|T]) :- atom_chars("dossena", [H|T]).
-citta([H|T]) :- atom_chars("dossodelliro", [H|T]).
-citta([H|T]) :- atom_chars("doues", [H|T]).
-citta([H|T]) :- atom_chars("dovadola", [H|T]).
-citta([H|T]) :- atom_chars("dovera", [H|T]).
-citta([H|T]) :- atom_chars("dozza", [H|T]).
-citta([H|T]) :- atom_chars("dragoni", [H|T]).
-citta([H|T]) :- atom_chars("drapia", [H|T]).
-citta([H|T]) :- atom_chars("drena", [H|T]).
-citta([H|T]) :- atom_chars("drenchia", [H|T]).
-citta([H|T]) :- atom_chars("dresano", [H|T]).
-citta([H|T]) :- atom_chars("drizzona", [H|T]).
-citta([H|T]) :- atom_chars("dro", [H|T]).
-citta([H|T]) :- atom_chars("dronero", [H|T]).
-citta([H|T]) :- atom_chars("druento", [H|T]).
-citta([H|T]) :- atom_chars("druogno", [H|T]).
-citta([H|T]) :- atom_chars("dualchi", [H|T]).
-citta([H|T]) :- atom_chars("dubino", [H|T]).
-citta([H|T]) :- atom_chars("duecarrare", [H|T]).
-citta([H|T]) :- atom_chars("dueville", [H|T]).
-citta([H|T]) :- atom_chars("dugenta", [H|T]).
-citta([H|T]) :- atom_chars("duinoaurisina-devinnabrezina", [H|T]).
-citta([H|T]) :- atom_chars("dumenza", [H|T]).
-citta([H|T]) :- atom_chars("duno", [H|T]).
-citta([H|T]) :- atom_chars("durazzano", [H|T]).
-citta([H|T]) :- atom_chars("duronia", [H|T]).
-citta([H|T]) :- atom_chars("dusinosanmichele", [H|T]).
-citta([H|T]) :- atom_chars("eboli", [H|T]).
-citta([H|T]) :- atom_chars("edolo", [H|T]).
-citta([H|T]) :- atom_chars("egna/neumarkt", [H|T]).
-citta([H|T]) :- atom_chars("elice", [H|T]).
-citta([H|T]) :- atom_chars("elini", [H|T]).
-citta([H|T]) :- atom_chars("ello", [H|T]).
-citta([H|T]) :- atom_chars("elmas", [H|T]).
-citta([H|T]) :- atom_chars("elva", [H|T]).
-citta([H|T]) :- atom_chars("emarese", [H|T]).
-citta([H|T]) :- atom_chars("empoli", [H|T]).
-citta([H|T]) :- atom_chars("endinegaiano", [H|T]).
-citta([H|T]) :- atom_chars("enego", [H|T]).
-citta([H|T]) :- atom_chars("enemonzo", [H|T]).
-citta([H|T]) :- atom_chars("enna", [H|T]).
-citta([H|T]) :- atom_chars("entracque", [H|T]).
-citta([H|T]) :- atom_chars("entratico", [H|T]).
-citta([H|T]) :- atom_chars("envie", [H|T]).
-citta([H|T]) :- atom_chars("episcopia", [H|T]).
-citta([H|T]) :- atom_chars("eraclea", [H|T]).
-citta([H|T]) :- atom_chars("erba", [H|T]).
-citta([H|T]) :- atom_chars("erbe", [H|T]).
-citta([H|T]) :- atom_chars("erbezzo", [H|T]).
-citta([H|T]) :- atom_chars("erbusco", [H|T]).
-citta([H|T]) :- atom_chars("erchie", [H|T]).
-citta([H|T]) :- atom_chars("ercolano", [H|T]).
-citta([H|T]) :- atom_chars("erice", [H|T]).
-citta([H|T]) :- atom_chars("erli", [H|T]).
-citta([H|T]) :- atom_chars("ertoecasso", [H|T]).
-citta([H|T]) :- atom_chars("erula", [H|T]).
-citta([H|T]) :- atom_chars("erve", [H|T]).
-citta([H|T]) :- atom_chars("esanatoglia", [H|T]).
-citta([H|T]) :- atom_chars("escalaplano", [H|T]).
-citta([H|T]) :- atom_chars("escolca", [H|T]).
-citta([H|T]) :- atom_chars("esine", [H|T]).
-citta([H|T]) :- atom_chars("esinolario", [H|T]).
-citta([H|T]) :- atom_chars("esperia", [H|T]).
-citta([H|T]) :- atom_chars("esporlatu", [H|T]).
-citta([H|T]) :- atom_chars("este", [H|T]).
-citta([H|T]) :- atom_chars("esterzili", [H|T]).
-citta([H|T]) :- atom_chars("etroubles", [H|T]).
-citta([H|T]) :- atom_chars("eupilio", [H|T]).
-citta([H|T]) :- atom_chars("exilles", [H|T]).
-citta([H|T]) :- atom_chars("fabbricacurone", [H|T]).
-citta([H|T]) :- atom_chars("fabbrichedivergemoli", [H|T]).
-citta([H|T]) :- atom_chars("fabbrico", [H|T]).
-citta([H|T]) :- atom_chars("fabriano", [H|T]).
-citta([H|T]) :- atom_chars("fabricadiroma", [H|T]).
-citta([H|T]) :- atom_chars("fabrizia", [H|T]).
-citta([H|T]) :- atom_chars("fabro", [H|T]).
-citta([H|T]) :- atom_chars("faedis", [H|T]).
-citta([H|T]) :- atom_chars("faedo", [H|T]).
-citta([H|T]) :- atom_chars("faedovaltellino", [H|T]).
-citta([H|T]) :- atom_chars("faenza", [H|T]).
-citta([H|T]) :- atom_chars("faeto", [H|T]).
-citta([H|T]) :- atom_chars("fagagna", [H|T]).
-citta([H|T]) :- atom_chars("faggetolario", [H|T]).
-citta([H|T]) :- atom_chars("faggiano", [H|T]).
-citta([H|T]) :- atom_chars("fagnanoalto", [H|T]).
-citta([H|T]) :- atom_chars("fagnanocastello", [H|T]).
-citta([H|T]) :- atom_chars("fagnanoolona", [H|T]).
-citta([H|T]) :- atom_chars("faidellapaganella", [H|T]).
-citta([H|T]) :- atom_chars("faicchio", [H|T]).
-citta([H|T]) :- atom_chars("falcade", [H|T]).
-citta([H|T]) :- atom_chars("falcianodelmassico", [H|T]).
-citta([H|T]) :- atom_chars("falconaraalbanese", [H|T]).
-citta([H|T]) :- atom_chars("falconaramarittima", [H|T]).
-citta([H|T]) :- atom_chars("falcone", [H|T]).
-citta([H|T]) :- atom_chars("faleria", [H|T]).
-citta([H|T]) :- atom_chars("falerna", [H|T]).
-citta([H|T]) :- atom_chars("falerone", [H|T]).
-citta([H|T]) :- atom_chars("fallo", [H|T]).
-citta([H|T]) :- atom_chars("falmenta", [H|T]).
-citta([H|T]) :- atom_chars("faloppio", [H|T]).
-citta([H|T]) :- atom_chars("falvaterra", [H|T]).
-citta([H|T]) :- atom_chars("falzes/pfalzen", [H|T]).
-citta([H|T]) :- atom_chars("fanano", [H|T]).
-citta([H|T]) :- atom_chars("fanna", [H|T]).
-citta([H|T]) :- atom_chars("fano", [H|T]).
-citta([H|T]) :- atom_chars("fanoadriano", [H|T]).
-citta([H|T]) :- atom_chars("farafiliorumpetri", [H|T]).
-citta([H|T]) :- atom_chars("farageradadda", [H|T]).
-citta([H|T]) :- atom_chars("farainsabina", [H|T]).
-citta([H|T]) :- atom_chars("faranovarese", [H|T]).
-citta([H|T]) :- atom_chars("faraolivanaconsola", [H|T]).
-citta([H|T]) :- atom_chars("farasanmartino", [H|T]).
-citta([H|T]) :- atom_chars("faravicentino", [H|T]).
-citta([H|T]) :- atom_chars("fardella", [H|T]).
-citta([H|T]) :- atom_chars("farigliano", [H|T]).
-citta([H|T]) :- atom_chars("farindola", [H|T]).
-citta([H|T]) :- atom_chars("farini", [H|T]).
-citta([H|T]) :- atom_chars("farnese", [H|T]).
-citta([H|T]) :- atom_chars("farradisoligo", [H|T]).
-citta([H|T]) :- atom_chars("farradisonzo", [H|T]).
-citta([H|T]) :- atom_chars("fasano", [H|T]).
-citta([H|T]) :- atom_chars("fascia", [H|T]).
-citta([H|T]) :- atom_chars("fauglia", [H|T]).
-citta([H|T]) :- atom_chars("faule", [H|T]).
-citta([H|T]) :- atom_chars("favaledimalvaro", [H|T]).
-citta([H|T]) :- atom_chars("favara", [H|T]).
-citta([H|T]) :- atom_chars("favignana", [H|T]).
-citta([H|T]) :- atom_chars("favria", [H|T]).
-citta([H|T]) :- atom_chars("feisoglio", [H|T]).
-citta([H|T]) :- atom_chars("feletto", [H|T]).
-citta([H|T]) :- atom_chars("felino", [H|T]).
-citta([H|T]) :- atom_chars("felitto", [H|T]).
-citta([H|T]) :- atom_chars("felizzano", [H|T]).
-citta([H|T]) :- atom_chars("feltre", [H|T]).
-citta([H|T]) :- atom_chars("fenegro", [H|T]).
-citta([H|T]) :- atom_chars("fenestrelle", [H|T]).
-citta([H|T]) :- atom_chars("fenis", [H|T]).
-citta([H|T]) :- atom_chars("ferentillo", [H|T]).
-citta([H|T]) :- atom_chars("ferentino", [H|T]).
-citta([H|T]) :- atom_chars("ferla", [H|T]).
-citta([H|T]) :- atom_chars("fermignano", [H|T]).
-citta([H|T]) :- atom_chars("fermo", [H|T]).
-citta([H|T]) :- atom_chars("ferno", [H|T]).
-citta([H|T]) :- atom_chars("feroletoantico", [H|T]).
-citta([H|T]) :- atom_chars("feroletodellachiesa", [H|T]).
-citta([H|T]) :- atom_chars("ferrandina", [H|T]).
-citta([H|T]) :- atom_chars("ferrara", [H|T]).
-citta([H|T]) :- atom_chars("ferraradimontebaldo", [H|T]).
-citta([H|T]) :- atom_chars("ferrazzano", [H|T]).
-citta([H|T]) :- atom_chars("ferreradivarese", [H|T]).
-citta([H|T]) :- atom_chars("ferreraerbognone", [H|T]).
-citta([H|T]) :- atom_chars("ferrere", [H|T]).
-citta([H|T]) :- atom_chars("ferriere", [H|T]).
-citta([H|T]) :- atom_chars("ferruzzano", [H|T]).
-citta([H|T]) :- atom_chars("fiamignano", [H|T]).
-citta([H|T]) :- atom_chars("fiano", [H|T]).
-citta([H|T]) :- atom_chars("fianoromano", [H|T]).
-citta([H|T]) :- atom_chars("fiastra", [H|T]).
-citta([H|T]) :- atom_chars("fiave", [H|T]).
-citta([H|T]) :- atom_chars("ficarazzi", [H|T]).
-citta([H|T]) :- atom_chars("ficarolo", [H|T]).
-citta([H|T]) :- atom_chars("ficarra", [H|T]).
-citta([H|T]) :- atom_chars("ficulle", [H|T]).
-citta([H|T]) :- atom_chars("fidenza", [H|T]).
-citta([H|T]) :- atom_chars("fieallosciliar/volsamschlern", [H|T]).
-citta([H|T]) :- atom_chars("fierozzo", [H|T]).
-citta([H|T]) :- atom_chars("fiesco", [H|T]).
-citta([H|T]) :- atom_chars("fiesole", [H|T]).
-citta([H|T]) :- atom_chars("fiesse", [H|T]).
-citta([H|T]) :- atom_chars("fiessodartico", [H|T]).
-citta([H|T]) :- atom_chars("fiessoumbertiano", [H|T]).
-citta([H|T]) :- atom_chars("figinoserenza", [H|T]).
-citta([H|T]) :- atom_chars("figlineeincisavaldarno", [H|T]).
-citta([H|T]) :- atom_chars("figlinevegliaturo", [H|T]).
-citta([H|T]) :- atom_chars("filacciano", [H|T]).
-citta([H|T]) :- atom_chars("filadelfia", [H|T]).
-citta([H|T]) :- atom_chars("filago", [H|T]).
-citta([H|T]) :- atom_chars("filandari", [H|T]).
-citta([H|T]) :- atom_chars("filattiera", [H|T]).
-citta([H|T]) :- atom_chars("filettino", [H|T]).
-citta([H|T]) :- atom_chars("filetto", [H|T]).
-citta([H|T]) :- atom_chars("filiano", [H|T]).
-citta([H|T]) :- atom_chars("filighera", [H|T]).
-citta([H|T]) :- atom_chars("filignano", [H|T]).
-citta([H|T]) :- atom_chars("filogaso", [H|T]).
-citta([H|T]) :- atom_chars("filottrano", [H|T]).
-citta([H|T]) :- atom_chars("finaleemilia", [H|T]).
-citta([H|T]) :- atom_chars("finaleligure", [H|T]).
-citta([H|T]) :- atom_chars("finodelmonte", [H|T]).
-citta([H|T]) :- atom_chars("finomornasco", [H|T]).
-citta([H|T]) :- atom_chars("fioranoalserio", [H|T]).
-citta([H|T]) :- atom_chars("fioranocanavese", [H|T]).
-citta([H|T]) :- atom_chars("fioranomodenese", [H|T]).
-citta([H|T]) :- atom_chars("fiorenzuoladarda", [H|T]).
-citta([H|T]) :- atom_chars("firenze", [H|T]).
-citta([H|T]) :- atom_chars("firenzuola", [H|T]).
-citta([H|T]) :- atom_chars("firmo", [H|T]).
-citta([H|T]) :- atom_chars("fiscaglia", [H|T]).
-citta([H|T]) :- atom_chars("fisciano", [H|T]).
-citta([H|T]) :- atom_chars("fiuggi", [H|T]).
-citta([H|T]) :- atom_chars("fiumalbo", [H|T]).
-citta([H|T]) :- atom_chars("fiumara", [H|T]).
-citta([H|T]) :- atom_chars("fiumeveneto", [H|T]).
-citta([H|T]) :- atom_chars("fiumedinisi", [H|T]).
-citta([H|T]) :- atom_chars("fiumefreddobruzio", [H|T]).
-citta([H|T]) :- atom_chars("fiumefreddodisicilia", [H|T]).
-citta([H|T]) :- atom_chars("fiumicello", [H|T]).
-citta([H|T]) :- atom_chars("fiumicino", [H|T]).
-citta([H|T]) :- atom_chars("fiuminata", [H|T]).
-citta([H|T]) :- atom_chars("fivizzano", [H|T]).
-citta([H|T]) :- atom_chars("flaibano", [H|T]).
-citta([H|T]) :- atom_chars("flero", [H|T]).
-citta([H|T]) :- atom_chars("floresta", [H|T]).
-citta([H|T]) :- atom_chars("floridia", [H|T]).
-citta([H|T]) :- atom_chars("florinas", [H|T]).
-citta([H|T]) :- atom_chars("flumeri", [H|T]).
-citta([H|T]) :- atom_chars("fluminimaggiore", [H|T]).
-citta([H|T]) :- atom_chars("flussio", [H|T]).
-citta([H|T]) :- atom_chars("fobello", [H|T]).
-citta([H|T]) :- atom_chars("foggia", [H|T]).
-citta([H|T]) :- atom_chars("foglianise", [H|T]).
-citta([H|T]) :- atom_chars("foglianoredipuglia", [H|T]).
-citta([H|T]) :- atom_chars("foglizzo", [H|T]).
-citta([H|T]) :- atom_chars("foianodellachiana", [H|T]).
-citta([H|T]) :- atom_chars("foianodivalfortore", [H|T]).
-citta([H|T]) :- atom_chars("folgaria", [H|T]).
-citta([H|T]) :- atom_chars("folignano", [H|T]).
-citta([H|T]) :- atom_chars("foligno", [H|T]).
-citta([H|T]) :- atom_chars("follina", [H|T]).
-citta([H|T]) :- atom_chars("follo", [H|T]).
-citta([H|T]) :- atom_chars("follonica", [H|T]).
-citta([H|T]) :- atom_chars("fombio", [H|T]).
-citta([H|T]) :- atom_chars("fondachelli-fantina", [H|T]).
-citta([H|T]) :- atom_chars("fondi", [H|T]).
-citta([H|T]) :- atom_chars("fondo", [H|T]).
-citta([H|T]) :- atom_chars("fonni", [H|T]).
-citta([H|T]) :- atom_chars("fontainemore", [H|T]).
-citta([H|T]) :- atom_chars("fontanaliri", [H|T]).
-citta([H|T]) :- atom_chars("fontanafredda", [H|T]).
-citta([H|T]) :- atom_chars("fontanarosa", [H|T]).
-citta([H|T]) :- atom_chars("fontanelice", [H|T]).
-citta([H|T]) :- atom_chars("fontanella", [H|T]).
-citta([H|T]) :- atom_chars("fontanellato", [H|T]).
-citta([H|T]) :- atom_chars("fontanelle", [H|T]).
-citta([H|T]) :- atom_chars("fontanetodagogna", [H|T]).
-citta([H|T]) :- atom_chars("fontanettopo", [H|T]).
-citta([H|T]) :- atom_chars("fontanigorda", [H|T]).
-citta([H|T]) :- atom_chars("fontanile", [H|T]).
-citta([H|T]) :- atom_chars("fontaniva", [H|T]).
-citta([H|T]) :- atom_chars("fonte", [H|T]).
-citta([H|T]) :- atom_chars("fontenuova", [H|T]).
-citta([H|T]) :- atom_chars("fontecchio", [H|T]).
-citta([H|T]) :- atom_chars("fontechiari", [H|T]).
-citta([H|T]) :- atom_chars("fontegreca", [H|T]).
-citta([H|T]) :- atom_chars("fonteno", [H|T]).
-citta([H|T]) :- atom_chars("fontevivo", [H|T]).
-citta([H|T]) :- atom_chars("fonzaso", [H|T]).
-citta([H|T]) :- atom_chars("foppolo", [H|T]).
-citta([H|T]) :- atom_chars("forano", [H|T]).
-citta([H|T]) :- atom_chars("force", [H|T]).
-citta([H|T]) :- atom_chars("forchia", [H|T]).
-citta([H|T]) :- atom_chars("forcola", [H|T]).
-citta([H|T]) :- atom_chars("fordongianus", [H|T]).
-citta([H|T]) :- atom_chars("forenza", [H|T]).
-citta([H|T]) :- atom_chars("forestosparso", [H|T]).
-citta([H|T]) :- atom_chars("forgarianelfriuli", [H|T]).
-citta([H|T]) :- atom_chars("forino", [H|T]).
-citta([H|T]) :- atom_chars("forio", [H|T]).
-citta([H|T]) :- atom_chars("forli", [H|T]).
-citta([H|T]) :- atom_chars("forlidelsannio", [H|T]).
-citta([H|T]) :- atom_chars("forlimpopoli", [H|T]).
-citta([H|T]) :- atom_chars("formazza", [H|T]).
-citta([H|T]) :- atom_chars("formello", [H|T]).
-citta([H|T]) :- atom_chars("formia", [H|T]).
-citta([H|T]) :- atom_chars("formicola", [H|T]).
-citta([H|T]) :- atom_chars("formigara", [H|T]).
-citta([H|T]) :- atom_chars("formigine", [H|T]).
-citta([H|T]) :- atom_chars("formigliana", [H|T]).
-citta([H|T]) :- atom_chars("formignana", [H|T]).
-citta([H|T]) :- atom_chars("fornace", [H|T]).
-citta([H|T]) :- atom_chars("fornelli", [H|T]).
-citta([H|T]) :- atom_chars("forniavoltri", [H|T]).
-citta([H|T]) :- atom_chars("fornidisopra", [H|T]).
-citta([H|T]) :- atom_chars("fornidisotto", [H|T]).
-citta([H|T]) :- atom_chars("fornocanavese", [H|T]).
-citta([H|T]) :- atom_chars("fornovoditaro", [H|T]).
-citta([H|T]) :- atom_chars("fornovosangiovanni", [H|T]).
-citta([H|T]) :- atom_chars("fortedeimarmi", [H|T]).
-citta([H|T]) :- atom_chars("fortezza/franzensfeste", [H|T]).
-citta([H|T]) :- atom_chars("fortunago", [H|T]).
-citta([H|T]) :- atom_chars("forzadagro", [H|T]).
-citta([H|T]) :- atom_chars("fosciandora", [H|T]).
-citta([H|T]) :- atom_chars("fosdinovo", [H|T]).
-citta([H|T]) :- atom_chars("fossa", [H|T]).
-citta([H|T]) :- atom_chars("fossacesia", [H|T]).
-citta([H|T]) :- atom_chars("fossaltadipiave", [H|T]).
-citta([H|T]) :- atom_chars("fossaltadiportogruaro", [H|T]).
-citta([H|T]) :- atom_chars("fossalto", [H|T]).
-citta([H|T]) :- atom_chars("fossano", [H|T]).
-citta([H|T]) :- atom_chars("fossatodivico", [H|T]).
-citta([H|T]) :- atom_chars("fossatoserralta", [H|T]).
-citta([H|T]) :- atom_chars("fosso", [H|T]).
-citta([H|T]) :- atom_chars("fossombrone", [H|T]).
-citta([H|T]) :- atom_chars("foza", [H|T]).
-citta([H|T]) :- atom_chars("frabosasoprana", [H|T]).
-citta([H|T]) :- atom_chars("frabosasottana", [H|T]).
-citta([H|T]) :- atom_chars("fraconalto", [H|T]).
-citta([H|T]) :- atom_chars("fragagnano", [H|T]).
-citta([H|T]) :- atom_chars("fragnetolabate", [H|T]).
-citta([H|T]) :- atom_chars("fragnetomonforte", [H|T]).
-citta([H|T]) :- atom_chars("fraine", [H|T]).
-citta([H|T]) :- atom_chars("framura", [H|T]).
-citta([H|T]) :- atom_chars("francavillaalmare", [H|T]).
-citta([H|T]) :- atom_chars("francavillaangitola", [H|T]).
-citta([H|T]) :- atom_chars("francavillabisio", [H|T]).
-citta([H|T]) :- atom_chars("francavilladete", [H|T]).
-citta([H|T]) :- atom_chars("francavilladisicilia", [H|T]).
-citta([H|T]) :- atom_chars("francavillafontana", [H|T]).
-citta([H|T]) :- atom_chars("francavillainsinni", [H|T]).
-citta([H|T]) :- atom_chars("francavillamarittima", [H|T]).
-citta([H|T]) :- atom_chars("francica", [H|T]).
-citta([H|T]) :- atom_chars("francofonte", [H|T]).
-citta([H|T]) :- atom_chars("francolise", [H|T]).
-citta([H|T]) :- atom_chars("frascaro", [H|T]).
-citta([H|T]) :- atom_chars("frascarolo", [H|T]).
-citta([H|T]) :- atom_chars("frascati", [H|T]).
-citta([H|T]) :- atom_chars("frascineto", [H|T]).
-citta([H|T]) :- atom_chars("frassilongo", [H|T]).
-citta([H|T]) :- atom_chars("frassinellepolesine", [H|T]).
-citta([H|T]) :- atom_chars("frassinellomonferrato", [H|T]).
-citta([H|T]) :- atom_chars("frassinetopo", [H|T]).
-citta([H|T]) :- atom_chars("frassinetto", [H|T]).
-citta([H|T]) :- atom_chars("frassino", [H|T]).
-citta([H|T]) :- atom_chars("frassinoro", [H|T]).
-citta([H|T]) :- atom_chars("frassosabino", [H|T]).
-citta([H|T]) :- atom_chars("frassotelesino", [H|T]).
-citta([H|T]) :- atom_chars("frattapolesine", [H|T]).
-citta([H|T]) :- atom_chars("frattatodina", [H|T]).
-citta([H|T]) :- atom_chars("frattamaggiore", [H|T]).
-citta([H|T]) :- atom_chars("frattaminore", [H|T]).
-citta([H|T]) :- atom_chars("fratterosa", [H|T]).
-citta([H|T]) :- atom_chars("frazzano", [H|T]).
-citta([H|T]) :- atom_chars("fregona", [H|T]).
-citta([H|T]) :- atom_chars("fresagrandinaria", [H|T]).
-citta([H|T]) :- atom_chars("fresonara", [H|T]).
-citta([H|T]) :- atom_chars("frigento", [H|T]).
-citta([H|T]) :- atom_chars("frignano", [H|T]).
-citta([H|T]) :- atom_chars("frinco", [H|T]).
-citta([H|T]) :- atom_chars("frisa", [H|T]).
-citta([H|T]) :- atom_chars("frisanco", [H|T]).
-citta([H|T]) :- atom_chars("front", [H|T]).
-citta([H|T]) :- atom_chars("frontino", [H|T]).
-citta([H|T]) :- atom_chars("frontone", [H|T]).
-citta([H|T]) :- atom_chars("frosinone", [H|T]).
-citta([H|T]) :- atom_chars("frosolone", [H|T]).
-citta([H|T]) :- atom_chars("frossasco", [H|T]).
-citta([H|T]) :- atom_chars("frugarolo", [H|T]).
-citta([H|T]) :- atom_chars("fubinemonferrato", [H|T]).
-citta([H|T]) :- atom_chars("fucecchio", [H|T]).
-citta([H|T]) :- atom_chars("fuipianovalleimagna", [H|T]).
-citta([H|T]) :- atom_chars("fumane", [H|T]).
-citta([H|T]) :- atom_chars("fumone", [H|T]).
-citta([H|T]) :- atom_chars("funes/villnoß", [H|T]).
-citta([H|T]) :- atom_chars("furci", [H|T]).
-citta([H|T]) :- atom_chars("furcisiculo", [H|T]).
-citta([H|T]) :- atom_chars("furnari", [H|T]).
-citta([H|T]) :- atom_chars("furore", [H|T]).
-citta([H|T]) :- atom_chars("furtei", [H|T]).
-citta([H|T]) :- atom_chars("fuscaldo", [H|T]).
-citta([H|T]) :- atom_chars("fusignano", [H|T]).
-citta([H|T]) :- atom_chars("fusine", [H|T]).
-citta([H|T]) :- atom_chars("futani", [H|T]).
-citta([H|T]) :- atom_chars("gabbioneta-binanuova", [H|T]).
-citta([H|T]) :- atom_chars("gabiano", [H|T]).
-citta([H|T]) :- atom_chars("gabiccemare", [H|T]).
-citta([H|T]) :- atom_chars("gaby", [H|T]).
-citta([H|T]) :- atom_chars("gadesco-pievedelmona", [H|T]).
-citta([H|T]) :- atom_chars("gadoni", [H|T]).
-citta([H|T]) :- atom_chars("gaeta", [H|T]).
-citta([H|T]) :- atom_chars("gaggi", [H|T]).
-citta([H|T]) :- atom_chars("gaggiano", [H|T]).
-citta([H|T]) :- atom_chars("gaggiomontano", [H|T]).
-citta([H|T]) :- atom_chars("gaglianico", [H|T]).
-citta([H|T]) :- atom_chars("gaglianoaterno", [H|T]).
-citta([H|T]) :- atom_chars("gaglianocastelferrato", [H|T]).
-citta([H|T]) :- atom_chars("gaglianodelcapo", [H|T]).
-citta([H|T]) :- atom_chars("gagliato", [H|T]).
-citta([H|T]) :- atom_chars("gagliole", [H|T]).
-citta([H|T]) :- atom_chars("gaiarine", [H|T]).
-citta([H|T]) :- atom_chars("gaiba", [H|T]).
-citta([H|T]) :- atom_chars("gaiola", [H|T]).
-citta([H|T]) :- atom_chars("gaioleinchianti", [H|T]).
-citta([H|T]) :- atom_chars("gairo", [H|T]).
-citta([H|T]) :- atom_chars("gais/gais", [H|T]).
-citta([H|T]) :- atom_chars("galatimamertino", [H|T]).
-citta([H|T]) :- atom_chars("galatina", [H|T]).
-citta([H|T]) :- atom_chars("galatone", [H|T]).
-citta([H|T]) :- atom_chars("galatro", [H|T]).
-citta([H|T]) :- atom_chars("galbiate", [H|T]).
-citta([H|T]) :- atom_chars("galeata", [H|T]).
-citta([H|T]) :- atom_chars("galgagnano", [H|T]).
-citta([H|T]) :- atom_chars("gallarate", [H|T]).
-citta([H|T]) :- atom_chars("gallese", [H|T]).
-citta([H|T]) :- atom_chars("galliate", [H|T]).
-citta([H|T]) :- atom_chars("galliatelombardo", [H|T]).
-citta([H|T]) :- atom_chars("galliavola", [H|T]).
-citta([H|T]) :- atom_chars("gallicano", [H|T]).
-citta([H|T]) :- atom_chars("gallicanonellazio", [H|T]).
-citta([H|T]) :- atom_chars("gallicchio", [H|T]).
-citta([H|T]) :- atom_chars("galliera", [H|T]).
-citta([H|T]) :- atom_chars("gallieraveneta", [H|T]).
-citta([H|T]) :- atom_chars("gallinaro", [H|T]).
-citta([H|T]) :- atom_chars("gallio", [H|T]).
-citta([H|T]) :- atom_chars("gallipoli", [H|T]).
-citta([H|T]) :- atom_chars("gallomatese", [H|T]).
-citta([H|T]) :- atom_chars("gallodoro", [H|T]).
-citta([H|T]) :- atom_chars("galluccio", [H|T]).
-citta([H|T]) :- atom_chars("galtelli", [H|T]).
-citta([H|T]) :- atom_chars("galzignanoterme", [H|T]).
-citta([H|T]) :- atom_chars("gamalero", [H|T]).
-citta([H|T]) :- atom_chars("gambara", [H|T]).
-citta([H|T]) :- atom_chars("gambarana", [H|T]).
-citta([H|T]) :- atom_chars("gambasca", [H|T]).
-citta([H|T]) :- atom_chars("gambassiterme", [H|T]).
-citta([H|T]) :- atom_chars("gambatesa", [H|T]).
-citta([H|T]) :- atom_chars("gambellara", [H|T]).
-citta([H|T]) :- atom_chars("gamberale", [H|T]).
-citta([H|T]) :- atom_chars("gambettola", [H|T]).
-citta([H|T]) :- atom_chars("gambolo", [H|T]).
-citta([H|T]) :- atom_chars("gambugliano", [H|T]).
-citta([H|T]) :- atom_chars("gandellino", [H|T]).
-citta([H|T]) :- atom_chars("gandino", [H|T]).
-citta([H|T]) :- atom_chars("gandosso", [H|T]).
-citta([H|T]) :- atom_chars("gangi", [H|T]).
-citta([H|T]) :- atom_chars("garaguso", [H|T]).
-citta([H|T]) :- atom_chars("garbagna", [H|T]).
-citta([H|T]) :- atom_chars("garbagnanovarese", [H|T]).
-citta([H|T]) :- atom_chars("garbagnatemilanese", [H|T]).
-citta([H|T]) :- atom_chars("garbagnatemonastero", [H|T]).
-citta([H|T]) :- atom_chars("garda", [H|T]).
-citta([H|T]) :- atom_chars("gardoneriviera", [H|T]).
-citta([H|T]) :- atom_chars("gardonevaltrompia", [H|T]).
-citta([H|T]) :- atom_chars("garessio", [H|T]).
-citta([H|T]) :- atom_chars("gargallo", [H|T]).
-citta([H|T]) :- atom_chars("gargazzone/gargazon", [H|T]).
-citta([H|T]) :- atom_chars("gargnano", [H|T]).
-citta([H|T]) :- atom_chars("garlasco", [H|T]).
-citta([H|T]) :- atom_chars("garlate", [H|T]).
-citta([H|T]) :- atom_chars("garlenda", [H|T]).
-citta([H|T]) :- atom_chars("garnigaterme", [H|T]).
-citta([H|T]) :- atom_chars("garzeno", [H|T]).
-citta([H|T]) :- atom_chars("garzigliana", [H|T]).
-citta([H|T]) :- atom_chars("gasperina", [H|T]).
-citta([H|T]) :- atom_chars("gassinotorinese", [H|T]).
-citta([H|T]) :- atom_chars("gattatico", [H|T]).
-citta([H|T]) :- atom_chars("gatteo", [H|T]).
-citta([H|T]) :- atom_chars("gattico", [H|T]).
-citta([H|T]) :- atom_chars("gattinara", [H|T]).
-citta([H|T]) :- atom_chars("gavardo", [H|T]).
-citta([H|T]) :- atom_chars("gavazzana", [H|T]).
-citta([H|T]) :- atom_chars("gavello", [H|T]).
-citta([H|T]) :- atom_chars("gaverinaterme", [H|T]).
-citta([H|T]) :- atom_chars("gavi", [H|T]).
-citta([H|T]) :- atom_chars("gavignano", [H|T]).
-citta([H|T]) :- atom_chars("gavirate", [H|T]).
-citta([H|T]) :- atom_chars("gavoi", [H|T]).
-citta([H|T]) :- atom_chars("gavorrano", [H|T]).
-citta([H|T]) :- atom_chars("gazoldodegliippoliti", [H|T]).
-citta([H|T]) :- atom_chars("gazzadaschianno", [H|T]).
-citta([H|T]) :- atom_chars("gazzaniga", [H|T]).
-citta([H|T]) :- atom_chars("gazzo", [H|T]).
-citta([H|T]) :- atom_chars("gazzoveronese", [H|T]).
-citta([H|T]) :- atom_chars("gazzola", [H|T]).
-citta([H|T]) :- atom_chars("gazzuolo", [H|T]).
-citta([H|T]) :- atom_chars("gela", [H|T]).
-citta([H|T]) :- atom_chars("gemmano", [H|T]).
-citta([H|T]) :- atom_chars("gemonadelfriuli", [H|T]).
-citta([H|T]) :- atom_chars("gemonio", [H|T]).
-citta([H|T]) :- atom_chars("genazzano", [H|T]).
-citta([H|T]) :- atom_chars("genga", [H|T]).
-citta([H|T]) :- atom_chars("genivolta", [H|T]).
-citta([H|T]) :- atom_chars("genola", [H|T]).
-citta([H|T]) :- atom_chars("genoni", [H|T]).
-citta([H|T]) :- atom_chars("genova", [H|T]).
-citta([H|T]) :- atom_chars("genuri", [H|T]).
-citta([H|T]) :- atom_chars("genzanodilucania", [H|T]).
-citta([H|T]) :- atom_chars("genzanodiroma", [H|T]).
-citta([H|T]) :- atom_chars("geralario", [H|T]).
-citta([H|T]) :- atom_chars("gerace", [H|T]).
-citta([H|T]) :- atom_chars("geracisiculo", [H|T]).
-citta([H|T]) :- atom_chars("gerano", [H|T]).
-citta([H|T]) :- atom_chars("gerenzago", [H|T]).
-citta([H|T]) :- atom_chars("gerenzano", [H|T]).
-citta([H|T]) :- atom_chars("gergei", [H|T]).
-citta([H|T]) :- atom_chars("germagnano", [H|T]).
-citta([H|T]) :- atom_chars("germagno", [H|T]).
-citta([H|T]) :- atom_chars("germignaga", [H|T]).
-citta([H|T]) :- atom_chars("gerocarne", [H|T]).
-citta([H|T]) :- atom_chars("gerolaalta", [H|T]).
-citta([H|T]) :- atom_chars("gerredecaprioli", [H|T]).
-citta([H|T]) :- atom_chars("gesico", [H|T]).
-citta([H|T]) :- atom_chars("gessate", [H|T]).
-citta([H|T]) :- atom_chars("gessopalena", [H|T]).
-citta([H|T]) :- atom_chars("gesturi", [H|T]).
-citta([H|T]) :- atom_chars("gesualdo", [H|T]).
-citta([H|T]) :- atom_chars("ghedi", [H|T]).
-citta([H|T]) :- atom_chars("ghemme", [H|T]).
-citta([H|T]) :- atom_chars("ghiffa", [H|T]).
-citta([H|T]) :- atom_chars("ghilarza", [H|T]).
-citta([H|T]) :- atom_chars("ghisalba", [H|T]).
-citta([H|T]) :- atom_chars("ghislarengo", [H|T]).
-citta([H|T]) :- atom_chars("giaccianoconbaruchella", [H|T]).
-citta([H|T]) :- atom_chars("giaglione", [H|T]).
-citta([H|T]) :- atom_chars("gianico", [H|T]).
-citta([H|T]) :- atom_chars("gianodellumbria", [H|T]).
-citta([H|T]) :- atom_chars("gianovetusto", [H|T]).
-citta([H|T]) :- atom_chars("giardinello", [H|T]).
-citta([H|T]) :- atom_chars("giardini-naxos", [H|T]).
-citta([H|T]) :- atom_chars("giarole", [H|T]).
-citta([H|T]) :- atom_chars("giarratana", [H|T]).
-citta([H|T]) :- atom_chars("giarre", [H|T]).
-citta([H|T]) :- atom_chars("giave", [H|T]).
-citta([H|T]) :- atom_chars("giaveno", [H|T]).
-citta([H|T]) :- atom_chars("giaveradelmontello", [H|T]).
-citta([H|T]) :- atom_chars("giba", [H|T]).
-citta([H|T]) :- atom_chars("gibellina", [H|T]).
-citta([H|T]) :- atom_chars("gifflenga", [H|T]).
-citta([H|T]) :- atom_chars("giffone", [H|T]).
-citta([H|T]) :- atom_chars("giffoniseicasali", [H|T]).
-citta([H|T]) :- atom_chars("giffonivallepiana", [H|T]).
-citta([H|T]) :- atom_chars("gignese", [H|T]).
-citta([H|T]) :- atom_chars("gignod", [H|T]).
-citta([H|T]) :- atom_chars("gildone", [H|T]).
-citta([H|T]) :- atom_chars("gimigliano", [H|T]).
-citta([H|T]) :- atom_chars("ginestra", [H|T]).
-citta([H|T]) :- atom_chars("ginestradeglischiavoni", [H|T]).
-citta([H|T]) :- atom_chars("ginosa", [H|T]).
-citta([H|T]) :- atom_chars("gioi", [H|T]).
-citta([H|T]) :- atom_chars("gioiadeimarsi", [H|T]).
-citta([H|T]) :- atom_chars("gioiadelcolle", [H|T]).
-citta([H|T]) :- atom_chars("gioiasannitica", [H|T]).
-citta([H|T]) :- atom_chars("gioiatauro", [H|T]).
-citta([H|T]) :- atom_chars("gioiosaionica", [H|T]).
-citta([H|T]) :- atom_chars("gioiosamarea", [H|T]).
-citta([H|T]) :- atom_chars("giove", [H|T]).
-citta([H|T]) :- atom_chars("giovinazzo", [H|T]).
-citta([H|T]) :- atom_chars("giovo", [H|T]).
-citta([H|T]) :- atom_chars("girasole", [H|T]).
-citta([H|T]) :- atom_chars("girifalco", [H|T]).
-citta([H|T]) :- atom_chars("gissi", [H|T]).
-citta([H|T]) :- atom_chars("giuggianello", [H|T]).
-citta([H|T]) :- atom_chars("giuglianoincampania", [H|T]).
-citta([H|T]) :- atom_chars("giuliana", [H|T]).
-citta([H|T]) :- atom_chars("giulianodiroma", [H|T]).
-citta([H|T]) :- atom_chars("giulianoteatino", [H|T]).
-citta([H|T]) :- atom_chars("giulianova", [H|T]).
-citta([H|T]) :- atom_chars("giungano", [H|T]).
-citta([H|T]) :- atom_chars("giurdignano", [H|T]).
-citta([H|T]) :- atom_chars("giussago", [H|T]).
-citta([H|T]) :- atom_chars("giussano", [H|T]).
-citta([H|T]) :- atom_chars("giustenice", [H|T]).
-citta([H|T]) :- atom_chars("giustino", [H|T]).
-citta([H|T]) :- atom_chars("giusvalla", [H|T]).
-citta([H|T]) :- atom_chars("givoletto", [H|T]).
-citta([H|T]) :- atom_chars("gizzeria", [H|T]).
-citta([H|T]) :- atom_chars("glorenza/glurns", [H|T]).
-citta([H|T]) :- atom_chars("godegadisanturbano", [H|T]).
-citta([H|T]) :- atom_chars("godiascosaliceterme", [H|T]).
-citta([H|T]) :- atom_chars("godrano", [H|T]).
-citta([H|T]) :- atom_chars("goito", [H|T]).
-citta([H|T]) :- atom_chars("golasecca", [H|T]).
-citta([H|T]) :- atom_chars("golferenzo", [H|T]).
-citta([H|T]) :- atom_chars("golfoaranci", [H|T]).
-citta([H|T]) :- atom_chars("gombito", [H|T]).
-citta([H|T]) :- atom_chars("gonars", [H|T]).
-citta([H|T]) :- atom_chars("goni", [H|T]).
-citta([H|T]) :- atom_chars("gonnesa", [H|T]).
-citta([H|T]) :- atom_chars("gonnoscodina", [H|T]).
-citta([H|T]) :- atom_chars("gonnosfanadiga", [H|T]).
-citta([H|T]) :- atom_chars("gonnosno", [H|T]).
-citta([H|T]) :- atom_chars("gonnostramatza", [H|T]).
-citta([H|T]) :- atom_chars("gonzaga", [H|T]).
-citta([H|T]) :- atom_chars("gordona", [H|T]).
-citta([H|T]) :- atom_chars("gorga", [H|T]).
-citta([H|T]) :- atom_chars("gorgoalmonticano", [H|T]).
-citta([H|T]) :- atom_chars("gorgoglione", [H|T]).
-citta([H|T]) :- atom_chars("gorgonzola", [H|T]).
-citta([H|T]) :- atom_chars("gorianosicoli", [H|T]).
-citta([H|T]) :- atom_chars("gorizia", [H|T]).
-citta([H|T]) :- atom_chars("gorlamaggiore", [H|T]).
-citta([H|T]) :- atom_chars("gorlaminore", [H|T]).
-citta([H|T]) :- atom_chars("gorlago", [H|T]).
-citta([H|T]) :- atom_chars("gorle", [H|T]).
-citta([H|T]) :- atom_chars("gornate-olona", [H|T]).
-citta([H|T]) :- atom_chars("gorno", [H|T]).
-citta([H|T]) :- atom_chars("goro", [H|T]).
-citta([H|T]) :- atom_chars("gorreto", [H|T]).
-citta([H|T]) :- atom_chars("gorzegno", [H|T]).
-citta([H|T]) :- atom_chars("gosaldo", [H|T]).
-citta([H|T]) :- atom_chars("gossolengo", [H|T]).
-citta([H|T]) :- atom_chars("gottasecca", [H|T]).
-citta([H|T]) :- atom_chars("gottolengo", [H|T]).
-citta([H|T]) :- atom_chars("govone", [H|T]).
-citta([H|T]) :- atom_chars("gozzano", [H|T]).
-citta([H|T]) :- atom_chars("gradara", [H|T]).
-citta([H|T]) :- atom_chars("gradiscadisonzo", [H|T]).
-citta([H|T]) :- atom_chars("grado", [H|T]).
-citta([H|T]) :- atom_chars("gradoli", [H|T]).
-citta([H|T]) :- atom_chars("graffignana", [H|T]).
-citta([H|T]) :- atom_chars("graffignano", [H|T]).
-citta([H|T]) :- atom_chars("graglia", [H|T]).
-citta([H|T]) :- atom_chars("gragnano", [H|T]).
-citta([H|T]) :- atom_chars("gragnanotrebbiense", [H|T]).
-citta([H|T]) :- atom_chars("grammichele", [H|T]).
-citta([H|T]) :- atom_chars("grana", [H|T]).
-citta([H|T]) :- atom_chars("granarolodellemilia", [H|T]).
-citta([H|T]) :- atom_chars("grandate", [H|T]).
-citta([H|T]) :- atom_chars("grandolaeduniti", [H|T]).
-citta([H|T]) :- atom_chars("graniti", [H|T]).
-citta([H|T]) :- atom_chars("granozzoconmonticello", [H|T]).
-citta([H|T]) :- atom_chars("grantola", [H|T]).
-citta([H|T]) :- atom_chars("grantorto", [H|T]).
-citta([H|T]) :- atom_chars("granze", [H|T]).
-citta([H|T]) :- atom_chars("grassano", [H|T]).
-citta([H|T]) :- atom_chars("grassobbio", [H|T]).
-citta([H|T]) :- atom_chars("gratteri", [H|T]).
-citta([H|T]) :- atom_chars("gravedonaeduniti", [H|T]).
-citta([H|T]) :- atom_chars("gravellonalomellina", [H|T]).
-citta([H|T]) :- atom_chars("gravellonatoce", [H|T]).
-citta([H|T]) :- atom_chars("gravere", [H|T]).
-citta([H|T]) :- atom_chars("gravinadicatania", [H|T]).
-citta([H|T]) :- atom_chars("gravinainpuglia", [H|T]).
-citta([H|T]) :- atom_chars("grazzanise", [H|T]).
-citta([H|T]) :- atom_chars("grazzanobadoglio", [H|T]).
-citta([H|T]) :- atom_chars("greccio", [H|T]).
-citta([H|T]) :- atom_chars("greci", [H|T]).
-citta([H|T]) :- atom_chars("greggio", [H|T]).
-citta([H|T]) :- atom_chars("gremiasco", [H|T]).
-citta([H|T]) :- atom_chars("gressan", [H|T]).
-citta([H|T]) :- atom_chars("gressoney-la-trinite", [H|T]).
-citta([H|T]) :- atom_chars("gressoney-saint-jean", [H|T]).
-citta([H|T]) :- atom_chars("greveinchianti", [H|T]).
-citta([H|T]) :- atom_chars("grezzago", [H|T]).
-citta([H|T]) :- atom_chars("grezzana", [H|T]).
-citta([H|T]) :- atom_chars("griante", [H|T]).
-citta([H|T]) :- atom_chars("gricignanodiaversa", [H|T]).
-citta([H|T]) :- atom_chars("grignasco", [H|T]).
-citta([H|T]) :- atom_chars("grigno", [H|T]).
-citta([H|T]) :- atom_chars("grimacco", [H|T]).
-citta([H|T]) :- atom_chars("grimaldi", [H|T]).
-citta([H|T]) :- atom_chars("grinzanecavour", [H|T]).
-citta([H|T]) :- atom_chars("grisignanodizocco", [H|T]).
-citta([H|T]) :- atom_chars("grisolia", [H|T]).
-citta([H|T]) :- atom_chars("grizzanamorandi", [H|T]).
-citta([H|T]) :- atom_chars("grognardo", [H|T]).
-citta([H|T]) :- atom_chars("gromo", [H|T]).
-citta([H|T]) :- atom_chars("grondona", [H|T]).
-citta([H|T]) :- atom_chars("grone", [H|T]).
-citta([H|T]) :- atom_chars("grontardo", [H|T]).
-citta([H|T]) :- atom_chars("gropellocairoli", [H|T]).
-citta([H|T]) :- atom_chars("gropparello", [H|T]).
-citta([H|T]) :- atom_chars("groscavallo", [H|T]).
-citta([H|T]) :- atom_chars("grosio", [H|T]).
-citta([H|T]) :- atom_chars("grosotto", [H|T]).
-citta([H|T]) :- atom_chars("grosseto", [H|T]).
-citta([H|T]) :- atom_chars("grosso", [H|T]).
-citta([H|T]) :- atom_chars("grottaferrata", [H|T]).
-citta([H|T]) :- atom_chars("grottaglie", [H|T]).
-citta([H|T]) :- atom_chars("grottaminarda", [H|T]).
-citta([H|T]) :- atom_chars("grottammare", [H|T]).
-citta([H|T]) :- atom_chars("grottazzolina", [H|T]).
-citta([H|T]) :- atom_chars("grotte", [H|T]).
-citta([H|T]) :- atom_chars("grottedicastro", [H|T]).
-citta([H|T]) :- atom_chars("grotteria", [H|T]).
-citta([H|T]) :- atom_chars("grottole", [H|T]).
-citta([H|T]) :- atom_chars("grottolella", [H|T]).
-citta([H|T]) :- atom_chars("gruaro", [H|T]).
-citta([H|T]) :- atom_chars("grugliasco", [H|T]).
-citta([H|T]) :- atom_chars("grumellocremoneseeduniti", [H|T]).
-citta([H|T]) :- atom_chars("grumellodelmonte", [H|T]).
-citta([H|T]) :- atom_chars("grumentonova", [H|T]).
-citta([H|T]) :- atom_chars("grumoappula", [H|T]).
-citta([H|T]) :- atom_chars("grumonevano", [H|T]).
-citta([H|T]) :- atom_chars("grumolodelleabbadesse", [H|T]).
-citta([H|T]) :- atom_chars("guagnano", [H|T]).
-citta([H|T]) :- atom_chars("gualdo", [H|T]).
-citta([H|T]) :- atom_chars("gualdocattaneo", [H|T]).
-citta([H|T]) :- atom_chars("gualdotadino", [H|T]).
-citta([H|T]) :- atom_chars("gualtieri", [H|T]).
-citta([H|T]) :- atom_chars("gualtierisicamino", [H|T]).
-citta([H|T]) :- atom_chars("guamaggiore", [H|T]).
-citta([H|T]) :- atom_chars("guanzate", [H|T]).
-citta([H|T]) :- atom_chars("guarcino", [H|T]).
-citta([H|T]) :- atom_chars("guardaveneta", [H|T]).
-citta([H|T]) :- atom_chars("guardabosone", [H|T]).
-citta([H|T]) :- atom_chars("guardamiglio", [H|T]).
-citta([H|T]) :- atom_chars("guardavalle", [H|T]).
-citta([H|T]) :- atom_chars("guardea", [H|T]).
-citta([H|T]) :- atom_chars("guardialombardi", [H|T]).
-citta([H|T]) :- atom_chars("guardiaperticara", [H|T]).
-citta([H|T]) :- atom_chars("guardiapiemontese", [H|T]).
-citta([H|T]) :- atom_chars("guardiasanframondi", [H|T]).
-citta([H|T]) :- atom_chars("guardiagrele", [H|T]).
-citta([H|T]) :- atom_chars("guardialfiera", [H|T]).
-citta([H|T]) :- atom_chars("guardiaregia", [H|T]).
-citta([H|T]) :- atom_chars("guardistallo", [H|T]).
-citta([H|T]) :- atom_chars("guarene", [H|T]).
-citta([H|T]) :- atom_chars("guasila", [H|T]).
-citta([H|T]) :- atom_chars("guastalla", [H|T]).
-citta([H|T]) :- atom_chars("guazzora", [H|T]).
-citta([H|T]) :- atom_chars("gubbio", [H|T]).
-citta([H|T]) :- atom_chars("gudovisconti", [H|T]).
-citta([H|T]) :- atom_chars("guglionesi", [H|T]).
-citta([H|T]) :- atom_chars("guidizzolo", [H|T]).
-citta([H|T]) :- atom_chars("guidoniamontecelio", [H|T]).
-citta([H|T]) :- atom_chars("guiglia", [H|T]).
-citta([H|T]) :- atom_chars("guilmi", [H|T]).
-citta([H|T]) :- atom_chars("gurro", [H|T]).
-citta([H|T]) :- atom_chars("guspini", [H|T]).
-citta([H|T]) :- atom_chars("gussago", [H|T]).
-citta([H|T]) :- atom_chars("gussola", [H|T]).
-citta([H|T]) :- atom_chars("hone", [H|T]).
-citta([H|T]) :- atom_chars("idro", [H|T]).
-citta([H|T]) :- atom_chars("iglesias", [H|T]).
-citta([H|T]) :- atom_chars("igliano", [H|T]).
-citta([H|T]) :- atom_chars("ilbono", [H|T]).
-citta([H|T]) :- atom_chars("illasi", [H|T]).
-citta([H|T]) :- atom_chars("illorai", [H|T]).
-citta([H|T]) :- atom_chars("imbersago", [H|T]).
-citta([H|T]) :- atom_chars("imer", [H|T]).
-citta([H|T]) :- atom_chars("imola", [H|T]).
-citta([H|T]) :- atom_chars("imperia", [H|T]).
-citta([H|T]) :- atom_chars("impruneta", [H|T]).
-citta([H|T]) :- atom_chars("inarzo", [H|T]).
-citta([H|T]) :- atom_chars("incisascapaccino", [H|T]).
-citta([H|T]) :- atom_chars("incudine", [H|T]).
-citta([H|T]) :- atom_chars("indunoolona", [H|T]).
-citta([H|T]) :- atom_chars("ingria", [H|T]).
-citta([H|T]) :- atom_chars("intragna", [H|T]).
-citta([H|T]) :- atom_chars("introbio", [H|T]).
-citta([H|T]) :- atom_chars("introd", [H|T]).
-citta([H|T]) :- atom_chars("introdacqua", [H|T]).
-citta([H|T]) :- atom_chars("introzzo", [H|T]).
-citta([H|T]) :- atom_chars("inverigo", [H|T]).
-citta([H|T]) :- atom_chars("invernoemonteleone", [H|T]).
-citta([H|T]) :- atom_chars("inversopinasca", [H|T]).
-citta([H|T]) :- atom_chars("inveruno", [H|T]).
-citta([H|T]) :- atom_chars("invorio", [H|T]).
-citta([H|T]) :- atom_chars("inzago", [H|T]).
-citta([H|T]) :- atom_chars("ionadi", [H|T]).
-citta([H|T]) :- atom_chars("irgoli", [H|T]).
-citta([H|T]) :- atom_chars("irma", [H|T]).
-citta([H|T]) :- atom_chars("irsina", [H|T]).
-citta([H|T]) :- atom_chars("isasca", [H|T]).
-citta([H|T]) :- atom_chars("iscasulloionio", [H|T]).
-citta([H|T]) :- atom_chars("ischia", [H|T]).
-citta([H|T]) :- atom_chars("ischiadicastro", [H|T]).
-citta([H|T]) :- atom_chars("ischitella", [H|T]).
-citta([H|T]) :- atom_chars("iseo", [H|T]).
-citta([H|T]) :- atom_chars("isera", [H|T]).
-citta([H|T]) :- atom_chars("isernia", [H|T]).
-citta([H|T]) :- atom_chars("isili", [H|T]).
-citta([H|T]) :- atom_chars("isnello", [H|T]).
-citta([H|T]) :- atom_chars("isoladasti", [H|T]).
-citta([H|T]) :- atom_chars("isoladelcantone", [H|T]).
-citta([H|T]) :- atom_chars("isoladelgiglio", [H|T]).
-citta([H|T]) :- atom_chars("isoladelgransassoditalia", [H|T]).
-citta([H|T]) :- atom_chars("isoladelliri", [H|T]).
-citta([H|T]) :- atom_chars("isoladelpiano", [H|T]).
-citta([H|T]) :- atom_chars("isoladellascala", [H|T]).
-citta([H|T]) :- atom_chars("isoladellefemmine", [H|T]).
-citta([H|T]) :- atom_chars("isoladicaporizzuto", [H|T]).
-citta([H|T]) :- atom_chars("isoladifondra", [H|T]).
-citta([H|T]) :- atom_chars("isoladovarese", [H|T]).
-citta([H|T]) :- atom_chars("isolarizza", [H|T]).
-citta([H|T]) :- atom_chars("isolasantantonio", [H|T]).
-citta([H|T]) :- atom_chars("isolavicentina", [H|T]).
-citta([H|T]) :- atom_chars("isolabella", [H|T]).
-citta([H|T]) :- atom_chars("isolabona", [H|T]).
-citta([H|T]) :- atom_chars("isoletremiti", [H|T]).
-citta([H|T]) :- atom_chars("isorella", [H|T]).
-citta([H|T]) :- atom_chars("ispani", [H|T]).
-citta([H|T]) :- atom_chars("ispica", [H|T]).
-citta([H|T]) :- atom_chars("ispra", [H|T]).
-citta([H|T]) :- atom_chars("issiglio", [H|T]).
-citta([H|T]) :- atom_chars("issime", [H|T]).
-citta([H|T]) :- atom_chars("isso", [H|T]).
-citta([H|T]) :- atom_chars("issogne", [H|T]).
-citta([H|T]) :- atom_chars("istrana", [H|T]).
-citta([H|T]) :- atom_chars("itala", [H|T]).
-citta([H|T]) :- atom_chars("itri", [H|T]).
-citta([H|T]) :- atom_chars("ittireddu", [H|T]).
-citta([H|T]) :- atom_chars("ittiri", [H|T]).
-citta([H|T]) :- atom_chars("ivrea", [H|T]).
-citta([H|T]) :- atom_chars("izano", [H|T]).
-citta([H|T]) :- atom_chars("jacurso", [H|T]).
-citta([H|T]) :- atom_chars("jelsi", [H|T]).
-citta([H|T]) :- atom_chars("jenne", [H|T]).
-citta([H|T]) :- atom_chars("jeragoconorago", [H|T]).
-citta([H|T]) :- atom_chars("jerzu", [H|T]).
-citta([H|T]) :- atom_chars("jesi", [H|T]).
-citta([H|T]) :- atom_chars("jesolo", [H|T]).
-citta([H|T]) :- atom_chars("jolandadisavoia", [H|T]).
-citta([H|T]) :- atom_chars("joppolo", [H|T]).
-citta([H|T]) :- atom_chars("joppologiancaxio", [H|T]).
-citta([H|T]) :- atom_chars("jovencan", [H|T]).
-citta([H|T]) :- atom_chars("lacassa", [H|T]).
-citta([H|T]) :- atom_chars("laloggia", [H|T]).
-citta([H|T]) :- atom_chars("lamaddalena", [H|T]).
-citta([H|T]) :- atom_chars("lamagdeleine", [H|T]).
-citta([H|T]) :- atom_chars("lamorra", [H|T]).
-citta([H|T]) :- atom_chars("lasalle", [H|T]).
-citta([H|T]) :- atom_chars("laspezia", [H|T]).
-citta([H|T]) :- atom_chars("lathuile", [H|T]).
-citta([H|T]) :- atom_chars("lavalleagordina", [H|T]).
-citta([H|T]) :- atom_chars("lavalle/wengen", [H|T]).
-citta([H|T]) :- atom_chars("lavallettabrianza", [H|T]).
-citta([H|T]) :- atom_chars("labico", [H|T]).
-citta([H|T]) :- atom_chars("labro", [H|T]).
-citta([H|T]) :- atom_chars("lacchiarella", [H|T]).
-citta([H|T]) :- atom_chars("laccoameno", [H|T]).
-citta([H|T]) :- atom_chars("lacedonia", [H|T]).
-citta([H|T]) :- atom_chars("laces/latsch", [H|T]).
-citta([H|T]) :- atom_chars("laconi", [H|T]).
-citta([H|T]) :- atom_chars("ladispoli", [H|T]).
-citta([H|T]) :- atom_chars("laerru", [H|T]).
-citta([H|T]) :- atom_chars("laganadi", [H|T]).
-citta([H|T]) :- atom_chars("laghi", [H|T]).
-citta([H|T]) :- atom_chars("laglio", [H|T]).
-citta([H|T]) :- atom_chars("lagnasco", [H|T]).
-citta([H|T]) :- atom_chars("lago", [H|T]).
-citta([H|T]) :- atom_chars("lagonegro", [H|T]).
-citta([H|T]) :- atom_chars("lagosanto", [H|T]).
-citta([H|T]) :- atom_chars("lagundo/algund", [H|T]).
-citta([H|T]) :- atom_chars("laigueglia", [H|T]).
-citta([H|T]) :- atom_chars("lainate", [H|T]).
-citta([H|T]) :- atom_chars("laino", [H|T]).
-citta([H|T]) :- atom_chars("lainoborgo", [H|T]).
-citta([H|T]) :- atom_chars("lainocastello", [H|T]).
-citta([H|T]) :- atom_chars("laion/lajen", [H|T]).
-citta([H|T]) :- atom_chars("laives/leifers", [H|T]).
-citta([H|T]) :- atom_chars("lajatico", [H|T]).
-citta([H|T]) :- atom_chars("lallio", [H|T]).
-citta([H|T]) :- atom_chars("lamadeipeligni", [H|T]).
-citta([H|T]) :- atom_chars("lamamocogno", [H|T]).
-citta([H|T]) :- atom_chars("lambrugo", [H|T]).
-citta([H|T]) :- atom_chars("lameziaterme", [H|T]).
-citta([H|T]) :- atom_chars("lamon", [H|T]).
-citta([H|T]) :- atom_chars("lampedusaelinosa", [H|T]).
-citta([H|T]) :- atom_chars("lamporecchio", [H|T]).
-citta([H|T]) :- atom_chars("lamporo", [H|T]).
-citta([H|T]) :- atom_chars("lana/lana", [H|T]).
-citta([H|T]) :- atom_chars("lanciano", [H|T]).
-citta([H|T]) :- atom_chars("landiona", [H|T]).
-citta([H|T]) :- atom_chars("landriano", [H|T]).
-citta([H|T]) :- atom_chars("langhirano", [H|T]).
-citta([H|T]) :- atom_chars("langosco", [H|T]).
-citta([H|T]) :- atom_chars("lanusei", [H|T]).
-citta([H|T]) :- atom_chars("lanuvio", [H|T]).
-citta([H|T]) :- atom_chars("lanzada", [H|T]).
-citta([H|T]) :- atom_chars("lanzotorinese", [H|T]).
-citta([H|T]) :- atom_chars("lapedona", [H|T]).
-citta([H|T]) :- atom_chars("lapio", [H|T]).
-citta([H|T]) :- atom_chars("lappano", [H|T]).
-citta([H|T]) :- atom_chars("laquila", [H|T]).
-citta([H|T]) :- atom_chars("larciano", [H|T]).
-citta([H|T]) :- atom_chars("lardirago", [H|T]).
-citta([H|T]) :- atom_chars("lariano", [H|T]).
-citta([H|T]) :- atom_chars("larino", [H|T]).
-citta([H|T]) :- atom_chars("lasplassas", [H|T]).
-citta([H|T]) :- atom_chars("lasa/laas", [H|T]).
-citta([H|T]) :- atom_chars("lascari", [H|T]).
-citta([H|T]) :- atom_chars("lasnigo", [H|T]).
-citta([H|T]) :- atom_chars("lastebasse", [H|T]).
-citta([H|T]) :- atom_chars("lastraasigna", [H|T]).
-citta([H|T]) :- atom_chars("latera", [H|T]).
-citta([H|T]) :- atom_chars("laterina", [H|T]).
-citta([H|T]) :- atom_chars("laterza", [H|T]).
-citta([H|T]) :- atom_chars("latiano", [H|T]).
-citta([H|T]) :- atom_chars("latina", [H|T]).
-citta([H|T]) :- atom_chars("latisana", [H|T]).
-citta([H|T]) :- atom_chars("latronico", [H|T]).
-citta([H|T]) :- atom_chars("lattarico", [H|T]).
-citta([H|T]) :- atom_chars("lauco", [H|T]).
-citta([H|T]) :- atom_chars("laureanacilento", [H|T]).
-citta([H|T]) :- atom_chars("laureanadiborrello", [H|T]).
-citta([H|T]) :- atom_chars("lauregno/laurein", [H|T]).
-citta([H|T]) :- atom_chars("laurenzana", [H|T]).
-citta([H|T]) :- atom_chars("lauria", [H|T]).
-citta([H|T]) :- atom_chars("lauriano", [H|T]).
-citta([H|T]) :- atom_chars("laurino", [H|T]).
-citta([H|T]) :- atom_chars("laurito", [H|T]).
-citta([H|T]) :- atom_chars("lauro", [H|T]).
-citta([H|T]) :- atom_chars("lavagna", [H|T]).
-citta([H|T]) :- atom_chars("lavagno", [H|T]).
-citta([H|T]) :- atom_chars("lavarone", [H|T]).
-citta([H|T]) :- atom_chars("lavello", [H|T]).
-citta([H|T]) :- atom_chars("lavenapontetresa", [H|T]).
-citta([H|T]) :- atom_chars("laveno-mombello", [H|T]).
-citta([H|T]) :- atom_chars("lavenone", [H|T]).
-citta([H|T]) :- atom_chars("laviano", [H|T]).
-citta([H|T]) :- atom_chars("lavis", [H|T]).
-citta([H|T]) :- atom_chars("lazise", [H|T]).
-citta([H|T]) :- atom_chars("lazzate", [H|T]).
-citta([H|T]) :- atom_chars("lecce", [H|T]).
-citta([H|T]) :- atom_chars("lecceneimarsi", [H|T]).
-citta([H|T]) :- atom_chars("lecco", [H|T]).
-citta([H|T]) :- atom_chars("ledro", [H|T]).
-citta([H|T]) :- atom_chars("leffe", [H|T]).
-citta([H|T]) :- atom_chars("leggiuno", [H|T]).
-citta([H|T]) :- atom_chars("legnago", [H|T]).
-citta([H|T]) :- atom_chars("legnano", [H|T]).
-citta([H|T]) :- atom_chars("legnaro", [H|T]).
-citta([H|T]) :- atom_chars("lei", [H|T]).
-citta([H|T]) :- atom_chars("leini", [H|T]).
-citta([H|T]) :- atom_chars("leivi", [H|T]).
-citta([H|T]) :- atom_chars("lemie", [H|T]).
-citta([H|T]) :- atom_chars("lendinara", [H|T]).
-citta([H|T]) :- atom_chars("leni", [H|T]).
-citta([H|T]) :- atom_chars("lenna", [H|T]).
-citta([H|T]) :- atom_chars("leno", [H|T]).
-citta([H|T]) :- atom_chars("lenola", [H|T]).
-citta([H|T]) :- atom_chars("lenta", [H|T]).
-citta([H|T]) :- atom_chars("lentatesulseveso", [H|T]).
-citta([H|T]) :- atom_chars("lentella", [H|T]).
-citta([H|T]) :- atom_chars("lentiai", [H|T]).
-citta([H|T]) :- atom_chars("lentini", [H|T]).
-citta([H|T]) :- atom_chars("leonessa", [H|T]).
-citta([H|T]) :- atom_chars("leonforte", [H|T]).
-citta([H|T]) :- atom_chars("leporano", [H|T]).
-citta([H|T]) :- atom_chars("lequile", [H|T]).
-citta([H|T]) :- atom_chars("lequioberria", [H|T]).
-citta([H|T]) :- atom_chars("lequiotanaro", [H|T]).
-citta([H|T]) :- atom_chars("lercarafriddi", [H|T]).
-citta([H|T]) :- atom_chars("lerici", [H|T]).
-citta([H|T]) :- atom_chars("lerma", [H|T]).
-citta([H|T]) :- atom_chars("lesa", [H|T]).
-citta([H|T]) :- atom_chars("lesegno", [H|T]).
-citta([H|T]) :- atom_chars("lesignanodebagni", [H|T]).
-citta([H|T]) :- atom_chars("lesina", [H|T]).
-citta([H|T]) :- atom_chars("lesmo", [H|T]).
-citta([H|T]) :- atom_chars("lessolo", [H|T]).
-citta([H|T]) :- atom_chars("lessona", [H|T]).
-citta([H|T]) :- atom_chars("lestizza", [H|T]).
-citta([H|T]) :- atom_chars("letino", [H|T]).
-citta([H|T]) :- atom_chars("letojanni", [H|T]).
-citta([H|T]) :- atom_chars("lettere", [H|T]).
-citta([H|T]) :- atom_chars("lettomanoppello", [H|T]).
-citta([H|T]) :- atom_chars("lettopalena", [H|T]).
-citta([H|T]) :- atom_chars("levanto", [H|T]).
-citta([H|T]) :- atom_chars("levate", [H|T]).
-citta([H|T]) :- atom_chars("leverano", [H|T]).
-citta([H|T]) :- atom_chars("levice", [H|T]).
-citta([H|T]) :- atom_chars("levicoterme", [H|T]).
-citta([H|T]) :- atom_chars("levone", [H|T]).
-citta([H|T]) :- atom_chars("lezzeno", [H|T]).
-citta([H|T]) :- atom_chars("liberi", [H|T]).
-citta([H|T]) :- atom_chars("librizzi", [H|T]).
-citta([H|T]) :- atom_chars("licata", [H|T]).
-citta([H|T]) :- atom_chars("licciananardi", [H|T]).
-citta([H|T]) :- atom_chars("licenza", [H|T]).
-citta([H|T]) :- atom_chars("licodiaeubea", [H|T]).
-citta([H|T]) :- atom_chars("lierna", [H|T]).
-citta([H|T]) :- atom_chars("lignana", [H|T]).
-citta([H|T]) :- atom_chars("lignanosabbiadoro", [H|T]).
-citta([H|T]) :- atom_chars("ligosullo", [H|T]).
-citta([H|T]) :- atom_chars("lillianes", [H|T]).
-citta([H|T]) :- atom_chars("limana", [H|T]).
-citta([H|T]) :- atom_chars("limatola", [H|T]).
-citta([H|T]) :- atom_chars("limbadi", [H|T]).
-citta([H|T]) :- atom_chars("limbiate", [H|T]).
-citta([H|T]) :- atom_chars("limena", [H|T]).
-citta([H|T]) :- atom_chars("limidocomasco", [H|T]).
-citta([H|T]) :- atom_chars("limina", [H|T]).
-citta([H|T]) :- atom_chars("limonepiemonte", [H|T]).
-citta([H|T]) :- atom_chars("limonesulgarda", [H|T]).
-citta([H|T]) :- atom_chars("limosano", [H|T]).
-citta([H|T]) :- atom_chars("linarolo", [H|T]).
-citta([H|T]) :- atom_chars("linguaglossa", [H|T]).
-citta([H|T]) :- atom_chars("lioni", [H|T]).
-citta([H|T]) :- atom_chars("lipari", [H|T]).
-citta([H|T]) :- atom_chars("lipomo", [H|T]).
-citta([H|T]) :- atom_chars("lirio", [H|T]).
-citta([H|T]) :- atom_chars("liscate", [H|T]).
-citta([H|T]) :- atom_chars("liscia", [H|T]).
-citta([H|T]) :- atom_chars("liscianoniccone", [H|T]).
-citta([H|T]) :- atom_chars("lisio", [H|T]).
-citta([H|T]) :- atom_chars("lissone", [H|T]).
-citta([H|T]) :- atom_chars("liveri", [H|T]).
-citta([H|T]) :- atom_chars("livigno", [H|T]).
-citta([H|T]) :- atom_chars("livinallongodelcoldilana", [H|T]).
-citta([H|T]) :- atom_chars("livo", [H|T]).
-citta([H|T]) :- atom_chars("livo", [H|T]).
-citta([H|T]) :- atom_chars("livorno", [H|T]).
-citta([H|T]) :- atom_chars("livornoferraris", [H|T]).
-citta([H|T]) :- atom_chars("livraga", [H|T]).
-citta([H|T]) :- atom_chars("lizzanello", [H|T]).
-citta([H|T]) :- atom_chars("lizzano", [H|T]).
-citta([H|T]) :- atom_chars("lizzanoinbelvedere", [H|T]).
-citta([H|T]) :- atom_chars("loano", [H|T]).
-citta([H|T]) :- atom_chars("loazzolo", [H|T]).
-citta([H|T]) :- atom_chars("locana", [H|T]).
-citta([H|T]) :- atom_chars("locateditriulzi", [H|T]).
-citta([H|T]) :- atom_chars("locatevaresino", [H|T]).
-citta([H|T]) :- atom_chars("locatello", [H|T]).
-citta([H|T]) :- atom_chars("loceri", [H|T]).
-citta([H|T]) :- atom_chars("locorotondo", [H|T]).
-citta([H|T]) :- atom_chars("locri", [H|T]).
-citta([H|T]) :- atom_chars("loculi", [H|T]).
-citta([H|T]) :- atom_chars("lode", [H|T]).
-citta([H|T]) :- atom_chars("lodi", [H|T]).
-citta([H|T]) :- atom_chars("lodivecchio", [H|T]).
-citta([H|T]) :- atom_chars("lodine", [H|T]).
-citta([H|T]) :- atom_chars("lodrino", [H|T]).
-citta([H|T]) :- atom_chars("lograto", [H|T]).
-citta([H|T]) :- atom_chars("loiano", [H|T]).
-citta([H|T]) :- atom_chars("loiriportosanpaolo", [H|T]).
-citta([H|T]) :- atom_chars("lomagna", [H|T]).
-citta([H|T]) :- atom_chars("lomazzo", [H|T]).
-citta([H|T]) :- atom_chars("lombardore", [H|T]).
-citta([H|T]) :- atom_chars("lombriasco", [H|T]).
-citta([H|T]) :- atom_chars("lomello", [H|T]).
-citta([H|T]) :- atom_chars("lona-lases", [H|T]).
-citta([H|T]) :- atom_chars("lonateceppino", [H|T]).
-citta([H|T]) :- atom_chars("lonatepozzolo", [H|T]).
-citta([H|T]) :- atom_chars("lonatodelgarda", [H|T]).
-citta([H|T]) :- atom_chars("londa", [H|T]).
-citta([H|T]) :- atom_chars("longano", [H|T]).
-citta([H|T]) :- atom_chars("longare", [H|T]).
-citta([H|T]) :- atom_chars("longarone", [H|T]).
-citta([H|T]) :- atom_chars("longhena", [H|T]).
-citta([H|T]) :- atom_chars("longi", [H|T]).
-citta([H|T]) :- atom_chars("longiano", [H|T]).
-citta([H|T]) :- atom_chars("longobardi", [H|T]).
-citta([H|T]) :- atom_chars("longobucco", [H|T]).
-citta([H|T]) :- atom_chars("longonealsegrino", [H|T]).
-citta([H|T]) :- atom_chars("longonesabino", [H|T]).
-citta([H|T]) :- atom_chars("lonigo", [H|T]).
-citta([H|T]) :- atom_chars("loranze", [H|T]).
-citta([H|T]) :- atom_chars("loreggia", [H|T]).
-citta([H|T]) :- atom_chars("loreglia", [H|T]).
-citta([H|T]) :- atom_chars("lorenzagodicadore", [H|T]).
-citta([H|T]) :- atom_chars("loreo", [H|T]).
-citta([H|T]) :- atom_chars("loreto", [H|T]).
-citta([H|T]) :- atom_chars("loretoaprutino", [H|T]).
-citta([H|T]) :- atom_chars("loria", [H|T]).
-citta([H|T]) :- atom_chars("lorociuffenna", [H|T]).
-citta([H|T]) :- atom_chars("loropiceno", [H|T]).
-citta([H|T]) :- atom_chars("lorsica", [H|T]).
-citta([H|T]) :- atom_chars("losine", [H|T]).
-citta([H|T]) :- atom_chars("lotzorai", [H|T]).
-citta([H|T]) :- atom_chars("lovere", [H|T]).
-citta([H|T]) :- atom_chars("lovero", [H|T]).
-citta([H|T]) :- atom_chars("lozio", [H|T]).
-citta([H|T]) :- atom_chars("lozza", [H|T]).
-citta([H|T]) :- atom_chars("lozzoatestino", [H|T]).
-citta([H|T]) :- atom_chars("lozzodicadore", [H|T]).
-citta([H|T]) :- atom_chars("lozzolo", [H|T]).
-citta([H|T]) :- atom_chars("lu", [H|T]).
-citta([H|T]) :- atom_chars("lubriano", [H|T]).
-citta([H|T]) :- atom_chars("lucca", [H|T]).
-citta([H|T]) :- atom_chars("luccasicula", [H|T]).
-citta([H|T]) :- atom_chars("lucera", [H|T]).
-citta([H|T]) :- atom_chars("lucignano", [H|T]).
-citta([H|T]) :- atom_chars("lucinasco", [H|T]).
-citta([H|T]) :- atom_chars("lucito", [H|T]).
-citta([H|T]) :- atom_chars("lucodeimarsi", [H|T]).
-citta([H|T]) :- atom_chars("lucoli", [H|T]).
-citta([H|T]) :- atom_chars("lugagnanovaldarda", [H|T]).
-citta([H|T]) :- atom_chars("lugnacco", [H|T]).
-citta([H|T]) :- atom_chars("lugnanointeverina", [H|T]).
-citta([H|T]) :- atom_chars("lugo", [H|T]).
-citta([H|T]) :- atom_chars("lugodivicenza", [H|T]).
-citta([H|T]) :- atom_chars("luino", [H|T]).
-citta([H|T]) :- atom_chars("luisago", [H|T]).
-citta([H|T]) :- atom_chars("lula", [H|T]).
-citta([H|T]) :- atom_chars("lumarzo", [H|T]).
-citta([H|T]) :- atom_chars("lumezzane", [H|T]).
-citta([H|T]) :- atom_chars("lunamatrona", [H|T]).
-citta([H|T]) :- atom_chars("lunano", [H|T]).
-citta([H|T]) :- atom_chars("lungavilla", [H|T]).
-citta([H|T]) :- atom_chars("lungro", [H|T]).
-citta([H|T]) :- atom_chars("luni", [H|T]).
-citta([H|T]) :- atom_chars("luogosano", [H|T]).
-citta([H|T]) :- atom_chars("luogosanto", [H|T]).
-citta([H|T]) :- atom_chars("lupara", [H|T]).
-citta([H|T]) :- atom_chars("luragoderba", [H|T]).
-citta([H|T]) :- atom_chars("luragomarinone", [H|T]).
-citta([H|T]) :- atom_chars("lurano", [H|T]).
-citta([H|T]) :- atom_chars("luras", [H|T]).
-citta([H|T]) :- atom_chars("luratecaccivio", [H|T]).
-citta([H|T]) :- atom_chars("lusciano", [H|T]).
-citta([H|T]) :- atom_chars("luserna", [H|T]).
-citta([H|T]) :- atom_chars("lusernasangiovanni", [H|T]).
-citta([H|T]) :- atom_chars("lusernetta", [H|T]).
-citta([H|T]) :- atom_chars("lusevera", [H|T]).
-citta([H|T]) :- atom_chars("lusia", [H|T]).
-citta([H|T]) :- atom_chars("lusiana", [H|T]).
-citta([H|T]) :- atom_chars("lusiglie", [H|T]).
-citta([H|T]) :- atom_chars("luson/lusen", [H|T]).
-citta([H|T]) :- atom_chars("lustra", [H|T]).
-citta([H|T]) :- atom_chars("luvinate", [H|T]).
-citta([H|T]) :- atom_chars("luzzana", [H|T]).
-citta([H|T]) :- atom_chars("luzzara", [H|T]).
-citta([H|T]) :- atom_chars("luzzi", [H|T]).
-citta([H|T]) :- atom_chars("maccagnoconpinoeveddasca", [H|T]).
-citta([H|T]) :- atom_chars("maccastorna", [H|T]).
-citta([H|T]) :- atom_chars("macchiadisernia", [H|T]).
-citta([H|T]) :- atom_chars("macchiavalfortore", [H|T]).
-citta([H|T]) :- atom_chars("macchiagodena", [H|T]).
-citta([H|T]) :- atom_chars("macello", [H|T]).
-citta([H|T]) :- atom_chars("macerata", [H|T]).
-citta([H|T]) :- atom_chars("maceratacampania", [H|T]).
-citta([H|T]) :- atom_chars("maceratafeltria", [H|T]).
-citta([H|T]) :- atom_chars("macherio", [H|T]).
-citta([H|T]) :- atom_chars("maclodio", [H|T]).
-citta([H|T]) :- atom_chars("macomer", [H|T]).
-citta([H|T]) :- atom_chars("macra", [H|T]).
-citta([H|T]) :- atom_chars("macugnaga", [H|T]).
-citta([H|T]) :- atom_chars("maddaloni", [H|T]).
-citta([H|T]) :- atom_chars("madesimo", [H|T]).
-citta([H|T]) :- atom_chars("madignano", [H|T]).
-citta([H|T]) :- atom_chars("madone", [H|T]).
-citta([H|T]) :- atom_chars("madonnadelsasso", [H|T]).
-citta([H|T]) :- atom_chars("madruzzo", [H|T]).
-citta([H|T]) :- atom_chars("maenza", [H|T]).
-citta([H|T]) :- atom_chars("mafalda", [H|T]).
-citta([H|T]) :- atom_chars("magasa", [H|T]).
-citta([H|T]) :- atom_chars("magenta", [H|T]).
-citta([H|T]) :- atom_chars("maggiora", [H|T]).
-citta([H|T]) :- atom_chars("magherno", [H|T]).
-citta([H|T]) :- atom_chars("magione", [H|T]).
-citta([H|T]) :- atom_chars("magisano", [H|T]).
-citta([H|T]) :- atom_chars("maglianoalfieri", [H|T]).
-citta([H|T]) :- atom_chars("maglianoalpi", [H|T]).
-citta([H|T]) :- atom_chars("maglianodemarsi", [H|T]).
-citta([H|T]) :- atom_chars("maglianoditenna", [H|T]).
-citta([H|T]) :- atom_chars("maglianointoscana", [H|T]).
-citta([H|T]) :- atom_chars("maglianoromano", [H|T]).
-citta([H|T]) :- atom_chars("maglianosabina", [H|T]).
-citta([H|T]) :- atom_chars("maglianovetere", [H|T]).
-citta([H|T]) :- atom_chars("maglie", [H|T]).
-citta([H|T]) :- atom_chars("magliolo", [H|T]).
-citta([H|T]) :- atom_chars("maglione", [H|T]).
-citta([H|T]) :- atom_chars("magnacavallo", [H|T]).
-citta([H|T]) :- atom_chars("magnago", [H|T]).
-citta([H|T]) :- atom_chars("magnano", [H|T]).
-citta([H|T]) :- atom_chars("magnanoinriviera", [H|T]).
-citta([H|T]) :- atom_chars("magomadas", [H|T]).
-citta([H|T]) :- atom_chars("magresullastradadelvino/margreidanderweinstraße", [H|T]).
-citta([H|T]) :- atom_chars("magreglio", [H|T]).
-citta([H|T]) :- atom_chars("maida", [H|T]).
-citta([H|T]) :- atom_chars("maiera", [H|T]).
-citta([H|T]) :- atom_chars("maierato", [H|T]).
-citta([H|T]) :- atom_chars("maiolatispontini", [H|T]).
-citta([H|T]) :- atom_chars("maiolo", [H|T]).
-citta([H|T]) :- atom_chars("maiori", [H|T]).
-citta([H|T]) :- atom_chars("mairago", [H|T]).
-citta([H|T]) :- atom_chars("mairano", [H|T]).
-citta([H|T]) :- atom_chars("maissana", [H|T]).
-citta([H|T]) :- atom_chars("majano", [H|T]).
-citta([H|T]) :- atom_chars("malagnino", [H|T]).
-citta([H|T]) :- atom_chars("malalbergo", [H|T]).
-citta([H|T]) :- atom_chars("malborghettovalbruna", [H|T]).
-citta([H|T]) :- atom_chars("malcesine", [H|T]).
-citta([H|T]) :- atom_chars("male", [H|T]).
-citta([H|T]) :- atom_chars("malegno", [H|T]).
-citta([H|T]) :- atom_chars("maleo", [H|T]).
-citta([H|T]) :- atom_chars("malesco", [H|T]).
-citta([H|T]) :- atom_chars("maletto", [H|T]).
-citta([H|T]) :- atom_chars("malfa", [H|T]).
-citta([H|T]) :- atom_chars("malgesso", [H|T]).
-citta([H|T]) :- atom_chars("malgrate", [H|T]).
-citta([H|T]) :- atom_chars("malito", [H|T]).
-citta([H|T]) :- atom_chars("mallare", [H|T]).
-citta([H|T]) :- atom_chars("mallesvenosta/mals", [H|T]).
-citta([H|T]) :- atom_chars("malnate", [H|T]).
-citta([H|T]) :- atom_chars("malo", [H|T]).
-citta([H|T]) :- atom_chars("malonno", [H|T]).
-citta([H|T]) :- atom_chars("malosco", [H|T]).
-citta([H|T]) :- atom_chars("maltignano", [H|T]).
-citta([H|T]) :- atom_chars("malvagna", [H|T]).
-citta([H|T]) :- atom_chars("malvicino", [H|T]).
-citta([H|T]) :- atom_chars("malvito", [H|T]).
-citta([H|T]) :- atom_chars("mammola", [H|T]).
-citta([H|T]) :- atom_chars("mamoiada", [H|T]).
-citta([H|T]) :- atom_chars("manciano", [H|T]).
-citta([H|T]) :- atom_chars("mandanici", [H|T]).
-citta([H|T]) :- atom_chars("mandas", [H|T]).
-citta([H|T]) :- atom_chars("mandatoriccio", [H|T]).
-citta([H|T]) :- atom_chars("mandela", [H|T]).
-citta([H|T]) :- atom_chars("mandellodellario", [H|T]).
-citta([H|T]) :- atom_chars("mandellovitta", [H|T]).
-citta([H|T]) :- atom_chars("manduria", [H|T]).
-citta([H|T]) :- atom_chars("manerbadelgarda", [H|T]).
-citta([H|T]) :- atom_chars("manerbio", [H|T]).
-citta([H|T]) :- atom_chars("manfredonia", [H|T]).
-citta([H|T]) :- atom_chars("mango", [H|T]).
-citta([H|T]) :- atom_chars("mangone", [H|T]).
-citta([H|T]) :- atom_chars("maniace", [H|T]).
-citta([H|T]) :- atom_chars("maniago", [H|T]).
-citta([H|T]) :- atom_chars("manocalzati", [H|T]).
-citta([H|T]) :- atom_chars("manoppello", [H|T]).
-citta([H|T]) :- atom_chars("mansue", [H|T]).
-citta([H|T]) :- atom_chars("manta", [H|T]).
-citta([H|T]) :- atom_chars("mantello", [H|T]).
-citta([H|T]) :- atom_chars("mantova", [H|T]).
-citta([H|T]) :- atom_chars("manzano", [H|T]).
-citta([H|T]) :- atom_chars("manziana", [H|T]).
-citta([H|T]) :- atom_chars("mapello", [H|T]).
-citta([H|T]) :- atom_chars("mappano", [H|T]).
-citta([H|T]) :- atom_chars("mara", [H|T]).
-citta([H|T]) :- atom_chars("maracalagonis", [H|T]).
-citta([H|T]) :- atom_chars("maranello", [H|T]).
-citta([H|T]) :- atom_chars("maranodinapoli", [H|T]).
-citta([H|T]) :- atom_chars("maranodivalpolicella", [H|T]).
-citta([H|T]) :- atom_chars("maranoequo", [H|T]).
-citta([H|T]) :- atom_chars("maranolagunare", [H|T]).
-citta([H|T]) :- atom_chars("maranomarchesato", [H|T]).
-citta([H|T]) :- atom_chars("maranoprincipato", [H|T]).
-citta([H|T]) :- atom_chars("maranosulpanaro", [H|T]).
-citta([H|T]) :- atom_chars("maranoticino", [H|T]).
-citta([H|T]) :- atom_chars("maranovicentino", [H|T]).
-citta([H|T]) :- atom_chars("maranzana", [H|T]).
-citta([H|T]) :- atom_chars("maratea", [H|T]).
-citta([H|T]) :- atom_chars("marcalloconcasone", [H|T]).
-citta([H|T]) :- atom_chars("marcaria", [H|T]).
-citta([H|T]) :- atom_chars("marcedusa", [H|T]).
-citta([H|T]) :- atom_chars("marcellina", [H|T]).
-citta([H|T]) :- atom_chars("marcellinara", [H|T]).
-citta([H|T]) :- atom_chars("marcetelli", [H|T]).
-citta([H|T]) :- atom_chars("marcheno", [H|T]).
-citta([H|T]) :- atom_chars("marchirolo", [H|T]).
-citta([H|T]) :- atom_chars("marciana", [H|T]).
-citta([H|T]) :- atom_chars("marcianamarina", [H|T]).
-citta([H|T]) :- atom_chars("marcianise", [H|T]).
-citta([H|T]) :- atom_chars("marcianodellachiana", [H|T]).
-citta([H|T]) :- atom_chars("marcignago", [H|T]).
-citta([H|T]) :- atom_chars("marcon", [H|T]).
-citta([H|T]) :- atom_chars("marebbe/enneberg", [H|T]).
-citta([H|T]) :- atom_chars("marene", [H|T]).
-citta([H|T]) :- atom_chars("marenodipiave", [H|T]).
-citta([H|T]) :- atom_chars("marentino", [H|T]).
-citta([H|T]) :- atom_chars("maretto", [H|T]).
-citta([H|T]) :- atom_chars("margarita", [H|T]).
-citta([H|T]) :- atom_chars("margheritadisavoia", [H|T]).
-citta([H|T]) :- atom_chars("margno", [H|T]).
-citta([H|T]) :- atom_chars("marianamantovana", [H|T]).
-citta([H|T]) :- atom_chars("marianocomense", [H|T]).
-citta([H|T]) :- atom_chars("marianodelfriuli", [H|T]).
-citta([H|T]) :- atom_chars("marianopoli", [H|T]).
-citta([H|T]) :- atom_chars("mariglianella", [H|T]).
-citta([H|T]) :- atom_chars("marigliano", [H|T]).
-citta([H|T]) :- atom_chars("marinadigioiosaionica", [H|T]).
-citta([H|T]) :- atom_chars("marineo", [H|T]).
-citta([H|T]) :- atom_chars("marino", [H|T]).
-citta([H|T]) :- atom_chars("marlengo/marling", [H|T]).
-citta([H|T]) :- atom_chars("marliana", [H|T]).
-citta([H|T]) :- atom_chars("marmentino", [H|T]).
-citta([H|T]) :- atom_chars("marmirolo", [H|T]).
-citta([H|T]) :- atom_chars("marmora", [H|T]).
-citta([H|T]) :- atom_chars("marnate", [H|T]).
-citta([H|T]) :- atom_chars("marone", [H|T]).
-citta([H|T]) :- atom_chars("maropati", [H|T]).
-citta([H|T]) :- atom_chars("marostica", [H|T]).
-citta([H|T]) :- atom_chars("marradi", [H|T]).
-citta([H|T]) :- atom_chars("marrubiu", [H|T]).
-citta([H|T]) :- atom_chars("marsaglia", [H|T]).
-citta([H|T]) :- atom_chars("marsala", [H|T]).
-citta([H|T]) :- atom_chars("marsciano", [H|T]).
-citta([H|T]) :- atom_chars("marsiconuovo", [H|T]).
-citta([H|T]) :- atom_chars("marsicovetere", [H|T]).
-citta([H|T]) :- atom_chars("marta", [H|T]).
-citta([H|T]) :- atom_chars("martano", [H|T]).
-citta([H|T]) :- atom_chars("martellago", [H|T]).
-citta([H|T]) :- atom_chars("martello/martell", [H|T]).
-citta([H|T]) :- atom_chars("martignacco", [H|T]).
-citta([H|T]) :- atom_chars("martignanadipo", [H|T]).
-citta([H|T]) :- atom_chars("martignano", [H|T]).
-citta([H|T]) :- atom_chars("martinafranca", [H|T]).
-citta([H|T]) :- atom_chars("martinengo", [H|T]).
-citta([H|T]) :- atom_chars("martinianapo", [H|T]).
-citta([H|T]) :- atom_chars("martinsicuro", [H|T]).
-citta([H|T]) :- atom_chars("martirano", [H|T]).
-citta([H|T]) :- atom_chars("martiranolombardo", [H|T]).
-citta([H|T]) :- atom_chars("martis", [H|T]).
-citta([H|T]) :- atom_chars("martone", [H|T]).
-citta([H|T]) :- atom_chars("marudo", [H|T]).
-citta([H|T]) :- atom_chars("maruggio", [H|T]).
-citta([H|T]) :- atom_chars("marzabotto", [H|T]).
-citta([H|T]) :- atom_chars("marzano", [H|T]).
-citta([H|T]) :- atom_chars("marzanoappio", [H|T]).
-citta([H|T]) :- atom_chars("marzanodinola", [H|T]).
-citta([H|T]) :- atom_chars("marzi", [H|T]).
-citta([H|T]) :- atom_chars("marzio", [H|T]).
-citta([H|T]) :- atom_chars("masainas", [H|T]).
-citta([H|T]) :- atom_chars("masate", [H|T]).
-citta([H|T]) :- atom_chars("mascali", [H|T]).
-citta([H|T]) :- atom_chars("mascalucia", [H|T]).
-citta([H|T]) :- atom_chars("maschito", [H|T]).
-citta([H|T]) :- atom_chars("masciagoprimo", [H|T]).
-citta([H|T]) :- atom_chars("maser", [H|T]).
-citta([H|T]) :- atom_chars("masera", [H|T]).
-citta([H|T]) :- atom_chars("maseradipadova", [H|T]).
-citta([H|T]) :- atom_chars("maseradasulpiave", [H|T]).
-citta([H|T]) :- atom_chars("masi", [H|T]).
-citta([H|T]) :- atom_chars("masitorello", [H|T]).
-citta([H|T]) :- atom_chars("masio", [H|T]).
-citta([H|T]) :- atom_chars("maslianico", [H|T]).
-citta([H|T]) :- atom_chars("masonvicentino", [H|T]).
-citta([H|T]) :- atom_chars("masone", [H|T]).
-citta([H|T]) :- atom_chars("massa", [H|T]).
-citta([H|T]) :- atom_chars("massadalbe", [H|T]).
-citta([H|T]) :- atom_chars("massadisomma", [H|T]).
-citta([H|T]) :- atom_chars("massaecozzile", [H|T]).
-citta([H|T]) :- atom_chars("massafermana", [H|T]).
-citta([H|T]) :- atom_chars("massalombarda", [H|T]).
-citta([H|T]) :- atom_chars("massalubrense", [H|T]).
-citta([H|T]) :- atom_chars("massamarittima", [H|T]).
-citta([H|T]) :- atom_chars("massamartana", [H|T]).
-citta([H|T]) :- atom_chars("massafra", [H|T]).
-citta([H|T]) :- atom_chars("massalengo", [H|T]).
-citta([H|T]) :- atom_chars("massanzago", [H|T]).
-citta([H|T]) :- atom_chars("massarosa", [H|T]).
-citta([H|T]) :- atom_chars("massazza", [H|T]).
-citta([H|T]) :- atom_chars("massello", [H|T]).
-citta([H|T]) :- atom_chars("masserano", [H|T]).
-citta([H|T]) :- atom_chars("massignano", [H|T]).
-citta([H|T]) :- atom_chars("massimeno", [H|T]).
-citta([H|T]) :- atom_chars("massimino", [H|T]).
-citta([H|T]) :- atom_chars("massinovisconti", [H|T]).
-citta([H|T]) :- atom_chars("massiola", [H|T]).
-citta([H|T]) :- atom_chars("masullas", [H|T]).
-citta([H|T]) :- atom_chars("matelica", [H|T]).
-citta([H|T]) :- atom_chars("matera", [H|T]).
-citta([H|T]) :- atom_chars("mathi", [H|T]).
-citta([H|T]) :- atom_chars("matino", [H|T]).
-citta([H|T]) :- atom_chars("matrice", [H|T]).
-citta([H|T]) :- atom_chars("mattie", [H|T]).
-citta([H|T]) :- atom_chars("mattinata", [H|T]).
-citta([H|T]) :- atom_chars("mazaradelvallo", [H|T]).
-citta([H|T]) :- atom_chars("mazzano", [H|T]).
-citta([H|T]) :- atom_chars("mazzanoromano", [H|T]).
-citta([H|T]) :- atom_chars("mazzarino", [H|T]).
-citta([H|T]) :- atom_chars("mazzarrasantandrea", [H|T]).
-citta([H|T]) :- atom_chars("mazzarrone", [H|T]).
-citta([H|T]) :- atom_chars("mazze", [H|T]).
-citta([H|T]) :- atom_chars("mazzin", [H|T]).
-citta([H|T]) :- atom_chars("mazzodivaltellina", [H|T]).
-citta([H|T]) :- atom_chars("meanadisusa", [H|T]).
-citta([H|T]) :- atom_chars("meanasardo", [H|T]).
-citta([H|T]) :- atom_chars("meda", [H|T]).
-citta([H|T]) :- atom_chars("mede", [H|T]).
-citta([H|T]) :- atom_chars("medea", [H|T]).
-citta([H|T]) :- atom_chars("medesano", [H|T]).
-citta([H|T]) :- atom_chars("medicina", [H|T]).
-citta([H|T]) :- atom_chars("mediglia", [H|T]).
-citta([H|T]) :- atom_chars("medolago", [H|T]).
-citta([H|T]) :- atom_chars("medole", [H|T]).
-citta([H|T]) :- atom_chars("medolla", [H|T]).
-citta([H|T]) :- atom_chars("medunadilivenza", [H|T]).
-citta([H|T]) :- atom_chars("meduno", [H|T]).
-citta([H|T]) :- atom_chars("megliadinosanfidenzio", [H|T]).
-citta([H|T]) :- atom_chars("megliadinosanvitale", [H|T]).
-citta([H|T]) :- atom_chars("meina", [H|T]).
-citta([H|T]) :- atom_chars("mel", [H|T]).
-citta([H|T]) :- atom_chars("melara", [H|T]).
-citta([H|T]) :- atom_chars("melazzo", [H|T]).
-citta([H|T]) :- atom_chars("meldola", [H|T]).
-citta([H|T]) :- atom_chars("mele", [H|T]).
-citta([H|T]) :- atom_chars("melegnano", [H|T]).
-citta([H|T]) :- atom_chars("melendugno", [H|T]).
-citta([H|T]) :- atom_chars("meleti", [H|T]).
-citta([H|T]) :- atom_chars("melfi", [H|T]).
-citta([H|T]) :- atom_chars("melicucca", [H|T]).
-citta([H|T]) :- atom_chars("melicucco", [H|T]).
-citta([H|T]) :- atom_chars("melilli", [H|T]).
-citta([H|T]) :- atom_chars("melissa", [H|T]).
-citta([H|T]) :- atom_chars("melissano", [H|T]).
-citta([H|T]) :- atom_chars("melitodinapoli", [H|T]).
-citta([H|T]) :- atom_chars("melitodiportosalvo", [H|T]).
-citta([H|T]) :- atom_chars("melitoirpino", [H|T]).
-citta([H|T]) :- atom_chars("melizzano", [H|T]).
-citta([H|T]) :- atom_chars("melle", [H|T]).
-citta([H|T]) :- atom_chars("mello", [H|T]).
-citta([H|T]) :- atom_chars("melpignano", [H|T]).
-citta([H|T]) :- atom_chars("meltina/molten", [H|T]).
-citta([H|T]) :- atom_chars("melzo", [H|T]).
-citta([H|T]) :- atom_chars("menaggio", [H|T]).
-citta([H|T]) :- atom_chars("menconico", [H|T]).
-citta([H|T]) :- atom_chars("mendatica", [H|T]).
-citta([H|T]) :- atom_chars("mendicino", [H|T]).
-citta([H|T]) :- atom_chars("menfi", [H|T]).
-citta([H|T]) :- atom_chars("mentana", [H|T]).
-citta([H|T]) :- atom_chars("meolo", [H|T]).
-citta([H|T]) :- atom_chars("merana", [H|T]).
-citta([H|T]) :- atom_chars("merano/meran", [H|T]).
-citta([H|T]) :- atom_chars("merate", [H|T]).
-citta([H|T]) :- atom_chars("mercallo", [H|T]).
-citta([H|T]) :- atom_chars("mercatellosulmetauro", [H|T]).
-citta([H|T]) :- atom_chars("mercatinoconca", [H|T]).
-citta([H|T]) :- atom_chars("mercatosanseverino", [H|T]).
-citta([H|T]) :- atom_chars("mercatosaraceno", [H|T]).
-citta([H|T]) :- atom_chars("mercenasco", [H|T]).
-citta([H|T]) :- atom_chars("mercogliano", [H|T]).
-citta([H|T]) :- atom_chars("meretoditomba", [H|T]).
-citta([H|T]) :- atom_chars("mergo", [H|T]).
-citta([H|T]) :- atom_chars("mergozzo", [H|T]).
-citta([H|T]) :- atom_chars("meri", [H|T]).
-citta([H|T]) :- atom_chars("merlara", [H|T]).
-citta([H|T]) :- atom_chars("merlino", [H|T]).
-citta([H|T]) :- atom_chars("merone", [H|T]).
-citta([H|T]) :- atom_chars("mesagne", [H|T]).
-citta([H|T]) :- atom_chars("mese", [H|T]).
-citta([H|T]) :- atom_chars("mesenzana", [H|T]).
-citta([H|T]) :- atom_chars("mesero", [H|T]).
-citta([H|T]) :- atom_chars("mesola", [H|T]).
-citta([H|T]) :- atom_chars("mesoraca", [H|T]).
-citta([H|T]) :- atom_chars("messina", [H|T]).
-citta([H|T]) :- atom_chars("mestrino", [H|T]).
-citta([H|T]) :- atom_chars("meta", [H|T]).
-citta([H|T]) :- atom_chars("meugliano", [H|T]).
-citta([H|T]) :- atom_chars("mezzago", [H|T]).
-citta([H|T]) :- atom_chars("mezzana", [H|T]).
-citta([H|T]) :- atom_chars("mezzanabigli", [H|T]).
-citta([H|T]) :- atom_chars("mezzanamortigliengo", [H|T]).
-citta([H|T]) :- atom_chars("mezzanarabattone", [H|T]).
-citta([H|T]) :- atom_chars("mezzanedisotto", [H|T]).
-citta([H|T]) :- atom_chars("mezzanego", [H|T]).
-citta([H|T]) :- atom_chars("mezzani", [H|T]).
-citta([H|T]) :- atom_chars("mezzanino", [H|T]).
-citta([H|T]) :- atom_chars("mezzano", [H|T]).
-citta([H|T]) :- atom_chars("mezzenile", [H|T]).
-citta([H|T]) :- atom_chars("mezzocorona", [H|T]).
-citta([H|T]) :- atom_chars("mezzojuso", [H|T]).
-citta([H|T]) :- atom_chars("mezzoldo", [H|T]).
-citta([H|T]) :- atom_chars("mezzolombardo", [H|T]).
-citta([H|T]) :- atom_chars("mezzomerico", [H|T]).
-citta([H|T]) :- atom_chars("miagliano", [H|T]).
-citta([H|T]) :- atom_chars("miane", [H|T]).
-citta([H|T]) :- atom_chars("miasino", [H|T]).
-citta([H|T]) :- atom_chars("miazzina", [H|T]).
-citta([H|T]) :- atom_chars("micigliano", [H|T]).
-citta([H|T]) :- atom_chars("miggiano", [H|T]).
-citta([H|T]) :- atom_chars("miglianico", [H|T]).
-citta([H|T]) :- atom_chars("miglierina", [H|T]).
-citta([H|T]) :- atom_chars("miglionico", [H|T]).
-citta([H|T]) :- atom_chars("mignanego", [H|T]).
-citta([H|T]) :- atom_chars("mignanomontelungo", [H|T]).
-citta([H|T]) :- atom_chars("milano", [H|T]).
-citta([H|T]) :- atom_chars("milazzo", [H|T]).
-citta([H|T]) :- atom_chars("milena", [H|T]).
-citta([H|T]) :- atom_chars("mileto", [H|T]).
-citta([H|T]) :- atom_chars("milis", [H|T]).
-citta([H|T]) :- atom_chars("militelloinvaldicatania", [H|T]).
-citta([H|T]) :- atom_chars("militellorosmarino", [H|T]).
-citta([H|T]) :- atom_chars("millesimo", [H|T]).
-citta([H|T]) :- atom_chars("milo", [H|T]).
-citta([H|T]) :- atom_chars("milzano", [H|T]).
-citta([H|T]) :- atom_chars("mineo", [H|T]).
-citta([H|T]) :- atom_chars("minerbe", [H|T]).
-citta([H|T]) :- atom_chars("minerbio", [H|T]).
-citta([H|T]) :- atom_chars("minervinodilecce", [H|T]).
-citta([H|T]) :- atom_chars("minervinomurge", [H|T]).
-citta([H|T]) :- atom_chars("minori", [H|T]).
-citta([H|T]) :- atom_chars("minturno", [H|T]).
-citta([H|T]) :- atom_chars("minucciano", [H|T]).
-citta([H|T]) :- atom_chars("mioglia", [H|T]).
-citta([H|T]) :- atom_chars("mira", [H|T]).
-citta([H|T]) :- atom_chars("mirabellaeclano", [H|T]).
-citta([H|T]) :- atom_chars("mirabellaimbaccari", [H|T]).
-citta([H|T]) :- atom_chars("mirabellomonferrato", [H|T]).
-citta([H|T]) :- atom_chars("mirabellosannitico", [H|T]).
-citta([H|T]) :- atom_chars("miradoloterme", [H|T]).
-citta([H|T]) :- atom_chars("miranda", [H|T]).
-citta([H|T]) :- atom_chars("mirandola", [H|T]).
-citta([H|T]) :- atom_chars("mirano", [H|T]).
-citta([H|T]) :- atom_chars("mirto", [H|T]).
-citta([H|T]) :- atom_chars("misanoadriatico", [H|T]).
-citta([H|T]) :- atom_chars("misanodigeradadda", [H|T]).
-citta([H|T]) :- atom_chars("misilmeri", [H|T]).
-citta([H|T]) :- atom_chars("misinto", [H|T]).
-citta([H|T]) :- atom_chars("missaglia", [H|T]).
-citta([H|T]) :- atom_chars("missanello", [H|T]).
-citta([H|T]) :- atom_chars("misterbianco", [H|T]).
-citta([H|T]) :- atom_chars("mistretta", [H|T]).
-citta([H|T]) :- atom_chars("moasca", [H|T]).
-citta([H|T]) :- atom_chars("moconesi", [H|T]).
-citta([H|T]) :- atom_chars("modena", [H|T]).
-citta([H|T]) :- atom_chars("modica", [H|T]).
-citta([H|T]) :- atom_chars("modigliana", [H|T]).
-citta([H|T]) :- atom_chars("modolo", [H|T]).
-citta([H|T]) :- atom_chars("modugno", [H|T]).
-citta([H|T]) :- atom_chars("moena", [H|T]).
-citta([H|T]) :- atom_chars("moggio", [H|T]).
-citta([H|T]) :- atom_chars("moggioudinese", [H|T]).
-citta([H|T]) :- atom_chars("moglia", [H|T]).
-citta([H|T]) :- atom_chars("mogliano", [H|T]).
-citta([H|T]) :- atom_chars("moglianoveneto", [H|T]).
-citta([H|T]) :- atom_chars("mogorella", [H|T]).
-citta([H|T]) :- atom_chars("mogoro", [H|T]).
-citta([H|T]) :- atom_chars("moiano", [H|T]).
-citta([H|T]) :- atom_chars("moimacco", [H|T]).
-citta([H|T]) :- atom_chars("moioalcantara", [H|T]).
-citta([H|T]) :- atom_chars("moiodecalvi", [H|T]).
-citta([H|T]) :- atom_chars("moiodellacivitella", [H|T]).
-citta([H|T]) :- atom_chars("moiola", [H|T]).
-citta([H|T]) :- atom_chars("moladibari", [H|T]).
-citta([H|T]) :- atom_chars("molare", [H|T]).
-citta([H|T]) :- atom_chars("molazzana", [H|T]).
-citta([H|T]) :- atom_chars("molfetta", [H|T]).
-citta([H|T]) :- atom_chars("molinaaterno", [H|T]).
-citta([H|T]) :- atom_chars("molinara", [H|T]).
-citta([H|T]) :- atom_chars("molinella", [H|T]).
-citta([H|T]) :- atom_chars("moliniditriora", [H|T]).
-citta([H|T]) :- atom_chars("molinodeitorti", [H|T]).
-citta([H|T]) :- atom_chars("molise", [H|T]).
-citta([H|T]) :- atom_chars("moliterno", [H|T]).
-citta([H|T]) :- atom_chars("mollia", [H|T]).
-citta([H|T]) :- atom_chars("molochio", [H|T]).
-citta([H|T]) :- atom_chars("molteno", [H|T]).
-citta([H|T]) :- atom_chars("moltrasio", [H|T]).
-citta([H|T]) :- atom_chars("molvena", [H|T]).
-citta([H|T]) :- atom_chars("molveno", [H|T]).
-citta([H|T]) :- atom_chars("mombaldone", [H|T]).
-citta([H|T]) :- atom_chars("mombarcaro", [H|T]).
-citta([H|T]) :- atom_chars("mombaroccio", [H|T]).
-citta([H|T]) :- atom_chars("mombaruzzo", [H|T]).
-citta([H|T]) :- atom_chars("mombasiglio", [H|T]).
-citta([H|T]) :- atom_chars("mombelloditorino", [H|T]).
-citta([H|T]) :- atom_chars("mombellomonferrato", [H|T]).
-citta([H|T]) :- atom_chars("mombercelli", [H|T]).
-citta([H|T]) :- atom_chars("momo", [H|T]).
-citta([H|T]) :- atom_chars("mompantero", [H|T]).
-citta([H|T]) :- atom_chars("mompeo", [H|T]).
-citta([H|T]) :- atom_chars("momperone", [H|T]).
-citta([H|T]) :- atom_chars("monacilioni", [H|T]).
-citta([H|T]) :- atom_chars("monale", [H|T]).
-citta([H|T]) :- atom_chars("monasterace", [H|T]).
-citta([H|T]) :- atom_chars("monasterobormida", [H|T]).
-citta([H|T]) :- atom_chars("monasterodilanzo", [H|T]).
-citta([H|T]) :- atom_chars("monasterodivasco", [H|T]).
-citta([H|T]) :- atom_chars("monasterolocasotto", [H|T]).
-citta([H|T]) :- atom_chars("monasterolodelcastello", [H|T]).
-citta([H|T]) :- atom_chars("monasterolodisavigliano", [H|T]).
-citta([H|T]) :- atom_chars("monastierditreviso", [H|T]).
-citta([H|T]) :- atom_chars("monastir", [H|T]).
-citta([H|T]) :- atom_chars("moncalieri", [H|T]).
-citta([H|T]) :- atom_chars("moncalvo", [H|T]).
-citta([H|T]) :- atom_chars("moncenisio", [H|T]).
-citta([H|T]) :- atom_chars("moncestino", [H|T]).
-citta([H|T]) :- atom_chars("monchiero", [H|T]).
-citta([H|T]) :- atom_chars("monchiodellecorti", [H|T]).
-citta([H|T]) :- atom_chars("moncrivello", [H|T]).
-citta([H|T]) :- atom_chars("moncuccotorinese", [H|T]).
-citta([H|T]) :- atom_chars("mondaino", [H|T]).
-citta([H|T]) :- atom_chars("mondavio", [H|T]).
-citta([H|T]) :- atom_chars("mondolfo", [H|T]).
-citta([H|T]) :- atom_chars("mondovi", [H|T]).
-citta([H|T]) :- atom_chars("mondragone", [H|T]).
-citta([H|T]) :- atom_chars("moneglia", [H|T]).
-citta([H|T]) :- atom_chars("monesiglio", [H|T]).
-citta([H|T]) :- atom_chars("monfalcone", [H|T]).
-citta([H|T]) :- atom_chars("monfortedalba", [H|T]).
-citta([H|T]) :- atom_chars("monfortesangiorgio", [H|T]).
-citta([H|T]) :- atom_chars("monfumo", [H|T]).
-citta([H|T]) :- atom_chars("mongardino", [H|T]).
-citta([H|T]) :- atom_chars("monghidoro", [H|T]).
-citta([H|T]) :- atom_chars("mongiana", [H|T]).
-citta([H|T]) :- atom_chars("mongiardinoligure", [H|T]).
-citta([H|T]) :- atom_chars("mongiuffimelia", [H|T]).
-citta([H|T]) :- atom_chars("mongrando", [H|T]).
-citta([H|T]) :- atom_chars("mongrassano", [H|T]).
-citta([H|T]) :- atom_chars("monguelfo-tesido/welsberg-taisten", [H|T]).
-citta([H|T]) :- atom_chars("monguzzo", [H|T]).
-citta([H|T]) :- atom_chars("monigadelgarda", [H|T]).
-citta([H|T]) :- atom_chars("monleale", [H|T]).
-citta([H|T]) :- atom_chars("monno", [H|T]).
-citta([H|T]) :- atom_chars("monopoli", [H|T]).
-citta([H|T]) :- atom_chars("monreale", [H|T]).
-citta([H|T]) :- atom_chars("monrupino-repentabor", [H|T]).
-citta([H|T]) :- atom_chars("monsampietromorico", [H|T]).
-citta([H|T]) :- atom_chars("monsampolodeltronto", [H|T]).
-citta([H|T]) :- atom_chars("monsano", [H|T]).
-citta([H|T]) :- atom_chars("monselice", [H|T]).
-citta([H|T]) :- atom_chars("monserrato", [H|T]).
-citta([H|T]) :- atom_chars("monsummanoterme", [H|T]).
-citta([H|T]) :- atom_chars("monta", [H|T]).
-citta([H|T]) :- atom_chars("montabone", [H|T]).
-citta([H|T]) :- atom_chars("montacuto", [H|T]).
-citta([H|T]) :- atom_chars("montafia", [H|T]).
-citta([H|T]) :- atom_chars("montagano", [H|T]).
-citta([H|T]) :- atom_chars("montagnainvaltellina", [H|T]).
-citta([H|T]) :- atom_chars("montagna/montan", [H|T]).
-citta([H|T]) :- atom_chars("montagnana", [H|T]).
-citta([H|T]) :- atom_chars("montagnareale", [H|T]).
-citta([H|T]) :- atom_chars("montaguto", [H|T]).
-citta([H|T]) :- atom_chars("montaione", [H|T]).
-citta([H|T]) :- atom_chars("montalbanoelicona", [H|T]).
-citta([H|T]) :- atom_chars("montalbanojonico", [H|T]).
-citta([H|T]) :- atom_chars("montalcino", [H|T]).
-citta([H|T]) :- atom_chars("montaldeo", [H|T]).
-citta([H|T]) :- atom_chars("montaldobormida", [H|T]).
-citta([H|T]) :- atom_chars("montaldodimondovi", [H|T]).
-citta([H|T]) :- atom_chars("montaldoroero", [H|T]).
-citta([H|T]) :- atom_chars("montaldoscarampi", [H|T]).
-citta([H|T]) :- atom_chars("montaldotorinese", [H|T]).
-citta([H|T]) :- atom_chars("montale", [H|T]).
-citta([H|T]) :- atom_chars("montalenghe", [H|T]).
-citta([H|T]) :- atom_chars("montallegro", [H|T]).
-citta([H|T]) :- atom_chars("montaltodellemarche", [H|T]).
-citta([H|T]) :- atom_chars("montaltodicastro", [H|T]).
-citta([H|T]) :- atom_chars("montaltodora", [H|T]).
-citta([H|T]) :- atom_chars("montaltoligure", [H|T]).
-citta([H|T]) :- atom_chars("montaltopavese", [H|T]).
-citta([H|T]) :- atom_chars("montaltouffugo", [H|T]).
-citta([H|T]) :- atom_chars("montanaro", [H|T]).
-citta([H|T]) :- atom_chars("montanasolombardo", [H|T]).
-citta([H|T]) :- atom_chars("montanera", [H|T]).
-citta([H|T]) :- atom_chars("montanoantilia", [H|T]).
-citta([H|T]) :- atom_chars("montanolucino", [H|T]).
-citta([H|T]) :- atom_chars("montappone", [H|T]).
-citta([H|T]) :- atom_chars("montaquila", [H|T]).
-citta([H|T]) :- atom_chars("montasola", [H|T]).
-citta([H|T]) :- atom_chars("montauro", [H|T]).
-citta([H|T]) :- atom_chars("montazzoli", [H|T]).
-citta([H|T]) :- atom_chars("monteargentario", [H|T]).
-citta([H|T]) :- atom_chars("montecastellodivibio", [H|T]).
-citta([H|T]) :- atom_chars("montecavallo", [H|T]).
-citta([H|T]) :- atom_chars("montecerignone", [H|T]).
-citta([H|T]) :- atom_chars("montecompatri", [H|T]).
-citta([H|T]) :- atom_chars("montecremasco", [H|T]).
-citta([H|T]) :- atom_chars("montedimalo", [H|T]).
-citta([H|T]) :- atom_chars("montediprocida", [H|T]).
-citta([H|T]) :- atom_chars("montegiberto", [H|T]).
-citta([H|T]) :- atom_chars("montegrimanoterme", [H|T]).
-citta([H|T]) :- atom_chars("monteisola", [H|T]).
-citta([H|T]) :- atom_chars("montemarenzo", [H|T]).
-citta([H|T]) :- atom_chars("monteporzio", [H|T]).
-citta([H|T]) :- atom_chars("monteporziocatone", [H|T]).
-citta([H|T]) :- atom_chars("monterinaldo", [H|T]).
-citta([H|T]) :- atom_chars("monteroberto", [H|T]).
-citta([H|T]) :- atom_chars("monteromano", [H|T]).
-citta([H|T]) :- atom_chars("montesanbiagio", [H|T]).
-citta([H|T]) :- atom_chars("montesangiacomo", [H|T]).
-citta([H|T]) :- atom_chars("montesangiovannicampano", [H|T]).
-citta([H|T]) :- atom_chars("montesangiovanniinsabina", [H|T]).
-citta([H|T]) :- atom_chars("montesangiusto", [H|T]).
-citta([H|T]) :- atom_chars("montesanmartino", [H|T]).
-citta([H|T]) :- atom_chars("montesanpietrangeli", [H|T]).
-citta([H|T]) :- atom_chars("montesanpietro", [H|T]).
-citta([H|T]) :- atom_chars("montesansavino", [H|T]).
-citta([H|T]) :- atom_chars("montesanvito", [H|T]).
-citta([H|T]) :- atom_chars("montesantamariatiberina", [H|T]).
-citta([H|T]) :- atom_chars("montesantangelo", [H|T]).
-citta([H|T]) :- atom_chars("monteurano", [H|T]).
-citta([H|T]) :- atom_chars("montevidoncombatte", [H|T]).
-citta([H|T]) :- atom_chars("montevidoncorrado", [H|T]).
-citta([H|T]) :- atom_chars("montebellodellabattaglia", [H|T]).
-citta([H|T]) :- atom_chars("montebellodibertona", [H|T]).
-citta([H|T]) :- atom_chars("montebellojonico", [H|T]).
-citta([H|T]) :- atom_chars("montebellosulsangro", [H|T]).
-citta([H|T]) :- atom_chars("montebellovicentino", [H|T]).
-citta([H|T]) :- atom_chars("montebelluna", [H|T]).
-citta([H|T]) :- atom_chars("montebruno", [H|T]).
-citta([H|T]) :- atom_chars("montebuono", [H|T]).
-citta([H|T]) :- atom_chars("montecalvoinfoglia", [H|T]).
-citta([H|T]) :- atom_chars("montecalvoirpino", [H|T]).
-citta([H|T]) :- atom_chars("montecalvoversiggia", [H|T]).
-citta([H|T]) :- atom_chars("montecarlo", [H|T]).
-citta([H|T]) :- atom_chars("montecarotto", [H|T]).
-citta([H|T]) :- atom_chars("montecassiano", [H|T]).
-citta([H|T]) :- atom_chars("montecastello", [H|T]).
-citta([H|T]) :- atom_chars("montecastrilli", [H|T]).
-citta([H|T]) :- atom_chars("montecatinivaldicecina", [H|T]).
-citta([H|T]) :- atom_chars("montecatini-terme", [H|T]).
-citta([H|T]) :- atom_chars("montecchiadicrosara", [H|T]).
-citta([H|T]) :- atom_chars("montecchio", [H|T]).
-citta([H|T]) :- atom_chars("montecchioemilia", [H|T]).
-citta([H|T]) :- atom_chars("montecchiomaggiore", [H|T]).
-citta([H|T]) :- atom_chars("montecchioprecalcino", [H|T]).
-citta([H|T]) :- atom_chars("montechiarodacqui", [H|T]).
-citta([H|T]) :- atom_chars("montechiarodasti", [H|T]).
-citta([H|T]) :- atom_chars("montechiarugolo", [H|T]).
-citta([H|T]) :- atom_chars("monteciccardo", [H|T]).
-citta([H|T]) :- atom_chars("montecilfone", [H|T]).
-citta([H|T]) :- atom_chars("montecopiolo", [H|T]).
-citta([H|T]) :- atom_chars("montecorice", [H|T]).
-citta([H|T]) :- atom_chars("montecorvinopugliano", [H|T]).
-citta([H|T]) :- atom_chars("montecorvinorovella", [H|T]).
-citta([H|T]) :- atom_chars("montecosaro", [H|T]).
-citta([H|T]) :- atom_chars("montecrestese", [H|T]).
-citta([H|T]) :- atom_chars("montecreto", [H|T]).
-citta([H|T]) :- atom_chars("montedinove", [H|T]).
-citta([H|T]) :- atom_chars("montedoro", [H|T]).
-citta([H|T]) :- atom_chars("montefalcione", [H|T]).
-citta([H|T]) :- atom_chars("montefalco", [H|T]).
-citta([H|T]) :- atom_chars("montefalconeappennino", [H|T]).
-citta([H|T]) :- atom_chars("montefalconedivalfortore", [H|T]).
-citta([H|T]) :- atom_chars("montefalconenelsannio", [H|T]).
-citta([H|T]) :- atom_chars("montefano", [H|T]).
-citta([H|T]) :- atom_chars("montefelcino", [H|T]).
-citta([H|T]) :- atom_chars("monteferrante", [H|T]).
-citta([H|T]) :- atom_chars("montefiascone", [H|T]).
-citta([H|T]) :- atom_chars("montefino", [H|T]).
-citta([H|T]) :- atom_chars("montefioreconca", [H|T]).
-citta([H|T]) :- atom_chars("montefioredellaso", [H|T]).
-citta([H|T]) :- atom_chars("montefiorino", [H|T]).
-citta([H|T]) :- atom_chars("monteflavio", [H|T]).
-citta([H|T]) :- atom_chars("montefortecilento", [H|T]).
-citta([H|T]) :- atom_chars("montefortedalpone", [H|T]).
-citta([H|T]) :- atom_chars("monteforteirpino", [H|T]).
-citta([H|T]) :- atom_chars("montefortino", [H|T]).
-citta([H|T]) :- atom_chars("montefranco", [H|T]).
-citta([H|T]) :- atom_chars("montefredane", [H|T]).
-citta([H|T]) :- atom_chars("montefusco", [H|T]).
-citta([H|T]) :- atom_chars("montegabbione", [H|T]).
-citta([H|T]) :- atom_chars("montegalda", [H|T]).
-citta([H|T]) :- atom_chars("montegaldella", [H|T]).
-citta([H|T]) :- atom_chars("montegallo", [H|T]).
-citta([H|T]) :- atom_chars("montegioco", [H|T]).
-citta([H|T]) :- atom_chars("montegiordano", [H|T]).
-citta([H|T]) :- atom_chars("montegiorgio", [H|T]).
-citta([H|T]) :- atom_chars("montegranaro", [H|T]).
-citta([H|T]) :- atom_chars("montegridolfo", [H|T]).
-citta([H|T]) :- atom_chars("montegrinovaltravaglia", [H|T]).
-citta([H|T]) :- atom_chars("montegrossodasti", [H|T]).
-citta([H|T]) :- atom_chars("montegrossopianlatte", [H|T]).
-citta([H|T]) :- atom_chars("montegrottoterme", [H|T]).
-citta([H|T]) :- atom_chars("monteiasi", [H|T]).
-citta([H|T]) :- atom_chars("montelabbate", [H|T]).
-citta([H|T]) :- atom_chars("montelanico", [H|T]).
-citta([H|T]) :- atom_chars("montelapiano", [H|T]).
-citta([H|T]) :- atom_chars("monteleonedifermo", [H|T]).
-citta([H|T]) :- atom_chars("monteleonedipuglia", [H|T]).
-citta([H|T]) :- atom_chars("monteleonedispoleto", [H|T]).
-citta([H|T]) :- atom_chars("monteleonedorvieto", [H|T]).
-citta([H|T]) :- atom_chars("monteleoneroccadoria", [H|T]).
-citta([H|T]) :- atom_chars("monteleonesabino", [H|T]).
-citta([H|T]) :- atom_chars("montelepre", [H|T]).
-citta([H|T]) :- atom_chars("montelibretti", [H|T]).
-citta([H|T]) :- atom_chars("montella", [H|T]).
-citta([H|T]) :- atom_chars("montello", [H|T]).
-citta([H|T]) :- atom_chars("montelongo", [H|T]).
-citta([H|T]) :- atom_chars("montelparo", [H|T]).
-citta([H|T]) :- atom_chars("montelupoalbese", [H|T]).
-citta([H|T]) :- atom_chars("montelupofiorentino", [H|T]).
-citta([H|T]) :- atom_chars("montelupone", [H|T]).
-citta([H|T]) :- atom_chars("montemaggiorebelsito", [H|T]).
-citta([H|T]) :- atom_chars("montemagno", [H|T]).
-citta([H|T]) :- atom_chars("montemaledicuneo", [H|T]).
-citta([H|T]) :- atom_chars("montemarano", [H|T]).
-citta([H|T]) :- atom_chars("montemarciano", [H|T]).
-citta([H|T]) :- atom_chars("montemarzino", [H|T]).
-citta([H|T]) :- atom_chars("montemesola", [H|T]).
-citta([H|T]) :- atom_chars("montemezzo", [H|T]).
-citta([H|T]) :- atom_chars("montemignaio", [H|T]).
-citta([H|T]) :- atom_chars("montemiletto", [H|T]).
-citta([H|T]) :- atom_chars("montemilone", [H|T]).
-citta([H|T]) :- atom_chars("montemitro", [H|T]).
-citta([H|T]) :- atom_chars("montemonaco", [H|T]).
-citta([H|T]) :- atom_chars("montemurlo", [H|T]).
-citta([H|T]) :- atom_chars("montemurro", [H|T]).
-citta([H|T]) :- atom_chars("montenars", [H|T]).
-citta([H|T]) :- atom_chars("montenerodibisaccia", [H|T]).
-citta([H|T]) :- atom_chars("montenerosabino", [H|T]).
-citta([H|T]) :- atom_chars("montenerovalcocchiara", [H|T]).
-citta([H|T]) :- atom_chars("montenerodomo", [H|T]).
-citta([H|T]) :- atom_chars("monteodorisio", [H|T]).
-citta([H|T]) :- atom_chars("montepaone", [H|T]).
-citta([H|T]) :- atom_chars("monteparano", [H|T]).
-citta([H|T]) :- atom_chars("monteprandone", [H|T]).
-citta([H|T]) :- atom_chars("montepulciano", [H|T]).
-citta([H|T]) :- atom_chars("monterchi", [H|T]).
-citta([H|T]) :- atom_chars("montereale", [H|T]).
-citta([H|T]) :- atom_chars("monterealevalcellina", [H|T]).
-citta([H|T]) :- atom_chars("monterenzio", [H|T]).
-citta([H|T]) :- atom_chars("monteriggioni", [H|T]).
-citta([H|T]) :- atom_chars("monteroduni", [H|T]).
-citta([H|T]) :- atom_chars("monteronidarbia", [H|T]).
-citta([H|T]) :- atom_chars("monteronidilecce", [H|T]).
-citta([H|T]) :- atom_chars("monterosi", [H|T]).
-citta([H|T]) :- atom_chars("monterossoalmare", [H|T]).
-citta([H|T]) :- atom_chars("monterossoalmo", [H|T]).
-citta([H|T]) :- atom_chars("monterossocalabro", [H|T]).
-citta([H|T]) :- atom_chars("monterossograna", [H|T]).
-citta([H|T]) :- atom_chars("monterotondo", [H|T]).
-citta([H|T]) :- atom_chars("monterotondomarittimo", [H|T]).
-citta([H|T]) :- atom_chars("monterubbiano", [H|T]).
-citta([H|T]) :- atom_chars("montesanosalentino", [H|T]).
-citta([H|T]) :- atom_chars("montesanosullamarcellana", [H|T]).
-citta([H|T]) :- atom_chars("montesarchio", [H|T]).
-citta([H|T]) :- atom_chars("montescaglioso", [H|T]).
-citta([H|T]) :- atom_chars("montescano", [H|T]).
-citta([H|T]) :- atom_chars("montescheno", [H|T]).
-citta([H|T]) :- atom_chars("montescudaio", [H|T]).
-citta([H|T]) :- atom_chars("montescudo-montecolombo", [H|T]).
-citta([H|T]) :- atom_chars("montese", [H|T]).
-citta([H|T]) :- atom_chars("montesegale", [H|T]).
-citta([H|T]) :- atom_chars("montesilvano", [H|T]).
-citta([H|T]) :- atom_chars("montespertoli", [H|T]).
-citta([H|T]) :- atom_chars("monteudapo", [H|T]).
-citta([H|T]) :- atom_chars("monteuroero", [H|T]).
-citta([H|T]) :- atom_chars("montevago", [H|T]).
-citta([H|T]) :- atom_chars("montevarchi", [H|T]).
-citta([H|T]) :- atom_chars("montevecchia", [H|T]).
-citta([H|T]) :- atom_chars("monteverde", [H|T]).
-citta([H|T]) :- atom_chars("monteverdimarittimo", [H|T]).
-citta([H|T]) :- atom_chars("monteviale", [H|T]).
-citta([H|T]) :- atom_chars("montezemolo", [H|T]).
-citta([H|T]) :- atom_chars("monti", [H|T]).
-citta([H|T]) :- atom_chars("montiano", [H|T]).
-citta([H|T]) :- atom_chars("monticellibrusati", [H|T]).
-citta([H|T]) :- atom_chars("monticellidongina", [H|T]).
-citta([H|T]) :- atom_chars("monticellipavese", [H|T]).
-citta([H|T]) :- atom_chars("monticellobrianza", [H|T]).
-citta([H|T]) :- atom_chars("monticelloconteotto", [H|T]).
-citta([H|T]) :- atom_chars("monticellodalba", [H|T]).
-citta([H|T]) :- atom_chars("montichiari", [H|T]).
-citta([H|T]) :- atom_chars("monticiano", [H|T]).
-citta([H|T]) :- atom_chars("montieri", [H|T]).
-citta([H|T]) :- atom_chars("montigliomonferrato", [H|T]).
-citta([H|T]) :- atom_chars("montignoso", [H|T]).
-citta([H|T]) :- atom_chars("montirone", [H|T]).
-citta([H|T]) :- atom_chars("montjovet", [H|T]).
-citta([H|T]) :- atom_chars("montodine", [H|T]).
-citta([H|T]) :- atom_chars("montoggio", [H|T]).
-citta([H|T]) :- atom_chars("montone", [H|T]).
-citta([H|T]) :- atom_chars("montopolidisabina", [H|T]).
-citta([H|T]) :- atom_chars("montopoliinvaldarno", [H|T]).
-citta([H|T]) :- atom_chars("montorfano", [H|T]).
-citta([H|T]) :- atom_chars("montorioalvomano", [H|T]).
-citta([H|T]) :- atom_chars("montorioneifrentani", [H|T]).
-citta([H|T]) :- atom_chars("montorioromano", [H|T]).
-citta([H|T]) :- atom_chars("montoro", [H|T]).
-citta([H|T]) :- atom_chars("montorsovicentino", [H|T]).
-citta([H|T]) :- atom_chars("montottone", [H|T]).
-citta([H|T]) :- atom_chars("montresta", [H|T]).
-citta([H|T]) :- atom_chars("montubeccaria", [H|T]).
-citta([H|T]) :- atom_chars("monvalle", [H|T]).
-citta([H|T]) :- atom_chars("monza", [H|T]).
-citta([H|T]) :- atom_chars("monzambano", [H|T]).
-citta([H|T]) :- atom_chars("monzuno", [H|T]).
-citta([H|T]) :- atom_chars("moranocalabro", [H|T]).
-citta([H|T]) :- atom_chars("moranosulpo", [H|T]).
-citta([H|T]) :- atom_chars("moransengo", [H|T]).
-citta([H|T]) :- atom_chars("moraro", [H|T]).
-citta([H|T]) :- atom_chars("morazzone", [H|T]).
-citta([H|T]) :- atom_chars("morbegno", [H|T]).
-citta([H|T]) :- atom_chars("morbello", [H|T]).
-citta([H|T]) :- atom_chars("morcianodileuca", [H|T]).
-citta([H|T]) :- atom_chars("morcianodiromagna", [H|T]).
-citta([H|T]) :- atom_chars("morcone", [H|T]).
-citta([H|T]) :- atom_chars("mordano", [H|T]).
-citta([H|T]) :- atom_chars("morengo", [H|T]).
-citta([H|T]) :- atom_chars("mores", [H|T]).
-citta([H|T]) :- atom_chars("moresco", [H|T]).
-citta([H|T]) :- atom_chars("moretta", [H|T]).
-citta([H|T]) :- atom_chars("morfasso", [H|T]).
-citta([H|T]) :- atom_chars("morgano", [H|T]).
-citta([H|T]) :- atom_chars("morgex", [H|T]).
-citta([H|T]) :- atom_chars("morgongiori", [H|T]).
-citta([H|T]) :- atom_chars("mori", [H|T]).
-citta([H|T]) :- atom_chars("moriagodellabattaglia", [H|T]).
-citta([H|T]) :- atom_chars("moricone", [H|T]).
-citta([H|T]) :- atom_chars("morigerati", [H|T]).
-citta([H|T]) :- atom_chars("morimondo", [H|T]).
-citta([H|T]) :- atom_chars("morino", [H|T]).
-citta([H|T]) :- atom_chars("moriondotorinese", [H|T]).
-citta([H|T]) :- atom_chars("morlupo", [H|T]).
-citta([H|T]) :- atom_chars("mormanno", [H|T]).
-citta([H|T]) :- atom_chars("mornago", [H|T]).
-citta([H|T]) :- atom_chars("mornese", [H|T]).
-citta([H|T]) :- atom_chars("mornicoalserio", [H|T]).
-citta([H|T]) :- atom_chars("mornicolosana", [H|T]).
-citta([H|T]) :- atom_chars("morolo", [H|T]).
-citta([H|T]) :- atom_chars("morozzo", [H|T]).
-citta([H|T]) :- atom_chars("morradesanctis", [H|T]).
-citta([H|T]) :- atom_chars("morrodalba", [H|T]).
-citta([H|T]) :- atom_chars("morrodoro", [H|T]).
-citta([H|T]) :- atom_chars("morroreatino", [H|T]).
-citta([H|T]) :- atom_chars("morronedelsannio", [H|T]).
-citta([H|T]) :- atom_chars("morrovalle", [H|T]).
-citta([H|T]) :- atom_chars("morsanoaltagliamento", [H|T]).
-citta([H|T]) :- atom_chars("morsasco", [H|T]).
-citta([H|T]) :- atom_chars("mortara", [H|T]).
-citta([H|T]) :- atom_chars("mortegliano", [H|T]).
-citta([H|T]) :- atom_chars("morterone", [H|T]).
-citta([H|T]) :- atom_chars("moruzzo", [H|T]).
-citta([H|T]) :- atom_chars("moscazzano", [H|T]).
-citta([H|T]) :- atom_chars("moschiano", [H|T]).
-citta([H|T]) :- atom_chars("moscianosantangelo", [H|T]).
-citta([H|T]) :- atom_chars("moscufo", [H|T]).
-citta([H|T]) :- atom_chars("mosoinpassiria/moosinpasseier", [H|T]).
-citta([H|T]) :- atom_chars("mossa", [H|T]).
-citta([H|T]) :- atom_chars("mossano", [H|T]).
-citta([H|T]) :- atom_chars("mosso", [H|T]).
-citta([H|T]) :- atom_chars("mottabaluffi", [H|T]).
-citta([H|T]) :- atom_chars("mottacamastra", [H|T]).
-citta([H|T]) :- atom_chars("mottadaffermo", [H|T]).
-citta([H|T]) :- atom_chars("mottadeconti", [H|T]).
-citta([H|T]) :- atom_chars("mottadilivenza", [H|T]).
-citta([H|T]) :- atom_chars("mottamontecorvino", [H|T]).
-citta([H|T]) :- atom_chars("mottasangiovanni", [H|T]).
-citta([H|T]) :- atom_chars("mottasantalucia", [H|T]).
-citta([H|T]) :- atom_chars("mottasantanastasia", [H|T]).
-citta([H|T]) :- atom_chars("mottavisconti", [H|T]).
-citta([H|T]) :- atom_chars("mottafollone", [H|T]).
-citta([H|T]) :- atom_chars("mottalciata", [H|T]).
-citta([H|T]) :- atom_chars("motteggiana", [H|T]).
-citta([H|T]) :- atom_chars("mottola", [H|T]).
-citta([H|T]) :- atom_chars("mozzagrogna", [H|T]).
-citta([H|T]) :- atom_chars("mozzanica", [H|T]).
-citta([H|T]) :- atom_chars("mozzate", [H|T]).
-citta([H|T]) :- atom_chars("mozzecane", [H|T]).
-citta([H|T]) :- atom_chars("mozzo", [H|T]).
-citta([H|T]) :- atom_chars("muccia", [H|T]).
-citta([H|T]) :- atom_chars("muggia-muglae", [H|T]).
-citta([H|T]) :- atom_chars("muggio", [H|T]).
-citta([H|T]) :- atom_chars("mugnanodelcardinale", [H|T]).
-citta([H|T]) :- atom_chars("mugnanodinapoli", [H|T]).
-citta([H|T]) :- atom_chars("mulazzano", [H|T]).
-citta([H|T]) :- atom_chars("mulazzo", [H|T]).
-citta([H|T]) :- atom_chars("mura", [H|T]).
-citta([H|T]) :- atom_chars("muravera", [H|T]).
-citta([H|T]) :- atom_chars("murazzano", [H|T]).
-citta([H|T]) :- atom_chars("murello", [H|T]).
-citta([H|T]) :- atom_chars("murialdo", [H|T]).
-citta([H|T]) :- atom_chars("murisengo", [H|T]).
-citta([H|T]) :- atom_chars("murlo", [H|T]).
-citta([H|T]) :- atom_chars("muroleccese", [H|T]).
-citta([H|T]) :- atom_chars("murolucano", [H|T]).
-citta([H|T]) :- atom_chars("muros", [H|T]).
-citta([H|T]) :- atom_chars("muscoline", [H|T]).
-citta([H|T]) :- atom_chars("musei", [H|T]).
-citta([H|T]) :- atom_chars("musiledipiave", [H|T]).
-citta([H|T]) :- atom_chars("musso", [H|T]).
-citta([H|T]) :- atom_chars("mussolente", [H|T]).
-citta([H|T]) :- atom_chars("mussomeli", [H|T]).
-citta([H|T]) :- atom_chars("muzzanadelturgnano", [H|T]).
-citta([H|T]) :- atom_chars("muzzano", [H|T]).
-citta([H|T]) :- atom_chars("nago-torbole", [H|T]).
-citta([H|T]) :- atom_chars("nalles/nals", [H|T]).
-citta([H|T]) :- atom_chars("nanto", [H|T]).
-citta([H|T]) :- atom_chars("napoli", [H|T]).
-citta([H|T]) :- atom_chars("narbolia", [H|T]).
-citta([H|T]) :- atom_chars("narcao", [H|T]).
-citta([H|T]) :- atom_chars("nardo", [H|T]).
-citta([H|T]) :- atom_chars("nardodipace", [H|T]).
-citta([H|T]) :- atom_chars("narni", [H|T]).
-citta([H|T]) :- atom_chars("naro", [H|T]).
-citta([H|T]) :- atom_chars("narzole", [H|T]).
-citta([H|T]) :- atom_chars("nasino", [H|T]).
-citta([H|T]) :- atom_chars("naso", [H|T]).
-citta([H|T]) :- atom_chars("naturno/naturns", [H|T]).
-citta([H|T]) :- atom_chars("nave", [H|T]).
-citta([H|T]) :- atom_chars("navesanrocco", [H|T]).
-citta([H|T]) :- atom_chars("navelli", [H|T]).
-citta([H|T]) :- atom_chars("naz-sciaves/natz-schabs", [H|T]).
-citta([H|T]) :- atom_chars("nazzano", [H|T]).
-citta([H|T]) :- atom_chars("ne", [H|T]).
-citta([H|T]) :- atom_chars("nebbiuno", [H|T]).
-citta([H|T]) :- atom_chars("negrar", [H|T]).
-citta([H|T]) :- atom_chars("neirone", [H|T]).
-citta([H|T]) :- atom_chars("neive", [H|T]).
-citta([H|T]) :- atom_chars("nembro", [H|T]).
-citta([H|T]) :- atom_chars("nemi", [H|T]).
-citta([H|T]) :- atom_chars("nemoli", [H|T]).
-citta([H|T]) :- atom_chars("neoneli", [H|T]).
-citta([H|T]) :- atom_chars("nepi", [H|T]).
-citta([H|T]) :- atom_chars("nereto", [H|T]).
-citta([H|T]) :- atom_chars("nerola", [H|T]).
-citta([H|T]) :- atom_chars("nervesadellabattaglia", [H|T]).
-citta([H|T]) :- atom_chars("nerviano", [H|T]).
-citta([H|T]) :- atom_chars("nespolo", [H|T]).
-citta([H|T]) :- atom_chars("nesso", [H|T]).
-citta([H|T]) :- atom_chars("netro", [H|T]).
-citta([H|T]) :- atom_chars("nettuno", [H|T]).
-citta([H|T]) :- atom_chars("neviano", [H|T]).
-citta([H|T]) :- atom_chars("nevianodegliarduini", [H|T]).
-citta([H|T]) :- atom_chars("neviglie", [H|T]).
-citta([H|T]) :- atom_chars("niardo", [H|T]).
-citta([H|T]) :- atom_chars("nibbiano", [H|T]).
-citta([H|T]) :- atom_chars("nibbiola", [H|T]).
-citta([H|T]) :- atom_chars("nibionno", [H|T]).
-citta([H|T]) :- atom_chars("nichelino", [H|T]).
-citta([H|T]) :- atom_chars("nicolosi", [H|T]).
-citta([H|T]) :- atom_chars("nicorvo", [H|T]).
-citta([H|T]) :- atom_chars("nicosia", [H|T]).
-citta([H|T]) :- atom_chars("nicotera", [H|T]).
-citta([H|T]) :- atom_chars("niellabelbo", [H|T]).
-citta([H|T]) :- atom_chars("niellatanaro", [H|T]).
-citta([H|T]) :- atom_chars("nimis", [H|T]).
-citta([H|T]) :- atom_chars("niscemi", [H|T]).
-citta([H|T]) :- atom_chars("nissoria", [H|T]).
-citta([H|T]) :- atom_chars("nizzadisicilia", [H|T]).
-citta([H|T]) :- atom_chars("nizzamonferrato", [H|T]).
-citta([H|T]) :- atom_chars("noale", [H|T]).
-citta([H|T]) :- atom_chars("noasca", [H|T]).
-citta([H|T]) :- atom_chars("nocara", [H|T]).
-citta([H|T]) :- atom_chars("nocciano", [H|T]).
-citta([H|T]) :- atom_chars("nocerainferiore", [H|T]).
-citta([H|T]) :- atom_chars("nocerasuperiore", [H|T]).
-citta([H|T]) :- atom_chars("noceraterinese", [H|T]).
-citta([H|T]) :- atom_chars("noceraumbra", [H|T]).
-citta([H|T]) :- atom_chars("noceto", [H|T]).
-citta([H|T]) :- atom_chars("noci", [H|T]).
-citta([H|T]) :- atom_chars("nociglia", [H|T]).
-citta([H|T]) :- atom_chars("noepoli", [H|T]).
-citta([H|T]) :- atom_chars("nogara", [H|T]).
-citta([H|T]) :- atom_chars("nogaredo", [H|T]).
-citta([H|T]) :- atom_chars("nogarolerocca", [H|T]).
-citta([H|T]) :- atom_chars("nogarolevicentino", [H|T]).
-citta([H|T]) :- atom_chars("noicattaro", [H|T]).
-citta([H|T]) :- atom_chars("nola", [H|T]).
-citta([H|T]) :- atom_chars("nole", [H|T]).
-citta([H|T]) :- atom_chars("noli", [H|T]).
-citta([H|T]) :- atom_chars("nomaglio", [H|T]).
-citta([H|T]) :- atom_chars("nomi", [H|T]).
-citta([H|T]) :- atom_chars("nonantola", [H|T]).
-citta([H|T]) :- atom_chars("none", [H|T]).
-citta([H|T]) :- atom_chars("nonio", [H|T]).
-citta([H|T]) :- atom_chars("noragugume", [H|T]).
-citta([H|T]) :- atom_chars("norbello", [H|T]).
-citta([H|T]) :- atom_chars("norcia", [H|T]).
-citta([H|T]) :- atom_chars("norma", [H|T]).
-citta([H|T]) :- atom_chars("nosate", [H|T]).
-citta([H|T]) :- atom_chars("notaresco", [H|T]).
-citta([H|T]) :- atom_chars("noto", [H|T]).
-citta([H|T]) :- atom_chars("novalevante/welschnofen", [H|T]).
-citta([H|T]) :- atom_chars("novamilanese", [H|T]).
-citta([H|T]) :- atom_chars("novaponente/deutschnofen", [H|T]).
-citta([H|T]) :- atom_chars("novasiri", [H|T]).
-citta([H|T]) :- atom_chars("novafeltria", [H|T]).
-citta([H|T]) :- atom_chars("novaledo", [H|T]).
-citta([H|T]) :- atom_chars("novalesa", [H|T]).
-citta([H|T]) :- atom_chars("novara", [H|T]).
-citta([H|T]) :- atom_chars("novaradisicilia", [H|T]).
-citta([H|T]) :- atom_chars("novatemezzola", [H|T]).
-citta([H|T]) :- atom_chars("novatemilanese", [H|T]).
-citta([H|T]) :- atom_chars("nove", [H|T]).
-citta([H|T]) :- atom_chars("novedrate", [H|T]).
-citta([H|T]) :- atom_chars("novellara", [H|T]).
-citta([H|T]) :- atom_chars("novello", [H|T]).
-citta([H|T]) :- atom_chars("noventadipiave", [H|T]).
-citta([H|T]) :- atom_chars("noventapadovana", [H|T]).
-citta([H|T]) :- atom_chars("noventavicentina", [H|T]).
-citta([H|T]) :- atom_chars("novidimodena", [H|T]).
-citta([H|T]) :- atom_chars("noviligure", [H|T]).
-citta([H|T]) :- atom_chars("novivelia", [H|T]).
-citta([H|T]) :- atom_chars("noviglio", [H|T]).
-citta([H|T]) :- atom_chars("novoli", [H|T]).
-citta([H|T]) :- atom_chars("nucetto", [H|T]).
-citta([H|T]) :- atom_chars("nughedusannicolo", [H|T]).
-citta([H|T]) :- atom_chars("nughedusantavittoria", [H|T]).
-citta([H|T]) :- atom_chars("nule", [H|T]).
-citta([H|T]) :- atom_chars("nulvi", [H|T]).
-citta([H|T]) :- atom_chars("numana", [H|T]).
-citta([H|T]) :- atom_chars("nuoro", [H|T]).
-citta([H|T]) :- atom_chars("nurachi", [H|T]).
-citta([H|T]) :- atom_chars("nuragus", [H|T]).
-citta([H|T]) :- atom_chars("nurallao", [H|T]).
-citta([H|T]) :- atom_chars("nuraminis", [H|T]).
-citta([H|T]) :- atom_chars("nureci", [H|T]).
-citta([H|T]) :- atom_chars("nurri", [H|T]).
-citta([H|T]) :- atom_chars("nus", [H|T]).
-citta([H|T]) :- atom_chars("nusco", [H|T]).
-citta([H|T]) :- atom_chars("nuvolento", [H|T]).
-citta([H|T]) :- atom_chars("nuvolera", [H|T]).
-citta([H|T]) :- atom_chars("nuxis", [H|T]).
-citta([H|T]) :- atom_chars("occhieppoinferiore", [H|T]).
-citta([H|T]) :- atom_chars("occhiepposuperiore", [H|T]).
-citta([H|T]) :- atom_chars("occhiobello", [H|T]).
-citta([H|T]) :- atom_chars("occimiano", [H|T]).
-citta([H|T]) :- atom_chars("ocre", [H|T]).
-citta([H|T]) :- atom_chars("odalengogrande", [H|T]).
-citta([H|T]) :- atom_chars("odalengopiccolo", [H|T]).
-citta([H|T]) :- atom_chars("oderzo", [H|T]).
-citta([H|T]) :- atom_chars("odolo", [H|T]).
-citta([H|T]) :- atom_chars("ofena", [H|T]).
-citta([H|T]) :- atom_chars("offagna", [H|T]).
-citta([H|T]) :- atom_chars("offanengo", [H|T]).
-citta([H|T]) :- atom_chars("offida", [H|T]).
-citta([H|T]) :- atom_chars("offlaga", [H|T]).
-citta([H|T]) :- atom_chars("oggebbio", [H|T]).
-citta([H|T]) :- atom_chars("oggionaconsantostefano", [H|T]).
-citta([H|T]) :- atom_chars("oggiono", [H|T]).
-citta([H|T]) :- atom_chars("oglianico", [H|T]).
-citta([H|T]) :- atom_chars("ogliastrocilento", [H|T]).
-citta([H|T]) :- atom_chars("olbia", [H|T]).
-citta([H|T]) :- atom_chars("olcenengo", [H|T]).
-citta([H|T]) :- atom_chars("oldenico", [H|T]).
-citta([H|T]) :- atom_chars("oleggio", [H|T]).
-citta([H|T]) :- atom_chars("oleggiocastello", [H|T]).
-citta([H|T]) :- atom_chars("olevanodilomellina", [H|T]).
-citta([H|T]) :- atom_chars("olevanoromano", [H|T]).
-citta([H|T]) :- atom_chars("olevanosultusciano", [H|T]).
-citta([H|T]) :- atom_chars("olgiatecomasco", [H|T]).
-citta([H|T]) :- atom_chars("olgiatemolgora", [H|T]).
-citta([H|T]) :- atom_chars("olgiateolona", [H|T]).
-citta([H|T]) :- atom_chars("olginate", [H|T]).
-citta([H|T]) :- atom_chars("oliena", [H|T]).
-citta([H|T]) :- atom_chars("olivagessi", [H|T]).
-citta([H|T]) :- atom_chars("olivadi", [H|T]).
-citta([H|T]) :- atom_chars("oliveri", [H|T]).
-citta([H|T]) :- atom_chars("olivetocitra", [H|T]).
-citta([H|T]) :- atom_chars("olivetolario", [H|T]).
-citta([H|T]) :- atom_chars("olivetolucano", [H|T]).
-citta([H|T]) :- atom_chars("olivettasanmichele", [H|T]).
-citta([H|T]) :- atom_chars("olivola", [H|T]).
-citta([H|T]) :- atom_chars("ollastra", [H|T]).
-citta([H|T]) :- atom_chars("ollolai", [H|T]).
-citta([H|T]) :- atom_chars("ollomont", [H|T]).
-citta([H|T]) :- atom_chars("olmedo", [H|T]).
-citta([H|T]) :- atom_chars("olmeneta", [H|T]).
-citta([H|T]) :- atom_chars("olmoalbrembo", [H|T]).
-citta([H|T]) :- atom_chars("olmogentile", [H|T]).
-citta([H|T]) :- atom_chars("oltreilcolle", [H|T]).
-citta([H|T]) :- atom_chars("oltressendaalta", [H|T]).
-citta([H|T]) :- atom_chars("oltronadisanmamette", [H|T]).
-citta([H|T]) :- atom_chars("olzai", [H|T]).
-citta([H|T]) :- atom_chars("ome", [H|T]).
-citta([H|T]) :- atom_chars("omegna", [H|T]).
-citta([H|T]) :- atom_chars("omignano", [H|T]).
-citta([H|T]) :- atom_chars("onani", [H|T]).
-citta([H|T]) :- atom_chars("onano", [H|T]).
-citta([H|T]) :- atom_chars("oncino", [H|T]).
-citta([H|T]) :- atom_chars("oneta", [H|T]).
-citta([H|T]) :- atom_chars("onifai", [H|T]).
-citta([H|T]) :- atom_chars("oniferi", [H|T]).
-citta([H|T]) :- atom_chars("onosanpietro", [H|T]).
-citta([H|T]) :- atom_chars("onore", [H|T]).
-citta([H|T]) :- atom_chars("onzo", [H|T]).
-citta([H|T]) :- atom_chars("opera", [H|T]).
-citta([H|T]) :- atom_chars("opi", [H|T]).
-citta([H|T]) :- atom_chars("oppeano", [H|T]).
-citta([H|T]) :- atom_chars("oppidolucano", [H|T]).
-citta([H|T]) :- atom_chars("oppidomamertina", [H|T]).
-citta([H|T]) :- atom_chars("ora/auer", [H|T]).
-citta([H|T]) :- atom_chars("orani", [H|T]).
-citta([H|T]) :- atom_chars("oratino", [H|T]).
-citta([H|T]) :- atom_chars("orbassano", [H|T]).
-citta([H|T]) :- atom_chars("orbetello", [H|T]).
-citta([H|T]) :- atom_chars("orcianopisano", [H|T]).
-citta([H|T]) :- atom_chars("orcofeglino", [H|T]).
-citta([H|T]) :- atom_chars("ordona", [H|T]).
-citta([H|T]) :- atom_chars("orero", [H|T]).
-citta([H|T]) :- atom_chars("orgiano", [H|T]).
-citta([H|T]) :- atom_chars("orgosolo", [H|T]).
-citta([H|T]) :- atom_chars("oria", [H|T]).
-citta([H|T]) :- atom_chars("oricola", [H|T]).
-citta([H|T]) :- atom_chars("origgio", [H|T]).
-citta([H|T]) :- atom_chars("orino", [H|T]).
-citta([H|T]) :- atom_chars("orioalserio", [H|T]).
-citta([H|T]) :- atom_chars("oriocanavese", [H|T]).
-citta([H|T]) :- atom_chars("oriolitta", [H|T]).
-citta([H|T]) :- atom_chars("oriolo", [H|T]).
-citta([H|T]) :- atom_chars("orioloromano", [H|T]).
-citta([H|T]) :- atom_chars("oristano", [H|T]).
-citta([H|T]) :- atom_chars("ormea", [H|T]).
-citta([H|T]) :- atom_chars("ormelle", [H|T]).
-citta([H|T]) :- atom_chars("ornago", [H|T]).
-citta([H|T]) :- atom_chars("ornavasso", [H|T]).
-citta([H|T]) :- atom_chars("ornica", [H|T]).
-citta([H|T]) :- atom_chars("orosei", [H|T]).
-citta([H|T]) :- atom_chars("orotelli", [H|T]).
-citta([H|T]) :- atom_chars("orria", [H|T]).
-citta([H|T]) :- atom_chars("orroli", [H|T]).
-citta([H|T]) :- atom_chars("orsago", [H|T]).
-citta([H|T]) :- atom_chars("orsarabormida", [H|T]).
-citta([H|T]) :- atom_chars("orsaradipuglia", [H|T]).
-citta([H|T]) :- atom_chars("orsenigo", [H|T]).
-citta([H|T]) :- atom_chars("orsogna", [H|T]).
-citta([H|T]) :- atom_chars("orsomarso", [H|T]).
-citta([H|T]) :- atom_chars("ortadiatella", [H|T]).
-citta([H|T]) :- atom_chars("ortanova", [H|T]).
-citta([H|T]) :- atom_chars("ortasangiulio", [H|T]).
-citta([H|T]) :- atom_chars("ortacesus", [H|T]).
-citta([H|T]) :- atom_chars("orte", [H|T]).
-citta([H|T]) :- atom_chars("ortelle", [H|T]).
-citta([H|T]) :- atom_chars("ortezzano", [H|T]).
-citta([H|T]) :- atom_chars("ortignanoraggiolo", [H|T]).
-citta([H|T]) :- atom_chars("ortisei/st", [H|T]).
-citta([H|T]) :- atom_chars("ortona", [H|T]).
-citta([H|T]) :- atom_chars("ortonadeimarsi", [H|T]).
-citta([H|T]) :- atom_chars("ortovero", [H|T]).
-citta([H|T]) :- atom_chars("ortucchio", [H|T]).
-citta([H|T]) :- atom_chars("ortueri", [H|T]).
-citta([H|T]) :- atom_chars("orune", [H|T]).
-citta([H|T]) :- atom_chars("orvieto", [H|T]).
-citta([H|T]) :- atom_chars("orvinio", [H|T]).
-citta([H|T]) :- atom_chars("orzinuovi", [H|T]).
-citta([H|T]) :- atom_chars("orzivecchi", [H|T]).
-citta([H|T]) :- atom_chars("osasco", [H|T]).
-citta([H|T]) :- atom_chars("osasio", [H|T]).
-citta([H|T]) :- atom_chars("oschiri", [H|T]).
-citta([H|T]) :- atom_chars("osidda", [H|T]).
-citta([H|T]) :- atom_chars("osiglia", [H|T]).
-citta([H|T]) :- atom_chars("osilo", [H|T]).
-citta([H|T]) :- atom_chars("osimo", [H|T]).
-citta([H|T]) :- atom_chars("osini", [H|T]).
-citta([H|T]) :- atom_chars("osiosopra", [H|T]).
-citta([H|T]) :- atom_chars("osiosotto", [H|T]).
-citta([H|T]) :- atom_chars("osmate", [H|T]).
-citta([H|T]) :- atom_chars("osnago", [H|T]).
-citta([H|T]) :- atom_chars("osoppo", [H|T]).
-citta([H|T]) :- atom_chars("ospedaletti", [H|T]).
-citta([H|T]) :- atom_chars("ospedaletto", [H|T]).
-citta([H|T]) :- atom_chars("ospedalettodalpinolo", [H|T]).
-citta([H|T]) :- atom_chars("ospedalettoeuganeo", [H|T]).
-citta([H|T]) :- atom_chars("ospedalettolodigiano", [H|T]).
-citta([H|T]) :- atom_chars("ospitaledicadore", [H|T]).
-citta([H|T]) :- atom_chars("ospitaletto", [H|T]).
-citta([H|T]) :- atom_chars("ossagolodigiano", [H|T]).
-citta([H|T]) :- atom_chars("ossana", [H|T]).
-citta([H|T]) :- atom_chars("ossi", [H|T]).
-citta([H|T]) :- atom_chars("ossimo", [H|T]).
-citta([H|T]) :- atom_chars("ossona", [H|T]).
-citta([H|T]) :- atom_chars("ostana", [H|T]).
-citta([H|T]) :- atom_chars("ostellato", [H|T]).
-citta([H|T]) :- atom_chars("ostiano", [H|T]).
-citta([H|T]) :- atom_chars("ostiglia", [H|T]).
-citta([H|T]) :- atom_chars("ostra", [H|T]).
-citta([H|T]) :- atom_chars("ostravetere", [H|T]).
-citta([H|T]) :- atom_chars("ostuni", [H|T]).
-citta([H|T]) :- atom_chars("otranto", [H|T]).
-citta([H|T]) :- atom_chars("otricoli", [H|T]).
-citta([H|T]) :- atom_chars("ottana", [H|T]).
-citta([H|T]) :- atom_chars("ottati", [H|T]).
-citta([H|T]) :- atom_chars("ottaviano", [H|T]).
-citta([H|T]) :- atom_chars("ottiglio", [H|T]).
-citta([H|T]) :- atom_chars("ottobiano", [H|T]).
-citta([H|T]) :- atom_chars("ottone", [H|T]).
-citta([H|T]) :- atom_chars("oulx", [H|T]).
-citta([H|T]) :- atom_chars("ovada", [H|T]).
-citta([H|T]) :- atom_chars("ovaro", [H|T]).
-citta([H|T]) :- atom_chars("oviglio", [H|T]).
-citta([H|T]) :- atom_chars("ovindoli", [H|T]).
-citta([H|T]) :- atom_chars("ovodda", [H|T]).
-citta([H|T]) :- atom_chars("oyace", [H|T]).
-citta([H|T]) :- atom_chars("ozegna", [H|T]).
-citta([H|T]) :- atom_chars("ozieri", [H|T]).
-citta([H|T]) :- atom_chars("ozzanodellemilia", [H|T]).
-citta([H|T]) :- atom_chars("ozzanomonferrato", [H|T]).
-citta([H|T]) :- atom_chars("ozzero", [H|T]).
-citta([H|T]) :- atom_chars("pabillonis", [H|T]).
-citta([H|T]) :- atom_chars("pacedelmela", [H|T]).
-citta([H|T]) :- atom_chars("paceco", [H|T]).
-citta([H|T]) :- atom_chars("pacentro", [H|T]).
-citta([H|T]) :- atom_chars("pachino", [H|T]).
-citta([H|T]) :- atom_chars("paciano", [H|T]).
-citta([H|T]) :- atom_chars("padenghesulgarda", [H|T]).
-citta([H|T]) :- atom_chars("paderna", [H|T]).
-citta([H|T]) :- atom_chars("padernodadda", [H|T]).
-citta([H|T]) :- atom_chars("padernodelgrappa", [H|T]).
-citta([H|T]) :- atom_chars("padernodugnano", [H|T]).
-citta([H|T]) :- atom_chars("padernofranciacorta", [H|T]).
-citta([H|T]) :- atom_chars("padernoponchielli", [H|T]).
-citta([H|T]) :- atom_chars("padova", [H|T]).
-citta([H|T]) :- atom_chars("padria", [H|T]).
-citta([H|T]) :- atom_chars("padru", [H|T]).
-citta([H|T]) :- atom_chars("padula", [H|T]).
-citta([H|T]) :- atom_chars("paduli", [H|T]).
-citta([H|T]) :- atom_chars("paesana", [H|T]).
-citta([H|T]) :- atom_chars("paese", [H|T]).
-citta([H|T]) :- atom_chars("pagani", [H|T]).
-citta([H|T]) :- atom_chars("paganicosabino", [H|T]).
-citta([H|T]) :- atom_chars("pagazzano", [H|T]).
-citta([H|T]) :- atom_chars("pagliara", [H|T]).
-citta([H|T]) :- atom_chars("paglieta", [H|T]).
-citta([H|T]) :- atom_chars("pagnacco", [H|T]).
-citta([H|T]) :- atom_chars("pagno", [H|T]).
-citta([H|T]) :- atom_chars("pagnona", [H|T]).
-citta([H|T]) :- atom_chars("pagodelvallodilauro", [H|T]).
-citta([H|T]) :- atom_chars("pagoveiano", [H|T]).
-citta([H|T]) :- atom_chars("paiscoloveno", [H|T]).
-citta([H|T]) :- atom_chars("paitone", [H|T]).
-citta([H|T]) :- atom_chars("paladina", [H|T]).
-citta([H|T]) :- atom_chars("palagano", [H|T]).
-citta([H|T]) :- atom_chars("palagianello", [H|T]).
-citta([H|T]) :- atom_chars("palagiano", [H|T]).
-citta([H|T]) :- atom_chars("palagonia", [H|T]).
-citta([H|T]) :- atom_chars("palaia", [H|T]).
-citta([H|T]) :- atom_chars("palanzano", [H|T]).
-citta([H|T]) :- atom_chars("palata", [H|T]).
-citta([H|T]) :- atom_chars("palau", [H|T]).
-citta([H|T]) :- atom_chars("palazzago", [H|T]).
-citta([H|T]) :- atom_chars("palazzoadriano", [H|T]).
-citta([H|T]) :- atom_chars("palazzocanavese", [H|T]).
-citta([H|T]) :- atom_chars("palazzopignano", [H|T]).
-citta([H|T]) :- atom_chars("palazzosangervasio", [H|T]).
-citta([H|T]) :- atom_chars("palazzoloacreide", [H|T]).
-citta([H|T]) :- atom_chars("palazzolodellostella", [H|T]).
-citta([H|T]) :- atom_chars("palazzolosulloglio", [H|T]).
-citta([H|T]) :- atom_chars("palazzolovercellese", [H|T]).
-citta([H|T]) :- atom_chars("palazzuolosulsenio", [H|T]).
-citta([H|T]) :- atom_chars("palena", [H|T]).
-citta([H|T]) :- atom_chars("palermiti", [H|T]).
-citta([H|T]) :- atom_chars("palermo", [H|T]).
-citta([H|T]) :- atom_chars("palestrina", [H|T]).
-citta([H|T]) :- atom_chars("palestro", [H|T]).
-citta([H|T]) :- atom_chars("paliano", [H|T]).
-citta([H|T]) :- atom_chars("palizzi", [H|T]).
-citta([H|T]) :- atom_chars("pallagorio", [H|T]).
-citta([H|T]) :- atom_chars("pallanzeno", [H|T]).
-citta([H|T]) :- atom_chars("pallare", [H|T]).
-citta([H|T]) :- atom_chars("palmacampania", [H|T]).
-citta([H|T]) :- atom_chars("palmadimontechiaro", [H|T]).
-citta([H|T]) :- atom_chars("palmanova", [H|T]).
-citta([H|T]) :- atom_chars("palmariggi", [H|T]).
-citta([H|T]) :- atom_chars("palmasarborea", [H|T]).
-citta([H|T]) :- atom_chars("palmi", [H|T]).
-citta([H|T]) :- atom_chars("palmiano", [H|T]).
-citta([H|T]) :- atom_chars("palmoli", [H|T]).
-citta([H|T]) :- atom_chars("palodelcolle", [H|T]).
-citta([H|T]) :- atom_chars("palombarasabina", [H|T]).
-citta([H|T]) :- atom_chars("palombaro", [H|T]).
-citta([H|T]) :- atom_chars("palomonte", [H|T]).
-citta([H|T]) :- atom_chars("palosco", [H|T]).
-citta([H|T]) :- atom_chars("palu", [H|T]).
-citta([H|T]) :- atom_chars("paludelfersina", [H|T]).
-citta([H|T]) :- atom_chars("paludi", [H|T]).
-citta([H|T]) :- atom_chars("paluzza", [H|T]).
-citta([H|T]) :- atom_chars("pamparato", [H|T]).
-citta([H|T]) :- atom_chars("pancalieri", [H|T]).
-citta([H|T]) :- atom_chars("pancarana", [H|T]).
-citta([H|T]) :- atom_chars("panchia", [H|T]).
-citta([H|T]) :- atom_chars("pandino", [H|T]).
-citta([H|T]) :- atom_chars("panettieri", [H|T]).
-citta([H|T]) :- atom_chars("panicale", [H|T]).
-citta([H|T]) :- atom_chars("pannarano", [H|T]).
-citta([H|T]) :- atom_chars("panni", [H|T]).
-citta([H|T]) :- atom_chars("pantelleria", [H|T]).
-citta([H|T]) :- atom_chars("pantigliate", [H|T]).
-citta([H|T]) :- atom_chars("paola", [H|T]).
-citta([H|T]) :- atom_chars("paolisi", [H|T]).
-citta([H|T]) :- atom_chars("papasidero", [H|T]).
-citta([H|T]) :- atom_chars("papozze", [H|T]).
-citta([H|T]) :- atom_chars("parabiago", [H|T]).
-citta([H|T]) :- atom_chars("parabita", [H|T]).
-citta([H|T]) :- atom_chars("paratico", [H|T]).
-citta([H|T]) :- atom_chars("parcines/partschins", [H|T]).
-citta([H|T]) :- atom_chars("parella", [H|T]).
-citta([H|T]) :- atom_chars("parenti", [H|T]).
-citta([H|T]) :- atom_chars("parete", [H|T]).
-citta([H|T]) :- atom_chars("pareto", [H|T]).
-citta([H|T]) :- atom_chars("parghelia", [H|T]).
-citta([H|T]) :- atom_chars("parlasco", [H|T]).
-citta([H|T]) :- atom_chars("parma", [H|T]).
-citta([H|T]) :- atom_chars("parodiligure", [H|T]).
-citta([H|T]) :- atom_chars("paroldo", [H|T]).
-citta([H|T]) :- atom_chars("parolise", [H|T]).
-citta([H|T]) :- atom_chars("parona", [H|T]).
-citta([H|T]) :- atom_chars("parrano", [H|T]).
-citta([H|T]) :- atom_chars("parre", [H|T]).
-citta([H|T]) :- atom_chars("partanna", [H|T]).
-citta([H|T]) :- atom_chars("partinico", [H|T]).
-citta([H|T]) :- atom_chars("paruzzaro", [H|T]).
-citta([H|T]) :- atom_chars("parzanica", [H|T]).
-citta([H|T]) :- atom_chars("pasiandiprato", [H|T]).
-citta([H|T]) :- atom_chars("pasianodipordenone", [H|T]).
-citta([H|T]) :- atom_chars("paspardo", [H|T]).
-citta([H|T]) :- atom_chars("passeranomarmorito", [H|T]).
-citta([H|T]) :- atom_chars("passignanosultrasimeno", [H|T]).
-citta([H|T]) :- atom_chars("passirano", [H|T]).
-citta([H|T]) :- atom_chars("pastena", [H|T]).
-citta([H|T]) :- atom_chars("pastorano", [H|T]).
-citta([H|T]) :- atom_chars("pastrengo", [H|T]).
-citta([H|T]) :- atom_chars("pasturana", [H|T]).
-citta([H|T]) :- atom_chars("pasturo", [H|T]).
-citta([H|T]) :- atom_chars("paterno", [H|T]).
-citta([H|T]) :- atom_chars("paterno", [H|T]).
-citta([H|T]) :- atom_chars("paternocalabro", [H|T]).
-citta([H|T]) :- atom_chars("paternopoli", [H|T]).
-citta([H|T]) :- atom_chars("patrica", [H|T]).
-citta([H|T]) :- atom_chars("pattada", [H|T]).
-citta([H|T]) :- atom_chars("patti", [H|T]).
-citta([H|T]) :- atom_chars("patu", [H|T]).
-citta([H|T]) :- atom_chars("pau", [H|T]).
-citta([H|T]) :- atom_chars("paularo", [H|T]).
-citta([H|T]) :- atom_chars("pauliarbarei", [H|T]).
-citta([H|T]) :- atom_chars("paulilatino", [H|T]).
-citta([H|T]) :- atom_chars("paullo", [H|T]).
-citta([H|T]) :- atom_chars("paupisi", [H|T]).
-citta([H|T]) :- atom_chars("pavarolo", [H|T]).
-citta([H|T]) :- atom_chars("pavia", [H|T]).
-citta([H|T]) :- atom_chars("paviadiudine", [H|T]).
-citta([H|T]) :- atom_chars("pavonecanavese", [H|T]).
-citta([H|T]) :- atom_chars("pavonedelmella", [H|T]).
-citta([H|T]) :- atom_chars("pavullonelfrignano", [H|T]).
-citta([H|T]) :- atom_chars("pazzano", [H|T]).
-citta([H|T]) :- atom_chars("peccioli", [H|T]).
-citta([H|T]) :- atom_chars("pecco", [H|T]).
-citta([H|T]) :- atom_chars("pecettodivalenza", [H|T]).
-citta([H|T]) :- atom_chars("pecettotorinese", [H|T]).
-citta([H|T]) :- atom_chars("pecorara", [H|T]).
-citta([H|T]) :- atom_chars("pedara", [H|T]).
-citta([H|T]) :- atom_chars("pedaso", [H|T]).
-citta([H|T]) :- atom_chars("pedavena", [H|T]).
-citta([H|T]) :- atom_chars("pedemonte", [H|T]).
-citta([H|T]) :- atom_chars("pederobba", [H|T]).
-citta([H|T]) :- atom_chars("pedesina", [H|T]).
-citta([H|T]) :- atom_chars("pedivigliano", [H|T]).
-citta([H|T]) :- atom_chars("pedrengo", [H|T]).
-citta([H|T]) :- atom_chars("peglio", [H|T]).
-citta([H|T]) :- atom_chars("peglio", [H|T]).
-citta([H|T]) :- atom_chars("pegognaga", [H|T]).
-citta([H|T]) :- atom_chars("peia", [H|T]).
-citta([H|T]) :- atom_chars("peio", [H|T]).
-citta([H|T]) :- atom_chars("pelago", [H|T]).
-citta([H|T]) :- atom_chars("pella", [H|T]).
-citta([H|T]) :- atom_chars("pellegrinoparmense", [H|T]).
-citta([H|T]) :- atom_chars("pellezzano", [H|T]).
-citta([H|T]) :- atom_chars("pellizzano", [H|T]).
-citta([H|T]) :- atom_chars("pelugo", [H|T]).
-citta([H|T]) :- atom_chars("penango", [H|T]).
-citta([H|T]) :- atom_chars("pennainteverina", [H|T]).
-citta([H|T]) :- atom_chars("pennasangiovanni", [H|T]).
-citta([H|T]) :- atom_chars("pennasantandrea", [H|T]).
-citta([H|T]) :- atom_chars("pennabilli", [H|T]).
-citta([H|T]) :- atom_chars("pennadomo", [H|T]).
-citta([H|T]) :- atom_chars("pennapiedimonte", [H|T]).
-citta([H|T]) :- atom_chars("penne", [H|T]).
-citta([H|T]) :- atom_chars("pentone", [H|T]).
-citta([H|T]) :- atom_chars("perano", [H|T]).
-citta([H|T]) :- atom_chars("perarolodicadore", [H|T]).
-citta([H|T]) :- atom_chars("perca/percha", [H|T]).
-citta([H|T]) :- atom_chars("percile", [H|T]).
-citta([H|T]) :- atom_chars("perdasdefogu", [H|T]).
-citta([H|T]) :- atom_chars("perdaxius", [H|T]).
-citta([H|T]) :- atom_chars("perdifumo", [H|T]).
-citta([H|T]) :- atom_chars("pereto", [H|T]).
-citta([H|T]) :- atom_chars("perfugas", [H|T]).
-citta([H|T]) :- atom_chars("perginevaldarno", [H|T]).
-citta([H|T]) :- atom_chars("perginevalsugana", [H|T]).
-citta([H|T]) :- atom_chars("pergola", [H|T]).
-citta([H|T]) :- atom_chars("perinaldo", [H|T]).
-citta([H|T]) :- atom_chars("perito", [H|T]).
-citta([H|T]) :- atom_chars("perledo", [H|T]).
-citta([H|T]) :- atom_chars("perletto", [H|T]).
-citta([H|T]) :- atom_chars("perlo", [H|T]).
-citta([H|T]) :- atom_chars("perloz", [H|T]).
-citta([H|T]) :- atom_chars("pernumia", [H|T]).
-citta([H|T]) :- atom_chars("pero", [H|T]).
-citta([H|T]) :- atom_chars("perosaargentina", [H|T]).
-citta([H|T]) :- atom_chars("perosacanavese", [H|T]).
-citta([H|T]) :- atom_chars("perrero", [H|T]).
-citta([H|T]) :- atom_chars("persicodosimo", [H|T]).
-citta([H|T]) :- atom_chars("pertengo", [H|T]).
-citta([H|T]) :- atom_chars("perticaalta", [H|T]).
-citta([H|T]) :- atom_chars("perticabassa", [H|T]).
-citta([H|T]) :- atom_chars("pertosa", [H|T]).
-citta([H|T]) :- atom_chars("pertusio", [H|T]).
-citta([H|T]) :- atom_chars("perugia", [H|T]).
-citta([H|T]) :- atom_chars("pesaro", [H|T]).
-citta([H|T]) :- atom_chars("pescaglia", [H|T]).
-citta([H|T]) :- atom_chars("pescantina", [H|T]).
-citta([H|T]) :- atom_chars("pescara", [H|T]).
-citta([H|T]) :- atom_chars("pescaroloeduniti", [H|T]).
-citta([H|T]) :- atom_chars("pescasseroli", [H|T]).
-citta([H|T]) :- atom_chars("pescate", [H|T]).
-citta([H|T]) :- atom_chars("pesche", [H|T]).
-citta([H|T]) :- atom_chars("peschici", [H|T]).
-citta([H|T]) :- atom_chars("peschieraborromeo", [H|T]).
-citta([H|T]) :- atom_chars("peschieradelgarda", [H|T]).
-citta([H|T]) :- atom_chars("pescia", [H|T]).
-citta([H|T]) :- atom_chars("pescina", [H|T]).
-citta([H|T]) :- atom_chars("pescosannita", [H|T]).
-citta([H|T]) :- atom_chars("pescocostanzo", [H|T]).
-citta([H|T]) :- atom_chars("pescolanciano", [H|T]).
-citta([H|T]) :- atom_chars("pescopagano", [H|T]).
-citta([H|T]) :- atom_chars("pescopennataro", [H|T]).
-citta([H|T]) :- atom_chars("pescorocchiano", [H|T]).
-citta([H|T]) :- atom_chars("pescosansonesco", [H|T]).
-citta([H|T]) :- atom_chars("pescosolido", [H|T]).
-citta([H|T]) :- atom_chars("pessanoconbornago", [H|T]).
-citta([H|T]) :- atom_chars("pessinacremonese", [H|T]).
-citta([H|T]) :- atom_chars("pessinetto", [H|T]).
-citta([H|T]) :- atom_chars("petacciato", [H|T]).
-citta([H|T]) :- atom_chars("petiliapolicastro", [H|T]).
-citta([H|T]) :- atom_chars("petina", [H|T]).
-citta([H|T]) :- atom_chars("petraliasoprana", [H|T]).
-citta([H|T]) :- atom_chars("petraliasottana", [H|T]).
-citta([H|T]) :- atom_chars("petrellasalto", [H|T]).
-citta([H|T]) :- atom_chars("petrellatifernina", [H|T]).
-citta([H|T]) :- atom_chars("petriano", [H|T]).
-citta([H|T]) :- atom_chars("petriolo", [H|T]).
-citta([H|T]) :- atom_chars("petritoli", [H|T]).
-citta([H|T]) :- atom_chars("petrizzi", [H|T]).
-citta([H|T]) :- atom_chars("petrona", [H|T]).
-citta([H|T]) :- atom_chars("petrosino", [H|T]).
-citta([H|T]) :- atom_chars("petruroirpino", [H|T]).
-citta([H|T]) :- atom_chars("pettenasco", [H|T]).
-citta([H|T]) :- atom_chars("pettinengo", [H|T]).
-citta([H|T]) :- atom_chars("pettineo", [H|T]).
-citta([H|T]) :- atom_chars("pettoranellodelmolise", [H|T]).
-citta([H|T]) :- atom_chars("pettoranosulgizio", [H|T]).
-citta([H|T]) :- atom_chars("pettorazzagrimani", [H|T]).
-citta([H|T]) :- atom_chars("peveragno", [H|T]).
-citta([H|T]) :- atom_chars("pezzana", [H|T]).
-citta([H|T]) :- atom_chars("pezzaze", [H|T]).
-citta([H|T]) :- atom_chars("pezzolovalleuzzone", [H|T]).
-citta([H|T]) :- atom_chars("piacenza", [H|T]).
-citta([H|T]) :- atom_chars("piacenzadadige", [H|T]).
-citta([H|T]) :- atom_chars("piadena", [H|T]).
-citta([H|T]) :- atom_chars("piaggine", [H|T]).
-citta([H|T]) :- atom_chars("piancamuno", [H|T]).
-citta([H|T]) :- atom_chars("pianacrixia", [H|T]).
-citta([H|T]) :- atom_chars("pianadeglialbanesi", [H|T]).
-citta([H|T]) :- atom_chars("pianadimonteverna", [H|T]).
-citta([H|T]) :- atom_chars("piancastagnaio", [H|T]).
-citta([H|T]) :- atom_chars("piancogno", [H|T]).
-citta([H|T]) :- atom_chars("piandimeleto", [H|T]).
-citta([H|T]) :- atom_chars("pianecrati", [H|T]).
-citta([H|T]) :- atom_chars("pianella", [H|T]).
-citta([H|T]) :- atom_chars("pianellodellario", [H|T]).
-citta([H|T]) :- atom_chars("pianellovaltidone", [H|T]).
-citta([H|T]) :- atom_chars("pianengo", [H|T]).
-citta([H|T]) :- atom_chars("pianezza", [H|T]).
-citta([H|T]) :- atom_chars("pianezze", [H|T]).
-citta([H|T]) :- atom_chars("pianfei", [H|T]).
-citta([H|T]) :- atom_chars("pianico", [H|T]).
-citta([H|T]) :- atom_chars("pianiga", [H|T]).
-citta([H|T]) :- atom_chars("pianodisorrento", [H|T]).
-citta([H|T]) :- atom_chars("pianopoli", [H|T]).
-citta([H|T]) :- atom_chars("pianoro", [H|T]).
-citta([H|T]) :- atom_chars("piansano", [H|T]).
-citta([H|T]) :- atom_chars("piantedo", [H|T]).
-citta([H|T]) :- atom_chars("piario", [H|T]).
-citta([H|T]) :- atom_chars("piasco", [H|T]).
-citta([H|T]) :- atom_chars("piateda", [H|T]).
-citta([H|T]) :- atom_chars("piatto", [H|T]).
-citta([H|T]) :- atom_chars("piazzaalserchio", [H|T]).
-citta([H|T]) :- atom_chars("piazzaarmerina", [H|T]).
-citta([H|T]) :- atom_chars("piazzabrembana", [H|T]).
-citta([H|T]) :- atom_chars("piazzatorre", [H|T]).
-citta([H|T]) :- atom_chars("piazzolasulbrenta", [H|T]).
-citta([H|T]) :- atom_chars("piazzolo", [H|T]).
-citta([H|T]) :- atom_chars("picciano", [H|T]).
-citta([H|T]) :- atom_chars("picerno", [H|T]).
-citta([H|T]) :- atom_chars("picinisco", [H|T]).
-citta([H|T]) :- atom_chars("pico", [H|T]).
-citta([H|T]) :- atom_chars("piea", [H|T]).
-citta([H|T]) :- atom_chars("piedicavallo", [H|T]).
-citta([H|T]) :- atom_chars("piedimonteetneo", [H|T]).
-citta([H|T]) :- atom_chars("piedimontematese", [H|T]).
-citta([H|T]) :- atom_chars("piedimontesangermano", [H|T]).
-citta([H|T]) :- atom_chars("piedimulera", [H|T]).
-citta([H|T]) :- atom_chars("piegaro", [H|T]).
-citta([H|T]) :- atom_chars("pienza", [H|T]).
-citta([H|T]) :- atom_chars("pieranica", [H|T]).
-citta([H|T]) :- atom_chars("pietradegiorgi", [H|T]).
-citta([H|T]) :- atom_chars("pietraligure", [H|T]).
-citta([H|T]) :- atom_chars("pietramarazzi", [H|T]).
-citta([H|T]) :- atom_chars("pietrabbondante", [H|T]).
-citta([H|T]) :- atom_chars("pietrabruna", [H|T]).
-citta([H|T]) :- atom_chars("pietracamela", [H|T]).
-citta([H|T]) :- atom_chars("pietracatella", [H|T]).
-citta([H|T]) :- atom_chars("pietracupa", [H|T]).
-citta([H|T]) :- atom_chars("pietradefusi", [H|T]).
-citta([H|T]) :- atom_chars("pietraferrazzana", [H|T]).
-citta([H|T]) :- atom_chars("pietrafitta", [H|T]).
-citta([H|T]) :- atom_chars("pietragalla", [H|T]).
-citta([H|T]) :- atom_chars("pietralunga", [H|T]).
-citta([H|T]) :- atom_chars("pietramelara", [H|T]).
-citta([H|T]) :- atom_chars("pietramontecorvino", [H|T]).
-citta([H|T]) :- atom_chars("pietranico", [H|T]).
-citta([H|T]) :- atom_chars("pietrapaola", [H|T]).
-citta([H|T]) :- atom_chars("pietrapertosa", [H|T]).
-citta([H|T]) :- atom_chars("pietraperzia", [H|T]).
-citta([H|T]) :- atom_chars("pietraporzio", [H|T]).
-citta([H|T]) :- atom_chars("pietraroja", [H|T]).
-citta([H|T]) :- atom_chars("pietrarubbia", [H|T]).
-citta([H|T]) :- atom_chars("pietrasanta", [H|T]).
-citta([H|T]) :- atom_chars("pietrastornina", [H|T]).
-citta([H|T]) :- atom_chars("pietravairano", [H|T]).
-citta([H|T]) :- atom_chars("pietrelcina", [H|T]).
-citta([H|T]) :- atom_chars("pieveanievole", [H|T]).
-citta([H|T]) :- atom_chars("pievealbignola", [H|T]).
-citta([H|T]) :- atom_chars("pievedelcairo", [H|T]).
-citta([H|T]) :- atom_chars("pievedibono-prezzo", [H|T]).
-citta([H|T]) :- atom_chars("pievedicadore", [H|T]).
-citta([H|T]) :- atom_chars("pievedicento", [H|T]).
-citta([H|T]) :- atom_chars("pievedicoriano", [H|T]).
-citta([H|T]) :- atom_chars("pievedisoligo", [H|T]).
-citta([H|T]) :- atom_chars("pievediteco", [H|T]).
-citta([H|T]) :- atom_chars("pievedolmi", [H|T]).
-citta([H|T]) :- atom_chars("pieveemanuele", [H|T]).
-citta([H|T]) :- atom_chars("pievefissiraga", [H|T]).
-citta([H|T]) :- atom_chars("pievefosciana", [H|T]).
-citta([H|T]) :- atom_chars("pieveligure", [H|T]).
-citta([H|T]) :- atom_chars("pieveportomorone", [H|T]).
-citta([H|T]) :- atom_chars("pievesangiacomo", [H|T]).
-citta([H|T]) :- atom_chars("pievesantostefano", [H|T]).
-citta([H|T]) :- atom_chars("pievetesino", [H|T]).
-citta([H|T]) :- atom_chars("pievetorina", [H|T]).
-citta([H|T]) :- atom_chars("pievevergonte", [H|T]).
-citta([H|T]) :- atom_chars("pievepelago", [H|T]).
-citta([H|T]) :- atom_chars("piglio", [H|T]).
-citta([H|T]) :- atom_chars("pigna", [H|T]).
-citta([H|T]) :- atom_chars("pignatarointeramna", [H|T]).
-citta([H|T]) :- atom_chars("pignataromaggiore", [H|T]).
-citta([H|T]) :- atom_chars("pignola", [H|T]).
-citta([H|T]) :- atom_chars("pignone", [H|T]).
-citta([H|T]) :- atom_chars("pigra", [H|T]).
-citta([H|T]) :- atom_chars("pila", [H|T]).
-citta([H|T]) :- atom_chars("pimentel", [H|T]).
-citta([H|T]) :- atom_chars("pimonte", [H|T]).
-citta([H|T]) :- atom_chars("pinarolopo", [H|T]).
-citta([H|T]) :- atom_chars("pinasca", [H|T]).
-citta([H|T]) :- atom_chars("pincara", [H|T]).
-citta([H|T]) :- atom_chars("pinerolo", [H|T]).
-citta([H|T]) :- atom_chars("pineto", [H|T]).
-citta([H|T]) :- atom_chars("pinodasti", [H|T]).
-citta([H|T]) :- atom_chars("pinotorinese", [H|T]).
-citta([H|T]) :- atom_chars("pinzanoaltagliamento", [H|T]).
-citta([H|T]) :- atom_chars("pinzolo", [H|T]).
-citta([H|T]) :- atom_chars("piobbico", [H|T]).
-citta([H|T]) :- atom_chars("piobesidalba", [H|T]).
-citta([H|T]) :- atom_chars("piobesitorinese", [H|T]).
-citta([H|T]) :- atom_chars("piode", [H|T]).
-citta([H|T]) :- atom_chars("pioltello", [H|T]).
-citta([H|T]) :- atom_chars("piombino", [H|T]).
-citta([H|T]) :- atom_chars("piombinodese", [H|T]).
-citta([H|T]) :- atom_chars("pioraco", [H|T]).
-citta([H|T]) :- atom_chars("piossasco", [H|T]).
-citta([H|T]) :- atom_chars("piovamassaia", [H|T]).
-citta([H|T]) :- atom_chars("piovedisacco", [H|T]).
-citta([H|T]) :- atom_chars("piovenerocchette", [H|T]).
-citta([H|T]) :- atom_chars("piovera", [H|T]).
-citta([H|T]) :- atom_chars("piozzano", [H|T]).
-citta([H|T]) :- atom_chars("piozzo", [H|T]).
-citta([H|T]) :- atom_chars("piraino", [H|T]).
-citta([H|T]) :- atom_chars("pisa", [H|T]).
-citta([H|T]) :- atom_chars("pisano", [H|T]).
-citta([H|T]) :- atom_chars("piscina", [H|T]).
-citta([H|T]) :- atom_chars("piscinas", [H|T]).
-citta([H|T]) :- atom_chars("pisciotta", [H|T]).
-citta([H|T]) :- atom_chars("pisogne", [H|T]).
-citta([H|T]) :- atom_chars("pisoniano", [H|T]).
-citta([H|T]) :- atom_chars("pisticci", [H|T]).
-citta([H|T]) :- atom_chars("pistoia", [H|T]).
-citta([H|T]) :- atom_chars("pitigliano", [H|T]).
-citta([H|T]) :- atom_chars("piubega", [H|T]).
-citta([H|T]) :- atom_chars("piuro", [H|T]).
-citta([H|T]) :- atom_chars("piverone", [H|T]).
-citta([H|T]) :- atom_chars("pizzale", [H|T]).
-citta([H|T]) :- atom_chars("pizzighettone", [H|T]).
-citta([H|T]) :- atom_chars("pizzo", [H|T]).
-citta([H|T]) :- atom_chars("pizzoferrato", [H|T]).
-citta([H|T]) :- atom_chars("pizzoli", [H|T]).
-citta([H|T]) :- atom_chars("pizzone", [H|T]).
-citta([H|T]) :- atom_chars("pizzoni", [H|T]).
-citta([H|T]) :- atom_chars("placanica", [H|T]).
-citta([H|T]) :- atom_chars("plataci", [H|T]).
-citta([H|T]) :- atom_chars("platania", [H|T]).
-citta([H|T]) :- atom_chars("plati", [H|T]).
-citta([H|T]) :- atom_chars("plaus/plaus", [H|T]).
-citta([H|T]) :- atom_chars("plesio", [H|T]).
-citta([H|T]) :- atom_chars("ploaghe", [H|T]).
-citta([H|T]) :- atom_chars("plodio", [H|T]).
-citta([H|T]) :- atom_chars("pocapaglia", [H|T]).
-citta([H|T]) :- atom_chars("pocenia", [H|T]).
-citta([H|T]) :- atom_chars("podenzana", [H|T]).
-citta([H|T]) :- atom_chars("podenzano", [H|T]).
-citta([H|T]) :- atom_chars("pofi", [H|T]).
-citta([H|T]) :- atom_chars("poggiardo", [H|T]).
-citta([H|T]) :- atom_chars("poggibonsi", [H|T]).
-citta([H|T]) :- atom_chars("poggioacaiano", [H|T]).
-citta([H|T]) :- atom_chars("poggiobustone", [H|T]).
-citta([H|T]) :- atom_chars("poggiocatino", [H|T]).
-citta([H|T]) :- atom_chars("poggioimperiale", [H|T]).
-citta([H|T]) :- atom_chars("poggiomirteto", [H|T]).
-citta([H|T]) :- atom_chars("poggiomoiano", [H|T]).
-citta([H|T]) :- atom_chars("poggionativo", [H|T]).
-citta([H|T]) :- atom_chars("poggiopicenze", [H|T]).
-citta([H|T]) :- atom_chars("poggiorenatico", [H|T]).
-citta([H|T]) :- atom_chars("poggiorusco", [H|T]).
-citta([H|T]) :- atom_chars("poggiosanlorenzo", [H|T]).
-citta([H|T]) :- atom_chars("poggiosanmarcello", [H|T]).
-citta([H|T]) :- atom_chars("poggiosanvicino", [H|T]).
-citta([H|T]) :- atom_chars("poggiosannita", [H|T]).
-citta([H|T]) :- atom_chars("poggiotorriana", [H|T]).
-citta([H|T]) :- atom_chars("poggiodomo", [H|T]).
-citta([H|T]) :- atom_chars("poggiofiorito", [H|T]).
-citta([H|T]) :- atom_chars("poggiomarino", [H|T]).
-citta([H|T]) :- atom_chars("poggioreale", [H|T]).
-citta([H|T]) :- atom_chars("poggiorsini", [H|T]).
-citta([H|T]) :- atom_chars("poggiridenti", [H|T]).
-citta([H|T]) :- atom_chars("poglianomilanese", [H|T]).
-citta([H|T]) :- atom_chars("pognanalario", [H|T]).
-citta([H|T]) :- atom_chars("pognano", [H|T]).
-citta([H|T]) :- atom_chars("pogno", [H|T]).
-citta([H|T]) :- atom_chars("poirino", [H|T]).
-citta([H|T]) :- atom_chars("pojanamaggiore", [H|T]).
-citta([H|T]) :- atom_chars("polaveno", [H|T]).
-citta([H|T]) :- atom_chars("polcenigo", [H|T]).
-citta([H|T]) :- atom_chars("polesella", [H|T]).
-citta([H|T]) :- atom_chars("polesinezibello", [H|T]).
-citta([H|T]) :- atom_chars("poli", [H|T]).
-citta([H|T]) :- atom_chars("polia", [H|T]).
-citta([H|T]) :- atom_chars("policoro", [H|T]).
-citta([H|T]) :- atom_chars("polignanoamare", [H|T]).
-citta([H|T]) :- atom_chars("polinago", [H|T]).
-citta([H|T]) :- atom_chars("polino", [H|T]).
-citta([H|T]) :- atom_chars("polistena", [H|T]).
-citta([H|T]) :- atom_chars("polizzigenerosa", [H|T]).
-citta([H|T]) :- atom_chars("polla", [H|T]).
-citta([H|T]) :- atom_chars("pollein", [H|T]).
-citta([H|T]) :- atom_chars("pollenatrocchia", [H|T]).
-citta([H|T]) :- atom_chars("pollenza", [H|T]).
-citta([H|T]) :- atom_chars("pollica", [H|T]).
-citta([H|T]) :- atom_chars("pollina", [H|T]).
-citta([H|T]) :- atom_chars("pollone", [H|T]).
-citta([H|T]) :- atom_chars("pollutri", [H|T]).
-citta([H|T]) :- atom_chars("polonghera", [H|T]).
-citta([H|T]) :- atom_chars("polpenazzedelgarda", [H|T]).
-citta([H|T]) :- atom_chars("polverara", [H|T]).
-citta([H|T]) :- atom_chars("polverigi", [H|T]).
-citta([H|T]) :- atom_chars("pomarance", [H|T]).
-citta([H|T]) :- atom_chars("pomaretto", [H|T]).
-citta([H|T]) :- atom_chars("pomarico", [H|T]).
-citta([H|T]) :- atom_chars("pomaromonferrato", [H|T]).
-citta([H|T]) :- atom_chars("pomarolo", [H|T]).
-citta([H|T]) :- atom_chars("pombia", [H|T]).
-citta([H|T]) :- atom_chars("pomezia", [H|T]).
-citta([H|T]) :- atom_chars("pomiglianodarco", [H|T]).
-citta([H|T]) :- atom_chars("pompei", [H|T]).
-citta([H|T]) :- atom_chars("pompeiana", [H|T]).
-citta([H|T]) :- atom_chars("pompiano", [H|T]).
-citta([H|T]) :- atom_chars("pomponesco", [H|T]).
-citta([H|T]) :- atom_chars("pompu", [H|T]).
-citta([H|T]) :- atom_chars("poncarale", [H|T]).
-citta([H|T]) :- atom_chars("ponderano", [H|T]).
-citta([H|T]) :- atom_chars("ponna", [H|T]).
-citta([H|T]) :- atom_chars("ponsacco", [H|T]).
-citta([H|T]) :- atom_chars("ponso", [H|T]).
-citta([H|T]) :- atom_chars("pontassieve", [H|T]).
-citta([H|T]) :- atom_chars("pontboset", [H|T]).
-citta([H|T]) :- atom_chars("pont-canavese", [H|T]).
-citta([H|T]) :- atom_chars("ponte", [H|T]).
-citta([H|T]) :- atom_chars("pontebuggianese", [H|T]).
-citta([H|T]) :- atom_chars("pontedellolio", [H|T]).
-citta([H|T]) :- atom_chars("pontedilegno", [H|T]).
-citta([H|T]) :- atom_chars("pontedipiave", [H|T]).
-citta([H|T]) :- atom_chars("pontegardena/waidbruck", [H|T]).
-citta([H|T]) :- atom_chars("ponteinvaltellina", [H|T]).
-citta([H|T]) :- atom_chars("pontelambro", [H|T]).
-citta([H|T]) :- atom_chars("pontenellealpi", [H|T]).
-citta([H|T]) :- atom_chars("pontenizza", [H|T]).
-citta([H|T]) :- atom_chars("pontenossa", [H|T]).
-citta([H|T]) :- atom_chars("pontesannicolo", [H|T]).
-citta([H|T]) :- atom_chars("pontesanpietro", [H|T]).
-citta([H|T]) :- atom_chars("pontebba", [H|T]).
-citta([H|T]) :- atom_chars("pontecagnanofaiano", [H|T]).
-citta([H|T]) :- atom_chars("pontecchiopolesine", [H|T]).
-citta([H|T]) :- atom_chars("pontechianale", [H|T]).
-citta([H|T]) :- atom_chars("pontecorvo", [H|T]).
-citta([H|T]) :- atom_chars("pontecurone", [H|T]).
-citta([H|T]) :- atom_chars("pontedassio", [H|T]).
-citta([H|T]) :- atom_chars("pontedera", [H|T]).
-citta([H|T]) :- atom_chars("pontelandolfo", [H|T]).
-citta([H|T]) :- atom_chars("pontelatone", [H|T]).
-citta([H|T]) :- atom_chars("pontelongo", [H|T]).
-citta([H|T]) :- atom_chars("pontenure", [H|T]).
-citta([H|T]) :- atom_chars("ponteranica", [H|T]).
-citta([H|T]) :- atom_chars("pontestura", [H|T]).
-citta([H|T]) :- atom_chars("pontevico", [H|T]).
-citta([H|T]) :- atom_chars("pontey", [H|T]).
-citta([H|T]) :- atom_chars("ponti", [H|T]).
-citta([H|T]) :- atom_chars("pontisulmincio", [H|T]).
-citta([H|T]) :- atom_chars("pontida", [H|T]).
-citta([H|T]) :- atom_chars("pontinia", [H|T]).
-citta([H|T]) :- atom_chars("pontinvrea", [H|T]).
-citta([H|T]) :- atom_chars("pontirolonuovo", [H|T]).
-citta([H|T]) :- atom_chars("pontoglio", [H|T]).
-citta([H|T]) :- atom_chars("pontremoli", [H|T]).
-citta([H|T]) :- atom_chars("pont-saint-martin", [H|T]).
-citta([H|T]) :- atom_chars("ponza", [H|T]).
-citta([H|T]) :- atom_chars("ponzanodifermo", [H|T]).
-citta([H|T]) :- atom_chars("ponzanomonferrato", [H|T]).
-citta([H|T]) :- atom_chars("ponzanoromano", [H|T]).
-citta([H|T]) :- atom_chars("ponzanoveneto", [H|T]).
-citta([H|T]) :- atom_chars("ponzone", [H|T]).
-citta([H|T]) :- atom_chars("popoli", [H|T]).
-citta([H|T]) :- atom_chars("poppi", [H|T]).
-citta([H|T]) :- atom_chars("porano", [H|T]).
-citta([H|T]) :- atom_chars("porcari", [H|T]).
-citta([H|T]) :- atom_chars("porcia", [H|T]).
-citta([H|T]) :- atom_chars("pordenone", [H|T]).
-citta([H|T]) :- atom_chars("porlezza", [H|T]).
-citta([H|T]) :- atom_chars("pornassio", [H|T]).
-citta([H|T]) :- atom_chars("porpetto", [H|T]).
-citta([H|T]) :- atom_chars("portacomaro", [H|T]).
-citta([H|T]) :- atom_chars("portalbera", [H|T]).
-citta([H|T]) :- atom_chars("porte", [H|T]).
-citta([H|T]) :- atom_chars("portedirendena", [H|T]).
-citta([H|T]) :- atom_chars("portici", [H|T]).
-citta([H|T]) :- atom_chars("porticodicaserta", [H|T]).
-citta([H|T]) :- atom_chars("porticoesanbenedetto", [H|T]).
-citta([H|T]) :- atom_chars("portigliola", [H|T]).
-citta([H|T]) :- atom_chars("portoazzurro", [H|T]).
-citta([H|T]) :- atom_chars("portoceresio", [H|T]).
-citta([H|T]) :- atom_chars("portocesareo", [H|T]).
-citta([H|T]) :- atom_chars("portoempedocle", [H|T]).
-citta([H|T]) :- atom_chars("portomantovano", [H|T]).
-citta([H|T]) :- atom_chars("portorecanati", [H|T]).
-citta([H|T]) :- atom_chars("portosangiorgio", [H|T]).
-citta([H|T]) :- atom_chars("portosantelpidio", [H|T]).
-citta([H|T]) :- atom_chars("portotolle", [H|T]).
-citta([H|T]) :- atom_chars("portotorres", [H|T]).
-citta([H|T]) :- atom_chars("portovaltravaglia", [H|T]).
-citta([H|T]) :- atom_chars("portoviro", [H|T]).
-citta([H|T]) :- atom_chars("portobuffole", [H|T]).
-citta([H|T]) :- atom_chars("portocannone", [H|T]).
-citta([H|T]) :- atom_chars("portoferraio", [H|T]).
-citta([H|T]) :- atom_chars("portofino", [H|T]).
-citta([H|T]) :- atom_chars("portogruaro", [H|T]).
-citta([H|T]) :- atom_chars("portomaggiore", [H|T]).
-citta([H|T]) :- atom_chars("portopalodicapopassero", [H|T]).
-citta([H|T]) :- atom_chars("portoscuso", [H|T]).
-citta([H|T]) :- atom_chars("portovenere", [H|T]).
-citta([H|T]) :- atom_chars("portula", [H|T]).
-citta([H|T]) :- atom_chars("posada", [H|T]).
-citta([H|T]) :- atom_chars("posina", [H|T]).
-citta([H|T]) :- atom_chars("positano", [H|T]).
-citta([H|T]) :- atom_chars("possagno", [H|T]).
-citta([H|T]) :- atom_chars("posta", [H|T]).
-citta([H|T]) :- atom_chars("postafibreno", [H|T]).
-citta([H|T]) :- atom_chars("postal/burgstall", [H|T]).
-citta([H|T]) :- atom_chars("postalesio", [H|T]).
-citta([H|T]) :- atom_chars("postiglione", [H|T]).
-citta([H|T]) :- atom_chars("postua", [H|T]).
-citta([H|T]) :- atom_chars("potenza", [H|T]).
-citta([H|T]) :- atom_chars("potenzapicena", [H|T]).
-citta([H|T]) :- atom_chars("povedelgrappa", [H|T]).
-citta([H|T]) :- atom_chars("povegliano", [H|T]).
-citta([H|T]) :- atom_chars("poveglianoveronese", [H|T]).
-citta([H|T]) :- atom_chars("poviglio", [H|T]).
-citta([H|T]) :- atom_chars("povoletto", [H|T]).
-citta([H|T]) :- atom_chars("pozzadifassa", [H|T]).
-citta([H|T]) :- atom_chars("pozzagliasabina", [H|T]).
-citta([H|T]) :- atom_chars("pozzaglioeduniti", [H|T]).
-citta([H|T]) :- atom_chars("pozzallo", [H|T]).
-citta([H|T]) :- atom_chars("pozzilli", [H|T]).
-citta([H|T]) :- atom_chars("pozzodadda", [H|T]).
-citta([H|T]) :- atom_chars("pozzolgroppo", [H|T]).
-citta([H|T]) :- atom_chars("pozzolengo", [H|T]).
-citta([H|T]) :- atom_chars("pozzoleone", [H|T]).
-citta([H|T]) :- atom_chars("pozzoloformigaro", [H|T]).
-citta([H|T]) :- atom_chars("pozzomaggiore", [H|T]).
-citta([H|T]) :- atom_chars("pozzonovo", [H|T]).
-citta([H|T]) :- atom_chars("pozzuoli", [H|T]).
-citta([H|T]) :- atom_chars("pozzuolodelfriuli", [H|T]).
-citta([H|T]) :- atom_chars("pozzuolomartesana", [H|T]).
-citta([H|T]) :- atom_chars("pradalunga", [H|T]).
-citta([H|T]) :- atom_chars("pradamano", [H|T]).
-citta([H|T]) :- atom_chars("pradleves", [H|T]).
-citta([H|T]) :- atom_chars("pragelato", [H|T]).
-citta([H|T]) :- atom_chars("praiaamare", [H|T]).
-citta([H|T]) :- atom_chars("praiano", [H|T]).
-citta([H|T]) :- atom_chars("pralboino", [H|T]).
-citta([H|T]) :- atom_chars("prali", [H|T]).
-citta([H|T]) :- atom_chars("pralormo", [H|T]).
-citta([H|T]) :- atom_chars("pralungo", [H|T]).
-citta([H|T]) :- atom_chars("pramaggiore", [H|T]).
-citta([H|T]) :- atom_chars("pramollo", [H|T]).
-citta([H|T]) :- atom_chars("prarolo", [H|T]).
-citta([H|T]) :- atom_chars("prarostino", [H|T]).
-citta([H|T]) :- atom_chars("prasco", [H|T]).
-citta([H|T]) :- atom_chars("prascorsano", [H|T]).
-citta([H|T]) :- atom_chars("pratacamportaccio", [H|T]).
-citta([H|T]) :- atom_chars("pratadansidonia", [H|T]).
-citta([H|T]) :- atom_chars("pratadipordenone", [H|T]).
-citta([H|T]) :- atom_chars("pratadiprincipatoultra", [H|T]).
-citta([H|T]) :- atom_chars("pratasannita", [H|T]).
-citta([H|T]) :- atom_chars("pratella", [H|T]).
-citta([H|T]) :- atom_chars("pratiglione", [H|T]).
-citta([H|T]) :- atom_chars("prato", [H|T]).
-citta([H|T]) :- atom_chars("pratoallostelvio/pradamstilfserjoch", [H|T]).
-citta([H|T]) :- atom_chars("pratocarnico", [H|T]).
-citta([H|T]) :- atom_chars("pratosesia", [H|T]).
-citta([H|T]) :- atom_chars("pratolapeligna", [H|T]).
-citta([H|T]) :- atom_chars("pratolaserra", [H|T]).
-citta([H|T]) :- atom_chars("pratovecchiostia", [H|T]).
-citta([H|T]) :- atom_chars("pravisdomini", [H|T]).
-citta([H|T]) :- atom_chars("pray", [H|T]).
-citta([H|T]) :- atom_chars("prazzo", [H|T]).
-citta([H|T]) :- atom_chars("precenicco", [H|T]).
-citta([H|T]) :- atom_chars("preci", [H|T]).
-citta([H|T]) :- atom_chars("predaia", [H|T]).
-citta([H|T]) :- atom_chars("predappio", [H|T]).
-citta([H|T]) :- atom_chars("predazzo", [H|T]).
-citta([H|T]) :- atom_chars("predoi/prettau", [H|T]).
-citta([H|T]) :- atom_chars("predore", [H|T]).
-citta([H|T]) :- atom_chars("predosa", [H|T]).
-citta([H|T]) :- atom_chars("preganziol", [H|T]).
-citta([H|T]) :- atom_chars("pregnanamilanese", [H|T]).
-citta([H|T]) :- atom_chars("prela", [H|T]).
-citta([H|T]) :- atom_chars("premana", [H|T]).
-citta([H|T]) :- atom_chars("premariacco", [H|T]).
-citta([H|T]) :- atom_chars("premeno", [H|T]).
-citta([H|T]) :- atom_chars("premia", [H|T]).
-citta([H|T]) :- atom_chars("premilcuore", [H|T]).
-citta([H|T]) :- atom_chars("premolo", [H|T]).
-citta([H|T]) :- atom_chars("premosello-chiovenda", [H|T]).
-citta([H|T]) :- atom_chars("preone", [H|T]).
-citta([H|T]) :- atom_chars("prepotto", [H|T]).
-citta([H|T]) :- atom_chars("pre-saint-didier", [H|T]).
-citta([H|T]) :- atom_chars("preseglie", [H|T]).
-citta([H|T]) :- atom_chars("presenzano", [H|T]).
-citta([H|T]) :- atom_chars("presezzo", [H|T]).
-citta([H|T]) :- atom_chars("presicce", [H|T]).
-citta([H|T]) :- atom_chars("pressana", [H|T]).
-citta([H|T]) :- atom_chars("pretoro", [H|T]).
-citta([H|T]) :- atom_chars("prevalle", [H|T]).
-citta([H|T]) :- atom_chars("prezza", [H|T]).
-citta([H|T]) :- atom_chars("priero", [H|T]).
-citta([H|T]) :- atom_chars("prignanocilento", [H|T]).
-citta([H|T]) :- atom_chars("prignanosullasecchia", [H|T]).
-citta([H|T]) :- atom_chars("primaluna", [H|T]).
-citta([H|T]) :- atom_chars("primierosanmartinodicastrozza", [H|T]).
-citta([H|T]) :- atom_chars("priocca", [H|T]).
-citta([H|T]) :- atom_chars("priola", [H|T]).
-citta([H|T]) :- atom_chars("priologargallo", [H|T]).
-citta([H|T]) :- atom_chars("priverno", [H|T]).
-citta([H|T]) :- atom_chars("prizzi", [H|T]).
-citta([H|T]) :- atom_chars("proceno", [H|T]).
-citta([H|T]) :- atom_chars("procida", [H|T]).
-citta([H|T]) :- atom_chars("propata", [H|T]).
-citta([H|T]) :- atom_chars("proserpio", [H|T]).
-citta([H|T]) :- atom_chars("prossedi", [H|T]).
-citta([H|T]) :- atom_chars("provagliodiseo", [H|T]).
-citta([H|T]) :- atom_chars("provagliovalsabbia", [H|T]).
-citta([H|T]) :- atom_chars("proves/proveis", [H|T]).
-citta([H|T]) :- atom_chars("provvidenti", [H|T]).
-citta([H|T]) :- atom_chars("prunetto", [H|T]).
-citta([H|T]) :- atom_chars("puegnagodelgarda", [H|T]).
-citta([H|T]) :- atom_chars("puglianello", [H|T]).
-citta([H|T]) :- atom_chars("pula", [H|T]).
-citta([H|T]) :- atom_chars("pulfero", [H|T]).
-citta([H|T]) :- atom_chars("pulsano", [H|T]).
-citta([H|T]) :- atom_chars("pumenengo", [H|T]).
-citta([H|T]) :- atom_chars("pusiano", [H|T]).
-citta([H|T]) :- atom_chars("putifigari", [H|T]).
-citta([H|T]) :- atom_chars("putignano", [H|T]).
-citta([H|T]) :- atom_chars("quadrelle", [H|T]).
-citta([H|T]) :- atom_chars("quadri", [H|T]).
-citta([H|T]) :- atom_chars("quagliuzzo", [H|T]).
-citta([H|T]) :- atom_chars("qualiano", [H|T]).
-citta([H|T]) :- atom_chars("quaranti", [H|T]).
-citta([H|T]) :- atom_chars("quaregna", [H|T]).
-citta([H|T]) :- atom_chars("quargnento", [H|T]).
-citta([H|T]) :- atom_chars("quarnasopra", [H|T]).
-citta([H|T]) :- atom_chars("quarnasotto", [H|T]).
-citta([H|T]) :- atom_chars("quarona", [H|T]).
-citta([H|T]) :- atom_chars("quarrata", [H|T]).
-citta([H|T]) :- atom_chars("quart", [H|T]).
-citta([H|T]) :- atom_chars("quarto", [H|T]).
-citta([H|T]) :- atom_chars("quartodaltino", [H|T]).
-citta([H|T]) :- atom_chars("quartusantelena", [H|T]).
-citta([H|T]) :- atom_chars("quartucciu", [H|T]).
-citta([H|T]) :- atom_chars("quassolo", [H|T]).
-citta([H|T]) :- atom_chars("quattordio", [H|T]).
-citta([H|T]) :- atom_chars("quattrocastella", [H|T]).
-citta([H|T]) :- atom_chars("querovas", [H|T]).
-citta([H|T]) :- atom_chars("quiliano", [H|T]).
-citta([H|T]) :- atom_chars("quincinetto", [H|T]).
-citta([H|T]) :- atom_chars("quindici", [H|T]).
-citta([H|T]) :- atom_chars("quingentole", [H|T]).
-citta([H|T]) :- atom_chars("quintano", [H|T]).
-citta([H|T]) :- atom_chars("quintoditreviso", [H|T]).
-citta([H|T]) :- atom_chars("quintovercellese", [H|T]).
-citta([H|T]) :- atom_chars("quintovicentino", [H|T]).
-citta([H|T]) :- atom_chars("quinzanodoglio", [H|T]).
-citta([H|T]) :- atom_chars("quistello", [H|T]).
-citta([H|T]) :- atom_chars("rabbi", [H|T]).
-citta([H|T]) :- atom_chars("racale", [H|T]).
-citta([H|T]) :- atom_chars("racalmuto", [H|T]).
-citta([H|T]) :- atom_chars("racconigi", [H|T]).
-citta([H|T]) :- atom_chars("raccuja", [H|T]).
-citta([H|T]) :- atom_chars("racines/ratschings", [H|T]).
-citta([H|T]) :- atom_chars("raddainchianti", [H|T]).
-citta([H|T]) :- atom_chars("raddusa", [H|T]).
-citta([H|T]) :- atom_chars("radicofani", [H|T]).
-citta([H|T]) :- atom_chars("radicondoli", [H|T]).
-citta([H|T]) :- atom_chars("raffadali", [H|T]).
-citta([H|T]) :- atom_chars("ragalna", [H|T]).
-citta([H|T]) :- atom_chars("ragogna", [H|T]).
-citta([H|T]) :- atom_chars("ragusa", [H|T]).
-citta([H|T]) :- atom_chars("raiano", [H|T]).
-citta([H|T]) :- atom_chars("ramacca", [H|T]).
-citta([H|T]) :- atom_chars("ranciovalcuvia", [H|T]).
-citta([H|T]) :- atom_chars("ranco", [H|T]).
-citta([H|T]) :- atom_chars("randazzo", [H|T]).
-citta([H|T]) :- atom_chars("ranica", [H|T]).
-citta([H|T]) :- atom_chars("ranzanico", [H|T]).
-citta([H|T]) :- atom_chars("ranzo", [H|T]).
-citta([H|T]) :- atom_chars("rapagnano", [H|T]).
-citta([H|T]) :- atom_chars("rapallo", [H|T]).
-citta([H|T]) :- atom_chars("rapino", [H|T]).
-citta([H|T]) :- atom_chars("rapolanoterme", [H|T]).
-citta([H|T]) :- atom_chars("rapolla", [H|T]).
-citta([H|T]) :- atom_chars("rapone", [H|T]).
-citta([H|T]) :- atom_chars("rassa", [H|T]).
-citta([H|T]) :- atom_chars("rasun-anterselva/rasen-antholz", [H|T]).
-citta([H|T]) :- atom_chars("rasura", [H|T]).
-citta([H|T]) :- atom_chars("ravanusa", [H|T]).
-citta([H|T]) :- atom_chars("ravarino", [H|T]).
-citta([H|T]) :- atom_chars("ravascletto", [H|T]).
-citta([H|T]) :- atom_chars("ravello", [H|T]).
-citta([H|T]) :- atom_chars("ravenna", [H|T]).
-citta([H|T]) :- atom_chars("raveo", [H|T]).
-citta([H|T]) :- atom_chars("raviscanina", [H|T]).
-citta([H|T]) :- atom_chars("re", [H|T]).
-citta([H|T]) :- atom_chars("rea", [H|T]).
-citta([H|T]) :- atom_chars("realmonte", [H|T]).
-citta([H|T]) :- atom_chars("reanadelrojale", [H|T]).
-citta([H|T]) :- atom_chars("reano", [H|T]).
-citta([H|T]) :- atom_chars("recale", [H|T]).
-citta([H|T]) :- atom_chars("recanati", [H|T]).
-citta([H|T]) :- atom_chars("recco", [H|T]).
-citta([H|T]) :- atom_chars("recetto", [H|T]).
-citta([H|T]) :- atom_chars("recoaroterme", [H|T]).
-citta([H|T]) :- atom_chars("redavalle", [H|T]).
-citta([H|T]) :- atom_chars("redondesco", [H|T]).
-citta([H|T]) :- atom_chars("refrancore", [H|T]).
-citta([H|T]) :- atom_chars("refrontolo", [H|T]).
-citta([H|T]) :- atom_chars("regalbuto", [H|T]).
-citta([H|T]) :- atom_chars("reggello", [H|T]).
-citta([H|T]) :- atom_chars("reggiocalabria", [H|T]).
-citta([H|T]) :- atom_chars("reggioemilia", [H|T]).
-citta([H|T]) :- atom_chars("reggiolo", [H|T]).
-citta([H|T]) :- atom_chars("reino", [H|T]).
-citta([H|T]) :- atom_chars("reitano", [H|T]).
-citta([H|T]) :- atom_chars("remanzacco", [H|T]).
-citta([H|T]) :- atom_chars("remedello", [H|T]).
-citta([H|T]) :- atom_chars("renate", [H|T]).
-citta([H|T]) :- atom_chars("rende", [H|T]).
-citta([H|T]) :- atom_chars("renon/ritten", [H|T]).
-citta([H|T]) :- atom_chars("resana", [H|T]).
-citta([H|T]) :- atom_chars("rescaldina", [H|T]).
-citta([H|T]) :- atom_chars("resia", [H|T]).
-citta([H|T]) :- atom_chars("resiutta", [H|T]).
-citta([H|T]) :- atom_chars("resuttano", [H|T]).
-citta([H|T]) :- atom_chars("retorbido", [H|T]).
-citta([H|T]) :- atom_chars("revello", [H|T]).
-citta([H|T]) :- atom_chars("revere", [H|T]).
-citta([H|T]) :- atom_chars("revigliascodasti", [H|T]).
-citta([H|T]) :- atom_chars("revinelago", [H|T]).
-citta([H|T]) :- atom_chars("revo", [H|T]).
-citta([H|T]) :- atom_chars("rezzago", [H|T]).
-citta([H|T]) :- atom_chars("rezzato", [H|T]).
-citta([H|T]) :- atom_chars("rezzo", [H|T]).
-citta([H|T]) :- atom_chars("rezzoaglio", [H|T]).
-citta([H|T]) :- atom_chars("rhemes-notre-dame", [H|T]).
-citta([H|T]) :- atom_chars("rhemes-saint-georges", [H|T]).
-citta([H|T]) :- atom_chars("rho", [H|T]).
-citta([H|T]) :- atom_chars("riace", [H|T]).
-citta([H|T]) :- atom_chars("rialto", [H|T]).
-citta([H|T]) :- atom_chars("riano", [H|T]).
-citta([H|T]) :- atom_chars("riardo", [H|T]).
-citta([H|T]) :- atom_chars("ribera", [H|T]).
-citta([H|T]) :- atom_chars("ribordone", [H|T]).
-citta([H|T]) :- atom_chars("ricadi", [H|T]).
-citta([H|T]) :- atom_chars("ricaldone", [H|T]).
-citta([H|T]) :- atom_chars("riccia", [H|T]).
-citta([H|T]) :- atom_chars("riccione", [H|T]).
-citta([H|T]) :- atom_chars("riccodelgolfodispezia", [H|T]).
-citta([H|T]) :- atom_chars("ricengo", [H|T]).
-citta([H|T]) :- atom_chars("ricigliano", [H|T]).
-citta([H|T]) :- atom_chars("riesepiox", [H|T]).
-citta([H|T]) :- atom_chars("riesi", [H|T]).
-citta([H|T]) :- atom_chars("rieti", [H|T]).
-citta([H|T]) :- atom_chars("rifiano/riffian", [H|T]).
-citta([H|T]) :- atom_chars("rifreddo", [H|T]).
-citta([H|T]) :- atom_chars("rignanoflaminio", [H|T]).
-citta([H|T]) :- atom_chars("rignanogarganico", [H|T]).
-citta([H|T]) :- atom_chars("rignanosullarno", [H|T]).
-citta([H|T]) :- atom_chars("rigolato", [H|T]).
-citta([H|T]) :- atom_chars("rimasangiuseppe", [H|T]).
-citta([H|T]) :- atom_chars("rimasco", [H|T]).
-citta([H|T]) :- atom_chars("rimella", [H|T]).
-citta([H|T]) :- atom_chars("rimini", [H|T]).
-citta([H|T]) :- atom_chars("riodipusteria/muhlbach", [H|T]).
-citta([H|T]) :- atom_chars("riomarina", [H|T]).
-citta([H|T]) :- atom_chars("rionellelba", [H|T]).
-citta([H|T]) :- atom_chars("riosaliceto", [H|T]).
-citta([H|T]) :- atom_chars("riofreddo", [H|T]).
-citta([H|T]) :- atom_chars("riolasardo", [H|T]).
-citta([H|T]) :- atom_chars("rioloterme", [H|T]).
-citta([H|T]) :- atom_chars("riolunato", [H|T]).
-citta([H|T]) :- atom_chars("riomaggiore", [H|T]).
-citta([H|T]) :- atom_chars("rioneroinvulture", [H|T]).
-citta([H|T]) :- atom_chars("rionerosannitico", [H|T]).
-citta([H|T]) :- atom_chars("ripateatina", [H|T]).
-citta([H|T]) :- atom_chars("ripabottoni", [H|T]).
-citta([H|T]) :- atom_chars("ripacandida", [H|T]).
-citta([H|T]) :- atom_chars("ripalimosani", [H|T]).
-citta([H|T]) :- atom_chars("ripaltaarpina", [H|T]).
-citta([H|T]) :- atom_chars("ripaltacremasca", [H|T]).
-citta([H|T]) :- atom_chars("ripaltaguerina", [H|T]).
-citta([H|T]) :- atom_chars("riparbella", [H|T]).
-citta([H|T]) :- atom_chars("ripatransone", [H|T]).
-citta([H|T]) :- atom_chars("ripesanginesio", [H|T]).
-citta([H|T]) :- atom_chars("ripi", [H|T]).
-citta([H|T]) :- atom_chars("riposto", [H|T]).
-citta([H|T]) :- atom_chars("rittana", [H|T]).
-citta([H|T]) :- atom_chars("rivadelgarda", [H|T]).
-citta([H|T]) :- atom_chars("rivadisolto", [H|T]).
-citta([H|T]) :- atom_chars("rivaligure", [H|T]).
-citta([H|T]) :- atom_chars("rivapressochieri", [H|T]).
-citta([H|T]) :- atom_chars("rivavaldobbia", [H|T]).
-citta([H|T]) :- atom_chars("rivalba", [H|T]).
-citta([H|T]) :- atom_chars("rivaltabormida", [H|T]).
-citta([H|T]) :- atom_chars("rivaltaditorino", [H|T]).
-citta([H|T]) :- atom_chars("rivamonteagordino", [H|T]).
-citta([H|T]) :- atom_chars("rivanazzanoterme", [H|T]).
-citta([H|T]) :- atom_chars("rivara", [H|T]).
-citta([H|T]) :- atom_chars("rivarolocanavese", [H|T]).
-citta([H|T]) :- atom_chars("rivarolodelreeduniti", [H|T]).
-citta([H|T]) :- atom_chars("rivarolomantovano", [H|T]).
-citta([H|T]) :- atom_chars("rivarone", [H|T]).
-citta([H|T]) :- atom_chars("rivarossa", [H|T]).
-citta([H|T]) :- atom_chars("rive", [H|T]).
-citta([H|T]) :- atom_chars("rivedarcano", [H|T]).
-citta([H|T]) :- atom_chars("rivello", [H|T]).
-citta([H|T]) :- atom_chars("rivergaro", [H|T]).
-citta([H|T]) :- atom_chars("rivignanoteor", [H|T]).
-citta([H|T]) :- atom_chars("rivisondoli", [H|T]).
-citta([H|T]) :- atom_chars("rivodutri", [H|T]).
-citta([H|T]) :- atom_chars("rivoli", [H|T]).
-citta([H|T]) :- atom_chars("rivoliveronese", [H|T]).
-citta([H|T]) :- atom_chars("rivoltadadda", [H|T]).
-citta([H|T]) :- atom_chars("rizziconi", [H|T]).
-citta([H|T]) :- atom_chars("ro", [H|T]).
-citta([H|T]) :- atom_chars("roana", [H|T]).
-citta([H|T]) :- atom_chars("roaschia", [H|T]).
-citta([H|T]) :- atom_chars("roascio", [H|T]).
-citta([H|T]) :- atom_chars("roasio", [H|T]).
-citta([H|T]) :- atom_chars("roatto", [H|T]).
-citta([H|T]) :- atom_chars("robassomero", [H|T]).
-citta([H|T]) :- atom_chars("robbiate", [H|T]).
-citta([H|T]) :- atom_chars("robbio", [H|T]).
-citta([H|T]) :- atom_chars("robecchettoconinduno", [H|T]).
-citta([H|T]) :- atom_chars("robeccodoglio", [H|T]).
-citta([H|T]) :- atom_chars("robeccopavese", [H|T]).
-citta([H|T]) :- atom_chars("robeccosulnaviglio", [H|T]).
-citta([H|T]) :- atom_chars("robella", [H|T]).
-citta([H|T]) :- atom_chars("robilante", [H|T]).
-citta([H|T]) :- atom_chars("roburent", [H|T]).
-citta([H|T]) :- atom_chars("roccacanavese", [H|T]).
-citta([H|T]) :- atom_chars("roccacanterano", [H|T]).
-citta([H|T]) :- atom_chars("roccaciglie", [H|T]).
-citta([H|T]) :- atom_chars("roccadarazzo", [H|T]).
-citta([H|T]) :- atom_chars("roccadarce", [H|T]).
-citta([H|T]) :- atom_chars("roccadebaldi", [H|T]).
-citta([H|T]) :- atom_chars("roccadegiorgi", [H|T]).
-citta([H|T]) :- atom_chars("roccadevandro", [H|T]).
-citta([H|T]) :- atom_chars("roccadibotte", [H|T]).
-citta([H|T]) :- atom_chars("roccadicambio", [H|T]).
-citta([H|T]) :- atom_chars("roccadicave", [H|T]).
-citta([H|T]) :- atom_chars("roccadimezzo", [H|T]).
-citta([H|T]) :- atom_chars("roccadineto", [H|T]).
-citta([H|T]) :- atom_chars("roccadipapa", [H|T]).
-citta([H|T]) :- atom_chars("roccagrimalda", [H|T]).
-citta([H|T]) :- atom_chars("roccaimperiale", [H|T]).
-citta([H|T]) :- atom_chars("roccamassima", [H|T]).
-citta([H|T]) :- atom_chars("roccapia", [H|T]).
-citta([H|T]) :- atom_chars("roccapietore", [H|T]).
-citta([H|T]) :- atom_chars("roccapriora", [H|T]).
-citta([H|T]) :- atom_chars("roccasancasciano", [H|T]).
-citta([H|T]) :- atom_chars("roccasanfelice", [H|T]).
-citta([H|T]) :- atom_chars("roccasangiovanni", [H|T]).
-citta([H|T]) :- atom_chars("roccasantamaria", [H|T]).
-citta([H|T]) :- atom_chars("roccasantostefano", [H|T]).
-citta([H|T]) :- atom_chars("roccasinibalda", [H|T]).
-citta([H|T]) :- atom_chars("roccasusella", [H|T]).
-citta([H|T]) :- atom_chars("roccabascerana", [H|T]).
-citta([H|T]) :- atom_chars("roccabernarda", [H|T]).
-citta([H|T]) :- atom_chars("roccabianca", [H|T]).
-citta([H|T]) :- atom_chars("roccabruna", [H|T]).
-citta([H|T]) :- atom_chars("roccacasale", [H|T]).
-citta([H|T]) :- atom_chars("roccadaspide", [H|T]).
-citta([H|T]) :- atom_chars("roccafiorita", [H|T]).
-citta([H|T]) :- atom_chars("roccafluvione", [H|T]).
-citta([H|T]) :- atom_chars("roccafortedelgreco", [H|T]).
-citta([H|T]) :- atom_chars("roccaforteligure", [H|T]).
-citta([H|T]) :- atom_chars("roccafortemondovi", [H|T]).
-citta([H|T]) :- atom_chars("roccaforzata", [H|T]).
-citta([H|T]) :- atom_chars("roccafranca", [H|T]).
-citta([H|T]) :- atom_chars("roccagiovine", [H|T]).
-citta([H|T]) :- atom_chars("roccagloriosa", [H|T]).
-citta([H|T]) :- atom_chars("roccagorga", [H|T]).
-citta([H|T]) :- atom_chars("roccalbegna", [H|T]).
-citta([H|T]) :- atom_chars("roccalumera", [H|T]).
-citta([H|T]) :- atom_chars("roccamandolfi", [H|T]).
-citta([H|T]) :- atom_chars("roccamena", [H|T]).
-citta([H|T]) :- atom_chars("roccamonfina", [H|T]).
-citta([H|T]) :- atom_chars("roccamontepiano", [H|T]).
-citta([H|T]) :- atom_chars("roccamorice", [H|T]).
-citta([H|T]) :- atom_chars("roccanova", [H|T]).
-citta([H|T]) :- atom_chars("roccantica", [H|T]).
-citta([H|T]) :- atom_chars("roccapalumba", [H|T]).
-citta([H|T]) :- atom_chars("roccapiemonte", [H|T]).
-citta([H|T]) :- atom_chars("roccarainola", [H|T]).
-citta([H|T]) :- atom_chars("roccaraso", [H|T]).
-citta([H|T]) :- atom_chars("roccaromana", [H|T]).
-citta([H|T]) :- atom_chars("roccascalegna", [H|T]).
-citta([H|T]) :- atom_chars("roccasecca", [H|T]).
-citta([H|T]) :- atom_chars("roccaseccadeivolsci", [H|T]).
-citta([H|T]) :- atom_chars("roccasicura", [H|T]).
-citta([H|T]) :- atom_chars("roccasparvera", [H|T]).
-citta([H|T]) :- atom_chars("roccaspinalveti", [H|T]).
-citta([H|T]) :- atom_chars("roccastrada", [H|T]).
-citta([H|T]) :- atom_chars("roccavaldina", [H|T]).
-citta([H|T]) :- atom_chars("roccaverano", [H|T]).
-citta([H|T]) :- atom_chars("roccavignale", [H|T]).
-citta([H|T]) :- atom_chars("roccavione", [H|T]).
-citta([H|T]) :- atom_chars("roccavivara", [H|T]).
-citta([H|T]) :- atom_chars("roccellajonica", [H|T]).
-citta([H|T]) :- atom_chars("roccellavaldemone", [H|T]).
-citta([H|T]) :- atom_chars("rocchettaavolturno", [H|T]).
-citta([H|T]) :- atom_chars("rocchettabelbo", [H|T]).
-citta([H|T]) :- atom_chars("rocchettadivara", [H|T]).
-citta([H|T]) :- atom_chars("rocchettaecroce", [H|T]).
-citta([H|T]) :- atom_chars("rocchettaligure", [H|T]).
-citta([H|T]) :- atom_chars("rocchettanervina", [H|T]).
-citta([H|T]) :- atom_chars("rocchettapalafea", [H|T]).
-citta([H|T]) :- atom_chars("rocchettasantantonio", [H|T]).
-citta([H|T]) :- atom_chars("rocchettatanaro", [H|T]).
-citta([H|T]) :- atom_chars("rodano", [H|T]).
-citta([H|T]) :- atom_chars("roddi", [H|T]).
-citta([H|T]) :- atom_chars("roddino", [H|T]).
-citta([H|T]) :- atom_chars("rodello", [H|T]).
-citta([H|T]) :- atom_chars("rodengosaiano", [H|T]).
-citta([H|T]) :- atom_chars("rodengo/rodeneck", [H|T]).
-citta([H|T]) :- atom_chars("rodero", [H|T]).
-citta([H|T]) :- atom_chars("rodigarganico", [H|T]).
-citta([H|T]) :- atom_chars("rodimilici", [H|T]).
-citta([H|T]) :- atom_chars("rodigo", [H|T]).
-citta([H|T]) :- atom_chars("roevolciano", [H|T]).
-citta([H|T]) :- atom_chars("rofrano", [H|T]).
-citta([H|T]) :- atom_chars("rogeno", [H|T]).
-citta([H|T]) :- atom_chars("roggianogravina", [H|T]).
-citta([H|T]) :- atom_chars("roghudi", [H|T]).
-citta([H|T]) :- atom_chars("rogliano", [H|T]).
-citta([H|T]) :- atom_chars("rognano", [H|T]).
-citta([H|T]) :- atom_chars("rogno", [H|T]).
-citta([H|T]) :- atom_chars("rogolo", [H|T]).
-citta([H|T]) :- atom_chars("roiate", [H|T]).
-citta([H|T]) :- atom_chars("roiodelsangro", [H|T]).
-citta([H|T]) :- atom_chars("roisan", [H|T]).
-citta([H|T]) :- atom_chars("roletto", [H|T]).
-citta([H|T]) :- atom_chars("rolo", [H|T]).
-citta([H|T]) :- atom_chars("roma", [H|T]).
-citta([H|T]) :- atom_chars("romagnanoalmonte", [H|T]).
-citta([H|T]) :- atom_chars("romagnanosesia", [H|T]).
-citta([H|T]) :- atom_chars("romagnese", [H|T]).
-citta([H|T]) :- atom_chars("romallo", [H|T]).
-citta([H|T]) :- atom_chars("romana", [H|T]).
-citta([H|T]) :- atom_chars("romanengo", [H|T]).
-citta([H|T]) :- atom_chars("romanocanavese", [H|T]).
-citta([H|T]) :- atom_chars("romanodezzelino", [H|T]).
-citta([H|T]) :- atom_chars("romanodilombardia", [H|T]).
-citta([H|T]) :- atom_chars("romansdisonzo", [H|T]).
-citta([H|T]) :- atom_chars("rombiolo", [H|T]).
-citta([H|T]) :- atom_chars("romeno", [H|T]).
-citta([H|T]) :- atom_chars("romentino", [H|T]).
-citta([H|T]) :- atom_chars("rometta", [H|T]).
-citta([H|T]) :- atom_chars("ronago", [H|T]).
-citta([H|T]) :- atom_chars("ronca", [H|T]).
-citta([H|T]) :- atom_chars("roncade", [H|T]).
-citta([H|T]) :- atom_chars("roncadelle", [H|T]).
-citta([H|T]) :- atom_chars("roncaro", [H|T]).
-citta([H|T]) :- atom_chars("roncegnoterme", [H|T]).
-citta([H|T]) :- atom_chars("roncello", [H|T]).
-citta([H|T]) :- atom_chars("ronchideilegionari", [H|T]).
-citta([H|T]) :- atom_chars("ronchivalsugana", [H|T]).
-citta([H|T]) :- atom_chars("ronchis", [H|T]).
-citta([H|T]) :- atom_chars("ronciglione", [H|T]).
-citta([H|T]) :- atom_chars("roncoalladige", [H|T]).
-citta([H|T]) :- atom_chars("roncobiellese", [H|T]).
-citta([H|T]) :- atom_chars("roncobriantino", [H|T]).
-citta([H|T]) :- atom_chars("roncocanavese", [H|T]).
-citta([H|T]) :- atom_chars("roncoscrivia", [H|T]).
-citta([H|T]) :- atom_chars("roncobello", [H|T]).
-citta([H|T]) :- atom_chars("roncoferraro", [H|T]).
-citta([H|T]) :- atom_chars("roncofreddo", [H|T]).
-citta([H|T]) :- atom_chars("roncola", [H|T]).
-citta([H|T]) :- atom_chars("rondanina", [H|T]).
-citta([H|T]) :- atom_chars("rondissone", [H|T]).
-citta([H|T]) :- atom_chars("ronsecco", [H|T]).
-citta([H|T]) :- atom_chars("ronzo-chienis", [H|T]).
-citta([H|T]) :- atom_chars("ronzone", [H|T]).
-citta([H|T]) :- atom_chars("roppolo", [H|T]).
-citta([H|T]) :- atom_chars("rora", [H|T]).
-citta([H|T]) :- atom_chars("rosa", [H|T]).
-citta([H|T]) :- atom_chars("rosarno", [H|T]).
-citta([H|T]) :- atom_chars("rosasco", [H|T]).
-citta([H|T]) :- atom_chars("rosate", [H|T]).
-citta([H|T]) :- atom_chars("rosazza", [H|T]).
-citta([H|T]) :- atom_chars("rosciano", [H|T]).
-citta([H|T]) :- atom_chars("roscigno", [H|T]).
-citta([H|T]) :- atom_chars("rose", [H|T]).
-citta([H|T]) :- atom_chars("rosello", [H|T]).
-citta([H|T]) :- atom_chars("rosetocapospulico", [H|T]).
-citta([H|T]) :- atom_chars("rosetodegliabruzzi", [H|T]).
-citta([H|T]) :- atom_chars("rosetovalfortore", [H|T]).
-citta([H|T]) :- atom_chars("rosignanomarittimo", [H|T]).
-citta([H|T]) :- atom_chars("rosignanomonferrato", [H|T]).
-citta([H|T]) :- atom_chars("rosolina", [H|T]).
-citta([H|T]) :- atom_chars("rosolini", [H|T]).
-citta([H|T]) :- atom_chars("rosora", [H|T]).
-citta([H|T]) :- atom_chars("rossa", [H|T]).
-citta([H|T]) :- atom_chars("rossana", [H|T]).
-citta([H|T]) :- atom_chars("rossano", [H|T]).
-citta([H|T]) :- atom_chars("rossanoveneto", [H|T]).
-citta([H|T]) :- atom_chars("rossiglione", [H|T]).
-citta([H|T]) :- atom_chars("rosta", [H|T]).
-citta([H|T]) :- atom_chars("rotadimagna", [H|T]).
-citta([H|T]) :- atom_chars("rotagreca", [H|T]).
-citta([H|T]) :- atom_chars("rotella", [H|T]).
-citta([H|T]) :- atom_chars("rotello", [H|T]).
-citta([H|T]) :- atom_chars("rotonda", [H|T]).
-citta([H|T]) :- atom_chars("rotondella", [H|T]).
-citta([H|T]) :- atom_chars("rotondi", [H|T]).
-citta([H|T]) :- atom_chars("rottofreno", [H|T]).
-citta([H|T]) :- atom_chars("rotzo", [H|T]).
-citta([H|T]) :- atom_chars("roure", [H|T]).
-citta([H|T]) :- atom_chars("rovasenda", [H|T]).
-citta([H|T]) :- atom_chars("rovato", [H|T]).
-citta([H|T]) :- atom_chars("rovegno", [H|T]).
-citta([H|T]) :- atom_chars("rovellasca", [H|T]).
-citta([H|T]) :- atom_chars("rovelloporro", [H|T]).
-citta([H|T]) :- atom_chars("roverbella", [H|T]).
-citta([H|T]) :- atom_chars("roverchiara", [H|T]).
-citta([H|T]) :- atom_chars("roveredellaluna", [H|T]).
-citta([H|T]) :- atom_chars("rovereveronese", [H|T]).
-citta([H|T]) :- atom_chars("roveredodigua", [H|T]).
-citta([H|T]) :- atom_chars("roveredoinpiano", [H|T]).
-citta([H|T]) :- atom_chars("rovereto", [H|T]).
-citta([H|T]) :- atom_chars("rovescala", [H|T]).
-citta([H|T]) :- atom_chars("rovetta", [H|T]).
-citta([H|T]) :- atom_chars("roviano", [H|T]).
-citta([H|T]) :- atom_chars("rovigo", [H|T]).
-citta([H|T]) :- atom_chars("rovito", [H|T]).
-citta([H|T]) :- atom_chars("rovolon", [H|T]).
-citta([H|T]) :- atom_chars("rozzano", [H|T]).
-citta([H|T]) :- atom_chars("rubano", [H|T]).
-citta([H|T]) :- atom_chars("rubiana", [H|T]).
-citta([H|T]) :- atom_chars("rubiera", [H|T]).
-citta([H|T]) :- atom_chars("ruda", [H|T]).
-citta([H|T]) :- atom_chars("rudiano", [H|T]).
-citta([H|T]) :- atom_chars("rueglio", [H|T]).
-citta([H|T]) :- atom_chars("ruffano", [H|T]).
-citta([H|T]) :- atom_chars("ruffia", [H|T]).
-citta([H|T]) :- atom_chars("ruffre-mendola", [H|T]).
-citta([H|T]) :- atom_chars("rufina", [H|T]).
-citta([H|T]) :- atom_chars("ruinas", [H|T]).
-citta([H|T]) :- atom_chars("ruino", [H|T]).
-citta([H|T]) :- atom_chars("rumo", [H|T]).
-citta([H|T]) :- atom_chars("ruoti", [H|T]).
-citta([H|T]) :- atom_chars("russi", [H|T]).
-citta([H|T]) :- atom_chars("rutigliano", [H|T]).
-citta([H|T]) :- atom_chars("rutino", [H|T]).
-citta([H|T]) :- atom_chars("ruviano", [H|T]).
-citta([H|T]) :- atom_chars("ruvodelmonte", [H|T]).
-citta([H|T]) :- atom_chars("ruvodipuglia", [H|T]).
-citta([H|T]) :- atom_chars("sabaudia", [H|T]).
-citta([H|T]) :- atom_chars("sabbia", [H|T]).
-citta([H|T]) :- atom_chars("sabbiochiese", [H|T]).
-citta([H|T]) :- atom_chars("sabbioneta", [H|T]).
-citta([H|T]) :- atom_chars("sacco", [H|T]).
-citta([H|T]) :- atom_chars("saccolongo", [H|T]).
-citta([H|T]) :- atom_chars("sacile", [H|T]).
-citta([H|T]) :- atom_chars("sacrofano", [H|T]).
-citta([H|T]) :- atom_chars("sadali", [H|T]).
-citta([H|T]) :- atom_chars("sagama", [H|T]).
-citta([H|T]) :- atom_chars("saglianomicca", [H|T]).
-citta([H|T]) :- atom_chars("sagrado", [H|T]).
-citta([H|T]) :- atom_chars("sagronmis", [H|T]).
-citta([H|T]) :- atom_chars("saint-christophe", [H|T]).
-citta([H|T]) :- atom_chars("saint-denis", [H|T]).
-citta([H|T]) :- atom_chars("saint-marcel", [H|T]).
-citta([H|T]) :- atom_chars("saint-nicolas", [H|T]).
-citta([H|T]) :- atom_chars("saint-oyen", [H|T]).
-citta([H|T]) :- atom_chars("saint-pierre", [H|T]).
-citta([H|T]) :- atom_chars("saint-rhemy-en-bosses", [H|T]).
-citta([H|T]) :- atom_chars("saint-vincent", [H|T]).
-citta([H|T]) :- atom_chars("salabaganza", [H|T]).
-citta([H|T]) :- atom_chars("salabiellese", [H|T]).
-citta([H|T]) :- atom_chars("salabolognese", [H|T]).
-citta([H|T]) :- atom_chars("salacomacina", [H|T]).
-citta([H|T]) :- atom_chars("salaconsilina", [H|T]).
-citta([H|T]) :- atom_chars("salamonferrato", [H|T]).
-citta([H|T]) :- atom_chars("salandra", [H|T]).
-citta([H|T]) :- atom_chars("salaparuta", [H|T]).
-citta([H|T]) :- atom_chars("salara", [H|T]).
-citta([H|T]) :- atom_chars("salasco", [H|T]).
-citta([H|T]) :- atom_chars("salassa", [H|T]).
-citta([H|T]) :- atom_chars("salbertrand", [H|T]).
-citta([H|T]) :- atom_chars("salcedo", [H|T]).
-citta([H|T]) :- atom_chars("salcito", [H|T]).
-citta([H|T]) :- atom_chars("sale", [H|T]).
-citta([H|T]) :- atom_chars("saledellelanghe", [H|T]).
-citta([H|T]) :- atom_chars("salemarasino", [H|T]).
-citta([H|T]) :- atom_chars("salesangiovanni", [H|T]).
-citta([H|T]) :- atom_chars("salemi", [H|T]).
-citta([H|T]) :- atom_chars("salento", [H|T]).
-citta([H|T]) :- atom_chars("saleranocanavese", [H|T]).
-citta([H|T]) :- atom_chars("saleranosullambro", [H|T]).
-citta([H|T]) :- atom_chars("salerno", [H|T]).
-citta([H|T]) :- atom_chars("saletto", [H|T]).
-citta([H|T]) :- atom_chars("salgareda", [H|T]).
-citta([H|T]) :- atom_chars("salivercellese", [H|T]).
-citta([H|T]) :- atom_chars("salicesalentino", [H|T]).
-citta([H|T]) :- atom_chars("saliceto", [H|T]).
-citta([H|T]) :- atom_chars("salisano", [H|T]).
-citta([H|T]) :- atom_chars("salizzole", [H|T]).
-citta([H|T]) :- atom_chars("salle", [H|T]).
-citta([H|T]) :- atom_chars("salmour", [H|T]).
-citta([H|T]) :- atom_chars("salo", [H|T]).
-citta([H|T]) :- atom_chars("salorno/salurn", [H|T]).
-citta([H|T]) :- atom_chars("salsomaggioreterme", [H|T]).
-citta([H|T]) :- atom_chars("saltrio", [H|T]).
-citta([H|T]) :- atom_chars("saludecio", [H|T]).
-citta([H|T]) :- atom_chars("saluggia", [H|T]).
-citta([H|T]) :- atom_chars("salussola", [H|T]).
-citta([H|T]) :- atom_chars("saluzzo", [H|T]).
-citta([H|T]) :- atom_chars("salve", [H|T]).
-citta([H|T]) :- atom_chars("salvirola", [H|T]).
-citta([H|T]) :- atom_chars("salvitelle", [H|T]).
-citta([H|T]) :- atom_chars("salzadipinerolo", [H|T]).
-citta([H|T]) :- atom_chars("salzairpina", [H|T]).
-citta([H|T]) :- atom_chars("salzano", [H|T]).
-citta([H|T]) :- atom_chars("samarate", [H|T]).
-citta([H|T]) :- atom_chars("samassi", [H|T]).
-citta([H|T]) :- atom_chars("samatzai", [H|T]).
-citta([H|T]) :- atom_chars("sambucadisicilia", [H|T]).
-citta([H|T]) :- atom_chars("sambucapistoiese", [H|T]).
-citta([H|T]) :- atom_chars("sambuci", [H|T]).
-citta([H|T]) :- atom_chars("sambuco", [H|T]).
-citta([H|T]) :- atom_chars("sammicheledibari", [H|T]).
-citta([H|T]) :- atom_chars("samo", [H|T]).
-citta([H|T]) :- atom_chars("samolaco", [H|T]).
-citta([H|T]) :- atom_chars("samone", [H|T]).
-citta([H|T]) :- atom_chars("samone", [H|T]).
-citta([H|T]) :- atom_chars("sampeyre", [H|T]).
-citta([H|T]) :- atom_chars("samugheo", [H|T]).
-citta([H|T]) :- atom_chars("sanbartolomeoalmare", [H|T]).
-citta([H|T]) :- atom_chars("sanbartolomeoingaldo", [H|T]).
-citta([H|T]) :- atom_chars("sanbartolomeovalcavargna", [H|T]).
-citta([H|T]) :- atom_chars("sanbasile", [H|T]).
-citta([H|T]) :- atom_chars("sanbasilio", [H|T]).
-citta([H|T]) :- atom_chars("sanbassano", [H|T]).
-citta([H|T]) :- atom_chars("sanbellino", [H|T]).
-citta([H|T]) :- atom_chars("sanbenedettobelbo", [H|T]).
-citta([H|T]) :- atom_chars("sanbenedettodeimarsi", [H|T]).
-citta([H|T]) :- atom_chars("sanbenedettodeltronto", [H|T]).
-citta([H|T]) :- atom_chars("sanbenedettoinperillis", [H|T]).
-citta([H|T]) :- atom_chars("sanbenedettopo", [H|T]).
-citta([H|T]) :- atom_chars("sanbenedettoullano", [H|T]).
-citta([H|T]) :- atom_chars("sanbenedettovaldisambro", [H|T]).
-citta([H|T]) :- atom_chars("sanbenignocanavese", [H|T]).
-citta([H|T]) :- atom_chars("sanbernardinoverbano", [H|T]).
-citta([H|T]) :- atom_chars("sanbiagiodellacima", [H|T]).
-citta([H|T]) :- atom_chars("sanbiagiodicallalta", [H|T]).
-citta([H|T]) :- atom_chars("sanbiagioplatani", [H|T]).
-citta([H|T]) :- atom_chars("sanbiagiosaracinisco", [H|T]).
-citta([H|T]) :- atom_chars("sanbiase", [H|T]).
-citta([H|T]) :- atom_chars("sanbonifacio", [H|T]).
-citta([H|T]) :- atom_chars("sanbuono", [H|T]).
-citta([H|T]) :- atom_chars("sancalogero", [H|T]).
-citta([H|T]) :- atom_chars("sancandido/innichen", [H|T]).
-citta([H|T]) :- atom_chars("sancanziandisonzo", [H|T]).
-citta([H|T]) :- atom_chars("sancarlocanavese", [H|T]).
-citta([H|T]) :- atom_chars("sancascianodeibagni", [H|T]).
-citta([H|T]) :- atom_chars("sancascianoinvaldipesa", [H|T]).
-citta([H|T]) :- atom_chars("sancassiano", [H|T]).
-citta([H|T]) :- atom_chars("sancataldo", [H|T]).
-citta([H|T]) :- atom_chars("sancesareo", [H|T]).
-citta([H|T]) :- atom_chars("sancesariodilecce", [H|T]).
-citta([H|T]) :- atom_chars("sancesariosulpanaro", [H|T]).
-citta([H|T]) :- atom_chars("sanchiriconuovo", [H|T]).
-citta([H|T]) :- atom_chars("sanchiricoraparo", [H|T]).
-citta([H|T]) :- atom_chars("sancipirello", [H|T]).
-citta([H|T]) :- atom_chars("sanciprianodaversa", [H|T]).
-citta([H|T]) :- atom_chars("sanciprianopicentino", [H|T]).
-citta([H|T]) :- atom_chars("sanciprianopo", [H|T]).
-citta([H|T]) :- atom_chars("sanclemente", [H|T]).
-citta([H|T]) :- atom_chars("sancolombanoallambro", [H|T]).
-citta([H|T]) :- atom_chars("sancolombanobelmonte", [H|T]).
-citta([H|T]) :- atom_chars("sancolombanocertenoli", [H|T]).
-citta([H|T]) :- atom_chars("sancono", [H|T]).
-citta([H|T]) :- atom_chars("sancosmoalbanese", [H|T]).
-citta([H|T]) :- atom_chars("sancostantinoalbanese", [H|T]).
-citta([H|T]) :- atom_chars("sancostantinocalabro", [H|T]).
-citta([H|T]) :- atom_chars("sancostanzo", [H|T]).
-citta([H|T]) :- atom_chars("sancristoforo", [H|T]).
-citta([H|T]) :- atom_chars("sandamianoalcolle", [H|T]).
-citta([H|T]) :- atom_chars("sandamianodasti", [H|T]).
-citta([H|T]) :- atom_chars("sandamianomacra", [H|T]).
-citta([H|T]) :- atom_chars("sandanieledelfriuli", [H|T]).
-citta([H|T]) :- atom_chars("sandanielepo", [H|T]).
-citta([H|T]) :- atom_chars("sandemetriocorone", [H|T]).
-citta([H|T]) :- atom_chars("sandemetrionevestini", [H|T]).
-citta([H|T]) :- atom_chars("sandidero", [H|T]).
-citta([H|T]) :- atom_chars("sandonadipiave", [H|T]).
-citta([H|T]) :- atom_chars("sandonaci", [H|T]).
-citta([H|T]) :- atom_chars("sandonatodilecce", [H|T]).
-citta([H|T]) :- atom_chars("sandonatodininea", [H|T]).
-citta([H|T]) :- atom_chars("sandonatomilanese", [H|T]).
-citta([H|T]) :- atom_chars("sandonatovaldicomino", [H|T]).
-citta([H|T]) :- atom_chars("sandorligodellavalle-dolina", [H|T]).
-citta([H|T]) :- atom_chars("sanfedeleintelvi", [H|T]).
-citta([H|T]) :- atom_chars("sanfele", [H|T]).
-citta([H|T]) :- atom_chars("sanfeliceacancello", [H|T]).
-citta([H|T]) :- atom_chars("sanfelicecirceo", [H|T]).
-citta([H|T]) :- atom_chars("sanfelicedelbenaco", [H|T]).
-citta([H|T]) :- atom_chars("sanfelicedelmolise", [H|T]).
-citta([H|T]) :- atom_chars("sanfelicesulpanaro", [H|T]).
-citta([H|T]) :- atom_chars("sanferdinando", [H|T]).
-citta([H|T]) :- atom_chars("sanferdinandodipuglia", [H|T]).
-citta([H|T]) :- atom_chars("sanfermodellabattaglia", [H|T]).
-citta([H|T]) :- atom_chars("sanfili", [H|T]).
-citta([H|T]) :- atom_chars("sanfilippodelmela", [H|T]).
-citta([H|T]) :- atom_chars("sanfior", [H|T]).
-citta([H|T]) :- atom_chars("sanfiorano", [H|T]).
-citta([H|T]) :- atom_chars("sanflorianodelcollio", [H|T]).
-citta([H|T]) :- atom_chars("sanfloro", [H|T]).
-citta([H|T]) :- atom_chars("sanfrancescoalcampo", [H|T]).
-citta([H|T]) :- atom_chars("sanfratello", [H|T]).
-citta([H|T]) :- atom_chars("sangavinomonreale", [H|T]).
-citta([H|T]) :- atom_chars("sangemini", [H|T]).
-citta([H|T]) :- atom_chars("sangenesioatesino/jenesien", [H|T]).
-citta([H|T]) :- atom_chars("sangenesioeduniti", [H|T]).
-citta([H|T]) :- atom_chars("sangennarovesuviano", [H|T]).
-citta([H|T]) :- atom_chars("sangermanochisone", [H|T]).
-citta([H|T]) :- atom_chars("sangermanovercellese", [H|T]).
-citta([H|T]) :- atom_chars("sangervasiobresciano", [H|T]).
-citta([H|T]) :- atom_chars("sangiacomodeglischiavoni", [H|T]).
-citta([H|T]) :- atom_chars("sangiacomodellesegnate", [H|T]).
-citta([H|T]) :- atom_chars("sangiacomofilippo", [H|T]).
-citta([H|T]) :- atom_chars("sangiacomovercellese", [H|T]).
-citta([H|T]) :- atom_chars("sangillio", [H|T]).
-citta([H|T]) :- atom_chars("sangimignano", [H|T]).
-citta([H|T]) :- atom_chars("sanginesio", [H|T]).
-citta([H|T]) :- atom_chars("sangiorgioacremano", [H|T]).
-citta([H|T]) :- atom_chars("sangiorgioaliri", [H|T]).
-citta([H|T]) :- atom_chars("sangiorgioalbanese", [H|T]).
-citta([H|T]) :- atom_chars("sangiorgiocanavese", [H|T]).
-citta([H|T]) :- atom_chars("sangiorgiodelsannio", [H|T]).
-citta([H|T]) :- atom_chars("sangiorgiodellarichinvelda", [H|T]).
-citta([H|T]) :- atom_chars("sangiorgiodellepertiche", [H|T]).
-citta([H|T]) :- atom_chars("sangiorgiodilomellina", [H|T]).
-citta([H|T]) :- atom_chars("sangiorgiodimantova", [H|T]).
-citta([H|T]) :- atom_chars("sangiorgiodinogaro", [H|T]).
-citta([H|T]) :- atom_chars("sangiorgiodipiano", [H|T]).
-citta([H|T]) :- atom_chars("sangiorgioinbosco", [H|T]).
-citta([H|T]) :- atom_chars("sangiorgioionico", [H|T]).
-citta([H|T]) :- atom_chars("sangiorgiolamolara", [H|T]).
-citta([H|T]) :- atom_chars("sangiorgiolucano", [H|T]).
-citta([H|T]) :- atom_chars("sangiorgiomonferrato", [H|T]).
-citta([H|T]) :- atom_chars("sangiorgiomorgeto", [H|T]).
-citta([H|T]) :- atom_chars("sangiorgiopiacentino", [H|T]).
-citta([H|T]) :- atom_chars("sangiorgioscarampi", [H|T]).
-citta([H|T]) :- atom_chars("sangiorgiosulegnano", [H|T]).
-citta([H|T]) :- atom_chars("sangioriodisusa", [H|T]).
-citta([H|T]) :- atom_chars("sangiovanniapiro", [H|T]).
-citta([H|T]) :- atom_chars("sangiovannialnatisone", [H|T]).
-citta([H|T]) :- atom_chars("sangiovannibianco", [H|T]).
-citta([H|T]) :- atom_chars("sangiovannideldosso", [H|T]).
-citta([H|T]) :- atom_chars("sangiovannidigerace", [H|T]).
-citta([H|T]) :- atom_chars("sangiovannigemini", [H|T]).
-citta([H|T]) :- atom_chars("sangiovanniilarione", [H|T]).
-citta([H|T]) :- atom_chars("sangiovanniincroce", [H|T]).
-citta([H|T]) :- atom_chars("sangiovanniinfiore", [H|T]).
-citta([H|T]) :- atom_chars("sangiovanniingaldo", [H|T]).
-citta([H|T]) :- atom_chars("sangiovanniinmarignano", [H|T]).
-citta([H|T]) :- atom_chars("sangiovanniinpersiceto", [H|T]).
-citta([H|T]) :- atom_chars("sangiovanniincarico", [H|T]).
-citta([H|T]) :- atom_chars("sangiovannilapunta", [H|T]).
-citta([H|T]) :- atom_chars("sangiovannilipioni", [H|T]).
-citta([H|T]) :- atom_chars("sangiovannilupatoto", [H|T]).
-citta([H|T]) :- atom_chars("sangiovannirotondo", [H|T]).
-citta([H|T]) :- atom_chars("sangiovannisuergiu", [H|T]).
-citta([H|T]) :- atom_chars("sangiovanniteatino", [H|T]).
-citta([H|T]) :- atom_chars("sangiovannivaldarno", [H|T]).
-citta([H|T]) :- atom_chars("sangiulianodelsannio", [H|T]).
-citta([H|T]) :- atom_chars("sangiulianodipuglia", [H|T]).
-citta([H|T]) :- atom_chars("sangiulianomilanese", [H|T]).
-citta([H|T]) :- atom_chars("sangiulianoterme", [H|T]).
-citta([H|T]) :- atom_chars("sangiuseppejato", [H|T]).
-citta([H|T]) :- atom_chars("sangiuseppevesuviano", [H|T]).
-citta([H|T]) :- atom_chars("sangiustino", [H|T]).
-citta([H|T]) :- atom_chars("sangiustocanavese", [H|T]).
-citta([H|T]) :- atom_chars("sangodenzo", [H|T]).
-citta([H|T]) :- atom_chars("sangregoriodasassola", [H|T]).
-citta([H|T]) :- atom_chars("sangregoriodicatania", [H|T]).
-citta([H|T]) :- atom_chars("sangregoriodippona", [H|T]).
-citta([H|T]) :- atom_chars("sangregoriomagno", [H|T]).
-citta([H|T]) :- atom_chars("sangregoriomatese", [H|T]).
-citta([H|T]) :- atom_chars("sangregorionellealpi", [H|T]).
-citta([H|T]) :- atom_chars("sanlazzarodisavena", [H|T]).
-citta([H|T]) :- atom_chars("sanleo", [H|T]).
-citta([H|T]) :- atom_chars("sanleonardo", [H|T]).
-citta([H|T]) :- atom_chars("sanleonardoinpassiria/st", [H|T]).
-citta([H|T]) :- atom_chars("sanleuciodelsannio", [H|T]).
-citta([H|T]) :- atom_chars("sanlorenzello", [H|T]).
-citta([H|T]) :- atom_chars("sanlorenzo", [H|T]).
-citta([H|T]) :- atom_chars("sanlorenzoalmare", [H|T]).
-citta([H|T]) :- atom_chars("sanlorenzobellizzi", [H|T]).
-citta([H|T]) :- atom_chars("sanlorenzodelvallo", [H|T]).
-citta([H|T]) :- atom_chars("sanlorenzodisebato/st", [H|T]).
-citta([H|T]) :- atom_chars("sanlorenzodorsino", [H|T]).
-citta([H|T]) :- atom_chars("sanlorenzoincampo", [H|T]).
-citta([H|T]) :- atom_chars("sanlorenzoisontino", [H|T]).
-citta([H|T]) :- atom_chars("sanlorenzomaggiore", [H|T]).
-citta([H|T]) :- atom_chars("sanlorenzonuovo", [H|T]).
-citta([H|T]) :- atom_chars("sanluca", [H|T]).
-citta([H|T]) :- atom_chars("sanlucido", [H|T]).
-citta([H|T]) :- atom_chars("sanlupo", [H|T]).
-citta([H|T]) :- atom_chars("sanmangodaquino", [H|T]).
-citta([H|T]) :- atom_chars("sanmangopiemonte", [H|T]).
-citta([H|T]) :- atom_chars("sanmangosulcalore", [H|T]).
-citta([H|T]) :- atom_chars("sanmarcellino", [H|T]).
-citta([H|T]) :- atom_chars("sanmarcello", [H|T]).
-citta([H|T]) :- atom_chars("sanmarcellopiteglio", [H|T]).
-citta([H|T]) :- atom_chars("sanmarcoargentano", [H|T]).
-citta([H|T]) :- atom_chars("sanmarcodalunzio", [H|T]).
-citta([H|T]) :- atom_chars("sanmarcodeicavoti", [H|T]).
-citta([H|T]) :- atom_chars("sanmarcoevangelista", [H|T]).
-citta([H|T]) :- atom_chars("sanmarcoinlamis", [H|T]).
-citta([H|T]) :- atom_chars("sanmarcolacatola", [H|T]).
-citta([H|T]) :- atom_chars("sanmartinoaltagliamento", [H|T]).
-citta([H|T]) :- atom_chars("sanmartinoalfieri", [H|T]).
-citta([H|T]) :- atom_chars("sanmartinobuonalbergo", [H|T]).
-citta([H|T]) :- atom_chars("sanmartinocanavese", [H|T]).
-citta([H|T]) :- atom_chars("sanmartinodagri", [H|T]).
-citta([H|T]) :- atom_chars("sanmartinodallargine", [H|T]).
-citta([H|T]) :- atom_chars("sanmartinodellago", [H|T]).
-citta([H|T]) :- atom_chars("sanmartinodifinita", [H|T]).
-citta([H|T]) :- atom_chars("sanmartinodilupari", [H|T]).
-citta([H|T]) :- atom_chars("sanmartinodivenezze", [H|T]).
-citta([H|T]) :- atom_chars("sanmartinoinbadia/st", [H|T]).
-citta([H|T]) :- atom_chars("sanmartinoinpassiria/st", [H|T]).
-citta([H|T]) :- atom_chars("sanmartinoinpensilis", [H|T]).
-citta([H|T]) :- atom_chars("sanmartinoinrio", [H|T]).
-citta([H|T]) :- atom_chars("sanmartinoinstrada", [H|T]).
-citta([H|T]) :- atom_chars("sanmartinosannita", [H|T]).
-citta([H|T]) :- atom_chars("sanmartinosiccomario", [H|T]).
-citta([H|T]) :- atom_chars("sanmartinosullamarrucina", [H|T]).
-citta([H|T]) :- atom_chars("sanmartinovallecaudina", [H|T]).
-citta([H|T]) :- atom_chars("sanmarzanodisangiuseppe", [H|T]).
-citta([H|T]) :- atom_chars("sanmarzanooliveto", [H|T]).
-citta([H|T]) :- atom_chars("sanmarzanosulsarno", [H|T]).
-citta([H|T]) :- atom_chars("sanmassimo", [H|T]).
-citta([H|T]) :- atom_chars("sanmauriziocanavese", [H|T]).
-citta([H|T]) :- atom_chars("sanmauriziodopaglio", [H|T]).
-citta([H|T]) :- atom_chars("sanmaurocastelverde", [H|T]).
-citta([H|T]) :- atom_chars("sanmaurocilento", [H|T]).
-citta([H|T]) :- atom_chars("sanmaurodisaline", [H|T]).
-citta([H|T]) :- atom_chars("sanmauroforte", [H|T]).
-citta([H|T]) :- atom_chars("sanmaurolabruca", [H|T]).
-citta([H|T]) :- atom_chars("sanmauromarchesato", [H|T]).
-citta([H|T]) :- atom_chars("sanmauropascoli", [H|T]).
-citta([H|T]) :- atom_chars("sanmaurotorinese", [H|T]).
-citta([H|T]) :- atom_chars("sanmichelealtagliamento", [H|T]).
-citta([H|T]) :- atom_chars("sanmichelealladige", [H|T]).
-citta([H|T]) :- atom_chars("sanmichelediganzaria", [H|T]).
-citta([H|T]) :- atom_chars("sanmichelediserino", [H|T]).
-citta([H|T]) :- atom_chars("sanmichelemondovi", [H|T]).
-citta([H|T]) :- atom_chars("sanmichelesalentino", [H|T]).
-citta([H|T]) :- atom_chars("sanminiato", [H|T]).
-citta([H|T]) :- atom_chars("sannazario", [H|T]).
-citta([H|T]) :- atom_chars("sannazzaro", [H|T]).
-citta([H|T]) :- atom_chars("sannazzarosesia", [H|T]).
-citta([H|T]) :- atom_chars("sannazzarovalcavargna", [H|T]).
-citta([H|T]) :- atom_chars("sannicandrogarganico", [H|T]).
-citta([H|T]) :- atom_chars("sannicolaarcella", [H|T]).
-citta([H|T]) :- atom_chars("sannicolabaronia", [H|T]).
-citta([H|T]) :- atom_chars("sannicoladacrissa", [H|T]).
-citta([H|T]) :- atom_chars("sannicoladellalto", [H|T]).
-citta([H|T]) :- atom_chars("sannicolalastrada", [H|T]).
-citta([H|T]) :- atom_chars("sannicolamanfredi", [H|T]).
-citta([H|T]) :- atom_chars("sannicolodarcidano", [H|T]).
-citta([H|T]) :- atom_chars("sannicolodicomelico", [H|T]).
-citta([H|T]) :- atom_chars("sannicologerrei", [H|T]).
-citta([H|T]) :- atom_chars("sanpancraziosalentino", [H|T]).
-citta([H|T]) :- atom_chars("sanpancrazio/st", [H|T]).
-citta([H|T]) :- atom_chars("sanpaolo", [H|T]).
-citta([H|T]) :- atom_chars("sanpaoloalbanese", [H|T]).
-citta([H|T]) :- atom_chars("sanpaolobelsito", [H|T]).
-citta([H|T]) :- atom_chars("sanpaolodargon", [H|T]).
-citta([H|T]) :- atom_chars("sanpaolodicivitate", [H|T]).
-citta([H|T]) :- atom_chars("sanpaolodijesi", [H|T]).
-citta([H|T]) :- atom_chars("sanpaolosolbrito", [H|T]).
-citta([H|T]) :- atom_chars("sanpellegrinoterme", [H|T]).
-citta([H|T]) :- atom_chars("sanpierdisonzo", [H|T]).
-citta([H|T]) :- atom_chars("sanpierniceto", [H|T]).
-citta([H|T]) :- atom_chars("sanpieropatti", [H|T]).
-citta([H|T]) :- atom_chars("sanpietroamaida", [H|T]).
-citta([H|T]) :- atom_chars("sanpietroalnatisone", [H|T]).
-citta([H|T]) :- atom_chars("sanpietroaltanagro", [H|T]).
-citta([H|T]) :- atom_chars("sanpietroapostolo", [H|T]).
-citta([H|T]) :- atom_chars("sanpietroavellana", [H|T]).
-citta([H|T]) :- atom_chars("sanpietroclarenza", [H|T]).
-citta([H|T]) :- atom_chars("sanpietrodicadore", [H|T]).
-citta([H|T]) :- atom_chars("sanpietrodicarida", [H|T]).
-citta([H|T]) :- atom_chars("sanpietrodifeletto", [H|T]).
-citta([H|T]) :- atom_chars("sanpietrodimorubio", [H|T]).
-citta([H|T]) :- atom_chars("sanpietroinamantea", [H|T]).
-citta([H|T]) :- atom_chars("sanpietroincariano", [H|T]).
-citta([H|T]) :- atom_chars("sanpietroincasale", [H|T]).
-citta([H|T]) :- atom_chars("sanpietroincerro", [H|T]).
-citta([H|T]) :- atom_chars("sanpietroingu", [H|T]).
-citta([H|T]) :- atom_chars("sanpietroinguarano", [H|T]).
-citta([H|T]) :- atom_chars("sanpietroinlama", [H|T]).
-citta([H|T]) :- atom_chars("sanpietroinfine", [H|T]).
-citta([H|T]) :- atom_chars("sanpietromosezzo", [H|T]).
-citta([H|T]) :- atom_chars("sanpietromussolino", [H|T]).
-citta([H|T]) :- atom_chars("sanpietrovallemina", [H|T]).
-citta([H|T]) :- atom_chars("sanpietrovernotico", [H|T]).
-citta([H|T]) :- atom_chars("sanpietroviminario", [H|T]).
-citta([H|T]) :- atom_chars("sanpiodellecamere", [H|T]).
-citta([H|T]) :- atom_chars("sanpolodeicavalieri", [H|T]).
-citta([H|T]) :- atom_chars("sanpolodenza", [H|T]).
-citta([H|T]) :- atom_chars("sanpolodipiave", [H|T]).
-citta([H|T]) :- atom_chars("sanpolomatese", [H|T]).
-citta([H|T]) :- atom_chars("sanponso", [H|T]).
-citta([H|T]) :- atom_chars("sanpossidonio", [H|T]).
-citta([H|T]) :- atom_chars("sanpotitosannitico", [H|T]).
-citta([H|T]) :- atom_chars("sanpotitoultra", [H|T]).
-citta([H|T]) :- atom_chars("sanprisco", [H|T]).
-citta([H|T]) :- atom_chars("sanprocopio", [H|T]).
-citta([H|T]) :- atom_chars("sanprospero", [H|T]).
-citta([H|T]) :- atom_chars("sanquiricodorcia", [H|T]).
-citta([H|T]) :- atom_chars("sanquirino", [H|T]).
-citta([H|T]) :- atom_chars("sanraffaelecimena", [H|T]).
-citta([H|T]) :- atom_chars("sanroberto", [H|T]).
-citta([H|T]) :- atom_chars("sanroccoalporto", [H|T]).
-citta([H|T]) :- atom_chars("sanromanoingarfagnana", [H|T]).
-citta([H|T]) :- atom_chars("sanrufo", [H|T]).
-citta([H|T]) :- atom_chars("sansalvatoredifitalia", [H|T]).
-citta([H|T]) :- atom_chars("sansalvatoremonferrato", [H|T]).
-citta([H|T]) :- atom_chars("sansalvatoretelesino", [H|T]).
-citta([H|T]) :- atom_chars("sansalvo", [H|T]).
-citta([H|T]) :- atom_chars("sansebastianoalvesuvio", [H|T]).
-citta([H|T]) :- atom_chars("sansebastianocurone", [H|T]).
-citta([H|T]) :- atom_chars("sansebastianodapo", [H|T]).
-citta([H|T]) :- atom_chars("sansecondodipinerolo", [H|T]).
-citta([H|T]) :- atom_chars("sansecondoparmense", [H|T]).
-citta([H|T]) :- atom_chars("sanseverinolucano", [H|T]).
-citta([H|T]) :- atom_chars("sanseverinomarche", [H|T]).
-citta([H|T]) :- atom_chars("sansevero", [H|T]).
-citta([H|T]) :- atom_chars("sansiro", [H|T]).
-citta([H|T]) :- atom_chars("sansossiobaronia", [H|T]).
-citta([H|T]) :- atom_chars("sansostene", [H|T]).
-citta([H|T]) :- atom_chars("sansosti", [H|T]).
-citta([H|T]) :- atom_chars("sansperate", [H|T]).
-citta([H|T]) :- atom_chars("sanstinodilivenza", [H|T]).
-citta([H|T]) :- atom_chars("santammaro", [H|T]).
-citta([H|T]) :- atom_chars("santeodoro", [H|T]).
-citta([H|T]) :- atom_chars("santeodoro", [H|T]).
-citta([H|T]) :- atom_chars("santomasoagordino", [H|T]).
-citta([H|T]) :- atom_chars("sanvalentinoinabruzzociteriore", [H|T]).
-citta([H|T]) :- atom_chars("sanvalentinotorio", [H|T]).
-citta([H|T]) :- atom_chars("sanvenanzo", [H|T]).
-citta([H|T]) :- atom_chars("sanvendemiano", [H|T]).
-citta([H|T]) :- atom_chars("sanveromilis", [H|T]).
-citta([H|T]) :- atom_chars("sanvincenzo", [H|T]).
-citta([H|T]) :- atom_chars("sanvincenzolacosta", [H|T]).
-citta([H|T]) :- atom_chars("sanvincenzovalleroveto", [H|T]).
-citta([H|T]) :- atom_chars("sanvitaliano", [H|T]).
-citta([H|T]) :- atom_chars("sanvito", [H|T]).
-citta([H|T]) :- atom_chars("sanvitoaltagliamento", [H|T]).
-citta([H|T]) :- atom_chars("sanvitoaltorre", [H|T]).
-citta([H|T]) :- atom_chars("sanvitochietino", [H|T]).
-citta([H|T]) :- atom_chars("sanvitodeinormanni", [H|T]).
-citta([H|T]) :- atom_chars("sanvitodicadore", [H|T]).
-citta([H|T]) :- atom_chars("sanvitodifagagna", [H|T]).
-citta([H|T]) :- atom_chars("sanvitodileguzzano", [H|T]).
-citta([H|T]) :- atom_chars("sanvitolocapo", [H|T]).
-citta([H|T]) :- atom_chars("sanvitoromano", [H|T]).
-citta([H|T]) :- atom_chars("sanvitosulloionio", [H|T]).
-citta([H|T]) :- atom_chars("sanvittoredellazio", [H|T]).
-citta([H|T]) :- atom_chars("sanvittoreolona", [H|T]).
-citta([H|T]) :- atom_chars("sanzenodimontagna", [H|T]).
-citta([H|T]) :- atom_chars("sanzenonaviglio", [H|T]).
-citta([H|T]) :- atom_chars("sanzenoneallambro", [H|T]).
-citta([H|T]) :- atom_chars("sanzenonealpo", [H|T]).
-citta([H|T]) :- atom_chars("sanzenonedegliezzelini", [H|T]).
-citta([H|T]) :- atom_chars("sanarica", [H|T]).
-citta([H|T]) :- atom_chars("sandigliano", [H|T]).
-citta([H|T]) :- atom_chars("sandrigo", [H|T]).
-citta([H|T]) :- atom_chars("sanfre", [H|T]).
-citta([H|T]) :- atom_chars("sanfront", [H|T]).
-citta([H|T]) :- atom_chars("sangano", [H|T]).
-citta([H|T]) :- atom_chars("sangiano", [H|T]).
-citta([H|T]) :- atom_chars("sangineto", [H|T]).
-citta([H|T]) :- atom_chars("sanguinetto", [H|T]).
-citta([H|T]) :- atom_chars("sanluri", [H|T]).
-citta([H|T]) :- atom_chars("sannazzarodeburgondi", [H|T]).
-citta([H|T]) :- atom_chars("sannicandrodibari", [H|T]).
-citta([H|T]) :- atom_chars("sannicola", [H|T]).
-citta([H|T]) :- atom_chars("sanremo", [H|T]).
-citta([H|T]) :- atom_chars("sansepolcro", [H|T]).
-citta([H|T]) :- atom_chars("santabrigida", [H|T]).
-citta([H|T]) :- atom_chars("santacaterinaalbanese", [H|T]).
-citta([H|T]) :- atom_chars("santacaterinadelloionio", [H|T]).
-citta([H|T]) :- atom_chars("santacaterinavillarmosa", [H|T]).
-citta([H|T]) :- atom_chars("santacesareaterme", [H|T]).
-citta([H|T]) :- atom_chars("santacristinadaspromonte", [H|T]).
-citta([H|T]) :- atom_chars("santacristinaebissone", [H|T]).
-citta([H|T]) :- atom_chars("santacristinagela", [H|T]).
-citta([H|T]) :- atom_chars("santacristinavalgardena/st", [H|T]).
-citta([H|T]) :- atom_chars("santacrocecamerina", [H|T]).
-citta([H|T]) :- atom_chars("santacrocedelsannio", [H|T]).
-citta([H|T]) :- atom_chars("santacrocedimagliano", [H|T]).
-citta([H|T]) :- atom_chars("santacrocesullarno", [H|T]).
-citta([H|T]) :- atom_chars("santadomenicatalao", [H|T]).
-citta([H|T]) :- atom_chars("santadomenicavittoria", [H|T]).
-citta([H|T]) :- atom_chars("santaelisabetta", [H|T]).
-citta([H|T]) :- atom_chars("santafiora", [H|T]).
-citta([H|T]) :- atom_chars("santaflavia", [H|T]).
-citta([H|T]) :- atom_chars("santagiuletta", [H|T]).
-citta([H|T]) :- atom_chars("santagiusta", [H|T]).
-citta([H|T]) :- atom_chars("santagiustina", [H|T]).
-citta([H|T]) :- atom_chars("santagiustinaincolle", [H|T]).
-citta([H|T]) :- atom_chars("santaluce", [H|T]).
-citta([H|T]) :- atom_chars("santaluciadelmela", [H|T]).
-citta([H|T]) :- atom_chars("santaluciadipiave", [H|T]).
-citta([H|T]) :- atom_chars("santaluciadiserino", [H|T]).
-citta([H|T]) :- atom_chars("santamargheritadadige", [H|T]).
-citta([H|T]) :- atom_chars("santamargheritadibelice", [H|T]).
-citta([H|T]) :- atom_chars("santamargheritadistaffora", [H|T]).
-citta([H|T]) :- atom_chars("santamargheritaligure", [H|T]).
-citta([H|T]) :- atom_chars("santamariaamonte", [H|T]).
-citta([H|T]) :- atom_chars("santamariaavico", [H|T]).
-citta([H|T]) :- atom_chars("santamariacapuavetere", [H|T]).
-citta([H|T]) :- atom_chars("santamariacoghinas", [H|T]).
-citta([H|T]) :- atom_chars("santamariadelcedro", [H|T]).
-citta([H|T]) :- atom_chars("santamariadelmolise", [H|T]).
-citta([H|T]) :- atom_chars("santamariadellaversa", [H|T]).
-citta([H|T]) :- atom_chars("santamariadilicodia", [H|T]).
-citta([H|T]) :- atom_chars("santamariadisala", [H|T]).
-citta([H|T]) :- atom_chars("santamariahoe", [H|T]).
-citta([H|T]) :- atom_chars("santamariaimbaro", [H|T]).
-citta([H|T]) :- atom_chars("santamarialacarita", [H|T]).
-citta([H|T]) :- atom_chars("santamarialafossa", [H|T]).
-citta([H|T]) :- atom_chars("santamarialalonga", [H|T]).
-citta([H|T]) :- atom_chars("santamariamaggiore", [H|T]).
-citta([H|T]) :- atom_chars("santamarianuova", [H|T]).
-citta([H|T]) :- atom_chars("santamarina", [H|T]).
-citta([H|T]) :- atom_chars("santamarinasalina", [H|T]).
-citta([H|T]) :- atom_chars("santamarinella", [H|T]).
-citta([H|T]) :- atom_chars("santaninfa", [H|T]).
-citta([H|T]) :- atom_chars("santapaolina", [H|T]).
-citta([H|T]) :- atom_chars("santaseverina", [H|T]).
-citta([H|T]) :- atom_chars("santasofia", [H|T]).
-citta([H|T]) :- atom_chars("santasofiadepiro", [H|T]).
-citta([H|T]) :- atom_chars("santateresadiriva", [H|T]).
-citta([H|T]) :- atom_chars("santateresagallura", [H|T]).
-citta([H|T]) :- atom_chars("santavenerina", [H|T]).
-citta([H|T]) :- atom_chars("santavittoriadalba", [H|T]).
-citta([H|T]) :- atom_chars("santavittoriainmatenano", [H|T]).
-citta([H|T]) :- atom_chars("santadi", [H|T]).
-citta([H|T]) :- atom_chars("santagapito", [H|T]).
-citta([H|T]) :- atom_chars("santagatabolognese", [H|T]).
-citta([H|T]) :- atom_chars("santagatadegoti", [H|T]).
-citta([H|T]) :- atom_chars("santagatadelbianco", [H|T]).
-citta([H|T]) :- atom_chars("santagatadiesaro", [H|T]).
-citta([H|T]) :- atom_chars("santagatadimilitello", [H|T]).
-citta([H|T]) :- atom_chars("santagatadipuglia", [H|T]).
-citta([H|T]) :- atom_chars("santagatafeltria", [H|T]).
-citta([H|T]) :- atom_chars("santagatafossili", [H|T]).
-citta([H|T]) :- atom_chars("santagatalibattiati", [H|T]).
-citta([H|T]) :- atom_chars("santagatasulsanterno", [H|T]).
-citta([H|T]) :- atom_chars("santagnello", [H|T]).
-citta([H|T]) :- atom_chars("santalbanostura", [H|T]).
-citta([H|T]) :- atom_chars("santalessioconvialone", [H|T]).
-citta([H|T]) :- atom_chars("santalessioinaspromonte", [H|T]).
-citta([H|T]) :- atom_chars("santalessiosiculo", [H|T]).
-citta([H|T]) :- atom_chars("santalfio", [H|T]).
-citta([H|T]) :- atom_chars("santambrogioditorino", [H|T]).
-citta([H|T]) :- atom_chars("santambrogiodivalpolicella", [H|T]).
-citta([H|T]) :- atom_chars("santambrogiosulgarigliano", [H|T]).
-citta([H|T]) :- atom_chars("santanastasia", [H|T]).
-citta([H|T]) :- atom_chars("santanatoliadinarco", [H|T]).
-citta([H|T]) :- atom_chars("santandreaapostolodelloionio", [H|T]).
-citta([H|T]) :- atom_chars("santandreadelgarigliano", [H|T]).
-citta([H|T]) :- atom_chars("santandreadiconza", [H|T]).
-citta([H|T]) :- atom_chars("santandreafrius", [H|T]).
-citta([H|T]) :- atom_chars("santangeloacupolo", [H|T]).
-citta([H|T]) :- atom_chars("santangeloafasanella", [H|T]).
-citta([H|T]) :- atom_chars("santangeloascala", [H|T]).
-citta([H|T]) :- atom_chars("santangeloallesca", [H|T]).
-citta([H|T]) :- atom_chars("santangelodalife", [H|T]).
-citta([H|T]) :- atom_chars("santangelodeilombardi", [H|T]).
-citta([H|T]) :- atom_chars("santangelodelpesco", [H|T]).
-citta([H|T]) :- atom_chars("santangelodibrolo", [H|T]).
-citta([H|T]) :- atom_chars("santangelodipiovedisacco", [H|T]).
-citta([H|T]) :- atom_chars("santangeloinpontano", [H|T]).
-citta([H|T]) :- atom_chars("santangeloinvado", [H|T]).
-citta([H|T]) :- atom_chars("santangelolefratte", [H|T]).
-citta([H|T]) :- atom_chars("santangelolimosano", [H|T]).
-citta([H|T]) :- atom_chars("santangelolodigiano", [H|T]).
-citta([H|T]) :- atom_chars("santangelolomellina", [H|T]).
-citta([H|T]) :- atom_chars("santangelomuxaro", [H|T]).
-citta([H|T]) :- atom_chars("santangeloromano", [H|T]).
-citta([H|T]) :- atom_chars("santannaarresi", [H|T]).
-citta([H|T]) :- atom_chars("santannadalfaedo", [H|T]).
-citta([H|T]) :- atom_chars("santantimo", [H|T]).
-citta([H|T]) :- atom_chars("santantioco", [H|T]).
-citta([H|T]) :- atom_chars("santantoninodisusa", [H|T]).
-citta([H|T]) :- atom_chars("santantonioabate", [H|T]).
-citta([H|T]) :- atom_chars("santantoniodigallura", [H|T]).
-citta([H|T]) :- atom_chars("santapollinare", [H|T]).
-citta([H|T]) :- atom_chars("santarcangelo", [H|T]).
-citta([H|T]) :- atom_chars("santarcangelodiromagna", [H|T]).
-citta([H|T]) :- atom_chars("santarcangelotrimonte", [H|T]).
-citta([H|T]) :- atom_chars("santarpino", [H|T]).
-citta([H|T]) :- atom_chars("santarsenio", [H|T]).
-citta([H|T]) :- atom_chars("santemarie", [H|T]).
-citta([H|T]) :- atom_chars("santegidioallavibrata", [H|T]).
-citta([H|T]) :- atom_chars("santegidiodelmontealbino", [H|T]).
-citta([H|T]) :- atom_chars("santelena", [H|T]).
-citta([H|T]) :- atom_chars("santelenasannita", [H|T]).
-citta([H|T]) :- atom_chars("santeliaapianisi", [H|T]).
-citta([H|T]) :- atom_chars("santeliafiumerapido", [H|T]).
-citta([H|T]) :- atom_chars("santelpidioamare", [H|T]).
-citta([H|T]) :- atom_chars("santena", [H|T]).
-citta([H|T]) :- atom_chars("santeramoincolle", [H|T]).
-citta([H|T]) :- atom_chars("santeufemiaamaiella", [H|T]).
-citta([H|T]) :- atom_chars("santeufemiadaspromonte", [H|T]).
-citta([H|T]) :- atom_chars("santeusaniodelsangro", [H|T]).
-citta([H|T]) :- atom_chars("santeusanioforconese", [H|T]).
-citta([H|T]) :- atom_chars("santhia", [H|T]).
-citta([H|T]) :- atom_chars("santicosmaedamiano", [H|T]).
-citta([H|T]) :- atom_chars("santilariodelloionio", [H|T]).
-citta([H|T]) :- atom_chars("santilariodenza", [H|T]).
-citta([H|T]) :- atom_chars("santippolito", [H|T]).
-citta([H|T]) :- atom_chars("santostefanoalmare", [H|T]).
-citta([H|T]) :- atom_chars("santostefanobelbo", [H|T]).
-citta([H|T]) :- atom_chars("santostefanodaveto", [H|T]).
-citta([H|T]) :- atom_chars("santostefanodelsole", [H|T]).
-citta([H|T]) :- atom_chars("santostefanodicadore", [H|T]).
-citta([H|T]) :- atom_chars("santostefanodicamastra", [H|T]).
-citta([H|T]) :- atom_chars("santostefanodimagra", [H|T]).
-citta([H|T]) :- atom_chars("santostefanodirogliano", [H|T]).
-citta([H|T]) :- atom_chars("santostefanodisessanio", [H|T]).
-citta([H|T]) :- atom_chars("santostefanoinaspromonte", [H|T]).
-citta([H|T]) :- atom_chars("santostefanolodigiano", [H|T]).
-citta([H|T]) :- atom_chars("santostefanoquisquina", [H|T]).
-citta([H|T]) :- atom_chars("santostefanoroero", [H|T]).
-citta([H|T]) :- atom_chars("santostefanoticino", [H|T]).
-citta([H|T]) :- atom_chars("santolcese", [H|T]).
-citta([H|T]) :- atom_chars("santomenna", [H|T]).
-citta([H|T]) :- atom_chars("santomero", [H|T]).
-citta([H|T]) :- atom_chars("santomobonoterme", [H|T]).
-citta([H|T]) :- atom_chars("santonofrio", [H|T]).
-citta([H|T]) :- atom_chars("santopadre", [H|T]).
-citta([H|T]) :- atom_chars("santoreste", [H|T]).
-citta([H|T]) :- atom_chars("santorso", [H|T]).
-citta([H|T]) :- atom_chars("santorsolaterme", [H|T]).
-citta([H|T]) :- atom_chars("santulussurgiu", [H|T]).
-citta([H|T]) :- atom_chars("santurbano", [H|T]).
-citta([H|T]) :- atom_chars("sanza", [H|T]).
-citta([H|T]) :- atom_chars("sanzeno", [H|T]).
-citta([H|T]) :- atom_chars("saonara", [H|T]).
-citta([H|T]) :- atom_chars("saponara", [H|T]).
-citta([H|T]) :- atom_chars("sappada", [H|T]).
-citta([H|T]) :- atom_chars("sapri", [H|T]).
-citta([H|T]) :- atom_chars("saracena", [H|T]).
-citta([H|T]) :- atom_chars("saracinesco", [H|T]).
-citta([H|T]) :- atom_chars("sarcedo", [H|T]).
-citta([H|T]) :- atom_chars("sarconi", [H|T]).
-citta([H|T]) :- atom_chars("sardara", [H|T]).
-citta([H|T]) :- atom_chars("sardigliano", [H|T]).
-citta([H|T]) :- atom_chars("sarego", [H|T]).
-citta([H|T]) :- atom_chars("sarentino/sarntal", [H|T]).
-citta([H|T]) :- atom_chars("sarezzano", [H|T]).
-citta([H|T]) :- atom_chars("sarezzo", [H|T]).
-citta([H|T]) :- atom_chars("sarmato", [H|T]).
-citta([H|T]) :- atom_chars("sarmede", [H|T]).
-citta([H|T]) :- atom_chars("sarnano", [H|T]).
-citta([H|T]) :- atom_chars("sarnico", [H|T]).
-citta([H|T]) :- atom_chars("sarno", [H|T]).
-citta([H|T]) :- atom_chars("sarnonico", [H|T]).
-citta([H|T]) :- atom_chars("saronno", [H|T]).
-citta([H|T]) :- atom_chars("sarre", [H|T]).
-citta([H|T]) :- atom_chars("sarroch", [H|T]).
-citta([H|T]) :- atom_chars("sarsina", [H|T]).
-citta([H|T]) :- atom_chars("sarteano", [H|T]).
-citta([H|T]) :- atom_chars("sartiranalomellina", [H|T]).
-citta([H|T]) :- atom_chars("sarule", [H|T]).
-citta([H|T]) :- atom_chars("sarzana", [H|T]).
-citta([H|T]) :- atom_chars("sassano", [H|T]).
-citta([H|T]) :- atom_chars("sassari", [H|T]).
-citta([H|T]) :- atom_chars("sassello", [H|T]).
-citta([H|T]) :- atom_chars("sassetta", [H|T]).
-citta([H|T]) :- atom_chars("sassinoro", [H|T]).
-citta([H|T]) :- atom_chars("sassodicastalda", [H|T]).
-citta([H|T]) :- atom_chars("sassomarconi", [H|T]).
-citta([H|T]) :- atom_chars("sassocorvaro", [H|T]).
-citta([H|T]) :- atom_chars("sassofeltrio", [H|T]).
-citta([H|T]) :- atom_chars("sassoferrato", [H|T]).
-citta([H|T]) :- atom_chars("sassuolo", [H|T]).
-citta([H|T]) :- atom_chars("satriano", [H|T]).
-citta([H|T]) :- atom_chars("satrianodilucania", [H|T]).
-citta([H|T]) :- atom_chars("sauris", [H|T]).
-citta([H|T]) :- atom_chars("sauzedicesana", [H|T]).
-citta([H|T]) :- atom_chars("sauzedoulx", [H|T]).
-citta([H|T]) :- atom_chars("sava", [H|T]).
-citta([H|T]) :- atom_chars("savelli", [H|T]).
-citta([H|T]) :- atom_chars("saviano", [H|T]).
-citta([H|T]) :- atom_chars("savigliano", [H|T]).
-citta([H|T]) :- atom_chars("savignanoirpino", [H|T]).
-citta([H|T]) :- atom_chars("savignanosulpanaro", [H|T]).
-citta([H|T]) :- atom_chars("savignanosulrubicone", [H|T]).
-citta([H|T]) :- atom_chars("savignone", [H|T]).
-citta([H|T]) :- atom_chars("savioredelladamello", [H|T]).
-citta([H|T]) :- atom_chars("savoca", [H|T]).
-citta([H|T]) :- atom_chars("savogna", [H|T]).
-citta([H|T]) :- atom_chars("savognadisonzo", [H|T]).
-citta([H|T]) :- atom_chars("savoiadilucania", [H|T]).
-citta([H|T]) :- atom_chars("savona", [H|T]).
-citta([H|T]) :- atom_chars("scafa", [H|T]).
-citta([H|T]) :- atom_chars("scafati", [H|T]).
-citta([H|T]) :- atom_chars("scagnello", [H|T]).
-citta([H|T]) :- atom_chars("scala", [H|T]).
-citta([H|T]) :- atom_chars("scalacoeli", [H|T]).
-citta([H|T]) :- atom_chars("scaldasole", [H|T]).
-citta([H|T]) :- atom_chars("scalea", [H|T]).
-citta([H|T]) :- atom_chars("scalenghe", [H|T]).
-citta([H|T]) :- atom_chars("scalettazanclea", [H|T]).
-citta([H|T]) :- atom_chars("scampitella", [H|T]).
-citta([H|T]) :- atom_chars("scandale", [H|T]).
-citta([H|T]) :- atom_chars("scandiano", [H|T]).
-citta([H|T]) :- atom_chars("scandicci", [H|T]).
-citta([H|T]) :- atom_chars("scandolararavara", [H|T]).
-citta([H|T]) :- atom_chars("scandolararipadoglio", [H|T]).
-citta([H|T]) :- atom_chars("scandriglia", [H|T]).
-citta([H|T]) :- atom_chars("scanno", [H|T]).
-citta([H|T]) :- atom_chars("scanodimontiferro", [H|T]).
-citta([H|T]) :- atom_chars("scansano", [H|T]).
-citta([H|T]) :- atom_chars("scanzanojonico", [H|T]).
-citta([H|T]) :- atom_chars("scanzorosciate", [H|T]).
-citta([H|T]) :- atom_chars("scapoli", [H|T]).
-citta([H|T]) :- atom_chars("scarlino", [H|T]).
-citta([H|T]) :- atom_chars("scarmagno", [H|T]).
-citta([H|T]) :- atom_chars("scarnafigi", [H|T]).
-citta([H|T]) :- atom_chars("scarperiaesanpiero", [H|T]).
-citta([H|T]) :- atom_chars("scena/schenna", [H|T]).
-citta([H|T]) :- atom_chars("scerni", [H|T]).
-citta([H|T]) :- atom_chars("scheggiaepascelupo", [H|T]).
-citta([H|T]) :- atom_chars("scheggino", [H|T]).
-citta([H|T]) :- atom_chars("schiavidiabruzzo", [H|T]).
-citta([H|T]) :- atom_chars("schiavon", [H|T]).
-citta([H|T]) :- atom_chars("schignano", [H|T]).
-citta([H|T]) :- atom_chars("schilpario", [H|T]).
-citta([H|T]) :- atom_chars("schio", [H|T]).
-citta([H|T]) :- atom_chars("schivenoglia", [H|T]).
-citta([H|T]) :- atom_chars("sciacca", [H|T]).
-citta([H|T]) :- atom_chars("sciara", [H|T]).
-citta([H|T]) :- atom_chars("scicli", [H|T]).
-citta([H|T]) :- atom_chars("scido", [H|T]).
-citta([H|T]) :- atom_chars("scigliano", [H|T]).
-citta([H|T]) :- atom_chars("scilla", [H|T]).
-citta([H|T]) :- atom_chars("scillato", [H|T]).
-citta([H|T]) :- atom_chars("sciolze", [H|T]).
-citta([H|T]) :- atom_chars("scisciano", [H|T]).
-citta([H|T]) :- atom_chars("sclafanibagni", [H|T]).
-citta([H|T]) :- atom_chars("scontrone", [H|T]).
-citta([H|T]) :- atom_chars("scopa", [H|T]).
-citta([H|T]) :- atom_chars("scopello", [H|T]).
-citta([H|T]) :- atom_chars("scoppito", [H|T]).
-citta([H|T]) :- atom_chars("scordia", [H|T]).
-citta([H|T]) :- atom_chars("scorrano", [H|T]).
-citta([H|T]) :- atom_chars("scorze", [H|T]).
-citta([H|T]) :- atom_chars("scurcolamarsicana", [H|T]).
-citta([H|T]) :- atom_chars("scurelle", [H|T]).
-citta([H|T]) :- atom_chars("scurzolengo", [H|T]).
-citta([H|T]) :- atom_chars("seborga", [H|T]).
-citta([H|T]) :- atom_chars("secinaro", [H|T]).
-citta([H|T]) :- atom_chars("secli", [H|T]).
-citta([H|T]) :- atom_chars("secugnago", [H|T]).
-citta([H|T]) :- atom_chars("sedegliano", [H|T]).
-citta([H|T]) :- atom_chars("sedico", [H|T]).
-citta([H|T]) :- atom_chars("sedilo", [H|T]).
-citta([H|T]) :- atom_chars("sedini", [H|T]).
-citta([H|T]) :- atom_chars("sedriano", [H|T]).
-citta([H|T]) :- atom_chars("sedrina", [H|T]).
-citta([H|T]) :- atom_chars("sefro", [H|T]).
-citta([H|T]) :- atom_chars("segariu", [H|T]).
-citta([H|T]) :- atom_chars("seggiano", [H|T]).
-citta([H|T]) :- atom_chars("segni", [H|T]).
-citta([H|T]) :- atom_chars("segonzano", [H|T]).
-citta([H|T]) :- atom_chars("segrate", [H|T]).
-citta([H|T]) :- atom_chars("segusino", [H|T]).
-citta([H|T]) :- atom_chars("selargius", [H|T]).
-citta([H|T]) :- atom_chars("selci", [H|T]).
-citta([H|T]) :- atom_chars("selegas", [H|T]).
-citta([H|T]) :- atom_chars("sellagiudicarie", [H|T]).
-citta([H|T]) :- atom_chars("sellano", [H|T]).
-citta([H|T]) :- atom_chars("sellero", [H|T]).
-citta([H|T]) :- atom_chars("sellia", [H|T]).
-citta([H|T]) :- atom_chars("selliamarina", [H|T]).
-citta([H|T]) :- atom_chars("selvadeimolini/muhlwald", [H|T]).
-citta([H|T]) :- atom_chars("selvadicadore", [H|T]).
-citta([H|T]) :- atom_chars("selvadiprogno", [H|T]).
-citta([H|T]) :- atom_chars("selvadivalgardena/wolkensteiningroden", [H|T]).
-citta([H|T]) :- atom_chars("selvazzanodentro", [H|T]).
-citta([H|T]) :- atom_chars("selvino", [H|T]).
-citta([H|T]) :- atom_chars("semestene", [H|T]).
-citta([H|T]) :- atom_chars("semiana", [H|T]).
-citta([H|T]) :- atom_chars("seminara", [H|T]).
-citta([H|T]) :- atom_chars("semproniano", [H|T]).
-citta([H|T]) :- atom_chars("senago", [H|T]).
-citta([H|T]) :- atom_chars("senales/schnals", [H|T]).
-citta([H|T]) :- atom_chars("senale-sanfelice/unsereliebefrauimwalde-st", [H|T]).
-citta([H|T]) :- atom_chars("seneghe", [H|T]).
-citta([H|T]) :- atom_chars("senerchia", [H|T]).
-citta([H|T]) :- atom_chars("seniga", [H|T]).
-citta([H|T]) :- atom_chars("senigallia", [H|T]).
-citta([H|T]) :- atom_chars("senis", [H|T]).
-citta([H|T]) :- atom_chars("senise", [H|T]).
-citta([H|T]) :- atom_chars("sennacomasco", [H|T]).
-citta([H|T]) :- atom_chars("sennalodigiana", [H|T]).
-citta([H|T]) :- atom_chars("sennariolo", [H|T]).
-citta([H|T]) :- atom_chars("sennori", [H|T]).
-citta([H|T]) :- atom_chars("senorbi", [H|T]).
-citta([H|T]) :- atom_chars("sepino", [H|T]).
-citta([H|T]) :- atom_chars("sequals", [H|T]).
-citta([H|T]) :- atom_chars("seravezza", [H|T]).
-citta([H|T]) :- atom_chars("serdiana", [H|T]).
-citta([H|T]) :- atom_chars("seregno", [H|T]).
-citta([H|T]) :- atom_chars("serendelgrappa", [H|T]).
-citta([H|T]) :- atom_chars("sergnano", [H|T]).
-citta([H|T]) :- atom_chars("seriate", [H|T]).
-citta([H|T]) :- atom_chars("serina", [H|T]).
-citta([H|T]) :- atom_chars("serino", [H|T]).
-citta([H|T]) :- atom_chars("serle", [H|T]).
-citta([H|T]) :- atom_chars("sermideefelonica", [H|T]).
-citta([H|T]) :- atom_chars("sermoneta", [H|T]).
-citta([H|T]) :- atom_chars("sernagliadellabattaglia", [H|T]).
-citta([H|T]) :- atom_chars("sernio", [H|T]).
-citta([H|T]) :- atom_chars("serole", [H|T]).
-citta([H|T]) :- atom_chars("serradaiello", [H|T]).
-citta([H|T]) :- atom_chars("serradeconti", [H|T]).
-citta([H|T]) :- atom_chars("serraricco", [H|T]).
-citta([H|T]) :- atom_chars("serrasanbruno", [H|T]).
-citta([H|T]) :- atom_chars("serrasanquirico", [H|T]).
-citta([H|T]) :- atom_chars("serrasantabbondio", [H|T]).
-citta([H|T]) :- atom_chars("serracapriola", [H|T]).
-citta([H|T]) :- atom_chars("serradifalco", [H|T]).
-citta([H|T]) :- atom_chars("serralungadalba", [H|T]).
-citta([H|T]) :- atom_chars("serralungadicrea", [H|T]).
-citta([H|T]) :- atom_chars("serramanna", [H|T]).
-citta([H|T]) :- atom_chars("serramazzoni", [H|T]).
-citta([H|T]) :- atom_chars("serramezzana", [H|T]).
-citta([H|T]) :- atom_chars("serramonacesca", [H|T]).
-citta([H|T]) :- atom_chars("serrapetrona", [H|T]).
-citta([H|T]) :- atom_chars("serrarafontana", [H|T]).
-citta([H|T]) :- atom_chars("serrastretta", [H|T]).
-citta([H|T]) :- atom_chars("serrata", [H|T]).
-citta([H|T]) :- atom_chars("serravalleapo", [H|T]).
-citta([H|T]) :- atom_chars("serravalledichienti", [H|T]).
-citta([H|T]) :- atom_chars("serravallelanghe", [H|T]).
-citta([H|T]) :- atom_chars("serravallepistoiese", [H|T]).
-citta([H|T]) :- atom_chars("serravallescrivia", [H|T]).
-citta([H|T]) :- atom_chars("serravallesesia", [H|T]).
-citta([H|T]) :- atom_chars("serre", [H|T]).
-citta([H|T]) :- atom_chars("serrenti", [H|T]).
-citta([H|T]) :- atom_chars("serri", [H|T]).
-citta([H|T]) :- atom_chars("serrone", [H|T]).
-citta([H|T]) :- atom_chars("sersale", [H|T]).
-citta([H|T]) :- atom_chars("servigliano", [H|T]).
-citta([H|T]) :- atom_chars("sessaaurunca", [H|T]).
-citta([H|T]) :- atom_chars("sessacilento", [H|T]).
-citta([H|T]) :- atom_chars("sessame", [H|T]).
-citta([H|T]) :- atom_chars("sessanodelmolise", [H|T]).
-citta([H|T]) :- atom_chars("sestagodano", [H|T]).
-citta([H|T]) :- atom_chars("sestino", [H|T]).
-citta([H|T]) :- atom_chars("sestoalreghena", [H|T]).
-citta([H|T]) :- atom_chars("sestocalende", [H|T]).
-citta([H|T]) :- atom_chars("sestocampano", [H|T]).
-citta([H|T]) :- atom_chars("sestoeduniti", [H|T]).
-citta([H|T]) :- atom_chars("sestofiorentino", [H|T]).
-citta([H|T]) :- atom_chars("sestosangiovanni", [H|T]).
-citta([H|T]) :- atom_chars("sesto/sexten", [H|T]).
-citta([H|T]) :- atom_chars("sestola", [H|T]).
-citta([H|T]) :- atom_chars("sestrilevante", [H|T]).
-citta([H|T]) :- atom_chars("sestriere", [H|T]).
-citta([H|T]) :- atom_chars("sestu", [H|T]).
-citta([H|T]) :- atom_chars("settala", [H|T]).
-citta([H|T]) :- atom_chars("settefrati", [H|T]).
-citta([H|T]) :- atom_chars("settime", [H|T]).
-citta([H|T]) :- atom_chars("settimomilanese", [H|T]).
-citta([H|T]) :- atom_chars("settimorottaro", [H|T]).
-citta([H|T]) :- atom_chars("settimosanpietro", [H|T]).
-citta([H|T]) :- atom_chars("settimotorinese", [H|T]).
-citta([H|T]) :- atom_chars("settimovittone", [H|T]).
-citta([H|T]) :- atom_chars("settingiano", [H|T]).
-citta([H|T]) :- atom_chars("setzu", [H|T]).
-citta([H|T]) :- atom_chars("seui", [H|T]).
-citta([H|T]) :- atom_chars("seulo", [H|T]).
-citta([H|T]) :- atom_chars("seveso", [H|T]).
-citta([H|T]) :- atom_chars("sezzadio", [H|T]).
-citta([H|T]) :- atom_chars("sezze", [H|T]).
-citta([H|T]) :- atom_chars("sfruz", [H|T]).
-citta([H|T]) :- atom_chars("sgonico-zgonik", [H|T]).
-citta([H|T]) :- atom_chars("sgurgola", [H|T]).
-citta([H|T]) :- atom_chars("siamaggiore", [H|T]).
-citta([H|T]) :- atom_chars("siamanna", [H|T]).
-citta([H|T]) :- atom_chars("siano", [H|T]).
-citta([H|T]) :- atom_chars("siapiccia", [H|T]).
-citta([H|T]) :- atom_chars("sicignanodeglialburni", [H|T]).
-citta([H|T]) :- atom_chars("siculiana", [H|T]).
-citta([H|T]) :- atom_chars("siddi", [H|T]).
-citta([H|T]) :- atom_chars("siderno", [H|T]).
-citta([H|T]) :- atom_chars("siena", [H|T]).
-citta([H|T]) :- atom_chars("sigillo", [H|T]).
-citta([H|T]) :- atom_chars("signa", [H|T]).
-citta([H|T]) :- atom_chars("silandro/schlanders", [H|T]).
-citta([H|T]) :- atom_chars("silanus", [H|T]).
-citta([H|T]) :- atom_chars("silea", [H|T]).
-citta([H|T]) :- atom_chars("siligo", [H|T]).
-citta([H|T]) :- atom_chars("siliqua", [H|T]).
-citta([H|T]) :- atom_chars("silius", [H|T]).
-citta([H|T]) :- atom_chars("sillanogiuncugnano", [H|T]).
-citta([H|T]) :- atom_chars("sillavengo", [H|T]).
-citta([H|T]) :- atom_chars("silvanodorba", [H|T]).
-citta([H|T]) :- atom_chars("silvanopietra", [H|T]).
-citta([H|T]) :- atom_chars("silvi", [H|T]).
-citta([H|T]) :- atom_chars("simala", [H|T]).
-citta([H|T]) :- atom_chars("simaxis", [H|T]).
-citta([H|T]) :- atom_chars("simbario", [H|T]).
-citta([H|T]) :- atom_chars("simericrichi", [H|T]).
-citta([H|T]) :- atom_chars("sinagra", [H|T]).
-citta([H|T]) :- atom_chars("sinalunga", [H|T]).
-citta([H|T]) :- atom_chars("sindia", [H|T]).
-citta([H|T]) :- atom_chars("sini", [H|T]).
-citta([H|T]) :- atom_chars("sinio", [H|T]).
-citta([H|T]) :- atom_chars("siniscola", [H|T]).
-citta([H|T]) :- atom_chars("sinnai", [H|T]).
-citta([H|T]) :- atom_chars("sinopoli", [H|T]).
-citta([H|T]) :- atom_chars("siracusa", [H|T]).
-citta([H|T]) :- atom_chars("sirignano", [H|T]).
-citta([H|T]) :- atom_chars("siris", [H|T]).
-citta([H|T]) :- atom_chars("sirmione", [H|T]).
-citta([H|T]) :- atom_chars("sirolo", [H|T]).
-citta([H|T]) :- atom_chars("sirone", [H|T]).
-citta([H|T]) :- atom_chars("sirtori", [H|T]).
-citta([H|T]) :- atom_chars("sissatrecasali", [H|T]).
-citta([H|T]) :- atom_chars("siurgusdonigala", [H|T]).
-citta([H|T]) :- atom_chars("siziano", [H|T]).
-citta([H|T]) :- atom_chars("sizzano", [H|T]).
-citta([H|T]) :- atom_chars("sluderno/schluderns", [H|T]).
-citta([H|T]) :- atom_chars("smerillo", [H|T]).
-citta([H|T]) :- atom_chars("soave", [H|T]).
-citta([H|T]) :- atom_chars("socchieve", [H|T]).
-citta([H|T]) :- atom_chars("soddi", [H|T]).
-citta([H|T]) :- atom_chars("soglianoalrubicone", [H|T]).
-citta([H|T]) :- atom_chars("soglianocavour", [H|T]).
-citta([H|T]) :- atom_chars("soglio", [H|T]).
-citta([H|T]) :- atom_chars("soianodellago", [H|T]).
-citta([H|T]) :- atom_chars("solagna", [H|T]).
-citta([H|T]) :- atom_chars("solarino", [H|T]).
-citta([H|T]) :- atom_chars("solaro", [H|T]).
-citta([H|T]) :- atom_chars("solarolo", [H|T]).
-citta([H|T]) :- atom_chars("solarolorainerio", [H|T]).
-citta([H|T]) :- atom_chars("solarussa", [H|T]).
-citta([H|T]) :- atom_chars("solbiate", [H|T]).
-citta([H|T]) :- atom_chars("solbiatearno", [H|T]).
-citta([H|T]) :- atom_chars("solbiateolona", [H|T]).
-citta([H|T]) :- atom_chars("soldano", [H|T]).
-citta([H|T]) :- atom_chars("soleminis", [H|T]).
-citta([H|T]) :- atom_chars("solero", [H|T]).
-citta([H|T]) :- atom_chars("solesino", [H|T]).
-citta([H|T]) :- atom_chars("soleto", [H|T]).
-citta([H|T]) :- atom_chars("solferino", [H|T]).
-citta([H|T]) :- atom_chars("soliera", [H|T]).
-citta([H|T]) :- atom_chars("solignano", [H|T]).
-citta([H|T]) :- atom_chars("solofra", [H|T]).
-citta([H|T]) :- atom_chars("solonghello", [H|T]).
-citta([H|T]) :- atom_chars("solopaca", [H|T]).
-citta([H|T]) :- atom_chars("soltocollina", [H|T]).
-citta([H|T]) :- atom_chars("solza", [H|T]).
-citta([H|T]) :- atom_chars("somaglia", [H|T]).
-citta([H|T]) :- atom_chars("somano", [H|T]).
-citta([H|T]) :- atom_chars("sommalombardo", [H|T]).
-citta([H|T]) :- atom_chars("sommavesuviana", [H|T]).
-citta([H|T]) :- atom_chars("sommacampagna", [H|T]).
-citta([H|T]) :- atom_chars("sommarivadelbosco", [H|T]).
-citta([H|T]) :- atom_chars("sommarivaperno", [H|T]).
-citta([H|T]) :- atom_chars("sommatino", [H|T]).
-citta([H|T]) :- atom_chars("sommo", [H|T]).
-citta([H|T]) :- atom_chars("sona", [H|T]).
-citta([H|T]) :- atom_chars("soncino", [H|T]).
-citta([H|T]) :- atom_chars("sondalo", [H|T]).
-citta([H|T]) :- atom_chars("sondrio", [H|T]).
-citta([H|T]) :- atom_chars("songavazzo", [H|T]).
-citta([H|T]) :- atom_chars("sonico", [H|T]).
-citta([H|T]) :- atom_chars("sonnino", [H|T]).
-citta([H|T]) :- atom_chars("soprana", [H|T]).
-citta([H|T]) :- atom_chars("sora", [H|T]).
-citta([H|T]) :- atom_chars("soragadifassa", [H|T]).
-citta([H|T]) :- atom_chars("soragna", [H|T]).
-citta([H|T]) :- atom_chars("sorano", [H|T]).
-citta([H|T]) :- atom_chars("sorbosanbasile", [H|T]).
-citta([H|T]) :- atom_chars("sorboserpico", [H|T]).
-citta([H|T]) :- atom_chars("sorbolo", [H|T]).
-citta([H|T]) :- atom_chars("sordevolo", [H|T]).
-citta([H|T]) :- atom_chars("sordio", [H|T]).
-citta([H|T]) :- atom_chars("soresina", [H|T]).
-citta([H|T]) :- atom_chars("sorga", [H|T]).
-citta([H|T]) :- atom_chars("sorgono", [H|T]).
-citta([H|T]) :- atom_chars("sori", [H|T]).
-citta([H|T]) :- atom_chars("sorianello", [H|T]).
-citta([H|T]) :- atom_chars("sorianocalabro", [H|T]).
-citta([H|T]) :- atom_chars("sorianonelcimino", [H|T]).
-citta([H|T]) :- atom_chars("sorico", [H|T]).
-citta([H|T]) :- atom_chars("soriso", [H|T]).
-citta([H|T]) :- atom_chars("sorisole", [H|T]).
-citta([H|T]) :- atom_chars("sormano", [H|T]).
-citta([H|T]) :- atom_chars("sorradile", [H|T]).
-citta([H|T]) :- atom_chars("sorrento", [H|T]).
-citta([H|T]) :- atom_chars("sorso", [H|T]).
-citta([H|T]) :- atom_chars("sortino", [H|T]).
-citta([H|T]) :- atom_chars("sospiro", [H|T]).
-citta([H|T]) :- atom_chars("sospirolo", [H|T]).
-citta([H|T]) :- atom_chars("sossano", [H|T]).
-citta([H|T]) :- atom_chars("sostegno", [H|T]).
-citta([H|T]) :- atom_chars("sottoilmontegiovannixxiii", [H|T]).
-citta([H|T]) :- atom_chars("sover", [H|T]).
-citta([H|T]) :- atom_chars("soverato", [H|T]).
-citta([H|T]) :- atom_chars("sovere", [H|T]).
-citta([H|T]) :- atom_chars("soveriamannelli", [H|T]).
-citta([H|T]) :- atom_chars("soveriasimeri", [H|T]).
-citta([H|T]) :- atom_chars("soverzene", [H|T]).
-citta([H|T]) :- atom_chars("sovicille", [H|T]).
-citta([H|T]) :- atom_chars("sovico", [H|T]).
-citta([H|T]) :- atom_chars("sovizzo", [H|T]).
-citta([H|T]) :- atom_chars("sovramonte", [H|T]).
-citta([H|T]) :- atom_chars("sozzago", [H|T]).
-citta([H|T]) :- atom_chars("spadafora", [H|T]).
-citta([H|T]) :- atom_chars("spadola", [H|T]).
-citta([H|T]) :- atom_chars("sparanise", [H|T]).
-citta([H|T]) :- atom_chars("sparone", [H|T]).
-citta([H|T]) :- atom_chars("specchia", [H|T]).
-citta([H|T]) :- atom_chars("spello", [H|T]).
-citta([H|T]) :- atom_chars("sperlinga", [H|T]).
-citta([H|T]) :- atom_chars("sperlonga", [H|T]).
-citta([H|T]) :- atom_chars("sperone", [H|T]).
-citta([H|T]) :- atom_chars("spessa", [H|T]).
-citta([H|T]) :- atom_chars("spezzanoalbanese", [H|T]).
-citta([H|T]) :- atom_chars("spezzanodellasila", [H|T]).
-citta([H|T]) :- atom_chars("spiazzo", [H|T]).
-citta([H|T]) :- atom_chars("spignomonferrato", [H|T]).
-citta([H|T]) :- atom_chars("spignosaturnia", [H|T]).
-citta([H|T]) :- atom_chars("spilamberto", [H|T]).
-citta([H|T]) :- atom_chars("spilimbergo", [H|T]).
-citta([H|T]) :- atom_chars("spilinga", [H|T]).
-citta([H|T]) :- atom_chars("spinadesco", [H|T]).
-citta([H|T]) :- atom_chars("spinazzola", [H|T]).
-citta([H|T]) :- atom_chars("spinea", [H|T]).
-citta([H|T]) :- atom_chars("spineda", [H|T]).
-citta([H|T]) :- atom_chars("spinete", [H|T]).
-citta([H|T]) :- atom_chars("spinetoscrivia", [H|T]).
-citta([H|T]) :- atom_chars("spinetoli", [H|T]).
-citta([H|T]) :- atom_chars("spinodadda", [H|T]).
-citta([H|T]) :- atom_chars("spinoneallago", [H|T]).
-citta([H|T]) :- atom_chars("spinoso", [H|T]).
-citta([H|T]) :- atom_chars("spirano", [H|T]).
-citta([H|T]) :- atom_chars("spoleto", [H|T]).
-citta([H|T]) :- atom_chars("spoltore", [H|T]).
-citta([H|T]) :- atom_chars("spongano", [H|T]).
-citta([H|T]) :- atom_chars("spormaggiore", [H|T]).
-citta([H|T]) :- atom_chars("sporminore", [H|T]).
-citta([H|T]) :- atom_chars("spotorno", [H|T]).
-citta([H|T]) :- atom_chars("spresiano", [H|T]).
-citta([H|T]) :- atom_chars("spriana", [H|T]).
-citta([H|T]) :- atom_chars("squillace", [H|T]).
-citta([H|T]) :- atom_chars("squinzano", [H|T]).
-citta([H|T]) :- atom_chars("staffolo", [H|T]).
-citta([H|T]) :- atom_chars("stagnolombardo", [H|T]).
-citta([H|T]) :- atom_chars("staiti", [H|T]).
-citta([H|T]) :- atom_chars("staletti", [H|T]).
-citta([H|T]) :- atom_chars("stanghella", [H|T]).
-citta([H|T]) :- atom_chars("staranzano", [H|T]).
-citta([H|T]) :- atom_chars("statte", [H|T]).
-citta([H|T]) :- atom_chars("stazzano", [H|T]).
-citta([H|T]) :- atom_chars("stazzema", [H|T]).
-citta([H|T]) :- atom_chars("stazzona", [H|T]).
-citta([H|T]) :- atom_chars("stefanaconi", [H|T]).
-citta([H|T]) :- atom_chars("stella", [H|T]).
-citta([H|T]) :- atom_chars("stellacilento", [H|T]).
-citta([H|T]) :- atom_chars("stellanello", [H|T]).
-citta([H|T]) :- atom_chars("stelvio/stilfs", [H|T]).
-citta([H|T]) :- atom_chars("stenico", [H|T]).
-citta([H|T]) :- atom_chars("sternatia", [H|T]).
-citta([H|T]) :- atom_chars("stezzano", [H|T]).
-citta([H|T]) :- atom_chars("stienta", [H|T]).
-citta([H|T]) :- atom_chars("stigliano", [H|T]).
-citta([H|T]) :- atom_chars("stignano", [H|T]).
-citta([H|T]) :- atom_chars("stilo", [H|T]).
-citta([H|T]) :- atom_chars("stimigliano", [H|T]).
-citta([H|T]) :- atom_chars("stintino", [H|T]).
-citta([H|T]) :- atom_chars("stio", [H|T]).
-citta([H|T]) :- atom_chars("stornara", [H|T]).
-citta([H|T]) :- atom_chars("stornarella", [H|T]).
-citta([H|T]) :- atom_chars("storo", [H|T]).
-citta([H|T]) :- atom_chars("stra", [H|T]).
-citta([H|T]) :- atom_chars("stradella", [H|T]).
-citta([H|T]) :- atom_chars("strambinello", [H|T]).
-citta([H|T]) :- atom_chars("strambino", [H|T]).
-citta([H|T]) :- atom_chars("strangolagalli", [H|T]).
-citta([H|T]) :- atom_chars("stregna", [H|T]).
-citta([H|T]) :- atom_chars("strembo", [H|T]).
-citta([H|T]) :- atom_chars("stresa", [H|T]).
-citta([H|T]) :- atom_chars("strevi", [H|T]).
-citta([H|T]) :- atom_chars("striano", [H|T]).
-citta([H|T]) :- atom_chars("strona", [H|T]).
-citta([H|T]) :- atom_chars("stroncone", [H|T]).
-citta([H|T]) :- atom_chars("strongoli", [H|T]).
-citta([H|T]) :- atom_chars("stroppiana", [H|T]).
-citta([H|T]) :- atom_chars("stroppo", [H|T]).
-citta([H|T]) :- atom_chars("strozza", [H|T]).
-citta([H|T]) :- atom_chars("sturno", [H|T]).
-citta([H|T]) :- atom_chars("suardi", [H|T]).
-citta([H|T]) :- atom_chars("subbiano", [H|T]).
-citta([H|T]) :- atom_chars("subiaco", [H|T]).
-citta([H|T]) :- atom_chars("succivo", [H|T]).
-citta([H|T]) :- atom_chars("sueglio", [H|T]).
-citta([H|T]) :- atom_chars("suelli", [H|T]).
-citta([H|T]) :- atom_chars("suello", [H|T]).
-citta([H|T]) :- atom_chars("suisio", [H|T]).
-citta([H|T]) :- atom_chars("sulbiate", [H|T]).
-citta([H|T]) :- atom_chars("sulmona", [H|T]).
-citta([H|T]) :- atom_chars("sulzano", [H|T]).
-citta([H|T]) :- atom_chars("sumirago", [H|T]).
-citta([H|T]) :- atom_chars("summonte", [H|T]).
-citta([H|T]) :- atom_chars("suni", [H|T]).
-citta([H|T]) :- atom_chars("suno", [H|T]).
-citta([H|T]) :- atom_chars("supersano", [H|T]).
-citta([H|T]) :- atom_chars("supino", [H|T]).
-citta([H|T]) :- atom_chars("surano", [H|T]).
-citta([H|T]) :- atom_chars("surbo", [H|T]).
-citta([H|T]) :- atom_chars("susa", [H|T]).
-citta([H|T]) :- atom_chars("susegana", [H|T]).
-citta([H|T]) :- atom_chars("sustinente", [H|T]).
-citta([H|T]) :- atom_chars("sutera", [H|T]).
-citta([H|T]) :- atom_chars("sutri", [H|T]).
-citta([H|T]) :- atom_chars("sutrio", [H|T]).
-citta([H|T]) :- atom_chars("suvereto", [H|T]).
-citta([H|T]) :- atom_chars("suzzara", [H|T]).
-citta([H|T]) :- atom_chars("taceno", [H|T]).
-citta([H|T]) :- atom_chars("tadasuni", [H|T]).
-citta([H|T]) :- atom_chars("taggia", [H|T]).
-citta([H|T]) :- atom_chars("tagliacozzo", [H|T]).
-citta([H|T]) :- atom_chars("tagliodipo", [H|T]).
-citta([H|T]) :- atom_chars("tagliolomonferrato", [H|T]).
-citta([H|T]) :- atom_chars("taibonagordino", [H|T]).
-citta([H|T]) :- atom_chars("taino", [H|T]).
-citta([H|T]) :- atom_chars("taipana", [H|T]).
-citta([H|T]) :- atom_chars("talamello", [H|T]).
-citta([H|T]) :- atom_chars("talamona", [H|T]).
-citta([H|T]) :- atom_chars("talana", [H|T]).
-citta([H|T]) :- atom_chars("taleggio", [H|T]).
-citta([H|T]) :- atom_chars("talla", [H|T]).
-citta([H|T]) :- atom_chars("talmassons", [H|T]).
-citta([H|T]) :- atom_chars("tambre", [H|T]).
-citta([H|T]) :- atom_chars("taormina", [H|T]).
-citta([H|T]) :- atom_chars("tarano", [H|T]).
-citta([H|T]) :- atom_chars("tarantapeligna", [H|T]).
-citta([H|T]) :- atom_chars("tarantasca", [H|T]).
-citta([H|T]) :- atom_chars("taranto", [H|T]).
-citta([H|T]) :- atom_chars("tarcento", [H|T]).
-citta([H|T]) :- atom_chars("tarquinia", [H|T]).
-citta([H|T]) :- atom_chars("tarsia", [H|T]).
-citta([H|T]) :- atom_chars("tartano", [H|T]).
-citta([H|T]) :- atom_chars("tarvisio", [H|T]).
-citta([H|T]) :- atom_chars("tarzo", [H|T]).
-citta([H|T]) :- atom_chars("tassarolo", [H|T]).
-citta([H|T]) :- atom_chars("taurano", [H|T]).
-citta([H|T]) :- atom_chars("taurasi", [H|T]).
-citta([H|T]) :- atom_chars("taurianova", [H|T]).
-citta([H|T]) :- atom_chars("taurisano", [H|T]).
-citta([H|T]) :- atom_chars("tavagnacco", [H|T]).
-citta([H|T]) :- atom_chars("tavagnasco", [H|T]).
-citta([H|T]) :- atom_chars("tavarnellevaldipesa", [H|T]).
-citta([H|T]) :- atom_chars("tavazzanoconvillavesco", [H|T]).
-citta([H|T]) :- atom_chars("tavenna", [H|T]).
-citta([H|T]) :- atom_chars("taverna", [H|T]).
-citta([H|T]) :- atom_chars("tavernerio", [H|T]).
-citta([H|T]) :- atom_chars("tavernolabergamasca", [H|T]).
-citta([H|T]) :- atom_chars("tavernolesulmella", [H|T]).
-citta([H|T]) :- atom_chars("taviano", [H|T]).
-citta([H|T]) :- atom_chars("tavigliano", [H|T]).
-citta([H|T]) :- atom_chars("tavoleto", [H|T]).
-citta([H|T]) :- atom_chars("tavullia", [H|T]).
-citta([H|T]) :- atom_chars("teana", [H|T]).
-citta([H|T]) :- atom_chars("teano", [H|T]).
-citta([H|T]) :- atom_chars("teggiano", [H|T]).
-citta([H|T]) :- atom_chars("teglio", [H|T]).
-citta([H|T]) :- atom_chars("teglioveneto", [H|T]).
-citta([H|T]) :- atom_chars("teleseterme", [H|T]).
-citta([H|T]) :- atom_chars("telgate", [H|T]).
-citta([H|T]) :- atom_chars("telti", [H|T]).
-citta([H|T]) :- atom_chars("telve", [H|T]).
-citta([H|T]) :- atom_chars("telvedisopra", [H|T]).
-citta([H|T]) :- atom_chars("tempiopausania", [H|T]).
-citta([H|T]) :- atom_chars("temu", [H|T]).
-citta([H|T]) :- atom_chars("tenna", [H|T]).
-citta([H|T]) :- atom_chars("tenno", [H|T]).
-citta([H|T]) :- atom_chars("teolo", [H|T]).
-citta([H|T]) :- atom_chars("teora", [H|T]).
-citta([H|T]) :- atom_chars("teramo", [H|T]).
-citta([H|T]) :- atom_chars("terdobbiate", [H|T]).
-citta([H|T]) :- atom_chars("terelle", [H|T]).
-citta([H|T]) :- atom_chars("terento/terenten", [H|T]).
-citta([H|T]) :- atom_chars("terenzo", [H|T]).
-citta([H|T]) :- atom_chars("tergu", [H|T]).
-citta([H|T]) :- atom_chars("terlano/terlan", [H|T]).
-citta([H|T]) :- atom_chars("terlizzi", [H|T]).
-citta([H|T]) :- atom_chars("termevigliatore", [H|T]).
-citta([H|T]) :- atom_chars("termenosullastradadelvino/traminanderweinstraße", [H|T]).
-citta([H|T]) :- atom_chars("terminiimerese", [H|T]).
-citta([H|T]) :- atom_chars("termoli", [H|T]).
-citta([H|T]) :- atom_chars("ternate", [H|T]).
-citta([H|T]) :- atom_chars("ternengo", [H|T]).
-citta([H|T]) :- atom_chars("terni", [H|T]).
-citta([H|T]) :- atom_chars("ternodisola", [H|T]).
-citta([H|T]) :- atom_chars("terracina", [H|T]).
-citta([H|T]) :- atom_chars("terragnolo", [H|T]).
-citta([H|T]) :- atom_chars("terralba", [H|T]).
-citta([H|T]) :- atom_chars("terranovadasibari", [H|T]).
-citta([H|T]) :- atom_chars("terranovadeipasserini", [H|T]).
-citta([H|T]) :- atom_chars("terranovadipollino", [H|T]).
-citta([H|T]) :- atom_chars("terranovasappominulio", [H|T]).
-citta([H|T]) :- atom_chars("terranuovabracciolini", [H|T]).
-citta([H|T]) :- atom_chars("terrasini", [H|T]).
-citta([H|T]) :- atom_chars("terrassapadovana", [H|T]).
-citta([H|T]) :- atom_chars("terravecchia", [H|T]).
-citta([H|T]) :- atom_chars("terrazzo", [H|T]).
-citta([H|T]) :- atom_chars("terredelreno", [H|T]).
-citta([H|T]) :- atom_chars("terreroveresche", [H|T]).
-citta([H|T]) :- atom_chars("terricciola", [H|T]).
-citta([H|T]) :- atom_chars("terruggia", [H|T]).
-citta([H|T]) :- atom_chars("tertenia", [H|T]).
-citta([H|T]) :- atom_chars("terzigno", [H|T]).
-citta([H|T]) :- atom_chars("terzo", [H|T]).
-citta([H|T]) :- atom_chars("terzodaquileia", [H|T]).
-citta([H|T]) :- atom_chars("terzolas", [H|T]).
-citta([H|T]) :- atom_chars("terzorio", [H|T]).
-citta([H|T]) :- atom_chars("tesero", [H|T]).
-citta([H|T]) :- atom_chars("tesimo/tisens", [H|T]).
-citta([H|T]) :- atom_chars("tessennano", [H|T]).
-citta([H|T]) :- atom_chars("testico", [H|T]).
-citta([H|T]) :- atom_chars("teti", [H|T]).
-citta([H|T]) :- atom_chars("teulada", [H|T]).
-citta([H|T]) :- atom_chars("teverola", [H|T]).
-citta([H|T]) :- atom_chars("tezzesulbrenta", [H|T]).
-citta([H|T]) :- atom_chars("thiene", [H|T]).
-citta([H|T]) :- atom_chars("thiesi", [H|T]).
-citta([H|T]) :- atom_chars("tiana", [H|T]).
-citta([H|T]) :- atom_chars("ticengo", [H|T]).
-citta([H|T]) :- atom_chars("ticineto", [H|T]).
-citta([H|T]) :- atom_chars("tiggiano", [H|T]).
-citta([H|T]) :- atom_chars("tiglieto", [H|T]).
-citta([H|T]) :- atom_chars("tigliole", [H|T]).
-citta([H|T]) :- atom_chars("tignale", [H|T]).
-citta([H|T]) :- atom_chars("tinnura", [H|T]).
-citta([H|T]) :- atom_chars("tionedegliabruzzi", [H|T]).
-citta([H|T]) :- atom_chars("tioneditrento", [H|T]).
-citta([H|T]) :- atom_chars("tirano", [H|T]).
-citta([H|T]) :- atom_chars("tires/tiers", [H|T]).
-citta([H|T]) :- atom_chars("tiriolo", [H|T]).
-citta([H|T]) :- atom_chars("tirolo/tirol", [H|T]).
-citta([H|T]) :- atom_chars("tissi", [H|T]).
-citta([H|T]) :- atom_chars("tito", [H|T]).
-citta([H|T]) :- atom_chars("tivoli", [H|T]).
-citta([H|T]) :- atom_chars("tizzanovalparma", [H|T]).
-citta([H|T]) :- atom_chars("toano", [H|T]).
-citta([H|T]) :- atom_chars("toccocaudio", [H|T]).
-citta([H|T]) :- atom_chars("toccodacasauria", [H|T]).
-citta([H|T]) :- atom_chars("toceno", [H|T]).
-citta([H|T]) :- atom_chars("todi", [H|T]).
-citta([H|T]) :- atom_chars("toffia", [H|T]).
-citta([H|T]) :- atom_chars("toirano", [H|T]).
-citta([H|T]) :- atom_chars("tolentino", [H|T]).
-citta([H|T]) :- atom_chars("tolfa", [H|T]).
-citta([H|T]) :- atom_chars("tollegno", [H|T]).
-citta([H|T]) :- atom_chars("tollo", [H|T]).
-citta([H|T]) :- atom_chars("tolmezzo", [H|T]).
-citta([H|T]) :- atom_chars("tolve", [H|T]).
-citta([H|T]) :- atom_chars("tombolo", [H|T]).
-citta([H|T]) :- atom_chars("ton", [H|T]).
-citta([H|T]) :- atom_chars("tonara", [H|T]).
-citta([H|T]) :- atom_chars("tonco", [H|T]).
-citta([H|T]) :- atom_chars("tonengo", [H|T]).
-citta([H|T]) :- atom_chars("tonezzadelcimone", [H|T]).
-citta([H|T]) :- atom_chars("toraepiccilli", [H|T]).
-citta([H|T]) :- atom_chars("toranocastello", [H|T]).
-citta([H|T]) :- atom_chars("toranonuovo", [H|T]).
-citta([H|T]) :- atom_chars("torbolecasaglia", [H|T]).
-citta([H|T]) :- atom_chars("torcegno", [H|T]).
-citta([H|T]) :- atom_chars("torchiara", [H|T]).
-citta([H|T]) :- atom_chars("torchiarolo", [H|T]).
-citta([H|T]) :- atom_chars("torelladeilombardi", [H|T]).
-citta([H|T]) :- atom_chars("torelladelsannio", [H|T]).
-citta([H|T]) :- atom_chars("torgiano", [H|T]).
-citta([H|T]) :- atom_chars("torgnon", [H|T]).
-citta([H|T]) :- atom_chars("torino", [H|T]).
-citta([H|T]) :- atom_chars("torinodisangro", [H|T]).
-citta([H|T]) :- atom_chars("toritto", [H|T]).
-citta([H|T]) :- atom_chars("torlinovimercati", [H|T]).
-citta([H|T]) :- atom_chars("tornaco", [H|T]).
-citta([H|T]) :- atom_chars("tornareccio", [H|T]).
-citta([H|T]) :- atom_chars("tornata", [H|T]).
-citta([H|T]) :- atom_chars("tornimparte", [H|T]).
-citta([H|T]) :- atom_chars("torno", [H|T]).
-citta([H|T]) :- atom_chars("tornolo", [H|T]).
-citta([H|T]) :- atom_chars("toro", [H|T]).
-citta([H|T]) :- atom_chars("torpe", [H|T]).
-citta([H|T]) :- atom_chars("torraca", [H|T]).
-citta([H|T]) :- atom_chars("torralba", [H|T]).
-citta([H|T]) :- atom_chars("torrazzacoste", [H|T]).
-citta([H|T]) :- atom_chars("torrazzapiemonte", [H|T]).
-citta([H|T]) :- atom_chars("torrazzo", [H|T]).
-citta([H|T]) :- atom_chars("torreannunziata", [H|T]).
-citta([H|T]) :- atom_chars("torreberettiecastellaro", [H|T]).
-citta([H|T]) :- atom_chars("torreboldone", [H|T]).
-citta([H|T]) :- atom_chars("torrebormida", [H|T]).
-citta([H|T]) :- atom_chars("torrecajetani", [H|T]).
-citta([H|T]) :- atom_chars("torrecanavese", [H|T]).
-citta([H|T]) :- atom_chars("torredarese", [H|T]).
-citta([H|T]) :- atom_chars("torredebusi", [H|T]).
-citta([H|T]) :- atom_chars("torredenegri", [H|T]).
-citta([H|T]) :- atom_chars("torredepasseri", [H|T]).
-citta([H|T]) :- atom_chars("torredepicenardi", [H|T]).
-citta([H|T]) :- atom_chars("torrederoveri", [H|T]).
-citta([H|T]) :- atom_chars("torredelgreco", [H|T]).
-citta([H|T]) :- atom_chars("torredimosto", [H|T]).
-citta([H|T]) :- atom_chars("torrediruggiero", [H|T]).
-citta([H|T]) :- atom_chars("torredisantamaria", [H|T]).
-citta([H|T]) :- atom_chars("torredisola", [H|T]).
-citta([H|T]) :- atom_chars("torrelenocelle", [H|T]).
-citta([H|T]) :- atom_chars("torremondovi", [H|T]).
-citta([H|T]) :- atom_chars("torreorsaia", [H|T]).
-citta([H|T]) :- atom_chars("torrepallavicina", [H|T]).
-citta([H|T]) :- atom_chars("torrepellice", [H|T]).
-citta([H|T]) :- atom_chars("torresangiorgio", [H|T]).
-citta([H|T]) :- atom_chars("torresanpatrizio", [H|T]).
-citta([H|T]) :- atom_chars("torresantasusanna", [H|T]).
-citta([H|T]) :- atom_chars("torreano", [H|T]).
-citta([H|T]) :- atom_chars("torrebelvicino", [H|T]).
-citta([H|T]) :- atom_chars("torrebruna", [H|T]).
-citta([H|T]) :- atom_chars("torrecuso", [H|T]).
-citta([H|T]) :- atom_chars("torreglia", [H|T]).
-citta([H|T]) :- atom_chars("torregrotta", [H|T]).
-citta([H|T]) :- atom_chars("torremaggiore", [H|T]).
-citta([H|T]) :- atom_chars("torrenova", [H|T]).
-citta([H|T]) :- atom_chars("torresina", [H|T]).
-citta([H|T]) :- atom_chars("torretta", [H|T]).
-citta([H|T]) :- atom_chars("torrevecchiapia", [H|T]).
-citta([H|T]) :- atom_chars("torrevecchiateatina", [H|T]).
-citta([H|T]) :- atom_chars("torridelbenaco", [H|T]).
-citta([H|T]) :- atom_chars("torridiquartesolo", [H|T]).
-citta([H|T]) :- atom_chars("torriinsabina", [H|T]).
-citta([H|T]) :- atom_chars("torrice", [H|T]).
-citta([H|T]) :- atom_chars("torricella", [H|T]).
-citta([H|T]) :- atom_chars("torricelladelpizzo", [H|T]).
-citta([H|T]) :- atom_chars("torricellainsabina", [H|T]).
-citta([H|T]) :- atom_chars("torricellapeligna", [H|T]).
-citta([H|T]) :- atom_chars("torricellasicura", [H|T]).
-citta([H|T]) :- atom_chars("torricellaverzate", [H|T]).
-citta([H|T]) :- atom_chars("torriglia", [H|T]).
-citta([H|T]) :- atom_chars("torrile", [H|T]).
-citta([H|T]) :- atom_chars("torrioni", [H|T]).
-citta([H|T]) :- atom_chars("torritadisiena", [H|T]).
-citta([H|T]) :- atom_chars("torritatiberina", [H|T]).
-citta([H|T]) :- atom_chars("tortoli", [H|T]).
-citta([H|T]) :- atom_chars("tortona", [H|T]).
-citta([H|T]) :- atom_chars("tortora", [H|T]).
-citta([H|T]) :- atom_chars("tortorella", [H|T]).
-citta([H|T]) :- atom_chars("tortoreto", [H|T]).
-citta([H|T]) :- atom_chars("tortorici", [H|T]).
-citta([H|T]) :- atom_chars("torviscosa", [H|T]).
-citta([H|T]) :- atom_chars("toscolano-maderno", [H|T]).
-citta([H|T]) :- atom_chars("tossicia", [H|T]).
-citta([H|T]) :- atom_chars("tovodisantagata", [H|T]).
-citta([H|T]) :- atom_chars("tovosangiacomo", [H|T]).
-citta([H|T]) :- atom_chars("trabia", [H|T]).
-citta([H|T]) :- atom_chars("tradate", [H|T]).
-citta([H|T]) :- atom_chars("tramatza", [H|T]).
-citta([H|T]) :- atom_chars("trambileno", [H|T]).
-citta([H|T]) :- atom_chars("tramonti", [H|T]).
-citta([H|T]) :- atom_chars("tramontidisopra", [H|T]).
-citta([H|T]) :- atom_chars("tramontidisotto", [H|T]).
-citta([H|T]) :- atom_chars("tramutola", [H|T]).
-citta([H|T]) :- atom_chars("trana", [H|T]).
-citta([H|T]) :- atom_chars("trani", [H|T]).
-citta([H|T]) :- atom_chars("traona", [H|T]).
-citta([H|T]) :- atom_chars("trapani", [H|T]).
-citta([H|T]) :- atom_chars("trappeto", [H|T]).
-citta([H|T]) :- atom_chars("traregoviggiona", [H|T]).
-citta([H|T]) :- atom_chars("trasacco", [H|T]).
-citta([H|T]) :- atom_chars("trasaghis", [H|T]).
-citta([H|T]) :- atom_chars("trasquera", [H|T]).
-citta([H|T]) :- atom_chars("tratalias", [H|T]).
-citta([H|T]) :- atom_chars("trausella", [H|T]).
-citta([H|T]) :- atom_chars("travacosiccomario", [H|T]).
-citta([H|T]) :- atom_chars("travagliato", [H|T]).
-citta([H|T]) :- atom_chars("travedona-monate", [H|T]).
-citta([H|T]) :- atom_chars("traversella", [H|T]).
-citta([H|T]) :- atom_chars("traversetolo", [H|T]).
-citta([H|T]) :- atom_chars("traves", [H|T]).
-citta([H|T]) :- atom_chars("travesio", [H|T]).
-citta([H|T]) :- atom_chars("travo", [H|T]).
-citta([H|T]) :- atom_chars("treville", [H|T]).
-citta([H|T]) :- atom_chars("trebaseleghe", [H|T]).
-citta([H|T]) :- atom_chars("trebisacce", [H|T]).
-citta([H|T]) :- atom_chars("trecase", [H|T]).
-citta([H|T]) :- atom_chars("trecastagni", [H|T]).
-citta([H|T]) :- atom_chars("trecastelli", [H|T]).
-citta([H|T]) :- atom_chars("trecate", [H|T]).
-citta([H|T]) :- atom_chars("trecchina", [H|T]).
-citta([H|T]) :- atom_chars("trecenta", [H|T]).
-citta([H|T]) :- atom_chars("tredozio", [H|T]).
-citta([H|T]) :- atom_chars("treglio", [H|T]).
-citta([H|T]) :- atom_chars("tregnago", [H|T]).
-citta([H|T]) :- atom_chars("treia", [H|T]).
-citta([H|T]) :- atom_chars("treiso", [H|T]).
-citta([H|T]) :- atom_chars("tremenico", [H|T]).
-citta([H|T]) :- atom_chars("tremestierietneo", [H|T]).
-citta([H|T]) :- atom_chars("tremezzina", [H|T]).
-citta([H|T]) :- atom_chars("tremosinesulgarda", [H|T]).
-citta([H|T]) :- atom_chars("trentinara", [H|T]).
-citta([H|T]) :- atom_chars("trento", [H|T]).
-citta([H|T]) :- atom_chars("trentola-ducenta", [H|T]).
-citta([H|T]) :- atom_chars("trenzano", [H|T]).
-citta([H|T]) :- atom_chars("treppocarnico", [H|T]).
-citta([H|T]) :- atom_chars("treppogrande", [H|T]).
-citta([H|T]) :- atom_chars("trepuzzi", [H|T]).
-citta([H|T]) :- atom_chars("trequanda", [H|T]).
-citta([H|T]) :- atom_chars("tresana", [H|T]).
-citta([H|T]) :- atom_chars("trescorebalneario", [H|T]).
-citta([H|T]) :- atom_chars("trescorecremasco", [H|T]).
-citta([H|T]) :- atom_chars("tresigallo", [H|T]).
-citta([H|T]) :- atom_chars("tresivio", [H|T]).
-citta([H|T]) :- atom_chars("tresnuraghes", [H|T]).
-citta([H|T]) :- atom_chars("trevenzuolo", [H|T]).
-citta([H|T]) :- atom_chars("trevi", [H|T]).
-citta([H|T]) :- atom_chars("trevinellazio", [H|T]).
-citta([H|T]) :- atom_chars("trevico", [H|T]).
-citta([H|T]) :- atom_chars("treviglio", [H|T]).
-citta([H|T]) :- atom_chars("trevignano", [H|T]).
-citta([H|T]) :- atom_chars("trevignanoromano", [H|T]).
-citta([H|T]) :- atom_chars("treville", [H|T]).
-citta([H|T]) :- atom_chars("treviolo", [H|T]).
-citta([H|T]) :- atom_chars("treviso", [H|T]).
-citta([H|T]) :- atom_chars("trevisobresciano", [H|T]).
-citta([H|T]) :- atom_chars("trezzanorosa", [H|T]).
-citta([H|T]) :- atom_chars("trezzanosulnaviglio", [H|T]).
-citta([H|T]) :- atom_chars("trezzosulladda", [H|T]).
-citta([H|T]) :- atom_chars("trezzotinella", [H|T]).
-citta([H|T]) :- atom_chars("trezzone", [H|T]).
-citta([H|T]) :- atom_chars("tribano", [H|T]).
-citta([H|T]) :- atom_chars("tribiano", [H|T]).
-citta([H|T]) :- atom_chars("tribogna", [H|T]).
-citta([H|T]) :- atom_chars("tricarico", [H|T]).
-citta([H|T]) :- atom_chars("tricase", [H|T]).
-citta([H|T]) :- atom_chars("tricerro", [H|T]).
-citta([H|T]) :- atom_chars("tricesimo", [H|T]).
-citta([H|T]) :- atom_chars("trichiana", [H|T]).
-citta([H|T]) :- atom_chars("triei", [H|T]).
-citta([H|T]) :- atom_chars("trieste", [H|T]).
-citta([H|T]) :- atom_chars("triggiano", [H|T]).
-citta([H|T]) :- atom_chars("trigolo", [H|T]).
-citta([H|T]) :- atom_chars("trinita", [H|T]).
-citta([H|T]) :- atom_chars("trinitadagultuevignola", [H|T]).
-citta([H|T]) :- atom_chars("trinitapoli", [H|T]).
-citta([H|T]) :- atom_chars("trino", [H|T]).
-citta([H|T]) :- atom_chars("triora", [H|T]).
-citta([H|T]) :- atom_chars("tripi", [H|T]).
-citta([H|T]) :- atom_chars("trisobbio", [H|T]).
-citta([H|T]) :- atom_chars("trissino", [H|T]).
-citta([H|T]) :- atom_chars("triuggio", [H|T]).
-citta([H|T]) :- atom_chars("trivento", [H|T]).
-citta([H|T]) :- atom_chars("trivero", [H|T]).
-citta([H|T]) :- atom_chars("trivigliano", [H|T]).
-citta([H|T]) :- atom_chars("trivignanoudinese", [H|T]).
-citta([H|T]) :- atom_chars("trivigno", [H|T]).
-citta([H|T]) :- atom_chars("trivolzio", [H|T]).
-citta([H|T]) :- atom_chars("trodenanelparconaturale/trudenimnaturpark", [H|T]).
-citta([H|T]) :- atom_chars("trofarello", [H|T]).
-citta([H|T]) :- atom_chars("troia", [H|T]).
-citta([H|T]) :- atom_chars("troina", [H|T]).
-citta([H|T]) :- atom_chars("tromello", [H|T]).
-citta([H|T]) :- atom_chars("trontano", [H|T]).
-citta([H|T]) :- atom_chars("tronzanolagomaggiore", [H|T]).
-citta([H|T]) :- atom_chars("tronzanovercellese", [H|T]).
-citta([H|T]) :- atom_chars("tropea", [H|T]).
-citta([H|T]) :- atom_chars("trovo", [H|T]).
-citta([H|T]) :- atom_chars("truccazzano", [H|T]).
-citta([H|T]) :- atom_chars("tubre/taufersimmunstertal", [H|T]).
-citta([H|T]) :- atom_chars("tufara", [H|T]).
-citta([H|T]) :- atom_chars("tufillo", [H|T]).
-citta([H|T]) :- atom_chars("tufino", [H|T]).
-citta([H|T]) :- atom_chars("tufo", [H|T]).
-citta([H|T]) :- atom_chars("tuglie", [H|T]).
-citta([H|T]) :- atom_chars("tuili", [H|T]).
-citta([H|T]) :- atom_chars("tula", [H|T]).
-citta([H|T]) :- atom_chars("tuorosultrasimeno", [H|T]).
-citta([H|T]) :- atom_chars("turania", [H|T]).
-citta([H|T]) :- atom_chars("turanolodigiano", [H|T]).
-citta([H|T]) :- atom_chars("turate", [H|T]).
-citta([H|T]) :- atom_chars("turbigo", [H|T]).
-citta([H|T]) :- atom_chars("turi", [H|T]).
-citta([H|T]) :- atom_chars("turri", [H|T]).
-citta([H|T]) :- atom_chars("turriaco", [H|T]).
-citta([H|T]) :- atom_chars("turrivalignani", [H|T]).
-citta([H|T]) :- atom_chars("tursi", [H|T]).
-citta([H|T]) :- atom_chars("tusa", [H|T]).
-citta([H|T]) :- atom_chars("tuscania", [H|T]).
-citta([H|T]) :- atom_chars("ubialeclanezzo", [H|T]).
-citta([H|T]) :- atom_chars("uboldo", [H|T]).
-citta([H|T]) :- atom_chars("ucria", [H|T]).
-citta([H|T]) :- atom_chars("udine", [H|T]).
-citta([H|T]) :- atom_chars("ugento", [H|T]).
-citta([H|T]) :- atom_chars("uggianolachiesa", [H|T]).
-citta([H|T]) :- atom_chars("uggiate-trevano", [H|T]).
-citta([H|T]) :- atom_chars("ulatirso", [H|T]).
-citta([H|T]) :- atom_chars("ulassai", [H|T]).
-citta([H|T]) :- atom_chars("ultimo/ulten", [H|T]).
-citta([H|T]) :- atom_chars("umbertide", [H|T]).
-citta([H|T]) :- atom_chars("umbriatico", [H|T]).
-citta([H|T]) :- atom_chars("uragodoglio", [H|T]).
-citta([H|T]) :- atom_chars("uras", [H|T]).
-citta([H|T]) :- atom_chars("urbana", [H|T]).
-citta([H|T]) :- atom_chars("urbania", [H|T]).
-citta([H|T]) :- atom_chars("urbe", [H|T]).
-citta([H|T]) :- atom_chars("urbino", [H|T]).
-citta([H|T]) :- atom_chars("urbisaglia", [H|T]).
-citta([H|T]) :- atom_chars("urgnano", [H|T]).
-citta([H|T]) :- atom_chars("uri", [H|T]).
-citta([H|T]) :- atom_chars("ururi", [H|T]).
-citta([H|T]) :- atom_chars("urzulei", [H|T]).
-citta([H|T]) :- atom_chars("uscio", [H|T]).
-citta([H|T]) :- atom_chars("usellus", [H|T]).
-citta([H|T]) :- atom_chars("usini", [H|T]).
-citta([H|T]) :- atom_chars("usmatevelate", [H|T]).
-citta([H|T]) :- atom_chars("ussana", [H|T]).
-citta([H|T]) :- atom_chars("ussaramanna", [H|T]).
-citta([H|T]) :- atom_chars("ussassai", [H|T]).
-citta([H|T]) :- atom_chars("usseaux", [H|T]).
-citta([H|T]) :- atom_chars("usseglio", [H|T]).
-citta([H|T]) :- atom_chars("ussita", [H|T]).
-citta([H|T]) :- atom_chars("ustica", [H|T]).
-citta([H|T]) :- atom_chars("uta", [H|T]).
-citta([H|T]) :- atom_chars("uzzano", [H|T]).
-citta([H|T]) :- atom_chars("vaccarizzoalbanese", [H|T]).
-citta([H|T]) :- atom_chars("vacone", [H|T]).
-citta([H|T]) :- atom_chars("vacri", [H|T]).
-citta([H|T]) :- atom_chars("vadena/pfatten", [H|T]).
-citta([H|T]) :- atom_chars("vadoligure", [H|T]).
-citta([H|T]) :- atom_chars("vaglisotto", [H|T]).
-citta([H|T]) :- atom_chars("vaglia", [H|T]).
-citta([H|T]) :- atom_chars("vagliobasilicata", [H|T]).
-citta([H|T]) :- atom_chars("vaglioserra", [H|T]).
-citta([H|T]) :- atom_chars("vaiano", [H|T]).
-citta([H|T]) :- atom_chars("vaianocremasco", [H|T]).
-citta([H|T]) :- atom_chars("vaie", [H|T]).
-citta([H|T]) :- atom_chars("vailate", [H|T]).
-citta([H|T]) :- atom_chars("vairanopatenora", [H|T]).
-citta([H|T]) :- atom_chars("vajont", [H|T]).
-citta([H|T]) :- atom_chars("valbrembilla", [H|T]).
-citta([H|T]) :- atom_chars("valdellatorre", [H|T]).
-citta([H|T]) :- atom_chars("valdinizza", [H|T]).
-citta([H|T]) :- atom_chars("valdivizze/pfitsch", [H|T]).
-citta([H|T]) :- atom_chars("valdizoldo", [H|T]).
-citta([H|T]) :- atom_chars("valliona", [H|T]).
-citta([H|T]) :- atom_chars("valmasino", [H|T]).
-citta([H|T]) :- atom_chars("valrezzo", [H|T]).
-citta([H|T]) :- atom_chars("valbondione", [H|T]).
-citta([H|T]) :- atom_chars("valbrembo", [H|T]).
-citta([H|T]) :- atom_chars("valbrevenna", [H|T]).
-citta([H|T]) :- atom_chars("valbrona", [H|T]).
-citta([H|T]) :- atom_chars("valdagno", [H|T]).
-citta([H|T]) :- atom_chars("valdaone", [H|T]).
-citta([H|T]) :- atom_chars("valdaora/olang", [H|T]).
-citta([H|T]) :- atom_chars("valdastico", [H|T]).
-citta([H|T]) :- atom_chars("valdengo", [H|T]).
-citta([H|T]) :- atom_chars("valderice", [H|T]).
-citta([H|T]) :- atom_chars("valdidentro", [H|T]).
-citta([H|T]) :- atom_chars("valdieri", [H|T]).
-citta([H|T]) :- atom_chars("valdina", [H|T]).
-citta([H|T]) :- atom_chars("valdisotto", [H|T]).
-citta([H|T]) :- atom_chars("valdobbiadene", [H|T]).
-citta([H|T]) :- atom_chars("valduggia", [H|T]).
-citta([H|T]) :- atom_chars("valeggio", [H|T]).
-citta([H|T]) :- atom_chars("valeggiosulmincio", [H|T]).
-citta([H|T]) :- atom_chars("valentano", [H|T]).
-citta([H|T]) :- atom_chars("valenza", [H|T]).
-citta([H|T]) :- atom_chars("valenzano", [H|T]).
-citta([H|T]) :- atom_chars("valerafratta", [H|T]).
-citta([H|T]) :- atom_chars("valfabbrica", [H|T]).
-citta([H|T]) :- atom_chars("valfenera", [H|T]).
-citta([H|T]) :- atom_chars("valfloriana", [H|T]).
-citta([H|T]) :- atom_chars("valfornace", [H|T]).
-citta([H|T]) :- atom_chars("valfurva", [H|T]).
-citta([H|T]) :- atom_chars("valganna", [H|T]).
-citta([H|T]) :- atom_chars("valgioie", [H|T]).
-citta([H|T]) :- atom_chars("valgoglio", [H|T]).
-citta([H|T]) :- atom_chars("valgrana", [H|T]).
-citta([H|T]) :- atom_chars("valgreghentino", [H|T]).
-citta([H|T]) :- atom_chars("valgrisenche", [H|T]).
-citta([H|T]) :- atom_chars("valguarneracaropepe", [H|T]).
-citta([H|T]) :- atom_chars("valladaagordina", [H|T]).
-citta([H|T]) :- atom_chars("vallanzengo", [H|T]).
-citta([H|T]) :- atom_chars("vallarsa", [H|T]).
-citta([H|T]) :- atom_chars("vallata", [H|T]).
-citta([H|T]) :- atom_chars("valleagricola", [H|T]).
-citta([H|T]) :- atom_chars("valleaurina/ahrntal", [H|T]).
-citta([H|T]) :- atom_chars("vallecastellana", [H|T]).
-citta([H|T]) :- atom_chars("valledellangelo", [H|T]).
-citta([H|T]) :- atom_chars("valledicadore", [H|T]).
-citta([H|T]) :- atom_chars("valledicasies/gsies", [H|T]).
-citta([H|T]) :- atom_chars("valledimaddaloni", [H|T]).
-citta([H|T]) :- atom_chars("vallelomellina", [H|T]).
-citta([H|T]) :- atom_chars("vallemosso", [H|T]).
-citta([H|T]) :- atom_chars("vallesalimbene", [H|T]).
-citta([H|T]) :- atom_chars("vallesannicolao", [H|T]).
-citta([H|T]) :- atom_chars("vallebona", [H|T]).
-citta([H|T]) :- atom_chars("vallecorsa", [H|T]).
-citta([H|T]) :- atom_chars("vallecrosia", [H|T]).
-citta([H|T]) :- atom_chars("valledolmo", [H|T]).
-citta([H|T]) :- atom_chars("valledoria", [H|T]).
-citta([H|T]) :- atom_chars("vallefiorita", [H|T]).
-citta([H|T]) :- atom_chars("vallefoglia", [H|T]).
-citta([H|T]) :- atom_chars("vallelaghi", [H|T]).
-citta([H|T]) :- atom_chars("vallelonga", [H|T]).
-citta([H|T]) :- atom_chars("vallelungapratameno", [H|T]).
-citta([H|T]) :- atom_chars("vallemaio", [H|T]).
-citta([H|T]) :- atom_chars("vallepietra", [H|T]).
-citta([H|T]) :- atom_chars("vallerano", [H|T]).
-citta([H|T]) :- atom_chars("vallermosa", [H|T]).
-citta([H|T]) :- atom_chars("vallerotonda", [H|T]).
-citta([H|T]) :- atom_chars("vallesaccarda", [H|T]).
-citta([H|T]) :- atom_chars("valleve", [H|T]).
-citta([H|T]) :- atom_chars("vallidelpasubio", [H|T]).
-citta([H|T]) :- atom_chars("vallinfreda", [H|T]).
-citta([H|T]) :- atom_chars("vallioterme", [H|T]).
-citta([H|T]) :- atom_chars("vallodellalucania", [H|T]).
-citta([H|T]) :- atom_chars("vallodinera", [H|T]).
-citta([H|T]) :- atom_chars("vallotorinese", [H|T]).
-citta([H|T]) :- atom_chars("valloriate", [H|T]).
-citta([H|T]) :- atom_chars("valmacca", [H|T]).
-citta([H|T]) :- atom_chars("valmadrera", [H|T]).
-citta([H|T]) :- atom_chars("valmala", [H|T]).
-citta([H|T]) :- atom_chars("valmontone", [H|T]).
-citta([H|T]) :- atom_chars("valmorea", [H|T]).
-citta([H|T]) :- atom_chars("valmozzola", [H|T]).
-citta([H|T]) :- atom_chars("valnegra", [H|T]).
-citta([H|T]) :- atom_chars("valpelline", [H|T]).
-citta([H|T]) :- atom_chars("valperga", [H|T]).
-citta([H|T]) :- atom_chars("valpratosoana", [H|T]).
-citta([H|T]) :- atom_chars("valsamoggia", [H|T]).
-citta([H|T]) :- atom_chars("valsavarenche", [H|T]).
-citta([H|T]) :- atom_chars("valsinni", [H|T]).
-citta([H|T]) :- atom_chars("valsolda", [H|T]).
-citta([H|T]) :- atom_chars("valstagna", [H|T]).
-citta([H|T]) :- atom_chars("valstrona", [H|T]).
-citta([H|T]) :- atom_chars("valtopina", [H|T]).
-citta([H|T]) :- atom_chars("valtorta", [H|T]).
-citta([H|T]) :- atom_chars("valtournenche", [H|T]).
-citta([H|T]) :- atom_chars("valva", [H|T]).
-citta([H|T]) :- atom_chars("valvasonearzene", [H|T]).
-citta([H|T]) :- atom_chars("valverde", [H|T]).
-citta([H|T]) :- atom_chars("valverde", [H|T]).
-citta([H|T]) :- atom_chars("valvestino", [H|T]).
-citta([H|T]) :- atom_chars("vandoies/vintl", [H|T]).
-citta([H|T]) :- atom_chars("vanzaghello", [H|T]).
-citta([H|T]) :- atom_chars("vanzago", [H|T]).
-citta([H|T]) :- atom_chars("vanzoneconsancarlo", [H|T]).
-citta([H|T]) :- atom_chars("vapriodadda", [H|T]).
-citta([H|T]) :- atom_chars("vapriodagogna", [H|T]).
-citta([H|T]) :- atom_chars("varallo", [H|T]).
-citta([H|T]) :- atom_chars("varallopombia", [H|T]).
-citta([H|T]) :- atom_chars("varanoborghi", [H|T]).
-citta([H|T]) :- atom_chars("varanodemelegari", [H|T]).
-citta([H|T]) :- atom_chars("varapodio", [H|T]).
-citta([H|T]) :- atom_chars("varazze", [H|T]).
-citta([H|T]) :- atom_chars("varcosabino", [H|T]).
-citta([H|T]) :- atom_chars("varedo", [H|T]).
-citta([H|T]) :- atom_chars("varena", [H|T]).
-citta([H|T]) :- atom_chars("varenna", [H|T]).
-citta([H|T]) :- atom_chars("varese", [H|T]).
-citta([H|T]) :- atom_chars("vareseligure", [H|T]).
-citta([H|T]) :- atom_chars("varisella", [H|T]).
-citta([H|T]) :- atom_chars("varmo", [H|T]).
-citta([H|T]) :- atom_chars("varna/vahrn", [H|T]).
-citta([H|T]) :- atom_chars("varsi", [H|T]).
-citta([H|T]) :- atom_chars("varzi", [H|T]).
-citta([H|T]) :- atom_chars("varzo", [H|T]).
-citta([H|T]) :- atom_chars("vasanello", [H|T]).
-citta([H|T]) :- atom_chars("vasia", [H|T]).
-citta([H|T]) :- atom_chars("vasto", [H|T]).
-citta([H|T]) :- atom_chars("vastogirardi", [H|T]).
-citta([H|T]) :- atom_chars("vaudacanavese", [H|T]).
-citta([H|T]) :- atom_chars("vazzano", [H|T]).
-citta([H|T]) :- atom_chars("vazzola", [H|T]).
-citta([H|T]) :- atom_chars("vecchiano", [H|T]).
-citta([H|T]) :- atom_chars("vedanoallambro", [H|T]).
-citta([H|T]) :- atom_chars("vedanoolona", [H|T]).
-citta([H|T]) :- atom_chars("vedelago", [H|T]).
-citta([H|T]) :- atom_chars("vedeseta", [H|T]).
-citta([H|T]) :- atom_chars("veduggioconcolzano", [H|T]).
-citta([H|T]) :- atom_chars("veggiano", [H|T]).
-citta([H|T]) :- atom_chars("veglie", [H|T]).
-citta([H|T]) :- atom_chars("veglio", [H|T]).
-citta([H|T]) :- atom_chars("vejano", [H|T]).
-citta([H|T]) :- atom_chars("veleso", [H|T]).
-citta([H|T]) :- atom_chars("velezzolomellina", [H|T]).
-citta([H|T]) :- atom_chars("velletri", [H|T]).
-citta([H|T]) :- atom_chars("vellezzobellini", [H|T]).
-citta([H|T]) :- atom_chars("velodastico", [H|T]).
-citta([H|T]) :- atom_chars("veloveronese", [H|T]).
-citta([H|T]) :- atom_chars("velturno/feldthurns", [H|T]).
-citta([H|T]) :- atom_chars("venafro", [H|T]).
-citta([H|T]) :- atom_chars("venariareale", [H|T]).
-citta([H|T]) :- atom_chars("venarotta", [H|T]).
-citta([H|T]) :- atom_chars("venasca", [H|T]).
-citta([H|T]) :- atom_chars("venaus", [H|T]).
-citta([H|T]) :- atom_chars("vendone", [H|T]).
-citta([H|T]) :- atom_chars("vendrogno", [H|T]).
-citta([H|T]) :- atom_chars("venegonoinferiore", [H|T]).
-citta([H|T]) :- atom_chars("venegonosuperiore", [H|T]).
-citta([H|T]) :- atom_chars("venetico", [H|T]).
-citta([H|T]) :- atom_chars("venezia", [H|T]).
-citta([H|T]) :- atom_chars("veniano", [H|T]).
-citta([H|T]) :- atom_chars("venosa", [H|T]).
-citta([H|T]) :- atom_chars("ventasso", [H|T]).
-citta([H|T]) :- atom_chars("venticano", [H|T]).
-citta([H|T]) :- atom_chars("ventimiglia", [H|T]).
-citta([H|T]) :- atom_chars("ventimigliadisicilia", [H|T]).
-citta([H|T]) :- atom_chars("ventotene", [H|T]).
-citta([H|T]) :- atom_chars("venzone", [H|T]).
-citta([H|T]) :- atom_chars("veranobrianza", [H|T]).
-citta([H|T]) :- atom_chars("verano/voran", [H|T]).
-citta([H|T]) :- atom_chars("verbania", [H|T]).
-citta([H|T]) :- atom_chars("verbicaro", [H|T]).
-citta([H|T]) :- atom_chars("vercana", [H|T]).
-citta([H|T]) :- atom_chars("verceia", [H|T]).
-citta([H|T]) :- atom_chars("vercelli", [H|T]).
-citta([H|T]) :- atom_chars("vercurago", [H|T]).
-citta([H|T]) :- atom_chars("verdellino", [H|T]).
-citta([H|T]) :- atom_chars("verdello", [H|T]).
-citta([H|T]) :- atom_chars("verderio", [H|T]).
-citta([H|T]) :- atom_chars("verduno", [H|T]).
-citta([H|T]) :- atom_chars("vergato", [H|T]).
-citta([H|T]) :- atom_chars("verghereto", [H|T]).
-citta([H|T]) :- atom_chars("vergiate", [H|T]).
-citta([H|T]) :- atom_chars("vermezzo", [H|T]).
-citta([H|T]) :- atom_chars("vermiglio", [H|T]).
-citta([H|T]) :- atom_chars("vernante", [H|T]).
-citta([H|T]) :- atom_chars("vernasca", [H|T]).
-citta([H|T]) :- atom_chars("vernate", [H|T]).
-citta([H|T]) :- atom_chars("vernazza", [H|T]).
-citta([H|T]) :- atom_chars("vernio", [H|T]).
-citta([H|T]) :- atom_chars("vernole", [H|T]).
-citta([H|T]) :- atom_chars("verolanuova", [H|T]).
-citta([H|T]) :- atom_chars("verolavecchia", [H|T]).
-citta([H|T]) :- atom_chars("verolengo", [H|T]).
-citta([H|T]) :- atom_chars("veroli", [H|T]).
-citta([H|T]) :- atom_chars("verona", [H|T]).
-citta([H|T]) :- atom_chars("veronella", [H|T]).
-citta([H|T]) :- atom_chars("verrayes", [H|T]).
-citta([H|T]) :- atom_chars("verres", [H|T]).
-citta([H|T]) :- atom_chars("verretto", [H|T]).
-citta([H|T]) :- atom_chars("verrone", [H|T]).
-citta([H|T]) :- atom_chars("verruapo", [H|T]).
-citta([H|T]) :- atom_chars("verruasavoia", [H|T]).
-citta([H|T]) :- atom_chars("vertemateconminoprio", [H|T]).
-citta([H|T]) :- atom_chars("vertova", [H|T]).
-citta([H|T]) :- atom_chars("verucchio", [H|T]).
-citta([H|T]) :- atom_chars("veruno", [H|T]).
-citta([H|T]) :- atom_chars("vervio", [H|T]).
-citta([H|T]) :- atom_chars("verzegnis", [H|T]).
-citta([H|T]) :- atom_chars("verzino", [H|T]).
-citta([H|T]) :- atom_chars("verzuolo", [H|T]).
-citta([H|T]) :- atom_chars("vescovana", [H|T]).
-citta([H|T]) :- atom_chars("vescovato", [H|T]).
-citta([H|T]) :- atom_chars("vesime", [H|T]).
-citta([H|T]) :- atom_chars("vespolate", [H|T]).
-citta([H|T]) :- atom_chars("vessalico", [H|T]).
-citta([H|T]) :- atom_chars("vestenanova", [H|T]).
-citta([H|T]) :- atom_chars("vestigne", [H|T]).
-citta([H|T]) :- atom_chars("vestone", [H|T]).
-citta([H|T]) :- atom_chars("vestreno", [H|T]).
-citta([H|T]) :- atom_chars("vetralla", [H|T]).
-citta([H|T]) :- atom_chars("vetto", [H|T]).
-citta([H|T]) :- atom_chars("vezzadalba", [H|T]).
-citta([H|T]) :- atom_chars("vezzadoglio", [H|T]).
-citta([H|T]) :- atom_chars("vezzanoligure", [H|T]).
-citta([H|T]) :- atom_chars("vezzanosulcrostolo", [H|T]).
-citta([H|T]) :- atom_chars("vezziportio", [H|T]).
-citta([H|T]) :- atom_chars("viadana", [H|T]).
-citta([H|T]) :- atom_chars("viadanica", [H|T]).
-citta([H|T]) :- atom_chars("viagrande", [H|T]).
-citta([H|T]) :- atom_chars("viale", [H|T]).
-citta([H|T]) :- atom_chars("vialfre", [H|T]).
-citta([H|T]) :- atom_chars("viano", [H|T]).
-citta([H|T]) :- atom_chars("viareggio", [H|T]).
-citta([H|T]) :- atom_chars("viarigi", [H|T]).
-citta([H|T]) :- atom_chars("vibovalentia", [H|T]).
-citta([H|T]) :- atom_chars("vibonati", [H|T]).
-citta([H|T]) :- atom_chars("vicalvi", [H|T]).
-citta([H|T]) :- atom_chars("vicari", [H|T]).
-citta([H|T]) :- atom_chars("vicchio", [H|T]).
-citta([H|T]) :- atom_chars("vicenza", [H|T]).
-citta([H|T]) :- atom_chars("vicocanavese", [H|T]).
-citta([H|T]) :- atom_chars("vicodelgargano", [H|T]).
-citta([H|T]) :- atom_chars("vicoequense", [H|T]).
-citta([H|T]) :- atom_chars("viconellazio", [H|T]).
-citta([H|T]) :- atom_chars("vicoforte", [H|T]).
-citta([H|T]) :- atom_chars("vicoli", [H|T]).
-citta([H|T]) :- atom_chars("vicolungo", [H|T]).
-citta([H|T]) :- atom_chars("vicopisano", [H|T]).
-citta([H|T]) :- atom_chars("vicovaro", [H|T]).
-citta([H|T]) :- atom_chars("viddalba", [H|T]).
-citta([H|T]) :- atom_chars("vidigulfo", [H|T]).
-citta([H|T]) :- atom_chars("vidor", [H|T]).
-citta([H|T]) :- atom_chars("vidracco", [H|T]).
-citta([H|T]) :- atom_chars("vieste", [H|T]).
-citta([H|T]) :- atom_chars("vietridipotenza", [H|T]).
-citta([H|T]) :- atom_chars("vietrisulmare", [H|T]).
-citta([H|T]) :- atom_chars("vigano", [H|T]).
-citta([H|T]) :- atom_chars("viganosanmartino", [H|T]).
-citta([H|T]) :- atom_chars("vigaranomainarda", [H|T]).
-citta([H|T]) :- atom_chars("vigasio", [H|T]).
-citta([H|T]) :- atom_chars("vigevano", [H|T]).
-citta([H|T]) :- atom_chars("viggianello", [H|T]).
-citta([H|T]) :- atom_chars("viggiano", [H|T]).
-citta([H|T]) :- atom_chars("viggiu", [H|T]).
-citta([H|T]) :- atom_chars("vighizzolodeste", [H|T]).
-citta([H|T]) :- atom_chars("viglianobiellese", [H|T]).
-citta([H|T]) :- atom_chars("viglianodasti", [H|T]).
-citta([H|T]) :- atom_chars("vignalemonferrato", [H|T]).
-citta([H|T]) :- atom_chars("vignanello", [H|T]).
-citta([H|T]) :- atom_chars("vignate", [H|T]).
-citta([H|T]) :- atom_chars("vignola", [H|T]).
-citta([H|T]) :- atom_chars("vignola-falesina", [H|T]).
-citta([H|T]) :- atom_chars("vignoleborbera", [H|T]).
-citta([H|T]) :- atom_chars("vignolo", [H|T]).
-citta([H|T]) :- atom_chars("vignone", [H|T]).
-citta([H|T]) :- atom_chars("vigodicadore", [H|T]).
-citta([H|T]) :- atom_chars("vigodifassa", [H|T]).
-citta([H|T]) :- atom_chars("vigodarzere", [H|T]).
-citta([H|T]) :- atom_chars("vigolo", [H|T]).
-citta([H|T]) :- atom_chars("vigolzone", [H|T]).
-citta([H|T]) :- atom_chars("vigone", [H|T]).
-citta([H|T]) :- atom_chars("vigonovo", [H|T]).
-citta([H|T]) :- atom_chars("vigonza", [H|T]).
-citta([H|T]) :- atom_chars("viguzzolo", [H|T]).
-citta([H|T]) :- atom_chars("villabartolomea", [H|T]).
-citta([H|T]) :- atom_chars("villabasilica", [H|T]).
-citta([H|T]) :- atom_chars("villabiscossi", [H|T]).
-citta([H|T]) :- atom_chars("villacarcina", [H|T]).
-citta([H|T]) :- atom_chars("villacastelli", [H|T]).
-citta([H|T]) :- atom_chars("villaceliera", [H|T]).
-citta([H|T]) :- atom_chars("villacollemandina", [H|T]).
-citta([H|T]) :- atom_chars("villacortese", [H|T]).
-citta([H|T]) :- atom_chars("villadadda", [H|T]).
-citta([H|T]) :- atom_chars("villadalme", [H|T]).
-citta([H|T]) :- atom_chars("villadelbosco", [H|T]).
-citta([H|T]) :- atom_chars("villadelconte", [H|T]).
-citta([H|T]) :- atom_chars("villadibriano", [H|T]).
-citta([H|T]) :- atom_chars("villadichiavenna", [H|T]).
-citta([H|T]) :- atom_chars("villadiserio", [H|T]).
-citta([H|T]) :- atom_chars("villaditirano", [H|T]).
-citta([H|T]) :- atom_chars("villadogna", [H|T]).
-citta([H|T]) :- atom_chars("villaestense", [H|T]).
-citta([H|T]) :- atom_chars("villafaraldi", [H|T]).
-citta([H|T]) :- atom_chars("villaguardia", [H|T]).
-citta([H|T]) :- atom_chars("villalagarina", [H|T]).
-citta([H|T]) :- atom_chars("villalatina", [H|T]).
-citta([H|T]) :- atom_chars("villaliterno", [H|T]).
-citta([H|T]) :- atom_chars("villaminozzo", [H|T]).
-citta([H|T]) :- atom_chars("villapoma", [H|T]).
-citta([H|T]) :- atom_chars("villasangiovanni", [H|T]).
-citta([H|T]) :- atom_chars("villasangiovanniintuscia", [H|T]).
-citta([H|T]) :- atom_chars("villasanpietro", [H|T]).
-citta([H|T]) :- atom_chars("villasansecondo", [H|T]).
-citta([H|T]) :- atom_chars("villasantalucia", [H|T]).
-citta([H|T]) :- atom_chars("villasantaluciadegliabruzzi", [H|T]).
-citta([H|T]) :- atom_chars("villasantamaria", [H|T]).
-citta([H|T]) :- atom_chars("villasantangelo", [H|T]).
-citta([H|T]) :- atom_chars("villasantantonio", [H|T]).
-citta([H|T]) :- atom_chars("villasantina", [H|T]).
-citta([H|T]) :- atom_chars("villasantostefano", [H|T]).
-citta([H|T]) :- atom_chars("villaverde", [H|T]).
-citta([H|T]) :- atom_chars("villavicentina", [H|T]).
-citta([H|T]) :- atom_chars("villabassa/niederdorf", [H|T]).
-citta([H|T]) :- atom_chars("villabate", [H|T]).
-citta([H|T]) :- atom_chars("villachiara", [H|T]).
-citta([H|T]) :- atom_chars("villacidro", [H|T]).
-citta([H|T]) :- atom_chars("villadeati", [H|T]).
-citta([H|T]) :- atom_chars("villadose", [H|T]).
-citta([H|T]) :- atom_chars("villadossola", [H|T]).
-citta([H|T]) :- atom_chars("villafalletto", [H|T]).
-citta([H|T]) :- atom_chars("villafrancadasti", [H|T]).
-citta([H|T]) :- atom_chars("villafrancadiverona", [H|T]).
-citta([H|T]) :- atom_chars("villafrancainlunigiana", [H|T]).
-citta([H|T]) :- atom_chars("villafrancapadovana", [H|T]).
-citta([H|T]) :- atom_chars("villafrancapiemonte", [H|T]).
-citta([H|T]) :- atom_chars("villafrancasicula", [H|T]).
-citta([H|T]) :- atom_chars("villafrancatirrena", [H|T]).
-citta([H|T]) :- atom_chars("villafrati", [H|T]).
-citta([H|T]) :- atom_chars("villaga", [H|T]).
-citta([H|T]) :- atom_chars("villagrandestrisaili", [H|T]).
-citta([H|T]) :- atom_chars("villalago", [H|T]).
-citta([H|T]) :- atom_chars("villalba", [H|T]).
-citta([H|T]) :- atom_chars("villalfonsina", [H|T]).
-citta([H|T]) :- atom_chars("villalvernia", [H|T]).
-citta([H|T]) :- atom_chars("villamagna", [H|T]).
-citta([H|T]) :- atom_chars("villamaina", [H|T]).
-citta([H|T]) :- atom_chars("villamar", [H|T]).
-citta([H|T]) :- atom_chars("villamarzana", [H|T]).
-citta([H|T]) :- atom_chars("villamassargia", [H|T]).
-citta([H|T]) :- atom_chars("villamiroglio", [H|T]).
-citta([H|T]) :- atom_chars("villandro/villanders", [H|T]).
-citta([H|T]) :- atom_chars("villanovabiellese", [H|T]).
-citta([H|T]) :- atom_chars("villanovacanavese", [H|T]).
-citta([H|T]) :- atom_chars("villanovadalbenga", [H|T]).
-citta([H|T]) :- atom_chars("villanovadardenghi", [H|T]).
-citta([H|T]) :- atom_chars("villanovadasti", [H|T]).
-citta([H|T]) :- atom_chars("villanovadelbattista", [H|T]).
-citta([H|T]) :- atom_chars("villanovadelghebbo", [H|T]).
-citta([H|T]) :- atom_chars("villanovadelsillaro", [H|T]).
-citta([H|T]) :- atom_chars("villanovadicamposampiero", [H|T]).
-citta([H|T]) :- atom_chars("villanovamarchesana", [H|T]).
-citta([H|T]) :- atom_chars("villanovamondovi", [H|T]).
-citta([H|T]) :- atom_chars("villanovamonferrato", [H|T]).
-citta([H|T]) :- atom_chars("villanovamonteleone", [H|T]).
-citta([H|T]) :- atom_chars("villanovasolaro", [H|T]).
-citta([H|T]) :- atom_chars("villanovasullarda", [H|T]).
-citta([H|T]) :- atom_chars("villanovatruschedu", [H|T]).
-citta([H|T]) :- atom_chars("villanovatulo", [H|T]).
-citta([H|T]) :- atom_chars("villanovaforru", [H|T]).
-citta([H|T]) :- atom_chars("villanovafranca", [H|T]).
-citta([H|T]) :- atom_chars("villanterio", [H|T]).
-citta([H|T]) :- atom_chars("villanuovasulclisi", [H|T]).
-citta([H|T]) :- atom_chars("villaperuccio", [H|T]).
-citta([H|T]) :- atom_chars("villapiana", [H|T]).
-citta([H|T]) :- atom_chars("villaputzu", [H|T]).
-citta([H|T]) :- atom_chars("villardora", [H|T]).
-citta([H|T]) :- atom_chars("villarfocchiardo", [H|T]).
-citta([H|T]) :- atom_chars("villarpellice", [H|T]).
-citta([H|T]) :- atom_chars("villarperosa", [H|T]).
-citta([H|T]) :- atom_chars("villarsancostanzo", [H|T]).
-citta([H|T]) :- atom_chars("villarbasse", [H|T]).
-citta([H|T]) :- atom_chars("villarboit", [H|T]).
-citta([H|T]) :- atom_chars("villareggia", [H|T]).
-citta([H|T]) :- atom_chars("villaricca", [H|T]).
-citta([H|T]) :- atom_chars("villaromagnano", [H|T]).
-citta([H|T]) :- atom_chars("villarosa", [H|T]).
-citta([H|T]) :- atom_chars("villasalto", [H|T]).
-citta([H|T]) :- atom_chars("villasanta", [H|T]).
-citta([H|T]) :- atom_chars("villasimius", [H|T]).
-citta([H|T]) :- atom_chars("villasor", [H|T]).
-citta([H|T]) :- atom_chars("villaspeciosa", [H|T]).
-citta([H|T]) :- atom_chars("villastellone", [H|T]).
-citta([H|T]) :- atom_chars("villata", [H|T]).
-citta([H|T]) :- atom_chars("villaurbana", [H|T]).
-citta([H|T]) :- atom_chars("villavallelonga", [H|T]).
-citta([H|T]) :- atom_chars("villaverla", [H|T]).
-citta([H|T]) :- atom_chars("villedanaunia", [H|T]).
-citta([H|T]) :- atom_chars("villeneuve", [H|T]).
-citta([H|T]) :- atom_chars("villesse", [H|T]).
-citta([H|T]) :- atom_chars("villettabarrea", [H|T]).
-citta([H|T]) :- atom_chars("villette", [H|T]).
-citta([H|T]) :- atom_chars("villimpenta", [H|T]).
-citta([H|T]) :- atom_chars("villongo", [H|T]).
-citta([H|T]) :- atom_chars("villorba", [H|T]).
-citta([H|T]) :- atom_chars("vilminorediscalve", [H|T]).
-citta([H|T]) :- atom_chars("vimercate", [H|T]).
-citta([H|T]) :- atom_chars("vimodrone", [H|T]).
-citta([H|T]) :- atom_chars("vinadio", [H|T]).
-citta([H|T]) :- atom_chars("vinchiaturo", [H|T]).
-citta([H|T]) :- atom_chars("vinchio", [H|T]).
-citta([H|T]) :- atom_chars("vinci", [H|T]).
-citta([H|T]) :- atom_chars("vinovo", [H|T]).
-citta([H|T]) :- atom_chars("vinzaglio", [H|T]).
-citta([H|T]) :- atom_chars("viola", [H|T]).
-citta([H|T]) :- atom_chars("vione", [H|T]).
-citta([H|T]) :- atom_chars("vipiteno/sterzing", [H|T]).
-citta([H|T]) :- atom_chars("virlepiemonte", [H|T]).
-citta([H|T]) :- atom_chars("visano", [H|T]).
-citta([H|T]) :- atom_chars("vische", [H|T]).
-citta([H|T]) :- atom_chars("visciano", [H|T]).
-citta([H|T]) :- atom_chars("visco", [H|T]).
-citta([H|T]) :- atom_chars("visone", [H|T]).
-citta([H|T]) :- atom_chars("visso", [H|T]).
-citta([H|T]) :- atom_chars("vistarino", [H|T]).
-citta([H|T]) :- atom_chars("vistrorio", [H|T]).
-citta([H|T]) :- atom_chars("vita", [H|T]).
-citta([H|T]) :- atom_chars("viterbo", [H|T]).
-citta([H|T]) :- atom_chars("viticuso", [H|T]).
-citta([H|T]) :- atom_chars("vitodasio", [H|T]).
-citta([H|T]) :- atom_chars("vitorchiano", [H|T]).
-citta([H|T]) :- atom_chars("vittoria", [H|T]).
-citta([H|T]) :- atom_chars("vittorioveneto", [H|T]).
-citta([H|T]) :- atom_chars("vittorito", [H|T]).
-citta([H|T]) :- atom_chars("vittuone", [H|T]).
-citta([H|T]) :- atom_chars("vitulano", [H|T]).
-citta([H|T]) :- atom_chars("vitulazio", [H|T]).
-citta([H|T]) :- atom_chars("viu", [H|T]).
-citta([H|T]) :- atom_chars("vivaro", [H|T]).
-citta([H|T]) :- atom_chars("vivaroromano", [H|T]).
-citta([H|T]) :- atom_chars("viverone", [H|T]).
-citta([H|T]) :- atom_chars("vizzini", [H|T]).
-citta([H|T]) :- atom_chars("vizzolaticino", [H|T]).
-citta([H|T]) :- atom_chars("vizzolopredabissi", [H|T]).
-citta([H|T]) :- atom_chars("vo", [H|T]).
-citta([H|T]) :- atom_chars("vobarno", [H|T]).
-citta([H|T]) :- atom_chars("vobbia", [H|T]).
-citta([H|T]) :- atom_chars("vocca", [H|T]).
-citta([H|T]) :- atom_chars("vodocadore", [H|T]).
-citta([H|T]) :- atom_chars("voghera", [H|T]).
-citta([H|T]) :- atom_chars("voghiera", [H|T]).
-citta([H|T]) :- atom_chars("vogogna", [H|T]).
-citta([H|T]) :- atom_chars("volano", [H|T]).
-citta([H|T]) :- atom_chars("volla", [H|T]).
-citta([H|T]) :- atom_chars("volongo", [H|T]).
-citta([H|T]) :- atom_chars("volpagodelmontello", [H|T]).
-citta([H|T]) :- atom_chars("volpara", [H|T]).
-citta([H|T]) :- atom_chars("volpedo", [H|T]).
-citta([H|T]) :- atom_chars("volpeglino", [H|T]).
-citta([H|T]) :- atom_chars("volpiano", [H|T]).
-citta([H|T]) :- atom_chars("voltamantovana", [H|T]).
-citta([H|T]) :- atom_chars("voltaggio", [H|T]).
-citta([H|T]) :- atom_chars("voltagoagordino", [H|T]).
-citta([H|T]) :- atom_chars("volterra", [H|T]).
-citta([H|T]) :- atom_chars("voltido", [H|T]).
-citta([H|T]) :- atom_chars("volturaraappula", [H|T]).
-citta([H|T]) :- atom_chars("volturarairpina", [H|T]).
-citta([H|T]) :- atom_chars("volturino", [H|T]).
-citta([H|T]) :- atom_chars("volvera", [H|T]).
-citta([H|T]) :- atom_chars("vottignasco", [H|T]).
-citta([H|T]) :- atom_chars("zaccanopoli", [H|T]).
-citta([H|T]) :- atom_chars("zafferanaetnea", [H|T]).
-citta([H|T]) :- atom_chars("zagarise", [H|T]).
-citta([H|T]) :- atom_chars("zagarolo", [H|T]).
-citta([H|T]) :- atom_chars("zambana", [H|T]).
-citta([H|T]) :- atom_chars("zambrone", [H|T]).
-citta([H|T]) :- atom_chars("zandobbio", [H|T]).
-citta([H|T]) :- atom_chars("zane", [H|T]).
-citta([H|T]) :- atom_chars("zanica", [H|T]).
-citta([H|T]) :- atom_chars("zapponeta", [H|T]).
-citta([H|T]) :- atom_chars("zavattarello", [H|T]).
-citta([H|T]) :- atom_chars("zeccone", [H|T]).
-citta([H|T]) :- atom_chars("zeddiani", [H|T]).
-citta([H|T]) :- atom_chars("zelbio", [H|T]).
-citta([H|T]) :- atom_chars("zelobuonpersico", [H|T]).
-citta([H|T]) :- atom_chars("zelosurrigone", [H|T]).
-citta([H|T]) :- atom_chars("zeme", [H|T]).
-citta([H|T]) :- atom_chars("zenevredo", [H|T]).
-citta([H|T]) :- atom_chars("zensondipiave", [H|T]).
-citta([H|T]) :- atom_chars("zerba", [H|T]).
-citta([H|T]) :- atom_chars("zerbo", [H|T]).
-citta([H|T]) :- atom_chars("zerbolo", [H|T]).
-citta([H|T]) :- atom_chars("zerfaliu", [H|T]).
-citta([H|T]) :- atom_chars("zeri", [H|T]).
-citta([H|T]) :- atom_chars("zermeghedo", [H|T]).
-citta([H|T]) :- atom_chars("zerobranco", [H|T]).
-citta([H|T]) :- atom_chars("zevio", [H|T]).
-citta([H|T]) :- atom_chars("zianodifiemme", [H|T]).
-citta([H|T]) :- atom_chars("zianopiacentino", [H|T]).
-citta([H|T]) :- atom_chars("zibidosangiacomo", [H|T]).
-citta([H|T]) :- atom_chars("zignago", [H|T]).
-citta([H|T]) :- atom_chars("zimella", [H|T]).
-citta([H|T]) :- atom_chars("zimone", [H|T]).
-citta([H|T]) :- atom_chars("zinasco", [H|T]).
-citta([H|T]) :- atom_chars("zoagli", [H|T]).
-citta([H|T]) :- atom_chars("zocca", [H|T]).
-citta([H|T]) :- atom_chars("zogno", [H|T]).
-citta([H|T]) :- atom_chars("zolapredosa", [H|T]).
-citta([H|T]) :- atom_chars("zollino", [H|T]).
-citta([H|T]) :- atom_chars("zone", [H|T]).
-citta([H|T]) :- atom_chars("zoppedicadore", [H|T]).
-citta([H|T]) :- atom_chars("zoppola", [H|T]).
-citta([H|T]) :- atom_chars("zovencedo", [H|T]).
-citta([H|T]) :- atom_chars("zubiena", [H|T]).
-citta([H|T]) :- atom_chars("zuccarello", [H|T]).
-citta([H|T]) :- atom_chars("zugliano", [H|T]).
-citta([H|T]) :- atom_chars("zuglio", [H|T]).
-citta([H|T]) :- atom_chars("zumaglia", [H|T]).
-citta([H|T]) :- atom_chars("zumpano", [H|T]).
-citta([H|T]) :- atom_chars("zungoli", [H|T]).
-citta([H|T]) :- atom_chars("zungri", [H|T]).
+citta("Abano Terme").
+citta("Abbadia Cerreto").
+citta("Abbadia Lariana").
+citta("Abbadia San Salvatore").
+citta("Abbasanta").
+citta("Abbateggio").
+citta("Abbiategrasso").
+citta("Abetone Cutigliano").
+citta("Abriola").
+citta("Acate").
+citta("Accadia").
+citta("Acceglio").
+citta("Accettura").
+citta("Acciano").
+citta("Accumoli").
+citta("Acerenza").
+citta("Acerno").
+citta("Acerra").
+citta("Aci Bonaccorsi").
+citta("Aci Castello").
+citta("Aci Catena").
+citta("Aci Sant'Antonio").
+citta("Acireale").
+citta("Acquafondata").
+citta("Acquaformosa").
+citta("Acquafredda").
+citta("Acqualagna").
+citta("Acquanegra Cremonese").
+citta("Acquanegra sul Chiese").
+citta("Acquapendente").
+citta("Acquappesa").
+citta("Acquarica del Capo").
+citta("Acquaro").
+citta("Acquasanta Terme").
+citta("Acquasparta").
+citta("Acquaviva Collecroce").
+citta("Acquaviva delle Fonti").
+citta("Acquaviva d'Isernia").
+citta("Acquaviva Picena").
+citta("Acquaviva Platani").
+citta("Acquedolci").
+citta("Acqui Terme").
+citta("Acri").
+citta("Acuto").
+citta("Adelfia").
+citta("Adrano").
+citta("Adrara San Martino").
+citta("Adrara San Rocco").
+citta("Adria").
+citta("Adro").
+citta("Affi").
+citta("Affile").
+citta("Afragola").
+citta("Africo").
+citta("Agazzano").
+citta("Agerola").
+citta("Aggius").
+citta("Agira").
+citta("Agliana").
+citta("Agliano Terme").
+citta("Agliè").
+citta("Aglientu").
+citta("Agna").
+citta("Agnadello").
+citta("Agnana Calabra").
+citta("Agnone").
+citta("Agnosine").
+citta("Agordo").
+citta("Agosta").
+citta("Agra").
+citta("Agrate Brianza").
+citta("Agrate Conturbia").
+citta("Agrigento").
+citta("Agropoli").
+citta("Agugliano").
+citta("Agugliaro").
+citta("Aicurzio").
+citta("Aidomaggiore").
+citta("Aidone").
+citta("Aielli").
+citta("Aiello Calabro").
+citta("Aiello del Friuli").
+citta("Aiello del Sabato").
+citta("Aieta").
+citta("Ailano").
+citta("Ailoche").
+citta("Airasca").
+citta("Airola").
+citta("Airole").
+citta("Airuno").
+citta("Aisone").
+citta("Ala").
+citta("Alà dei Sardi").
+citta("Ala di Stura").
+citta("Alagna").
+citta("Alagna Valsesia").
+citta("Alanno").
+citta("Alano di Piave").
+citta("Alassio").
+citta("Alatri").
+citta("Alba").
+citta("Alba Adriatica").
+citta("Albagiara").
+citta("Albairate").
+citta("Albanella").
+citta("Albano di Lucania").
+citta("Albano Laziale").
+citta("Albano Sant'Alessandro").
+citta("Albano Vercellese").
+citta("Albaredo Arnaboldi").
+citta("Albaredo d'Adige").
+citta("Albaredo per San Marco").
+citta("Albareto").
+citta("Albaretto della Torre").
+citta("Albavilla").
+citta("Albenga").
+citta("Albera Ligure").
+citta("Alberobello").
+citta("Alberona").
+citta("Albese con Cassano").
+citta("Albettone").
+citta("Albi").
+citta("Albiano").
+citta("Albiano d'Ivrea").
+citta("Albiate").
+citta("Albidona").
+citta("Albignasego").
+citta("Albinea").
+citta("Albino").
+citta("Albiolo").
+citta("Albisola Superiore").
+citta("Albissola Marina").
+citta("Albizzate").
+citta("Albonese").
+citta("Albosaggia").
+citta("Albugnano").
+citta("Albuzzano").
+citta("Alcamo").
+citta("Alcara li Fusi").
+citta("Aldeno").
+citta("Aldino/Aldein").
+citta("Ales").
+citta("Alessandria").
+citta("Alessandria del Carretto").
+citta("Alessandria della Rocca").
+citta("Alessano").
+citta("Alezio").
+citta("Alfano").
+citta("Alfedena").
+citta("Alfianello").
+citta("Alfiano Natta").
+citta("Alfonsine").
+citta("Alghero").
+citta("Algua").
+citta("Alì").
+citta("Alì Terme").
+citta("Alia").
+citta("Aliano").
+citta("Alice Bel Colle").
+citta("Alice Castello").
+citta("Alice Superiore").
+citta("Alife").
+citta("Alimena").
+citta("Aliminusa").
+citta("Allai").
+citta("Alleghe").
+citta("Allein").
+citta("Allerona").
+citta("Alliste").
+citta("Allumiere").
+citta("Alluvioni Cambiò").
+citta("Almè").
+citta("Almenno San Bartolomeo").
+citta("Almenno San Salvatore").
+citta("Almese").
+citta("Alonte").
+citta("Alpago").
+citta("Alpette").
+citta("Alpignano").
+citta("Alseno").
+citta("Alserio").
+citta("Alta Valle Intelvi").
+citta("Altamura").
+citta("Altare").
+citta("Altavalle").
+citta("Altavilla Irpina").
+citta("Altavilla Milicia").
+citta("Altavilla Monferrato").
+citta("Altavilla Silentina").
+citta("Altavilla Vicentina").
+citta("Altidona").
+citta("Altilia").
+citta("Altino").
+citta("Altissimo").
+citta("Altivole").
+citta("Alto").
+citta("Alto Reno Terme").
+citta("Altofonte").
+citta("Altomonte").
+citta("Altopascio").
+citta("Altopiano Della Vigolana").
+citta("Alviano").
+citta("Alvignano").
+citta("Alvito").
+citta("Alzano Lombardo").
+citta("Alzano Scrivia").
+citta("Alzate Brianza").
+citta("Amalfi").
+citta("Amandola").
+citta("Amantea").
+citta("Amaro").
+citta("Amaroni").
+citta("Amaseno").
+citta("Amato").
+citta("Amatrice").
+citta("Ambivere").
+citta("Amblar-Don").
+citta("Ameglia").
+citta("Amelia").
+citta("Amendolara").
+citta("Ameno").
+citta("Amorosi").
+citta("Ampezzo").
+citta("Anacapri").
+citta("Anagni").
+citta("Ancarano").
+citta("Ancona").
+citta("Andali").
+citta("Andalo").
+citta("Andalo Valtellino").
+citta("Andezeno").
+citta("Andora").
+citta("Andorno Micca").
+citta("Andrano").
+citta("Andrate").
+citta("Andreis").
+citta("Andretta").
+citta("Andria").
+citta("Andriano/Andrian").
+citta("Anela").
+citta("Anfo").
+citta("Angera").
+citta("Anghiari").
+citta("Angiari").
+citta("Angolo Terme").
+citta("Angri").
+citta("Angrogna").
+citta("Anguillara Sabazia").
+citta("Anguillara Veneta").
+citta("Annicco").
+citta("Annone di Brianza").
+citta("Annone Veneto").
+citta("Anoia").
+citta("Antegnate").
+citta("Anterivo/Altrei").
+citta("Antey-Saint-André").
+citta("Anticoli Corrado").
+citta("Antignano").
+citta("Antillo").
+citta("Antonimina").
+citta("Antrodoco").
+citta("Antrona Schieranco").
+citta("Anversa degli Abruzzi").
+citta("Anzano del Parco").
+citta("Anzano di Puglia").
+citta("Anzi").
+citta("Anzio").
+citta("Anzola dell'Emilia").
+citta("Anzola d'Ossola").
+citta("Aosta").
+citta("Apecchio").
+citta("Apice").
+citta("Apiro").
+citta("Apollosa").
+citta("Appiano Gentile").
+citta("Appiano sulla strada del vino/Eppan an der Weinstraße").
+citta("Appignano").
+citta("Appignano del Tronto").
+citta("Aprica").
+citta("Apricale").
+citta("Apricena").
+citta("Aprigliano").
+citta("Aprilia").
+citta("Aquara").
+citta("Aquila d'Arroscia").
+citta("Aquileia").
+citta("Aquilonia").
+citta("Aquino").
+citta("Aradeo").
+citta("Aragona").
+citta("Aramengo").
+citta("Arba").
+citta("Arborea").
+citta("Arborio").
+citta("Arbus").
+citta("Arcade").
+citta("Arce").
+citta("Arcene").
+citta("Arcevia").
+citta("Archi").
+citta("Arcidosso").
+citta("Arcinazzo Romano").
+citta("Arcisate").
+citta("Arco").
+citta("Arcola").
+citta("Arcole").
+citta("Arconate").
+citta("Arcore").
+citta("Arcugnano").
+citta("Ardara").
+citta("Ardauli").
+citta("Ardea").
+citta("Ardenno").
+citta("Ardesio").
+citta("Ardore").
+citta("Arena").
+citta("Arena Po").
+citta("Arenzano").
+citta("Arese").
+citta("Arezzo").
+citta("Argegno").
+citta("Argelato").
+citta("Argenta").
+citta("Argentera").
+citta("Arguello").
+citta("Argusto").
+citta("Ari").
+citta("Ariano Irpino").
+citta("Ariano nel Polesine").
+citta("Ariccia").
+citta("Arielli").
+citta("Arienzo").
+citta("Arignano").
+citta("Aritzo").
+citta("Arizzano").
+citta("Arlena di Castro").
+citta("Arluno").
+citta("Armeno").
+citta("Armento").
+citta("Armo").
+citta("Armungia").
+citta("Arnad").
+citta("Arnara").
+citta("Arnasco").
+citta("Arnesano").
+citta("Arola").
+citta("Arona").
+citta("Arosio").
+citta("Arpaia").
+citta("Arpaise").
+citta("Arpino").
+citta("Arquà Petrarca").
+citta("Arquà Polesine").
+citta("Arquata del Tronto").
+citta("Arquata Scrivia").
+citta("Arre").
+citta("Arrone").
+citta("Arsago Seprio").
+citta("Arsiè").
+citta("Arsiero").
+citta("Arsita").
+citta("Arsoli").
+citta("Arta Terme").
+citta("Artegna").
+citta("Artena").
+citta("Artogne").
+citta("Arvier").
+citta("Arzachena").
+citta("Arzago d'Adda").
+citta("Arzana").
+citta("Arzano").
+citta("Arzergrande").
+citta("Arzignano").
+citta("Ascea").
+citta("Asciano").
+citta("Ascoli Piceno").
+citta("Ascoli Satriano").
+citta("Ascrea").
+citta("Asiago").
+citta("Asigliano Veneto").
+citta("Asigliano Vercellese").
+citta("Asola").
+citta("Asolo").
+citta("Assago").
+citta("Assemini").
+citta("Assisi").
+citta("Asso").
+citta("Assolo").
+citta("Assoro").
+citta("Asti").
+citta("Asuni").
+citta("Ateleta").
+citta("Atella").
+citta("Atena Lucana").
+citta("Atessa").
+citta("Atina").
+citta("Atrani").
+citta("Atri").
+citta("Atripalda").
+citta("Attigliano").
+citta("Attimis").
+citta("Atzara").
+citta("Auditore").
+citta("Augusta").
+citta("Auletta").
+citta("Aulla").
+citta("Aurano").
+citta("Aurigo").
+citta("Auronzo di Cadore").
+citta("Ausonia").
+citta("Austis").
+citta("Avegno").
+citta("Avelengo/Hafling").
+citta("Avella").
+citta("Avellino").
+citta("Averara").
+citta("Aversa").
+citta("Avetrana").
+citta("Avezzano").
+citta("Aviano").
+citta("Aviatico").
+citta("Avigliana").
+citta("Avigliano").
+citta("Avigliano Umbro").
+citta("Avio").
+citta("Avise").
+citta("Avola").
+citta("Avolasca").
+citta("Ayas").
+citta("Aymavilles").
+citta("Azeglio").
+citta("Azzanello").
+citta("Azzano d'Asti").
+citta("Azzano Decimo").
+citta("Azzano Mella").
+citta("Azzano San Paolo").
+citta("Azzate").
+citta("Azzio").
+citta("Azzone").
+citta("Baceno").
+citta("Bacoli").
+citta("Badalucco").
+citta("Badesi").
+citta("Badia Calavena").
+citta("Badia Pavese").
+citta("Badia Polesine").
+citta("Badia Tedalda").
+citta("Badia/Abtei").
+citta("Badolato").
+citta("Bagaladi").
+citta("Bagheria").
+citta("Bagnacavallo").
+citta("Bagnara Calabra").
+citta("Bagnara di Romagna").
+citta("Bagnaria").
+citta("Bagnaria Arsa").
+citta("Bagnasco").
+citta("Bagnatica").
+citta("Bagni di Lucca").
+citta("Bagno a Ripoli").
+citta("Bagno di Romagna").
+citta("Bagnoli del Trigno").
+citta("Bagnoli di Sopra").
+citta("Bagnoli Irpino").
+citta("Bagnolo Cremasco").
+citta("Bagnolo del Salento").
+citta("Bagnolo di Po").
+citta("Bagnolo in Piano").
+citta("Bagnolo Mella").
+citta("Bagnolo Piemonte").
+citta("Bagnolo San Vito").
+citta("Bagnone").
+citta("Bagnoregio").
+citta("Bagolino").
+citta("Baia e Latina").
+citta("Baiano").
+citta("Bairo").
+citta("Baiso").
+citta("Bajardo").
+citta("Balangero").
+citta("Baldichieri d'Asti").
+citta("Baldissero Canavese").
+citta("Baldissero d'Alba").
+citta("Baldissero Torinese").
+citta("Balestrate").
+citta("Balestrino").
+citta("Ballabio").
+citta("Ballao").
+citta("Balme").
+citta("Balmuccia").
+citta("Balocco").
+citta("Balsorano").
+citta("Balvano").
+citta("Balzola").
+citta("Banari").
+citta("Banchette").
+citta("Bannio Anzino").
+citta("Banzi").
+citta("Baone").
+citta("Baradili").
+citta("Baragiano").
+citta("Baranello").
+citta("Barano d'Ischia").
+citta("Baranzate").
+citta("Barasso").
+citta("Baratili San Pietro").
+citta("Barbania").
+citta("Barbara").
+citta("Barbarano Romano").
+citta("Barbarano Vicentino").
+citta("Barbaresco").
+citta("Barbariga").
+citta("Barbata").
+citta("Barberino di Mugello").
+citta("Barberino Val d'Elsa").
+citta("Barbianello").
+citta("Barbiano/Barbian").
+citta("Barbona").
+citta("Barcellona Pozzo di Gotto").
+citta("Barcis").
+citta("Bard").
+citta("Bardello").
+citta("Bardi").
+citta("Bardineto").
+citta("Bardolino").
+citta("Bardonecchia").
+citta("Bareggio").
+citta("Barengo").
+citta("Baressa").
+citta("Barete").
+citta("Barga").
+citta("Bargagli").
+citta("Barge").
+citta("Barghe").
+citta("Bari").
+citta("Bari Sardo").
+citta("Bariano").
+citta("Baricella").
+citta("Barile").
+citta("Barisciano").
+citta("Barlassina").
+citta("Barletta").
+citta("Barni").
+citta("Barolo").
+citta("Barone Canavese").
+citta("Baronissi").
+citta("Barrafranca").
+citta("Barrali").
+citta("Barrea").
+citta("Barumini").
+citta("Barzago").
+citta("Barzana").
+citta("Barzanò").
+citta("Barzio").
+citta("Basaluzzo").
+citta("Bascapè").
+citta("Baschi").
+citta("Basciano").
+citta("Baselga di Pinè").
+citta("Baselice").
+citta("Basiano").
+citta("Basicò").
+citta("Basiglio").
+citta("Basiliano").
+citta("Bassano Bresciano").
+citta("Bassano del Grappa").
+citta("Bassano in Teverina").
+citta("Bassano Romano").
+citta("Bassiano").
+citta("Bassignana").
+citta("Bastia Mondovì").
+citta("Bastia Umbra").
+citta("Bastida Pancarana").
+citta("Bastiglia").
+citta("Battaglia Terme").
+citta("Battifollo").
+citta("Battipaglia").
+citta("Battuda").
+citta("Baucina").
+citta("Bauladu").
+citta("Baunei").
+citta("Baveno").
+citta("Bedero Valcuvia").
+citta("Bedizzole").
+citta("Bedollo").
+citta("Bedonia").
+citta("Bedulita").
+citta("Bee").
+citta("Beinasco").
+citta("Beinette").
+citta("Belcastro").
+citta("Belfiore").
+citta("Belforte all'Isauro").
+citta("Belforte del Chienti").
+citta("Belforte Monferrato").
+citta("Belgioioso").
+citta("Belgirate").
+citta("Bella").
+citta("Bellagio").
+citta("Bellano").
+citta("Bellante").
+citta("Bellaria-Igea Marina").
+citta("Bellegra").
+citta("Bellino").
+citta("Bellinzago Lombardo").
+citta("Bellinzago Novarese").
+citta("Bellizzi").
+citta("Bellona").
+citta("Bellosguardo").
+citta("Belluno").
+citta("Bellusco").
+citta("Belmonte Calabro").
+citta("Belmonte Castello").
+citta("Belmonte del Sannio").
+citta("Belmonte in Sabina").
+citta("Belmonte Mezzagno").
+citta("Belmonte Piceno").
+citta("Belpasso").
+citta("Belsito").
+citta("Belvedere di Spinello").
+citta("Belvedere Langhe").
+citta("Belvedere Marittimo").
+citta("Belvedere Ostrense").
+citta("Belveglio").
+citta("Belvì").
+citta("Bema").
+citta("Bene Lario").
+citta("Bene Vagienna").
+citta("Benestare").
+citta("Benetutti").
+citta("Benevello").
+citta("Benevento").
+citta("Benna").
+citta("Bentivoglio").
+citta("Berbenno").
+citta("Berbenno di Valtellina").
+citta("Berceto").
+citta("Berchidda").
+citta("Beregazzo con Figliaro").
+citta("Bereguardo").
+citta("Bergamasco").
+citta("Bergamo").
+citta("Bergantino").
+citta("Bergeggi").
+citta("Bergolo").
+citta("Berlingo").
+citta("Bernalda").
+citta("Bernareggio").
+citta("Bernate Ticino").
+citta("Bernezzo").
+citta("Berra").
+citta("Bertinoro").
+citta("Bertiolo").
+citta("Bertonico").
+citta("Berzano di San Pietro").
+citta("Berzano di Tortona").
+citta("Berzo Demo").
+citta("Berzo Inferiore").
+citta("Berzo San Fermo").
+citta("Besana in Brianza").
+citta("Besano").
+citta("Besate").
+citta("Besenello").
+citta("Besenzone").
+citta("Besnate").
+citta("Besozzo").
+citta("Bessude").
+citta("Bettola").
+citta("Bettona").
+citta("Beura-Cardezza").
+citta("Bevagna").
+citta("Beverino").
+citta("Bevilacqua").
+citta("Biancavilla").
+citta("Bianchi").
+citta("Bianco").
+citta("Biandrate").
+citta("Biandronno").
+citta("Bianzano").
+citta("Bianzè").
+citta("Bianzone").
+citta("Biassono").
+citta("Bibbiano").
+citta("Bibbiena").
+citta("Bibbona").
+citta("Bibiana").
+citta("Biccari").
+citta("Bicinicco").
+citta("Bidonì").
+citta("Biella").
+citta("Bienno").
+citta("Bieno").
+citta("Bientina").
+citta("Bigarello").
+citta("Binago").
+citta("Binasco").
+citta("Binetto").
+citta("Bioglio").
+citta("Bionaz").
+citta("Bione").
+citta("Birori").
+citta("Bisaccia").
+citta("Bisacquino").
+citta("Bisceglie").
+citta("Bisegna").
+citta("Bisenti").
+citta("Bisignano").
+citta("Bistagno").
+citta("Bisuschio").
+citta("Bitetto").
+citta("Bitonto").
+citta("Bitritto").
+citta("Bitti").
+citta("Bivona").
+citta("Bivongi").
+citta("Bizzarone").
+citta("Bleggio Superiore").
+citta("Blello").
+citta("Blera").
+citta("Blessagno").
+citta("Blevio").
+citta("Blufi").
+citta("Boara Pisani").
+citta("Bobbio").
+citta("Bobbio Pellice").
+citta("Boca").
+citta("Bocchigliero").
+citta("Boccioleto").
+citta("Bocenago").
+citta("Bodio Lomnago").
+citta("Boffalora d'Adda").
+citta("Boffalora sopra Ticino").
+citta("Bogliasco").
+citta("Bognanco").
+citta("Bogogno").
+citta("Boissano").
+citta("Bojano").
+citta("Bolano").
+citta("Bolgare").
+citta("Bollate").
+citta("Bollengo").
+citta("Bologna").
+citta("Bolognano").
+citta("Bolognetta").
+citta("Bolognola").
+citta("Bolotana").
+citta("Bolsena").
+citta("Boltiere").
+citta("Bolzano Novarese").
+citta("Bolzano Vicentino").
+citta("Bolzano/Bozen").
+citta("Bomarzo").
+citta("Bomba").
+citta("Bompensiere").
+citta("Bompietro").
+citta("Bomporto").
+citta("Bonarcado").
+citta("Bonassola").
+citta("Bonate Sopra").
+citta("Bonate Sotto").
+citta("Bonavigo").
+citta("Bondeno").
+citta("Bondone").
+citta("Bonea").
+citta("Bonefro").
+citta("Bonemerse").
+citta("Bonifati").
+citta("Bonito").
+citta("Bonnanaro").
+citta("Bono").
+citta("Bonorva").
+citta("Bonvicino").
+citta("Borbona").
+citta("Borca di Cadore").
+citta("Bordano").
+citta("Bordighera").
+citta("Bordolano").
+citta("Bore").
+citta("Boretto").
+citta("Borgarello").
+citta("Borgaro Torinese").
+citta("Borgetto").
+citta("Borghetto d'Arroscia").
+citta("Borghetto di Borbera").
+citta("Borghetto di Vara").
+citta("Borghetto Lodigiano").
+citta("Borghetto Santo Spirito").
+citta("Borghi").
+citta("Borgia").
+citta("Borgiallo").
+citta("Borgio Verezzi").
+citta("Borgo a Mozzano").
+citta("Borgo Chiese").
+citta("Borgo d'Ale").
+citta("Borgo di Terzo").
+citta("Borgo Lares").
+citta("Borgo Pace").
+citta("Borgo Priolo").
+citta("Borgo San Dalmazzo").
+citta("Borgo San Giacomo").
+citta("Borgo San Giovanni").
+citta("Borgo San Lorenzo").
+citta("Borgo San Martino").
+citta("Borgo San Siro").
+citta("Borgo Ticino").
+citta("Borgo Tossignano").
+citta("Borgo Val di Taro").
+citta("Borgo Valsugana").
+citta("Borgo Velino").
+citta("Borgo Vercelli").
+citta("Borgo Virgilio").
+citta("Borgofranco d'Ivrea").
+citta("Borgofranco sul Po").
+citta("Borgolavezzaro").
+citta("Borgomale").
+citta("Borgomanero").
+citta("Borgomaro").
+citta("Borgomasino").
+citta("Borgomezzavalle").
+citta("Borgone Susa").
+citta("Borgonovo Val Tidone").
+citta("Borgoratto Alessandrino").
+citta("Borgoratto Mormorolo").
+citta("Borgoricco").
+citta("Borgorose").
+citta("Borgosatollo").
+citta("Borgosesia").
+citta("Bormida").
+citta("Bormio").
+citta("Bornasco").
+citta("Borno").
+citta("Boroneddu").
+citta("Borore").
+citta("Borrello").
+citta("Borriana").
+citta("Borso del Grappa").
+citta("Bortigali").
+citta("Bortigiadas").
+citta("Borutta").
+citta("Borzonasca").
+citta("Bosa").
+citta("Bosaro").
+citta("Boschi Sant'Anna").
+citta("Bosco Chiesanuova").
+citta("Bosco Marengo").
+citta("Bosconero").
+citta("Boscoreale").
+citta("Boscotrecase").
+citta("Bosia").
+citta("Bosio").
+citta("Bosisio Parini").
+citta("Bosnasco").
+citta("Bossico").
+citta("Bossolasco").
+citta("Botricello").
+citta("Botrugno").
+citta("Bottanuco").
+citta("Botticino").
+citta("Bottidda").
+citta("Bova").
+citta("Bova Marina").
+citta("Bovalino").
+citta("Bovegno").
+citta("Boves").
+citta("Bovezzo").
+citta("Boville Ernica").
+citta("Bovino").
+citta("Bovisio-Masciago").
+citta("Bovolenta").
+citta("Bovolone").
+citta("Bozzole").
+citta("Bozzolo").
+citta("Bra").
+citta("Bracca").
+citta("Bracciano").
+citta("Bracigliano").
+citta("Braies/Prags").
+citta("Brallo di Pregola").
+citta("Brancaleone").
+citta("Brandico").
+citta("Brandizzo").
+citta("Branzi").
+citta("Braone").
+citta("Brebbia").
+citta("Breda di Piave").
+citta("Bregano").
+citta("Breganze").
+citta("Bregnano").
+citta("Breia").
+citta("Brembate").
+citta("Brembate di Sopra").
+citta("Brembio").
+citta("Breme").
+citta("Brendola").
+citta("Brenna").
+citta("Brennero/Brenner").
+citta("Breno").
+citta("Brenta").
+citta("Brentino Belluno").
+citta("Brentonico").
+citta("Brenzone sul Garda").
+citta("Brescello").
+citta("Brescia").
+citta("Bresimo").
+citta("Bressana Bottarone").
+citta("Bressanone/Brixen").
+citta("Bressanvido").
+citta("Bresso").
+citta("Brez").
+citta("Brezzo di Bedero").
+citta("Briaglia").
+citta("Briatico").
+citta("Bricherasio").
+citta("Brienno").
+citta("Brienza").
+citta("Briga Alta").
+citta("Briga Novarese").
+citta("Brignano Gera d'Adda").
+citta("Brignano-Frascata").
+citta("Brindisi").
+citta("Brindisi Montagna").
+citta("Brinzio").
+citta("Briona").
+citta("Brione").
+citta("Briosco").
+citta("Brisighella").
+citta("Brissago-Valtravaglia").
+citta("Brissogne").
+citta("Brittoli").
+citta("Brivio").
+citta("Broccostella").
+citta("Brogliano").
+citta("Brognaturo").
+citta("Brolo").
+citta("Brondello").
+citta("Broni").
+citta("Bronte").
+citta("Bronzolo/Branzoll").
+citta("Brossasco").
+citta("Brosso").
+citta("Brovello-Carpugnino").
+citta("Brozolo").
+citta("Brugherio").
+citta("Brugine").
+citta("Brugnato").
+citta("Brugnera").
+citta("Bruino").
+citta("Brumano").
+citta("Brunate").
+citta("Brunello").
+citta("Brunico/Bruneck").
+citta("Bruno").
+citta("Brusaporto").
+citta("Brusasco").
+citta("Brusciano").
+citta("Brusimpiano").
+citta("Brusnengo").
+citta("Brusson").
+citta("Bruzolo").
+citta("Bruzzano Zeffirio").
+citta("Bubbiano").
+citta("Bubbio").
+citta("Buccheri").
+citta("Bucchianico").
+citta("Bucciano").
+citta("Buccinasco").
+citta("Buccino").
+citta("Bucine").
+citta("Buddusò").
+citta("Budoia").
+citta("Budoni").
+citta("Budrio").
+citta("Buggerru").
+citta("Buggiano").
+citta("Buglio in Monte").
+citta("Bugnara").
+citta("Buguggiate").
+citta("Buja").
+citta("Bulciago").
+citta("Bulgarograsso").
+citta("Bultei").
+citta("Bulzi").
+citta("Buonabitacolo").
+citta("Buonalbergo").
+citta("Buonconvento").
+citta("Buonvicino").
+citta("Burago di Molgora").
+citta("Burcei").
+citta("Burgio").
+citta("Burgos").
+citta("Buriasco").
+citta("Burolo").
+citta("Buronzo").
+citta("Busachi").
+citta("Busalla").
+citta("Busano").
+citta("Busca").
+citta("Buscate").
+citta("Buscemi").
+citta("Buseto Palizzolo").
+citta("Busnago").
+citta("Bussero").
+citta("Busseto").
+citta("Bussi sul Tirino").
+citta("Busso").
+citta("Bussolengo").
+citta("Bussoleno").
+citta("Busto Arsizio").
+citta("Busto Garolfo").
+citta("Butera").
+citta("Buti").
+citta("Buttapietra").
+citta("Buttigliera Alta").
+citta("Buttigliera d'Asti").
+citta("Buttrio").
+citta("Ca' d'Andrea").
+citta("Cabella Ligure").
+citta("Cabiate").
+citta("Cabras").
+citta("Caccamo").
+citta("Caccuri").
+citta("Cadegliano-Viconago").
+citta("Cadelbosco di Sopra").
+citta("Cadeo").
+citta("Caderzone Terme").
+citta("Cadoneghe").
+citta("Cadorago").
+citta("Cadrezzate").
+citta("Caerano di San Marco").
+citta("Cafasse").
+citta("Caggiano").
+citta("Cagli").
+citta("Cagliari").
+citta("Caglio").
+citta("Cagnano Amiterno").
+citta("Cagnano Varano").
+citta("Cagno").
+citta("Cagnò").
+citta("Caianello").
+citta("Caiazzo").
+citta("Caines/Kuens").
+citta("Caino").
+citta("Caiolo").
+citta("Cairano").
+citta("Cairate").
+citta("Cairo Montenotte").
+citta("Caivano").
+citta("Calabritto").
+citta("Calalzo di Cadore").
+citta("Calamandrana").
+citta("Calamonaci").
+citta("Calangianus").
+citta("Calanna").
+citta("Calasca-Castiglione").
+citta("Calascibetta").
+citta("Calascio").
+citta("Calasetta").
+citta("Calatabiano").
+citta("Calatafimi-Segesta").
+citta("Calcata").
+citta("Calceranica al Lago").
+citta("Calci").
+citta("Calciano").
+citta("Calcinaia").
+citta("Calcinate").
+citta("Calcinato").
+citta("Calcio").
+citta("Calco").
+citta("Caldaro sulla strada del vino/Kaltern an der Weinstraße").
+citta("Caldarola").
+citta("Calderara di Reno").
+citta("Caldes").
+citta("Caldiero").
+citta("Caldogno").
+citta("Caldonazzo").
+citta("Calendasco").
+citta("Calenzano").
+citta("Calestano").
+citta("Calice al Cornoviglio").
+citta("Calice Ligure").
+citta("Calimera").
+citta("Calitri").
+citta("Calizzano").
+citta("Callabiana").
+citta("Calliano").
+citta("Calliano").
+citta("Calolziocorte").
+citta("Calopezzati").
+citta("Calosso").
+citta("Caloveto").
+citta("Caltabellotta").
+citta("Caltagirone").
+citta("Caltanissetta").
+citta("Caltavuturo").
+citta("Caltignaga").
+citta("Calto").
+citta("Caltrano").
+citta("Calusco d'Adda").
+citta("Caluso").
+citta("Calvagese della Riviera").
+citta("Calvanico").
+citta("Calvatone").
+citta("Calvello").
+citta("Calvene").
+citta("Calvenzano").
+citta("Calvera").
+citta("Calvi").
+citta("Calvi dell'Umbria").
+citta("Calvi Risorta").
+citta("Calvignano").
+citta("Calvignasco").
+citta("Calvisano").
+citta("Calvizzano").
+citta("Camagna Monferrato").
+citta("Camaiore").
+citta("Camairago").
+citta("Camandona").
+citta("Camastra").
+citta("Cambiago").
+citta("Cambiano").
+citta("Cambiasca").
+citta("Camburzano").
+citta("Camerana").
+citta("Camerano").
+citta("Camerano Casasco").
+citta("Camerata Cornello").
+citta("Camerata Nuova").
+citta("Camerata Picena").
+citta("Cameri").
+citta("Camerino").
+citta("Camerota").
+citta("Camigliano").
+citta("Caminata").
+citta("Camini").
+citta("Camino").
+citta("Camino al Tagliamento").
+citta("Camisano").
+citta("Camisano Vicentino").
+citta("Cammarata").
+citta("Camo").
+citta("Camogli").
+citta("Campagna").
+citta("Campagna Lupia").
+citta("Campagnano di Roma").
+citta("Campagnatico").
+citta("Campagnola Cremasca").
+citta("Campagnola Emilia").
+citta("Campana").
+citta("Camparada").
+citta("Campegine").
+citta("Campello sul Clitunno").
+citta("Campertogno").
+citta("Campi Bisenzio").
+citta("Campi Salentina").
+citta("Campiglia Cervo").
+citta("Campiglia dei Berici").
+citta("Campiglia Marittima").
+citta("Campiglione Fenile").
+citta("Campione d'Italia").
+citta("Campitello di Fassa").
+citta("Campli").
+citta("Campo Calabro").
+citta("Campo di Giove").
+citta("Campo di Trens/Freienfeld").
+citta("Campo Ligure").
+citta("Campo nell'Elba").
+citta("Campo San Martino").
+citta("Campo Tures/Sand in Taufers").
+citta("Campobasso").
+citta("Campobello di Licata").
+citta("Campobello di Mazara").
+citta("Campochiaro").
+citta("Campodarsego").
+citta("Campodenno").
+citta("Campodimele").
+citta("Campodipietra").
+citta("Campodolcino").
+citta("Campodoro").
+citta("Campofelice di Fitalia").
+citta("Campofelice di Roccella").
+citta("Campofilone").
+citta("Campofiorito").
+citta("Campoformido").
+citta("Campofranco").
+citta("Campogalliano").
+citta("Campolattaro").
+citta("Campoli Appennino").
+citta("Campoli del Monte Taburno").
+citta("Campolieto").
+citta("Campolongo Maggiore").
+citta("Campolongo sul Brenta").
+citta("Campolongo Tapogliano").
+citta("Campomaggiore").
+citta("Campomarino").
+citta("Campomorone").
+citta("Camponogara").
+citta("Campora").
+citta("Camporeale").
+citta("Camporgiano").
+citta("Camporosso").
+citta("Camporotondo di Fiastrone").
+citta("Camporotondo Etneo").
+citta("Camposampiero").
+citta("Camposano").
+citta("Camposanto").
+citta("Campospinoso").
+citta("Campotosto").
+citta("Camugnano").
+citta("Canal San Bovo").
+citta("Canale").
+citta("Canale d'Agordo").
+citta("Canale Monterano").
+citta("Canaro").
+citta("Canazei").
+citta("Cancellara").
+citta("Cancello ed Arnone").
+citta("Canda").
+citta("Candela").
+citta("Candelo").
+citta("Candia Canavese").
+citta("Candia Lomellina").
+citta("Candiana").
+citta("Candida").
+citta("Candidoni").
+citta("Candiolo").
+citta("Canegrate").
+citta("Canelli").
+citta("Canepina").
+citta("Caneva").
+citta("Canevino").
+citta("Canicattì").
+citta("Canicattini Bagni").
+citta("Canino").
+citta("Canischio").
+citta("Canistro").
+citta("Canna").
+citta("Cannalonga").
+citta("Cannara").
+citta("Cannero Riviera").
+citta("Canneto Pavese").
+citta("Canneto sull'Oglio").
+citta("Cannobio").
+citta("Cannole").
+citta("Canolo").
+citta("Canonica d'Adda").
+citta("Canosa di Puglia").
+citta("Canosa Sannita").
+citta("Canosio").
+citta("Canossa").
+citta("Cansano").
+citta("Cantagallo").
+citta("Cantalice").
+citta("Cantalupa").
+citta("Cantalupo in Sabina").
+citta("Cantalupo Ligure").
+citta("Cantalupo nel Sannio").
+citta("Cantarana").
+citta("Cantello").
+citta("Canterano").
+citta("Cantiano").
+citta("Cantoira").
+citta("Cantù").
+citta("Canzano").
+citta("Canzo").
+citta("Caorle").
+citta("Caorso").
+citta("Capaccio Paestum").
+citta("Capaci").
+citta("Capalbio").
+citta("Capannoli").
+citta("Capannori").
+citta("Capena").
+citta("Capergnanica").
+citta("Capestrano").
+citta("Capiago Intimiano").
+citta("Capistrano").
+citta("Capistrello").
+citta("Capitignano").
+citta("Capizzi").
+citta("Capizzone").
+citta("Capo di Ponte").
+citta("Capo d'Orlando").
+citta("Capodimonte").
+citta("Capodrise").
+citta("Capoliveri").
+citta("Capolona").
+citta("Caponago").
+citta("Caporciano").
+citta("Caposele").
+citta("Capoterra").
+citta("Capovalle").
+citta("Cappadocia").
+citta("Cappella Cantone").
+citta("Cappella de' Picenardi").
+citta("Cappella Maggiore").
+citta("Cappelle sul Tavo").
+citta("Capracotta").
+citta("Capraia e Limite").
+citta("Capraia Isola").
+citta("Capralba").
+citta("Capranica").
+citta("Capranica Prenestina").
+citta("Caprarica di Lecce").
+citta("Caprarola").
+citta("Caprauna").
+citta("Caprese Michelangelo").
+citta("Caprezzo").
+citta("Capri").
+citta("Capri Leone").
+citta("Capriana").
+citta("Capriano del Colle").
+citta("Capriata d'Orba").
+citta("Capriate San Gervasio").
+citta("Capriati a Volturno").
+citta("Caprie").
+citta("Capriglia Irpina").
+citta("Capriglio").
+citta("Caprile").
+citta("Caprino Bergamasco").
+citta("Caprino Veronese").
+citta("Capriolo").
+citta("Capriva del Friuli").
+citta("Capua").
+citta("Capurso").
+citta("Caraffa del Bianco").
+citta("Caraffa di Catanzaro").
+citta("Caraglio").
+citta("Caramagna Piemonte").
+citta("Caramanico Terme").
+citta("Carano").
+citta("Carapelle").
+citta("Carapelle Calvisio").
+citta("Carasco").
+citta("Carassai").
+citta("Carate Brianza").
+citta("Carate Urio").
+citta("Caravaggio").
+citta("Caravate").
+citta("Caravino").
+citta("Caravonica").
+citta("Carbognano").
+citta("Carbonara al Ticino").
+citta("Carbonara di Nola").
+citta("Carbonara di Po").
+citta("Carbonara Scrivia").
+citta("Carbonate").
+citta("Carbone").
+citta("Carbonera").
+citta("Carbonia").
+citta("Carcare").
+citta("Carceri").
+citta("Carcoforo").
+citta("Cardano al Campo").
+citta("Cardè").
+citta("Cardedu").
+citta("Cardeto").
+citta("Cardinale").
+citta("Cardito").
+citta("Careggine").
+citta("Carema").
+citta("Carenno").
+citta("Carentino").
+citta("Careri").
+citta("Caresana").
+citta("Caresanablot").
+citta("Carezzano").
+citta("Carfizzi").
+citta("Cargeghe").
+citta("Cariati").
+citta("Carife").
+citta("Carignano").
+citta("Carimate").
+citta("Carinaro").
+citta("Carini").
+citta("Carinola").
+citta("Carisio").
+citta("Carisolo").
+citta("Carlantino").
+citta("Carlazzo").
+citta("Carlentini").
+citta("Carlino").
+citta("Carloforte").
+citta("Carlopoli").
+citta("Carmagnola").
+citta("Carmiano").
+citta("Carmignano").
+citta("Carmignano di Brenta").
+citta("Carnago").
+citta("Carnate").
+citta("Carobbio degli Angeli").
+citta("Carolei").
+citta("Carona").
+citta("Caronia").
+citta("Caronno Pertusella").
+citta("Caronno Varesino").
+citta("Carosino").
+citta("Carovigno").
+citta("Carovilli").
+citta("Carpaneto Piacentino").
+citta("Carpanzano").
+citta("Carpasio").
+citta("Carpegna").
+citta("Carpenedolo").
+citta("Carpeneto").
+citta("Carpi").
+citta("Carpiano").
+citta("Carpignano Salentino").
+citta("Carpignano Sesia").
+citta("Carpineti").
+citta("Carpineto della Nora").
+citta("Carpineto Romano").
+citta("Carpineto Sinello").
+citta("Carpino").
+citta("Carpinone").
+citta("Carrara").
+citta("Carrè").
+citta("Carrega Ligure").
+citta("Carro").
+citta("Carrodano").
+citta("Carrosio").
+citta("Carrù").
+citta("Carsoli").
+citta("Cartigliano").
+citta("Cartignano").
+citta("Cartoceto").
+citta("Cartosio").
+citta("Cartura").
+citta("Carugate").
+citta("Carugo").
+citta("Carunchio").
+citta("Carvico").
+citta("Carzano").
+citta("Casabona").
+citta("Casacalenda").
+citta("Casacanditella").
+citta("Casagiove").
+citta("Casal Cermelli").
+citta("Casal di Principe").
+citta("Casal Velino").
+citta("Casalanguida").
+citta("Casalattico").
+citta("Casalbeltrame").
+citta("Casalbordino").
+citta("Casalbore").
+citta("Casalborgone").
+citta("Casalbuono").
+citta("Casalbuttano ed Uniti").
+citta("Casalciprano").
+citta("Casalduni").
+citta("Casale Corte Cerro").
+citta("Casale Cremasco-Vidolasco").
+citta("Casale di Scodosia").
+citta("Casale Litta").
+citta("Casale Marittimo").
+citta("Casale Monferrato").
+citta("Casale sul Sile").
+citta("Casalecchio di Reno").
+citta("Casaleggio Boiro").
+citta("Casaleggio Novara").
+citta("Casaleone").
+citta("Casaletto Ceredano").
+citta("Casaletto di Sopra").
+citta("Casaletto Lodigiano").
+citta("Casaletto Spartano").
+citta("Casaletto Vaprio").
+citta("Casalfiumanese").
+citta("Casalgrande").
+citta("Casalgrasso").
+citta("Casali del Manco").
+citta("Casalincontrada").
+citta("Casalino").
+citta("Casalmaggiore").
+citta("Casalmaiocco").
+citta("Casalmorano").
+citta("Casalmoro").
+citta("Casalnoceto").
+citta("Casalnuovo di Napoli").
+citta("Casalnuovo Monterotaro").
+citta("Casaloldo").
+citta("Casalpusterlengo").
+citta("Casalromano").
+citta("Casalserugo").
+citta("Casaluce").
+citta("Casalvecchio di Puglia").
+citta("Casalvecchio Siculo").
+citta("Casalvieri").
+citta("Casalvolone").
+citta("Casalzuigno").
+citta("Casamarciano").
+citta("Casamassima").
+citta("Casamicciola Terme").
+citta("Casandrino").
+citta("Casanova Elvo").
+citta("Casanova Lerrone").
+citta("Casanova Lonati").
+citta("Casape").
+citta("Casapesenna").
+citta("Casapinta").
+citta("Casaprota").
+citta("Casapulla").
+citta("Casarano").
+citta("Casargo").
+citta("Casarile").
+citta("Casarsa della Delizia").
+citta("Casarza Ligure").
+citta("Casasco").
+citta("Casasco d'Intelvi").
+citta("Casatenovo").
+citta("Casatisma").
+citta("Casavatore").
+citta("Casazza").
+citta("Cascia").
+citta("Casciago").
+citta("Casciana Terme Lari").
+citta("Cascina").
+citta("Cascinette d'Ivrea").
+citta("Casei Gerola").
+citta("Caselette").
+citta("Casella").
+citta("Caselle in Pittari").
+citta("Caselle Landi").
+citta("Caselle Lurani").
+citta("Caselle Torinese").
+citta("Caserta").
+citta("Casier").
+citta("Casignana").
+citta("Casina").
+citta("Casirate d'Adda").
+citta("Caslino d'Erba").
+citta("Casnate con Bernate").
+citta("Casnigo").
+citta("Casola di Napoli").
+citta("Casola in Lunigiana").
+citta("Casola Valsenio").
+citta("Casole d'Elsa").
+citta("Casoli").
+citta("Casorate Primo").
+citta("Casorate Sempione").
+citta("Casorezzo").
+citta("Casoria").
+citta("Casorzo").
+citta("Casperia").
+citta("Caspoggio").
+citta("Cassacco").
+citta("Cassago Brianza").
+citta("Cassano all'Ionio").
+citta("Cassano d'Adda").
+citta("Cassano delle Murge").
+citta("Cassano Irpino").
+citta("Cassano Magnago").
+citta("Cassano Spinola").
+citta("Cassano Valcuvia").
+citta("Cassaro").
+citta("Cassiglio").
+citta("Cassina de' Pecchi").
+citta("Cassina Rizzardi").
+citta("Cassina Valsassina").
+citta("Cassinasco").
+citta("Cassine").
+citta("Cassinelle").
+citta("Cassinetta di Lugagnano").
+citta("Cassino").
+citta("Cassola").
+citta("Cassolnovo").
+citta("Castagnaro").
+citta("Castagneto Carducci").
+citta("Castagneto Po").
+citta("Castagnito").
+citta("Castagnole delle Lanze").
+citta("Castagnole Monferrato").
+citta("Castagnole Piemonte").
+citta("Castana").
+citta("Castano Primo").
+citta("Casteggio").
+citta("Castegnato").
+citta("Castegnero").
+citta("Castel Baronia").
+citta("Castel Boglione").
+citta("Castel Bolognese").
+citta("Castel Campagnano").
+citta("Castel Castagna").
+citta("Castel Condino").
+citta("Castel d'Aiano").
+citta("Castel d'Ario").
+citta("Castel d'Azzano").
+citta("Castel del Giudice").
+citta("Castel del Monte").
+citta("Castel del Piano").
+citta("Castel del Rio").
+citta("Castel di Casio").
+citta("Castel di Ieri").
+citta("Castel di Iudica").
+citta("Castel di Lama").
+citta("Castel di Lucio").
+citta("Castel di Sangro").
+citta("Castel di Sasso").
+citta("Castel di Tora").
+citta("Castel Focognano").
+citta("Castel Frentano").
+citta("Castel Gabbiano").
+citta("Castel Gandolfo").
+citta("Castel Giorgio").
+citta("Castel Goffredo").
+citta("Castel Guelfo di Bologna").
+citta("Castel Ivano").
+citta("Castel Madama").
+citta("Castel Maggiore").
+citta("Castel Mella").
+citta("Castel Morrone").
+citta("Castel Ritaldi").
+citta("Castel Rocchero").
+citta("Castel Rozzone").
+citta("Castel San Giorgio").
+citta("Castel San Giovanni").
+citta("Castel San Lorenzo").
+citta("Castel San Niccolò").
+citta("Castel San Pietro Romano").
+citta("Castel San Pietro Terme").
+citta("Castel San Vincenzo").
+citta("Castel Sant'Angelo").
+citta("Castel Sant'Elia").
+citta("Castel Viscardo").
+citta("Castel Vittorio").
+citta("Castel Volturno").
+citta("Castelbaldo").
+citta("Castelbelforte").
+citta("Castelbellino").
+citta("Castelbello-Ciardes/Kastelbell-Tschars").
+citta("Castelbianco").
+citta("Castelbottaccio").
+citta("Castelbuono").
+citta("Castelcivita").
+citta("Castelcovati").
+citta("Castelcucco").
+citta("Casteldaccia").
+citta("Casteldelci").
+citta("Casteldelfino").
+citta("Casteldidone").
+citta("Castelfidardo").
+citta("Castelfiorentino").
+citta("Castelfondo").
+citta("Castelforte").
+citta("Castelfranci").
+citta("Castelfranco di Sotto").
+citta("Castelfranco Emilia").
+citta("Castelfranco in Miscano").
+citta("Castelfranco Piandiscò").
+citta("Castelfranco Veneto").
+citta("Castelgomberto").
+citta("Castelgrande").
+citta("Castelguglielmo").
+citta("Castelguidone").
+citta("Castellabate").
+citta("Castellafiume").
+citta("Castell'Alfero").
+citta("Castellalto").
+citta("Castellammare del Golfo").
+citta("Castellammare di Stabia").
+citta("Castellamonte").
+citta("Castellana Grotte").
+citta("Castellana Sicula").
+citta("Castellaneta").
+citta("Castellania").
+citta("Castellanza").
+citta("Castellar").
+citta("Castellar Guidobono").
+citta("Castellarano").
+citta("Castellaro").
+citta("Castell'Arquato").
+citta("Castell'Azzara").
+citta("Castellazzo Bormida").
+citta("Castellazzo Novarese").
+citta("Castelleone").
+citta("Castelleone di Suasa").
+citta("Castellero").
+citta("Castelletto Cervo").
+citta("Castelletto d'Erro").
+citta("Castelletto di Branduzzo").
+citta("Castelletto d'Orba").
+citta("Castelletto Merli").
+citta("Castelletto Molina").
+citta("Castelletto Monferrato").
+citta("Castelletto sopra Ticino").
+citta("Castelletto Stura").
+citta("Castelletto Uzzone").
+citta("Castelli").
+citta("Castelli Calepio").
+citta("Castellina in Chianti").
+citta("Castellina Marittima").
+citta("Castellinaldo d'Alba").
+citta("Castellino del Biferno").
+citta("Castellino Tanaro").
+citta("Castelliri").
+citta("Castello Cabiaglio").
+citta("Castello d'Agogna").
+citta("Castello d'Argile").
+citta("Castello del Matese").
+citta("Castello dell'Acqua").
+citta("Castello di Annone").
+citta("Castello di Brianza").
+citta("Castello di Cisterna").
+citta("Castello di Godego").
+citta("Castello Tesino").
+citta("Castello-Molina di Fiemme").
+citta("Castellucchio").
+citta("Castelluccio dei Sauri").
+citta("Castelluccio Inferiore").
+citta("Castelluccio Superiore").
+citta("Castelluccio Valmaggiore").
+citta("Castell'Umberto").
+citta("Castelmagno").
+citta("Castelmarte").
+citta("Castelmassa").
+citta("Castelmauro").
+citta("Castelmezzano").
+citta("Castelmola").
+citta("Castelnovetto").
+citta("Castelnovo Bariano").
+citta("Castelnovo del Friuli").
+citta("Castelnovo di Sotto").
+citta("Castelnovo ne' Monti").
+citta("Castelnuovo").
+citta("Castelnuovo Belbo").
+citta("Castelnuovo Berardenga").
+citta("Castelnuovo Bocca d'Adda").
+citta("Castelnuovo Bormida").
+citta("Castelnuovo Bozzente").
+citta("Castelnuovo Calcea").
+citta("Castelnuovo Cilento").
+citta("Castelnuovo del Garda").
+citta("Castelnuovo della Daunia").
+citta("Castelnuovo di Ceva").
+citta("Castelnuovo di Conza").
+citta("Castelnuovo di Farfa").
+citta("Castelnuovo di Garfagnana").
+citta("Castelnuovo di Porto").
+citta("Castelnuovo di Val di Cecina").
+citta("Castelnuovo Don Bosco").
+citta("Castelnuovo Magra").
+citta("Castelnuovo Nigra").
+citta("Castelnuovo Parano").
+citta("Castelnuovo Rangone").
+citta("Castelnuovo Scrivia").
+citta("Castelpagano").
+citta("Castelpetroso").
+citta("Castelpizzuto").
+citta("Castelplanio").
+citta("Castelpoto").
+citta("Castelraimondo").
+citta("Castelrotto/Kastelruth").
+citta("Castelsantangelo sul Nera").
+citta("Castelsaraceno").
+citta("Castelsardo").
+citta("Castelseprio").
+citta("Castelsilano").
+citta("Castelspina").
+citta("Casteltermini").
+citta("Castelveccana").
+citta("Castelvecchio Calvisio").
+citta("Castelvecchio di Rocca Barbena").
+citta("Castelvecchio Subequo").
+citta("Castelvenere").
+citta("Castelverde").
+citta("Castelverrino").
+citta("Castelvetere in Val Fortore").
+citta("Castelvetere sul Calore").
+citta("Castelvetrano").
+citta("Castelvetro di Modena").
+citta("Castelvetro Piacentino").
+citta("Castelvisconti").
+citta("Castenaso").
+citta("Castenedolo").
+citta("Castiadas").
+citta("Castiglion Fibocchi").
+citta("Castiglion Fiorentino").
+citta("Castiglione a Casauria").
+citta("Castiglione Chiavarese").
+citta("Castiglione Cosentino").
+citta("Castiglione d'Adda").
+citta("Castiglione dei Pepoli").
+citta("Castiglione del Genovesi").
+citta("Castiglione del Lago").
+citta("Castiglione della Pescaia").
+citta("Castiglione delle Stiviere").
+citta("Castiglione di Garfagnana").
+citta("Castiglione di Sicilia").
+citta("Castiglione d'Intelvi").
+citta("Castiglione d'Orcia").
+citta("Castiglione Falletto").
+citta("Castiglione in Teverina").
+citta("Castiglione Messer Marino").
+citta("Castiglione Messer Raimondo").
+citta("Castiglione Olona").
+citta("Castiglione Tinella").
+citta("Castiglione Torinese").
+citta("Castignano").
+citta("Castilenti").
+citta("Castino").
+citta("Castione Andevenno").
+citta("Castione della Presolana").
+citta("Castions di Strada").
+citta("Castiraga Vidardo").
+citta("Casto").
+citta("Castorano").
+citta("Castrezzato").
+citta("Castri di Lecce").
+citta("Castrignano de' Greci").
+citta("Castrignano del Capo").
+citta("Castro").
+citta("Castro").
+citta("Castro dei Volsci").
+citta("Castrocaro Terme e Terra del Sole").
+citta("Castrocielo").
+citta("Castrofilippo").
+citta("Castrolibero").
+citta("Castronno").
+citta("Castronovo di Sicilia").
+citta("Castronuovo di Sant'Andrea").
+citta("Castropignano").
+citta("Castroreale").
+citta("Castroregio").
+citta("Castrovillari").
+citta("Catania").
+citta("Catanzaro").
+citta("Catenanuova").
+citta("Catignano").
+citta("Cattolica").
+citta("Cattolica Eraclea").
+citta("Caulonia").
+citta("Cautano").
+citta("Cava de' Tirreni").
+citta("Cava Manara").
+citta("Cavacurta").
+citta("Cavaglià").
+citta("Cavaglietto").
+citta("Cavaglio d'Agogna").
+citta("Cavaglio-Spoccia").
+citta("Cavagnolo").
+citta("Cavaion Veronese").
+citta("Cavalese").
+citta("Cavallerleone").
+citta("Cavallermaggiore").
+citta("Cavallino").
+citta("Cavallino-Treporti").
+citta("Cavallirio").
+citta("Cavareno").
+citta("Cavargna").
+citta("Cavaria con Premezzo").
+citta("Cavarzere").
+citta("Cavaso del Tomba").
+citta("Cavasso Nuovo").
+citta("Cavatore").
+citta("Cavazzo Carnico").
+citta("Cave").
+citta("Cavedago").
+citta("Cavedine").
+citta("Cavenago d'Adda").
+citta("Cavenago di Brianza").
+citta("Cavernago").
+citta("Cavezzo").
+citta("Cavizzana").
+citta("Cavour").
+citta("Cavriago").
+citta("Cavriana").
+citta("Cavriglia").
+citta("Cazzago Brabbia").
+citta("Cazzago San Martino").
+citta("Cazzano di Tramigna").
+citta("Cazzano Sant'Andrea").
+citta("Ceccano").
+citta("Cecima").
+citta("Cecina").
+citta("Cedegolo").
+citta("Cedrasco").
+citta("Cefalà Diana").
+citta("Cefalù").
+citta("Ceggia").
+citta("Ceglie Messapica").
+citta("Celano").
+citta("Celenza sul Trigno").
+citta("Celenza Valfortore").
+citta("Celico").
+citta("Cella Dati").
+citta("Cella Monte").
+citta("Cellamare").
+citta("Cellara").
+citta("Cellarengo").
+citta("Cellatica").
+citta("Celle di Bulgheria").
+citta("Celle di Macra").
+citta("Celle di San Vito").
+citta("Celle Enomondo").
+citta("Celle Ligure").
+citta("Celleno").
+citta("Cellere").
+citta("Cellino Attanasio").
+citta("Cellino San Marco").
+citta("Cellio").
+citta("Cellole").
+citta("Cembra Lisignago").
+citta("Cenadi").
+citta("Cenate Sopra").
+citta("Cenate Sotto").
+citta("Cencenighe Agordino").
+citta("Cene").
+citta("Ceneselli").
+citta("Cengio").
+citta("Centallo").
+citta("Cento").
+citta("Centola").
+citta("Centrache").
+citta("Centuripe").
+citta("Cepagatti").
+citta("Ceppaloni").
+citta("Ceppo Morelli").
+citta("Ceprano").
+citta("Cerami").
+citta("Ceranesi").
+citta("Cerano").
+citta("Cerano d'Intelvi").
+citta("Ceranova").
+citta("Ceraso").
+citta("Cercemaggiore").
+citta("Cercenasco").
+citta("Cercepiccola").
+citta("Cerchiara di Calabria").
+citta("Cerchio").
+citta("Cercino").
+citta("Cercivento").
+citta("Cercola").
+citta("Cerda").
+citta("Cerea").
+citta("Ceregnano").
+citta("Cerenzia").
+citta("Ceres").
+citta("Ceresara").
+citta("Cereseto").
+citta("Ceresole Alba").
+citta("Ceresole Reale").
+citta("Cerete").
+citta("Ceretto Lomellina").
+citta("Cergnago").
+citta("Ceriale").
+citta("Ceriana").
+citta("Ceriano Laghetto").
+citta("Cerignale").
+citta("Cerignola").
+citta("Cerisano").
+citta("Cermenate").
+citta("Cermes/Tscherms").
+citta("Cermignano").
+citta("Cernobbio").
+citta("Cernusco Lombardone").
+citta("Cernusco sul Naviglio").
+citta("Cerreto Castello").
+citta("Cerreto d'Asti").
+citta("Cerreto d'Esi").
+citta("Cerreto di Spoleto").
+citta("Cerreto Grue").
+citta("Cerreto Guidi").
+citta("Cerreto Laziale").
+citta("Cerreto Sannita").
+citta("Cerretto Langhe").
+citta("Cerrina Monferrato").
+citta("Cerrione").
+citta("Cerro al Lambro").
+citta("Cerro al Volturno").
+citta("Cerro Maggiore").
+citta("Cerro Tanaro").
+citta("Cerro Veronese").
+citta("Cersosimo").
+citta("Certaldo").
+citta("Certosa di Pavia").
+citta("Cerva").
+citta("Cervara di Roma").
+citta("Cervarese Santa Croce").
+citta("Cervaro").
+citta("Cervasca").
+citta("Cervatto").
+citta("Cerveno").
+citta("Cervere").
+citta("Cervesina").
+citta("Cerveteri").
+citta("Cervia").
+citta("Cervicati").
+citta("Cervignano d'Adda").
+citta("Cervignano del Friuli").
+citta("Cervinara").
+citta("Cervino").
+citta("Cervo").
+citta("Cerzeto").
+citta("Cesa").
+citta("Cesana Brianza").
+citta("Cesana Torinese").
+citta("Cesano Boscone").
+citta("Cesano Maderno").
+citta("Cesara").
+citta("Cesarò").
+citta("Cesate").
+citta("Cesena").
+citta("Cesenatico").
+citta("Cesinali").
+citta("Cesio").
+citta("Cesiomaggiore").
+citta("Cessalto").
+citta("Cessaniti").
+citta("Cessapalombo").
+citta("Cessole").
+citta("Cetara").
+citta("Ceto").
+citta("Cetona").
+citta("Cetraro").
+citta("Ceva").
+citta("Cevo").
+citta("Challand-Saint-Anselme").
+citta("Challand-Saint-Victor").
+citta("Chambave").
+citta("Chamois").
+citta("Champdepraz").
+citta("Champorcher").
+citta("Charvensod").
+citta("Châtillon").
+citta("Cherasco").
+citta("Cheremule").
+citta("Chialamberto").
+citta("Chiampo").
+citta("Chianche").
+citta("Chianciano Terme").
+citta("Chianni").
+citta("Chianocco").
+citta("Chiaramonte Gulfi").
+citta("Chiaramonti").
+citta("Chiarano").
+citta("Chiaravalle").
+citta("Chiaravalle Centrale").
+citta("Chiari").
+citta("Chiaromonte").
+citta("Chiauci").
+citta("Chiavari").
+citta("Chiavenna").
+citta("Chiaverano").
+citta("Chienes/Kiens").
+citta("Chieri").
+citta("Chies d'Alpago").
+citta("Chiesa in Valmalenco").
+citta("Chiesanuova").
+citta("Chiesina Uzzanese").
+citta("Chieti").
+citta("Chieuti").
+citta("Chieve").
+citta("Chignolo d'Isola").
+citta("Chignolo Po").
+citta("Chioggia").
+citta("Chiomonte").
+citta("Chions").
+citta("Chiopris-Viscone").
+citta("Chitignano").
+citta("Chiuduno").
+citta("Chiuppano").
+citta("Chiuro").
+citta("Chiusa di Pesio").
+citta("Chiusa di San Michele").
+citta("Chiusa Sclafani").
+citta("Chiusa/Klausen").
+citta("Chiusaforte").
+citta("Chiusanico").
+citta("Chiusano d'Asti").
+citta("Chiusano di San Domenico").
+citta("Chiusavecchia").
+citta("Chiusdino").
+citta("Chiusi").
+citta("Chiusi della Verna").
+citta("Chivasso").
+citta("Ciampino").
+citta("Cianciana").
+citta("Cibiana di Cadore").
+citta("Cicagna").
+citta("Cicala").
+citta("Cicciano").
+citta("Cicerale").
+citta("Ciciliano").
+citta("Cicognolo").
+citta("Ciconio").
+citta("Cigliano").
+citta("Cigliè").
+citta("Cigognola").
+citta("Cigole").
+citta("Cilavegna").
+citta("Cimadolmo").
+citta("Cimbergo").
+citta("Ciminà").
+citta("Ciminna").
+citta("Cimitile").
+citta("Cimolais").
+citta("Cimone").
+citta("Cinaglio").
+citta("Cineto Romano").
+citta("Cingia de' Botti").
+citta("Cingoli").
+citta("Cinigiano").
+citta("Cinisello Balsamo").
+citta("Cinisi").
+citta("Cino").
+citta("Cinquefrondi").
+citta("Cintano").
+citta("Cinte Tesino").
+citta("Cinto Caomaggiore").
+citta("Cinto Euganeo").
+citta("Cinzano").
+citta("Ciorlano").
+citta("Cipressa").
+citta("Circello").
+citta("Ciriè").
+citta("Cirigliano").
+citta("Cirimido").
+citta("Cirò").
+citta("Cirò Marina").
+citta("Cis").
+citta("Cisano Bergamasco").
+citta("Cisano sul Neva").
+citta("Ciserano").
+citta("Cislago").
+citta("Cisliano").
+citta("Cismon del Grappa").
+citta("Cison di Valmarino").
+citta("Cissone").
+citta("Cisterna d'Asti").
+citta("Cisterna di Latina").
+citta("Cisternino").
+citta("Citerna").
+citta("Città della Pieve").
+citta("Città di Castello").
+citta("Città Sant'Angelo").
+citta("Cittadella").
+citta("Cittaducale").
+citta("Cittanova").
+citta("Cittareale").
+citta("Cittiglio").
+citta("Civate").
+citta("Civezza").
+citta("Civezzano").
+citta("Civiasco").
+citta("Cividale del Friuli").
+citta("Cividate al Piano").
+citta("Cividate Camuno").
+citta("Civita").
+citta("Civita Castellana").
+citta("Civita d'Antino").
+citta("Civitacampomarano").
+citta("Civitaluparella").
+citta("Civitanova del Sannio").
+citta("Civitanova Marche").
+citta("Civitaquana").
+citta("Civitavecchia").
+citta("Civitella Alfedena").
+citta("Civitella Casanova").
+citta("Civitella d'Agliano").
+citta("Civitella del Tronto").
+citta("Civitella di Romagna").
+citta("Civitella in Val di Chiana").
+citta("Civitella Messer Raimondo").
+citta("Civitella Paganico").
+citta("Civitella Roveto").
+citta("Civitella San Paolo").
+citta("Civo").
+citta("Claino con Osteno").
+citta("Claut").
+citta("Clauzetto").
+citta("Clavesana").
+citta("Claviere").
+citta("Cles").
+citta("Cleto").
+citta("Clivio").
+citta("Cloz").
+citta("Clusone").
+citta("Coassolo Torinese").
+citta("Coazze").
+citta("Coazzolo").
+citta("Coccaglio").
+citta("Cocconato").
+citta("Cocquio-Trevisago").
+citta("Cocullo").
+citta("Codevigo").
+citta("Codevilla").
+citta("Codigoro").
+citta("Codognè").
+citta("Codogno").
+citta("Codroipo").
+citta("Codrongianos").
+citta("Coggiola").
+citta("Cogliate").
+citta("Cogne").
+citta("Cogoleto").
+citta("Cogollo del Cengio").
+citta("Cogorno").
+citta("Colazza").
+citta("Colere").
+citta("Colfelice").
+citta("Coli").
+citta("Colico").
+citta("Collalto Sabino").
+citta("Collarmele").
+citta("Collazzone").
+citta("Colle Brianza").
+citta("Colle d'Anchise").
+citta("Colle di Tora").
+citta("Colle di Val d'Elsa").
+citta("Colle San Magno").
+citta("Colle Sannita").
+citta("Colle Santa Lucia").
+citta("Colle Umberto").
+citta("Collebeato").
+citta("Collecchio").
+citta("Collecorvino").
+citta("Colledara").
+citta("Colledimacine").
+citta("Colledimezzo").
+citta("Colleferro").
+citta("Collegiove").
+citta("Collegno").
+citta("Collelongo").
+citta("Collepardo").
+citta("Collepasso").
+citta("Collepietro").
+citta("Colleretto Castelnuovo").
+citta("Colleretto Giacosa").
+citta("Collesalvetti").
+citta("Collesano").
+citta("Colletorto").
+citta("Collevecchio").
+citta("Colli a Volturno").
+citta("Colli al Metauro").
+citta("Colli del Tronto").
+citta("Colli sul Velino").
+citta("Colliano").
+citta("Collinas").
+citta("Collio").
+citta("Collobiano").
+citta("Colloredo di Monte Albano").
+citta("Colmurano").
+citta("Colobraro").
+citta("Cologna Veneta").
+citta("Cologne").
+citta("Cologno al Serio").
+citta("Cologno Monzese").
+citta("Colognola ai Colli").
+citta("Colonna").
+citta("Colonnella").
+citta("Colonno").
+citta("Colorina").
+citta("Colorno").
+citta("Colosimi").
+citta("Colturano").
+citta("Colverde").
+citta("Colzate").
+citta("Comabbio").
+citta("Comacchio").
+citta("Comano").
+citta("Comano Terme").
+citta("Comazzo").
+citta("Comeglians").
+citta("Comelico Superiore").
+citta("Comerio").
+citta("Comezzano-Cizzago").
+citta("Comignago").
+citta("Comiso").
+citta("Comitini").
+citta("Comiziano").
+citta("Commessaggio").
+citta("Commezzadura").
+citta("Como").
+citta("Compiano").
+citta("Comun Nuovo").
+citta("Comunanza").
+citta("Cona").
+citta("Conca Casale").
+citta("Conca dei Marini").
+citta("Conca della Campania").
+citta("Concamarise").
+citta("Concerviano").
+citta("Concesio").
+citta("Conco").
+citta("Concordia Sagittaria").
+citta("Concordia sulla Secchia").
+citta("Concorezzo").
+citta("Condofuri").
+citta("Condove").
+citta("Condrò").
+citta("Conegliano").
+citta("Confienza").
+citta("Configni").
+citta("Conflenti").
+citta("Coniolo").
+citta("Conselice").
+citta("Conselve").
+citta("Contà").
+citta("Contessa Entellina").
+citta("Contigliano").
+citta("Contrada").
+citta("Controguerra").
+citta("Controne").
+citta("Contursi Terme").
+citta("Conversano").
+citta("Conza della Campania").
+citta("Conzano").
+citta("Copertino").
+citta("Copiano").
+citta("Copparo").
+citta("Corana").
+citta("Corato").
+citta("Corbara").
+citta("Corbetta").
+citta("Corbola").
+citta("Corchiano").
+citta("Corciano").
+citta("Cordenons").
+citta("Cordignano").
+citta("Cordovado").
+citta("Coreglia Antelminelli").
+citta("Coreglia Ligure").
+citta("Coreno Ausonio").
+citta("Corfinio").
+citta("Cori").
+citta("Coriano").
+citta("Corigliano Calabro").
+citta("Corigliano d'Otranto").
+citta("Corinaldo").
+citta("Corio").
+citta("Corleone").
+citta("Corleto Monforte").
+citta("Corleto Perticara").
+citta("Cormano").
+citta("Cormons").
+citta("Corna Imagna").
+citta("Cornalba").
+citta("Cornale e Bastida").
+citta("Cornaredo").
+citta("Cornate d'Adda").
+citta("Cornedo all'Isarco/Karneid").
+citta("Cornedo Vicentino").
+citta("Cornegliano Laudense").
+citta("Corneliano d'Alba").
+citta("Corniglio").
+citta("Corno di Rosazzo").
+citta("Corno Giovine").
+citta("Cornovecchio").
+citta("Cornuda").
+citta("Correggio").
+citta("Correzzana").
+citta("Correzzola").
+citta("Corrido").
+citta("Corridonia").
+citta("Corropoli").
+citta("Corsano").
+citta("Corsico").
+citta("Corsione").
+citta("Cortaccia sulla strada del vino/Kurtatsch an der Weinstraße").
+citta("Cortale").
+citta("Cortandone").
+citta("Cortanze").
+citta("Cortazzone").
+citta("Corte Brugnatella").
+citta("Corte de' Cortesi con Cignone").
+citta("Corte de' Frati").
+citta("Corte Franca").
+citta("Corte Palasio").
+citta("Cortemaggiore").
+citta("Cortemilia").
+citta("Corteno Golgi").
+citta("Cortenova").
+citta("Cortenuova").
+citta("Corteolona e Genzone").
+citta("Cortiglione").
+citta("Cortina d'Ampezzo").
+citta("Cortina sulla strada del vino/Kurtinig an der Weinstraße").
+citta("Cortino").
+citta("Cortona").
+citta("Corvara").
+citta("Corvara in Badia/Corvara").
+citta("Corvino San Quirico").
+citta("Corzano").
+citta("Coseano").
+citta("Cosenza").
+citta("Cosio d'Arroscia").
+citta("Cosio Valtellino").
+citta("Cosoleto").
+citta("Cossano Belbo").
+citta("Cossano Canavese").
+citta("Cossato").
+citta("Cosseria").
+citta("Cossignano").
+citta("Cossogno").
+citta("Cossoine").
+citta("Cossombrato").
+citta("Costa de' Nobili").
+citta("Costa di Mezzate").
+citta("Costa di Rovigo").
+citta("Costa Masnaga").
+citta("Costa Serina").
+citta("Costa Valle Imagna").
+citta("Costa Vescovato").
+citta("Costa Volpino").
+citta("Costabissara").
+citta("Costacciaro").
+citta("Costanzana").
+citta("Costarainera").
+citta("Costermano sul Garda").
+citta("Costigliole d'Asti").
+citta("Costigliole Saluzzo").
+citta("Cotignola").
+citta("Cotronei").
+citta("Cottanello").
+citta("Courmayeur").
+citta("Covo").
+citta("Cozzo").
+citta("Craco").
+citta("Crandola Valsassina").
+citta("Cravagliana").
+citta("Cravanzana").
+citta("Craveggia").
+citta("Creazzo").
+citta("Crecchio").
+citta("Credaro").
+citta("Credera Rubbiano").
+citta("Crema").
+citta("Cremella").
+citta("Cremenaga").
+citta("Cremeno").
+citta("Cremia").
+citta("Cremolino").
+citta("Cremona").
+citta("Cremosano").
+citta("Crescentino").
+citta("Crespadoro").
+citta("Crespano del Grappa").
+citta("Crespiatica").
+citta("Crespina Lorenzana").
+citta("Crespino").
+citta("Cressa").
+citta("Crevacuore").
+citta("Crevalcore").
+citta("Crevoladossola").
+citta("Crispano").
+citta("Crispiano").
+citta("Crissolo").
+citta("Crocefieschi").
+citta("Crocetta del Montello").
+citta("Crodo").
+citta("Crognaleto").
+citta("Cropalati").
+citta("Cropani").
+citta("Crosia").
+citta("Crosio della Valle").
+citta("Crotone").
+citta("Crotta d'Adda").
+citta("Crova").
+citta("Croviana").
+citta("Crucoli").
+citta("Cuasso al Monte").
+citta("Cuccaro Monferrato").
+citta("Cuccaro Vetere").
+citta("Cucciago").
+citta("Cuceglio").
+citta("Cuggiono").
+citta("Cugliate-Fabiasco").
+citta("Cuglieri").
+citta("Cugnoli").
+citta("Cumiana").
+citta("Cumignano sul Naviglio").
+citta("Cunardo").
+citta("Cuneo").
+citta("Cunico").
+citta("Cuorgnè").
+citta("Cupello").
+citta("Cupra Marittima").
+citta("Cupramontana").
+citta("Cura Carpignano").
+citta("Curcuris").
+citta("Cureggio").
+citta("Curiglia con Monteviasco").
+citta("Curinga").
+citta("Curino").
+citta("Curno").
+citta("Curon Venosta/Graun im Vinschgau").
+citta("Cursi").
+citta("Cursolo-Orasso").
+citta("Curtarolo").
+citta("Curtatone").
+citta("Curti").
+citta("Cusago").
+citta("Cusano Milanino").
+citta("Cusano Mutri").
+citta("Cusino").
+citta("Cusio").
+citta("Custonaci").
+citta("Cutro").
+citta("Cutrofiano").
+citta("Cuveglio").
+citta("Cuvio").
+citta("Daiano").
+citta("Dairago").
+citta("Dalmine").
+citta("Dambel").
+citta("Danta di Cadore").
+citta("Darfo Boario Terme").
+citta("Dasà").
+citta("Davagna").
+citta("Daverio").
+citta("Davoli").
+citta("Dazio").
+citta("Decimomannu").
+citta("Decimoputzu").
+citta("Decollatura").
+citta("Dego").
+citta("Deiva Marina").
+citta("Delebio").
+citta("Delia").
+citta("Delianuova").
+citta("Deliceto").
+citta("Dello").
+citta("Demonte").
+citta("Denice").
+citta("Denno").
+citta("Dernice").
+citta("Derovere").
+citta("Deruta").
+citta("Dervio").
+citta("Desana").
+citta("Desenzano del Garda").
+citta("Desio").
+citta("Desulo").
+citta("Diamante").
+citta("Diano Arentino").
+citta("Diano Castello").
+citta("Diano d'Alba").
+citta("Diano Marina").
+citta("Diano San Pietro").
+citta("Dicomano").
+citta("Dignano").
+citta("Dimaro Folgarida").
+citta("Dinami").
+citta("Dipignano").
+citta("Diso").
+citta("Divignano").
+citta("Dizzasco").
+citta("Dobbiaco/Toblach").
+citta("Doberdò del Lago").
+citta("Dogliani").
+citta("Dogliola").
+citta("Dogna").
+citta("Dolcè").
+citta("Dolceacqua").
+citta("Dolcedo").
+citta("Dolegna del Collio").
+citta("Dolianova").
+citta("Dolo").
+citta("Dolzago").
+citta("Domanico").
+citta("Domaso").
+citta("Domegge di Cadore").
+citta("Domicella").
+citta("Domodossola").
+citta("Domus de Maria").
+citta("Domusnovas").
+citta("Donato").
+citta("Dongo").
+citta("Donnas").
+citta("Donori").
+citta("Dorgali").
+citta("Dorio").
+citta("Dormelletto").
+citta("Dorno").
+citta("Dorzano").
+citta("Dosolo").
+citta("Dossena").
+citta("Dosso del Liro").
+citta("Doues").
+citta("Dovadola").
+citta("Dovera").
+citta("Dozza").
+citta("Dragoni").
+citta("Drapia").
+citta("Drena").
+citta("Drenchia").
+citta("Dresano").
+citta("Drizzona").
+citta("Dro").
+citta("Dronero").
+citta("Druento").
+citta("Druogno").
+citta("Dualchi").
+citta("Dubino").
+citta("Due Carrare").
+citta("Dueville").
+citta("Dugenta").
+citta("Duino Aurisina - Devin Nabrezina").
+citta("Dumenza").
+citta("Duno").
+citta("Durazzano").
+citta("Duronia").
+citta("Dusino San Michele").
+citta("Eboli").
+citta("Edolo").
+citta("Egna/Neumarkt").
+citta("Elice").
+citta("Elini").
+citta("Ello").
+citta("Elmas").
+citta("Elva").
+citta("Emarèse").
+citta("Empoli").
+citta("Endine Gaiano").
+citta("Enego").
+citta("Enemonzo").
+citta("Enna").
+citta("Entracque").
+citta("Entratico").
+citta("Envie").
+citta("Episcopia").
+citta("Eraclea").
+citta("Erba").
+citta("Erbè").
+citta("Erbezzo").
+citta("Erbusco").
+citta("Erchie").
+citta("Ercolano").
+citta("Erice").
+citta("Erli").
+citta("Erto e Casso").
+citta("Erula").
+citta("Erve").
+citta("Esanatoglia").
+citta("Escalaplano").
+citta("Escolca").
+citta("Esine").
+citta("Esino Lario").
+citta("Esperia").
+citta("Esporlatu").
+citta("Este").
+citta("Esterzili").
+citta("Etroubles").
+citta("Eupilio").
+citta("Exilles").
+citta("Fabbrica Curone").
+citta("Fabbriche di Vergemoli").
+citta("Fabbrico").
+citta("Fabriano").
+citta("Fabrica di Roma").
+citta("Fabrizia").
+citta("Fabro").
+citta("Faedis").
+citta("Faedo").
+citta("Faedo Valtellino").
+citta("Faenza").
+citta("Faeto").
+citta("Fagagna").
+citta("Faggeto Lario").
+citta("Faggiano").
+citta("Fagnano Alto").
+citta("Fagnano Castello").
+citta("Fagnano Olona").
+citta("Fai della Paganella").
+citta("Faicchio").
+citta("Falcade").
+citta("Falciano del Massico").
+citta("Falconara Albanese").
+citta("Falconara Marittima").
+citta("Falcone").
+citta("Faleria").
+citta("Falerna").
+citta("Falerone").
+citta("Fallo").
+citta("Falmenta").
+citta("Faloppio").
+citta("Falvaterra").
+citta("Falzes/Pfalzen").
+citta("Fanano").
+citta("Fanna").
+citta("Fano").
+citta("Fano Adriano").
+citta("Fara Filiorum Petri").
+citta("Fara Gera d'Adda").
+citta("Fara in Sabina").
+citta("Fara Novarese").
+citta("Fara Olivana con Sola").
+citta("Fara San Martino").
+citta("Fara Vicentino").
+citta("Fardella").
+citta("Farigliano").
+citta("Farindola").
+citta("Farini").
+citta("Farnese").
+citta("Farra di Soligo").
+citta("Farra d'Isonzo").
+citta("Fasano").
+citta("Fascia").
+citta("Fauglia").
+citta("Faule").
+citta("Favale di Malvaro").
+citta("Favara").
+citta("Favignana").
+citta("Favria").
+citta("Feisoglio").
+citta("Feletto").
+citta("Felino").
+citta("Felitto").
+citta("Felizzano").
+citta("Feltre").
+citta("Fenegrò").
+citta("Fenestrelle").
+citta("Fénis").
+citta("Ferentillo").
+citta("Ferentino").
+citta("Ferla").
+citta("Fermignano").
+citta("Fermo").
+citta("Ferno").
+citta("Feroleto Antico").
+citta("Feroleto della Chiesa").
+citta("Ferrandina").
+citta("Ferrara").
+citta("Ferrara di Monte Baldo").
+citta("Ferrazzano").
+citta("Ferrera di Varese").
+citta("Ferrera Erbognone").
+citta("Ferrere").
+citta("Ferriere").
+citta("Ferruzzano").
+citta("Fiamignano").
+citta("Fiano").
+citta("Fiano Romano").
+citta("Fiastra").
+citta("Fiavè").
+citta("Ficarazzi").
+citta("Ficarolo").
+citta("Ficarra").
+citta("Ficulle").
+citta("Fidenza").
+citta("Fiè allo Sciliar/Völs am Schlern").
+citta("Fierozzo").
+citta("Fiesco").
+citta("Fiesole").
+citta("Fiesse").
+citta("Fiesso d'Artico").
+citta("Fiesso Umbertiano").
+citta("Figino Serenza").
+citta("Figline e Incisa Valdarno").
+citta("Figline Vegliaturo").
+citta("Filacciano").
+citta("Filadelfia").
+citta("Filago").
+citta("Filandari").
+citta("Filattiera").
+citta("Filettino").
+citta("Filetto").
+citta("Filiano").
+citta("Filighera").
+citta("Filignano").
+citta("Filogaso").
+citta("Filottrano").
+citta("Finale Emilia").
+citta("Finale Ligure").
+citta("Fino del Monte").
+citta("Fino Mornasco").
+citta("Fiorano al Serio").
+citta("Fiorano Canavese").
+citta("Fiorano Modenese").
+citta("Fiorenzuola d'Arda").
+citta("Firenze").
+citta("Firenzuola").
+citta("Firmo").
+citta("Fiscaglia").
+citta("Fisciano").
+citta("Fiuggi").
+citta("Fiumalbo").
+citta("Fiumara").
+citta("Fiume Veneto").
+citta("Fiumedinisi").
+citta("Fiumefreddo Bruzio").
+citta("Fiumefreddo di Sicilia").
+citta("Fiumicello").
+citta("Fiumicino").
+citta("Fiuminata").
+citta("Fivizzano").
+citta("Flaibano").
+citta("Flero").
+citta("Floresta").
+citta("Floridia").
+citta("Florinas").
+citta("Flumeri").
+citta("Fluminimaggiore").
+citta("Flussio").
+citta("Fobello").
+citta("Foggia").
+citta("Foglianise").
+citta("Fogliano Redipuglia").
+citta("Foglizzo").
+citta("Foiano della Chiana").
+citta("Foiano di Val Fortore").
+citta("Folgaria").
+citta("Folignano").
+citta("Foligno").
+citta("Follina").
+citta("Follo").
+citta("Follonica").
+citta("Fombio").
+citta("Fondachelli-Fantina").
+citta("Fondi").
+citta("Fondo").
+citta("Fonni").
+citta("Fontainemore").
+citta("Fontana Liri").
+citta("Fontanafredda").
+citta("Fontanarosa").
+citta("Fontanelice").
+citta("Fontanella").
+citta("Fontanellato").
+citta("Fontanelle").
+citta("Fontaneto d'Agogna").
+citta("Fontanetto Po").
+citta("Fontanigorda").
+citta("Fontanile").
+citta("Fontaniva").
+citta("Fonte").
+citta("Fonte Nuova").
+citta("Fontecchio").
+citta("Fontechiari").
+citta("Fontegreca").
+citta("Fonteno").
+citta("Fontevivo").
+citta("Fonzaso").
+citta("Foppolo").
+citta("Forano").
+citta("Force").
+citta("Forchia").
+citta("Forcola").
+citta("Fordongianus").
+citta("Forenza").
+citta("Foresto Sparso").
+citta("Forgaria nel Friuli").
+citta("Forino").
+citta("Forio").
+citta("Forlì").
+citta("Forlì del Sannio").
+citta("Forlimpopoli").
+citta("Formazza").
+citta("Formello").
+citta("Formia").
+citta("Formicola").
+citta("Formigara").
+citta("Formigine").
+citta("Formigliana").
+citta("Formignana").
+citta("Fornace").
+citta("Fornelli").
+citta("Forni Avoltri").
+citta("Forni di Sopra").
+citta("Forni di Sotto").
+citta("Forno Canavese").
+citta("Fornovo di Taro").
+citta("Fornovo San Giovanni").
+citta("Forte dei Marmi").
+citta("Fortezza/Franzensfeste").
+citta("Fortunago").
+citta("Forza d'Agrò").
+citta("Fosciandora").
+citta("Fosdinovo").
+citta("Fossa").
+citta("Fossacesia").
+citta("Fossalta di Piave").
+citta("Fossalta di Portogruaro").
+citta("Fossalto").
+citta("Fossano").
+citta("Fossato di Vico").
+citta("Fossato Serralta").
+citta("Fossò").
+citta("Fossombrone").
+citta("Foza").
+citta("Frabosa Soprana").
+citta("Frabosa Sottana").
+citta("Fraconalto").
+citta("Fragagnano").
+citta("Fragneto l'Abate").
+citta("Fragneto Monforte").
+citta("Fraine").
+citta("Framura").
+citta("Francavilla al Mare").
+citta("Francavilla Angitola").
+citta("Francavilla Bisio").
+citta("Francavilla d'Ete").
+citta("Francavilla di Sicilia").
+citta("Francavilla Fontana").
+citta("Francavilla in Sinni").
+citta("Francavilla Marittima").
+citta("Francica").
+citta("Francofonte").
+citta("Francolise").
+citta("Frascaro").
+citta("Frascarolo").
+citta("Frascati").
+citta("Frascineto").
+citta("Frassilongo").
+citta("Frassinelle Polesine").
+citta("Frassinello Monferrato").
+citta("Frassineto Po").
+citta("Frassinetto").
+citta("Frassino").
+citta("Frassinoro").
+citta("Frasso Sabino").
+citta("Frasso Telesino").
+citta("Fratta Polesine").
+citta("Fratta Todina").
+citta("Frattamaggiore").
+citta("Frattaminore").
+citta("Fratte Rosa").
+citta("Frazzanò").
+citta("Fregona").
+citta("Fresagrandinaria").
+citta("Fresonara").
+citta("Frigento").
+citta("Frignano").
+citta("Frinco").
+citta("Frisa").
+citta("Frisanco").
+citta("Front").
+citta("Frontino").
+citta("Frontone").
+citta("Frosinone").
+citta("Frosolone").
+citta("Frossasco").
+citta("Frugarolo").
+citta("Fubine Monferrato").
+citta("Fucecchio").
+citta("Fuipiano Valle Imagna").
+citta("Fumane").
+citta("Fumone").
+citta("Funes/Villnöß").
+citta("Furci").
+citta("Furci Siculo").
+citta("Furnari").
+citta("Furore").
+citta("Furtei").
+citta("Fuscaldo").
+citta("Fusignano").
+citta("Fusine").
+citta("Futani").
+citta("Gabbioneta-Binanuova").
+citta("Gabiano").
+citta("Gabicce Mare").
+citta("Gaby").
+citta("Gadesco-Pieve Delmona").
+citta("Gadoni").
+citta("Gaeta").
+citta("Gaggi").
+citta("Gaggiano").
+citta("Gaggio Montano").
+citta("Gaglianico").
+citta("Gagliano Aterno").
+citta("Gagliano Castelferrato").
+citta("Gagliano del Capo").
+citta("Gagliato").
+citta("Gagliole").
+citta("Gaiarine").
+citta("Gaiba").
+citta("Gaiola").
+citta("Gaiole in Chianti").
+citta("Gairo").
+citta("Gais/Gais").
+citta("Galati Mamertino").
+citta("Galatina").
+citta("Galatone").
+citta("Galatro").
+citta("Galbiate").
+citta("Galeata").
+citta("Galgagnano").
+citta("Gallarate").
+citta("Gallese").
+citta("Galliate").
+citta("Galliate Lombardo").
+citta("Galliavola").
+citta("Gallicano").
+citta("Gallicano nel Lazio").
+citta("Gallicchio").
+citta("Galliera").
+citta("Galliera Veneta").
+citta("Gallinaro").
+citta("Gallio").
+citta("Gallipoli").
+citta("Gallo Matese").
+citta("Gallodoro").
+citta("Galluccio").
+citta("Galtellì").
+citta("Galzignano Terme").
+citta("Gamalero").
+citta("Gambara").
+citta("Gambarana").
+citta("Gambasca").
+citta("Gambassi Terme").
+citta("Gambatesa").
+citta("Gambellara").
+citta("Gamberale").
+citta("Gambettola").
+citta("Gambolò").
+citta("Gambugliano").
+citta("Gandellino").
+citta("Gandino").
+citta("Gandosso").
+citta("Gangi").
+citta("Garaguso").
+citta("Garbagna").
+citta("Garbagna Novarese").
+citta("Garbagnate Milanese").
+citta("Garbagnate Monastero").
+citta("Garda").
+citta("Gardone Riviera").
+citta("Gardone Val Trompia").
+citta("Garessio").
+citta("Gargallo").
+citta("Gargazzone/Gargazon").
+citta("Gargnano").
+citta("Garlasco").
+citta("Garlate").
+citta("Garlenda").
+citta("Garniga Terme").
+citta("Garzeno").
+citta("Garzigliana").
+citta("Gasperina").
+citta("Gassino Torinese").
+citta("Gattatico").
+citta("Gatteo").
+citta("Gattico").
+citta("Gattinara").
+citta("Gavardo").
+citta("Gavazzana").
+citta("Gavello").
+citta("Gaverina Terme").
+citta("Gavi").
+citta("Gavignano").
+citta("Gavirate").
+citta("Gavoi").
+citta("Gavorrano").
+citta("Gazoldo degli Ippoliti").
+citta("Gazzada Schianno").
+citta("Gazzaniga").
+citta("Gazzo").
+citta("Gazzo Veronese").
+citta("Gazzola").
+citta("Gazzuolo").
+citta("Gela").
+citta("Gemmano").
+citta("Gemona del Friuli").
+citta("Gemonio").
+citta("Genazzano").
+citta("Genga").
+citta("Genivolta").
+citta("Genola").
+citta("Genoni").
+citta("Genova").
+citta("Genuri").
+citta("Genzano di Lucania").
+citta("Genzano di Roma").
+citta("Gera Lario").
+citta("Gerace").
+citta("Geraci Siculo").
+citta("Gerano").
+citta("Gerenzago").
+citta("Gerenzano").
+citta("Gergei").
+citta("Germagnano").
+citta("Germagno").
+citta("Germignaga").
+citta("Gerocarne").
+citta("Gerola Alta").
+citta("Gerre de' Caprioli").
+citta("Gesico").
+citta("Gessate").
+citta("Gessopalena").
+citta("Gesturi").
+citta("Gesualdo").
+citta("Ghedi").
+citta("Ghemme").
+citta("Ghiffa").
+citta("Ghilarza").
+citta("Ghisalba").
+citta("Ghislarengo").
+citta("Giacciano con Baruchella").
+citta("Giaglione").
+citta("Gianico").
+citta("Giano dell'Umbria").
+citta("Giano Vetusto").
+citta("Giardinello").
+citta("Giardini-Naxos").
+citta("Giarole").
+citta("Giarratana").
+citta("Giarre").
+citta("Giave").
+citta("Giaveno").
+citta("Giavera del Montello").
+citta("Giba").
+citta("Gibellina").
+citta("Gifflenga").
+citta("Giffone").
+citta("Giffoni Sei Casali").
+citta("Giffoni Valle Piana").
+citta("Gignese").
+citta("Gignod").
+citta("Gildone").
+citta("Gimigliano").
+citta("Ginestra").
+citta("Ginestra degli Schiavoni").
+citta("Ginosa").
+citta("Gioi").
+citta("Gioia dei Marsi").
+citta("Gioia del Colle").
+citta("Gioia Sannitica").
+citta("Gioia Tauro").
+citta("Gioiosa Ionica").
+citta("Gioiosa Marea").
+citta("Giove").
+citta("Giovinazzo").
+citta("Giovo").
+citta("Girasole").
+citta("Girifalco").
+citta("Gissi").
+citta("Giuggianello").
+citta("Giugliano in Campania").
+citta("Giuliana").
+citta("Giuliano di Roma").
+citta("Giuliano Teatino").
+citta("Giulianova").
+citta("Giungano").
+citta("Giurdignano").
+citta("Giussago").
+citta("Giussano").
+citta("Giustenice").
+citta("Giustino").
+citta("Giusvalla").
+citta("Givoletto").
+citta("Gizzeria").
+citta("Glorenza/Glurns").
+citta("Godega di Sant'Urbano").
+citta("Godiasco Salice Terme").
+citta("Godrano").
+citta("Goito").
+citta("Golasecca").
+citta("Golferenzo").
+citta("Golfo Aranci").
+citta("Gombito").
+citta("Gonars").
+citta("Goni").
+citta("Gonnesa").
+citta("Gonnoscodina").
+citta("Gonnosfanadiga").
+citta("Gonnosnò").
+citta("Gonnostramatza").
+citta("Gonzaga").
+citta("Gordona").
+citta("Gorga").
+citta("Gorgo al Monticano").
+citta("Gorgoglione").
+citta("Gorgonzola").
+citta("Goriano Sicoli").
+citta("Gorizia").
+citta("Gorla Maggiore").
+citta("Gorla Minore").
+citta("Gorlago").
+citta("Gorle").
+citta("Gornate-Olona").
+citta("Gorno").
+citta("Goro").
+citta("Gorreto").
+citta("Gorzegno").
+citta("Gosaldo").
+citta("Gossolengo").
+citta("Gottasecca").
+citta("Gottolengo").
+citta("Govone").
+citta("Gozzano").
+citta("Gradara").
+citta("Gradisca d'Isonzo").
+citta("Grado").
+citta("Gradoli").
+citta("Graffignana").
+citta("Graffignano").
+citta("Graglia").
+citta("Gragnano").
+citta("Gragnano Trebbiense").
+citta("Grammichele").
+citta("Grana").
+citta("Granarolo dell'Emilia").
+citta("Grandate").
+citta("Grandola ed Uniti").
+citta("Graniti").
+citta("Granozzo con Monticello").
+citta("Grantola").
+citta("Grantorto").
+citta("Granze").
+citta("Grassano").
+citta("Grassobbio").
+citta("Gratteri").
+citta("Gravedona ed Uniti").
+citta("Gravellona Lomellina").
+citta("Gravellona Toce").
+citta("Gravere").
+citta("Gravina di Catania").
+citta("Gravina in Puglia").
+citta("Grazzanise").
+citta("Grazzano Badoglio").
+citta("Greccio").
+citta("Greci").
+citta("Greggio").
+citta("Gremiasco").
+citta("Gressan").
+citta("Gressoney-La-Trinité").
+citta("Gressoney-Saint-Jean").
+citta("Greve in Chianti").
+citta("Grezzago").
+citta("Grezzana").
+citta("Griante").
+citta("Gricignano di Aversa").
+citta("Grignasco").
+citta("Grigno").
+citta("Grimacco").
+citta("Grimaldi").
+citta("Grinzane Cavour").
+citta("Grisignano di Zocco").
+citta("Grisolia").
+citta("Grizzana Morandi").
+citta("Grognardo").
+citta("Gromo").
+citta("Grondona").
+citta("Grone").
+citta("Grontardo").
+citta("Gropello Cairoli").
+citta("Gropparello").
+citta("Groscavallo").
+citta("Grosio").
+citta("Grosotto").
+citta("Grosseto").
+citta("Grosso").
+citta("Grottaferrata").
+citta("Grottaglie").
+citta("Grottaminarda").
+citta("Grottammare").
+citta("Grottazzolina").
+citta("Grotte").
+citta("Grotte di Castro").
+citta("Grotteria").
+citta("Grottole").
+citta("Grottolella").
+citta("Gruaro").
+citta("Grugliasco").
+citta("Grumello Cremonese ed Uniti").
+citta("Grumello del Monte").
+citta("Grumento Nova").
+citta("Grumo Appula").
+citta("Grumo Nevano").
+citta("Grumolo delle Abbadesse").
+citta("Guagnano").
+citta("Gualdo").
+citta("Gualdo Cattaneo").
+citta("Gualdo Tadino").
+citta("Gualtieri").
+citta("Gualtieri Sicaminò").
+citta("Guamaggiore").
+citta("Guanzate").
+citta("Guarcino").
+citta("Guarda Veneta").
+citta("Guardabosone").
+citta("Guardamiglio").
+citta("Guardavalle").
+citta("Guardea").
+citta("Guardia Lombardi").
+citta("Guardia Perticara").
+citta("Guardia Piemontese").
+citta("Guardia Sanframondi").
+citta("Guardiagrele").
+citta("Guardialfiera").
+citta("Guardiaregia").
+citta("Guardistallo").
+citta("Guarene").
+citta("Guasila").
+citta("Guastalla").
+citta("Guazzora").
+citta("Gubbio").
+citta("Gudo Visconti").
+citta("Guglionesi").
+citta("Guidizzolo").
+citta("Guidonia Montecelio").
+citta("Guiglia").
+citta("Guilmi").
+citta("Gurro").
+citta("Guspini").
+citta("Gussago").
+citta("Gussola").
+citta("Hône").
+citta("Idro").
+citta("Iglesias").
+citta("Igliano").
+citta("Ilbono").
+citta("Illasi").
+citta("Illorai").
+citta("Imbersago").
+citta("Imer").
+citta("Imola").
+citta("Imperia").
+citta("Impruneta").
+citta("Inarzo").
+citta("Incisa Scapaccino").
+citta("Incudine").
+citta("Induno Olona").
+citta("Ingria").
+citta("Intragna").
+citta("Introbio").
+citta("Introd").
+citta("Introdacqua").
+citta("Introzzo").
+citta("Inverigo").
+citta("Inverno e Monteleone").
+citta("Inverso Pinasca").
+citta("Inveruno").
+citta("Invorio").
+citta("Inzago").
+citta("Ionadi").
+citta("Irgoli").
+citta("Irma").
+citta("Irsina").
+citta("Isasca").
+citta("Isca sullo Ionio").
+citta("Ischia").
+citta("Ischia di Castro").
+citta("Ischitella").
+citta("Iseo").
+citta("Isera").
+citta("Isernia").
+citta("Isili").
+citta("Isnello").
+citta("Isola d'Asti").
+citta("Isola del Cantone").
+citta("Isola del Giglio").
+citta("Isola del Gran Sasso d'Italia").
+citta("Isola del Liri").
+citta("Isola del Piano").
+citta("Isola della Scala").
+citta("Isola delle Femmine").
+citta("Isola di Capo Rizzuto").
+citta("Isola di Fondra").
+citta("Isola Dovarese").
+citta("Isola Rizza").
+citta("Isola Sant'Antonio").
+citta("Isola Vicentina").
+citta("Isolabella").
+citta("Isolabona").
+citta("Isole Tremiti").
+citta("Isorella").
+citta("Ispani").
+citta("Ispica").
+citta("Ispra").
+citta("Issiglio").
+citta("Issime").
+citta("Isso").
+citta("Issogne").
+citta("Istrana").
+citta("Itala").
+citta("Itri").
+citta("Ittireddu").
+citta("Ittiri").
+citta("Ivrea").
+citta("Izano").
+citta("Jacurso").
+citta("Jelsi").
+citta("Jenne").
+citta("Jerago con Orago").
+citta("Jerzu").
+citta("Jesi").
+citta("Jesolo").
+citta("Jolanda di Savoia").
+citta("Joppolo").
+citta("Joppolo Giancaxio").
+citta("Jovençan").
+citta("La Cassa").
+citta("La Loggia").
+citta("La Maddalena").
+citta("La Magdeleine").
+citta("La Morra").
+citta("La Salle").
+citta("La Spezia").
+citta("La Thuile").
+citta("La Valle Agordina").
+citta("La Valle/Wengen").
+citta("La Valletta Brianza").
+citta("Labico").
+citta("Labro").
+citta("Lacchiarella").
+citta("Lacco Ameno").
+citta("Lacedonia").
+citta("Laces/Latsch").
+citta("Laconi").
+citta("Ladispoli").
+citta("Laerru").
+citta("Laganadi").
+citta("Laghi").
+citta("Laglio").
+citta("Lagnasco").
+citta("Lago").
+citta("Lagonegro").
+citta("Lagosanto").
+citta("Lagundo/Algund").
+citta("Laigueglia").
+citta("Lainate").
+citta("Laino").
+citta("Laino Borgo").
+citta("Laino Castello").
+citta("Laion/Lajen").
+citta("Laives/Leifers").
+citta("Lajatico").
+citta("Lallio").
+citta("Lama dei Peligni").
+citta("Lama Mocogno").
+citta("Lambrugo").
+citta("Lamezia Terme").
+citta("Lamon").
+citta("Lampedusa e Linosa").
+citta("Lamporecchio").
+citta("Lamporo").
+citta("Lana/Lana").
+citta("Lanciano").
+citta("Landiona").
+citta("Landriano").
+citta("Langhirano").
+citta("Langosco").
+citta("Lanusei").
+citta("Lanuvio").
+citta("Lanzada").
+citta("Lanzo Torinese").
+citta("Lapedona").
+citta("Lapio").
+citta("Lappano").
+citta("L'Aquila").
+citta("Larciano").
+citta("Lardirago").
+citta("Lariano").
+citta("Larino").
+citta("Las Plassas").
+citta("Lasa/Laas").
+citta("Lascari").
+citta("Lasnigo").
+citta("Lastebasse").
+citta("Lastra a Signa").
+citta("Latera").
+citta("Laterina").
+citta("Laterza").
+citta("Latiano").
+citta("Latina").
+citta("Latisana").
+citta("Latronico").
+citta("Lattarico").
+citta("Lauco").
+citta("Laureana Cilento").
+citta("Laureana di Borrello").
+citta("Lauregno/Laurein").
+citta("Laurenzana").
+citta("Lauria").
+citta("Lauriano").
+citta("Laurino").
+citta("Laurito").
+citta("Lauro").
+citta("Lavagna").
+citta("Lavagno").
+citta("Lavarone").
+citta("Lavello").
+citta("Lavena Ponte Tresa").
+citta("Laveno-Mombello").
+citta("Lavenone").
+citta("Laviano").
+citta("Lavis").
+citta("Lazise").
+citta("Lazzate").
+citta("Lecce").
+citta("Lecce nei Marsi").
+citta("Lecco").
+citta("Ledro").
+citta("Leffe").
+citta("Leggiuno").
+citta("Legnago").
+citta("Legnano").
+citta("Legnaro").
+citta("Lei").
+citta("Leini").
+citta("Leivi").
+citta("Lemie").
+citta("Lendinara").
+citta("Leni").
+citta("Lenna").
+citta("Leno").
+citta("Lenola").
+citta("Lenta").
+citta("Lentate sul Seveso").
+citta("Lentella").
+citta("Lentiai").
+citta("Lentini").
+citta("Leonessa").
+citta("Leonforte").
+citta("Leporano").
+citta("Lequile").
+citta("Lequio Berria").
+citta("Lequio Tanaro").
+citta("Lercara Friddi").
+citta("Lerici").
+citta("Lerma").
+citta("Lesa").
+citta("Lesegno").
+citta("Lesignano de' Bagni").
+citta("Lesina").
+citta("Lesmo").
+citta("Lessolo").
+citta("Lessona").
+citta("Lestizza").
+citta("Letino").
+citta("Letojanni").
+citta("Lettere").
+citta("Lettomanoppello").
+citta("Lettopalena").
+citta("Levanto").
+citta("Levate").
+citta("Leverano").
+citta("Levice").
+citta("Levico Terme").
+citta("Levone").
+citta("Lezzeno").
+citta("Liberi").
+citta("Librizzi").
+citta("Licata").
+citta("Licciana Nardi").
+citta("Licenza").
+citta("Licodia Eubea").
+citta("Lierna").
+citta("Lignana").
+citta("Lignano Sabbiadoro").
+citta("Ligosullo").
+citta("Lillianes").
+citta("Limana").
+citta("Limatola").
+citta("Limbadi").
+citta("Limbiate").
+citta("Limena").
+citta("Limido Comasco").
+citta("Limina").
+citta("Limone Piemonte").
+citta("Limone sul Garda").
+citta("Limosano").
+citta("Linarolo").
+citta("Linguaglossa").
+citta("Lioni").
+citta("Lipari").
+citta("Lipomo").
+citta("Lirio").
+citta("Liscate").
+citta("Liscia").
+citta("Lisciano Niccone").
+citta("Lisio").
+citta("Lissone").
+citta("Liveri").
+citta("Livigno").
+citta("Livinallongo del Col di Lana").
+citta("Livo").
+citta("Livo").
+citta("Livorno").
+citta("Livorno Ferraris").
+citta("Livraga").
+citta("Lizzanello").
+citta("Lizzano").
+citta("Lizzano in Belvedere").
+citta("Loano").
+citta("Loazzolo").
+citta("Locana").
+citta("Locate di Triulzi").
+citta("Locate Varesino").
+citta("Locatello").
+citta("Loceri").
+citta("Locorotondo").
+citta("Locri").
+citta("Loculi").
+citta("Lodè").
+citta("Lodi").
+citta("Lodi Vecchio").
+citta("Lodine").
+citta("Lodrino").
+citta("Lograto").
+citta("Loiano").
+citta("Loiri Porto San Paolo").
+citta("Lomagna").
+citta("Lomazzo").
+citta("Lombardore").
+citta("Lombriasco").
+citta("Lomello").
+citta("Lona-Lases").
+citta("Lonate Ceppino").
+citta("Lonate Pozzolo").
+citta("Lonato del Garda").
+citta("Londa").
+citta("Longano").
+citta("Longare").
+citta("Longarone").
+citta("Longhena").
+citta("Longi").
+citta("Longiano").
+citta("Longobardi").
+citta("Longobucco").
+citta("Longone al Segrino").
+citta("Longone Sabino").
+citta("Lonigo").
+citta("Loranzè").
+citta("Loreggia").
+citta("Loreglia").
+citta("Lorenzago di Cadore").
+citta("Loreo").
+citta("Loreto").
+citta("Loreto Aprutino").
+citta("Loria").
+citta("Loro Ciuffenna").
+citta("Loro Piceno").
+citta("Lorsica").
+citta("Losine").
+citta("Lotzorai").
+citta("Lovere").
+citta("Lovero").
+citta("Lozio").
+citta("Lozza").
+citta("Lozzo Atestino").
+citta("Lozzo di Cadore").
+citta("Lozzolo").
+citta("Lu").
+citta("Lubriano").
+citta("Lucca").
+citta("Lucca Sicula").
+citta("Lucera").
+citta("Lucignano").
+citta("Lucinasco").
+citta("Lucito").
+citta("Luco dei Marsi").
+citta("Lucoli").
+citta("Lugagnano Val d'Arda").
+citta("Lugnacco").
+citta("Lugnano in Teverina").
+citta("Lugo").
+citta("Lugo di Vicenza").
+citta("Luino").
+citta("Luisago").
+citta("Lula").
+citta("Lumarzo").
+citta("Lumezzane").
+citta("Lunamatrona").
+citta("Lunano").
+citta("Lungavilla").
+citta("Lungro").
+citta("Luni").
+citta("Luogosano").
+citta("Luogosanto").
+citta("Lupara").
+citta("Lurago d'Erba").
+citta("Lurago Marinone").
+citta("Lurano").
+citta("Luras").
+citta("Lurate Caccivio").
+citta("Lusciano").
+citta("Luserna").
+citta("Luserna San Giovanni").
+citta("Lusernetta").
+citta("Lusevera").
+citta("Lusia").
+citta("Lusiana").
+citta("Lusigliè").
+citta("Luson/Lüsen").
+citta("Lustra").
+citta("Luvinate").
+citta("Luzzana").
+citta("Luzzara").
+citta("Luzzi").
+citta("Maccagno con Pino e Veddasca").
+citta("Maccastorna").
+citta("Macchia d'Isernia").
+citta("Macchia Valfortore").
+citta("Macchiagodena").
+citta("Macello").
+citta("Macerata").
+citta("Macerata Campania").
+citta("Macerata Feltria").
+citta("Macherio").
+citta("Maclodio").
+citta("Macomer").
+citta("Macra").
+citta("Macugnaga").
+citta("Maddaloni").
+citta("Madesimo").
+citta("Madignano").
+citta("Madone").
+citta("Madonna del Sasso").
+citta("Madruzzo").
+citta("Maenza").
+citta("Mafalda").
+citta("Magasa").
+citta("Magenta").
+citta("Maggiora").
+citta("Magherno").
+citta("Magione").
+citta("Magisano").
+citta("Magliano Alfieri").
+citta("Magliano Alpi").
+citta("Magliano de' Marsi").
+citta("Magliano di Tenna").
+citta("Magliano in Toscana").
+citta("Magliano Romano").
+citta("Magliano Sabina").
+citta("Magliano Vetere").
+citta("Maglie").
+citta("Magliolo").
+citta("Maglione").
+citta("Magnacavallo").
+citta("Magnago").
+citta("Magnano").
+citta("Magnano in Riviera").
+citta("Magomadas").
+citta("Magrè sulla strada del vino/Margreid an der Weinstraße").
+citta("Magreglio").
+citta("Maida").
+citta("Maierà").
+citta("Maierato").
+citta("Maiolati Spontini").
+citta("Maiolo").
+citta("Maiori").
+citta("Mairago").
+citta("Mairano").
+citta("Maissana").
+citta("Majano").
+citta("Malagnino").
+citta("Malalbergo").
+citta("Malborghetto Valbruna").
+citta("Malcesine").
+citta("Malè").
+citta("Malegno").
+citta("Maleo").
+citta("Malesco").
+citta("Maletto").
+citta("Malfa").
+citta("Malgesso").
+citta("Malgrate").
+citta("Malito").
+citta("Mallare").
+citta("Malles Venosta/Mals").
+citta("Malnate").
+citta("Malo").
+citta("Malonno").
+citta("Malosco").
+citta("Maltignano").
+citta("Malvagna").
+citta("Malvicino").
+citta("Malvito").
+citta("Mammola").
+citta("Mamoiada").
+citta("Manciano").
+citta("Mandanici").
+citta("Mandas").
+citta("Mandatoriccio").
+citta("Mandela").
+citta("Mandello del Lario").
+citta("Mandello Vitta").
+citta("Manduria").
+citta("Manerba del Garda").
+citta("Manerbio").
+citta("Manfredonia").
+citta("Mango").
+citta("Mangone").
+citta("Maniace").
+citta("Maniago").
+citta("Manocalzati").
+citta("Manoppello").
+citta("Mansuè").
+citta("Manta").
+citta("Mantello").
+citta("Mantova").
+citta("Manzano").
+citta("Manziana").
+citta("Mapello").
+citta("Mappano").
+citta("Mara").
+citta("Maracalagonis").
+citta("Maranello").
+citta("Marano di Napoli").
+citta("Marano di Valpolicella").
+citta("Marano Equo").
+citta("Marano Lagunare").
+citta("Marano Marchesato").
+citta("Marano Principato").
+citta("Marano sul Panaro").
+citta("Marano Ticino").
+citta("Marano Vicentino").
+citta("Maranzana").
+citta("Maratea").
+citta("Marcallo con Casone").
+citta("Marcaria").
+citta("Marcedusa").
+citta("Marcellina").
+citta("Marcellinara").
+citta("Marcetelli").
+citta("Marcheno").
+citta("Marchirolo").
+citta("Marciana").
+citta("Marciana Marina").
+citta("Marcianise").
+citta("Marciano della Chiana").
+citta("Marcignago").
+citta("Marcon").
+citta("Marebbe/Enneberg").
+citta("Marene").
+citta("Mareno di Piave").
+citta("Marentino").
+citta("Maretto").
+citta("Margarita").
+citta("Margherita di Savoia").
+citta("Margno").
+citta("Mariana Mantovana").
+citta("Mariano Comense").
+citta("Mariano del Friuli").
+citta("Marianopoli").
+citta("Mariglianella").
+citta("Marigliano").
+citta("Marina di Gioiosa Ionica").
+citta("Marineo").
+citta("Marino").
+citta("Marlengo/Marling").
+citta("Marliana").
+citta("Marmentino").
+citta("Marmirolo").
+citta("Marmora").
+citta("Marnate").
+citta("Marone").
+citta("Maropati").
+citta("Marostica").
+citta("Marradi").
+citta("Marrubiu").
+citta("Marsaglia").
+citta("Marsala").
+citta("Marsciano").
+citta("Marsico Nuovo").
+citta("Marsicovetere").
+citta("Marta").
+citta("Martano").
+citta("Martellago").
+citta("Martello/Martell").
+citta("Martignacco").
+citta("Martignana di Po").
+citta("Martignano").
+citta("Martina Franca").
+citta("Martinengo").
+citta("Martiniana Po").
+citta("Martinsicuro").
+citta("Martirano").
+citta("Martirano Lombardo").
+citta("Martis").
+citta("Martone").
+citta("Marudo").
+citta("Maruggio").
+citta("Marzabotto").
+citta("Marzano").
+citta("Marzano Appio").
+citta("Marzano di Nola").
+citta("Marzi").
+citta("Marzio").
+citta("Masainas").
+citta("Masate").
+citta("Mascali").
+citta("Mascalucia").
+citta("Maschito").
+citta("Masciago Primo").
+citta("Maser").
+citta("Masera").
+citta("Maserà di Padova").
+citta("Maserada sul Piave").
+citta("Masi").
+citta("Masi Torello").
+citta("Masio").
+citta("Maslianico").
+citta("Mason Vicentino").
+citta("Masone").
+citta("Massa").
+citta("Massa d'Albe").
+citta("Massa di Somma").
+citta("Massa e Cozzile").
+citta("Massa Fermana").
+citta("Massa Lombarda").
+citta("Massa Lubrense").
+citta("Massa Marittima").
+citta("Massa Martana").
+citta("Massafra").
+citta("Massalengo").
+citta("Massanzago").
+citta("Massarosa").
+citta("Massazza").
+citta("Massello").
+citta("Masserano").
+citta("Massignano").
+citta("Massimeno").
+citta("Massimino").
+citta("Massino Visconti").
+citta("Massiola").
+citta("Masullas").
+citta("Matelica").
+citta("Matera").
+citta("Mathi").
+citta("Matino").
+citta("Matrice").
+citta("Mattie").
+citta("Mattinata").
+citta("Mazara del Vallo").
+citta("Mazzano").
+citta("Mazzano Romano").
+citta("Mazzarino").
+citta("Mazzarrà Sant'Andrea").
+citta("Mazzarrone").
+citta("Mazzè").
+citta("Mazzin").
+citta("Mazzo di Valtellina").
+citta("Meana di Susa").
+citta("Meana Sardo").
+citta("Meda").
+citta("Mede").
+citta("Medea").
+citta("Medesano").
+citta("Medicina").
+citta("Mediglia").
+citta("Medolago").
+citta("Medole").
+citta("Medolla").
+citta("Meduna di Livenza").
+citta("Meduno").
+citta("Megliadino San Fidenzio").
+citta("Megliadino San Vitale").
+citta("Meina").
+citta("Mel").
+citta("Melara").
+citta("Melazzo").
+citta("Meldola").
+citta("Mele").
+citta("Melegnano").
+citta("Melendugno").
+citta("Meleti").
+citta("Melfi").
+citta("Melicuccà").
+citta("Melicucco").
+citta("Melilli").
+citta("Melissa").
+citta("Melissano").
+citta("Melito di Napoli").
+citta("Melito di Porto Salvo").
+citta("Melito Irpino").
+citta("Melizzano").
+citta("Melle").
+citta("Mello").
+citta("Melpignano").
+citta("Meltina/Mölten").
+citta("Melzo").
+citta("Menaggio").
+citta("Menconico").
+citta("Mendatica").
+citta("Mendicino").
+citta("Menfi").
+citta("Mentana").
+citta("Meolo").
+citta("Merana").
+citta("Merano/Meran").
+citta("Merate").
+citta("Mercallo").
+citta("Mercatello sul Metauro").
+citta("Mercatino Conca").
+citta("Mercato San Severino").
+citta("Mercato Saraceno").
+citta("Mercenasco").
+citta("Mercogliano").
+citta("Mereto di Tomba").
+citta("Mergo").
+citta("Mergozzo").
+citta("Merì").
+citta("Merlara").
+citta("Merlino").
+citta("Merone").
+citta("Mesagne").
+citta("Mese").
+citta("Mesenzana").
+citta("Mesero").
+citta("Mesola").
+citta("Mesoraca").
+citta("Messina").
+citta("Mestrino").
+citta("Meta").
+citta("Meugliano").
+citta("Mezzago").
+citta("Mezzana").
+citta("Mezzana Bigli").
+citta("Mezzana Mortigliengo").
+citta("Mezzana Rabattone").
+citta("Mezzane di Sotto").
+citta("Mezzanego").
+citta("Mezzani").
+citta("Mezzanino").
+citta("Mezzano").
+citta("Mezzenile").
+citta("Mezzocorona").
+citta("Mezzojuso").
+citta("Mezzoldo").
+citta("Mezzolombardo").
+citta("Mezzomerico").
+citta("Miagliano").
+citta("Miane").
+citta("Miasino").
+citta("Miazzina").
+citta("Micigliano").
+citta("Miggiano").
+citta("Miglianico").
+citta("Miglierina").
+citta("Miglionico").
+citta("Mignanego").
+citta("Mignano Monte Lungo").
+citta("Milano").
+citta("Milazzo").
+citta("Milena").
+citta("Mileto").
+citta("Milis").
+citta("Militello in Val di Catania").
+citta("Militello Rosmarino").
+citta("Millesimo").
+citta("Milo").
+citta("Milzano").
+citta("Mineo").
+citta("Minerbe").
+citta("Minerbio").
+citta("Minervino di Lecce").
+citta("Minervino Murge").
+citta("Minori").
+citta("Minturno").
+citta("Minucciano").
+citta("Mioglia").
+citta("Mira").
+citta("Mirabella Eclano").
+citta("Mirabella Imbaccari").
+citta("Mirabello Monferrato").
+citta("Mirabello Sannitico").
+citta("Miradolo Terme").
+citta("Miranda").
+citta("Mirandola").
+citta("Mirano").
+citta("Mirto").
+citta("Misano Adriatico").
+citta("Misano di Gera d'Adda").
+citta("Misilmeri").
+citta("Misinto").
+citta("Missaglia").
+citta("Missanello").
+citta("Misterbianco").
+citta("Mistretta").
+citta("Moasca").
+citta("Moconesi").
+citta("Modena").
+citta("Modica").
+citta("Modigliana").
+citta("Modolo").
+citta("Modugno").
+citta("Moena").
+citta("Moggio").
+citta("Moggio Udinese").
+citta("Moglia").
+citta("Mogliano").
+citta("Mogliano Veneto").
+citta("Mogorella").
+citta("Mogoro").
+citta("Moiano").
+citta("Moimacco").
+citta("Moio Alcantara").
+citta("Moio de' Calvi").
+citta("Moio della Civitella").
+citta("Moiola").
+citta("Mola di Bari").
+citta("Molare").
+citta("Molazzana").
+citta("Molfetta").
+citta("Molina Aterno").
+citta("Molinara").
+citta("Molinella").
+citta("Molini di Triora").
+citta("Molino dei Torti").
+citta("Molise").
+citta("Moliterno").
+citta("Mollia").
+citta("Molochio").
+citta("Molteno").
+citta("Moltrasio").
+citta("Molvena").
+citta("Molveno").
+citta("Mombaldone").
+citta("Mombarcaro").
+citta("Mombaroccio").
+citta("Mombaruzzo").
+citta("Mombasiglio").
+citta("Mombello di Torino").
+citta("Mombello Monferrato").
+citta("Mombercelli").
+citta("Momo").
+citta("Mompantero").
+citta("Mompeo").
+citta("Momperone").
+citta("Monacilioni").
+citta("Monale").
+citta("Monasterace").
+citta("Monastero Bormida").
+citta("Monastero di Lanzo").
+citta("Monastero di Vasco").
+citta("Monasterolo Casotto").
+citta("Monasterolo del Castello").
+citta("Monasterolo di Savigliano").
+citta("Monastier di Treviso").
+citta("Monastir").
+citta("Moncalieri").
+citta("Moncalvo").
+citta("Moncenisio").
+citta("Moncestino").
+citta("Monchiero").
+citta("Monchio delle Corti").
+citta("Moncrivello").
+citta("Moncucco Torinese").
+citta("Mondaino").
+citta("Mondavio").
+citta("Mondolfo").
+citta("Mondovì").
+citta("Mondragone").
+citta("Moneglia").
+citta("Monesiglio").
+citta("Monfalcone").
+citta("Monforte d'Alba").
+citta("Monforte San Giorgio").
+citta("Monfumo").
+citta("Mongardino").
+citta("Monghidoro").
+citta("Mongiana").
+citta("Mongiardino Ligure").
+citta("Mongiuffi Melia").
+citta("Mongrando").
+citta("Mongrassano").
+citta("Monguelfo-Tesido/Welsberg-Taisten").
+citta("Monguzzo").
+citta("Moniga del Garda").
+citta("Monleale").
+citta("Monno").
+citta("Monopoli").
+citta("Monreale").
+citta("Monrupino - Repentabor").
+citta("Monsampietro Morico").
+citta("Monsampolo del Tronto").
+citta("Monsano").
+citta("Monselice").
+citta("Monserrato").
+citta("Monsummano Terme").
+citta("Montà").
+citta("Montabone").
+citta("Montacuto").
+citta("Montafia").
+citta("Montagano").
+citta("Montagna in Valtellina").
+citta("Montagna/Montan").
+citta("Montagnana").
+citta("Montagnareale").
+citta("Montaguto").
+citta("Montaione").
+citta("Montalbano Elicona").
+citta("Montalbano Jonico").
+citta("Montalcino").
+citta("Montaldeo").
+citta("Montaldo Bormida").
+citta("Montaldo di Mondovì").
+citta("Montaldo Roero").
+citta("Montaldo Scarampi").
+citta("Montaldo Torinese").
+citta("Montale").
+citta("Montalenghe").
+citta("Montallegro").
+citta("Montalto delle Marche").
+citta("Montalto di Castro").
+citta("Montalto Dora").
+citta("Montalto Ligure").
+citta("Montalto Pavese").
+citta("Montalto Uffugo").
+citta("Montanaro").
+citta("Montanaso Lombardo").
+citta("Montanera").
+citta("Montano Antilia").
+citta("Montano Lucino").
+citta("Montappone").
+citta("Montaquila").
+citta("Montasola").
+citta("Montauro").
+citta("Montazzoli").
+citta("Monte Argentario").
+citta("Monte Castello di Vibio").
+citta("Monte Cavallo").
+citta("Monte Cerignone").
+citta("Monte Compatri").
+citta("Monte Cremasco").
+citta("Monte di Malo").
+citta("Monte di Procida").
+citta("Monte Giberto").
+citta("Monte Grimano Terme").
+citta("Monte Isola").
+citta("Monte Marenzo").
+citta("Monte Porzio").
+citta("Monte Porzio Catone").
+citta("Monte Rinaldo").
+citta("Monte Roberto").
+citta("Monte Romano").
+citta("Monte San Biagio").
+citta("Monte San Giacomo").
+citta("Monte San Giovanni Campano").
+citta("Monte San Giovanni in Sabina").
+citta("Monte San Giusto").
+citta("Monte San Martino").
+citta("Monte San Pietrangeli").
+citta("Monte San Pietro").
+citta("Monte San Savino").
+citta("Monte San Vito").
+citta("Monte Santa Maria Tiberina").
+citta("Monte Sant'Angelo").
+citta("Monte Urano").
+citta("Monte Vidon Combatte").
+citta("Monte Vidon Corrado").
+citta("Montebello della battaglia").
+citta("Montebello di Bertona").
+citta("Montebello Jonico").
+citta("Montebello sul Sangro").
+citta("Montebello Vicentino").
+citta("Montebelluna").
+citta("Montebruno").
+citta("Montebuono").
+citta("Montecalvo in Foglia").
+citta("Montecalvo Irpino").
+citta("Montecalvo Versiggia").
+citta("Montecarlo").
+citta("Montecarotto").
+citta("Montecassiano").
+citta("Montecastello").
+citta("Montecastrilli").
+citta("Montecatini Val di Cecina").
+citta("Montecatini-Terme").
+citta("Montecchia di Crosara").
+citta("Montecchio").
+citta("Montecchio Emilia").
+citta("Montecchio Maggiore").
+citta("Montecchio Precalcino").
+citta("Montechiaro d'Acqui").
+citta("Montechiaro d'Asti").
+citta("Montechiarugolo").
+citta("Monteciccardo").
+citta("Montecilfone").
+citta("Montecopiolo").
+citta("Montecorice").
+citta("Montecorvino Pugliano").
+citta("Montecorvino Rovella").
+citta("Montecosaro").
+citta("Montecrestese").
+citta("Montecreto").
+citta("Montedinove").
+citta("Montedoro").
+citta("Montefalcione").
+citta("Montefalco").
+citta("Montefalcone Appennino").
+citta("Montefalcone di Val Fortore").
+citta("Montefalcone nel Sannio").
+citta("Montefano").
+citta("Montefelcino").
+citta("Monteferrante").
+citta("Montefiascone").
+citta("Montefino").
+citta("Montefiore Conca").
+citta("Montefiore dell'Aso").
+citta("Montefiorino").
+citta("Monteflavio").
+citta("Monteforte Cilento").
+citta("Monteforte d'Alpone").
+citta("Monteforte Irpino").
+citta("Montefortino").
+citta("Montefranco").
+citta("Montefredane").
+citta("Montefusco").
+citta("Montegabbione").
+citta("Montegalda").
+citta("Montegaldella").
+citta("Montegallo").
+citta("Montegioco").
+citta("Montegiordano").
+citta("Montegiorgio").
+citta("Montegranaro").
+citta("Montegridolfo").
+citta("Montegrino Valtravaglia").
+citta("Montegrosso d'Asti").
+citta("Montegrosso Pian Latte").
+citta("Montegrotto Terme").
+citta("Monteiasi").
+citta("Montelabbate").
+citta("Montelanico").
+citta("Montelapiano").
+citta("Monteleone di Fermo").
+citta("Monteleone di Puglia").
+citta("Monteleone di Spoleto").
+citta("Monteleone d'Orvieto").
+citta("Monteleone Rocca Doria").
+citta("Monteleone Sabino").
+citta("Montelepre").
+citta("Montelibretti").
+citta("Montella").
+citta("Montello").
+citta("Montelongo").
+citta("Montelparo").
+citta("Montelupo Albese").
+citta("Montelupo Fiorentino").
+citta("Montelupone").
+citta("Montemaggiore Belsito").
+citta("Montemagno").
+citta("Montemale di Cuneo").
+citta("Montemarano").
+citta("Montemarciano").
+citta("Montemarzino").
+citta("Montemesola").
+citta("Montemezzo").
+citta("Montemignaio").
+citta("Montemiletto").
+citta("Montemilone").
+citta("Montemitro").
+citta("Montemonaco").
+citta("Montemurlo").
+citta("Montemurro").
+citta("Montenars").
+citta("Montenero di Bisaccia").
+citta("Montenero Sabino").
+citta("Montenero Val Cocchiara").
+citta("Montenerodomo").
+citta("Monteodorisio").
+citta("Montepaone").
+citta("Monteparano").
+citta("Monteprandone").
+citta("Montepulciano").
+citta("Monterchi").
+citta("Montereale").
+citta("Montereale Valcellina").
+citta("Monterenzio").
+citta("Monteriggioni").
+citta("Monteroduni").
+citta("Monteroni d'Arbia").
+citta("Monteroni di Lecce").
+citta("Monterosi").
+citta("Monterosso al Mare").
+citta("Monterosso Almo").
+citta("Monterosso Calabro").
+citta("Monterosso Grana").
+citta("Monterotondo").
+citta("Monterotondo Marittimo").
+citta("Monterubbiano").
+citta("Montesano Salentino").
+citta("Montesano sulla Marcellana").
+citta("Montesarchio").
+citta("Montescaglioso").
+citta("Montescano").
+citta("Montescheno").
+citta("Montescudaio").
+citta("Montescudo - Monte Colombo").
+citta("Montese").
+citta("Montesegale").
+citta("Montesilvano").
+citta("Montespertoli").
+citta("Monteu da Po").
+citta("Monteu Roero").
+citta("Montevago").
+citta("Montevarchi").
+citta("Montevecchia").
+citta("Monteverde").
+citta("Monteverdi Marittimo").
+citta("Monteviale").
+citta("Montezemolo").
+citta("Monti").
+citta("Montiano").
+citta("Monticelli Brusati").
+citta("Monticelli d'Ongina").
+citta("Monticelli Pavese").
+citta("Monticello Brianza").
+citta("Monticello Conte Otto").
+citta("Monticello d'Alba").
+citta("Montichiari").
+citta("Monticiano").
+citta("Montieri").
+citta("Montiglio Monferrato").
+citta("Montignoso").
+citta("Montirone").
+citta("Montjovet").
+citta("Montodine").
+citta("Montoggio").
+citta("Montone").
+citta("Montopoli di Sabina").
+citta("Montopoli in Val d'Arno").
+citta("Montorfano").
+citta("Montorio al Vomano").
+citta("Montorio nei Frentani").
+citta("Montorio Romano").
+citta("Montoro").
+citta("Montorso Vicentino").
+citta("Montottone").
+citta("Montresta").
+citta("Montù Beccaria").
+citta("Monvalle").
+citta("Monza").
+citta("Monzambano").
+citta("Monzuno").
+citta("Morano Calabro").
+citta("Morano sul Po").
+citta("Moransengo").
+citta("Moraro").
+citta("Morazzone").
+citta("Morbegno").
+citta("Morbello").
+citta("Morciano di Leuca").
+citta("Morciano di Romagna").
+citta("Morcone").
+citta("Mordano").
+citta("Morengo").
+citta("Mores").
+citta("Moresco").
+citta("Moretta").
+citta("Morfasso").
+citta("Morgano").
+citta("Morgex").
+citta("Morgongiori").
+citta("Mori").
+citta("Moriago della Battaglia").
+citta("Moricone").
+citta("Morigerati").
+citta("Morimondo").
+citta("Morino").
+citta("Moriondo Torinese").
+citta("Morlupo").
+citta("Mormanno").
+citta("Mornago").
+citta("Mornese").
+citta("Mornico al Serio").
+citta("Mornico Losana").
+citta("Morolo").
+citta("Morozzo").
+citta("Morra De Sanctis").
+citta("Morro d'Alba").
+citta("Morro d'Oro").
+citta("Morro Reatino").
+citta("Morrone del Sannio").
+citta("Morrovalle").
+citta("Morsano al Tagliamento").
+citta("Morsasco").
+citta("Mortara").
+citta("Mortegliano").
+citta("Morterone").
+citta("Moruzzo").
+citta("Moscazzano").
+citta("Moschiano").
+citta("Mosciano Sant'Angelo").
+citta("Moscufo").
+citta("Moso in Passiria/Moos in Passeier").
+citta("Mossa").
+citta("Mossano").
+citta("Mosso").
+citta("Motta Baluffi").
+citta("Motta Camastra").
+citta("Motta d'Affermo").
+citta("Motta de' Conti").
+citta("Motta di Livenza").
+citta("Motta Montecorvino").
+citta("Motta San Giovanni").
+citta("Motta Santa Lucia").
+citta("Motta Sant'Anastasia").
+citta("Motta Visconti").
+citta("Mottafollone").
+citta("Mottalciata").
+citta("Motteggiana").
+citta("Mottola").
+citta("Mozzagrogna").
+citta("Mozzanica").
+citta("Mozzate").
+citta("Mozzecane").
+citta("Mozzo").
+citta("Muccia").
+citta("Muggia - Muglae").
+citta("Muggiò").
+citta("Mugnano del Cardinale").
+citta("Mugnano di Napoli").
+citta("Mulazzano").
+citta("Mulazzo").
+citta("Mura").
+citta("Muravera").
+citta("Murazzano").
+citta("Murello").
+citta("Murialdo").
+citta("Murisengo").
+citta("Murlo").
+citta("Muro Leccese").
+citta("Muro Lucano").
+citta("Muros").
+citta("Muscoline").
+citta("Musei").
+citta("Musile di Piave").
+citta("Musso").
+citta("Mussolente").
+citta("Mussomeli").
+citta("Muzzana del Turgnano").
+citta("Muzzano").
+citta("Nago-Torbole").
+citta("Nalles/Nals").
+citta("Nanto").
+citta("Napoli").
+citta("Narbolia").
+citta("Narcao").
+citta("Nardò").
+citta("Nardodipace").
+citta("Narni").
+citta("Naro").
+citta("Narzole").
+citta("Nasino").
+citta("Naso").
+citta("Naturno/Naturns").
+citta("Nave").
+citta("Nave San Rocco").
+citta("Navelli").
+citta("Naz-Sciaves/Natz-Schabs").
+citta("Nazzano").
+citta("Ne").
+citta("Nebbiuno").
+citta("Negrar").
+citta("Neirone").
+citta("Neive").
+citta("Nembro").
+citta("Nemi").
+citta("Nemoli").
+citta("Neoneli").
+citta("Nepi").
+citta("Nereto").
+citta("Nerola").
+citta("Nervesa della Battaglia").
+citta("Nerviano").
+citta("Nespolo").
+citta("Nesso").
+citta("Netro").
+citta("Nettuno").
+citta("Neviano").
+citta("Neviano degli Arduini").
+citta("Neviglie").
+citta("Niardo").
+citta("Nibbiano").
+citta("Nibbiola").
+citta("Nibionno").
+citta("Nichelino").
+citta("Nicolosi").
+citta("Nicorvo").
+citta("Nicosia").
+citta("Nicotera").
+citta("Niella Belbo").
+citta("Niella Tanaro").
+citta("Nimis").
+citta("Niscemi").
+citta("Nissoria").
+citta("Nizza di Sicilia").
+citta("Nizza Monferrato").
+citta("Noale").
+citta("Noasca").
+citta("Nocara").
+citta("Nocciano").
+citta("Nocera Inferiore").
+citta("Nocera Superiore").
+citta("Nocera Terinese").
+citta("Nocera Umbra").
+citta("Noceto").
+citta("Noci").
+citta("Nociglia").
+citta("Noepoli").
+citta("Nogara").
+citta("Nogaredo").
+citta("Nogarole Rocca").
+citta("Nogarole Vicentino").
+citta("Noicattaro").
+citta("Nola").
+citta("Nole").
+citta("Noli").
+citta("Nomaglio").
+citta("Nomi").
+citta("Nonantola").
+citta("None").
+citta("Nonio").
+citta("Noragugume").
+citta("Norbello").
+citta("Norcia").
+citta("Norma").
+citta("Nosate").
+citta("Notaresco").
+citta("Noto").
+citta("Nova Levante/Welschnofen").
+citta("Nova Milanese").
+citta("Nova Ponente/Deutschnofen").
+citta("Nova Siri").
+citta("Novafeltria").
+citta("Novaledo").
+citta("Novalesa").
+citta("Novara").
+citta("Novara di Sicilia").
+citta("Novate Mezzola").
+citta("Novate Milanese").
+citta("Nove").
+citta("Novedrate").
+citta("Novellara").
+citta("Novello").
+citta("Noventa di Piave").
+citta("Noventa Padovana").
+citta("Noventa Vicentina").
+citta("Novi di Modena").
+citta("Novi Ligure").
+citta("Novi Velia").
+citta("Noviglio").
+citta("Novoli").
+citta("Nucetto").
+citta("Nughedu San Nicolò").
+citta("Nughedu Santa Vittoria").
+citta("Nule").
+citta("Nulvi").
+citta("Numana").
+citta("Nuoro").
+citta("Nurachi").
+citta("Nuragus").
+citta("Nurallao").
+citta("Nuraminis").
+citta("Nureci").
+citta("Nurri").
+citta("Nus").
+citta("Nusco").
+citta("Nuvolento").
+citta("Nuvolera").
+citta("Nuxis").
+citta("Occhieppo Inferiore").
+citta("Occhieppo Superiore").
+citta("Occhiobello").
+citta("Occimiano").
+citta("Ocre").
+citta("Odalengo Grande").
+citta("Odalengo Piccolo").
+citta("Oderzo").
+citta("Odolo").
+citta("Ofena").
+citta("Offagna").
+citta("Offanengo").
+citta("Offida").
+citta("Offlaga").
+citta("Oggebbio").
+citta("Oggiona con Santo Stefano").
+citta("Oggiono").
+citta("Oglianico").
+citta("Ogliastro Cilento").
+citta("Olbia").
+citta("Olcenengo").
+citta("Oldenico").
+citta("Oleggio").
+citta("Oleggio Castello").
+citta("Olevano di Lomellina").
+citta("Olevano Romano").
+citta("Olevano sul Tusciano").
+citta("Olgiate Comasco").
+citta("Olgiate Molgora").
+citta("Olgiate Olona").
+citta("Olginate").
+citta("Oliena").
+citta("Oliva Gessi").
+citta("Olivadi").
+citta("Oliveri").
+citta("Oliveto Citra").
+citta("Oliveto Lario").
+citta("Oliveto Lucano").
+citta("Olivetta San Michele").
+citta("Olivola").
+citta("Ollastra").
+citta("Ollolai").
+citta("Ollomont").
+citta("Olmedo").
+citta("Olmeneta").
+citta("Olmo al Brembo").
+citta("Olmo Gentile").
+citta("Oltre il Colle").
+citta("Oltressenda Alta").
+citta("Oltrona di San Mamette").
+citta("Olzai").
+citta("Ome").
+citta("Omegna").
+citta("Omignano").
+citta("Onanì").
+citta("Onano").
+citta("Oncino").
+citta("Oneta").
+citta("Onifai").
+citta("Oniferi").
+citta("Ono San Pietro").
+citta("Onore").
+citta("Onzo").
+citta("Opera").
+citta("Opi").
+citta("Oppeano").
+citta("Oppido Lucano").
+citta("Oppido Mamertina").
+citta("Ora/Auer").
+citta("Orani").
+citta("Oratino").
+citta("Orbassano").
+citta("Orbetello").
+citta("Orciano Pisano").
+citta("Orco Feglino").
+citta("Ordona").
+citta("Orero").
+citta("Orgiano").
+citta("Orgosolo").
+citta("Oria").
+citta("Oricola").
+citta("Origgio").
+citta("Orino").
+citta("Orio al Serio").
+citta("Orio Canavese").
+citta("Orio Litta").
+citta("Oriolo").
+citta("Oriolo Romano").
+citta("Oristano").
+citta("Ormea").
+citta("Ormelle").
+citta("Ornago").
+citta("Ornavasso").
+citta("Ornica").
+citta("Orosei").
+citta("Orotelli").
+citta("Orria").
+citta("Orroli").
+citta("Orsago").
+citta("Orsara Bormida").
+citta("Orsara di Puglia").
+citta("Orsenigo").
+citta("Orsogna").
+citta("Orsomarso").
+citta("Orta di Atella").
+citta("Orta Nova").
+citta("Orta San Giulio").
+citta("Ortacesus").
+citta("Orte").
+citta("Ortelle").
+citta("Ortezzano").
+citta("Ortignano Raggiolo").
+citta("Ortisei/St").
+citta("Ortona").
+citta("Ortona dei Marsi").
+citta("Ortovero").
+citta("Ortucchio").
+citta("Ortueri").
+citta("Orune").
+citta("Orvieto").
+citta("Orvinio").
+citta("Orzinuovi").
+citta("Orzivecchi").
+citta("Osasco").
+citta("Osasio").
+citta("Oschiri").
+citta("Osidda").
+citta("Osiglia").
+citta("Osilo").
+citta("Osimo").
+citta("Osini").
+citta("Osio Sopra").
+citta("Osio Sotto").
+citta("Osmate").
+citta("Osnago").
+citta("Osoppo").
+citta("Ospedaletti").
+citta("Ospedaletto").
+citta("Ospedaletto d'Alpinolo").
+citta("Ospedaletto Euganeo").
+citta("Ospedaletto Lodigiano").
+citta("Ospitale di Cadore").
+citta("Ospitaletto").
+citta("Ossago Lodigiano").
+citta("Ossana").
+citta("Ossi").
+citta("Ossimo").
+citta("Ossona").
+citta("Ostana").
+citta("Ostellato").
+citta("Ostiano").
+citta("Ostiglia").
+citta("Ostra").
+citta("Ostra Vetere").
+citta("Ostuni").
+citta("Otranto").
+citta("Otricoli").
+citta("Ottana").
+citta("Ottati").
+citta("Ottaviano").
+citta("Ottiglio").
+citta("Ottobiano").
+citta("Ottone").
+citta("Oulx").
+citta("Ovada").
+citta("Ovaro").
+citta("Oviglio").
+citta("Ovindoli").
+citta("Ovodda").
+citta("Oyace").
+citta("Ozegna").
+citta("Ozieri").
+citta("Ozzano dell'Emilia").
+citta("Ozzano Monferrato").
+citta("Ozzero").
+citta("Pabillonis").
+citta("Pace del Mela").
+citta("Paceco").
+citta("Pacentro").
+citta("Pachino").
+citta("Paciano").
+citta("Padenghe sul Garda").
+citta("Paderna").
+citta("Paderno d'Adda").
+citta("Paderno del Grappa").
+citta("Paderno Dugnano").
+citta("Paderno Franciacorta").
+citta("Paderno Ponchielli").
+citta("Padova").
+citta("Padria").
+citta("Padru").
+citta("Padula").
+citta("Paduli").
+citta("Paesana").
+citta("Paese").
+citta("Pagani").
+citta("Paganico Sabino").
+citta("Pagazzano").
+citta("Pagliara").
+citta("Paglieta").
+citta("Pagnacco").
+citta("Pagno").
+citta("Pagnona").
+citta("Pago del Vallo di Lauro").
+citta("Pago Veiano").
+citta("Paisco Loveno").
+citta("Paitone").
+citta("Paladina").
+citta("Palagano").
+citta("Palagianello").
+citta("Palagiano").
+citta("Palagonia").
+citta("Palaia").
+citta("Palanzano").
+citta("Palata").
+citta("Palau").
+citta("Palazzago").
+citta("Palazzo Adriano").
+citta("Palazzo Canavese").
+citta("Palazzo Pignano").
+citta("Palazzo San Gervasio").
+citta("Palazzolo Acreide").
+citta("Palazzolo dello Stella").
+citta("Palazzolo sull'Oglio").
+citta("Palazzolo Vercellese").
+citta("Palazzuolo sul Senio").
+citta("Palena").
+citta("Palermiti").
+citta("Palermo").
+citta("Palestrina").
+citta("Palestro").
+citta("Paliano").
+citta("Palizzi").
+citta("Pallagorio").
+citta("Pallanzeno").
+citta("Pallare").
+citta("Palma Campania").
+citta("Palma di Montechiaro").
+citta("Palmanova").
+citta("Palmariggi").
+citta("Palmas Arborea").
+citta("Palmi").
+citta("Palmiano").
+citta("Palmoli").
+citta("Palo del Colle").
+citta("Palombara Sabina").
+citta("Palombaro").
+citta("Palomonte").
+citta("Palosco").
+citta("Palù").
+citta("Palù del Fersina").
+citta("Paludi").
+citta("Paluzza").
+citta("Pamparato").
+citta("Pancalieri").
+citta("Pancarana").
+citta("Panchià").
+citta("Pandino").
+citta("Panettieri").
+citta("Panicale").
+citta("Pannarano").
+citta("Panni").
+citta("Pantelleria").
+citta("Pantigliate").
+citta("Paola").
+citta("Paolisi").
+citta("Papasidero").
+citta("Papozze").
+citta("Parabiago").
+citta("Parabita").
+citta("Paratico").
+citta("Parcines/Partschins").
+citta("Parella").
+citta("Parenti").
+citta("Parete").
+citta("Pareto").
+citta("Parghelia").
+citta("Parlasco").
+citta("Parma").
+citta("Parodi Ligure").
+citta("Paroldo").
+citta("Parolise").
+citta("Parona").
+citta("Parrano").
+citta("Parre").
+citta("Partanna").
+citta("Partinico").
+citta("Paruzzaro").
+citta("Parzanica").
+citta("Pasian di Prato").
+citta("Pasiano di Pordenone").
+citta("Paspardo").
+citta("Passerano Marmorito").
+citta("Passignano sul Trasimeno").
+citta("Passirano").
+citta("Pastena").
+citta("Pastorano").
+citta("Pastrengo").
+citta("Pasturana").
+citta("Pasturo").
+citta("Paterno").
+citta("Paternò").
+citta("Paterno Calabro").
+citta("Paternopoli").
+citta("Patrica").
+citta("Pattada").
+citta("Patti").
+citta("Patù").
+citta("Pau").
+citta("Paularo").
+citta("Pauli Arbarei").
+citta("Paulilatino").
+citta("Paullo").
+citta("Paupisi").
+citta("Pavarolo").
+citta("Pavia").
+citta("Pavia di Udine").
+citta("Pavone Canavese").
+citta("Pavone del Mella").
+citta("Pavullo nel Frignano").
+citta("Pazzano").
+citta("Peccioli").
+citta("Pecco").
+citta("Pecetto di Valenza").
+citta("Pecetto Torinese").
+citta("Pecorara").
+citta("Pedara").
+citta("Pedaso").
+citta("Pedavena").
+citta("Pedemonte").
+citta("Pederobba").
+citta("Pedesina").
+citta("Pedivigliano").
+citta("Pedrengo").
+citta("Peglio").
+citta("Peglio").
+citta("Pegognaga").
+citta("Peia").
+citta("Peio").
+citta("Pelago").
+citta("Pella").
+citta("Pellegrino Parmense").
+citta("Pellezzano").
+citta("Pellizzano").
+citta("Pelugo").
+citta("Penango").
+citta("Penna in Teverina").
+citta("Penna San Giovanni").
+citta("Penna Sant'Andrea").
+citta("Pennabilli").
+citta("Pennadomo").
+citta("Pennapiedimonte").
+citta("Penne").
+citta("Pentone").
+citta("Perano").
+citta("Perarolo di Cadore").
+citta("Perca/Percha").
+citta("Percile").
+citta("Perdasdefogu").
+citta("Perdaxius").
+citta("Perdifumo").
+citta("Pereto").
+citta("Perfugas").
+citta("Pergine Valdarno").
+citta("Pergine Valsugana").
+citta("Pergola").
+citta("Perinaldo").
+citta("Perito").
+citta("Perledo").
+citta("Perletto").
+citta("Perlo").
+citta("Perloz").
+citta("Pernumia").
+citta("Pero").
+citta("Perosa Argentina").
+citta("Perosa Canavese").
+citta("Perrero").
+citta("Persico Dosimo").
+citta("Pertengo").
+citta("Pertica Alta").
+citta("Pertica Bassa").
+citta("Pertosa").
+citta("Pertusio").
+citta("Perugia").
+citta("Pesaro").
+citta("Pescaglia").
+citta("Pescantina").
+citta("Pescara").
+citta("Pescarolo ed Uniti").
+citta("Pescasseroli").
+citta("Pescate").
+citta("Pesche").
+citta("Peschici").
+citta("Peschiera Borromeo").
+citta("Peschiera del Garda").
+citta("Pescia").
+citta("Pescina").
+citta("Pesco Sannita").
+citta("Pescocostanzo").
+citta("Pescolanciano").
+citta("Pescopagano").
+citta("Pescopennataro").
+citta("Pescorocchiano").
+citta("Pescosansonesco").
+citta("Pescosolido").
+citta("Pessano con Bornago").
+citta("Pessina Cremonese").
+citta("Pessinetto").
+citta("Petacciato").
+citta("Petilia Policastro").
+citta("Petina").
+citta("Petralia Soprana").
+citta("Petralia Sottana").
+citta("Petrella Salto").
+citta("Petrella Tifernina").
+citta("Petriano").
+citta("Petriolo").
+citta("Petritoli").
+citta("Petrizzi").
+citta("Petronà").
+citta("Petrosino").
+citta("Petruro Irpino").
+citta("Pettenasco").
+citta("Pettinengo").
+citta("Pettineo").
+citta("Pettoranello del Molise").
+citta("Pettorano sul Gizio").
+citta("Pettorazza Grimani").
+citta("Peveragno").
+citta("Pezzana").
+citta("Pezzaze").
+citta("Pezzolo Valle Uzzone").
+citta("Piacenza").
+citta("Piacenza d'Adige").
+citta("Piadena").
+citta("Piaggine").
+citta("Pian Camuno").
+citta("Piana Crixia").
+citta("Piana degli Albanesi").
+citta("Piana di Monte Verna").
+citta("Piancastagnaio").
+citta("Piancogno").
+citta("Piandimeleto").
+citta("Piane Crati").
+citta("Pianella").
+citta("Pianello del Lario").
+citta("Pianello Val Tidone").
+citta("Pianengo").
+citta("Pianezza").
+citta("Pianezze").
+citta("Pianfei").
+citta("Pianico").
+citta("Pianiga").
+citta("Piano di Sorrento").
+citta("Pianopoli").
+citta("Pianoro").
+citta("Piansano").
+citta("Piantedo").
+citta("Piario").
+citta("Piasco").
+citta("Piateda").
+citta("Piatto").
+citta("Piazza al Serchio").
+citta("Piazza Armerina").
+citta("Piazza Brembana").
+citta("Piazzatorre").
+citta("Piazzola sul Brenta").
+citta("Piazzolo").
+citta("Picciano").
+citta("Picerno").
+citta("Picinisco").
+citta("Pico").
+citta("Piea").
+citta("Piedicavallo").
+citta("Piedimonte Etneo").
+citta("Piedimonte Matese").
+citta("Piedimonte San Germano").
+citta("Piedimulera").
+citta("Piegaro").
+citta("Pienza").
+citta("Pieranica").
+citta("Pietra de' Giorgi").
+citta("Pietra Ligure").
+citta("Pietra Marazzi").
+citta("Pietrabbondante").
+citta("Pietrabruna").
+citta("Pietracamela").
+citta("Pietracatella").
+citta("Pietracupa").
+citta("Pietradefusi").
+citta("Pietraferrazzana").
+citta("Pietrafitta").
+citta("Pietragalla").
+citta("Pietralunga").
+citta("Pietramelara").
+citta("Pietramontecorvino").
+citta("Pietranico").
+citta("Pietrapaola").
+citta("Pietrapertosa").
+citta("Pietraperzia").
+citta("Pietraporzio").
+citta("Pietraroja").
+citta("Pietrarubbia").
+citta("Pietrasanta").
+citta("Pietrastornina").
+citta("Pietravairano").
+citta("Pietrelcina").
+citta("Pieve a Nievole").
+citta("Pieve Albignola").
+citta("Pieve del Cairo").
+citta("Pieve di Bono-Prezzo").
+citta("Pieve di Cadore").
+citta("Pieve di Cento").
+citta("Pieve di Coriano").
+citta("Pieve di Soligo").
+citta("Pieve di Teco").
+citta("Pieve d'Olmi").
+citta("Pieve Emanuele").
+citta("Pieve Fissiraga").
+citta("Pieve Fosciana").
+citta("Pieve Ligure").
+citta("Pieve Porto Morone").
+citta("Pieve San Giacomo").
+citta("Pieve Santo Stefano").
+citta("Pieve Tesino").
+citta("Pieve Torina").
+citta("Pieve Vergonte").
+citta("Pievepelago").
+citta("Piglio").
+citta("Pigna").
+citta("Pignataro Interamna").
+citta("Pignataro Maggiore").
+citta("Pignola").
+citta("Pignone").
+citta("Pigra").
+citta("Pila").
+citta("Pimentel").
+citta("Pimonte").
+citta("Pinarolo Po").
+citta("Pinasca").
+citta("Pincara").
+citta("Pinerolo").
+citta("Pineto").
+citta("Pino d'Asti").
+citta("Pino Torinese").
+citta("Pinzano al Tagliamento").
+citta("Pinzolo").
+citta("Piobbico").
+citta("Piobesi d'Alba").
+citta("Piobesi Torinese").
+citta("Piode").
+citta("Pioltello").
+citta("Piombino").
+citta("Piombino Dese").
+citta("Pioraco").
+citta("Piossasco").
+citta("Piovà Massaia").
+citta("Piove di Sacco").
+citta("Piovene Rocchette").
+citta("Piovera").
+citta("Piozzano").
+citta("Piozzo").
+citta("Piraino").
+citta("Pisa").
+citta("Pisano").
+citta("Piscina").
+citta("Piscinas").
+citta("Pisciotta").
+citta("Pisogne").
+citta("Pisoniano").
+citta("Pisticci").
+citta("Pistoia").
+citta("Pitigliano").
+citta("Piubega").
+citta("Piuro").
+citta("Piverone").
+citta("Pizzale").
+citta("Pizzighettone").
+citta("Pizzo").
+citta("Pizzoferrato").
+citta("Pizzoli").
+citta("Pizzone").
+citta("Pizzoni").
+citta("Placanica").
+citta("Plataci").
+citta("Platania").
+citta("Platì").
+citta("Plaus/Plaus").
+citta("Plesio").
+citta("Ploaghe").
+citta("Plodio").
+citta("Pocapaglia").
+citta("Pocenia").
+citta("Podenzana").
+citta("Podenzano").
+citta("Pofi").
+citta("Poggiardo").
+citta("Poggibonsi").
+citta("Poggio a Caiano").
+citta("Poggio Bustone").
+citta("Poggio Catino").
+citta("Poggio Imperiale").
+citta("Poggio Mirteto").
+citta("Poggio Moiano").
+citta("Poggio Nativo").
+citta("Poggio Picenze").
+citta("Poggio Renatico").
+citta("Poggio Rusco").
+citta("Poggio San Lorenzo").
+citta("Poggio San Marcello").
+citta("Poggio San Vicino").
+citta("Poggio Sannita").
+citta("Poggio Torriana").
+citta("Poggiodomo").
+citta("Poggiofiorito").
+citta("Poggiomarino").
+citta("Poggioreale").
+citta("Poggiorsini").
+citta("Poggiridenti").
+citta("Pogliano Milanese").
+citta("Pognana Lario").
+citta("Pognano").
+citta("Pogno").
+citta("Poirino").
+citta("Pojana Maggiore").
+citta("Polaveno").
+citta("Polcenigo").
+citta("Polesella").
+citta("Polesine Zibello").
+citta("Poli").
+citta("Polia").
+citta("Policoro").
+citta("Polignano a Mare").
+citta("Polinago").
+citta("Polino").
+citta("Polistena").
+citta("Polizzi Generosa").
+citta("Polla").
+citta("Pollein").
+citta("Pollena Trocchia").
+citta("Pollenza").
+citta("Pollica").
+citta("Pollina").
+citta("Pollone").
+citta("Pollutri").
+citta("Polonghera").
+citta("Polpenazze del Garda").
+citta("Polverara").
+citta("Polverigi").
+citta("Pomarance").
+citta("Pomaretto").
+citta("Pomarico").
+citta("Pomaro Monferrato").
+citta("Pomarolo").
+citta("Pombia").
+citta("Pomezia").
+citta("Pomigliano d'Arco").
+citta("Pompei").
+citta("Pompeiana").
+citta("Pompiano").
+citta("Pomponesco").
+citta("Pompu").
+citta("Poncarale").
+citta("Ponderano").
+citta("Ponna").
+citta("Ponsacco").
+citta("Ponso").
+citta("Pontassieve").
+citta("Pontboset").
+citta("Pont-Canavese").
+citta("Ponte").
+citta("Ponte Buggianese").
+citta("Ponte dell'Olio").
+citta("Ponte di Legno").
+citta("Ponte di Piave").
+citta("Ponte Gardena/Waidbruck").
+citta("Ponte in Valtellina").
+citta("Ponte Lambro").
+citta("Ponte nelle Alpi").
+citta("Ponte Nizza").
+citta("Ponte Nossa").
+citta("Ponte San Nicolò").
+citta("Ponte San Pietro").
+citta("Pontebba").
+citta("Pontecagnano Faiano").
+citta("Pontecchio Polesine").
+citta("Pontechianale").
+citta("Pontecorvo").
+citta("Pontecurone").
+citta("Pontedassio").
+citta("Pontedera").
+citta("Pontelandolfo").
+citta("Pontelatone").
+citta("Pontelongo").
+citta("Pontenure").
+citta("Ponteranica").
+citta("Pontestura").
+citta("Pontevico").
+citta("Pontey").
+citta("Ponti").
+citta("Ponti sul Mincio").
+citta("Pontida").
+citta("Pontinia").
+citta("Pontinvrea").
+citta("Pontirolo Nuovo").
+citta("Pontoglio").
+citta("Pontremoli").
+citta("Pont-Saint-Martin").
+citta("Ponza").
+citta("Ponzano di Fermo").
+citta("Ponzano Monferrato").
+citta("Ponzano Romano").
+citta("Ponzano Veneto").
+citta("Ponzone").
+citta("Popoli").
+citta("Poppi").
+citta("Porano").
+citta("Porcari").
+citta("Porcia").
+citta("Pordenone").
+citta("Porlezza").
+citta("Pornassio").
+citta("Porpetto").
+citta("Portacomaro").
+citta("Portalbera").
+citta("Porte").
+citta("Porte di Rendena").
+citta("Portici").
+citta("Portico di Caserta").
+citta("Portico e San Benedetto").
+citta("Portigliola").
+citta("Porto Azzurro").
+citta("Porto Ceresio").
+citta("Porto Cesareo").
+citta("Porto Empedocle").
+citta("Porto Mantovano").
+citta("Porto Recanati").
+citta("Porto San Giorgio").
+citta("Porto Sant'Elpidio").
+citta("Porto Tolle").
+citta("Porto Torres").
+citta("Porto Valtravaglia").
+citta("Porto Viro").
+citta("Portobuffolè").
+citta("Portocannone").
+citta("Portoferraio").
+citta("Portofino").
+citta("Portogruaro").
+citta("Portomaggiore").
+citta("Portopalo di Capo Passero").
+citta("Portoscuso").
+citta("Portovenere").
+citta("Portula").
+citta("Posada").
+citta("Posina").
+citta("Positano").
+citta("Possagno").
+citta("Posta").
+citta("Posta Fibreno").
+citta("Postal/Burgstall").
+citta("Postalesio").
+citta("Postiglione").
+citta("Postua").
+citta("Potenza").
+citta("Potenza Picena").
+citta("Pove del Grappa").
+citta("Povegliano").
+citta("Povegliano Veronese").
+citta("Poviglio").
+citta("Povoletto").
+citta("Pozza di Fassa").
+citta("Pozzaglia Sabina").
+citta("Pozzaglio ed Uniti").
+citta("Pozzallo").
+citta("Pozzilli").
+citta("Pozzo d'Adda").
+citta("Pozzol Groppo").
+citta("Pozzolengo").
+citta("Pozzoleone").
+citta("Pozzolo Formigaro").
+citta("Pozzomaggiore").
+citta("Pozzonovo").
+citta("Pozzuoli").
+citta("Pozzuolo del Friuli").
+citta("Pozzuolo Martesana").
+citta("Pradalunga").
+citta("Pradamano").
+citta("Pradleves").
+citta("Pragelato").
+citta("Praia a Mare").
+citta("Praiano").
+citta("Pralboino").
+citta("Prali").
+citta("Pralormo").
+citta("Pralungo").
+citta("Pramaggiore").
+citta("Pramollo").
+citta("Prarolo").
+citta("Prarostino").
+citta("Prasco").
+citta("Prascorsano").
+citta("Prata Camportaccio").
+citta("Prata d'Ansidonia").
+citta("Prata di Pordenone").
+citta("Prata di Principato Ultra").
+citta("Prata Sannita").
+citta("Pratella").
+citta("Pratiglione").
+citta("Prato").
+citta("Prato allo Stelvio/Prad am Stilfserjoch").
+citta("Prato Carnico").
+citta("Prato Sesia").
+citta("Pratola Peligna").
+citta("Pratola Serra").
+citta("Pratovecchio Stia").
+citta("Pravisdomini").
+citta("Pray").
+citta("Prazzo").
+citta("Precenicco").
+citta("Preci").
+citta("Predaia").
+citta("Predappio").
+citta("Predazzo").
+citta("Predoi/Prettau").
+citta("Predore").
+citta("Predosa").
+citta("Preganziol").
+citta("Pregnana Milanese").
+citta("Prelà").
+citta("Premana").
+citta("Premariacco").
+citta("Premeno").
+citta("Premia").
+citta("Premilcuore").
+citta("Premolo").
+citta("Premosello-Chiovenda").
+citta("Preone").
+citta("Prepotto").
+citta("Pré-Saint-Didier").
+citta("Preseglie").
+citta("Presenzano").
+citta("Presezzo").
+citta("Presicce").
+citta("Pressana").
+citta("Pretoro").
+citta("Prevalle").
+citta("Prezza").
+citta("Priero").
+citta("Prignano Cilento").
+citta("Prignano sulla Secchia").
+citta("Primaluna").
+citta("Primiero San Martino di Castrozza").
+citta("Priocca").
+citta("Priola").
+citta("Priolo Gargallo").
+citta("Priverno").
+citta("Prizzi").
+citta("Proceno").
+citta("Procida").
+citta("Propata").
+citta("Proserpio").
+citta("Prossedi").
+citta("Provaglio d'Iseo").
+citta("Provaglio Val Sabbia").
+citta("Proves/Proveis").
+citta("Provvidenti").
+citta("Prunetto").
+citta("Puegnago del Garda").
+citta("Puglianello").
+citta("Pula").
+citta("Pulfero").
+citta("Pulsano").
+citta("Pumenengo").
+citta("Pusiano").
+citta("Putifigari").
+citta("Putignano").
+citta("Quadrelle").
+citta("Quadri").
+citta("Quagliuzzo").
+citta("Qualiano").
+citta("Quaranti").
+citta("Quaregna").
+citta("Quargnento").
+citta("Quarna Sopra").
+citta("Quarna Sotto").
+citta("Quarona").
+citta("Quarrata").
+citta("Quart").
+citta("Quarto").
+citta("Quarto d'Altino").
+citta("Quartu Sant'Elena").
+citta("Quartucciu").
+citta("Quassolo").
+citta("Quattordio").
+citta("Quattro Castella").
+citta("Quero Vas").
+citta("Quiliano").
+citta("Quincinetto").
+citta("Quindici").
+citta("Quingentole").
+citta("Quintano").
+citta("Quinto di Treviso").
+citta("Quinto Vercellese").
+citta("Quinto Vicentino").
+citta("Quinzano d'Oglio").
+citta("Quistello").
+citta("Rabbi").
+citta("Racale").
+citta("Racalmuto").
+citta("Racconigi").
+citta("Raccuja").
+citta("Racines/Ratschings").
+citta("Radda in Chianti").
+citta("Raddusa").
+citta("Radicofani").
+citta("Radicondoli").
+citta("Raffadali").
+citta("Ragalna").
+citta("Ragogna").
+citta("Ragusa").
+citta("Raiano").
+citta("Ramacca").
+citta("Rancio Valcuvia").
+citta("Ranco").
+citta("Randazzo").
+citta("Ranica").
+citta("Ranzanico").
+citta("Ranzo").
+citta("Rapagnano").
+citta("Rapallo").
+citta("Rapino").
+citta("Rapolano Terme").
+citta("Rapolla").
+citta("Rapone").
+citta("Rassa").
+citta("Rasun-Anterselva/Rasen-Antholz").
+citta("Rasura").
+citta("Ravanusa").
+citta("Ravarino").
+citta("Ravascletto").
+citta("Ravello").
+citta("Ravenna").
+citta("Raveo").
+citta("Raviscanina").
+citta("Re").
+citta("Rea").
+citta("Realmonte").
+citta("Reana del Rojale").
+citta("Reano").
+citta("Recale").
+citta("Recanati").
+citta("Recco").
+citta("Recetto").
+citta("Recoaro Terme").
+citta("Redavalle").
+citta("Redondesco").
+citta("Refrancore").
+citta("Refrontolo").
+citta("Regalbuto").
+citta("Reggello").
+citta("Reggio Calabria").
+citta("Reggio Emilia").
+citta("Reggiolo").
+citta("Reino").
+citta("Reitano").
+citta("Remanzacco").
+citta("Remedello").
+citta("Renate").
+citta("Rende").
+citta("Renon/Ritten").
+citta("Resana").
+citta("Rescaldina").
+citta("Resia").
+citta("Resiutta").
+citta("Resuttano").
+citta("Retorbido").
+citta("Revello").
+citta("Revere").
+citta("Revigliasco d'Asti").
+citta("Revine Lago").
+citta("Revò").
+citta("Rezzago").
+citta("Rezzato").
+citta("Rezzo").
+citta("Rezzoaglio").
+citta("Rhêmes-Notre-Dame").
+citta("Rhêmes-Saint-Georges").
+citta("Rho").
+citta("Riace").
+citta("Rialto").
+citta("Riano").
+citta("Riardo").
+citta("Ribera").
+citta("Ribordone").
+citta("Ricadi").
+citta("Ricaldone").
+citta("Riccia").
+citta("Riccione").
+citta("Riccò del Golfo di Spezia").
+citta("Ricengo").
+citta("Ricigliano").
+citta("Riese Pio X").
+citta("Riesi").
+citta("Rieti").
+citta("Rifiano/Riffian").
+citta("Rifreddo").
+citta("Rignano Flaminio").
+citta("Rignano Garganico").
+citta("Rignano sull'Arno").
+citta("Rigolato").
+citta("Rima San Giuseppe").
+citta("Rimasco").
+citta("Rimella").
+citta("Rimini").
+citta("Rio di Pusteria/Mühlbach").
+citta("Rio Marina").
+citta("Rio nell'Elba").
+citta("Rio Saliceto").
+citta("Riofreddo").
+citta("Riola Sardo").
+citta("Riolo Terme").
+citta("Riolunato").
+citta("Riomaggiore").
+citta("Rionero in Vulture").
+citta("Rionero Sannitico").
+citta("Ripa Teatina").
+citta("Ripabottoni").
+citta("Ripacandida").
+citta("Ripalimosani").
+citta("Ripalta Arpina").
+citta("Ripalta Cremasca").
+citta("Ripalta Guerina").
+citta("Riparbella").
+citta("Ripatransone").
+citta("Ripe San Ginesio").
+citta("Ripi").
+citta("Riposto").
+citta("Rittana").
+citta("Riva del Garda").
+citta("Riva di Solto").
+citta("Riva Ligure").
+citta("Riva presso Chieri").
+citta("Riva Valdobbia").
+citta("Rivalba").
+citta("Rivalta Bormida").
+citta("Rivalta di Torino").
+citta("Rivamonte Agordino").
+citta("Rivanazzano Terme").
+citta("Rivara").
+citta("Rivarolo Canavese").
+citta("Rivarolo del Re ed Uniti").
+citta("Rivarolo Mantovano").
+citta("Rivarone").
+citta("Rivarossa").
+citta("Rive").
+citta("Rive d'Arcano").
+citta("Rivello").
+citta("Rivergaro").
+citta("Rivignano Teor").
+citta("Rivisondoli").
+citta("Rivodutri").
+citta("Rivoli").
+citta("Rivoli Veronese").
+citta("Rivolta d'Adda").
+citta("Rizziconi").
+citta("Ro").
+citta("Roana").
+citta("Roaschia").
+citta("Roascio").
+citta("Roasio").
+citta("Roatto").
+citta("Robassomero").
+citta("Robbiate").
+citta("Robbio").
+citta("Robecchetto con Induno").
+citta("Robecco d'Oglio").
+citta("Robecco Pavese").
+citta("Robecco sul Naviglio").
+citta("Robella").
+citta("Robilante").
+citta("Roburent").
+citta("Rocca Canavese").
+citta("Rocca Canterano").
+citta("Rocca Cigliè").
+citta("Rocca d'Arazzo").
+citta("Rocca d'Arce").
+citta("Rocca de' Baldi").
+citta("Rocca de' Giorgi").
+citta("Rocca d'Evandro").
+citta("Rocca di Botte").
+citta("Rocca di Cambio").
+citta("Rocca di Cave").
+citta("Rocca di Mezzo").
+citta("Rocca di Neto").
+citta("Rocca di Papa").
+citta("Rocca Grimalda").
+citta("Rocca Imperiale").
+citta("Rocca Massima").
+citta("Rocca Pia").
+citta("Rocca Pietore").
+citta("Rocca Priora").
+citta("Rocca San Casciano").
+citta("Rocca San Felice").
+citta("Rocca San Giovanni").
+citta("Rocca Santa Maria").
+citta("Rocca Santo Stefano").
+citta("Rocca Sinibalda").
+citta("Rocca Susella").
+citta("Roccabascerana").
+citta("Roccabernarda").
+citta("Roccabianca").
+citta("Roccabruna").
+citta("Roccacasale").
+citta("Roccadaspide").
+citta("Roccafiorita").
+citta("Roccafluvione").
+citta("Roccaforte del Greco").
+citta("Roccaforte Ligure").
+citta("Roccaforte Mondovì").
+citta("Roccaforzata").
+citta("Roccafranca").
+citta("Roccagiovine").
+citta("Roccagloriosa").
+citta("Roccagorga").
+citta("Roccalbegna").
+citta("Roccalumera").
+citta("Roccamandolfi").
+citta("Roccamena").
+citta("Roccamonfina").
+citta("Roccamontepiano").
+citta("Roccamorice").
+citta("Roccanova").
+citta("Roccantica").
+citta("Roccapalumba").
+citta("Roccapiemonte").
+citta("Roccarainola").
+citta("Roccaraso").
+citta("Roccaromana").
+citta("Roccascalegna").
+citta("Roccasecca").
+citta("Roccasecca dei Volsci").
+citta("Roccasicura").
+citta("Roccasparvera").
+citta("Roccaspinalveti").
+citta("Roccastrada").
+citta("Roccavaldina").
+citta("Roccaverano").
+citta("Roccavignale").
+citta("Roccavione").
+citta("Roccavivara").
+citta("Roccella Jonica").
+citta("Roccella Valdemone").
+citta("Rocchetta a Volturno").
+citta("Rocchetta Belbo").
+citta("Rocchetta di Vara").
+citta("Rocchetta e Croce").
+citta("Rocchetta Ligure").
+citta("Rocchetta Nervina").
+citta("Rocchetta Palafea").
+citta("Rocchetta Sant'Antonio").
+citta("Rocchetta Tanaro").
+citta("Rodano").
+citta("Roddi").
+citta("Roddino").
+citta("Rodello").
+citta("Rodengo Saiano").
+citta("Rodengo/Rodeneck").
+citta("Rodero").
+citta("Rodi Garganico").
+citta("Rodì Milici").
+citta("Rodigo").
+citta("Roè Volciano").
+citta("Rofrano").
+citta("Rogeno").
+citta("Roggiano Gravina").
+citta("Roghudi").
+citta("Rogliano").
+citta("Rognano").
+citta("Rogno").
+citta("Rogolo").
+citta("Roiate").
+citta("Roio del Sangro").
+citta("Roisan").
+citta("Roletto").
+citta("Rolo").
+citta("Rome").
+citta("Romagnano al Monte").
+citta("Romagnano Sesia").
+citta("Romagnese").
+citta("Romallo").
+citta("Romana").
+citta("Romanengo").
+citta("Romano Canavese").
+citta("Romano d'Ezzelino").
+citta("Romano di Lombardia").
+citta("Romans d'Isonzo").
+citta("Rombiolo").
+citta("Romeno").
+citta("Romentino").
+citta("Rometta").
+citta("Ronago").
+citta("Roncà").
+citta("Roncade").
+citta("Roncadelle").
+citta("Roncaro").
+citta("Roncegno Terme").
+citta("Roncello").
+citta("Ronchi dei Legionari").
+citta("Ronchi Valsugana").
+citta("Ronchis").
+citta("Ronciglione").
+citta("Ronco all'Adige").
+citta("Ronco Biellese").
+citta("Ronco Briantino").
+citta("Ronco Canavese").
+citta("Ronco Scrivia").
+citta("Roncobello").
+citta("Roncoferraro").
+citta("Roncofreddo").
+citta("Roncola").
+citta("Rondanina").
+citta("Rondissone").
+citta("Ronsecco").
+citta("Ronzo-Chienis").
+citta("Ronzone").
+citta("Roppolo").
+citta("Rorà").
+citta("Rosà").
+citta("Rosarno").
+citta("Rosasco").
+citta("Rosate").
+citta("Rosazza").
+citta("Rosciano").
+citta("Roscigno").
+citta("Rose").
+citta("Rosello").
+citta("Roseto Capo Spulico").
+citta("Roseto degli Abruzzi").
+citta("Roseto Valfortore").
+citta("Rosignano Marittimo").
+citta("Rosignano Monferrato").
+citta("Rosolina").
+citta("Rosolini").
+citta("Rosora").
+citta("Rossa").
+citta("Rossana").
+citta("Rossano").
+citta("Rossano Veneto").
+citta("Rossiglione").
+citta("Rosta").
+citta("Rota d'Imagna").
+citta("Rota Greca").
+citta("Rotella").
+citta("Rotello").
+citta("Rotonda").
+citta("Rotondella").
+citta("Rotondi").
+citta("Rottofreno").
+citta("Rotzo").
+citta("Roure").
+citta("Rovasenda").
+citta("Rovato").
+citta("Rovegno").
+citta("Rovellasca").
+citta("Rovello Porro").
+citta("Roverbella").
+citta("Roverchiara").
+citta("Roverè della Luna").
+citta("Roverè Veronese").
+citta("Roveredo di Guà").
+citta("Roveredo in Piano").
+citta("Rovereto").
+citta("Rovescala").
+citta("Rovetta").
+citta("Roviano").
+citta("Rovigo").
+citta("Rovito").
+citta("Rovolon").
+citta("Rozzano").
+citta("Rubano").
+citta("Rubiana").
+citta("Rubiera").
+citta("Ruda").
+citta("Rudiano").
+citta("Rueglio").
+citta("Ruffano").
+citta("Ruffia").
+citta("Ruffrè-Mendola").
+citta("Rufina").
+citta("Ruinas").
+citta("Ruino").
+citta("Rumo").
+citta("Ruoti").
+citta("Russi").
+citta("Rutigliano").
+citta("Rutino").
+citta("Ruviano").
+citta("Ruvo del Monte").
+citta("Ruvo di Puglia").
+citta("Sabaudia").
+citta("Sabbia").
+citta("Sabbio Chiese").
+citta("Sabbioneta").
+citta("Sacco").
+citta("Saccolongo").
+citta("Sacile").
+citta("Sacrofano").
+citta("Sadali").
+citta("Sagama").
+citta("Sagliano Micca").
+citta("Sagrado").
+citta("Sagron Mis").
+citta("Saint-Christophe").
+citta("Saint-Denis").
+citta("Saint-Marcel").
+citta("Saint-Nicolas").
+citta("Saint-Oyen").
+citta("Saint-Pierre").
+citta("Saint-Rhémy-en-Bosses").
+citta("Saint-Vincent").
+citta("Sala Baganza").
+citta("Sala Biellese").
+citta("Sala Bolognese").
+citta("Sala Comacina").
+citta("Sala Consilina").
+citta("Sala Monferrato").
+citta("Salandra").
+citta("Salaparuta").
+citta("Salara").
+citta("Salasco").
+citta("Salassa").
+citta("Salbertrand").
+citta("Salcedo").
+citta("Salcito").
+citta("Sale").
+citta("Sale delle Langhe").
+citta("Sale Marasino").
+citta("Sale San Giovanni").
+citta("Salemi").
+citta("Salento").
+citta("Salerano Canavese").
+citta("Salerano sul Lambro").
+citta("Salerno").
+citta("Saletto").
+citta("Salgareda").
+citta("Sali Vercellese").
+citta("Salice Salentino").
+citta("Saliceto").
+citta("Salisano").
+citta("Salizzole").
+citta("Salle").
+citta("Salmour").
+citta("Salò").
+citta("Salorno/Salurn").
+citta("Salsomaggiore Terme").
+citta("Saltrio").
+citta("Saludecio").
+citta("Saluggia").
+citta("Salussola").
+citta("Saluzzo").
+citta("Salve").
+citta("Salvirola").
+citta("Salvitelle").
+citta("Salza di Pinerolo").
+citta("Salza Irpina").
+citta("Salzano").
+citta("Samarate").
+citta("Samassi").
+citta("Samatzai").
+citta("Sambuca di Sicilia").
+citta("Sambuca Pistoiese").
+citta("Sambuci").
+citta("Sambuco").
+citta("Sammichele di Bari").
+citta("Samo").
+citta("Samolaco").
+citta("Samone").
+citta("Samone").
+citta("Sampeyre").
+citta("Samugheo").
+citta("San Bartolomeo al Mare").
+citta("San Bartolomeo in Galdo").
+citta("San Bartolomeo Val Cavargna").
+citta("San Basile").
+citta("San Basilio").
+citta("San Bassano").
+citta("San Bellino").
+citta("San Benedetto Belbo").
+citta("San Benedetto dei Marsi").
+citta("San Benedetto del Tronto").
+citta("San Benedetto in Perillis").
+citta("San Benedetto Po").
+citta("San Benedetto Ullano").
+citta("San Benedetto Val di Sambro").
+citta("San Benigno Canavese").
+citta("San Bernardino Verbano").
+citta("San Biagio della Cima").
+citta("San Biagio di Callalta").
+citta("San Biagio Platani").
+citta("San Biagio Saracinisco").
+citta("San Biase").
+citta("San Bonifacio").
+citta("San Buono").
+citta("San Calogero").
+citta("San Candido/Innichen").
+citta("San Canzian d'Isonzo").
+citta("San Carlo Canavese").
+citta("San Casciano dei Bagni").
+citta("San Casciano in Val di Pesa").
+citta("San Cassiano").
+citta("San Cataldo").
+citta("San Cesareo").
+citta("San Cesario di Lecce").
+citta("San Cesario sul Panaro").
+citta("San Chirico Nuovo").
+citta("San Chirico Raparo").
+citta("San Cipirello").
+citta("San Cipriano d'Aversa").
+citta("San Cipriano Picentino").
+citta("San Cipriano Po").
+citta("San Clemente").
+citta("San Colombano al Lambro").
+citta("San Colombano Belmonte").
+citta("San Colombano Certenoli").
+citta("San Cono").
+citta("San Cosmo Albanese").
+citta("San Costantino Albanese").
+citta("San Costantino Calabro").
+citta("San Costanzo").
+citta("San Cristoforo").
+citta("San Damiano al Colle").
+citta("San Damiano d'Asti").
+citta("San Damiano Macra").
+citta("San Daniele del Friuli").
+citta("San Daniele Po").
+citta("San Demetrio Corone").
+citta("San Demetrio ne' Vestini").
+citta("San Didero").
+citta("San Donà di Piave").
+citta("San Donaci").
+citta("San Donato di Lecce").
+citta("San Donato di Ninea").
+citta("San Donato Milanese").
+citta("San Donato Val di Comino").
+citta("San Dorligo della Valle-Dolina").
+citta("San Fedele Intelvi").
+citta("San Fele").
+citta("San Felice a Cancello").
+citta("San Felice Circeo").
+citta("San Felice del Benaco").
+citta("San Felice del Molise").
+citta("San Felice sul Panaro").
+citta("San Ferdinando").
+citta("San Ferdinando di Puglia").
+citta("San Fermo della Battaglia").
+citta("San Fili").
+citta("San Filippo del Mela").
+citta("San Fior").
+citta("San Fiorano").
+citta("San Floriano del Collio").
+citta("San Floro").
+citta("San Francesco al Campo").
+citta("San Fratello").
+citta("San Gavino Monreale").
+citta("San Gemini").
+citta("San Genesio Atesino/Jenesien").
+citta("San Genesio ed Uniti").
+citta("San Gennaro Vesuviano").
+citta("San Germano Chisone").
+citta("San Germano Vercellese").
+citta("San Gervasio Bresciano").
+citta("San Giacomo degli Schiavoni").
+citta("San Giacomo delle Segnate").
+citta("San Giacomo Filippo").
+citta("San Giacomo Vercellese").
+citta("San Gillio").
+citta("San Gimignano").
+citta("San Ginesio").
+citta("San Giorgio a Cremano").
+citta("San Giorgio a Liri").
+citta("San Giorgio Albanese").
+citta("San Giorgio Canavese").
+citta("San Giorgio del Sannio").
+citta("San Giorgio della Richinvelda").
+citta("San Giorgio delle Pertiche").
+citta("San Giorgio di Lomellina").
+citta("San Giorgio di Mantova").
+citta("San Giorgio di Nogaro").
+citta("San Giorgio di Piano").
+citta("San Giorgio in Bosco").
+citta("San Giorgio Ionico").
+citta("San Giorgio La Molara").
+citta("San Giorgio Lucano").
+citta("San Giorgio Monferrato").
+citta("San Giorgio Morgeto").
+citta("San Giorgio Piacentino").
+citta("San Giorgio Scarampi").
+citta("San Giorgio su Legnano").
+citta("San Giorio di Susa").
+citta("San Giovanni a Piro").
+citta("San Giovanni al Natisone").
+citta("San Giovanni Bianco").
+citta("San Giovanni del Dosso").
+citta("San Giovanni di Gerace").
+citta("San Giovanni Gemini").
+citta("San Giovanni Ilarione").
+citta("San Giovanni in Croce").
+citta("San Giovanni in Fiore").
+citta("San Giovanni in Galdo").
+citta("San Giovanni in Marignano").
+citta("San Giovanni in Persiceto").
+citta("San Giovanni Incarico").
+citta("San Giovanni la Punta").
+citta("San Giovanni Lipioni").
+citta("San Giovanni Lupatoto").
+citta("San Giovanni Rotondo").
+citta("San Giovanni Suergiu").
+citta("San Giovanni Teatino").
+citta("San Giovanni Valdarno").
+citta("San Giuliano del Sannio").
+citta("San Giuliano di Puglia").
+citta("San Giuliano Milanese").
+citta("San Giuliano Terme").
+citta("San Giuseppe Jato").
+citta("San Giuseppe Vesuviano").
+citta("San Giustino").
+citta("San Giusto Canavese").
+citta("San Godenzo").
+citta("San Gregorio da Sassola").
+citta("San Gregorio di Catania").
+citta("San Gregorio d'Ippona").
+citta("San Gregorio Magno").
+citta("San Gregorio Matese").
+citta("San Gregorio nelle Alpi").
+citta("San Lazzaro di Savena").
+citta("San Leo").
+citta("San Leonardo").
+citta("San Leonardo in Passiria/St").
+citta("San Leucio del Sannio").
+citta("San Lorenzello").
+citta("San Lorenzo").
+citta("San Lorenzo al Mare").
+citta("San Lorenzo Bellizzi").
+citta("San Lorenzo del Vallo").
+citta("San Lorenzo di Sebato/St").
+citta("San Lorenzo Dorsino").
+citta("San Lorenzo in Campo").
+citta("San Lorenzo Isontino").
+citta("San Lorenzo Maggiore").
+citta("San Lorenzo Nuovo").
+citta("San Luca").
+citta("San Lucido").
+citta("San Lupo").
+citta("San Mango d'Aquino").
+citta("San Mango Piemonte").
+citta("San Mango sul Calore").
+citta("San Marcellino").
+citta("San Marcello").
+citta("San Marcello Piteglio").
+citta("San Marco Argentano").
+citta("San Marco d'Alunzio").
+citta("San Marco dei Cavoti").
+citta("San Marco Evangelista").
+citta("San Marco in Lamis").
+citta("San Marco la Catola").
+citta("San Martino al Tagliamento").
+citta("San Martino Alfieri").
+citta("San Martino Buon Albergo").
+citta("San Martino Canavese").
+citta("San Martino d'Agri").
+citta("San Martino dall'Argine").
+citta("San Martino del Lago").
+citta("San Martino di Finita").
+citta("San Martino di Lupari").
+citta("San Martino di Venezze").
+citta("San Martino in Badia/St").
+citta("San Martino in Passiria/St").
+citta("San Martino in Pensilis").
+citta("San Martino in Rio").
+citta("San Martino in Strada").
+citta("San Martino Sannita").
+citta("San Martino Siccomario").
+citta("San Martino sulla Marrucina").
+citta("San Martino Valle Caudina").
+citta("San Marzano di San Giuseppe").
+citta("San Marzano Oliveto").
+citta("San Marzano sul Sarno").
+citta("San Massimo").
+citta("San Maurizio Canavese").
+citta("San Maurizio d'Opaglio").
+citta("San Mauro Castelverde").
+citta("San Mauro Cilento").
+citta("San Mauro di Saline").
+citta("San Mauro Forte").
+citta("San Mauro la Bruca").
+citta("San Mauro Marchesato").
+citta("San Mauro Pascoli").
+citta("San Mauro Torinese").
+citta("San Michele al Tagliamento").
+citta("San Michele all'Adige").
+citta("San Michele di Ganzaria").
+citta("San Michele di Serino").
+citta("San Michele Mondovì").
+citta("San Michele Salentino").
+citta("San Miniato").
+citta("San Nazario").
+citta("San Nazzaro").
+citta("San Nazzaro Sesia").
+citta("San Nazzaro Val Cavargna").
+citta("San Nicandro Garganico").
+citta("San Nicola Arcella").
+citta("San Nicola Baronia").
+citta("San Nicola da Crissa").
+citta("San Nicola dell'Alto").
+citta("San Nicola la Strada").
+citta("San Nicola Manfredi").
+citta("San Nicolò d'Arcidano").
+citta("San Nicolò di Comelico").
+citta("San Nicolò Gerrei").
+citta("San Pancrazio Salentino").
+citta("San Pancrazio/St").
+citta("San Paolo").
+citta("San Paolo Albanese").
+citta("San Paolo Bel Sito").
+citta("San Paolo d'Argon").
+citta("San Paolo di Civitate").
+citta("San Paolo di Jesi").
+citta("San Paolo Solbrito").
+citta("San Pellegrino Terme").
+citta("San Pier d'Isonzo").
+citta("San Pier Niceto").
+citta("San Piero Patti").
+citta("San Pietro a Maida").
+citta("San Pietro al Natisone").
+citta("San Pietro al Tanagro").
+citta("San Pietro Apostolo").
+citta("San Pietro Avellana").
+citta("San Pietro Clarenza").
+citta("San Pietro di Cadore").
+citta("San Pietro di Caridà").
+citta("San Pietro di Feletto").
+citta("San Pietro di Morubio").
+citta("San Pietro in Amantea").
+citta("San Pietro in Cariano").
+citta("San Pietro in Casale").
+citta("San Pietro in Cerro").
+citta("San Pietro in Gu").
+citta("San Pietro in Guarano").
+citta("San Pietro in Lama").
+citta("San Pietro Infine").
+citta("San Pietro Mosezzo").
+citta("San Pietro Mussolino").
+citta("San Pietro Val Lemina").
+citta("San Pietro Vernotico").
+citta("San Pietro Viminario").
+citta("San Pio delle Camere").
+citta("San Polo dei Cavalieri").
+citta("San Polo d'Enza").
+citta("San Polo di Piave").
+citta("San Polo Matese").
+citta("San Ponso").
+citta("San Possidonio").
+citta("San Potito Sannitico").
+citta("San Potito Ultra").
+citta("San Prisco").
+citta("San Procopio").
+citta("San Prospero").
+citta("San Quirico d'Orcia").
+citta("San Quirino").
+citta("San Raffaele Cimena").
+citta("San Roberto").
+citta("San Rocco al Porto").
+citta("San Romano in Garfagnana").
+citta("San Rufo").
+citta("San Salvatore di Fitalia").
+citta("San Salvatore Monferrato").
+citta("San Salvatore Telesino").
+citta("San Salvo").
+citta("San Sebastiano al Vesuvio").
+citta("San Sebastiano Curone").
+citta("San Sebastiano da Po").
+citta("San Secondo di Pinerolo").
+citta("San Secondo Parmense").
+citta("San Severino Lucano").
+citta("San Severino Marche").
+citta("San Severo").
+citta("San Siro").
+citta("San Sossio Baronia").
+citta("San Sostene").
+citta("San Sosti").
+citta("San Sperate").
+citta("San Stino di Livenza").
+citta("San Tammaro").
+citta("San Teodoro").
+citta("San Teodoro").
+citta("San Tomaso Agordino").
+citta("San Valentino in Abruzzo Citeriore").
+citta("San Valentino Torio").
+citta("San Venanzo").
+citta("San Vendemiano").
+citta("San Vero Milis").
+citta("San Vincenzo").
+citta("San Vincenzo La Costa").
+citta("San Vincenzo Valle Roveto").
+citta("San Vitaliano").
+citta("San Vito").
+citta("San Vito al Tagliamento").
+citta("San Vito al Torre").
+citta("San Vito Chietino").
+citta("San Vito dei Normanni").
+citta("San Vito di Cadore").
+citta("San Vito di Fagagna").
+citta("San Vito di Leguzzano").
+citta("San Vito Lo Capo").
+citta("San Vito Romano").
+citta("San Vito sullo Ionio").
+citta("San Vittore del Lazio").
+citta("San Vittore Olona").
+citta("San Zeno di Montagna").
+citta("San Zeno Naviglio").
+citta("San Zenone al Lambro").
+citta("San Zenone al Po").
+citta("San Zenone degli Ezzelini").
+citta("Sanarica").
+citta("Sandigliano").
+citta("Sandrigo").
+citta("Sanfrè").
+citta("Sanfront").
+citta("Sangano").
+citta("Sangiano").
+citta("Sangineto").
+citta("Sanguinetto").
+citta("Sanluri").
+citta("Sannazzaro de' Burgondi").
+citta("Sannicandro di Bari").
+citta("Sannicola").
+citta("Sanremo").
+citta("Sansepolcro").
+citta("Santa Brigida").
+citta("Santa Caterina Albanese").
+citta("Santa Caterina dello Ionio").
+citta("Santa Caterina Villarmosa").
+citta("Santa Cesarea Terme").
+citta("Santa Cristina d'Aspromonte").
+citta("Santa Cristina e Bissone").
+citta("Santa Cristina Gela").
+citta("Santa Cristina Valgardena/St").
+citta("Santa Croce Camerina").
+citta("Santa Croce del Sannio").
+citta("Santa Croce di Magliano").
+citta("Santa Croce sull'Arno").
+citta("Santa Domenica Talao").
+citta("Santa Domenica Vittoria").
+citta("Santa Elisabetta").
+citta("Santa Fiora").
+citta("Santa Flavia").
+citta("Santa Giuletta").
+citta("Santa Giusta").
+citta("Santa Giustina").
+citta("Santa Giustina in Colle").
+citta("Santa Luce").
+citta("Santa Lucia del Mela").
+citta("Santa Lucia di Piave").
+citta("Santa Lucia di Serino").
+citta("Santa Margherita d'Adige").
+citta("Santa Margherita di Belice").
+citta("Santa Margherita di Staffora").
+citta("Santa Margherita Ligure").
+citta("Santa Maria a Monte").
+citta("Santa Maria a Vico").
+citta("Santa Maria Capua Vetere").
+citta("Santa Maria Coghinas").
+citta("Santa Maria del Cedro").
+citta("Santa Maria del Molise").
+citta("Santa Maria della Versa").
+citta("Santa Maria di Licodia").
+citta("Santa Maria di Sala").
+citta("Santa Maria Hoè").
+citta("Santa Maria Imbaro").
+citta("Santa Maria la Carità").
+citta("Santa Maria la Fossa").
+citta("Santa Maria la Longa").
+citta("Santa Maria Maggiore").
+citta("Santa Maria Nuova").
+citta("Santa Marina").
+citta("Santa Marina Salina").
+citta("Santa Marinella").
+citta("Santa Ninfa").
+citta("Santa Paolina").
+citta("Santa Severina").
+citta("Santa Sofia").
+citta("Santa Sofia d'Epiro").
+citta("Santa Teresa di Riva").
+citta("Santa Teresa Gallura").
+citta("Santa Venerina").
+citta("Santa Vittoria d'Alba").
+citta("Santa Vittoria in Matenano").
+citta("Santadi").
+citta("Sant'Agapito").
+citta("Sant'Agata Bolognese").
+citta("Sant'Agata de' Goti").
+citta("Sant'Agata del Bianco").
+citta("Sant'Agata di Esaro").
+citta("Sant'Agata di Militello").
+citta("Sant'Agata di Puglia").
+citta("Sant'Agata Feltria").
+citta("Sant'Agata Fossili").
+citta("Sant'Agata li Battiati").
+citta("Sant'Agata sul Santerno").
+citta("Sant'Agnello").
+citta("Sant'Albano Stura").
+citta("Sant'Alessio con Vialone").
+citta("Sant'Alessio in Aspromonte").
+citta("Sant'Alessio Siculo").
+citta("Sant'Alfio").
+citta("Sant'Ambrogio di Torino").
+citta("Sant'Ambrogio di Valpolicella").
+citta("Sant'Ambrogio sul Garigliano").
+citta("Sant'Anastasia").
+citta("Sant'Anatolia di Narco").
+citta("Sant'Andrea Apostolo dello Ionio").
+citta("Sant'Andrea del Garigliano").
+citta("Sant'Andrea di Conza").
+citta("Sant'Andrea Frius").
+citta("Sant'Angelo a Cupolo").
+citta("Sant'Angelo a Fasanella").
+citta("Sant'Angelo a Scala").
+citta("Sant'Angelo all'Esca").
+citta("Sant'Angelo d'Alife").
+citta("Sant'Angelo dei Lombardi").
+citta("Sant'Angelo del Pesco").
+citta("Sant'Angelo di Brolo").
+citta("Sant'Angelo di Piove di Sacco").
+citta("Sant'Angelo in Pontano").
+citta("Sant'Angelo in Vado").
+citta("Sant'Angelo Le Fratte").
+citta("Sant'Angelo Limosano").
+citta("Sant'Angelo Lodigiano").
+citta("Sant'Angelo Lomellina").
+citta("Sant'Angelo Muxaro").
+citta("Sant'Angelo Romano").
+citta("Sant'Anna Arresi").
+citta("Sant'Anna d'Alfaedo").
+citta("Sant'Antimo").
+citta("Sant'Antioco").
+citta("Sant'Antonino di Susa").
+citta("Sant'Antonio Abate").
+citta("Sant'Antonio di Gallura").
+citta("Sant'Apollinare").
+citta("Sant'Arcangelo").
+citta("Santarcangelo di Romagna").
+citta("Sant'Arcangelo Trimonte").
+citta("Sant'Arpino").
+citta("Sant'Arsenio").
+citta("Sante Marie").
+citta("Sant'Egidio alla Vibrata").
+citta("Sant'Egidio del Monte Albino").
+citta("Sant'Elena").
+citta("Sant'Elena Sannita").
+citta("Sant'Elia a Pianisi").
+citta("Sant'Elia Fiumerapido").
+citta("Sant'Elpidio a Mare").
+citta("Santena").
+citta("Santeramo in Colle").
+citta("Sant'Eufemia a Maiella").
+citta("Sant'Eufemia d'Aspromonte").
+citta("Sant'Eusanio del Sangro").
+citta("Sant'Eusanio Forconese").
+citta("Santhià").
+citta("Santi Cosma e Damiano").
+citta("Sant'Ilario dello Ionio").
+citta("Sant'Ilario d'Enza").
+citta("Sant'Ippolito").
+citta("Santo Stefano al Mare").
+citta("Santo Stefano Belbo").
+citta("Santo Stefano d'Aveto").
+citta("Santo Stefano del Sole").
+citta("Santo Stefano di Cadore").
+citta("Santo Stefano di Camastra").
+citta("Santo Stefano di Magra").
+citta("Santo Stefano di Rogliano").
+citta("Santo Stefano di Sessanio").
+citta("Santo Stefano in Aspromonte").
+citta("Santo Stefano Lodigiano").
+citta("Santo Stefano Quisquina").
+citta("Santo Stefano Roero").
+citta("Santo Stefano Ticino").
+citta("Sant'Olcese").
+citta("Santomenna").
+citta("Sant'Omero").
+citta("Sant'Omobono Terme").
+citta("Sant'Onofrio").
+citta("Santopadre").
+citta("Sant'Oreste").
+citta("Santorso").
+citta("Sant'Orsola Terme").
+citta("Santu Lussurgiu").
+citta("Sant'Urbano").
+citta("Sanza").
+citta("Sanzeno").
+citta("Saonara").
+citta("Saponara").
+citta("Sappada").
+citta("Sapri").
+citta("Saracena").
+citta("Saracinesco").
+citta("Sarcedo").
+citta("Sarconi").
+citta("Sardara").
+citta("Sardigliano").
+citta("Sarego").
+citta("Sarentino/Sarntal").
+citta("Sarezzano").
+citta("Sarezzo").
+citta("Sarmato").
+citta("Sarmede").
+citta("Sarnano").
+citta("Sarnico").
+citta("Sarno").
+citta("Sarnonico").
+citta("Saronno").
+citta("Sarre").
+citta("Sarroch").
+citta("Sarsina").
+citta("Sarteano").
+citta("Sartirana Lomellina").
+citta("Sarule").
+citta("Sarzana").
+citta("Sassano").
+citta("Sassari").
+citta("Sassello").
+citta("Sassetta").
+citta("Sassinoro").
+citta("Sasso di Castalda").
+citta("Sasso Marconi").
+citta("Sassocorvaro").
+citta("Sassofeltrio").
+citta("Sassoferrato").
+citta("Sassuolo").
+citta("Satriano").
+citta("Satriano di Lucania").
+citta("Sauris").
+citta("Sauze di Cesana").
+citta("Sauze d'Oulx").
+citta("Sava").
+citta("Savelli").
+citta("Saviano").
+citta("Savigliano").
+citta("Savignano Irpino").
+citta("Savignano sul Panaro").
+citta("Savignano sul Rubicone").
+citta("Savignone").
+citta("Saviore dell'Adamello").
+citta("Savoca").
+citta("Savogna").
+citta("Savogna d'Isonzo").
+citta("Savoia di Lucania").
+citta("Savona").
+citta("Scafa").
+citta("Scafati").
+citta("Scagnello").
+citta("Scala").
+citta("Scala Coeli").
+citta("Scaldasole").
+citta("Scalea").
+citta("Scalenghe").
+citta("Scaletta Zanclea").
+citta("Scampitella").
+citta("Scandale").
+citta("Scandiano").
+citta("Scandicci").
+citta("Scandolara Ravara").
+citta("Scandolara Ripa d'Oglio").
+citta("Scandriglia").
+citta("Scanno").
+citta("Scano di Montiferro").
+citta("Scansano").
+citta("Scanzano Jonico").
+citta("Scanzorosciate").
+citta("Scapoli").
+citta("Scarlino").
+citta("Scarmagno").
+citta("Scarnafigi").
+citta("Scarperia e San Piero").
+citta("Scena/Schenna").
+citta("Scerni").
+citta("Scheggia e Pascelupo").
+citta("Scheggino").
+citta("Schiavi di Abruzzo").
+citta("Schiavon").
+citta("Schignano").
+citta("Schilpario").
+citta("Schio").
+citta("Schivenoglia").
+citta("Sciacca").
+citta("Sciara").
+citta("Scicli").
+citta("Scido").
+citta("Scigliano").
+citta("Scilla").
+citta("Scillato").
+citta("Sciolze").
+citta("Scisciano").
+citta("Sclafani Bagni").
+citta("Scontrone").
+citta("Scopa").
+citta("Scopello").
+citta("Scoppito").
+citta("Scordia").
+citta("Scorrano").
+citta("Scorzè").
+citta("Scurcola Marsicana").
+citta("Scurelle").
+citta("Scurzolengo").
+citta("Seborga").
+citta("Secinaro").
+citta("Seclì").
+citta("Secugnago").
+citta("Sedegliano").
+citta("Sedico").
+citta("Sedilo").
+citta("Sedini").
+citta("Sedriano").
+citta("Sedrina").
+citta("Sefro").
+citta("Segariu").
+citta("Seggiano").
+citta("Segni").
+citta("Segonzano").
+citta("Segrate").
+citta("Segusino").
+citta("Selargius").
+citta("Selci").
+citta("Selegas").
+citta("Sella Giudicarie").
+citta("Sellano").
+citta("Sellero").
+citta("Sellia").
+citta("Sellia Marina").
+citta("Selva dei Molini/Mühlwald").
+citta("Selva di Cadore").
+citta("Selva di Progno").
+citta("Selva di Val Gardena/Wolkenstein in Gröden").
+citta("Selvazzano Dentro").
+citta("Selvino").
+citta("Semestene").
+citta("Semiana").
+citta("Seminara").
+citta("Semproniano").
+citta("Senago").
+citta("Senales/Schnals").
+citta("Senale-San Felice/Unsere Liebe Frau im Walde-St").
+citta("Seneghe").
+citta("Senerchia").
+citta("Seniga").
+citta("Senigallia").
+citta("Senis").
+citta("Senise").
+citta("Senna Comasco").
+citta("Senna Lodigiana").
+citta("Sennariolo").
+citta("Sennori").
+citta("Senorbì").
+citta("Sepino").
+citta("Sequals").
+citta("Seravezza").
+citta("Serdiana").
+citta("Seregno").
+citta("Seren del Grappa").
+citta("Sergnano").
+citta("Seriate").
+citta("Serina").
+citta("Serino").
+citta("Serle").
+citta("Sermide e Felonica").
+citta("Sermoneta").
+citta("Sernaglia della Battaglia").
+citta("Sernio").
+citta("Serole").
+citta("Serra d'Aiello").
+citta("Serra de' Conti").
+citta("Serra Riccò").
+citta("Serra San Bruno").
+citta("Serra San Quirico").
+citta("Serra Sant'Abbondio").
+citta("Serracapriola").
+citta("Serradifalco").
+citta("Serralunga d'Alba").
+citta("Serralunga di Crea").
+citta("Serramanna").
+citta("Serramazzoni").
+citta("Serramezzana").
+citta("Serramonacesca").
+citta("Serrapetrona").
+citta("Serrara Fontana").
+citta("Serrastretta").
+citta("Serrata").
+citta("Serravalle a Po").
+citta("Serravalle di Chienti").
+citta("Serravalle Langhe").
+citta("Serravalle Pistoiese").
+citta("Serravalle Scrivia").
+citta("Serravalle Sesia").
+citta("Serre").
+citta("Serrenti").
+citta("Serri").
+citta("Serrone").
+citta("Sersale").
+citta("Servigliano").
+citta("Sessa Aurunca").
+citta("Sessa Cilento").
+citta("Sessame").
+citta("Sessano del Molise").
+citta("Sesta Godano").
+citta("Sestino").
+citta("Sesto al Reghena").
+citta("Sesto Calende").
+citta("Sesto Campano").
+citta("Sesto ed Uniti").
+citta("Sesto Fiorentino").
+citta("Sesto San Giovanni").
+citta("Sesto/Sexten").
+citta("Sestola").
+citta("Sestri Levante").
+citta("Sestriere").
+citta("Sestu").
+citta("Settala").
+citta("Settefrati").
+citta("Settime").
+citta("Settimo Milanese").
+citta("Settimo Rottaro").
+citta("Settimo San Pietro").
+citta("Settimo Torinese").
+citta("Settimo Vittone").
+citta("Settingiano").
+citta("Setzu").
+citta("Seui").
+citta("Seulo").
+citta("Seveso").
+citta("Sezzadio").
+citta("Sezze").
+citta("Sfruz").
+citta("Sgonico - Zgonik").
+citta("Sgurgola").
+citta("Siamaggiore").
+citta("Siamanna").
+citta("Siano").
+citta("Siapiccia").
+citta("Sicignano degli Alburni").
+citta("Siculiana").
+citta("Siddi").
+citta("Siderno").
+citta("Siena").
+citta("Sigillo").
+citta("Signa").
+citta("Silandro/Schlanders").
+citta("Silanus").
+citta("Silea").
+citta("Siligo").
+citta("Siliqua").
+citta("Silius").
+citta("Sillano Giuncugnano").
+citta("Sillavengo").
+citta("Silvano d'Orba").
+citta("Silvano Pietra").
+citta("Silvi").
+citta("Simala").
+citta("Simaxis").
+citta("Simbario").
+citta("Simeri Crichi").
+citta("Sinagra").
+citta("Sinalunga").
+citta("Sindia").
+citta("Sini").
+citta("Sinio").
+citta("Siniscola").
+citta("Sinnai").
+citta("Sinopoli").
+citta("Siracusa").
+citta("Sirignano").
+citta("Siris").
+citta("Sirmione").
+citta("Sirolo").
+citta("Sirone").
+citta("Sirtori").
+citta("Sissa Trecasali").
+citta("Siurgus Donigala").
+citta("Siziano").
+citta("Sizzano").
+citta("Sluderno/Schluderns").
+citta("Smerillo").
+citta("Soave").
+citta("Socchieve").
+citta("Soddì").
+citta("Sogliano al Rubicone").
+citta("Sogliano Cavour").
+citta("Soglio").
+citta("Soiano del Lago").
+citta("Solagna").
+citta("Solarino").
+citta("Solaro").
+citta("Solarolo").
+citta("Solarolo Rainerio").
+citta("Solarussa").
+citta("Solbiate").
+citta("Solbiate Arno").
+citta("Solbiate Olona").
+citta("Soldano").
+citta("Soleminis").
+citta("Solero").
+citta("Solesino").
+citta("Soleto").
+citta("Solferino").
+citta("Soliera").
+citta("Solignano").
+citta("Solofra").
+citta("Solonghello").
+citta("Solopaca").
+citta("Solto Collina").
+citta("Solza").
+citta("Somaglia").
+citta("Somano").
+citta("Somma Lombardo").
+citta("Somma Vesuviana").
+citta("Sommacampagna").
+citta("Sommariva del Bosco").
+citta("Sommariva Perno").
+citta("Sommatino").
+citta("Sommo").
+citta("Sona").
+citta("Soncino").
+citta("Sondalo").
+citta("Sondrio").
+citta("Songavazzo").
+citta("Sonico").
+citta("Sonnino").
+citta("Soprana").
+citta("Sora").
+citta("Soraga di Fassa").
+citta("Soragna").
+citta("Sorano").
+citta("Sorbo San Basile").
+citta("Sorbo Serpico").
+citta("Sorbolo").
+citta("Sordevolo").
+citta("Sordio").
+citta("Soresina").
+citta("Sorgà").
+citta("Sorgono").
+citta("Sori").
+citta("Sorianello").
+citta("Soriano Calabro").
+citta("Soriano nel Cimino").
+citta("Sorico").
+citta("Soriso").
+citta("Sorisole").
+citta("Sormano").
+citta("Sorradile").
+citta("Sorrento").
+citta("Sorso").
+citta("Sortino").
+citta("Sospiro").
+citta("Sospirolo").
+citta("Sossano").
+citta("Sostegno").
+citta("Sotto il Monte Giovanni XXIII").
+citta("Sover").
+citta("Soverato").
+citta("Sovere").
+citta("Soveria Mannelli").
+citta("Soveria Simeri").
+citta("Soverzene").
+citta("Sovicille").
+citta("Sovico").
+citta("Sovizzo").
+citta("Sovramonte").
+citta("Sozzago").
+citta("Spadafora").
+citta("Spadola").
+citta("Sparanise").
+citta("Sparone").
+citta("Specchia").
+citta("Spello").
+citta("Sperlinga").
+citta("Sperlonga").
+citta("Sperone").
+citta("Spessa").
+citta("Spezzano Albanese").
+citta("Spezzano della Sila").
+citta("Spiazzo").
+citta("Spigno Monferrato").
+citta("Spigno Saturnia").
+citta("Spilamberto").
+citta("Spilimbergo").
+citta("Spilinga").
+citta("Spinadesco").
+citta("Spinazzola").
+citta("Spinea").
+citta("Spineda").
+citta("Spinete").
+citta("Spineto Scrivia").
+citta("Spinetoli").
+citta("Spino d'Adda").
+citta("Spinone al Lago").
+citta("Spinoso").
+citta("Spirano").
+citta("Spoleto").
+citta("Spoltore").
+citta("Spongano").
+citta("Spormaggiore").
+citta("Sporminore").
+citta("Spotorno").
+citta("Spresiano").
+citta("Spriana").
+citta("Squillace").
+citta("Squinzano").
+citta("Staffolo").
+citta("Stagno Lombardo").
+citta("Staiti").
+citta("Stalettì").
+citta("Stanghella").
+citta("Staranzano").
+citta("Statte").
+citta("Stazzano").
+citta("Stazzema").
+citta("Stazzona").
+citta("Stefanaconi").
+citta("Stella").
+citta("Stella Cilento").
+citta("Stellanello").
+citta("Stelvio/Stilfs").
+citta("Stenico").
+citta("Sternatia").
+citta("Stezzano").
+citta("Stienta").
+citta("Stigliano").
+citta("Stignano").
+citta("Stilo").
+citta("Stimigliano").
+citta("Stintino").
+citta("Stio").
+citta("Stornara").
+citta("Stornarella").
+citta("Storo").
+citta("Stra").
+citta("Stradella").
+citta("Strambinello").
+citta("Strambino").
+citta("Strangolagalli").
+citta("Stregna").
+citta("Strembo").
+citta("Stresa").
+citta("Strevi").
+citta("Striano").
+citta("Strona").
+citta("Stroncone").
+citta("Strongoli").
+citta("Stroppiana").
+citta("Stroppo").
+citta("Strozza").
+citta("Sturno").
+citta("Suardi").
+citta("Subbiano").
+citta("Subiaco").
+citta("Succivo").
+citta("Sueglio").
+citta("Suelli").
+citta("Suello").
+citta("Suisio").
+citta("Sulbiate").
+citta("Sulmona").
+citta("Sulzano").
+citta("Sumirago").
+citta("Summonte").
+citta("Suni").
+citta("Suno").
+citta("Supersano").
+citta("Supino").
+citta("Surano").
+citta("Surbo").
+citta("Susa").
+citta("Susegana").
+citta("Sustinente").
+citta("Sutera").
+citta("Sutri").
+citta("Sutrio").
+citta("Suvereto").
+citta("Suzzara").
+citta("Taceno").
+citta("Tadasuni").
+citta("Taggia").
+citta("Tagliacozzo").
+citta("Taglio di Po").
+citta("Tagliolo Monferrato").
+citta("Taibon Agordino").
+citta("Taino").
+citta("Taipana").
+citta("Talamello").
+citta("Talamona").
+citta("Talana").
+citta("Taleggio").
+citta("Talla").
+citta("Talmassons").
+citta("Tambre").
+citta("Taormina").
+citta("Tarano").
+citta("Taranta Peligna").
+citta("Tarantasca").
+citta("Taranto").
+citta("Tarcento").
+citta("Tarquinia").
+citta("Tarsia").
+citta("Tartano").
+citta("Tarvisio").
+citta("Tarzo").
+citta("Tassarolo").
+citta("Taurano").
+citta("Taurasi").
+citta("Taurianova").
+citta("Taurisano").
+citta("Tavagnacco").
+citta("Tavagnasco").
+citta("Tavarnelle Val di Pesa").
+citta("Tavazzano con Villavesco").
+citta("Tavenna").
+citta("Taverna").
+citta("Tavernerio").
+citta("Tavernola Bergamasca").
+citta("Tavernole sul Mella").
+citta("Taviano").
+citta("Tavigliano").
+citta("Tavoleto").
+citta("Tavullia").
+citta("Teana").
+citta("Teano").
+citta("Teggiano").
+citta("Teglio").
+citta("Teglio Veneto").
+citta("Telese Terme").
+citta("Telgate").
+citta("Telti").
+citta("Telve").
+citta("Telve di Sopra").
+citta("Tempio Pausania").
+citta("Temù").
+citta("Tenna").
+citta("Tenno").
+citta("Teolo").
+citta("Teora").
+citta("Teramo").
+citta("Terdobbiate").
+citta("Terelle").
+citta("Terento/Terenten").
+citta("Terenzo").
+citta("Tergu").
+citta("Terlano/Terlan").
+citta("Terlizzi").
+citta("Terme Vigliatore").
+citta("Termeno sulla strada del vino/Tramin an der Weinstraße").
+citta("Termini Imerese").
+citta("Termoli").
+citta("Ternate").
+citta("Ternengo").
+citta("Terni").
+citta("Terno d'Isola").
+citta("Terracina").
+citta("Terragnolo").
+citta("Terralba").
+citta("Terranova da Sibari").
+citta("Terranova dei Passerini").
+citta("Terranova di Pollino").
+citta("Terranova Sappo Minulio").
+citta("Terranuova Bracciolini").
+citta("Terrasini").
+citta("Terrassa Padovana").
+citta("Terravecchia").
+citta("Terrazzo").
+citta("Terre del Reno").
+citta("Terre Roveresche").
+citta("Terricciola").
+citta("Terruggia").
+citta("Tertenia").
+citta("Terzigno").
+citta("Terzo").
+citta("Terzo d'Aquileia").
+citta("Terzolas").
+citta("Terzorio").
+citta("Tesero").
+citta("Tesimo/Tisens").
+citta("Tessennano").
+citta("Testico").
+citta("Teti").
+citta("Teulada").
+citta("Teverola").
+citta("Tezze sul Brenta").
+citta("Thiene").
+citta("Thiesi").
+citta("Tiana").
+citta("Ticengo").
+citta("Ticineto").
+citta("Tiggiano").
+citta("Tiglieto").
+citta("Tigliole").
+citta("Tignale").
+citta("Tinnura").
+citta("Tione degli Abruzzi").
+citta("Tione di Trento").
+citta("Tirano").
+citta("Tires/Tiers").
+citta("Tiriolo").
+citta("Tirolo/Tirol").
+citta("Tissi").
+citta("Tito").
+citta("Tivoli").
+citta("Tizzano Val Parma").
+citta("Toano").
+citta("Tocco Caudio").
+citta("Tocco da Casauria").
+citta("Toceno").
+citta("Todi").
+citta("Toffia").
+citta("Toirano").
+citta("Tolentino").
+citta("Tolfa").
+citta("Tollegno").
+citta("Tollo").
+citta("Tolmezzo").
+citta("Tolve").
+citta("Tombolo").
+citta("Ton").
+citta("Tonara").
+citta("Tonco").
+citta("Tonengo").
+citta("Tonezza del Cimone").
+citta("Tora e Piccilli").
+citta("Torano Castello").
+citta("Torano Nuovo").
+citta("Torbole Casaglia").
+citta("Torcegno").
+citta("Torchiara").
+citta("Torchiarolo").
+citta("Torella dei Lombardi").
+citta("Torella del Sannio").
+citta("Torgiano").
+citta("Torgnon").
+citta("Torino").
+citta("Torino di Sangro").
+citta("Toritto").
+citta("Torlino Vimercati").
+citta("Tornaco").
+citta("Tornareccio").
+citta("Tornata").
+citta("Tornimparte").
+citta("Torno").
+citta("Tornolo").
+citta("Toro").
+citta("Torpè").
+citta("Torraca").
+citta("Torralba").
+citta("Torrazza Coste").
+citta("Torrazza Piemonte").
+citta("Torrazzo").
+citta("Torre Annunziata").
+citta("Torre Beretti e Castellaro").
+citta("Torre Boldone").
+citta("Torre Bormida").
+citta("Torre Cajetani").
+citta("Torre Canavese").
+citta("Torre d'Arese").
+citta("Torre de' Busi").
+citta("Torre de' Negri").
+citta("Torre de' Passeri").
+citta("Torre de' Picenardi").
+citta("Torre de' Roveri").
+citta("Torre del Greco").
+citta("Torre di Mosto").
+citta("Torre di Ruggiero").
+citta("Torre di Santa Maria").
+citta("Torre d'Isola").
+citta("Torre Le Nocelle").
+citta("Torre Mondovì").
+citta("Torre Orsaia").
+citta("Torre Pallavicina").
+citta("Torre Pellice").
+citta("Torre San Giorgio").
+citta("Torre San Patrizio").
+citta("Torre Santa Susanna").
+citta("Torreano").
+citta("Torrebelvicino").
+citta("Torrebruna").
+citta("Torrecuso").
+citta("Torreglia").
+citta("Torregrotta").
+citta("Torremaggiore").
+citta("Torrenova").
+citta("Torresina").
+citta("Torretta").
+citta("Torrevecchia Pia").
+citta("Torrevecchia Teatina").
+citta("Torri del Benaco").
+citta("Torri di Quartesolo").
+citta("Torri in Sabina").
+citta("Torrice").
+citta("Torricella").
+citta("Torricella del Pizzo").
+citta("Torricella in Sabina").
+citta("Torricella Peligna").
+citta("Torricella Sicura").
+citta("Torricella Verzate").
+citta("Torriglia").
+citta("Torrile").
+citta("Torrioni").
+citta("Torrita di Siena").
+citta("Torrita Tiberina").
+citta("Tortolì").
+citta("Tortona").
+citta("Tortora").
+citta("Tortorella").
+citta("Tortoreto").
+citta("Tortorici").
+citta("Torviscosa").
+citta("Toscolano-Maderno").
+citta("Tossicia").
+citta("Tovo di Sant'Agata").
+citta("Tovo San Giacomo").
+citta("Trabia").
+citta("Tradate").
+citta("Tramatza").
+citta("Trambileno").
+citta("Tramonti").
+citta("Tramonti di Sopra").
+citta("Tramonti di Sotto").
+citta("Tramutola").
+citta("Trana").
+citta("Trani").
+citta("Traona").
+citta("Trapani").
+citta("Trappeto").
+citta("Trarego Viggiona").
+citta("Trasacco").
+citta("Trasaghis").
+citta("Trasquera").
+citta("Tratalias").
+citta("Trausella").
+citta("Travacò Siccomario").
+citta("Travagliato").
+citta("Travedona-Monate").
+citta("Traversella").
+citta("Traversetolo").
+citta("Traves").
+citta("Travesio").
+citta("Travo").
+citta("Tre Ville").
+citta("Trebaseleghe").
+citta("Trebisacce").
+citta("Trecase").
+citta("Trecastagni").
+citta("Trecastelli").
+citta("Trecate").
+citta("Trecchina").
+citta("Trecenta").
+citta("Tredozio").
+citta("Treglio").
+citta("Tregnago").
+citta("Treia").
+citta("Treiso").
+citta("Tremenico").
+citta("Tremestieri Etneo").
+citta("Tremezzina").
+citta("Tremosine sul Garda").
+citta("Trentinara").
+citta("Trento").
+citta("Trentola-Ducenta").
+citta("Trenzano").
+citta("Treppo Carnico").
+citta("Treppo Grande").
+citta("Trepuzzi").
+citta("Trequanda").
+citta("Tresana").
+citta("Trescore Balneario").
+citta("Trescore Cremasco").
+citta("Tresigallo").
+citta("Tresivio").
+citta("Tresnuraghes").
+citta("Trevenzuolo").
+citta("Trevi").
+citta("Trevi nel Lazio").
+citta("Trevico").
+citta("Treviglio").
+citta("Trevignano").
+citta("Trevignano Romano").
+citta("Treville").
+citta("Treviolo").
+citta("Treviso").
+citta("Treviso Bresciano").
+citta("Trezzano Rosa").
+citta("Trezzano sul Naviglio").
+citta("Trezzo sull'Adda").
+citta("Trezzo Tinella").
+citta("Trezzone").
+citta("Tribano").
+citta("Tribiano").
+citta("Tribogna").
+citta("Tricarico").
+citta("Tricase").
+citta("Tricerro").
+citta("Tricesimo").
+citta("Trichiana").
+citta("Triei").
+citta("Trieste").
+citta("Triggiano").
+citta("Trigolo").
+citta("Trinità").
+citta("Trinità d'Agultu e Vignola").
+citta("Trinitapoli").
+citta("Trino").
+citta("Triora").
+citta("Tripi").
+citta("Trisobbio").
+citta("Trissino").
+citta("Triuggio").
+citta("Trivento").
+citta("Trivero").
+citta("Trivigliano").
+citta("Trivignano Udinese").
+citta("Trivigno").
+citta("Trivolzio").
+citta("Trodena nel parco naturale/Truden im Naturpark").
+citta("Trofarello").
+citta("Troia").
+citta("Troina").
+citta("Tromello").
+citta("Trontano").
+citta("Tronzano Lago Maggiore").
+citta("Tronzano Vercellese").
+citta("Tropea").
+citta("Trovo").
+citta("Truccazzano").
+citta("Tubre/Taufers im Münstertal").
+citta("Tufara").
+citta("Tufillo").
+citta("Tufino").
+citta("Tufo").
+citta("Tuglie").
+citta("Tuili").
+citta("Tula").
+citta("Tuoro sul Trasimeno").
+citta("Turania").
+citta("Turano Lodigiano").
+citta("Turate").
+citta("Turbigo").
+citta("Turi").
+citta("Turri").
+citta("Turriaco").
+citta("Turrivalignani").
+citta("Tursi").
+citta("Tusa").
+citta("Tuscania").
+citta("Ubiale Clanezzo").
+citta("Uboldo").
+citta("Ucria").
+citta("Udine").
+citta("Ugento").
+citta("Uggiano la Chiesa").
+citta("Uggiate-Trevano").
+citta("Ulà Tirso").
+citta("Ulassai").
+citta("Ultimo/Ulten").
+citta("Umbertide").
+citta("Umbriatico").
+citta("Urago d'Oglio").
+citta("Uras").
+citta("Urbana").
+citta("Urbania").
+citta("Urbe").
+citta("Urbino").
+citta("Urbisaglia").
+citta("Urgnano").
+citta("Uri").
+citta("Ururi").
+citta("Urzulei").
+citta("Uscio").
+citta("Usellus").
+citta("Usini").
+citta("Usmate Velate").
+citta("Ussana").
+citta("Ussaramanna").
+citta("Ussassai").
+citta("Usseaux").
+citta("Usseglio").
+citta("Ussita").
+citta("Ustica").
+citta("Uta").
+citta("Uzzano").
+citta("Vaccarizzo Albanese").
+citta("Vacone").
+citta("Vacri").
+citta("Vadena/Pfatten").
+citta("Vado Ligure").
+citta("Vagli Sotto").
+citta("Vaglia").
+citta("Vaglio Basilicata").
+citta("Vaglio Serra").
+citta("Vaiano").
+citta("Vaiano Cremasco").
+citta("Vaie").
+citta("Vailate").
+citta("Vairano Patenora").
+citta("Vajont").
+citta("Val Brembilla").
+citta("Val della Torre").
+citta("Val di Nizza").
+citta("Val di Vizze/Pfitsch").
+citta("Val di Zoldo").
+citta("Val Liona").
+citta("Val Masino").
+citta("Val Rezzo").
+citta("Valbondione").
+citta("Valbrembo").
+citta("Valbrevenna").
+citta("Valbrona").
+citta("Valdagno").
+citta("Valdaone").
+citta("Valdaora/Olang").
+citta("Valdastico").
+citta("Valdengo").
+citta("Valderice").
+citta("Valdidentro").
+citta("Valdieri").
+citta("Valdina").
+citta("Valdisotto").
+citta("Valdobbiadene").
+citta("Valduggia").
+citta("Valeggio").
+citta("Valeggio sul Mincio").
+citta("Valentano").
+citta("Valenza").
+citta("Valenzano").
+citta("Valera Fratta").
+citta("Valfabbrica").
+citta("Valfenera").
+citta("Valfloriana").
+citta("Valfornace").
+citta("Valfurva").
+citta("Valganna").
+citta("Valgioie").
+citta("Valgoglio").
+citta("Valgrana").
+citta("Valgreghentino").
+citta("Valgrisenche").
+citta("Valguarnera Caropepe").
+citta("Vallada Agordina").
+citta("Vallanzengo").
+citta("Vallarsa").
+citta("Vallata").
+citta("Valle Agricola").
+citta("Valle Aurina/Ahrntal").
+citta("Valle Castellana").
+citta("Valle dell'Angelo").
+citta("Valle di Cadore").
+citta("Valle di Casies/Gsies").
+citta("Valle di Maddaloni").
+citta("Valle Lomellina").
+citta("Valle Mosso").
+citta("Valle Salimbene").
+citta("Valle San Nicolao").
+citta("Vallebona").
+citta("Vallecorsa").
+citta("Vallecrosia").
+citta("Valledolmo").
+citta("Valledoria").
+citta("Vallefiorita").
+citta("Vallefoglia").
+citta("Vallelaghi").
+citta("Vallelonga").
+citta("Vallelunga Pratameno").
+citta("Vallemaio").
+citta("Vallepietra").
+citta("Vallerano").
+citta("Vallermosa").
+citta("Vallerotonda").
+citta("Vallesaccarda").
+citta("Valleve").
+citta("Valli del Pasubio").
+citta("Vallinfreda").
+citta("Vallio Terme").
+citta("Vallo della Lucania").
+citta("Vallo di Nera").
+citta("Vallo Torinese").
+citta("Valloriate").
+citta("Valmacca").
+citta("Valmadrera").
+citta("Valmala").
+citta("Valmontone").
+citta("Valmorea").
+citta("Valmozzola").
+citta("Valnegra").
+citta("Valpelline").
+citta("Valperga").
+citta("Valprato Soana").
+citta("Valsamoggia").
+citta("Valsavarenche").
+citta("Valsinni").
+citta("Valsolda").
+citta("Valstagna").
+citta("Valstrona").
+citta("Valtopina").
+citta("Valtorta").
+citta("Valtournenche").
+citta("Valva").
+citta("Valvasone Arzene").
+citta("Valverde").
+citta("Valverde").
+citta("Valvestino").
+citta("Vandoies/Vintl").
+citta("Vanzaghello").
+citta("Vanzago").
+citta("Vanzone con San Carlo").
+citta("Vaprio d'Adda").
+citta("Vaprio d'Agogna").
+citta("Varallo").
+citta("Varallo Pombia").
+citta("Varano Borghi").
+citta("Varano de' Melegari").
+citta("Varapodio").
+citta("Varazze").
+citta("Varco Sabino").
+citta("Varedo").
+citta("Varena").
+citta("Varenna").
+citta("Varese").
+citta("Varese Ligure").
+citta("Varisella").
+citta("Varmo").
+citta("Varna/Vahrn").
+citta("Varsi").
+citta("Varzi").
+citta("Varzo").
+citta("Vasanello").
+citta("Vasia").
+citta("Vasto").
+citta("Vastogirardi").
+citta("Vauda Canavese").
+citta("Vazzano").
+citta("Vazzola").
+citta("Vecchiano").
+citta("Vedano al Lambro").
+citta("Vedano Olona").
+citta("Vedelago").
+citta("Vedeseta").
+citta("Veduggio con Colzano").
+citta("Veggiano").
+citta("Veglie").
+citta("Veglio").
+citta("Vejano").
+citta("Veleso").
+citta("Velezzo Lomellina").
+citta("Velletri").
+citta("Vellezzo Bellini").
+citta("Velo d'Astico").
+citta("Velo Veronese").
+citta("Velturno/Feldthurns").
+citta("Venafro").
+citta("Venaria Reale").
+citta("Venarotta").
+citta("Venasca").
+citta("Venaus").
+citta("Vendone").
+citta("Vendrogno").
+citta("Venegono Inferiore").
+citta("Venegono Superiore").
+citta("Venetico").
+citta("Venezia").
+citta("Veniano").
+citta("Venosa").
+citta("Ventasso").
+citta("Venticano").
+citta("Ventimiglia").
+citta("Ventimiglia di Sicilia").
+citta("Ventotene").
+citta("Venzone").
+citta("Verano Brianza").
+citta("Verano/Vöran").
+citta("Verbania").
+citta("Verbicaro").
+citta("Vercana").
+citta("Verceia").
+citta("Vercelli").
+citta("Vercurago").
+citta("Verdellino").
+citta("Verdello").
+citta("Verderio").
+citta("Verduno").
+citta("Vergato").
+citta("Verghereto").
+citta("Vergiate").
+citta("Vermezzo").
+citta("Vermiglio").
+citta("Vernante").
+citta("Vernasca").
+citta("Vernate").
+citta("Vernazza").
+citta("Vernio").
+citta("Vernole").
+citta("Verolanuova").
+citta("Verolavecchia").
+citta("Verolengo").
+citta("Veroli").
+citta("Verona").
+citta("Veronella").
+citta("Verrayes").
+citta("Verrès").
+citta("Verretto").
+citta("Verrone").
+citta("Verrua Po").
+citta("Verrua Savoia").
+citta("Vertemate con Minoprio").
+citta("Vertova").
+citta("Verucchio").
+citta("Veruno").
+citta("Vervio").
+citta("Verzegnis").
+citta("Verzino").
+citta("Verzuolo").
+citta("Vescovana").
+citta("Vescovato").
+citta("Vesime").
+citta("Vespolate").
+citta("Vessalico").
+citta("Vestenanova").
+citta("Vestignè").
+citta("Vestone").
+citta("Vestreno").
+citta("Vetralla").
+citta("Vetto").
+citta("Vezza d'Alba").
+citta("Vezza d'Oglio").
+citta("Vezzano Ligure").
+citta("Vezzano sul Crostolo").
+citta("Vezzi Portio").
+citta("Viadana").
+citta("Viadanica").
+citta("Viagrande").
+citta("Viale").
+citta("Vialfrè").
+citta("Viano").
+citta("Viareggio").
+citta("Viarigi").
+citta("Vibo Valentia").
+citta("Vibonati").
+citta("Vicalvi").
+citta("Vicari").
+citta("Vicchio").
+citta("Vicenza").
+citta("Vico Canavese").
+citta("Vico del Gargano").
+citta("Vico Equense").
+citta("Vico nel Lazio").
+citta("Vicoforte").
+citta("Vicoli").
+citta("Vicolungo").
+citta("Vicopisano").
+citta("Vicovaro").
+citta("Viddalba").
+citta("Vidigulfo").
+citta("Vidor").
+citta("Vidracco").
+citta("Vieste").
+citta("Vietri di Potenza").
+citta("Vietri sul Mare").
+citta("Viganò").
+citta("Vigano San Martino").
+citta("Vigarano Mainarda").
+citta("Vigasio").
+citta("Vigevano").
+citta("Viggianello").
+citta("Viggiano").
+citta("Viggiù").
+citta("Vighizzolo d'Este").
+citta("Vigliano Biellese").
+citta("Vigliano d'Asti").
+citta("Vignale Monferrato").
+citta("Vignanello").
+citta("Vignate").
+citta("Vignola").
+citta("Vignola-Falesina").
+citta("Vignole Borbera").
+citta("Vignolo").
+citta("Vignone").
+citta("Vigo di Cadore").
+citta("Vigo di Fassa").
+citta("Vigodarzere").
+citta("Vigolo").
+citta("Vigolzone").
+citta("Vigone").
+citta("Vigonovo").
+citta("Vigonza").
+citta("Viguzzolo").
+citta("Villa Bartolomea").
+citta("Villa Basilica").
+citta("Villa Biscossi").
+citta("Villa Carcina").
+citta("Villa Castelli").
+citta("Villa Celiera").
+citta("Villa Collemandina").
+citta("Villa Cortese").
+citta("Villa d'Adda").
+citta("Villa d'Almè").
+citta("Villa del Bosco").
+citta("Villa del Conte").
+citta("Villa di Briano").
+citta("Villa di Chiavenna").
+citta("Villa di Serio").
+citta("Villa di Tirano").
+citta("Villa d'Ogna").
+citta("Villa Estense").
+citta("Villa Faraldi").
+citta("Villa Guardia").
+citta("Villa Lagarina").
+citta("Villa Latina").
+citta("Villa Literno").
+citta("Villa Minozzo").
+citta("Villa Poma").
+citta("Villa San Giovanni").
+citta("Villa San Giovanni in Tuscia").
+citta("Villa San Pietro").
+citta("Villa San Secondo").
+citta("Villa Santa Lucia").
+citta("Villa Santa Lucia degli Abruzzi").
+citta("Villa Santa Maria").
+citta("Villa Sant'Angelo").
+citta("Villa Sant'Antonio").
+citta("Villa Santina").
+citta("Villa Santo Stefano").
+citta("Villa Verde").
+citta("Villa Vicentina").
+citta("Villabassa/Niederdorf").
+citta("Villabate").
+citta("Villachiara").
+citta("Villacidro").
+citta("Villadeati").
+citta("Villadose").
+citta("Villadossola").
+citta("Villafalletto").
+citta("Villafranca d'Asti").
+citta("Villafranca di Verona").
+citta("Villafranca in Lunigiana").
+citta("Villafranca Padovana").
+citta("Villafranca Piemonte").
+citta("Villafranca Sicula").
+citta("Villafranca Tirrena").
+citta("Villafrati").
+citta("Villaga").
+citta("Villagrande Strisaili").
+citta("Villalago").
+citta("Villalba").
+citta("Villalfonsina").
+citta("Villalvernia").
+citta("Villamagna").
+citta("Villamaina").
+citta("Villamar").
+citta("Villamarzana").
+citta("Villamassargia").
+citta("Villamiroglio").
+citta("Villandro/Villanders").
+citta("Villanova Biellese").
+citta("Villanova Canavese").
+citta("Villanova d'Albenga").
+citta("Villanova d'Ardenghi").
+citta("Villanova d'Asti").
+citta("Villanova del Battista").
+citta("Villanova del Ghebbo").
+citta("Villanova del Sillaro").
+citta("Villanova di Camposampiero").
+citta("Villanova Marchesana").
+citta("Villanova Mondovì").
+citta("Villanova Monferrato").
+citta("Villanova Monteleone").
+citta("Villanova Solaro").
+citta("Villanova sull'Arda").
+citta("Villanova Truschedu").
+citta("Villanova Tulo").
+citta("Villanovaforru").
+citta("Villanovafranca").
+citta("Villanterio").
+citta("Villanuova sul Clisi").
+citta("Villaperuccio").
+citta("Villapiana").
+citta("Villaputzu").
+citta("Villar Dora").
+citta("Villar Focchiardo").
+citta("Villar Pellice").
+citta("Villar Perosa").
+citta("Villar San Costanzo").
+citta("Villarbasse").
+citta("Villarboit").
+citta("Villareggia").
+citta("Villaricca").
+citta("Villaromagnano").
+citta("Villarosa").
+citta("Villasalto").
+citta("Villasanta").
+citta("Villasimius").
+citta("Villasor").
+citta("Villaspeciosa").
+citta("Villastellone").
+citta("Villata").
+citta("Villaurbana").
+citta("Villavallelonga").
+citta("Villaverla").
+citta("Ville d'Anaunia").
+citta("Villeneuve").
+citta("Villesse").
+citta("Villetta Barrea").
+citta("Villette").
+citta("Villimpenta").
+citta("Villongo").
+citta("Villorba").
+citta("Vilminore di Scalve").
+citta("Vimercate").
+citta("Vimodrone").
+citta("Vinadio").
+citta("Vinchiaturo").
+citta("Vinchio").
+citta("Vinci").
+citta("Vinovo").
+citta("Vinzaglio").
+citta("Viola").
+citta("Vione").
+citta("Vipiteno/Sterzing").
+citta("Virle Piemonte").
+citta("Visano").
+citta("Vische").
+citta("Visciano").
+citta("Visco").
+citta("Visone").
+citta("Visso").
+citta("Vistarino").
+citta("Vistrorio").
+citta("Vita").
+citta("Viterbo").
+citta("Viticuso").
+citta("Vito d'Asio").
+citta("Vitorchiano").
+citta("Vittoria").
+citta("Vittorio Veneto").
+citta("Vittorito").
+citta("Vittuone").
+citta("Vitulano").
+citta("Vitulazio").
+citta("Viù").
+citta("Vivaro").
+citta("Vivaro Romano").
+citta("Viverone").
+citta("Vizzini").
+citta("Vizzola Ticino").
+citta("Vizzolo Predabissi").
+citta("Vò").
+citta("Vobarno").
+citta("Vobbia").
+citta("Vocca").
+citta("Vodo Cadore").
+citta("Voghera").
+citta("Voghiera").
+citta("Vogogna").
+citta("Volano").
+citta("Volla").
+citta("Volongo").
+citta("Volpago del Montello").
+citta("Volpara").
+citta("Volpedo").
+citta("Volpeglino").
+citta("Volpiano").
+citta("Volta Mantovana").
+citta("Voltaggio").
+citta("Voltago Agordino").
+citta("Volterra").
+citta("Voltido").
+citta("Volturara Appula").
+citta("Volturara Irpina").
+citta("Volturino").
+citta("Volvera").
+citta("Vottignasco").
+citta("Zaccanopoli").
+citta("Zafferana Etnea").
+citta("Zagarise").
+citta("Zagarolo").
+citta("Zambana").
+citta("Zambrone").
+citta("Zandobbio").
+citta("Zanè").
+citta("Zanica").
+citta("Zapponeta").
+citta("Zavattarello").
+citta("Zeccone").
+citta("Zeddiani").
+citta("Zelbio").
+citta("Zelo Buon Persico").
+citta("Zelo Surrigone").
+citta("Zeme").
+citta("Zenevredo").
+citta("Zenson di Piave").
+citta("Zerba").
+citta("Zerbo").
+citta("Zerbolò").
+citta("Zerfaliu").
+citta("Zeri").
+citta("Zermeghedo").
+citta("Zero Branco").
+citta("Zevio").
+citta("Ziano di Fiemme").
+citta("Ziano Piacentino").
+citta("Zibido San Giacomo").
+citta("Zignago").
+citta("Zimella").
+citta("Zimone").
+citta("Zinasco").
+citta("Zoagli").
+citta("Zocca").
+citta("Zogno").
+citta("Zola Predosa").
+citta("Zollino").
+citta("Zone").
+citta("Zoppè di Cadore").
+citta("Zoppola").
+citta("Zovencedo").
+citta("Zubiena").
+citta("Zuccarello").
+citta("Zugliano").
+citta("Zuglio").
+citta("Zumaglia").
+citta("Zumpano").
+citta("Zungoli").
+citta("Zungri").
+ricerca_citta([H|T], X) :- citta(X), atom_chars(X, [H|T]).
