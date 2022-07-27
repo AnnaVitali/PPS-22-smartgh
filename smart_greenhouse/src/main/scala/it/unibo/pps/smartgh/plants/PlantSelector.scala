@@ -58,7 +58,7 @@ object PlantSelector:
 
     private def prologEngine: Term => Iterable[SolveInfo] =
       val engine = new Prolog
-      engine.setTheory(Theory(getClass.getResource("/plants.pl").openStream()))
+      engine.setTheory(Theory.parseWithStandardOperators(getClass.getResourceAsStream("/plants.pl")))
 
       goal =>
         new Iterable[SolveInfo] {
