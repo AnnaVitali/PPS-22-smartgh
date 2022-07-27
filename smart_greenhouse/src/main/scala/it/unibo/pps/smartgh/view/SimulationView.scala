@@ -1,5 +1,6 @@
 package it.unibo.pps.smartgh.view
 
+import it.unibo.pps.smartgh.city.CitiesSearcher
 import scalafx.application.JFXApp3.PrimaryStage
 import scalafx.scene.Scene
 import scalafx.Includes.*
@@ -39,7 +40,7 @@ object SimulationView:
     stage.resizable = true
     stage.maximized = true
     stage.title = appTitle
-    baseView.getChildren.add(SelectCityView()) //init view
+    baseView.getChildren.add(SelectCityView(CitiesSearcher())) //init view
     scene.root.value = baseView
     stage.scene = scene
     stage.show()
