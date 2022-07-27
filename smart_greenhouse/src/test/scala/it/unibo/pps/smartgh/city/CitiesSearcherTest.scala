@@ -6,7 +6,7 @@ import org.scalatest.matchers.must.Matchers as MustMatchers
 
 class CitiesSearcherTest extends AnyFunSuite:
 
-  private val citiesSearcher = CitiesSearcher("/cities.pl")
+  private val citiesSearcher = CitiesSearcher()
 
   test("Cities Searcher should show cities") {
     import ShouldMatchers._
