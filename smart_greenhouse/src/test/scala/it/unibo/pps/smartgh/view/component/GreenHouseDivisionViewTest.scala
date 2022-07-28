@@ -1,12 +1,12 @@
-package it.unibo.pps.smartgh.greenhouse.view.component
+package it.unibo.pps.smartgh.view.component
 
 import it.unibo.pps.smartgh.greenhouse.GreenHouse
 import it.unibo.pps.smartgh.view.component.*
 import javafx.scene.layout.VBox
 import javafx.stage.Stage
 import org.junit.Test
-import org.testfx.framework.junit.ApplicationTest
 import org.testfx.api.FxAssert.verifyThat
+import org.testfx.framework.junit.ApplicationTest
 import org.testfx.matcher.base.NodeMatchers.{hasChildren, isVisible}
 import org.testfx.matcher.control.LabeledMatchers.hasText
 import scalafx.scene.Scene
@@ -14,9 +14,11 @@ import scalafx.scene.Scene
 class GreenHouseDivisionViewTest extends ApplicationTest:
 
   val globalGH = "#ghDivision"
-  val model = GreenHouse(List("p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10", "p11", "p12"),
+  val model = GreenHouse(
     List("p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10", "p11", "p12"),
-    "Rome")
+    List("p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10", "p11", "p12"),
+    "Rome"
+  )
 
   override def start(stage: Stage): Unit =
     val scene: Scene = Scene(stage.getMaxWidth, stage.getMaxHeight)
@@ -31,4 +33,4 @@ class GreenHouseDivisionViewTest extends ApplicationTest:
   @Test def testLabels(): Unit =
 
     verifyThat(globalGH, isVisible())
-    verifyThat(globalGH, hasChildren(model.plants.length,""))
+    verifyThat(globalGH, hasChildren(model.plants.length, ""))
