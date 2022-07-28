@@ -12,5 +12,7 @@ jobs:
         with:
           distribution: temurin 
           java-version: 11
+      - name: Move in project directory
+        run: cd smart_greenhouse
       - name: Run test
         run: sbt -v +test
