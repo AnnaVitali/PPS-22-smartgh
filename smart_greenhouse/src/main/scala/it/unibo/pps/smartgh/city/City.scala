@@ -23,15 +23,18 @@ trait City:
     */
   def environmentValues: EnvironmentValues
 
-case class CityImpl(override val name: String) extends City:
-  private var envValues: EnvironmentValues = setEnvironmentValues()
-  override def environmentValues: EnvironmentValues = envValues
+object City:
+  def apply(name: String): City = CityImpl(name)
 
-  private def setEnvironmentValues(): EnvironmentValues =
-    val apiKey = "b619d3592d8b426e8cc92336220107"
-    val query = "http://api.weatherapi.com/v1/current.json?key=" + apiKey + "&q=" + name.replace(" ", "%20") + "&aqi=no"
-    val r: Response = requests.get(query)
-    if r.statusCode == 200 then
-      implicit val formats = org.json4s.DefaultFormats
-      parse(r.text()).extract[EnvironmentValues]
-    else Map()
+  private class CityImpl(override val name: String) extends City:
+    private var envValues: EnvironmentValues = setEnvironmentValues()
+    override def environmentValues: EnvironmentValues = envValues
+
+    private def setEnvironmentValues(): EnvironmentValues =
+      val apiKey = "b619d3592d8b426e8cc92336220107"
+      val query = "http://api.weatherapi.com/v1/current.json?key=" + apiKey + "&q=" + name.replace(" ", "%20") + "&aqi=no"
+      val r: Response = requests.get(query)
+      if r.statusCode == 200 then
+        implicit val formats = org.json4s.DefaultFormats
+        parse(r.text()).extract[EnvironmentValues]
+      else Map()
