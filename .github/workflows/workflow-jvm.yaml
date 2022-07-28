@@ -12,5 +12,7 @@ jobs:
         with:
           distribution: temurin 
           java-version: 11
+      - name: Setup home directory 
+        working-directory: $HOME
       - name: Run test
         run: cd smart_greenhouse/ ; sbt -v +test
