@@ -35,7 +35,9 @@ lazy val root = (project in file("."))
       "org.scalafx" %% "scalafx" % "16.0.0-R24",
       "it.unibo.alice.tuprolog" % "2p-core" % "4.1.1",
       "it.unibo.alice.tuprolog" % "2p-ui" % "4.1.1",
-      "org.controlsfx" % "controlsfx" % "11.1.1"
+      "org.controlsfx" % "controlsfx" % "11.1.1",
+      "org.testfx" % "testfx-core" % "4.0.16-alpha",
+      "org.testfx" % "testfx-junit" % "4.0.16-alpha"
     ) ++ Seq("base", "controls", "fxml", "graphics", "media", "swing", "web")
       .map(m => "org.openjfx" % s"javafx-$m" % "16" classifier osName),
     crossPaths := false, // https://github.com/sbt/junit-interface/issues/35
@@ -61,9 +63,7 @@ lazy val core = crossProject(JVMPlatform, JSPlatform)
       "dev.optics" %%% "monocle-macro" % "3.1.0"
     )
   )
-
 lazy val swing = project.dependsOn(core.jvm)
-
 lazy val js = project
   .enablePlugins(ScalaJSPlugin)
   .dependsOn(core.js)
