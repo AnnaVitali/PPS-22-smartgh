@@ -12,5 +12,6 @@ jobs:
         with:
           distribution: temurin 
           java-version: 11
+          java-package: jdk+fx
       - name: Run test
         run: cd smart_greenhouse/ ; sbt -v +test
