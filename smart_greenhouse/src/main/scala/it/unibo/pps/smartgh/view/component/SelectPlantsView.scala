@@ -20,7 +20,7 @@ object SelectPlantsView:
     *   a new instance of [[SelectPlantsView]]
     */
   def apply(): SelectPlantsView =
-    SelectPlantsViewImpl().build()
+    SelectPlantsViewImpl()
 
   private class SelectPlantsViewImpl()
       extends AbstractViewComponent[BorderPane]("select_plants.fxml")
