@@ -9,5 +9,5 @@ class GreenHouseTest extends AnyFunSuite with Matchers:
     GreenHouse(List("p1", "p2", "p3", "p4", "p5", "p6"), List("p1", "p2", "p3", "p4", "p5", "p6"), "Rome")
 
   test(s"greenhouse should have 2 rows and 3 columns") {
-    greenHouse.dimension mustEqual (3, 3)
+    greenHouse.dimension mustEqual (2, 3)
   }
