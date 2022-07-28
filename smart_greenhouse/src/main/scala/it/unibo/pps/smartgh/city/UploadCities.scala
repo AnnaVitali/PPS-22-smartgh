@@ -63,8 +63,8 @@ object UploadCities extends UploadCities:
       _.getLines().length
     }.get
 
-  def countPrologFileLines(fileName: String): Int =
-    Using(Source.fromFile("prolog/" + fileName)) {
+  def countPrologFileLines(path: String): Int =
+    Using(Source.fromFile(path)) {
       _.getLines().length
     }.get
 
