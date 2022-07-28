@@ -11,8 +11,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install libgtk
-        run: sudo apt-get update -y ; sudo apt-get install -y libgtk-3-0
       - name: Setup scala
         uses: olafurpg/setup-scala@v10
         with:
