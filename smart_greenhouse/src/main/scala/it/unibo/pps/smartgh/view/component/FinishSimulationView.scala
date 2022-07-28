@@ -11,7 +11,7 @@ trait FinishSimulationView extends ViewComponent[BorderPane]
 /** Object that can be used to create a new instance of [[FinishSimulationView]]. */
 object FinishSimulationView:
 
-  /** Create a new [[FinishSimulationView]] ocmponent.
+  /** Create a new [[FinishSimulationView]] component.
     * @return
     *   a new instance of [[FinishSimulationView]]
     */
