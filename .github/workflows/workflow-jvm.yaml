@@ -13,4 +13,4 @@ jobs:
           distribution: temurin 
           java-version: 11
       - name: Run test
-        run: sbt test
+        run: sbt -v +test
