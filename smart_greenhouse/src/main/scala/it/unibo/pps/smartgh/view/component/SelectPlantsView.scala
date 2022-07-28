@@ -44,13 +44,11 @@ object SelectPlantsView:
     @FXML
     var countLabel: Label = _
 
-    def build(): SelectPlantsView =
-      selectYourPlantLabel.setText("Select your plants:")
-      plantsSelectedLabel.setText("Plants selected:")
-      countLabel.setText("Count:")
-      controller.view = this
-      controller.configureAvailablePlants()
-      this
+    selectYourPlantLabel.setText("Select your plants:")
+    plantsSelectedLabel.setText("Plants selected:")
+    countLabel.setText("Count:")
+    controller.view = this
+    controller.configureAvailablePlants()
 
     override def showSelectablePlants(selectablePlantList: List[String]): Unit =
       selectablePlantList.foreach(s => selectablePlantsBox.getChildren().add(new CheckBox(s)))
