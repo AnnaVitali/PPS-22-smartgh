@@ -1,7 +1,7 @@
 package it.unibo.pps.smartgh.city
 
 import it.unibo.pps.smartgh.city.*
-import it.unibo.pps.smartgh.city.{City, CityImpl}
+import it.unibo.pps.smartgh.city.{City}
 import org.scalatest.BeforeAndAfter
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
@@ -10,7 +10,7 @@ import org.scalatest.matchers.should.Matchers.shouldNot
 import scala.collection.immutable.HashMap
 
 class CityTest extends AnyFunSuite with Matchers with BeforeAndAfter:
-  val city: City = CityImpl("Rome")
+  val city: City = City("Rome")
 
   test("after creating Rome city when we ask its name must it should be equal to Rome") {
     city.name shouldEqual "Rome"
