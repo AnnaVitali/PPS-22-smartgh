@@ -29,7 +29,7 @@ case class CityImpl(override val name: String) extends City:
 
   private def setEnvironmentValues(): EnvironmentValues =
     val apiKey = "b619d3592d8b426e8cc92336220107"
-    val query = "http://api.weatherapi.com/v1/current.json?key=" + apiKey + "&q=" + name
+    val query = "http://api.weatherapi.com/v1/current.json?key=" + apiKey + "&q=" + name.replace(" ", "%20") + "&aqi=no"
     val r: Response = requests.get(query)
     if r.statusCode == 200 then
       implicit val formats = org.json4s.DefaultFormats
