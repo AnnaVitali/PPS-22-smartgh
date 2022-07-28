@@ -28,7 +28,7 @@ class SelectPlantsViewTest extends ApplicationTest:
     stage.show()
 
   @Test def testLabels(): Unit =
-    val selectYourPlantsText = "Select your plants:"
+    val selectYourPlantsText = "Select your plants: "
     val plantsSelectedText = "Plants selected:"
     val countText = "Count:"
 
