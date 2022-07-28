@@ -3,7 +3,13 @@ package it.unibo.pps.smartgh.view
 import scalafx.application.JFXApp3.PrimaryStage
 import scalafx.scene.Scene
 import scalafx.Includes.*
-import it.unibo.pps.smartgh.view.component.{BaseView, FinishSimulationView, SelectCityView, ViewComponent}
+import it.unibo.pps.smartgh.view.component.{
+  BaseView,
+  FinishSimulationView,
+  GreenHouseDivisionView,
+  SelectCityView,
+  ViewComponent
+}
 import javafx.scene.Parent
 import javafx.scene.layout.VBox
 
@@ -39,7 +45,7 @@ object SimulationView:
     stage.resizable = true
     stage.maximized = true
     stage.title = appTitle
-    baseView.getChildren.add(FinishSimulationView()) //init view
+    baseView.getChildren.add(GreenHouseDivisionView()) //init view
     scene.root.value = baseView
     stage.scene = scene
     stage.show()
