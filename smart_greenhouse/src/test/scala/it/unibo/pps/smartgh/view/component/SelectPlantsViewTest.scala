@@ -3,8 +3,12 @@ package it.unibo.pps.smartgh.view.component
 import it.unibo.pps.smartgh.view.component
 import javafx.scene.layout.VBox
 import javafx.stage.Stage
-import org.junit.Test
-import org.testfx.framework.junit.ApplicationTest
+import org.junit.jupiter.api.{Assertions, Test}
+import org.junit.jupiter.api.{BeforeAll, BeforeEach}
+import org.testfx.api.FxToolkit
+import org.testfx.util.WaitForAsyncUtils
+import org.testfx.assertions.api.Assertions as FXAssertions
+import org.testfx.framework.junit5.ApplicationTest
 import org.testfx.api.FxAssert.verifyThat
 import org.testfx.matcher.base.NodeMatchers.isVisible
 import org.testfx.matcher.control.LabeledMatchers.hasText
