@@ -15,7 +15,7 @@ object FinishSimulationView:
     * @return
     *   a new instance of [[FinishSimulationView]]
     */
-  def apply(): FinishSimulationView = FinishSimulationViewImpl().build()
+  def apply(): FinishSimulationView = FinishSimulationViewImpl()
 
   private class FinishSimulationViewImpl()
       extends AbstractViewComponent[BorderPane]("finish_simulation.fxml")
@@ -29,15 +29,8 @@ object FinishSimulationView:
     @FXML
     var startNewSimulationButton: Button = _
 
-    def build(): FinishSimulationViewImpl =
-      simulationEndedLabel.setText("Simulation ended!")
-      startNewSimulationButton.setText("Start a new simulation")
-      startNewSimulationButton.setStyle("-fx-background-color: #33cc33")
-      setButtonMouseEvent()
-      this
-
-    private def setButtonMouseEvent(): Unit =
-      startNewSimulationButton.setOnMouseEntered(_ =>
-        startNewSimulationButton.setStyle("-fx-background-color: #5cd65c")
-      )
-      startNewSimulationButton.setOnMouseExited(_ => startNewSimulationButton.setStyle("-fx-background-color: #33cc33"))
+    simulationEndedLabel.setText("Simulation ended!")
+    startNewSimulationButton.setText("Start a new simulation")
+    startNewSimulationButton.setStyle("-fx-background-color: #33cc33")
+    startNewSimulationButton.setOnMouseEntered(_ => startNewSimulationButton.setStyle("-fx-background-color: #5cd65c"))
+    startNewSimulationButton.setOnMouseExited(_ => startNewSimulationButton.setStyle("-fx-background-color: #33cc33"))
