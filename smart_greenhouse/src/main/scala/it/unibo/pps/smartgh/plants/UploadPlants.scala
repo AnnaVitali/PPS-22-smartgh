@@ -80,7 +80,6 @@ object UploadPlants extends UploadPlants:
       Using(getBufferedSource(inputFile)) {
         _.getLines() foreach (
           line => printWriter.println(line.split(";").mkString("plant(\"", "\", \"", "\")."))
-            //val plant = line.split(","); printWriter.println(s"plant(\"$plant[0], $plant[1]\").")
         )
       }
     } finally printWriter.close()
