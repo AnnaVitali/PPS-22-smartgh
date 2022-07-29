@@ -74,13 +74,16 @@ Nel momento successivo alla suddivisione dei tasks fra i diversi membri del grup
 //TODO
 
 ## 1.3 Strumenti utilizzati
-//TODO
 
-### 1.3.1 Building
-//TODO
+Per la realizzazione del progetto, sono stati utilizzati differenti _tool_ a supporto del processo di sviluppo. Tali strumenti, hanno come obiettivo quello di agevolare gli sviluppatori, durante tutta la realizzazone del progetto, cercando di automatizzare i diversi aspetti di questo, che possono essere svolti automaticamente.
 
-### 1.3.2 Testing
-//TODO
+Pertanto, gli strumenti impiegati per il progetto, sono di seguito riportati:
 
-### 1.3.3 Continus integration
-//TODO
+-	**SBT**,  per la build automation;
+-	**Wartremover**, per valutare la qualità del codice prodotto, individuando possibili pattern problematici;
+-	**Scalastyle**, per formattare correttamente il codice in conformità alle convenzioni di Scala;
+-	**ScalaTest**, per la scrittura ed esecuzione dei test automatizzati sul codice di produzione;
+-	**UnitTest**, per la verifica delle funzionalità della UI;
+-	**GitHub**, come servizio di hosting per il codice sorgente e i files utilizzati, durante il processo di sviluppo;
+-	**GitHub Actions**, per promuovere la continuous integration;
+-	**Trello**, come tool collaborativo per la gestione degli sprint tasks.
