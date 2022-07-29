@@ -6,7 +6,7 @@ Specificatamente, il porcesso SCRUM-inspired seguito, prevede di:
 1. nominare uno studente (ad esempio, chi ha l'idea del progetto), il quale fungerà da sorta di committente o esperto del dominio, il quale cercherà di garantire l'usabilità/qualità del risultato;
 2. designare uno studente (ad esempio, chi pensa di avere doti di coordinamento) che ricoprirà il ruolo di _product owner_;
 3. effettuare un meeting iniziale, in cui redigere un _product backlog_ e definire un primo sprint organizzativo;
-4. utilizzare sprint corti, da 15-20 ore di lavoro, con l'obiettivo di ottenere, ad ogni sprint, dei risultati "tangibili", con già un valore per gli stakeholder;
+4. utilizzare sprint corti, da 15-20 ore di lavoro, con l'obiettivo di ottenere, ad ogni sprint, dei risultati "tangibili", con già un valore per gli _stakeholder_;
 5. fare meeting frequenti e a inizio/fine sprint (con brevissimo report del risultato, anch'esso da tenere in versione), realizzando anche uno _sprint backlog_ per mantenere traccia dell'organizzazione dei lavori.
 
 ## 1.1 Meetings
@@ -20,6 +20,37 @@ Per quanto riguarda gli Sprint, come specificato precedentemente, essi sono stat
 I diversi meetings, sono stati tenuti in modalità smart-working, attraverso l’utilizzo di piattaforme per videoconferenze.
 
 Ogni meeting con il rispettivo ordine del giorno, è stato tracciato in un apposito file di riferimento, che è possibile trovare fra gli artefatti del progetto.
+
+### 1.1.1 Sprint planning
+
+Lo _Sprint planning_, è un meeting in cui il team pianifica il lavoro che deve essere svolto e portato a termine durante lo Sprint, esso prevede di individuare i diversi elementi del _product backlog_ e i differenti _sprint tasks_ che devono essere effettuati per poter raggiungere gli obiettivi prefissati. Di conseguenza, durante i diversi _sprint planning_ sono stati discussi i seguenti punti:
+
+1.	definizione dell’obiettivo principale dello Sprint;
+2.	stato di sviluppo da raggiungere, alla fine dello Sprint, tramite il raffinamento del product backlog;
+3.	definizione dei diversi tasks da svolgere, per il raggiungimento degli obiettivi preposti;
+4.	assegnazione dei task ai diversi membri del gruppo.
+
+### 1.1.2 Sprint review
+
+Lo _Sprint review_, è un meeting che ha luogo alla fine dello Sprint, avente l’obiettivo di revisionare e valutare il lavoro svolto dal team di sviluppo. Pertanto, durante i differenti _sprint review_ sono stati discussi i seguenti punti:
+
+1.	Analisi dell’incremento ottenuto, valutando il lavoro che è stato svolto;
+2.	Aggiornamento e adattamento del product backlog;
+3.	Valutazione di eventuali ritardi rispetto ai tempi definiti in precedenza;
+4.	Formalizzazione del risultato ottenuto, riportandolo nello _sprint result_ del relativo _product backlog_.
+
+
+//TODO Pensare se inserire anche Sprint Review (che dice sostanzialmente valutazione miglioramenti  per prossimo sprint)
+
+### 1.1.3 Daily SCRUM
+
+Il _Daily SCRUM_, rappresenta un momento in cui il team si riunisce e ogni membro, mette al corrente i collaboratori del proprio operato. Il meeting è breve circa 15-20 minuti e durante questi incontri ogni membro del gruppo ha esposto i seguenti punti:
+
+1.	Il lavoro svolto nella giornata corrente,
+2.	Le eventuali problematiche riscontrate durante lo sviluppo, chiedendo consigli agli altri membri del team, su come poterle risolvere,
+3.	La pianificazione dei successivi compiti che si intende svolgere, a fronte di quanto emerso dai precedenti punti.
+
+Va specificato, che questi meeting non necessariamente, sono stati svolti tutti in videoconferenza, ma anche tramite una discussione via chat tra i diversi membri del gruppo.
 
 ## 1.2 Divisione dei tasks
 //TODO
