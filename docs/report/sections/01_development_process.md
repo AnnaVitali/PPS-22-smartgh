@@ -50,7 +50,7 @@ Il _Daily SCRUM_, rappresenta un momento in cui il team si riunisce e ogni membr
 2.	Le eventuali problematiche riscontrate durante lo sviluppo, chiedendo consigli agli altri membri del team, su come poterle risolvere,
 3.	La pianificazione dei successivi compiti che si intende svolgere, a fronte di quanto emerso dai precedenti punti.
 
-Va specificato, che questi meeting non necessariamente, sono stati svolti tutti in videoconferenza, ma anche tramite una discussione via chat tra i diversi membri del gruppo.
+Va specificato, che questi meetings non necessariamente, sono stati svolti tutti in videoconferenza, ma anche tramite una discussione via chat tra i diversi membri del gruppo. Inoltre, questi incontri, inquanto giornalieri e di breve durata, non sono stati registrati nel file di riferimento, dove invece si è tenuto traccia degli sprint planning e degli sprint review.
 
 ## 1.2 Divisione dei tasks
 
