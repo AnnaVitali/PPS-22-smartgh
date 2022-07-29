@@ -53,6 +53,24 @@ Il _Daily SCRUM_, rappresenta un momento in cui il team si riunisce e ogni membr
 Va specificato, che questi meeting non necessariamente, sono stati svolti tutti in videoconferenza, ma anche tramite una discussione via chat tra i diversi membri del gruppo.
 
 ## 1.2 Divisione dei tasks
+
+All’avvio di ciascuno Sprint settimanale, mediante il _product backlog_ sono stati assegnati, a ciascun membro del team, una serie di tasks da svolgere durante lo Sprint.
+
+Nel momento successivo alla suddivisione dei tasks fra i diversi membri del gruppo, ogni sviluppatore ha la possibilità di iniziare a svolgere i diversi lavori che li sono stati affidati, nell’ ordine che ritiene più opportuno. In particolare, ogni componente del team ha contribuito al progetto realizzando i tasks descritti di seguito.
+
+#### Folin Veronika
+//TODO
+#### Mengozzi Maria
+//TODO
+#### Vitali Anna
+//TODO
+#### Yan Elena
+//TODO
+
+### 1.2.1 Aggregazione dei risultati
+//TODO intendiamo lavoro svolto per unire i diversi task eseguiti dai diversi membri del team (merge)
+
+### 1.2.2 Revisione dei task
 //TODO
 
 ## 1.3 Strumenti utilizzati
