@@ -1,17 +1,17 @@
-# Requisiti
+# 2. Requisiti
 
 In questa sezione verranno trattati i requisiti dell'applicazione che verrà realizzata. A partire dai requisiti di business fino ai requisiti funzionali e non funzionali.
 
 I requisiti verranno numerati in modo tale che nel seguito potranno essere ricondotti alle rispettive sottosezioni.
 
-## Requisiti di business
+## 2.1 Requisiti di business
 I requisiti di business previsiti dall'applicazione sono:
 
 1. simulare una serra intelligente in cui sono posti dei sensori per il monitoraggio delle coltivazioni;
 2. ricevere una segnalazione al verificarsi di rilevazioni di valori critici;
 3. effettuare azioni correttive al fine di ripristinare i valori ottimali.
 
-## Requisiti utente
+## 2.2 Requisiti utente
 Il committente ha richiesto un sistema che rispetti la seguente descrizione:
 
 > "Sono un'insegnante di "Tecniche delle produzioni vegetali e zootecniche" dell'istituto agrario di Cesena. Nell'ultimo periodo, per via della pandemia, gli studenti non hanno avuto la possibilità di sperimentare la gestione di una serra, argomento previsto dal corso. Vorrei, quindi, che gli studenti avessero la possibilità, attraverso un simulatore, di provare questa esperienza. 
@@ -68,7 +68,7 @@ Chi farà uso dell'applicazione potrà quindi:
 
 6. in caso di allarme, visualizzare i suggerimenti rispetto alle azioni da compiere per ristabilire lo stato dell'area
 
-## Requisiti funzionali
+## 2.3 Requisiti funzionali
 
 Sono stati identificati i seguenti requisiti funzionali:
 
@@ -114,7 +114,7 @@ Sono stati identificati i seguenti requisiti funzionali:
 7. la possibilità, una volta avviata, di terminare la simulazione in qualsiasi momento:
 	1. dare la possibilità di avviare una nuova simulazione
 
-## Requisiti non funzionali
+## 2.4 Requisiti non funzionali
 Sono stati identificati i seguenti requisiti non funzionali:
 - l'applicazione deve essere _cross-platform_, cioè eseguibile sia su Windows, sia su MacOS, che su Linux, o comunque su qualsiasi sistema operativo capace di supportare Java Runtime Environment versione 16 e successive;
 - l'interfaccia deve essere reattiva alle azioni dell'utente;
@@ -122,7 +122,7 @@ Sono stati identificati i seguenti requisiti non funzionali:
 - l'applicazione deve essere sufficientemente modulare in modo tale che sia possibile riutilizzare i suoi componenti in contesti diversi senza problemi. Non ci devono essere dipendenze tra le classi dei componenti, ma solo verso interfacce liberamente re-implementabili.
 - il sistema deve essere capace di scalare a seguito dell'aggiunta di nuovi componenti, quali ad esempio l'aggiunta di nuovi sensori.
 
-## Requisiti implementativi
+## 2.5 Requisiti implementativi
 Di seguito vengono riportati i requisiti relativi all'implementazione del sistema:
 - il sistema sarà sviluppato in Scala 3 e per eventuali feature sarà possibile integrare delle teorie Prolog;
 - il sistema farà riferimento al JDK 11, eventuali librerie esterne utilizzate dovranno supportare almeno tale versione;
