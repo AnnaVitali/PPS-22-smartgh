@@ -43,9 +43,6 @@ trait PlantSelector:
 
 /** Object that can be use for managing the selection of plants. */
 object PlantSelector:
-  given Conversion[String, Term] = Term.createTerm(_)
-  given Conversion[Seq[_], Term] = _.mkString("[", ",", "]")
-  given Conversion[String, Theory] = Theory.parseLazilyWithStandardOperators(_)
 
   /** Apply method for the [[PlantSelector]].
     * @return
@@ -54,6 +51,7 @@ object PlantSelector:
   def apply(fileName: String): PlantSelector = PlantSelectorImpl(fileName)
 
   private class PlantSelectorImpl(fileName: String) extends PlantSelector:
+    import it.unibo.pps.smartgh.prolog.Scala2P.{*, given}
     private val prologFile = Using(Source.fromFile(fileName)) {
       _.mkString
     }.get
@@ -61,31 +59,6 @@ object PlantSelector:
       Theory.parseLazilyWithStandardOperators(prologFile)
     )
     private var selectedPlants: List[String] = List()
-
-    private def extractTerm(t: Term, i: Int): Term =
-      t.asInstanceOf[Struct].getArg(i).getTerm
-
-    private def extractTermToString(solveInfo: SolveInfo, s: String): String =
-      solveInfo.getTerm(s).toString
-
-    private def prologEngine(theory: Theory): Term => Iterable[SolveInfo] =
-      val engine = new Prolog
-      engine.setTheory(theory)
-
-      goal =>
-        new Iterable[SolveInfo] {
-
-          override def iterator: Iterator[SolveInfo] = new Iterator[SolveInfo] {
-            var solution: Option[SolveInfo] = Some(engine.solve(goal))
-
-            override def hasNext: Boolean =
-              solution.fold(false)(f => f.hasOpenAlternatives || f.isSuccess)
-
-            override def next(): SolveInfo =
-              try solution.get
-              finally solution = if (solution.get.hasOpenAlternatives) Some(engine.solveNext()) else None
-          }
-        }
 
     override def getAllAvailablePlants: List[String] =
       engine("plant(X, Y)").map(extractTermToString(_, "X")).toList
