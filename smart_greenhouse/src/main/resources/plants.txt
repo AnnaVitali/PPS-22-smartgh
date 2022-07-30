@@ -1,4 +1,4 @@
-﻿basil;ocimum basilicum
+basil;ocimum basilicum
 beet;beta vulgaris
 broccoli;broccoli atlantis f1
 bunching onion;bunching onion estafette f1
