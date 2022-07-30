@@ -32,7 +32,7 @@ class SelectPlantViewTest:
   val selectablePlantsBoxId = "#selectablePlantsBox"
   val selectedPlantBoxId = "#selectedPlantsBox"
   private val path = System.getProperty("user.home") + "/pps/"
-  private val file = "plants.csv"
+  private val file = "plants.txt"
   private val prologFile = "plants.pl"
   private val uploader = UploadPlants
   private var plantSelector: PlantSelector = _

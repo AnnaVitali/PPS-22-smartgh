@@ -14,5 +14,5 @@ object Main extends JFXApp3:
 
   override def start(): Unit =
     UploadCities.writePrologFile(path, "cities.txt", "cities.pl")
-    UploadPlants.writePrologFile(path, "plants.csv", "plants.pl")
+    UploadPlants.writePrologFile(path, "plants.txt", "plants.pl")
     val s = SimulationView(PrimaryStage())

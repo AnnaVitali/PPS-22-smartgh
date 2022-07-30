@@ -12,7 +12,7 @@ class PlantSelectorTest extends AnyFunSuite with Matchers with BeforeAndAfter:
 
   private val PS = "Plant Selector"
   private val path = System.getProperty("user.home") + "/pps/"
-  private val file = "plants.csv"
+  private val file = "plants.txt"
   private val prologFile = "plants.pl"
   private val uploader = UploadPlants
   private var plantSelector: PlantSelector = _
@@ -56,7 +56,5 @@ class PlantSelectorTest extends AnyFunSuite with Matchers with BeforeAndAfter:
     val plantIndex = 0
     val selectedPlant = plantSelector.getAllAvailablePlants()(plantIndex)
     plantSelector.selectPlant(selectedPlant)
-    //println(plantSelector.getPlantsSelectedIdentifier)
-    //println(plantSelector.getPlantsSelectedName)
     plantSelector.getPlantsSelectedIdentifier().size shouldEqual plantSelector.getPlantsSelectedName().size
   }

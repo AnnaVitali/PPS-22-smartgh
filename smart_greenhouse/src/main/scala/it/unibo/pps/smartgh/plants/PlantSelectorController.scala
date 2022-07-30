@@ -17,7 +17,7 @@ object PlantSelectorController:
   private class PlantSelectorControllerImpl extends PlantSelectorController:
 
     private val path = System.getProperty("user.home") + "/pps/"
-    private val file = "plants.csv"
+    private val file = "plants.txt"
     private val prologFile = "plants.pl"
     private val uploader = UploadPlants
     uploader.writePrologFile(path, file, prologFile)

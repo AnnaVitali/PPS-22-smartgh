@@ -7,7 +7,7 @@ import java.io.FileNotFoundException
 
 class UploadPlantsTest extends AnyFunSuite with Matchers:
   private val path = System.getProperty("user.home") + "/pps/"
-  private val file = "plants.csv"
+  private val file = "plants.txt"
   private val prologFile = "plants.pl"
   private val uploader = UploadPlants
 

@@ -78,8 +78,6 @@ object UploadPlants extends UploadPlants:
 
     try {
       Using(getBufferedSource(inputFile)) {
-        _.getLines() foreach (
-          line => printWriter.println(line.split(";").mkString("plant(\"", "\", \"", "\")."))
-        )
+        _.getLines() foreach (line => printWriter.println(line.split(";").mkString("plant(\"", "\", \"", "\").")))
       }
     } finally printWriter.close()
