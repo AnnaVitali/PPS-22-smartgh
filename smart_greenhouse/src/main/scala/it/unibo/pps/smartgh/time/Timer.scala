@@ -1,20 +1,19 @@
-package it.unibo.pps.smartgh.timer
+package it.unibo.pps.smartgh.time
 
-import monix.execution.{Ack, Cancelable, CancelableFuture}
-
-import scala.concurrent.duration.*
-import monix.reactive.{Observable, OverflowStrategy}
+import monix.eval.Task
 import monix.execution.Scheduler.Implicits.global
 import monix.execution.schedulers.TestScheduler
-import monix.eval.Task
+import monix.execution.{Ack, Cancelable, CancelableFuture}
+import monix.reactive.{Observable, OverflowStrategy}
 import org.apache.commons.lang3.time.DurationFormatUtils
 import org.joda.time.{DateTime, Interval}
 
 import java.util.concurrent.TimeUnit
 import scala.concurrent.Future
+import scala.concurrent.duration.*
 import scala.concurrent.duration.Duration.Inf.toSeconds
 import scala.language.postfixOps
-import math.Integral.Implicits.infixIntegralOps
+import scala.math.Integral.Implicits.infixIntegralOps
 
 /** A trait that exposing methods for a timer. */
 trait Timer:
@@ -73,23 +72,3 @@ object Timer:
         .throttle(period, 1)
         .map(Duration(_, TimeUnit.SECONDS))
         .foreachL(consumer)
-
-@main def test(): Unit =
-  val timer = Timer(1.day)
-  timer.start(s => println(DurationFormatUtils.formatDuration(s.toMillis, "HH:mm:ss", true)))
-  Thread.sleep(5000)
-
-  println("change speed-------------")
-  timer.changeTickPeriod(100 milliseconds)
-  Thread.sleep(5000)
-
-  println("change speed-------------")
-  timer.changeTickPeriod(10 milliseconds)
-  Thread.sleep(5000)
-
-  println("change speed-------------")
-  timer.changeTickPeriod(1 nanoseconds)
-
-  Thread.sleep(5000)
-  timer.stop()
-  println("stop")
