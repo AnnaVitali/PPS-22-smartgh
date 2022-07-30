@@ -17,21 +17,21 @@ import scala.language.postfixOps
 import math.Integral.Implicits.infixIntegralOps
 
 trait Timer:
-  def value: Duration
-  def start(task: Duration => Unit): Unit
+  def value: FiniteDuration
+  def start(task: FiniteDuration => Unit): Unit
   def changeSpeed(speed: FiniteDuration): Unit
   def stop(): Unit
 
 object Timer:
 
-  def apply(duration: Duration): Timer = TimerImpl(duration)
+  def apply(duration: FiniteDuration): Timer = TimerImpl(duration)
 
-  private class TimerImpl(duration: Duration) extends Timer:
-    var value: Duration = 0 seconds
+  private class TimerImpl(duration: FiniteDuration) extends Timer:
+    var value: FiniteDuration = 0 seconds
     var cancelable: Cancelable = _
-    var consumer: Duration => Unit = _
+    var consumer: FiniteDuration => Unit = _
 
-    override def start(task: Duration => Unit): Unit =
+    override def start(task: FiniteDuration => Unit): Unit =
       consumer = t =>
         value = t
         task(t)
@@ -44,7 +44,7 @@ object Timer:
     override def stop(): Unit =
       cancelable.cancel()
 
-    private def timer(from: Duration, speed: FiniteDuration): Task[Unit] =
+    private def timer(from: FiniteDuration, speed: FiniteDuration): Task[Unit] =
       Observable
         .fromIterable(from.toSeconds to duration.toSeconds)
         .throttle(speed, 1)
