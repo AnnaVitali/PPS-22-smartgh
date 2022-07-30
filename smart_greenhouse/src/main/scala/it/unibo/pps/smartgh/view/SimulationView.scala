@@ -4,7 +4,7 @@ import it.unibo.pps.smartgh.city.CitiesSearcher
 import scalafx.application.JFXApp3.PrimaryStage
 import scalafx.scene.Scene
 import scalafx.Includes.*
-import it.unibo.pps.smartgh.view.component.{BaseView, SelectCityView, SelectPlantsView, ViewComponent}
+import it.unibo.pps.smartgh.view.component.{BaseView, SelectCityView, SelectPlantView, ViewComponent}
 import javafx.scene.Parent
 import javafx.scene.layout.VBox
 
@@ -45,7 +45,7 @@ object SimulationView:
         CitiesSearcher(System.getProperty("user.home") + "/pps/cities.pl")
       ) //todo: creare CitiesSearcher dal controller e sistemare path
     )*/ //init view
-    baseView.getChildren.add(SelectPlantsView())
+    baseView.getChildren.add(SelectPlantView())
     scene.root.value = baseView
     stage.scene = scene
     stage.show()
