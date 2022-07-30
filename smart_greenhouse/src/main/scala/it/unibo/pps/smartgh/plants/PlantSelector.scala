@@ -13,7 +13,7 @@ trait PlantSelector:
     * @return
     *   the [[List]] of the name of all the plants available.
     */
-  def getAllAvailablePlants: List[String]
+  def getAllAvailablePlants(): List[String]
 
   /** Method that need to be called to select a plants that you want to cultivate.
     * @param plantName
@@ -33,13 +33,13 @@ trait PlantSelector:
     * @return
     *   the [[List]] of the neme of the plants selected.
     */
-  def getPlantsSelectedName: List[String]
+  def getPlantsSelectedName(): List[String]
 
   /** Method that returns the identifier of the plants selected for cultivation in the greenhouse.
     * @return
     *   the [[List]] of the identifier of the plants selected.
     */
-  def getPlantsSelectedIdentifier: List[String]
+  def getPlantsSelectedIdentifier(): List[String]
 
 /** Object that can be use for managing the selection of plants. */
 object PlantSelector:
@@ -60,7 +60,7 @@ object PlantSelector:
     )
     private var selectedPlants: List[String] = List()
 
-    override def getAllAvailablePlants: List[String] =
+    override def getAllAvailablePlants(): List[String] =
       engine("plant(X, Y)").map(extractTermToString(_, "X").replace("'", "")).toList
 
     override def selectPlant(plantName: String): Unit =
@@ -70,7 +70,7 @@ object PlantSelector:
       if selectedPlants.contains(plantName) then selectedPlants = selectedPlants.take(selectedPlants.indexOf(plantName))
       else throw new NoSuchElementException("This plant hasn't been selected")
 
-    override def getPlantsSelectedName: List[String] = selectedPlants
+    override def getPlantsSelectedName(): List[String] = selectedPlants
 
-    override def getPlantsSelectedIdentifier: List[String] =
+    override def getPlantsSelectedIdentifier(): List[String] =
       selectedPlants.map(s => engine("plant(" + s + ", Y)").map(extractTermToString(_, "Y").replace("'", ""))).flatten

@@ -1,20 +1,20 @@
 package it.unibo.pps.smartgh.plants
 
-import it.unibo.pps.smartgh.view.component.SelectPlantsView
+import it.unibo.pps.smartgh.view.component.SelectPlantView
 
-trait PlantsSelectorController:
-  def view: SelectPlantsView
-  def view_=(view: SelectPlantsView): Unit
+trait PlantSelectorController:
+  def view: SelectPlantView
+  def view_=(view: SelectPlantView): Unit
   def configureAvailablePlants(): Unit
   def notifySelectedPlant(plantName: String): Unit
   def notifyDeselectedPlant(plantName: String): Unit
 
-object PlantsSelectorController:
+object PlantSelectorController:
 
-  def apply(): PlantsSelectorController =
-    PlantsSelectorControllerImpl()
+  def apply(): PlantSelectorController =
+    PlantSelectorControllerImpl()
 
-  private class PlantsSelectorControllerImpl extends PlantsSelectorController:
+  private class PlantSelectorControllerImpl extends PlantSelectorController:
 
     private val path = System.getProperty("user.home") + "/pps/"
     private val file = "plants.csv"
@@ -22,14 +22,14 @@ object PlantsSelectorController:
     private val uploader = UploadPlants
     uploader.writePrologFile(path, file, prologFile)
     val model = PlantSelector(path + prologFile)
-    var _view: SelectPlantsView = _
+    var _view: SelectPlantView = _
 
-    override def view: SelectPlantsView = _view
+    override def view: SelectPlantView = _view
 
-    override def view_=(view: SelectPlantsView): Unit = _view = view
+    override def view_=(view: SelectPlantView): Unit = _view = view
 
     override def configureAvailablePlants(): Unit =
-      view.showSelectablePlants(model.getAllAvailablePlants)
+      view.showSelectablePlants(model.getAllAvailablePlants())
 
     override def notifySelectedPlant(plantName: String): Unit =
       model.selectPlant(plantName)

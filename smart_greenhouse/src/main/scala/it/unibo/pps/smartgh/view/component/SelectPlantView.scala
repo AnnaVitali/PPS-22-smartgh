@@ -1,6 +1,6 @@
 package it.unibo.pps.smartgh.view.component
 
-import it.unibo.pps.smartgh.plants.{PlantSelector, PlantsSelectorController}
+import it.unibo.pps.smartgh.plants.{PlantSelector, PlantSelectorController}
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.event.{ActionEvent, EventHandler}
 import javafx.fxml.FXML
@@ -11,29 +11,44 @@ import javafx.scene.layout.BorderPane
 import scala.jdk.javaapi.CollectionConverters.asJavaCollection
 
 /** A trait that represents the select plants scene of the application. */
-trait SelectPlantsView extends ViewComponent[BorderPane]:
+trait SelectPlantView extends ViewComponent[BorderPane]:
+  /** Method that shows the plant that can be selected
+    * @param selectablePlantList
+    *   the [[List]] of selectable plants name
+    */
   def showSelectablePlants(selectablePlantList: List[String]): Unit
+
+  /** * Method to update the view of the selected plants
+    * @param selectedPlant
+    *   the plant that has been selected by the user
+    */
   def updateSelectedPlant(selectedPlant: String): Unit
+
+  /** Method to update the view of the selected plants
+    * @param deselectedPlant
+    *   the plant that has ben deselected by the user
+    */
   def updateDeselectedPlant(deselectedPlant: String): Unit
 
-/** Object that can be used to create new instances of [[SelectPlantsView]]. */
-object SelectPlantsView:
+/** Object that can be used to create new instances of [[SelectPlantView]]. */
+object SelectPlantView:
 
-  /** Creates a new [[SelectPlantsView]] component.
+  /** Creates a new [[SelectPlantView]] component.
+    *
     * @return
-    *   a new instance of [[SelectPlantsView]]
+    *   a new instance of [[SelectPlantView]]
     */
-  def apply(): SelectPlantsView =
+  def apply(): SelectPlantView =
     SelectPlantsViewImpl()
 
   private class SelectPlantsViewImpl()
       extends AbstractViewComponent[BorderPane]("select_plants.fxml")
-      with SelectPlantsView:
+      with SelectPlantView:
 
     given Conversion[Int, String] = _.toString
 
     override val component: BorderPane = loader.load[BorderPane]
-    private val controller: PlantsSelectorController = PlantsSelectorController()
+    private val controller: PlantSelectorController = PlantSelectorController()
     private val selectYourPlantText = "Select your plants:"
     private val plantsSelectedText = "Plants selected:"
     private var plantsCount = 0;

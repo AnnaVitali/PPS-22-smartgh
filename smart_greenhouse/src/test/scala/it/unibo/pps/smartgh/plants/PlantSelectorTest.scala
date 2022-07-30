@@ -23,22 +23,22 @@ class PlantSelectorTest extends AnyFunSuite with Matchers with BeforeAndAfter:
   }
 
   test(s"$PS should show all the possibile plants that can be cultivated") {
-    plantSelector.getAllAvailablePlants.size should be > 0
+    plantSelector.getAllAvailablePlants().size should be > 0
   }
 
   test(s"$PS should mantain the selected plants name") {
     val plantIndex = 0
-    val selectedPlant = plantSelector.getAllAvailablePlants(plantIndex)
+    val selectedPlant = plantSelector.getAllAvailablePlants()(plantIndex)
     plantSelector.selectPlant(selectedPlant)
-    plantSelector.getPlantsSelectedName(plantIndex) shouldEqual selectedPlant
+    plantSelector.getPlantsSelectedName()(plantIndex) shouldEqual selectedPlant
   }
 
   test(s"$PS should allow the deselection of a plant") {
     val plantIndex = 0
-    val selectedPlant = plantSelector.getAllAvailablePlants(plantIndex)
+    val selectedPlant = plantSelector.getAllAvailablePlants()(plantIndex)
     plantSelector.selectPlant(selectedPlant)
     plantSelector.deselectPlant(selectedPlant)
-    plantSelector.getPlantsSelectedName.size shouldEqual 0
+    plantSelector.getPlantsSelectedName().size shouldEqual 0
   }
 
   test(
@@ -46,7 +46,7 @@ class PlantSelectorTest extends AnyFunSuite with Matchers with BeforeAndAfter:
       "NoSuchElementException"
   ) {
     val plantIndex = 0
-    val notSelectedPlant = plantSelector.getAllAvailablePlants(plantIndex)
+    val notSelectedPlant = plantSelector.getAllAvailablePlants()(plantIndex)
     assertThrows[NoSuchElementException] {
       plantSelector.deselectPlant(notSelectedPlant)
     }
@@ -54,9 +54,9 @@ class PlantSelectorTest extends AnyFunSuite with Matchers with BeforeAndAfter:
 
   test(s"$PS should mantain the selected plants identifier") {
     val plantIndex = 0
-    val selectedPlant = plantSelector.getAllAvailablePlants(plantIndex)
+    val selectedPlant = plantSelector.getAllAvailablePlants()(plantIndex)
     plantSelector.selectPlant(selectedPlant)
     //println(plantSelector.getPlantsSelectedIdentifier)
     //println(plantSelector.getPlantsSelectedName)
-    plantSelector.getPlantsSelectedIdentifier.size shouldEqual plantSelector.getPlantsSelectedName.size
+    plantSelector.getPlantsSelectedIdentifier().size shouldEqual plantSelector.getPlantsSelectedName().size
   }
