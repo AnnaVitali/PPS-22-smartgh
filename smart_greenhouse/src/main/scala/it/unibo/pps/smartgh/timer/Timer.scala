@@ -7,6 +7,7 @@ import monix.reactive.{Observable, OverflowStrategy}
 import monix.execution.Scheduler.Implicits.global
 import monix.execution.schedulers.TestScheduler
 import monix.eval.Task
+import org.apache.commons.lang3.time.DurationFormatUtils
 import org.joda.time.{DateTime, Interval}
 
 import java.util.concurrent.TimeUnit
@@ -52,11 +53,7 @@ object Timer:
 
 @main def test(): Unit =
   val timer = Timer(1.day)
-  timer.start(s =>
-    println(
-      "%d:%02d:%02d".formatted(s.toSeconds / 3600, (s.toSeconds % 3600) / 60, s.toSeconds % 60)
-    )
-  )
+  timer.start(s => println(DurationFormatUtils.formatDuration(s.toMillis, "HH:mm:ss", true)))
   Thread.sleep(5000)
 
   println("change speed-------------")
