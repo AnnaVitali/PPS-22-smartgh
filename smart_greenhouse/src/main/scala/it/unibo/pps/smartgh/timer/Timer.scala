@@ -16,14 +16,37 @@ import scala.concurrent.duration.Duration.Inf.toSeconds
 import scala.language.postfixOps
 import math.Integral.Implicits.infixIntegralOps
 
+/** A trait that exposing methods for a timer. */
 trait Timer:
+
+  /** Current value of the timer. */
   def value: FiniteDuration
+
+  /** Start the timer.
+    * @param task
+    *   a task that will consume by the timer at each tick.
+    */
   def start(task: FiniteDuration => Unit): Unit
-  def changeSpeed(speed: FiniteDuration): Unit
+
+  /** Change the period in which the timer emits a tick. For example, with a period of 2 seconds, the timer emits a
+    * value every two seconds
+    * @param period
+    *   time that has to pass before emitting new items
+    */
+  def changeTickPeriod(period: FiniteDuration): Unit
+
+  /** Stop the timer. */
   def stop(): Unit
 
+/** Object that can used to create a new instances of [[Timer]]. */
 object Timer:
 
+  /** Creates a new [[Timer]] object. The timer starts from 0 until the specified duration.
+    * @param duration
+    *   the duration of the timer.
+    * @return
+    *   a new instance of [[Timer]]
+    */
   def apply(duration: FiniteDuration): Timer = TimerImpl(duration)
 
   private class TimerImpl(duration: FiniteDuration) extends Timer:
@@ -37,17 +60,17 @@ object Timer:
         task(t)
       cancelable = timer(value, 1 seconds).runToFuture
 
-    override def changeSpeed(s: FiniteDuration): Unit =
+    override def changeTickPeriod(period: FiniteDuration): Unit =
       stop()
-      cancelable = timer(value + 1.seconds, s).runToFuture
+      cancelable = timer(value + 1.seconds, period).runToFuture
 
     override def stop(): Unit =
       cancelable.cancel()
 
-    private def timer(from: FiniteDuration, speed: FiniteDuration): Task[Unit] =
+    private def timer(from: FiniteDuration, period: FiniteDuration): Task[Unit] =
       Observable
         .fromIterable(from.toSeconds to duration.toSeconds)
-        .throttle(speed, 1)
+        .throttle(period, 1)
         .map(Duration(_, TimeUnit.SECONDS))
         .foreachL(consumer)
 
@@ -57,15 +80,15 @@ object Timer:
   Thread.sleep(5000)
 
   println("change speed-------------")
-  timer.changeSpeed(100 milliseconds)
+  timer.changeTickPeriod(100 milliseconds)
   Thread.sleep(5000)
 
   println("change speed-------------")
-  timer.changeSpeed(10 milliseconds)
+  timer.changeTickPeriod(10 milliseconds)
   Thread.sleep(5000)
 
   println("change speed-------------")
-  timer.changeSpeed(1 nanoseconds)
+  timer.changeTickPeriod(1 nanoseconds)
 
   Thread.sleep(5000)
   timer.stop()
