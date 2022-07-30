@@ -1,5 +1,6 @@
 package it.unibo.pps.smartgh.plants
 
+import org.scalatest.BeforeAndAfter
 import alice.tuprolog.Theory
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
@@ -7,10 +8,19 @@ import org.scalatest.matchers.should.Matchers
 import java.util.NoSuchElementException
 
 /** This class contains the tests realized to verify that [[PlantSelector]] behaves correctly. */
-class PlantSelectorTest extends AnyFunSuite with Matchers:
+class PlantSelectorTest extends AnyFunSuite with Matchers with BeforeAndAfter:
 
   private val PS = "Plant Selector"
-  private val plantSelector = PlantSelector.apply()
+  private val path = System.getProperty("user.home") + "/pps/"
+  private val file = "plants.csv"
+  private val prologFile = "plants.pl"
+  private val uploader = UploadPlants
+  private var plantSelector: PlantSelector = _
+
+  before {
+    uploader.writePrologFile(path, file, prologFile)
+    plantSelector = PlantSelector(path + prologFile)
+  }
 
   test(s"$PS should show all the possibile plants that can be cultivated") {
     plantSelector.getAllAvailablePlants.size should be > 0
@@ -46,5 +56,7 @@ class PlantSelectorTest extends AnyFunSuite with Matchers:
     val plantIndex = 0
     val selectedPlant = plantSelector.getAllAvailablePlants(plantIndex)
     plantSelector.selectPlant(selectedPlant)
+    //println(plantSelector.getPlantsSelectedIdentifier)
+    //println(plantSelector.getPlantsSelectedName)
     plantSelector.getPlantsSelectedIdentifier.size shouldEqual plantSelector.getPlantsSelectedName.size
   }

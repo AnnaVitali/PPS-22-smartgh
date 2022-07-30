@@ -3,6 +3,8 @@ package it.unibo.pps.smartgh.plants
 import alice.tuprolog.{Prolog, SolveInfo, Struct, Term, TermVisitor, Theory, Var}
 
 import java.util
+import scala.io.Source
+import scala.util.Using
 
 /** This trait exposes methods for managing the selection of plants. */
 trait PlantSelector:
@@ -13,13 +15,13 @@ trait PlantSelector:
     */
   def getAllAvailablePlants: List[String]
 
-  /** Method that need to be call to select a plants that you want to cultivate.
+  /** Method that need to be called to select a plants that you want to cultivate.
     * @param plantName
     *   the name of the selected plant.
     */
   def selectPlant(plantName: String): Unit
 
-  /** Method that need to be call to deselect a plants that you don't want to cultivate.
+  /** Method that need to be called to deselect a plants that you don't want to cultivate.
     * @param plantName
     *   the name of the plant to deselect.
     * @throws NoSuchElementException
@@ -43,22 +45,32 @@ trait PlantSelector:
 object PlantSelector:
   given Conversion[String, Term] = Term.createTerm(_)
   given Conversion[Seq[_], Term] = _.mkString("[", ",", "]")
+  given Conversion[String, Theory] = Theory.parseLazilyWithStandardOperators(_)
 
   /** Apply method for the [[PlantSelector]].
     * @return
     *   the [[PlantSelector]] object.
     */
-  def apply(): PlantSelector = PlantSelectorImpl()
+  def apply(fileName: String): PlantSelector = PlantSelectorImpl(fileName)
 
-  private class PlantSelectorImpl extends PlantSelector:
+  private class PlantSelectorImpl(fileName: String) extends PlantSelector:
+    private val prologFile = Using(Source.fromFile(fileName)) {
+      _.mkString
+    }.get
+    private val engine = prologEngine(
+      Theory.parseLazilyWithStandardOperators(prologFile)
+    )
     private var selectedPlants: List[String] = List()
 
     private def extractTerm(t: Term, i: Int): Term =
       t.asInstanceOf[Struct].getArg(i).getTerm
 
-    private def prologEngine: Term => Iterable[SolveInfo] =
+    private def extractTermToString(solveInfo: SolveInfo, s: String): String =
+      solveInfo.getTerm(s).toString
+
+    private def prologEngine(theory: Theory): Term => Iterable[SolveInfo] =
       val engine = new Prolog
-      engine.setTheory(Theory.parseWithStandardOperators(getClass.getResourceAsStream("/plants.pl")))
+      engine.setTheory(theory)
 
       goal =>
         new Iterable[SolveInfo] {
@@ -76,7 +88,7 @@ object PlantSelector:
         }
 
     override def getAllAvailablePlants: List[String] =
-      (prologEngine("plant(X, Y)") map (_.getTerm("X").toString)).toList
+      engine("plant(X, Y)").map(extractTermToString(_, "X")).toList
 
     override def selectPlant(plantName: String): Unit = selectedPlants = selectedPlants :+ plantName
 
@@ -87,4 +99,4 @@ object PlantSelector:
     override def getPlantsSelectedName: List[String] = selectedPlants
 
     override def getPlantsSelectedIdentifier: List[String] =
-      selectedPlants.map(s => (prologEngine("plant(" + s + ", Y)") map (_.getTerm("Y").toString)).toList).flatten
+      selectedPlants.map(s => engine("plant(" + s + ", Y)").map(extractTermToString(_, "Y"))).flatten

@@ -15,7 +15,13 @@ object PlantsSelectorController:
     PlantsSelectorControllerImpl()
 
   private class PlantsSelectorControllerImpl extends PlantsSelectorController:
-    val model = PlantSelector()
+
+    private val path = System.getProperty("user.home") + "/pps/"
+    private val file = "plants.csv"
+    private val prologFile = "plants.pl"
+    private val uploader = UploadPlants
+    uploader.writePrologFile(path, file, prologFile)
+    val model = PlantSelector(path + prologFile)
     var _view: SelectPlantsView = null
 
     override def view: SelectPlantsView = _view
