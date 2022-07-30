@@ -6,8 +6,13 @@ import scala.concurrent.duration.*
 trait TimeModel:
 
   def start: Unit
-  def getTime: FiniteDuration
+  def setSpeed(speed: FiniteDuration): Unit
   def stop: Unit
+
+  type TimeController = Any
+
+  def controller: TimeController
+  def controller_=(controller: TimeController): Unit
 
 object TimeModel:
 
@@ -15,21 +20,20 @@ object TimeModel:
 
   private class TimeModelImpl extends TimeModel:
 
-    val start: FiniteDuration = 0.hours + 0.minutes + 0.seconds
-    val end: FiniteDuration = 23.hours + 59.minutes + 59.seconds
-    var elapsedTime = start
+    var _controller: TimeController = null
+    val endSimulation: FiniteDuration = 23.hours + 59.minutes + 59.seconds
+    private val timer: Timer
 
-    private val timer = ???
-
-    private def setTime(time: FiniteDuration) : Unit =
-      elapsedTime = time
+    override def controller: TimeController = _controller
+    override def controller_=(controller: TimeController): Unit = _controller = controller
 
     override def start: Unit =
-      //timer.subscribe(t => setTime(t))
+      timer = Timer()
+      timer.subscribe(t => updateTime(t))
 
-    override def getTime: FiniteDuration =
-      elapsedTime
+    override def setSpeed(speed: FiniteDuration): Unit =
+      timer.changeSpeed(speed)
 
-    override def stop: Unit =
-      elapsedTime = start
-      //timer.stop()
+    override def stop: Unit = ???
+
+    private def updateTime(t: FiniteDuration) = ???
