@@ -34,7 +34,7 @@ class TimerTest extends AnyFunSuite with Matchers with BeforeAndAfter with Event
   test("When the timer is finished it should have the value at the setted duration") {
     timer.start(println(_))
     eventually(timeout(Span(duration.toSeconds + 2, Seconds))) {
-      timer.value shouldEqual 5.seconds
+      timer.value shouldEqual duration
     }
   }
 
@@ -45,4 +45,12 @@ class TimerTest extends AnyFunSuite with Matchers with BeforeAndAfter with Event
     val value = timer.value
     Thread.sleep(2000)
     timer.value shouldEqual value
+  }
+
+  test("When the speed is increased, the timer should finish earlier") {
+    timer.start(println(_))
+    timer.changeTickPeriod(300 milliseconds)
+    eventually(timeout(Span(duration.toSeconds / 2, Seconds))) {
+      timer.value shouldEqual duration
+    }
   }
