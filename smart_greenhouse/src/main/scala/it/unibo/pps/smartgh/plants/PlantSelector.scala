@@ -61,9 +61,10 @@ object PlantSelector:
     private var selectedPlants: List[String] = List()
 
     override def getAllAvailablePlants: List[String] =
-      engine("plant(X, Y)").map(extractTermToString(_, "X")).toList
+      engine("plant(X, Y)").map(extractTermToString(_, "X").replace("'", "")).toList
 
-    override def selectPlant(plantName: String): Unit = selectedPlants = selectedPlants :+ plantName
+    override def selectPlant(plantName: String): Unit =
+      selectedPlants = selectedPlants :+ plantName
 
     override def deselectPlant(plantName: String): Unit =
       if selectedPlants.contains(plantName) then selectedPlants = selectedPlants.take(selectedPlants.indexOf(plantName))
@@ -72,4 +73,4 @@ object PlantSelector:
     override def getPlantsSelectedName: List[String] = selectedPlants
 
     override def getPlantsSelectedIdentifier: List[String] =
-      selectedPlants.map(s => engine("plant(" + s + ", Y)").map(extractTermToString(_, "Y"))).flatten
+      selectedPlants.map(s => engine("plant(" + s + ", Y)").map(extractTermToString(_, "Y").replace("'", ""))).flatten

@@ -7,7 +7,7 @@ trait PlantsSelectorController:
   def view_=(view: SelectPlantsView): Unit
   def configureAvailablePlants(): Unit
   def notifySelectedPlant(plantName: String): Unit
-  def showSelectedPlant(): Unit
+  def notifyDeselectedPlant(plantName: String): Unit
 
 object PlantsSelectorController:
 
@@ -22,7 +22,7 @@ object PlantsSelectorController:
     private val uploader = UploadPlants
     uploader.writePrologFile(path, file, prologFile)
     val model = PlantSelector(path + prologFile)
-    var _view: SelectPlantsView = null
+    var _view: SelectPlantsView = _
 
     override def view: SelectPlantsView = _view
 
@@ -33,6 +33,8 @@ object PlantsSelectorController:
 
     override def notifySelectedPlant(plantName: String): Unit =
       model.selectPlant(plantName)
+      view.updateSelectedPlant(plantName)
 
-    override def showSelectedPlant(): Unit =
-      view.updateSelectedPlant(model.getPlantsSelectedName)
+    override def notifyDeselectedPlant(plantName: String): Unit =
+      model.deselectPlant(plantName)
+      view.updateDeselectedPlant(plantName)
