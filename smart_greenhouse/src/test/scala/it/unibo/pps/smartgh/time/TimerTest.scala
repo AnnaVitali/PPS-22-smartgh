@@ -49,7 +49,7 @@ class TimerTest extends AnyFunSuite with Matchers with BeforeAndAfter with Event
 
   test("When the speed is increased, the timer should finish earlier") {
     timer.start(println(_))
-    timer.changeTickPeriod(300 milliseconds)
+    timer.changeTickPeriod(200 milliseconds)
     eventually(timeout(Span(duration.toSeconds / 2, Seconds))) {
       timer.value shouldEqual duration
     }
