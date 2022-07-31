@@ -40,11 +40,7 @@ object SimulationView:
     stage.resizable = true
     stage.maximized = true
     stage.title = appTitle
-    baseView.getChildren.add(
-      SelectCityView(
-        CitiesSearcher(System.getProperty("user.home") + "/pps/cities.pl")
-      ) //todo: creare CitiesSearcher dal controller e sistemare path
-    ) //init view
+    baseView.getChildren.add(SelectCityView()) //init view
     scene.root.value = baseView
     stage.scene = scene
     stage.show()

@@ -17,30 +17,26 @@ trait SelectCityView extends ViewComponent[BorderPane]
 object SelectCityView:
 
   /** Creates a new [[SelectCityView]] component.
-    * @param citiesSearcher
-    *   a [[CitiesSearcher]] for searcher cities.
     * @return
     *   a new instance of [[SelectCityView]]
     */
-  def apply(citiesSearcher: CitiesSearcher): SelectCityView = SelectCityViewImpl(citiesSearcher)
+  def apply(): SelectCityView = SelectCityViewImpl()
 
   /** Implementation of [[SelectCityView]]. */
-  private class SelectCityViewImpl(citiesSearcher: CitiesSearcher)
-      extends AbstractViewComponent[BorderPane]("select_city.fxml")
-      with SelectCityView:
+  private class SelectCityViewImpl extends AbstractViewComponent[BorderPane]("select_city.fxml") with SelectCityView:
 
     private val controller = CityController()
-    controller.view = this
-
     override val component: BorderPane = loader.load[BorderPane]
 
     @FXML
     var selectCityTextField: TextField = _
 
+    controller.view = this
+
     TextFields
       .bindAutoCompletion(
         selectCityTextField,
-        text => asJavaCollection(citiesSearcher.searchCities(text.getUserText().capitalize))
+        text => asJavaCollection(controller.searchCities(text.getUserText().capitalize))
       )
       .setDelay(0)
 

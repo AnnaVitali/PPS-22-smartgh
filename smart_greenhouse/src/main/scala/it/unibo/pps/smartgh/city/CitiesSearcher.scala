@@ -18,7 +18,7 @@ trait CitiesSearcher:
     * @param charSequence
     *   a sequence of characters that the name of the city begins with
     * @return
-    *   a list of city names
+    *   a sequence of city names
     */
   def searchCities(charSequence: Seq[Char]): Seq[String]
 
