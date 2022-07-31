@@ -28,8 +28,6 @@ object Plant:
 
   private class PlantImpl(override val name: String, override val id: String) extends Plant:
 
-    // todo: gestire casi in cui non esiste il campo
-
     type RequestResult = Map[String,Any]
     private val info: RequestResult = getInfo()
 
@@ -46,28 +44,33 @@ object Plant:
       "min_soil_moist"
     )
     override def optimalValues: OptimalValues = getOptimalValues(info)
+
     override def description : String = getDescription()
 
     private def getInfo() : RequestResult =
       val accessToken = "vXzbza21SvZMORwLlKY5gS8cNb0XE4"
       val authorizationHeader = ("Authorization", "Bearer " + accessToken)
       val query = "https://open.plantbook.io/api/v1/plant/detail/" + id.replace(" ", "%20") + "/?format=json"
-      val r : Response = requests.get(url=query, headers = Iterable(authorizationHeader))
-      if r.statusCode == 200 then
+      try {
+        val r : Response = requests.get(url=query, headers = Iterable(authorizationHeader))
         implicit val formats = org.json4s.DefaultFormats
         parse(r.text()).extract[RequestResult]
-      else Map()
+      } catch {
+        case e: RequestFailedException => Map.empty
+      }
 
     private def getImageUrl(info : RequestResult) : String =
-      info.get("image_url").get.toString
+      info.get("image_url").fold[String]("images/plantIcon.png")(res => res.toString)
 
     private def getOptimalValues(info : RequestResult) : RequestResult =
       info.filter((f, v) => detectedParameters contains f)
 
     private def getDescription(): String =
       val query = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=" + id.replace(" ", "%20")
-      val r: Response = requests.get(query)
-      if r.statusCode == 200 then
+      try {
+        val r: Response = requests.get(query)
         implicit val formats = org.json4s.DefaultFormats
-        parse(r.text()).findField((f,v) => f == "extract").get._2.values.toString
-      else ""
+        parse(r.text()).findField((f, v) => f == "extract").fold("No description available")(res => res._2.values.toString)
+      } catch {
+        case e: RequestFailedException => "No description available"
+      }

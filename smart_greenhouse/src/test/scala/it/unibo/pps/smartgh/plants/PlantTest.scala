@@ -50,4 +50,15 @@ class PlantTest extends AnyFunSuite with Matchers:
     plant.description shouldEqual description
   }
 
+  test("the icon of a plant that doesn't exist should be equal to default image") {
+    val noPlant : Plant = Plant("", "")
+    noPlant.imageUrl shouldEqual "images/plantIcon.png"
+  }
+
+  test("the description of a plant that doesn't exist should be equal to \"No description available\"") {
+    val noPlant : Plant = Plant("", "")
+    noPlant.description shouldEqual "No description available"
+  }
+
+
 
