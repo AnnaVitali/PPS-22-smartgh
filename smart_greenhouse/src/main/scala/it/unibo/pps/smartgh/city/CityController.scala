@@ -28,6 +28,14 @@ trait CityController:
     */
   def searchCities(charSequence: Seq[Char]): Seq[String]
 
+  /** Check whether all cities contain a given city.
+    * @param city
+    *   the city to test
+    * @return
+    *   true if contain the city, false otherwise
+    */
+  def containCity(city: String): Boolean
+
 /** Object that can be used to create a new instances of [[CityController]]. */
 object CityController:
 
@@ -44,3 +52,4 @@ object CityController:
     override def saveCity(name: String): City = City(name)
     override def getAllCities: Seq[String] = citySearcher.getAllCities
     override def searchCities(charSequence: Seq[Char]): Seq[String] = citySearcher.searchCities(charSequence)
+    override def containCity(city: String): Boolean = citySearcher.containCity(city)

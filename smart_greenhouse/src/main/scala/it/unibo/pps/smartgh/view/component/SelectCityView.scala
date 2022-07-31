@@ -3,15 +3,17 @@ package it.unibo.pps.smartgh.view.component
 import it.unibo.pps.smartgh.city.{CitiesSearcher, City, CityController}
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.fxml.FXML
-import javafx.scene.control.{Label, TextField}
+import javafx.scene.control.{Button, Label, TextField}
 import javafx.scene.layout.BorderPane
 import org.controlsfx.control.textfield.{AutoCompletionBinding, TextFields}
+import javafx.application.Platform
 
 import java.util
 import scala.jdk.javaapi.CollectionConverters.*
 
 /** A trait that represents the select city view of the application. */
-trait SelectCityView extends ViewComponent[BorderPane]
+trait SelectCityView extends ViewComponent[BorderPane]:
+  def autoCompletionBinding: AutoCompletionBinding[String]
 
 /** Object that can be used to create new instances of [[SelectCityView]]. */
 object SelectCityView:
@@ -25,22 +27,38 @@ object SelectCityView:
   /** Implementation of [[SelectCityView]]. */
   private class SelectCityViewImpl extends AbstractViewComponent[BorderPane]("select_city.fxml") with SelectCityView:
 
-    private val controller = CityController()
     override val component: BorderPane = loader.load[BorderPane]
+    private val controller: CityController = CityController()
+    var autoCompletionBinding: AutoCompletionBinding[String] = _
 
     @FXML
     var selectCityTextField: TextField = _
 
+    @FXML
+    var errorLabel: Label = _
+
+    @FXML
+    var nextButton: Button = _
+
     controller.view = this
 
-    TextFields
+    autoCompletionBinding = TextFields
       .bindAutoCompletion(
         selectCityTextField,
-        text => asJavaCollection(controller.searchCities(text.getUserText().capitalize))
+        text => {
+          if !errorLabel.getText.isBlank then setErrorText("")
+          asJavaCollection(controller.searchCities(text.getUserText().capitalize))
+        }
       )
-      .setDelay(0)
+
+    autoCompletionBinding.setDelay(0)
 
     @FXML
     def nextClicked(): Unit =
-      println("[next clicked] selected city: " + selectCityTextField.getText)
-      controller.saveCity(selectCityTextField.getText)
+      val selectedCity = selectCityTextField.getText.capitalize
+      if selectedCity.isBlank then setErrorText("Please select a city")
+      else if controller.containCity(selectedCity) then controller.saveCity(selectedCity)
+      else setErrorText("The selected city is not valid")
+
+    private def setErrorText(text: String): Unit =
+      Platform.runLater(() => errorLabel.setText(text))

@@ -15,10 +15,10 @@
          </padding>
          <Label text="Select your city:" />
          <TextField fx:id="selectCityTextField" alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefWidth="250.0" />
-         <Label fx:id="errorLabel" textFill="#cc0000" visible="false" />
+         <Label fx:id="errorLabel" textFill="#cc0000" />
       </VBox>
    </center>
    <bottom>
-      <Button mnemonicParsing="false" onMouseClicked="#nextClicked" text="Next" BorderPane.alignment="BOTTOM_RIGHT" />
+      <Button fx:id="nextButton" mnemonicParsing="false" onMouseClicked="#nextClicked" text="Next" BorderPane.alignment="BOTTOM_RIGHT" />
    </bottom>
 </BorderPane>
