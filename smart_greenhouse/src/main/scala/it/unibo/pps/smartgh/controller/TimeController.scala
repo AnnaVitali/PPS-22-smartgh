@@ -1,15 +1,15 @@
 package it.unibo.pps.smartgh.controller
 
-trait Controller:
+trait TimeController:
   def startSimulationTimer(): Unit
   def stopSimulationTimer(): Unit
   def updateVelocityTimer(speed: Double): Unit
 
-object Controller:
+object TimeController:
 
-  def apply(): Controller = ControllerImpl()
+  def apply(): TimeController = TimeControllerImpl()
 
-  private class ControllerImpl extends Controller:
+  private class TimeControllerImpl extends TimeController:
 
     override def startSimulationTimer(): Unit = ??? //TODO
     override def stopSimulationTimer(): Unit = ??? //TODO
