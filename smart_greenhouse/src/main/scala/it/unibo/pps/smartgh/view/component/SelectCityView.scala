@@ -24,7 +24,6 @@ object SelectCityView:
     */
   def apply(): SelectCityView = SelectCityViewImpl()
 
-  /** Implementation of [[SelectCityView]]. */
   private class SelectCityViewImpl extends AbstractViewComponent[BorderPane]("select_city.fxml") with SelectCityView:
 
     override val component: BorderPane = loader.load[BorderPane]

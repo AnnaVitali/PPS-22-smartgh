@@ -5,7 +5,7 @@ import alice.tuprolog.{Prolog, SolveInfo, Struct, Term, Theory}
 import scala.io.Source
 import scala.util.Using
 
-/** A trait exposing methods for managing city searches */
+/** A trait exposing methods for managing city searches. */
 trait CitiesSearcher:
 
   /** Retrieves all cities.
