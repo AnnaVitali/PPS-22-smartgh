@@ -65,7 +65,7 @@
                     </font>
                 </Label>
 
-                <Label id="timeElapsedLabel" fx:id="timeElapsedLabel">
+                <Label id="timeElapsedLabel" fx:id="timeElapsedLabel" text="00:00:00">
                     <font>
                         <Font name="System Bold" size="30.0" />
                     </font>
