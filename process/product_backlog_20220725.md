@@ -22,13 +22,13 @@ Realizzare le funzinalità di base, per poter impostare l'ambiente della simulaz
             <td>Caricamento delle città in un file Prolog</td>
             <td>Maria</td>
             <td>5</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Creare layout schermata di selezione della città</td>
@@ -97,8 +97,8 @@ Realizzare le funzinalità di base, per poter impostare l'ambiente della simulaz
             <td>4</td>
             <td>4</td>
             <td>4</td>
-            <td>1</td>
-            <td>0</td>
+            <td>2</td>
+            <td>2</td>
             <td>0</td>
             <td>0</td>
             <td>0</td>
