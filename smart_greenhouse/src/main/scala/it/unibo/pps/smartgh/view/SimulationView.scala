@@ -6,6 +6,7 @@ import scalafx.Includes.*
 import it.unibo.pps.smartgh.view.component.{
   BaseView,
   FinishSimulationView,
+  GreenHouseGlobalView,
   GreenHouseDivisionView,
   SelectCityView,
   ViewComponent
@@ -45,7 +46,7 @@ object SimulationView:
     stage.resizable = true
     stage.maximized = true
     stage.title = appTitle
-    baseView.getChildren.add(GreenHouseDivisionView()) //init view
+    baseView.getChildren.add(GreenHouseGlobalView()) //init view
     scene.root.value = baseView
     stage.scene = scene
     stage.show()
