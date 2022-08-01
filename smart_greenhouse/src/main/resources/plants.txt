@@ -1,0 +1,25 @@
+basil;ocimum basilicum
+beet;beta vulgaris
+broccoli;broccoli atlantis f1
+bunching onion;bunching onion estafette f1
+cabbage;red cabbage pretino f1
+calla colorata;mixed color zantedeschia aethiopica
+carrot;carrot aurantina f1
+cucumber;cucumber bon odori f1
+eggplant;solanum melongena
+gardenia;everblooming gardenia
+lemon;citrus limon
+mint;mentha x gracilis
+onion;onion reks f1
+orange;citrus sinensis
+papaver;papaver rhoeas
+parsley;petroselinum crispum
+pepper;piper nigrum
+poinsettia;euphorbia pulcherrima
+rosemary;rosmarinus officinalis
+salvia;salvia officinalis
+spinach;spinacia oleracea
+tomato;tomato master no. 2 f1
+violet;viola cornuta
+wild strawberry;fragaria moschata
+yucca;yucca gloriosa

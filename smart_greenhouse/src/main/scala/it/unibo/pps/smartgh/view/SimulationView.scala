@@ -1,14 +1,15 @@
 package it.unibo.pps.smartgh.view
 
+import it.unibo.pps.smartgh.city.CitiesSearcher
 import scalafx.application.JFXApp3.PrimaryStage
 import scalafx.scene.Scene
 import scalafx.Includes.*
 import it.unibo.pps.smartgh.view.component.{
   BaseView,
-  FinishSimulationView,
-  GreenHouseDivisionView,
   SelectCityView,
-  ViewComponent
+  SelectPlantView,
+  ViewComponent,
+  GreenHouseDivisionView
 }
 import javafx.scene.Parent
 import javafx.scene.layout.VBox

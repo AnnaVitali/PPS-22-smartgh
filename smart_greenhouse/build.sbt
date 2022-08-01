@@ -36,8 +36,11 @@ lazy val root = (project in file("."))
       "it.unibo.alice.tuprolog" % "2p-core" % "4.1.1",
       "it.unibo.alice.tuprolog" % "2p-ui" % "4.1.1",
       "org.controlsfx" % "controlsfx" % "11.1.1",
-      "org.testfx" % "testfx-core" % "4.0.16-alpha",
-      "org.testfx" % "testfx-junit" % "4.0.16-alpha"
+      "org.testfx" % "testfx-core" % "4.0.16-alpha" % Test,
+      "org.testfx" % "testfx-junit5" % "4.0.16-alpha" % Test,
+      "org.testfx" % "openjfx-monocle" % "jdk-12.0.1+2" % Test,
+      "io.monix" %% "monix" % "3.4.0",
+      "com.github.nscala-time" %% "nscala-time" % "2.30.0"
     ) ++ Seq("base", "controls", "fxml", "graphics", "media", "swing", "web")
       .map(m => "org.openjfx" % s"javafx-$m" % "16" classifier osName),
     crossPaths := false, // https://github.com/sbt/junit-interface/issues/35

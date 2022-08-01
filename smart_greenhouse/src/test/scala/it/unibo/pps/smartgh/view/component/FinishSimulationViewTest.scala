@@ -4,19 +4,37 @@ import it.unibo.pps.smartgh.view.component
 import javafx.scene.layout.VBox
 import javafx.stage.Stage
 import org.junit.Test
-import org.testfx.framework.junit.ApplicationTest
+import org.junit.jupiter.api.{BeforeAll, TestInstance}
+import org.junit.jupiter.api.TestInstance.Lifecycle
+import org.junit.jupiter.api.extension.ExtendWith
+import org.testfx.framework.junit5.{ApplicationExtension, ApplicationTest, Start}
 import org.testfx.api.FxAssert.verifyThat
 import org.testfx.matcher.base.NodeMatchers.isVisible
 import org.testfx.matcher.control.LabeledMatchers.hasText
+import org.testfx.util.WaitForAsyncUtils
 import scalafx.scene.Scene
 
 /** This class contains the tests realized to verify the correct behavior of [[FinishSimulationView]]. */
-class FinishSimulationViewTest extends ApplicationTest:
+@TestInstance(Lifecycle.PER_CLASS)
+@ExtendWith(Array(classOf[ApplicationExtension]))
+class FinishSimulationViewTest:
 
   val finishSimulationLabelId = "#simulationEndedLabel"
   val startNewSimulationButtonlId = "#startNewSimulationButton"
 
-  override def start(stage: Stage): Unit =
+  @BeforeAll
+  def setup(): Unit =
+    System.setProperty("testfx.robot", "glass")
+    System.setProperty("testfx.headless", "true")
+    System.setProperty("java.awt.headless", "true")
+    System.setProperty("prism.order", "sw")
+    System.setProperty("prism.text", "t2k")
+    System.setProperty("headless.geometry", "1600x1200-32")
+    WaitForAsyncUtils.checkAllExceptions = false;
+    WaitForAsyncUtils.autoCheckException = false;
+
+  @Start
+  private def start(stage: Stage): Unit =
     val scene: Scene = Scene(stage.getMaxWidth, stage.getMaxHeight)
     val baseView: ViewComponent[VBox] = BaseView("Smart Greenhouse", "Simulate your smart greenhouse")
 

@@ -6,7 +6,7 @@ import javafx.scene.layout.VBox
 import javafx.stage.Stage
 import org.junit.Test
 import org.testfx.api.FxAssert.verifyThat
-import org.testfx.framework.junit.ApplicationTest
+import org.testfx.framework.junit5.ApplicationTest
 import org.testfx.matcher.base.NodeMatchers.{hasChildren, isVisible}
 import org.testfx.matcher.control.LabeledMatchers.hasText
 import scalafx.scene.Scene
