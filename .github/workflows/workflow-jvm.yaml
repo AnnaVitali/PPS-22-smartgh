@@ -17,5 +17,6 @@ jobs:
         with:
           java-version: ${{ matrix.java }}
       - name: Run test
-        run: sbt test
         working-directory: ./smart_greenhouse
+        run: sbt -v +test
+        
