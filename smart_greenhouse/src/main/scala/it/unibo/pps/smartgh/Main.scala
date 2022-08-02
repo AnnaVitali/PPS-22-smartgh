@@ -1,7 +1,7 @@
 package it.unibo.pps.smartgh
 
-import it.unibo.pps.smartgh.city.UploadCities
-import it.unibo.pps.smartgh.plants.UploadPlants
+import it.unibo.pps.smartgh.model.city.UploadCities
+import it.unibo.pps.smartgh.model.plants.UploadPlants
 import scalafx.application.JFXApp3
 import scalafx.application.JFXApp3.PrimaryStage
 import it.unibo.pps.smartgh.view.SimulationView

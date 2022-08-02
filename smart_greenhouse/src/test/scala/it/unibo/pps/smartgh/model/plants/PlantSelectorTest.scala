@@ -1,4 +1,4 @@
-package it.unibo.pps.smartgh.plants
+package it.unibo.pps.smartgh.model.plants
 
 import org.scalatest.BeforeAndAfter
 import alice.tuprolog.Theory

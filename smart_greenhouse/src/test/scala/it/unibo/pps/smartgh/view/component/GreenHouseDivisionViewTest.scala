@@ -1,14 +1,15 @@
 package it.unibo.pps.smartgh.view.component
 
-import it.unibo.pps.smartgh.greenhouse.GreenHouse
+import it.unibo.pps.smartgh.model.greenhouse.GreenHouse
 import it.unibo.pps.smartgh.view.component.*
 import javafx.scene.layout.VBox
 import javafx.stage.Stage
-import org.junit.Test
+import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.{BeforeAll, TestInstance}
 import org.junit.jupiter.api.TestInstance.Lifecycle
 import org.junit.jupiter.api.extension.ExtendWith
 import org.testfx.api.FxAssert.verifyThat
+import org.testfx.api.FxRobot
 import org.testfx.framework.junit5.{ApplicationExtension, ApplicationTest, Start}
 import org.testfx.matcher.base.NodeMatchers.{hasChildren, isVisible}
 import org.testfx.matcher.control.LabeledMatchers.hasText
@@ -39,7 +40,7 @@ class GreenHouseDivisionViewTest:
 
   @Start
   private def start(stage: Stage): Unit =
-    val scene: Scene = Scene(stage.getMaxWidth, stage.getMaxHeight)
+    val scene: Scene = Scene(stage.getWidth, stage.getHeight)
     val baseView: ViewComponent[VBox] = BaseView("title", "subtitle")
 
     stage.setResizable(true)
@@ -48,7 +49,7 @@ class GreenHouseDivisionViewTest:
     stage.setScene(scene)
     stage.show()
 
-  @Test def testLabels(): Unit =
+  @Test def testLabels(robot: FxRobot): Unit =
 
     verifyThat(globalGH, isVisible())
     verifyThat(globalGH, hasChildren(model.plants.length, ""))

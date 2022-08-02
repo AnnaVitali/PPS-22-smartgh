@@ -1,4 +1,4 @@
-package it.unibo.pps.smartgh.plants
+package it.unibo.pps.smartgh.model.plants
 
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers

@@ -1,6 +1,6 @@
 package it.unibo.pps.smartgh.view
 
-import it.unibo.pps.smartgh.city.CitiesSearcher
+import it.unibo.pps.smartgh.model.city.CitiesSearcher
 import scalafx.application.JFXApp3.PrimaryStage
 import scalafx.scene.Scene
 import scalafx.Includes.*

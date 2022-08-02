@@ -1,4 +1,4 @@
-package it.unibo.pps.smartgh.plants
+package it.unibo.pps.smartgh.model.plants
 
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
@@ -14,7 +14,9 @@ class PlantTest extends AnyFunSuite with Matchers:
     plant.id shouldEqual "citrus limon"
   }
 
-  test("after creating lemon plant when we ask its image_url should be equal to https://opb-img.plantbook.io/citrus%20limon.jpg") {
+  test(
+    "after creating lemon plant when we ask its image_url should be equal to https://opb-img.plantbook.io/citrus%20limon.jpg"
+  ) {
     plant.imageUrl shouldEqual "https://opb-img.plantbook.io/citrus%20limon.jpg"
   }
 
@@ -41,24 +43,22 @@ class PlantTest extends AnyFunSuite with Matchers:
   }
 
   test("after creating lemon plant when we ask its description should be correct") {
-    val description = "The lemon (Citrus limon) is a species of small evergreen trees in the flowering plant family Rutaceae, " +
-      "native to Asia, primarily Northeast India (Assam), Northern Myanmar or China." +
-      "The tree's ellipsoidal yellow fruit is used for culinary and non-culinary purposes throughout the world, primarily for its juice, " +
-      "which has both culinary and cleaning uses. The pulp and rind are also used in cooking and baking. " +
-      "The juice of the lemon is about 5% to 6% citric acid, with a pH of around 2.2, giving it a sour taste. " +
-      "The distinctive sour taste of lemon juice makes it a key ingredient in drinks and foods such as lemonade and lemon meringue pie."
+    val description =
+      "The lemon (Citrus limon) is a species of small evergreen trees in the flowering plant family Rutaceae, " +
+        "native to Asia, primarily Northeast India (Assam), Northern Myanmar or China." +
+        "The tree's ellipsoidal yellow fruit is used for culinary and non-culinary purposes throughout the world, primarily for its juice, " +
+        "which has both culinary and cleaning uses. The pulp and rind are also used in cooking and baking. " +
+        "The juice of the lemon is about 5% to 6% citric acid, with a pH of around 2.2, giving it a sour taste. " +
+        "The distinctive sour taste of lemon juice makes it a key ingredient in drinks and foods such as lemonade and lemon meringue pie."
     plant.description shouldEqual description
   }
 
   test("the icon of a plant that doesn't exist should be equal to default image") {
-    val noPlant : Plant = Plant("", "")
+    val noPlant: Plant = Plant("", "")
     noPlant.imageUrl shouldEqual "images/plantIcon.png"
   }
 
   test("the description of a plant that doesn't exist should be equal to \"No description available\"") {
-    val noPlant : Plant = Plant("", "")
+    val noPlant: Plant = Plant("", "")
     noPlant.description shouldEqual "No description available"
   }
-
-
-

@@ -1,4 +1,4 @@
-package it.unibo.pps.smartgh.plants
+package it.unibo.pps.smartgh.model.plants
 
 import alice.tuprolog.{Prolog, SolveInfo, Struct, Term, TermVisitor, Theory, Var}
 

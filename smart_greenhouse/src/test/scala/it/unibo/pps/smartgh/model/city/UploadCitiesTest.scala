@@ -1,4 +1,4 @@
-package it.unibo.pps.smartgh.city
+package it.unibo.pps.smartgh.model.city
 
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers

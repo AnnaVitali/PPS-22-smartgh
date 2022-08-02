@@ -1,4 +1,4 @@
-package it.unibo.pps.smartgh.greenhouse
+package it.unibo.pps.smartgh.model.greenhouse
 
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.must.Matchers

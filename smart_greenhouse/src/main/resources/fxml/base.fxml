@@ -5,11 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<<<<<<< HEAD
-<VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="50.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
-=======
 <VBox alignment="TOP_CENTER" spacing="40.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
->>>>>>> feature/globalGreenHouseView
    <padding>
       <Insets bottom="50.0" left="50.0" right="50.0" top="40.0" />
    </padding>

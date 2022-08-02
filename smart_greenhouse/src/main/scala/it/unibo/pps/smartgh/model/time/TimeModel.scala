@@ -1,4 +1,4 @@
-package it.unibo.pps.smartgh.time
+package it.unibo.pps.smartgh.model.time
 
 import org.apache.commons.lang3.time.DurationFormatUtils
 

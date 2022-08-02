@@ -1,6 +1,6 @@
 package it.unibo.pps.smartgh.view.component
 
-import it.unibo.pps.smartgh.city.CityController
+import it.unibo.pps.smartgh.controller.CityController
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.fxml.FXML
 import javafx.scene.control.{Button, Label, TextField}

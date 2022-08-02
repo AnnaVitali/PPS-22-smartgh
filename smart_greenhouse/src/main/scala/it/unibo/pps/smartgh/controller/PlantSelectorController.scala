@@ -1,5 +1,6 @@
-package it.unibo.pps.smartgh.plants
+package it.unibo.pps.smartgh.controller
 
+import it.unibo.pps.smartgh.model.plants.{PlantSelector, UploadPlants}
 import it.unibo.pps.smartgh.view.component.SelectPlantView
 
 trait PlantSelectorController:

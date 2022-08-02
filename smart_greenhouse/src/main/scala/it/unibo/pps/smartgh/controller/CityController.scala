@@ -1,5 +1,6 @@
-package it.unibo.pps.smartgh.city
+package it.unibo.pps.smartgh.controller
 
+import it.unibo.pps.smartgh.model.city.{CitiesSearcher, City}
 import it.unibo.pps.smartgh.view.component.SelectCityView
 /** This trait exposes methods for managing the selected city, represents its controller. */
 trait CityController:

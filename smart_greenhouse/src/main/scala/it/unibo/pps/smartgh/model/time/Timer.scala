@@ -1,4 +1,4 @@
-package it.unibo.pps.smartgh.time
+package it.unibo.pps.smartgh.model.time
 
 import monix.eval.Task
 import monix.execution.Scheduler.Implicits.global

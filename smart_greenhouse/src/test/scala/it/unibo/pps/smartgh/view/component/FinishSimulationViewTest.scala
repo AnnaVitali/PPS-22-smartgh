@@ -3,12 +3,13 @@ package it.unibo.pps.smartgh.view.component
 import it.unibo.pps.smartgh.view.component
 import javafx.scene.layout.VBox
 import javafx.stage.Stage
-import org.junit.Test
+import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.{BeforeAll, TestInstance}
 import org.junit.jupiter.api.TestInstance.Lifecycle
 import org.junit.jupiter.api.extension.ExtendWith
 import org.testfx.framework.junit5.{ApplicationExtension, ApplicationTest, Start}
 import org.testfx.api.FxAssert.verifyThat
+import org.testfx.api.FxRobot
 import org.testfx.matcher.base.NodeMatchers.isVisible
 import org.testfx.matcher.control.LabeledMatchers.hasText
 import org.testfx.util.WaitForAsyncUtils
@@ -35,7 +36,7 @@ class FinishSimulationViewTest:
 
   @Start
   private def start(stage: Stage): Unit =
-    val scene: Scene = Scene(stage.getMaxWidth, stage.getMaxHeight)
+    val scene: Scene = Scene(stage.getWidth, stage.getHeight)
     val baseView: ViewComponent[VBox] = BaseView("Smart Greenhouse", "Simulate your smart greenhouse")
 
     stage.setResizable(true)
@@ -44,12 +45,12 @@ class FinishSimulationViewTest:
     stage.setScene(scene)
     stage.show()
 
-  @Test def testLabel(): Unit =
+  @Test def testLabel(robot: FxRobot): Unit =
     val simulationEndedText = "Simulation ended!"
     verifyThat(finishSimulationLabelId, isVisible)
     verifyThat(finishSimulationLabelId, hasText(simulationEndedText))
 
-  @Test def testButton(): Unit =
+  @Test def testButton(robot: FxRobot): Unit =
     val startNewSimulationText = "Start a new simulation"
     verifyThat(startNewSimulationButtonlId, isVisible)
     verifyThat(startNewSimulationButtonlId, hasText(startNewSimulationText))

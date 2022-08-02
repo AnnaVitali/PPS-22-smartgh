@@ -1,7 +1,7 @@
-package it.unibo.pps.smartgh.city
+package it.unibo.pps.smartgh.model.city
 
-import it.unibo.pps.smartgh.city.*
-import it.unibo.pps.smartgh.city.{City}
+import it.unibo.pps.smartgh.model.city.*
+import it.unibo.pps.smartgh.model.city.City
 import org.scalatest.BeforeAndAfter
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers

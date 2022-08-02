@@ -1,4 +1,4 @@
-package it.unibo.pps.smartgh.city
+package it.unibo.pps.smartgh.model.city
 
 import alice.tuprolog.{Prolog, SolveInfo, Struct, Term, Theory}
 

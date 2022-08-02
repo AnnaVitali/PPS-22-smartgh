@@ -1,7 +1,7 @@
-package it.unibo.pps.smartgh.city
+package it.unibo.pps.smartgh.controller
 
-import it.unibo.pps.smartgh.city.*
-import it.unibo.pps.smartgh.city.City
+import it.unibo.pps.smartgh.controller.CityController
+import it.unibo.pps.smartgh.model.city.*
 import org.scalatest.BeforeAndAfter
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.must.Matchers
@@ -13,5 +13,5 @@ class CityControllerTest extends AnyFunSuite with Matchers with BeforeAndAfter:
   val controller = CityController()
 
   test("selecting Rome as city must create a Rome city object") {
-     controller.saveCity("Rome") == city
+    controller.saveCity("Rome") == city
   }

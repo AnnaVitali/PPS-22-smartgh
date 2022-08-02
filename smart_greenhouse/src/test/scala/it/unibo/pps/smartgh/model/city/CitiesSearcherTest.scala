@@ -1,4 +1,4 @@
-package it.unibo.pps.smartgh.city
+package it.unibo.pps.smartgh.model.city
 
 import org.scalatest.BeforeAndAfter
 import org.scalatest.funsuite.AnyFunSuite

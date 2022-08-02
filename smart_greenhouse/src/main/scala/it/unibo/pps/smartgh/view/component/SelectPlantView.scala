@@ -1,6 +1,7 @@
 package it.unibo.pps.smartgh.view.component
 
-import it.unibo.pps.smartgh.plants.{PlantSelector, PlantSelectorController}
+import it.unibo.pps.smartgh.controller.PlantSelectorController
+import it.unibo.pps.smartgh.model.plants.PlantSelector
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.event.{ActionEvent, EventHandler}
 import javafx.fxml.FXML

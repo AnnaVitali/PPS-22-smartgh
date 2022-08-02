@@ -1,11 +1,11 @@
-package it.unibo.pps.smartgh.city
+package it.unibo.pps.smartgh.model.city
 
 import java.io.*
 import java.nio.file.{Files, Path}
 import scala.io.{BufferedSource, Codec, Source}
 import scala.language.postfixOps
 import scala.util.Using
-/** This trait exposes methods for managing the uploading of cities into a prolog file.*/
+/** This trait exposes methods for managing the uploading of cities into a prolog file. */
 trait UploadCities:
 
   /** Function that get the file.

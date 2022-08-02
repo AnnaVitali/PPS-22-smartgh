@@ -1,4 +1,4 @@
-package it.unibo.pps.smartgh.plants
+package it.unibo.pps.smartgh.model.plants
 
 import java.io.{File, FileWriter, PrintWriter}
 import java.nio.file.{Files, Path}

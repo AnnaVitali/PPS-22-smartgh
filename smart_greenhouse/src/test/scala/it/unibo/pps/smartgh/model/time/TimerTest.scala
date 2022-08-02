@@ -1,6 +1,6 @@
-package it.unibo.pps.smartgh.time
+package it.unibo.pps.smartgh.model.time
 
-import it.unibo.pps.smartgh.time.Timer
+import it.unibo.pps.smartgh.model.time.Timer
 import org.scalatest.BeforeAndAfter
 import org.scalatest.concurrent.Eventually
 import org.scalatest.funsuite.AnyFunSuite
