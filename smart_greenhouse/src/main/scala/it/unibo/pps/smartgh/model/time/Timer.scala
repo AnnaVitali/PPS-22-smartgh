@@ -50,8 +50,8 @@ object Timer:
 
   private class TimerImpl(duration: FiniteDuration) extends Timer:
     var value: FiniteDuration = 0 seconds
-    var cancelable: Cancelable = _
-    var consumer: FiniteDuration => Unit = _
+    private var cancelable: Cancelable = _
+    private var consumer: FiniteDuration => Unit = _
 
     override def start(task: FiniteDuration => Unit): Unit =
       consumer = t =>
