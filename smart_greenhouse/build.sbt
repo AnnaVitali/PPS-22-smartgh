@@ -54,4 +54,13 @@ CucumberPlugin.glues := List(
   "testLecture/code/e4bdd/steps"
 ) //testlecture isn't correct for greenhouse project fullpath is test/scala/testLecture/code/e4bdd/steps
 
-wartremoverWarnings ++= Warts.allBut(Wart.Any, Wart.Var, Wart.AsInstanceOf, Wart.Null, Wart.ThreadSleep)
+wartremoverWarnings ++= Warts.allBut(
+  Wart.Any,
+  Wart.Var,
+  Wart.AsInstanceOf,
+  Wart.Null,
+  Wart.ThreadSleep,
+  Wart.Nothing,
+  Wart.Throw,
+  Wart.ToString
+)

@@ -8,6 +8,7 @@ import javafx.fxml.FXML
 import javafx.scene.layout.{HBox, VBox}
 import javafx.scene.control.{CheckBox, Label}
 import javafx.scene.layout.BorderPane
+import cats.syntax.eq.catsSyntaxEq
 
 import scala.jdk.javaapi.CollectionConverters.asJavaCollection
 
@@ -93,7 +94,7 @@ object SelectPlantView:
       incrementNumberPlantsSelected()
 
     override def updateDeselectedPlant(deselectedPlant: String): Unit =
-      plantSelectedLabel = plantSelectedLabel.filter(!_.getText.equals(deselectedPlant))
+      plantSelectedLabel = plantSelectedLabel.filter(p => !(p.getText === deselectedPlant))
       selectedPlantsBox.getChildren.removeIf(!plantSelectedLabel.contains(_))
       decrementNumberPlantsSelected()
 

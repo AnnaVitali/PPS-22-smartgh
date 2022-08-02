@@ -49,6 +49,7 @@ object Scala2P:
           override def hasNext: Boolean =
             solution.fold(false)(f => f.hasOpenAlternatives || f.isSuccess)
 
+          @SuppressWarnings(Array("org.wartremover.warts.OptionPartial"))
           override def next(): SolveInfo =
             try solution.get
             finally solution = if (solution.get.hasOpenAlternatives) Some(engine.solveNext()) else None

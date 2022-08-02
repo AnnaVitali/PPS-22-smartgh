@@ -52,7 +52,7 @@ object PlantSelector:
 
   private class PlantSelectorImpl(fileName: String) extends PlantSelector:
     import it.unibo.pps.smartgh.prolog.Scala2P.{*, given}
-    private val prologFile = Using(Source.fromFile(fileName)) {
+    private val prologFile = Using(Source.fromFile(fileName, enc = "UTF8")) {
       _.mkString
     }.get
     private val engine = prologEngine(
