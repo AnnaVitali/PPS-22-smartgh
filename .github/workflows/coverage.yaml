@@ -1,0 +1,22 @@
+name: Coverage automation
+
+on:
+  push:
+    
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup scala
+      uses: olafurpg/setup-scala@v10
+      with:
+        java-version: "adopt@1.16"
+    - name: Build and Run coverage
+      run: sbt -v -Dfile.encoding=UTF-8 +jacoco
+      working-directory: ./smart_greenhouse
+    - name: Upload JaCoCo coverage report
+      uses: actions/upload-artifact@v2
+      with:
+        name: jacoco-report
+        path: smart_greenhouse/target/jacoco/report/ 
