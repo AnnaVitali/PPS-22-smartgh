@@ -13,22 +13,24 @@ trait BaseView extends ViewComponent[VBox]
 object BaseView:
 
   /** Creates a new [[BaseView]] component that contains the common parts of all layouts.
-    * @param title
-    *   the title of the application
-    * @param subtitle
-    *   the subtitle of the application
-    * @return
-    *   a new instance of [[BaseView]]
-    */
-  def apply(title: String, subtitle: String): BaseViewImpl = BaseViewImpl(title, subtitle)
+   * @param title
+   *   the title of the application
+   * @param subtitle
+   *   the subtitle of the application
+   * @return
+   *   a new instance of [[BaseView]]
+   */
+  def apply(title: String, subtitle: String): BaseView = BaseViewImpl(title, subtitle)
 
   /** Implementation of [[BaseView]].
-    * @param title
-    *   the title of the application
-    * @param subtitle
-    *   the subtitle of the application
-    */
-  class BaseViewImpl(title: String, subtitle: String) extends AbstractViewComponent[VBox]("base.fxml") with BaseView:
+   * @param title
+   *   the title of the application
+   * @param subtitle
+   *   the subtitle of the application
+   */
+  private class BaseViewImpl(title: String, subtitle: String)
+    extends AbstractViewComponent[VBox]("base.fxml")
+      with BaseView:
 
     override val component: VBox = loader.load[VBox]
 

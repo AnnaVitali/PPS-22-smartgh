@@ -3,8 +3,8 @@ package it.unibo.pps.smartgh.greenhouse
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.must.Matchers
 
-
-class PlantSelectorTest extends AnyFunSuite with Matchers:
+/** This class contains the tests realized to verify the correct behavior of [[GreenHouseTest]]. */
+class GreenHouseTest extends AnyFunSuite with Matchers:
 
   private val greenHouse = GreenHouse(List("p1", "p2", "p3", "p4", "p5", "p6"), List("p1", "p2", "p3", "p4", "p5", "p6"), "Rome")
 
