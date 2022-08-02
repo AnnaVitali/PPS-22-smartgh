@@ -43,7 +43,7 @@ object CitiesSearcher:
   def apply(fileName: String): CitiesSearcher = CitiesSearcherImpl(fileName)
 
   private class CitiesSearcherImpl(fileName: String) extends CitiesSearcher:
-    import it.unibo.pps.smartgh.prolog.Scala2P.{*, given}
+    import it.unibo.pps.smartgh.prolog.Scala2P.*
     private val prologFile = Using(Source.fromFile(fileName))(_.mkString).get
     private val engine = prologEngine(Theory.parseLazilyWithStandardOperators(prologFile))
     private val cities = engine("citta(X)").map(extractTermToString(_, "X").replace("'", "")).toSeq

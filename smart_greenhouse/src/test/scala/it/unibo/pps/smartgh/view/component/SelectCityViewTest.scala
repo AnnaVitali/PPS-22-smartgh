@@ -1,7 +1,7 @@
 package it.unibo.pps.smartgh.view.component
 
 import javafx.scene.control.TextField
-import javafx.scene.layout.{Pane, VBox}
+import javafx.scene.layout.VBox
 import javafx.stage.Stage
 import org.junit.jupiter.api.{BeforeAll, Test, TestInstance}
 import org.junit.jupiter.api.extension.ExtendWith
@@ -32,8 +32,8 @@ class SelectCityViewTest:
     System.setProperty("java.awt.headless", "true")
     System.setProperty("prism.order", "sw")
     System.setProperty("prism.text", "t2k")
-    WaitForAsyncUtils.checkAllExceptions = false;
-    WaitForAsyncUtils.autoCheckException = false;
+    WaitForAsyncUtils.checkAllExceptions = false
+    WaitForAsyncUtils.autoCheckException = false
 
   @Start
   private def start(stage: Stage): Unit =
