@@ -8,7 +8,7 @@ import org.scalatest.matchers.should.Matchers
 import org.scalatest.matchers.should.Matchers.shouldNot
 
 import scala.collection.immutable.HashMap
-
+/** This class contains the tests to verify that the [[City]] works correctly. */
 class CityTest extends AnyFunSuite with Matchers with BeforeAndAfter:
   val city: City = City("Rome")
 

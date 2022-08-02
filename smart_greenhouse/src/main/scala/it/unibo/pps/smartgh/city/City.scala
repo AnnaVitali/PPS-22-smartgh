@@ -3,12 +3,12 @@ package it.unibo.pps.smartgh.city
 import org.json4s.*
 import org.json4s.jackson.JsonMethods.*
 import requests.Response
-
+/** This trait exposes methods for managing the selected city, represents its model. */
 trait City:
-  /** data structure that will contains the city's environment values */
+  /** Data structure that will contains the city's environment values. */
   type EnvironmentValues = Map[String, Any]
 
-  /** @return city's name */
+  /** @return city's name. */
   def name: String
 
   /** @return
@@ -19,11 +19,16 @@ trait City:
     *   feelslike_f -> 80.3, wind_kph -> 6.8, wind_degree -> 120, precip_in -> 0.0, gust_mph -> 8.5, vis_miles -> 6.0,
     *   temp_c -> 26.0, is_day -> 1, condition -> Map(text -> Sunny, icon ->
     *   //cdn.weatherapi.com/weather/64x64/day/113.png, code -> 1000), humidity -> 84, cloud -> 0, pressure_mb ->
-    *   1010.0, last_updated -> 2022-07-27 09:00))
+    *   1010.0, last_updated -> 2022-07-27 09:00)).
     */
   def environmentValues: EnvironmentValues
 
+/** Object that can be use for managing the selected city, represents its model. */
 object City:
+  /** Apply method for the [[City]].
+   * @return
+   *   the [[City]] object.
+   */
   def apply(name: String): City = CityImpl(name)
 
   private class CityImpl(override val name: String) extends City:

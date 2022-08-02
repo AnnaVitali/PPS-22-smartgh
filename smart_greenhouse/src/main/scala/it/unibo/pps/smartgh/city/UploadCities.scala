@@ -5,10 +5,10 @@ import java.nio.file.{Files, Path}
 import scala.io.{BufferedSource, Codec, Source}
 import scala.language.postfixOps
 import scala.util.Using
-
+/** This trait exposes methods for managing the uploading of cities into a prolog file.*/
 trait UploadCities:
 
-  /** function that get the file
+  /** Function that get the file.
     *
     * @throws java.io.FileNotFoundException
     * @param fileName
@@ -18,7 +18,7 @@ trait UploadCities:
     */
   def getBufferedSource(fileName: String): BufferedSource
 
-  /** function that get the number of lines of a file located in resources folder
+  /** Function that get the number of lines of a file located in resources folder.
     *
     * @throws java.io.FileNotFoundException
     * @param fileName
@@ -28,7 +28,7 @@ trait UploadCities:
     */
   def countResourcesFileLines(fileName: String): Int
 
-  /** function that get the number of lines of a file located in prolog folder
+  /** Function that get the number of lines of a file located in prolog folder.
     *
     * @throws java.io.FileNotFoundException
     * @param fileName
@@ -38,7 +38,7 @@ trait UploadCities:
     */
   def countPrologFileLines(fileName: String): Int
 
-  /** function that write the content of the input file into the output file formatted with the following prolog Theory:
+  /** Function that write the content of the input file into the output file formatted with the following prolog Theory:
     * citta("cityName"). ricerca_citta([H|T], X) :- citta(X), atom_chars(X, [H|T]).
     *
     * @param path
@@ -52,13 +52,13 @@ trait UploadCities:
     */
   def writePrologFile(path: String, inputFile: String, outFile: String): Unit
 
-/** Utility for reading cities.txt form a file and create a prolog file containing cities.txt */
+/** Utility for reading cities.txt form a file and create a prolog file containing cities.txt. */
 object UploadCities extends UploadCities:
 
-  def getBufferedSource(fileName: String): BufferedSource =
+  override def getBufferedSource(fileName: String): BufferedSource =
     Source.fromResource(fileName)(Codec.UTF8)
 
-  def countResourcesFileLines(fileName: String): Int =
+  override def countResourcesFileLines(fileName: String): Int =
     Using(getBufferedSource(fileName)) {
       _.getLines().length
     }.get
@@ -70,7 +70,7 @@ object UploadCities extends UploadCities:
 
   import java.text.Normalizer
 
-  def writePrologFile(path: String, inputFile: String, outFile: String): Unit =
+  override def writePrologFile(path: String, inputFile: String, outFile: String): Unit =
     val dir = new File(path)
     if !dir.exists() then Files.createDirectory(Path.of(path))
 

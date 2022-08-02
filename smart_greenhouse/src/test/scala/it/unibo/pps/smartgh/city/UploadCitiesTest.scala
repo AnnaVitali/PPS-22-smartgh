@@ -6,7 +6,7 @@ import org.scalatest.{BeforeAndAfter, BeforeAndAfterEach}
 
 import java.io.FileNotFoundException
 import scala.io.Source
-
+/** This class contains the tests to verify that the [[UploadCities]] works correctly. */
 class UploadCitiesTest extends AnyFunSuite with Matchers:
   private val path = System.getProperty("user.home") + "/pps/"
   private val file = "cities.txt"

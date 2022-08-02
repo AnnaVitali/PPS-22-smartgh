@@ -7,7 +7,7 @@ import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.must.Matchers
 
 import scala.collection.immutable.HashMap
-
+/** This class contains the tests to verify that the [[CityController]] works correctly. */
 class CityControllerTest extends AnyFunSuite with Matchers with BeforeAndAfter:
   val city: City = City("Rome")
   val controller = CityController()
