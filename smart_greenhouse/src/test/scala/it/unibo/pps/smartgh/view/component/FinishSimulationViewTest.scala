@@ -21,7 +21,7 @@ import scalafx.scene.Scene
 class FinishSimulationViewTest extends AbstractViewTest:
 
   val finishSimulationLabelId = "#simulationEndedLabel"
-  val startNewSimulationButtonlId = "#startNewSimulationButton"
+  val startNewSimulationButtonlId = "#changeSceneButton"
 
   @Start
   private def start(stage: Stage): Unit =
