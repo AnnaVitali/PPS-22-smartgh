@@ -4,7 +4,7 @@ import it.unibo.pps.smartgh.city.CitiesSearcher
 import scalafx.application.JFXApp3.PrimaryStage
 import scalafx.scene.Scene
 import scalafx.Includes.*
-import it.unibo.pps.smartgh.view.component.{BaseView, SelectCityView, SelectPlantView, ViewComponent}
+import it.unibo.pps.smartgh.view.component.{BaseView, GreenHouseDivisionView, SelectCityView, ViewComponent}
 import javafx.scene.Parent
 import javafx.scene.layout.VBox
 
@@ -40,7 +40,7 @@ object SimulationView:
     stage.resizable = true
     stage.maximized = true
     stage.title = appTitle
-    baseView.getChildren.add(SelectCityView()) //init view
+    baseView.getChildren.add(GreenHouseDivisionView()) //init view
     scene.root.value = baseView
     stage.scene = scene
     stage.show()

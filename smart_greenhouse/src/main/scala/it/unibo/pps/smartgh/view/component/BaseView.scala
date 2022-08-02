@@ -22,12 +22,6 @@ object BaseView:
     */
   def apply(title: String, subtitle: String): BaseView = BaseViewImpl(title, subtitle)
 
-  /** Implementation of [[BaseView]].
-    * @param title
-    *   the title of the application
-    * @param subtitle
-    *   the subtitle of the application
-    */
   private class BaseViewImpl(title: String, subtitle: String)
       extends AbstractViewComponent[VBox]("base.fxml")
       with BaseView:
