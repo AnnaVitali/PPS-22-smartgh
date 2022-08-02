@@ -57,8 +57,6 @@ object GreenHouseDivisionView:
         val area = new Button
         area.setId(areas(i)._1 + "_bt")
         area.setGraphic(params)
-        area.prefHeight = 100
-        area.prefWidth = 100
         val color = if areas(i)._2 then "#33cc33" else "#cc3333"
         area.style = "-fx-background-color: " + color
         area.onMouseEntered = _ => area.graphic.get().asInstanceOf[VBox].getChildren.forEach(c =>

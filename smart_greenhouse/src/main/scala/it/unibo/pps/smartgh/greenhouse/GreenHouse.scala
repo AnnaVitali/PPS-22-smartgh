@@ -1,21 +1,25 @@
 package it.unibo.pps.smartgh.greenhouse
-
+/** This trait exposes the methods for managing the GreenHouse model*/
 trait GreenHouse:
   /**
-   * division of the greenhouse
-   * @return tuple indicating the number of rows and cols (r, c)
+   * Division of the greenhouse.
+   * @return tuple indicating the number of rows and cols (r, c).
    * */
   val dimension: (Int, Int)
 
-  /** areas of the greenhouse
+  /** Areas of the greenhouse.
    * @return the list of areas*/
   val areas: List[String]
 
-  /**City where the greenhouse is placed */
+  /**City where the greenhouse is placed. */
   val city: String //TODO change String to City
 
-/** Implementation of the [[GreenHouse]]*/
+/** Implementation of the [[GreenHouse]].*/
 object GreenHouse:
+  /** Apply method for the [[GreenHouse]].
+   * @return
+   *   the [[GreenHouse]] object.
+   */
   def apply(plants: List[String], areas: List[String], city: String): GreenHouseImpl = GreenHouseImpl(plants, areas, city)
 
   class GreenHouseImpl(val plants: List[String],
