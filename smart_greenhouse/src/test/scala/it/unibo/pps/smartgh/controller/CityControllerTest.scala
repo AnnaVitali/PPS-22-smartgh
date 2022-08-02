@@ -13,5 +13,5 @@ class CityControllerTest extends AnyFunSuite with Matchers with BeforeAndAfter:
   val controller = CityController()
 
   test("selecting Rome as city must create a Rome city object") {
-    controller.saveCity("Rome") == city
+    controller.saveCity("Rome") === city
   }

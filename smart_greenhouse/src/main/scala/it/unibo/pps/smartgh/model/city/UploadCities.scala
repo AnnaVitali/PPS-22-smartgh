@@ -61,12 +61,12 @@ object UploadCities extends UploadCities:
   override def countResourcesFileLines(fileName: String): Int =
     Using(getBufferedSource(fileName)) {
       _.getLines().length
-    }.get
+    }.getOrElse(0)
 
   def countPrologFileLines(path: String): Int =
-    Using(Source.fromFile(path)) {
+    Using(Source.fromFile(path, enc = "UTF8")) {
       _.getLines().length
-    }.get
+    }.getOrElse(0)
 
   import java.text.Normalizer
 

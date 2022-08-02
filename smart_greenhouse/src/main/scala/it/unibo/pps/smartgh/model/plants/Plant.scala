@@ -3,6 +3,7 @@ package it.unibo.pps.smartgh.model.plants
 import org.json4s.*
 import org.json4s.jackson.JsonMethods.*
 import requests.*
+import cats.syntax.eq.catsSyntaxEq
 
 trait Plant:
 
@@ -81,7 +82,7 @@ object Plant:
         val r: Response = requests.get(query)
         implicit val formats = org.json4s.DefaultFormats
         parse(r.text())
-          .findField((f, v) => f == "extract")
+          .findField((f, v) => f === "extract")
           .fold("No description available")(res => res._2.values.toString)
       } catch {
         case e: RequestFailedException => "No description available"

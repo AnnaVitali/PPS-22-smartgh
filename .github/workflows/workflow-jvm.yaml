@@ -17,5 +17,7 @@ jobs:
         with:
           java-version: ${{ matrix.java }}
       - name: Run test
-        run: sbt -v -Dfile.encoding=UTF-8 +test
         working-directory: ./smart_greenhouse
+        shell: bash
+        run: sbt -v +test
+        
