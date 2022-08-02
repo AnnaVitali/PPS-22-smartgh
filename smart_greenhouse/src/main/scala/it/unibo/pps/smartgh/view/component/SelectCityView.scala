@@ -1,6 +1,7 @@
 package it.unibo.pps.smartgh.view.component
 
 import it.unibo.pps.smartgh.controller.CityController
+import it.unibo.pps.smartgh.view.SimulationView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.fxml.FXML
 import javafx.scene.control.{Button, Label, TextField}
@@ -19,12 +20,19 @@ trait SelectCityView extends ViewComponent[BorderPane]:
 object SelectCityView:
 
   /** Creates a new [[SelectCityView]] component.
+    * @param simulationView
+    *   the [[SimulationView]] of the application
+    * @param baseView
+    *   the [[BaseView]] component
     * @return
     *   a new instance of [[SelectCityView]]
     */
-  def apply(): SelectCityView = SelectCityViewImpl()
+  def apply(simulationView: SimulationView, baseView: BaseView): SelectCityView =
+    SelectCityViewImpl(simulationView, baseView)
 
-  private class SelectCityViewImpl extends AbstractViewComponent[BorderPane]("select_city.fxml") with SelectCityView:
+  private class SelectCityViewImpl(private val simulationView: SimulationView, private val baseView: BaseView)
+      extends AbstractViewComponent[BorderPane]("select_city.fxml")
+      with SelectCityView:
 
     override val component: BorderPane = loader.load[BorderPane]
     private val controller: CityController = CityController()
@@ -35,9 +43,6 @@ object SelectCityView:
 
     @FXML
     var errorLabel: Label = _
-
-    @FXML
-    var nextButton: Button = _
 
     controller.view = this
 
@@ -52,12 +57,15 @@ object SelectCityView:
 
     autoCompletionBinding.setDelay(0)
 
-    @FXML
-    def nextClicked(): Unit =
+    baseView.changeSceneButton.setText("Next")
+    baseView.changeSceneButton.setOnMouseClicked { _ =>
       val selectedCity = selectCityTextField.getText.capitalize
       if selectedCity.isBlank then setErrorText("Please select a city")
-      else if controller.containCity(selectedCity) then controller.saveCity(selectedCity)
+      else if controller.containCity(selectedCity) then
+        controller.saveCity(selectedCity)
+        simulationView.changeView(SelectPlantView(simulationView, baseView))
       else setErrorText("The selected city is not valid")
+    }
 
     private def setErrorText(text: String): Unit =
       Platform.runLater(() => errorLabel.setText(text))

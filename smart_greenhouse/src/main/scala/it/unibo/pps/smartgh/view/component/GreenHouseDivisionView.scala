@@ -1,6 +1,7 @@
 package it.unibo.pps.smartgh.view.component
 
 import it.unibo.pps.smartgh.controller.GreenHouseDivisionController
+import it.unibo.pps.smartgh.view.SimulationView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.application.Platform
 import javafx.fxml.FXML

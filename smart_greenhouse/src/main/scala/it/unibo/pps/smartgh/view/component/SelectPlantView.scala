@@ -2,6 +2,7 @@ package it.unibo.pps.smartgh.view.component
 
 import it.unibo.pps.smartgh.controller.PlantSelectorController
 import it.unibo.pps.smartgh.model.plants.PlantSelector
+import it.unibo.pps.smartgh.view.SimulationView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.event.{ActionEvent, EventHandler}
 import javafx.fxml.FXML
@@ -35,14 +36,17 @@ trait SelectPlantView extends ViewComponent[BorderPane]:
 object SelectPlantView:
 
   /** Creates a new [[SelectPlantView]] component.
-    *
+    * @param simulationView
+    *   the [[SimulationView]] of the application
+    * @param baseView
+    *   the [[BaseView]] component
     * @return
     *   a new instance of [[SelectPlantView]]
     */
-  def apply(): SelectPlantView =
-    SelectPlantsViewImpl()
+  def apply(simulationView: SimulationView, baseView: BaseView): SelectPlantView =
+    SelectPlantsViewImpl(simulationView, baseView)
 
-  private class SelectPlantsViewImpl()
+  private class SelectPlantsViewImpl(private val simulationView: SimulationView, private val baseView: BaseView)
       extends AbstractViewComponent[BorderPane]("select_plants.fxml")
       with SelectPlantView:
 
@@ -52,7 +56,7 @@ object SelectPlantView:
     private val controller: PlantSelectorController = PlantSelectorController()
     private val selectYourPlantText = "Select your plants:"
     private val plantsSelectedText = "Plants selected:"
-    private var plantsCount = 0;
+    private var plantsCount = 0
     private val countText = "Count: "
     private var plantSelectedLabel: List[Label] = List()
 
@@ -80,6 +84,11 @@ object SelectPlantView:
     numberPlantsSelectedLabel.setText(plantsCount)
     controller.view = this
     controller.configureAvailablePlants()
+    baseView.changeSceneButton.setText("Start simulation")
+    baseView.changeSceneButton.setOnMouseClicked { _ =>
+      //todo
+      simulationView.changeView(GreenHouseGlobalView(simulationView, baseView))
+    }
 
     override def showSelectablePlants(selectablePlantList: List[String]): Unit =
       val selectablePlantsCheckBoxList = selectablePlantList.map(new CheckBox(_))
@@ -95,7 +104,7 @@ object SelectPlantView:
     override def updateDeselectedPlant(deselectedPlant: String): Unit =
       plantSelectedLabel = plantSelectedLabel.filter(!_.getText.equals(deselectedPlant))
       selectedPlantsBox.getChildren.removeIf(!plantSelectedLabel.contains(_))
-      decrementNumberPlantsselected()
+      decrementNumberPlantsSelected()
 
     private def addEventHandlerToCheckBoxes(checkBoxList: List[CheckBox]): Unit =
       checkBoxList.foreach(_.setOnAction { e =>
@@ -108,6 +117,6 @@ object SelectPlantView:
       plantsCount = plantsCount + 1
       numberPlantsSelectedLabel.setText(plantsCount)
 
-    private def decrementNumberPlantsselected(): Unit =
+    private def decrementNumberPlantsSelected(): Unit =
       plantsCount = plantsCount - 1
       numberPlantsSelectedLabel.setText(plantsCount)
