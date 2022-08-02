@@ -19,7 +19,7 @@ import scalafx.scene.Scene
 /** This class contains the tests realized to verify the correct behavior of [[GreenHouseDivisionView]]. */
 @TestInstance(Lifecycle.PER_CLASS)
 @ExtendWith(Array(classOf[ApplicationExtension]))
-class GreenHouseDivisionViewTest:
+class GreenHouseDivisionViewTest extends AbstractViewTest:
 
   val globalGH = "#ghDivision"
   val model = GreenHouse(
@@ -28,26 +28,10 @@ class GreenHouseDivisionViewTest:
     "Rome"
   )
 
-  @BeforeAll
-  def setup(): Unit =
-    System.setProperty("testfx.robot", "glass")
-    System.setProperty("testfx.headless", "true")
-    System.setProperty("java.awt.headless", "true")
-    System.setProperty("prism.order", "sw")
-    System.setProperty("prism.text", "t2k")
-    WaitForAsyncUtils.checkAllExceptions = false
-    WaitForAsyncUtils.autoCheckException = false
-
   @Start
   private def start(stage: Stage): Unit =
-    val scene: Scene = Scene(stage.getWidth, stage.getHeight)
-    val baseView: ViewComponent[VBox] = BaseView("title", "subtitle")
-
-    stage.setResizable(true)
-    baseView.getChildren.add(GreenHouseDivisionView()) //init view
-    scene.root.value = baseView
-    stage.setScene(scene)
-    stage.show()
+    val baseView: BaseView = BaseView(appTitle, appSubtitle)
+    startApplication(stage, baseView, GreenHouseDivisionView())
 
   @Test def testLabels(robot: FxRobot): Unit =
 
