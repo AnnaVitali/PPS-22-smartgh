@@ -1,31 +1,26 @@
 package it.unibo.pps.smartgh.view.component
 
-import it.unibo.pps.smartgh.greenhouse.GreenHouse
-import it.unibo.pps.smartgh.view.component.*
+import it.unibo.pps.smartgh.view.component
 import javafx.scene.layout.VBox
 import javafx.stage.Stage
 import org.junit.Test
 import org.junit.jupiter.api.{BeforeAll, TestInstance}
 import org.junit.jupiter.api.TestInstance.Lifecycle
 import org.junit.jupiter.api.extension.ExtendWith
-import org.testfx.api.FxAssert.verifyThat
 import org.testfx.framework.junit5.{ApplicationExtension, ApplicationTest, Start}
-import org.testfx.matcher.base.NodeMatchers.{hasChildren, isVisible}
+import org.testfx.api.FxAssert.verifyThat
+import org.testfx.matcher.base.NodeMatchers.isVisible
 import org.testfx.matcher.control.LabeledMatchers.hasText
 import org.testfx.util.WaitForAsyncUtils
 import scalafx.scene.Scene
 
-/** This class contains the tests realized to verify the correct behavior of [[GreenHouseDivisionView]]. */
+/** This class contains the tests realized to verify the correct behavior of [[FinishSimulationView]]. */
 @TestInstance(Lifecycle.PER_CLASS)
 @ExtendWith(Array(classOf[ApplicationExtension]))
-class GreenHouseDivisionViewTest:
+class FinishSimulationViewTest:
 
-  val globalGH = "#ghDivision"
-  val model = GreenHouse(
-    List("p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10", "p11", "p12"),
-    List("p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10", "p11", "p12"),
-    "Rome"
-  )
+  val finishSimulationLabelId = "#simulationEndedLabel"
+  val startNewSimulationButtonlId = "#startNewSimulationButton"
 
   @BeforeAll
   def setup(): Unit =
@@ -40,15 +35,21 @@ class GreenHouseDivisionViewTest:
   @Start
   private def start(stage: Stage): Unit =
     val scene: Scene = Scene(stage.getMaxWidth, stage.getMaxHeight)
-    val baseView: ViewComponent[VBox] = BaseView("title", "subtitle")
+    val baseView: ViewComponent[VBox] = BaseView("Smart Greenhouse", "Simulate your smart greenhouse")
 
     stage.setResizable(true)
-    baseView.getChildren.add(GreenHouseDivisionView()) //init view
+    baseView.getChildren.add(FinishSimulationView())
     scene.root.value = baseView
     stage.setScene(scene)
     stage.show()
 
-  @Test def testLabels(): Unit =
+  @Test def testLabel(): Unit =
+    val simulationEndedText = "Simulation ended!"
+    verifyThat(finishSimulationLabelId, isVisible)
+    verifyThat(finishSimulationLabelId, hasText(simulationEndedText))
 
-    verifyThat(globalGH, isVisible())
-    verifyThat(globalGH, hasChildren(model.plants.length, ""))
+  @Test def testButton(): Unit =
+    val startNewSimulationText = "Start a new simulation"
+    verifyThat(startNewSimulationButtonlId, isVisible)
+    verifyThat(startNewSimulationButtonlId, hasText(startNewSimulationText))
+//TODO verify button click with robot

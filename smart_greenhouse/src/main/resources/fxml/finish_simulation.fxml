@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+   <bottom>
+      <Button fx:id="startNewSimulationButton" mnemonicParsing="false" text="Button" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <Label fx:id="simulationEndedLabel" text="Label" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets bottom="20.0" top="20.0" />
+         </BorderPane.margin>
+      </Label>
+   </center>
+</BorderPane>

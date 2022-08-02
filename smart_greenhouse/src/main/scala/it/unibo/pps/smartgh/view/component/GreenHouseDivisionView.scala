@@ -21,19 +21,24 @@ trait GreenHouseDivisionView extends ViewComponent[VBox]:
 object GreenHouseDivisionView:
 
   /** Creates a new [[GreenHouseDivisionView]] component.
-   * @return
-   *   a new instance of [[GreenHouseDivisionView]]
-   */
-  def apply(): GreenHouseDivisionViewImpl = GreenHouseDivisionViewImpl().build()
+    * @return
+    *   a new instance of [[GreenHouseDivisionView]]
+    */
+  def apply(): GreenHouseDivisionView = GreenHouseDivisionViewImpl()
 
   /** Implementation of [[GreenHouseDivisionView]]. */
-  class GreenHouseDivisionViewImpl() extends AbstractViewComponent[VBox]("ghDivision.fxml") with GreenHouseDivisionView:
+  private class GreenHouseDivisionViewImpl()
+      extends AbstractViewComponent[VBox]("ghDivision.fxml")
+      with GreenHouseDivisionView:
     private val env = GridPane()
     private val controller: GreenHouseDivisionController = GreenHouseDivisionController()
     override val component: VBox = loader.load[VBox]
 
     @FXML
     var ghDivision: VBox = _
+
+    controller.view = this
+    controller.updateView()
 
     override def paintDivision(rows: Int, cols: Int, areas: List[(String, Boolean)]): Unit =
 
@@ -59,12 +64,18 @@ object GreenHouseDivisionView:
         area.setGraphic(params)
         val color = if areas(i)._2 then "#33cc33" else "#cc3333"
         area.style = "-fx-background-color: " + color
-        area.onMouseEntered = _ => area.graphic.get().asInstanceOf[VBox].getChildren.forEach(c =>
-          c.asInstanceOf[Label].setStyle("-fx-text-fill: #ffffff ; -fx-background-color: " + color)
-        )
-        area.onMouseExited = _ => area.graphic.get().asInstanceOf[VBox].getChildren.forEach(c =>
-          c.asInstanceOf[Label].setStyle("-fx-text-fill: #000000 ; -fx-background-color: " + color)
-        )
+        area.onMouseEntered = _ =>
+          area.graphic
+            .get()
+            .asInstanceOf[VBox]
+            .getChildren
+            .forEach(c => c.asInstanceOf[Label].setStyle("-fx-text-fill: #ffffff ; -fx-background-color: " + color))
+        area.onMouseExited = _ =>
+          area.graphic
+            .get()
+            .asInstanceOf[VBox]
+            .getChildren
+            .forEach(c => c.asInstanceOf[Label].setStyle("-fx-text-fill: #000000 ; -fx-background-color: " + color))
         area.onMouseClicked = _ =>
           controller.openArea(areas(i))
           paintDivision(rows, cols, areas.map(a => if a == areas(i) then (a._1, !a._2) else a))
@@ -82,11 +93,3 @@ object GreenHouseDivisionView:
 
       env.setHgap(5)
       env.setVgap(5)
-
-    def build(): GreenHouseDivisionViewImpl =
-      controller.view = this
-      controller.updateView()
-      this
-
-
-
