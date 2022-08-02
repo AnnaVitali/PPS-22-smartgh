@@ -34,7 +34,9 @@ object GreenHouse:
         if plants.length % i == 0
       yield (i, plants.length / i)
       //print(factors)
-      factors.foldLeft(factors.head)((f, acc) =>
-        if Math.abs(f._1 - f._2) <= Math.abs(acc._1 - acc._2) then (f._1, f._2)
-        else (acc._1, acc._2)
-      )
+      factors.foldLeft(factors.headOption)((f, acc) =>
+        f.fold(Some(0,0))((r, c) => 
+          if Math.abs(r - c) <= Math.abs(acc._1 - acc._2) then Some(r, c)
+          else Some(acc._1, acc._2)
+        )
+      ).getOrElse((0,0))

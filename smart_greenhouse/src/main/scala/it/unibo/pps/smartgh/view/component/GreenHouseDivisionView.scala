@@ -1,5 +1,6 @@
 package it.unibo.pps.smartgh.view.component
 
+import cats.syntax.eq.catsSyntaxEq
 import it.unibo.pps.smartgh.controller.GreenHouseDivisionController
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.application.Platform
@@ -40,6 +41,7 @@ object GreenHouseDivisionView:
     controller.view = this
     controller.updateView()
 
+
     override def paintDivision(rows: Int, cols: Int, areas: List[(String, Boolean)]): Unit =
 
       ghDivision.getChildren.clear()
@@ -78,7 +80,7 @@ object GreenHouseDivisionView:
             .forEach(c => c.asInstanceOf[Label].setStyle("-fx-text-fill: #000000 ; -fx-background-color: " + color))
         area.onMouseClicked = _ =>
           controller.openArea(areas(i))
-          paintDivision(rows, cols, areas.map(a => if a == areas(i) then (a._1, !a._2) else a))
+          paintDivision(rows, cols, areas.map(a => if a === areas(i) then (a._1, !a._2) else a))
 
         val label = Label()
         label.setText(areas(i)._1)

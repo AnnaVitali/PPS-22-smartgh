@@ -95,7 +95,7 @@ object SelectPlantView:
     override def updateDeselectedPlant(deselectedPlant: String): Unit =
       plantSelectedLabel = plantSelectedLabel.filter(!_.getText.equals(deselectedPlant))
       selectedPlantsBox.getChildren.removeIf(!plantSelectedLabel.contains(_))
-      decrementNumberPlantsselected()
+      decrementNumberPlantsSelected()
 
     private def addEventHandlerToCheckBoxes(checkBoxList: List[CheckBox]): Unit =
       checkBoxList.foreach(_.setOnAction { e =>
@@ -108,6 +108,6 @@ object SelectPlantView:
       plantsCount = plantsCount + 1
       numberPlantsSelectedLabel.setText(plantsCount)
 
-    private def decrementNumberPlantsselected(): Unit =
+    private def decrementNumberPlantsSelected(): Unit =
       plantsCount = plantsCount - 1
       numberPlantsSelectedLabel.setText(plantsCount)
