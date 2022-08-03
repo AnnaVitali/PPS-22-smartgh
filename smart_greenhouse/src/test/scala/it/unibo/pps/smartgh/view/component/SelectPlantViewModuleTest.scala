@@ -1,7 +1,13 @@
 package it.unibo.pps.smartgh.view.component
 
+import it.unibo.pps.smartgh.controller.PlantSelectorControllerModule
+import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule
 import it.unibo.pps.smartgh.model.city.CitiesSearcher
+import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.Model
+import it.unibo.pps.smartgh.controller.PlantSelectorControllerModule.Controller
+import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.View
 import it.unibo.pps.smartgh.model.plants.UploadPlants
+import it.unibo.pps.smartgh.mvc.MVCPlantSelector
 import it.unibo.pps.smartgh.view.SimulationView.{appSubtitle, appTitle}
 import it.unibo.pps.smartgh.view.component
 import javafx.scene.control.{CheckBox, Label}
@@ -23,29 +29,22 @@ import scalafx.scene.Scene
 
 @TestInstance(Lifecycle.PER_CLASS)
 @ExtendWith(Array(classOf[ApplicationExtension]))
-class SelectPlantViewTest extends AbstractViewTest:
+class SelectPlantViewModuleTest extends AbstractViewTest:
 
-  val selectYourPlantLabelId = "#selectYourPlantLabel"
-  val plantSelectedLabelId = "#plantsSelectedLabel"
-  val countLabelId = "#countLabel"
-  val numberPlantsSelectedId = "#numberPlantsSelectedLabel"
-  val selectablePlantsBoxId = "#selectablePlantsBox"
-  val selectedPlantBoxId = "#selectedPlantsBox"
-  private val path = System.getProperty("user.home") + "/pps/"
-  private val file = "plants.txt"
-  private val prologFile = "plants.pl"
-  private val uploader = UploadPlants
-  //private var plantSelector: PlantSelector = _
-
-  @BeforeAll
-  def setPrologFile(): Unit =
-    uploader.writePrologFile(path, file, prologFile)
-  //plantSelector = PlantSelector(path + prologFile)
+  private val selectYourPlantLabelId = "#selectYourPlantLabel"
+  private val plantSelectedLabelId = "#plantsSelectedLabel"
+  private val countLabelId = "#countLabel"
+  private val numberPlantsSelectedId = "#numberPlantsSelectedLabel"
+  private val selectablePlantsBoxId = "#selectablePlantsBox"
+  private val selectedPlantBoxId = "#selectedPlantsBox"
 
   @Start
   private def start(stage: Stage): Unit =
     val baseView: BaseView = BaseView(appTitle, appSubtitle)
-    startApplication(stage, baseView, SelectPlantView(null, baseView))
+    MVCPlantSelector.setupModel()
+    MVCPlantSelector.setupView(null, baseView)
+    MVCPlantSelector.setupController()
+    startApplication(stage, baseView, MVCPlantSelector.view)
 
   @Test def testLabelsSelectPlantAndPlantSelected(robot: FxRobot): Unit =
     val selectYourPlantsText = "Select your plants:"
@@ -65,14 +64,14 @@ class SelectPlantViewTest extends AbstractViewTest:
 
   @Test def testBeforePlantSelection(robot: FxRobot): Unit =
     val initialSelectedPlant = 0
-//    assert(
-//      robot
-//        .lookup(selectablePlantsBoxId)
-//        .queryAs(classOf[VBox])
-//        .getChildren
-//        .size == plantSelector.getAllAvailablePlants().length
-//    )
-//    assert(robot.lookup(selectedPlantBoxId).queryAs(classOf[VBox]).getChildren.size == initialSelectedPlant)
+    assert(
+      robot
+        .lookup(selectablePlantsBoxId)
+        .queryAs(classOf[VBox])
+        .getChildren
+        .size == MVCPlantSelector.model.getAllAvailablePlants().length
+    )
+    assert(robot.lookup(selectedPlantBoxId).queryAs(classOf[VBox]).getChildren.size == initialSelectedPlant)
 
   @Test def testAfterPlantSelection(robot: FxRobot): Unit =
     val plantIndex = 0
