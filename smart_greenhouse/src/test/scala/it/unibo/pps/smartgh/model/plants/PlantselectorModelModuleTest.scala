@@ -2,19 +2,15 @@ package it.unibo.pps.smartgh.model.plants
 
 import org.scalatest.BeforeAndAfter
 import alice.tuprolog.Theory
-import it.unibo.pps.smartgh.model.plants.PlantSelectorModel.Model
-import it.unibo.pps.smartgh.model.plants.PlantSelectorModel.PlantSelectorComponent
+import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.Model
+import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.Component
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 
 import java.util.NoSuchElementException
 
 /** This class contains the tests realized to verify that [[Model]] behaves correctly. */
-class PlantSelectorModelTest
-    extends AnyFunSuite
-    with Matchers
-    with BeforeAndAfter
-    with PlantSelectorModel.PlantSelectorInterface:
+class ModelTest extends AnyFunSuite with Matchers with BeforeAndAfter with PlantSelectorModelModule.Interface:
 
   private val PS = "Plant Selector"
   private val path = System.getProperty("user.home") + "/pps/"
