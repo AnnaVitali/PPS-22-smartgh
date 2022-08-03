@@ -51,7 +51,7 @@ object TimeController:
 
     private val model = TimeModel()
     override var view: GreenHouseGlobalView = _
-    private val timeInNanoseconds: (Double) => Double = (value: Double) =>
+    private val timeSpeed: (Double) => Double = (value: Double) =>
       (((value - 1) * (100000 - 1 * 10 ^ 9)) / (10 - 1)) + (1 * 10 ^ 9)
 
     model.controller = this
@@ -60,7 +60,7 @@ object TimeController:
 
     override def stopSimulationTimer(): Unit = model.stop()
 
-    override def updateVelocityTimer(speed: Double): Unit = model.setSpeed(timeInNanoseconds(speed) nanoseconds)
+    override def updateVelocityTimer(speed: Double): Unit = model.setSpeed(timeSpeed(speed) nanoseconds)
 
     override def update(time: String): Unit =
       view.setTimer(time)
