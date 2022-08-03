@@ -5,6 +5,7 @@ import it.unibo.pps.smartgh.view.component.GreenHouseGlobalView
 
 import scala.concurrent.duration.*
 import scala.language.postfixOps
+import scala.math.{exp, log, pow}
 
 /** A trait that represents the controller for the simulation timer. */
 trait TimeController:
@@ -51,8 +52,12 @@ object TimeController:
 
     private val model = TimeModel()
     override var view: GreenHouseGlobalView = _
-    private val timeSpeed: (Double) => Double = (value: Double) =>
-      (((value - 1) * (100000 - 1 * 10 ^ 9)) / (10 - 1)) + (1 * 10 ^ 9)
+    private val timeSpeed: Double => FiniteDuration = (x: Double) =>
+      val x0 = 1
+      val x1 = 10
+      val y0 = pow(10, 6)
+      val y1 = 50
+      exp(((x - x0) / (x1 - x0)) * (log(y1) - log(y0)) + log(y0)) microseconds
 
     model.controller = this
 
@@ -60,7 +65,7 @@ object TimeController:
 
     override def stopSimulationTimer(): Unit = model.stop()
 
-    override def updateVelocityTimer(speed: Double): Unit = model.setSpeed(timeSpeed(speed) nanoseconds)
+    override def updateVelocityTimer(speed: Double): Unit = model.setSpeed(timeSpeed(speed))
 
     override def update(time: String): Unit =
       view.setTimer(time)

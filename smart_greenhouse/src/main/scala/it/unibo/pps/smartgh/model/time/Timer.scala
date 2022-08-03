@@ -49,7 +49,7 @@ object Timer:
   def apply(duration: FiniteDuration): Timer = TimerImpl(duration)
 
   private class TimerImpl(duration: FiniteDuration) extends Timer:
-    var value: FiniteDuration = 0 seconds
+    var value: FiniteDuration = 1 second
     private var cancelable: Cancelable = _
     private var consumer: FiniteDuration => Unit = _
 
@@ -57,11 +57,11 @@ object Timer:
       consumer = t =>
         value = t
         task(t)
-      cancelable = timer(value, 1 seconds).runToFuture
+      cancelable = timer(value, 1 second).runToFuture
 
     override def changeTickPeriod(period: FiniteDuration): Unit =
       stop()
-      cancelable = timer(value + 1.seconds, period).runToFuture
+      cancelable = timer(value + 1.second, period).runToFuture
 
     override def stop(): Unit =
       cancelable.cancel()
