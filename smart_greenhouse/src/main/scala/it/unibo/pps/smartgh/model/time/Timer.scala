@@ -48,13 +48,15 @@ object Timer:
   def apply(duration: FiniteDuration): Timer = TimerImpl(duration)
 
   private class TimerImpl(duration: FiniteDuration) extends Timer:
-    private var value: FiniteDuration = 0 second
+    private var value: FiniteDuration = 1 second
     private var cancelable: Cancelable = _
     private var consumer: FiniteDuration => Unit = _
     private var onFinishTask: Option[Throwable] => Task[Unit] = _
 
     override def start(tickTask: FiniteDuration => Unit, finishTask: => Unit): Unit =
-      consumer = t => tickTask(t)
+      consumer = t =>
+        value = t
+        tickTask(t)
       onFinishTask = _ => Task(finishTask)
       cancelable = timer(value, 1 second).runToFuture
 
