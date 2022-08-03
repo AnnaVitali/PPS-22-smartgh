@@ -14,6 +14,7 @@ trait GreenHouseGlobalView extends ViewComponent[BorderPane]:
   type EnvironmentValues = Map[String, Any]
   def setEnvironmentValues(environmentValues: EnvironmentValues): Unit
   def setTimer(timerValue: String): Unit
+  def finishSimulation(): Unit
 
 object GreenHouseGlobalView:
 
@@ -48,6 +49,9 @@ object GreenHouseGlobalView:
 
     override def setTimer(timerValue: String): Unit =
       Platform.runLater(() => timeElapsedLabel.setText(timerValue))
+
+    override def finishSimulation(): Unit =
+      Platform.runLater(() => simulationView.changeView(FinishSimulationView(simulationView, baseView)))
 
     private def notifySpeedChange(value: Double): Unit =
       controller.updateVelocityTimer(value)

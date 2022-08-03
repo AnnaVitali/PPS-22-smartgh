@@ -39,6 +39,9 @@ trait TimeController:
     */
   def update(time: String): Unit
 
+  /** Method that is called when the simulation is finished. */
+  def finishSimulation(): Unit
+
 /** Object that can be used to create a new instance of [[TimeController]]. */
 object TimeController:
 
@@ -69,3 +72,5 @@ object TimeController:
 
     override def update(time: String): Unit =
       view.setTimer(time)
+
+    override def finishSimulation(): Unit = view.finishSimulation()
