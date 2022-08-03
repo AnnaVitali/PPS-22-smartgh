@@ -1,11 +1,11 @@
 package it.unibo.pps.smartgh.controller
 
 import it.unibo.pps.smartgh.model.plants.UploadPlants
-import it.unibo.pps.smartgh.model.plants.PlantSelectorModel
+import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule
 import it.unibo.pps.smartgh.view.component.SelectPlantViewModule
 
 /** A trait that represents the controller for the scene of plant selection. */
-object PlantSelectorController:
+object PlantSelectorControllerModule:
   trait Controller:
 
     /** Method that requires to the controller to configure the available plant that can be choosen by the user. */
@@ -24,8 +24,8 @@ object PlantSelectorController:
     def notifyDeselectedPlant(plantName: String): Unit
 
   trait Provider:
-    val controller: Controller
-  type Requirments = PlantSelectorModel.Provider with SelectPlantViewModule.Provider
+    var controller: Controller
+  type Requirments = PlantSelectorModelModule.Provider with SelectPlantViewModule.Provider
   trait Component:
     context: Requirments =>
     class PlantSelectorControllerImpl extends Controller:
@@ -36,15 +36,16 @@ object PlantSelectorController:
       private val uploader = UploadPlants
       uploader.writePrologFile(path, file, prologFile)
 
-      override def configureAvailablePlants(): Unit = ???
-      context.view.showSelectablePlants(context.model.getAllAvailablePlants())
+      override def configureAvailablePlants(): Unit =
+        context.view.showSelectablePlants(context.model.getAllAvailablePlants())
 
-      override def notifySelectedPlant(plantName: String): Unit = ???
-      context.model.selectPlant(plantName)
-      context.view.updateSelectedPlant(plantName)
+      override def notifySelectedPlant(plantName: String): Unit =
+        context.model.selectPlant(plantName)
+        context.view.updateSelectedPlant(plantName)
 
-      override def notifyDeselectedPlant(plantName: String): Unit = ???
-      context.model.deselectPlant(plantName)
-      context.view.updateDeselectedPlant(plantName)
+      override def notifyDeselectedPlant(plantName: String): Unit =
+        context.model.deselectPlant(plantName)
+        context.view.updateDeselectedPlant(plantName)
 
-  trait Interface extends Provider with Component
+  trait Interface extends Provider with Component:
+    self: Requirments =>
