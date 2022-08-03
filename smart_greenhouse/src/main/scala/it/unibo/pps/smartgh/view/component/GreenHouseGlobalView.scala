@@ -5,8 +5,8 @@ import it.unibo.pps.smartgh.view.SimulationView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.scene.control.*
 import javafx.scene.layout.BorderPane
+import javafx.application.Platform
 import scala.concurrent.duration.*
-import scala.language.postfixOps
 
 trait GreenHouseGlobalView extends ViewComponent[BorderPane]:
 
@@ -47,7 +47,7 @@ object GreenHouseGlobalView:
     override def setEnvironmentValues(environmentValues: EnvironmentValues): Unit = ???
 
     override def setTimer(timerValue: String): Unit =
-      timeElapsedLabel.setText(timerValue)
+      Platform.runLater(() => timeElapsedLabel.setText(timerValue))
 
     private def notifySpeedChange(value: Double): Unit =
-      controller.updateVelocityTimer(value milliseconds)
+      controller.updateVelocityTimer(value)
