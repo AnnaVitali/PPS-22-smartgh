@@ -5,15 +5,38 @@ import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.scene.control.*
 import javafx.scene.layout.BorderPane
 
+/** A trait that represents the global greenhouse's view of the application. */
 trait GreenHouseGlobalView extends ViewComponent[BorderPane]:
 
+
+  /** View component where it will be possible visualizing the division into areas */
   val greenHouseDivisionView: GreenHouseDivisionView
+
   type EnvironmentValues = Map[String, Any]
+
+  /** Method to update the view of environment's values
+    * @param environmentValues
+    *   environment's values relating to the city selected by the user
+    */
   def setEnvironmentValues(environmentValues: EnvironmentValues): Unit
+
+  /** Method to update the view of elapsed simulation time
+    * @param timerValue
+    *   current value of the simulation timer
+    */
   def setTimer(timerValue: String): Unit
 
+/** Object that can be used to create new instances of [[GreenHouseGlobalView]]. */
 object GreenHouseGlobalView:
 
+  /** Creates a new [[GreenHouseGlobalView]] component.
+    * @param simulationView
+    *   the [[SimulationView]] of the application
+    * @param baseView
+    *   the [[BaseView]] component
+    * @return
+    *   a new instance of [[GreenHouseGlobalView]]
+    */
   def apply(simulationView: SimulationView, baseView: BaseView): GreenHouseGlobalView =
     GreenHouseGlobalViewImpl(simulationView, baseView)
 
