@@ -10,7 +10,11 @@ import org.scalatest.matchers.should.Matchers
 import java.util.NoSuchElementException
 
 /** This class contains the tests realized to verify that [[Model]] behaves correctly. */
-class ModelTest extends AnyFunSuite with Matchers with BeforeAndAfter with PlantSelectorModelModule.Interface:
+class PlantselectorModelModuleTest
+    extends AnyFunSuite
+    with Matchers
+    with BeforeAndAfter
+    with PlantSelectorModelModule.Interface:
 
   private val PS = "Plant Selector"
   private val path = System.getProperty("user.home") + "/pps/"
@@ -18,7 +22,7 @@ class ModelTest extends AnyFunSuite with Matchers with BeforeAndAfter with Plant
   private val prologFile = "plants.pl"
   private val uploader = UploadPlants
   uploader.writePrologFile(path, file, prologFile)
-  override val model: Model = new PlantSelectorModelImpl(path + prologFile)
+  override var model = new PlantSelectorModelImpl(path + prologFile)
 
   test(s"$PS should show all the possibile plants that can be cultivated") {
     model.getAllAvailablePlants().size should be > 0
