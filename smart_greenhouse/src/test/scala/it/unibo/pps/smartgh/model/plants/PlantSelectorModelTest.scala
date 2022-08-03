@@ -10,7 +10,7 @@ import org.scalatest.matchers.should.Matchers
 import java.util.NoSuchElementException
 
 /** This class contains the tests realized to verify that [[Model]] behaves correctly. */
-class ModelModelTest
+class PlantSelectorModelTest
     extends AnyFunSuite
     with Matchers
     with BeforeAndAfter
@@ -21,30 +21,26 @@ class ModelModelTest
   private val file = "plants.txt"
   private val prologFile = "plants.pl"
   private val uploader = UploadPlants
-  override var model: Model = _
-
-  before {
-    uploader.writePrologFile(path, file, prologFile)
-    model = new PlantSelectorModelImpl(path + prologFile)
-  }
+  uploader.writePrologFile(path, file, prologFile)
+  override val model: Model = new PlantSelectorModelImpl(path + prologFile)
 
   test(s"$PS should show all the possibile plants that can be cultivated") {
-    plantSelector.getAllAvailablePlants().size should be > 0
+    model.getAllAvailablePlants().size should be > 0
   }
 
   test(s"$PS should mantain the selected plants name") {
     val plantIndex = 0
-    val selectedPlant = plantSelector.getAllAvailablePlants()(plantIndex)
-    plantSelector.selectPlant(selectedPlant)
-    plantSelector.getPlantsSelectedName()(plantIndex) shouldEqual selectedPlant
+    val selectedPlant = model.getAllAvailablePlants()(plantIndex)
+    model.selectPlant(selectedPlant)
+    model.getPlantsSelectedName()(plantIndex) shouldEqual selectedPlant
   }
 
   test(s"$PS should allow the deselection of a plant") {
     val plantIndex = 0
-    val selectedPlant = plantSelector.getAllAvailablePlants()(plantIndex)
-    plantSelector.selectPlant(selectedPlant)
-    plantSelector.deselectPlant(selectedPlant)
-    plantSelector.getPlantsSelectedName().size shouldEqual 0
+    val selectedPlant = model.getAllAvailablePlants()(plantIndex)
+    model.selectPlant(selectedPlant)
+    model.deselectPlant(selectedPlant)
+    model.getPlantsSelectedName().size shouldEqual 0
   }
 
   test(
@@ -52,15 +48,15 @@ class ModelModelTest
       "NoSuchElementException"
   ) {
     val plantIndex = 0
-    val notSelectedPlant = plantSelector.getAllAvailablePlants()(plantIndex)
+    val notSelectedPlant = model.getAllAvailablePlants()(plantIndex)
     assertThrows[NoSuchElementException] {
-      plantSelector.deselectPlant(notSelectedPlant)
+      model.deselectPlant(notSelectedPlant)
     }
   }
 
   test(s"$PS should mantain the selected plants identifier") {
     val plantIndex = 0
-    val selectedPlant = plantSelector.getAllAvailablePlants()(plantIndex)
-    plantSelector.selectPlant(selectedPlant)
-    plantSelector.getPlantsSelectedIdentifier().size shouldEqual plantSelector.getPlantsSelectedName().size
+    val selectedPlant = model.getAllAvailablePlants()(plantIndex)
+    model.selectPlant(selectedPlant)
+    model.getPlantsSelectedIdentifier().size shouldEqual model.getPlantsSelectedName().size
   }
