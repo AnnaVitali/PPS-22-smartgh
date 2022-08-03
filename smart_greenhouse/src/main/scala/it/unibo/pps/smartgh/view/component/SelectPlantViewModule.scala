@@ -1,7 +1,6 @@
 package it.unibo.pps.smartgh.view.component
 
-import it.unibo.pps.smartgh.controller.PlantSelectorController
-//import it.unibo.pps.smartgh.model.plants.PlantSelector
+import it.unibo.pps.smartgh.controller.PlantSelectorControllerModule
 import it.unibo.pps.smartgh.view.SimulationView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.event.{ActionEvent, EventHandler}
@@ -10,10 +9,11 @@ import javafx.scene.layout.{HBox, VBox}
 import javafx.scene.control.{CheckBox, Label}
 import javafx.scene.layout.BorderPane
 import cats.syntax.eq.catsSyntaxEq
+import it.unibo.pps.smartgh.model.plants.{PlantSelectorModelModule, UploadPlants}
 
 import scala.jdk.javaapi.CollectionConverters.asJavaCollection
 
-object SelectPlantView:
+object SelectPlantViewModule:
   /** A trait that represents the select plants scene of the application. */
   trait View extends ViewComponent[BorderPane]:
 
@@ -36,12 +36,12 @@ object SelectPlantView:
     def updateDeselectedPlant(deselectedPlant: String): Unit
 
   trait Provider:
-    val view: View
-  type Requirments = PlantSelectorController.Provider
+    var view: View
+  type Requirments = PlantSelectorControllerModule.Provider
 
   trait Component:
     context: Requirments =>
-    class SelectPlantsViewImpl(private val simulationView: SimulationView, private val baseView: BaseView)
+    class SelectPlantViewImpl(private val simulationView: SimulationView, private val baseView: BaseView)
         extends AbstractViewComponent[BorderPane]("select_plants.fxml")
         with View:
 
@@ -76,7 +76,7 @@ object SelectPlantView:
       plantsSelectedLabel.setText(plantsSelectedText)
       countLabel.setText(countText)
       numberPlantsSelectedLabel.setText(plantsCount)
-      context.controller.configureAvailablePlants()
+
       baseView.changeSceneButton.setText("Start simulation")
       baseView.changeSceneButton.setOnMouseClicked { _ =>
         //todo
@@ -114,4 +114,5 @@ object SelectPlantView:
         plantsCount = plantsCount - 1
         numberPlantsSelectedLabel.setText(plantsCount)
 
-  trait Interface extends Provider with Component
+  trait Interface extends Provider with Component:
+    self: Requirments =>

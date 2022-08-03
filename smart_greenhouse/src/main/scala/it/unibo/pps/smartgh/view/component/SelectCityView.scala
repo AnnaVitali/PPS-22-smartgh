@@ -61,9 +61,8 @@ object SelectCityView:
     baseView.changeSceneButton.setOnMouseClicked { _ =>
       val selectedCity = selectCityTextField.getText.capitalize
       if selectedCity.isBlank then setErrorText("Please select a city")
-      else if controller.containCity(selectedCity) then
-        controller.saveCity(selectedCity)
-        simulationView.changeView(SelectPlantView(simulationView, baseView))
+      else if controller.containCity(selectedCity) then controller.saveCity(selectedCity)
+      //simulationView.changeView(SelectPlantViewModule(simulationView, baseView))
       else setErrorText("The selected city is not valid")
     }
 
