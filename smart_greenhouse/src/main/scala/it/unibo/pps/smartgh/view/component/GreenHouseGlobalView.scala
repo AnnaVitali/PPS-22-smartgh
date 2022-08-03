@@ -7,7 +7,7 @@ import javafx.scene.layout.BorderPane
 
 trait GreenHouseGlobalView extends ViewComponent[BorderPane]:
 
-  val greenHouseDivisionView: GreenHouseDivisionView
+  //val greenHouseDivisionView: GreenHouseDivisionView
   type EnvironmentValues = Map[String, Any]
   def setEnvironmentValues(environmentValues: EnvironmentValues): Unit
   def setTimer(timerValue: String): Unit
@@ -22,9 +22,9 @@ object GreenHouseGlobalView:
       with GreenHouseGlobalView:
 
     override val component: BorderPane = loader.load[BorderPane]
-
-    override val greenHouseDivisionView: GreenHouseDivisionView = GreenHouseDivisionView()
-    component.setCenter(greenHouseDivisionView)
+  
+    //override val greenHouseDivisionView: GreenHouseDivisionView = GreenHouseDivisionView()
+    //component.setCenter(greenHouseDivisionView)
 
     val timeElapsedLabel: Label = component.lookup("#timeElapsedLabel").asInstanceOf[Label]
 

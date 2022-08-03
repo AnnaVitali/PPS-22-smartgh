@@ -41,7 +41,8 @@ object SimulationView:
     stage.resizable = true
     stage.maximized = true
     stage.title = appTitle
-    baseView.component.setCenter(SelectCityView(this, baseView)) //init view
+    import it.unibo.pps.smartgh.mvc.GreenHouseDivisionMVC
+    baseView.component.setCenter(GreenHouseDivisionMVC.view/*SelectCityView(this, baseView)*/) //init view
     scene.root.value = baseView
     stage.scene = scene
     stage.show()
