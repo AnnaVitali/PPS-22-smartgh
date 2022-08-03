@@ -5,8 +5,10 @@ import org.json4s.jackson.JsonMethods.*
 import requests.*
 import cats.syntax.eq.catsSyntaxEq
 
+/** This trait exposes methods for managing a selected plant, it represents its model. */
 trait Plant:
 
+  /** Data structure that will contains plant's optimal values. */
   type OptimalValues = Map[String, Any]
 
   /** @return plant's name */
@@ -24,7 +26,15 @@ trait Plant:
   /** @return plant's description */
   def description: String
 
+/** Object that can be use for managing a selected plant, it represents its model. */
 object Plant:
+
+  /** Creates a new [[Plant]] object.
+    * @param name
+    *   the plant's name.
+    * @return
+    *   the plant's id.
+    */
   def apply(name: String, id: String): Plant = PlantImpl(name, id)
 
   private class PlantImpl(override val name: String, override val id: String) extends Plant:
