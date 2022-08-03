@@ -2,24 +2,30 @@ package it.unibo.pps.smartgh.model.plants
 
 import org.scalatest.BeforeAndAfter
 import alice.tuprolog.Theory
+import it.unibo.pps.smartgh.model.plants.PlantSelectorModel.Model
+import it.unibo.pps.smartgh.model.plants.PlantSelectorModel.PlantSelectorComponent
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 
 import java.util.NoSuchElementException
 
-/** This class contains the tests realized to verify that [[PlantSelector]] behaves correctly. */
-class PlantSelectorTest extends AnyFunSuite with Matchers with BeforeAndAfter:
+/** This class contains the tests realized to verify that [[Model]] behaves correctly. */
+class ModelModelTest
+    extends AnyFunSuite
+    with Matchers
+    with BeforeAndAfter
+    with PlantSelectorModel.PlantSelectorInterface:
 
   private val PS = "Plant Selector"
   private val path = System.getProperty("user.home") + "/pps/"
   private val file = "plants.txt"
   private val prologFile = "plants.pl"
   private val uploader = UploadPlants
-  private var plantSelector: PlantSelector = _
+  override var model: Model = _
 
   before {
     uploader.writePrologFile(path, file, prologFile)
-    plantSelector = PlantSelector(path + prologFile)
+    model = new PlantSelectorModelImpl(path + prologFile)
   }
 
   test(s"$PS should show all the possibile plants that can be cultivated") {
