@@ -1,5 +1,6 @@
 package it.unibo.pps.smartgh.model.time
 
+import it.unibo.pps.smartgh.controller.TimeController
 import org.apache.commons.lang3.time.DurationFormatUtils
 
 import java.lang.module.FindException
@@ -11,8 +12,6 @@ trait TimeModel:
   def start(): Unit
   def setSpeed(speed: FiniteDuration): Unit
   def stop(): Unit
-
-  type TimeController = Any
 
   def controller: TimeController
   def controller_=(controller: TimeController): Unit
@@ -38,5 +37,4 @@ object TimeModel:
 
     private def updateTime(t: FiniteDuration): Unit =
       val time: String = DurationFormatUtils.formatDuration(t.toMillis, "HH:mm:ss", true)
-      //todo: controller.updateTime(time)
-      ???
+      controller.update(time)

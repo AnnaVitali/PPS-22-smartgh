@@ -1,9 +1,12 @@
 package it.unibo.pps.smartgh.view.component
 
+import it.unibo.pps.smartgh.controller.TimeController
 import it.unibo.pps.smartgh.view.SimulationView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.scene.control.*
 import javafx.scene.layout.BorderPane
+import scala.concurrent.duration.*
+import scala.language.postfixOps
 
 trait GreenHouseGlobalView extends ViewComponent[BorderPane]:
 
@@ -26,11 +29,15 @@ object GreenHouseGlobalView:
     override val greenHouseDivisionView: GreenHouseDivisionView = GreenHouseDivisionView()
     component.setCenter(greenHouseDivisionView)
 
+    val controller: TimeController = TimeController()
+
     val timeElapsedLabel: Label = component.lookup("#timeElapsedLabel").asInstanceOf[Label]
 
     val speedSlider: Slider = component.lookup("#timeSpeedSlider").asInstanceOf[Slider]
-    speedSlider.setOnMouseReleased(_ => notifySpeedChange(speedSlider.getValue))
 
+    controller.view = this
+    controller.startSimulationTimer()
+    speedSlider.setOnMouseReleased(_ => notifySpeedChange(speedSlider.getValue))
     baseView.changeSceneButton.setText("Stop simulation")
     baseView.changeSceneButton.setOnMouseClicked { _ =>
       //todo
@@ -43,5 +50,4 @@ object GreenHouseGlobalView:
       timeElapsedLabel.setText(timerValue)
 
     private def notifySpeedChange(value: Double): Unit =
-      // todo: richiamare metodo changeSpeed di TimeModel
-      ???
+      controller.updateVelocityTimer(value milliseconds)
