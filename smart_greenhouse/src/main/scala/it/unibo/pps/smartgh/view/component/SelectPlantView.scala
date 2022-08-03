@@ -15,21 +15,22 @@ import scala.jdk.javaapi.CollectionConverters.asJavaCollection
 
 /** A trait that represents the select plants scene of the application. */
 trait SelectPlantView extends ViewComponent[BorderPane]:
-  /** Method that shows the plant that can be selected
+
+  /** Method that shows the plant that can be selected.
     * @param selectablePlantList
-    *   the [[List]] of selectable plants name
+    *   the [[List]] of selectable plants name.
     */
   def showSelectablePlants(selectablePlantList: List[String]): Unit
 
-  /** * Method to update the view of the selected plants
+  /** * Method to update the view of the selected plants.
     * @param selectedPlant
-    *   the plant that has been selected by the user
+    *   the plant that has been selected by the user.
     */
   def updateSelectedPlant(selectedPlant: String): Unit
 
-  /** Method to update the view of the selected plants
+  /** Method to update the view of the selected plants.
     * @param deselectedPlant
-    *   the plant that has ben deselected by the user
+    *   the plant that has ben deselected by the user.
     */
   def updateDeselectedPlant(deselectedPlant: String): Unit
 
@@ -38,11 +39,11 @@ object SelectPlantView:
 
   /** Creates a new [[SelectPlantView]] component.
     * @param simulationView
-    *   the [[SimulationView]] of the application
+    *   the [[SimulationView]] of the application.
     * @param baseView
-    *   the [[BaseView]] component
+    *   the [[BaseView]] component.
     * @return
-    *   a new instance of [[SelectPlantView]]
+    *   a new instance of [[SelectPlantView]].
     */
   def apply(simulationView: SimulationView, baseView: BaseView): SelectPlantView =
     SelectPlantsViewImpl(simulationView, baseView)

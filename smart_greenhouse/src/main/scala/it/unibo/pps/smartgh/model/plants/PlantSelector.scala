@@ -54,7 +54,7 @@ object PlantSelector:
     import it.unibo.pps.smartgh.prolog.Scala2P.{*, given}
     private val prologFile = Using(Source.fromFile(fileName, enc = "UTF8")) {
       _.mkString
-    }.get
+    }.getOrElse("")
     private val engine = prologEngine(
       Theory.parseLazilyWithStandardOperators(prologFile)
     )

@@ -15,11 +15,11 @@ object FinishSimulationView:
 
   /** Create a new [[FinishSimulationView]] component.
     * @param simulationView
-    *   the [[SimulationView]] of the application
+    *   the [[SimulationView]] of the application.
     * @param baseView
-    *   the [[BaseView]] component
+    *   the [[BaseView]] component.
     * @return
-    *   a new instance of [[FinishSimulationView]]
+    *   a new instance of [[FinishSimulationView]].
     */
   def apply(simulationView: SimulationView, baseView: BaseView): FinishSimulationView =
     FinishSimulationViewImpl(simulationView, baseView)
