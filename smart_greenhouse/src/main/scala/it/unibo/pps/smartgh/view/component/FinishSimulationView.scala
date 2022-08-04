@@ -1,6 +1,6 @@
 package it.unibo.pps.smartgh.view.component
 
-import it.unibo.pps.smartgh.mvc.MVCCitySearcher
+import it.unibo.pps.smartgh.mvc.SelectCityMVC
 import it.unibo.pps.smartgh.view.SimulationView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.fxml.FXML
@@ -44,5 +44,5 @@ object FinishSimulationView:
     baseView.changeSceneButton.setText("Start a new simulation")
     baseView.changeSceneButton.setOnMouseClicked { _ =>
       //todo
-      simulationView.changeView(MVCCitySearcher(simulationView, baseView).citySearcherView)
+      simulationView.changeView(SelectCityMVC(simulationView, baseView).selectCityView)
     }

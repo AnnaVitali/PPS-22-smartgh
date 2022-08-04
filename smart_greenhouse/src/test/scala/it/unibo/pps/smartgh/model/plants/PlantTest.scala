@@ -50,7 +50,7 @@ class PlantTest extends AnyFunSuite with Matchers:
         "which has both culinary and cleaning uses. The pulp and rind are also used in cooking and baking. " +
         "The juice of the lemon is about 5% to 6% citric acid, with a pH of around 2.2, giving it a sour taste. " +
         "The distinctive sour taste of lemon juice makes it a key ingredient in drinks and foods such as lemonade and lemon meringue pie."
-    plant.description shouldEqual description
+    plant.description contains description
   }
 
   test("the icon of a plant that doesn't exist should be equal to default image") {

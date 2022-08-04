@@ -1,12 +1,12 @@
 package it.unibo.pps.smartgh.controller
 
-import it.unibo.pps.smartgh.controller.CitySearcherControllerModule.{CitySearcherController, Component}
+import it.unibo.pps.smartgh.controller.SelectCityControllerModule.{SelectCityController, Component}
 import it.unibo.pps.smartgh.model.city.*
-import it.unibo.pps.smartgh.model.city.CitySearcherModelModule.CitySearcherModel
-import it.unibo.pps.smartgh.mvc.MVCCitySearcher
-import it.unibo.pps.smartgh.mvc.MVCCitySearcher.MVCCitySearcherImpl
-import it.unibo.pps.smartgh.view.component.{AbstractViewTest, BaseView, CitySearcherViewModule}
-import it.unibo.pps.smartgh.view.component.CitySearcherViewModule.CitySearcherView
+import it.unibo.pps.smartgh.model.city.SelectCityModelModule.SelectCityModel
+import it.unibo.pps.smartgh.mvc.SelectCityMVC
+import it.unibo.pps.smartgh.mvc.SelectCityMVC.SelectCityMVCImpl
+import it.unibo.pps.smartgh.view.component.{AbstractViewTest, BaseView, SelectCityViewModule}
+import it.unibo.pps.smartgh.view.component.SelectCityViewModule.SelectCityView
 import javafx.stage.Stage
 import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.api.TestInstance.Lifecycle
@@ -23,16 +23,16 @@ class CityControllerTest
     extends AnyFunSuite
     with Matchers
     with BeforeAndAfter
-    with CitySearcherControllerModule.Interface
-    with CitySearcherViewModule.Interface
-    with CitySearcherModelModule.Interface:
+    with SelectCityControllerModule.Interface
+    with SelectCityViewModule.Interface
+    with SelectCityModelModule.Interface:
 
-  override val citySearcherController: CitySearcherController = CitySearcherControllerImpl()
-  override val citySearcherModel: CitySearcherModel = null
-  override val citySearcherView: CitySearcherView = null
+  override val selectCityController: SelectCityController = SelectCityControllerImpl()
+  override val selectCityModel: SelectCityModel = null
+  override val selectCityView: SelectCityView = null
 
   val city: City = City("Rome")
 
   test("selecting Rome as city must create a Rome city object") {
-    citySearcherController.saveCity("Rome") === city
+    selectCityController.saveCity("Rome") === city
   }

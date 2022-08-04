@@ -1,8 +1,9 @@
 package it.unibo.pps.smartgh.view.component
 
-import it.unibo.pps.smartgh.mvc.MVCCitySearcher
+import it.unibo.pps.smartgh.mvc.SelectCityMVC
 import it.unibo.pps.smartgh.view.SimulationView
-import it.unibo.pps.smartgh.view.component.CitySearcherViewModule.CitySearcherView
+import it.unibo.pps.smartgh.view.component.SelectCityViewModule
+import it.unibo.pps.smartgh.view.component.SelectCityViewModule.SelectCityView
 import javafx.scene.control.TextField
 import javafx.scene.layout.{BorderPane, VBox}
 import javafx.stage.Stage
@@ -18,12 +19,12 @@ import org.testfx.matcher.control.{LabeledMatchers, TextInputControlMatchers}
 import org.testfx.util.WaitForAsyncUtils
 import scalafx.scene.Scene
 
-/** This class contains the tests to verify that the [[SelectCityView]] work correctly. */
+/** This class contains the tests to verify that the [[SelectCityViewModule]] work correctly. */
 @TestInstance(Lifecycle.PER_CLASS)
 @ExtendWith(Array(classOf[ApplicationExtension]))
-class CitySearcherViewModuleTest extends AbstractViewTest:
+class SelectCityViewModuleTest extends AbstractViewTest:
 
-  private var citySearcherView: CitySearcherView = _
+  private var selectCityView: SelectCityView = _
   private val textFieldId = "#selectCityTextField"
   private val nextButtonId = "#changeSceneButton"
   private val errorLabel = "#errorLabel"
@@ -31,8 +32,8 @@ class CitySearcherViewModuleTest extends AbstractViewTest:
   @Start
   private def start(stage: Stage): Unit =
     val baseView: BaseView = BaseView(appTitle, appSubtitle)
-    citySearcherView = MVCCitySearcher(null, baseView).citySearcherView
-    startApplication(stage, baseView, citySearcherView)
+    selectCityView = SelectCityMVC(null, baseView).selectCityView
+    startApplication(stage, baseView, selectCityView)
 
   @Test
   def testTextField(robot: FxRobot): Unit =
@@ -45,7 +46,7 @@ class CitySearcherViewModuleTest extends AbstractViewTest:
     robot.clickOn(textFieldId)
     robot.write(char)
     verifyThat(textFieldId, TextInputControlMatchers.hasText(char))
-    citySearcherView.autoCompletionBinding.getAutoCompletionPopup.getSuggestions.forEach(city =>
+    selectCityView.autoCompletionBinding.getAutoCompletionPopup.getSuggestions.forEach(city =>
       assertTrue(city.startsWith(char))
     )
 

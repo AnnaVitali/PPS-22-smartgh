@@ -1,16 +1,16 @@
 package it.unibo.pps.smartgh.controller
 
 import it.unibo.pps.smartgh.model.city.City
-import it.unibo.pps.smartgh.model.city.CitySearcherModelModule
-import it.unibo.pps.smartgh.model.city.CitySearcherModelModule.CitySearcherModel
-import it.unibo.pps.smartgh.view.component.CitySearcherViewModule
-import it.unibo.pps.smartgh.view.component.CitySearcherViewModule.CitySearcherView
+import it.unibo.pps.smartgh.model.city.SelectCityModelModule
+import it.unibo.pps.smartgh.model.city.SelectCityModelModule.SelectCityModel
+import it.unibo.pps.smartgh.view.component.SelectCityViewModule
+import it.unibo.pps.smartgh.view.component.SelectCityViewModule.SelectCityView
 
-/** Object that can be used to create a new instances of [[CityController]]. */
-object CitySearcherControllerModule:
+/** Object that encloses the controller module for the city selection. */
+object SelectCityControllerModule:
 
-  /** This trait exposes methods for managing the selected city, represents its controller. */
-  trait CitySearcherController:
+  /** A trait that represents the controller for the scene of city selection. */
+  trait SelectCityController:
 
     /** Save the selected city and change.
       * @param name
@@ -42,21 +42,28 @@ object CitySearcherControllerModule:
       */
     def containCity(city: String): Boolean
 
+  /** Trait that represents the provider of the controller for the city selection. */
   trait Provider:
-    val citySearcherController: CitySearcherController
+    /** The controller of city selection */
+    val selectCityController: SelectCityController
 
-  type Requirements = CitySearcherViewModule.Provider with CitySearcherModelModule.Provider
+  /** The controller requirements. */
+  type Requirements = SelectCityViewModule.Provider with SelectCityModelModule.Provider
 
+  /** Trait that represents the components of the controller for the city selection. */
   trait Component:
     context: Requirements =>
-    class CitySearcherControllerImpl extends CitySearcherController:
-      var view: CitySearcherView = context.citySearcherView
-      val model: CitySearcherModel = context.citySearcherModel
+
+    /** Class that contains the [[SelectCityController]] implementation. */
+    class SelectCityControllerImpl extends SelectCityController:
+      var view: SelectCityView = context.selectCityView
+      val model: SelectCityModel = context.selectCityModel
 
       override def saveCity(name: String): City = City(name)
       override def getAllCities: Seq[String] = model.getAllCities
       override def searchCities(charSequence: Seq[Char]): Seq[String] = model.searchCities(charSequence)
       override def containCity(city: String): Boolean = model.containCity(city)
 
+  /** Trait that encloses the controller for the city selection. */
   trait Interface extends Provider with Component:
     self: Requirements =>

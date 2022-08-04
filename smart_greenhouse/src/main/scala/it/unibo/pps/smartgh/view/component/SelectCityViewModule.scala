@@ -1,7 +1,7 @@
 package it.unibo.pps.smartgh.view.component
 
-import it.unibo.pps.smartgh.controller.CitySearcherControllerModule
-import it.unibo.pps.smartgh.controller.CitySearcherControllerModule.CitySearcherController
+import it.unibo.pps.smartgh.controller.SelectCityControllerModule
+import it.unibo.pps.smartgh.controller.SelectCityControllerModule.SelectCityController
 import it.unibo.pps.smartgh.view.SimulationView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.fxml.FXML
@@ -13,26 +13,40 @@ import javafx.application.Platform
 import java.util
 import scala.jdk.javaapi.CollectionConverters.*
 
-/** Object that can be used to create new instances of [[SelectCityView]]. */
-object CitySearcherViewModule:
+/** Object that encloses the view module for the city selection. */
+object SelectCityViewModule:
 
-  /** A trait that represents the select city view of the application. */
-  trait CitySearcherView extends ViewComponent[BorderPane]:
+  /** A trait that represents the select city scene of the application. */
+  trait SelectCityView extends ViewComponent[BorderPane]:
+
+    /** The [[AutoCompletionBinding]] component. */
     def autoCompletionBinding: AutoCompletionBinding[String]
 
+  /** Trait that represents the provider of the view for the city selection. */
   trait Provider:
-    val citySearcherView: CitySearcherView
 
-  type Requirements = CitySearcherControllerModule.Provider
+    /** The view of select city. */
+    val selectCityView: SelectCityView
 
+  /** The view requirements. */
+  type Requirements = SelectCityControllerModule.Provider
+
+  /** Trait that represents the components of the view for the city selection. */
   trait Component:
     context: Requirements =>
-    class CitySearcherViewViewImpl(private val simulationView: SimulationView, private val baseView: BaseView)
+
+    /** Class that contains the [[SelectCityView]] implementation.
+      * @param simulationView
+      *   the root view of the application.
+      * @param baseView
+      *   the view in which the [[SelectPlantView]] is enclosed.
+      */
+    class SelectCityViewViewImpl(private val simulationView: SimulationView, private val baseView: BaseView)
         extends AbstractViewComponent[BorderPane]("select_city.fxml")
-        with CitySearcherView:
+        with SelectCityView:
 
       override val component: BorderPane = loader.load[BorderPane]
-      private val controller: CitySearcherController = context.citySearcherController
+      private val controller: SelectCityController = context.selectCityController
       var autoCompletionBinding: AutoCompletionBinding[String] = _
 
       @FXML
@@ -65,5 +79,6 @@ object CitySearcherViewModule:
       private def setErrorText(text: String): Unit =
         Platform.runLater(() => errorLabel.setText(text))
 
+  /** Trait that encloses the view for the city selection. */
   trait Interface extends Provider with Component:
     self: Requirements =>

@@ -5,10 +5,11 @@ import alice.tuprolog.{Prolog, SolveInfo, Struct, Term, Theory}
 import scala.io.{Codec, Source}
 import scala.util.Using
 
-object CitySearcherModelModule:
+/** Object that encloses the model module for the city selection. */
+object SelectCityModelModule:
 
   /** A trait exposing methods for managing city searches. */
-  trait CitySearcherModel:
+  trait SelectCityModel:
 
     /** Retrieves all cities.
       * @return
@@ -32,13 +33,21 @@ object CitySearcherModelModule:
       */
     def containCity(city: String): Boolean
 
+  /** Trait that represents the provider of the model for the city selection. */
   trait Provider:
-    val citySearcherModel: CitySearcherModel
+    /** The model of selectCity. */
+    val selectCityModel: SelectCityModel
 
+  /** Trait that represents the components of the model for the city selection. */
   trait Component:
-    class CitySearcherModelImpl(fileName: String) extends CitySearcherModel:
+
+    /** Class that contains the [[SelectCityModel]] implementation.
+      * @param citiesFilePath
+      *   the cities file path
+      */
+    class SelectCityModelImpl(citiesFilePath: String) extends SelectCityModel:
       import it.unibo.pps.smartgh.prolog.Scala2P.{*, given}
-      private val prologFile = Using(Source.fromFile(fileName, enc = "UTF8"))(_.mkString).getOrElse("")
+      private val prologFile = Using(Source.fromFile(citiesFilePath, enc = "UTF8"))(_.mkString).getOrElse("")
       private val engine = prologEngine(Theory.parseLazilyWithStandardOperators(prologFile))
       private val cities = engine("citta(X)").map(extractTerm).toSeq
 
@@ -51,4 +60,5 @@ object CitySearcherModelModule:
 
       private def extractTerm(solveInfo: SolveInfo) = extractTermToString(solveInfo, "X").replace("'", "")
 
+  /** Trait that encloses the model for the city selection. */
   trait Interface extends Provider with Component
