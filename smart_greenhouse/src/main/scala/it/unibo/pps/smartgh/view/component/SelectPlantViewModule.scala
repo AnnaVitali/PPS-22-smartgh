@@ -10,10 +10,13 @@ import javafx.scene.control.{CheckBox, Label}
 import javafx.scene.layout.BorderPane
 import cats.syntax.eq.catsSyntaxEq
 import it.unibo.pps.smartgh.model.plants.{PlantSelectorModelModule, UploadPlants}
+import javafx.application.Platform
 
 import scala.jdk.javaapi.CollectionConverters.asJavaCollection
 
+/** Object that encloses the view module for the plant selection. */
 object SelectPlantViewModule:
+
   /** A trait that represents the select plants scene of the application. */
   trait SelectPlantView extends ViewComponent[BorderPane]:
 
@@ -27,20 +30,32 @@ object SelectPlantViewModule:
       * @param selectedPlant
       *   the plant that has been selected by the user.
       */
-    def updateSelectedPlant(selectedPlant: String): Unit
+    def updateSelectedPlant(selectedPlantList: List[String]): Unit
 
-    /** Method to update the view of the selected plants.
-      * @param deselectedPlant
-      *   the plant that has ben deselected by the user.
+    /** Method that asks the view to move to the next Scene. */
+    def moveToTheNextScene(): Unit
+
+    /** Method that requires to the view to show an error message.
+      * @param message
+      *   the error message that needs to be shown to the user.
       */
-    def updateDeselectedPlant(deselectedPlant: String): Unit
+    def showErrorMessage(message: String): Unit
 
+  /** Trait that represents the provider of the view for the plant selection. */
   trait Provider:
     val selectPlantView: SelectPlantView
   type Requirments = PlantSelectorControllerModule.Provider
 
+  /** Trait that represents the components of the view for the plant selection. */
   trait Component:
     context: Requirments =>
+
+    /** Class that contains the [[SelectPlantView]] implementation.
+      * @param simulationView
+      *   the root view of the application.
+      * @param baseView
+      *   the view in which the [[SelectPlantView]] is enclosed.
+      */
     class SelectPlantViewImpl(private val simulationView: SimulationView, private val baseView: BaseView)
         extends AbstractViewComponent[BorderPane]("select_plants.fxml")
         with SelectPlantView:
@@ -50,9 +65,7 @@ object SelectPlantViewModule:
       override val component: BorderPane = loader.load[BorderPane]
       private val selectYourPlantText = "Select your plants:"
       private val plantsSelectedText = "Plants selected:"
-      private var plantsCount = 0
       private val countText = "Count: "
-      private var plantSelectedLabel: List[Label] = List()
 
       @FXML
       var selectablePlantsBox: VBox = _
@@ -72,15 +85,17 @@ object SelectPlantViewModule:
       @FXML
       var numberPlantsSelectedLabel: Label = _
 
+      @FXML
+      var errorLabel: Label = _
+
       selectYourPlantLabel.setText(selectYourPlantText)
       plantsSelectedLabel.setText(plantsSelectedText)
       countLabel.setText(countText)
-      numberPlantsSelectedLabel.setText(plantsCount)
+      numberPlantsSelectedLabel.setText(0)
 
       baseView.changeSceneButton.setText("Start simulation")
       baseView.changeSceneButton.setOnMouseClicked { _ =>
-        //todo
-        simulationView.changeView(GreenHouseGlobalView(simulationView, baseView))
+        context.plantSelectorController.notifyStartSimulationClicked()
       }
 
       override def showSelectablePlants(selectablePlantList: List[String]): Unit =
@@ -88,31 +103,27 @@ object SelectPlantViewModule:
         addEventHandlerToCheckBoxes(selectablePlantsCheckBoxList)
         selectablePlantsBox.getChildren.addAll(asJavaCollection(selectablePlantsCheckBoxList))
 
-      override def updateSelectedPlant(selectedPlant: String): Unit =
-        val labelToAdd = Label(selectedPlant)
-        plantSelectedLabel = plantSelectedLabel :+ labelToAdd
-        selectedPlantsBox.getChildren.add(labelToAdd)
-        incrementNumberPlantsSelected()
-
-      override def updateDeselectedPlant(deselectedPlant: String): Unit =
-        plantSelectedLabel = plantSelectedLabel.filter(p => !(p.getText === deselectedPlant))
-        selectedPlantsBox.getChildren.removeIf(!plantSelectedLabel.contains(_))
-        decrementNumberPlantsSelected()
+      override def updateSelectedPlant(selectedPlants: List[String]): Unit =
+        Platform.runLater(() =>
+          selectedPlantsBox.getChildren.setAll(asJavaCollection(selectedPlants.map(new Label(_))))
+          numberPlantsSelectedLabel.setText(selectedPlants.length)
+        )
 
       private def addEventHandlerToCheckBoxes(checkBoxList: List[CheckBox]): Unit =
         checkBoxList.foreach(_.setOnAction { e =>
-          val checkBox = e.getSource.asInstanceOf[CheckBox]
-          if checkBox.isSelected then context.plantSelectorController.notifySelectedPlant(checkBox.getText)
-          else context.plantSelectorController.notifyDeselectedPlant(checkBox.getText)
+          Platform.runLater(() =>
+            val checkBox = e.getSource.asInstanceOf[CheckBox]
+            if checkBox.isSelected then context.plantSelectorController.notifySelectedPlant(checkBox.getText)
+            else context.plantSelectorController.notifyDeselectedPlant(checkBox.getText)
+          )
         })
 
-      private def incrementNumberPlantsSelected(): Unit =
-        plantsCount = plantsCount + 1
-        numberPlantsSelectedLabel.setText(plantsCount)
+      override def moveToTheNextScene(): Unit =
+        simulationView.changeView(GreenHouseGlobalView(simulationView, baseView))
 
-      private def decrementNumberPlantsSelected(): Unit =
-        plantsCount = plantsCount - 1
-        numberPlantsSelectedLabel.setText(plantsCount)
+      override def showErrorMessage(message: String): Unit =
+        errorLabel.setText(message)
 
+  /** Trait that encloses the view for the plant selection. */
   trait Interface extends Provider with Component:
     self: Requirments =>

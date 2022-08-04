@@ -69,4 +69,7 @@
          </children>
       </HBox>
    </center>
+   <bottom>
+      <Label textFill="RED" BorderPane.alignment="CENTER" />
+   </bottom>
 </BorderPane>

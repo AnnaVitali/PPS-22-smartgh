@@ -25,7 +25,7 @@ object MVCPlantSelector:
       with SelectPlantViewModule.Interface:
 
     override val plantSelectorModel: PlantSelectorModel = PlantSelectorModelImpl(filename)
-    override val plantSelectorController: PlantSelectorController = PlantSelectorControllerImpl()
     override val selectPlantView: SelectPlantView = SelectPlantViewImpl(simulationView, baseView)
+    override val plantSelectorController: PlantSelectorController = PlantSelectorControllerImpl()
 
     plantSelectorController.configureAvailablePlants()
