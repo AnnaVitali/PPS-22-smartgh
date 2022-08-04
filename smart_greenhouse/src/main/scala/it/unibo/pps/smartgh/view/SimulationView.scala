@@ -8,6 +8,7 @@ import javafx.geometry.Pos
 import javafx.scene.Parent
 import javafx.scene.layout.BorderPane
 import javafx.stage.Stage
+import it.unibo.pps.smartgh.mvc.EnvironmentMVC
 
 /** The view of the application. */
 trait SimulationView:
@@ -41,8 +42,8 @@ object SimulationView:
     stage.resizable = true
     stage.maximized = true
     stage.title = appTitle
-    import it.unibo.pps.smartgh.mvc.GreenHouseDivisionMVC
-    baseView.component.setCenter(GreenHouseDivisionMVC.view/*SelectCityView(this, baseView)*/) //init view
+    val mvc = EnvironmentMVC(this, baseView)
+    baseView.component.setCenter(mvc.view) //init view
     scene.root.value = baseView
     stage.scene = scene
     stage.show()
