@@ -3,11 +3,12 @@ package it.unibo.pps.smartgh.view.component
 import it.unibo.pps.smartgh.controller.PlantSelectorControllerModule
 import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule
 import it.unibo.pps.smartgh.model.city.CitiesSearcher
-import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.Model
-import it.unibo.pps.smartgh.controller.PlantSelectorControllerModule.Controller
-import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.View
+import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.PlantSelectorModel
+import it.unibo.pps.smartgh.controller.PlantSelectorControllerModule.PlantSelectorController
+import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.SelectPlantView
 import it.unibo.pps.smartgh.model.plants.UploadPlants
 import it.unibo.pps.smartgh.mvc.MVCPlantSelector
+import it.unibo.pps.smartgh.mvc.MVCPlantSelector.MVCPlantSelectorImpl
 import it.unibo.pps.smartgh.view.SimulationView.{appSubtitle, appTitle}
 import it.unibo.pps.smartgh.view.component
 import javafx.scene.control.{CheckBox, Label}
@@ -37,14 +38,13 @@ class SelectPlantViewModuleTest extends AbstractViewTest:
   private val numberPlantsSelectedId = "#numberPlantsSelectedLabel"
   private val selectablePlantsBoxId = "#selectablePlantsBox"
   private val selectedPlantBoxId = "#selectedPlantsBox"
+  private var mvc: MVCPlantSelectorImpl = _
 
   @Start
   private def start(stage: Stage): Unit =
     val baseView: BaseView = BaseView(appTitle, appSubtitle)
-    MVCPlantSelector.setupModel()
-    MVCPlantSelector.setupView(null, baseView)
-    MVCPlantSelector.setupController()
-    startApplication(stage, baseView, MVCPlantSelector.view)
+    mvc = MVCPlantSelectorImpl(null, baseView)
+    startApplication(stage, baseView, mvc.selectPlantView)
 
   @Test def testLabelsSelectPlantAndPlantSelected(robot: FxRobot): Unit =
     val selectYourPlantsText = "Select your plants:"
@@ -69,7 +69,7 @@ class SelectPlantViewModuleTest extends AbstractViewTest:
         .lookup(selectablePlantsBoxId)
         .queryAs(classOf[VBox])
         .getChildren
-        .size == MVCPlantSelector.model.getAllAvailablePlants().length
+        .size == mvc.plantSelectorModel.getAllAvailablePlants().length
     )
     assert(robot.lookup(selectedPlantBoxId).queryAs(classOf[VBox]).getChildren.size == initialSelectedPlant)
 

@@ -6,7 +6,7 @@ import it.unibo.pps.smartgh.view.component.SelectPlantViewModule
 
 /** A trait that represents the controller for the scene of plant selection. */
 object PlantSelectorControllerModule:
-  trait Controller:
+  trait PlantSelectorController:
 
     /** Method that requires to the controller to configure the available plant that can be choosen by the user. */
     def configureAvailablePlants(): Unit
@@ -24,11 +24,11 @@ object PlantSelectorControllerModule:
     def notifyDeselectedPlant(plantName: String): Unit
 
   trait Provider:
-    var controller: Controller
+    val plantSelectorController: PlantSelectorController
   type Requirments = PlantSelectorModelModule.Provider with SelectPlantViewModule.Provider
   trait Component:
     context: Requirments =>
-    class PlantSelectorControllerImpl extends Controller:
+    class PlantSelectorControllerImpl extends PlantSelectorController:
 
       private val path = System.getProperty("user.home") + "/pps/"
       private val file = "plants.txt"
@@ -37,15 +37,15 @@ object PlantSelectorControllerModule:
       uploader.writePrologFile(path, file, prologFile)
 
       override def configureAvailablePlants(): Unit =
-        context.view.showSelectablePlants(context.model.getAllAvailablePlants())
+        context.selectPlantView.showSelectablePlants(context.plantSelectorModel.getAllAvailablePlants())
 
       override def notifySelectedPlant(plantName: String): Unit =
-        context.model.selectPlant(plantName)
-        context.view.updateSelectedPlant(plantName)
+        context.plantSelectorModel.selectPlant(plantName)
+        context.selectPlantView.updateSelectedPlant(plantName)
 
       override def notifyDeselectedPlant(plantName: String): Unit =
-        context.model.deselectPlant(plantName)
-        context.view.updateDeselectedPlant(plantName)
+        context.plantSelectorModel.deselectPlant(plantName)
+        context.selectPlantView.updateDeselectedPlant(plantName)
 
   trait Interface extends Provider with Component:
     self: Requirments =>

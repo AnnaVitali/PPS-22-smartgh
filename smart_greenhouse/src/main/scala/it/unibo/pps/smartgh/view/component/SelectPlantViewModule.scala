@@ -15,7 +15,7 @@ import scala.jdk.javaapi.CollectionConverters.asJavaCollection
 
 object SelectPlantViewModule:
   /** A trait that represents the select plants scene of the application. */
-  trait View extends ViewComponent[BorderPane]:
+  trait SelectPlantView extends ViewComponent[BorderPane]:
 
     /** Method that shows the plant that can be selected.
       * @param selectablePlantList
@@ -36,14 +36,14 @@ object SelectPlantViewModule:
     def updateDeselectedPlant(deselectedPlant: String): Unit
 
   trait Provider:
-    var view: View
+    val selectPlantView: SelectPlantView
   type Requirments = PlantSelectorControllerModule.Provider
 
   trait Component:
     context: Requirments =>
     class SelectPlantViewImpl(private val simulationView: SimulationView, private val baseView: BaseView)
         extends AbstractViewComponent[BorderPane]("select_plants.fxml")
-        with View:
+        with SelectPlantView:
 
       given Conversion[Int, String] = _.toString
 
@@ -102,8 +102,8 @@ object SelectPlantViewModule:
       private def addEventHandlerToCheckBoxes(checkBoxList: List[CheckBox]): Unit =
         checkBoxList.foreach(_.setOnAction { e =>
           val checkBox = e.getSource.asInstanceOf[CheckBox]
-          if checkBox.isSelected then context.controller.notifySelectedPlant(checkBox.getText)
-          else context.controller.notifyDeselectedPlant(checkBox.getText)
+          if checkBox.isSelected then context.plantSelectorController.notifySelectedPlant(checkBox.getText)
+          else context.plantSelectorController.notifyDeselectedPlant(checkBox.getText)
         })
 
       private def incrementNumberPlantsSelected(): Unit =

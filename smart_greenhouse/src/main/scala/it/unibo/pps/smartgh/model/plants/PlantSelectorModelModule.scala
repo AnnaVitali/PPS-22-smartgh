@@ -9,7 +9,7 @@ import scala.util.Using
 object PlantSelectorModelModule:
 
   /** This trait exposes methods for managing the selection of plants. */
-  trait Model:
+  trait PlantSelectorModel:
 
     /** Method for obtaining all the available plants that can be cultivated in the greenhouse.
       * @return
@@ -44,10 +44,10 @@ object PlantSelectorModelModule:
     def getPlantsSelectedIdentifier(): List[String]
 
   trait Provider:
-    var model: Model
+    val plantSelectorModel: PlantSelectorModel
 
   trait Component:
-    class PlantSelectorModelImpl(fileName: String) extends Model:
+    class PlantSelectorModelImpl(fileName: String) extends PlantSelectorModel:
       import it.unibo.pps.smartgh.prolog.Scala2P.{*, given}
       private val prologFile = Using(Source.fromFile(fileName, enc = "UTF8")) {
         _.mkString

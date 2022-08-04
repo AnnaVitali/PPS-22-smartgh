@@ -1,32 +1,31 @@
 package it.unibo.pps.smartgh.mvc
 
+import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule
 import it.unibo.pps.smartgh.controller.PlantSelectorControllerModule
-import it.unibo.pps.smartgh.model.plants.{PlantSelectorModelModule, UploadPlants}
+import it.unibo.pps.smartgh.view.component.SelectPlantViewModule
+import it.unibo.pps.smartgh.controller.PlantSelectorControllerModule.Interface
+import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.Interface
+import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.Interface
+import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.PlantSelectorModel
+import it.unibo.pps.smartgh.controller.PlantSelectorControllerModule.PlantSelectorController
+import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.SelectPlantView
 import it.unibo.pps.smartgh.view.SimulationView
-import it.unibo.pps.smartgh.view.component.{BaseView, SelectPlantViewModule}
-import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.Model
-import it.unibo.pps.smartgh.controller.PlantSelectorControllerModule.Controller
-import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.View
+import it.unibo.pps.smartgh.view.component.BaseView
 
-object MVCPlantSelector
-    extends PlantSelectorModelModule.Interface
-    with SelectPlantViewModule.Interface
-    with PlantSelectorControllerModule.Interface:
-  override var model: Model = _
-  override var view: View = _
-  override var controller: Controller = _
+object MVCPlantSelector:
 
-  def setupModel(): Unit =
-    val path = System.getProperty("user.home") + "/pps/"
-    val file = "plants.txt"
-    val prologFile = "plants.pl"
-    val uploader = UploadPlants
-    uploader.writePrologFile(path, file, prologFile)
-    model = PlantSelectorModelImpl(path + prologFile)
+  val filename: String = System.getProperty("user.home") + "pps/plants.pl"
 
-  def setupView(simultationView: SimulationView, baseView: BaseView): Unit =
-    view = SelectPlantViewImpl(simultationView, baseView)
+  def apply(simulationView: SimulationView, baseView: BaseView): MVCPlantSelectorImpl =
+    MVCPlantSelectorImpl(simulationView, baseView)
 
-  def setupController(): Unit =
-    controller = PlantSelectorControllerImpl()
-    controller.configureAvailablePlants()
+  class MVCPlantSelectorImpl(simulationView: SimulationView, baseView: BaseView)
+      extends PlantSelectorModelModule.Interface
+      with PlantSelectorControllerModule.Interface
+      with SelectPlantViewModule.Interface:
+
+    override val plantSelectorModel: PlantSelectorModel = PlantSelectorModelImpl(filename)
+    override val plantSelectorController: PlantSelectorController = PlantSelectorControllerImpl()
+    override val selectPlantView: SelectPlantView = SelectPlantViewImpl(simulationView, baseView)
+
+    plantSelectorController.configureAvailablePlants()

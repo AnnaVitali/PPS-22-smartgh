@@ -42,10 +42,8 @@ object SimulationView:
     stage.resizable = true
     stage.maximized = true
     stage.title = appTitle
-    MVCPlantSelector.setupModel()
-    MVCPlantSelector.setupView(this, baseView)
-    MVCPlantSelector.setupController()
-    baseView.component.setCenter(MVCPlantSelector.view) //init view
+    val mvc = MVCPlantSelector(this, baseView)
+    baseView.component.setCenter(mvc.selectPlantView) //init view
     scene.root.value = baseView
     stage.scene = scene
     stage.show()
