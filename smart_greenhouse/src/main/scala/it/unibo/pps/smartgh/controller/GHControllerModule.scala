@@ -1,6 +1,8 @@
 package it.unibo.pps.smartgh.controller
 
 import it.unibo.pps.smartgh.model.greenhouse.GHModelModule
+import it.unibo.pps.smartgh.model.plants.Plant
+import it.unibo.pps.smartgh.mvc.AreaMVC.AreaMVCImpl
 import it.unibo.pps.smartgh.view.component.GHViewModule
 
 /** Implementation of the [[GHControllerModule]]. */
@@ -10,28 +12,21 @@ object GHControllerModule:
     /** Update division view */
     def updateView(): Unit
 
-    /** Open the selected area
-     * @return
-     *   the selected area
-     */
-    def openArea(area: (String, Boolean)): (String, Boolean)
-
   /** A trait for defining the controller instance.*/
   trait Provider:
-    val controller: Controller
+    val ghController: Controller
 
   type Requirements = GHViewModule.Provider with GHModelModule.Provider
   /** A trait that represents the greenhouse controller component. */
   trait Component:
     context: Requirements =>
     /** Implementation of the greenhouse controller.*/
-    class GreenHouseDivisionControllerImpl extends Controller:
-      def updateView(): Unit =
-        context.view.paintDivision(model.dimension._1, model.dimension._2, model.areas.map((_, true)))
+    class GreenHouseDivisionControllerImpl() extends Controller:
+      //TODO create List of MVC areas, then pass to the view the area view that will be added to the main division
 
-      def openArea(area: (String, Boolean)): (String, Boolean) =
-        println(s"open area $area")
-        area
+      def updateView(): Unit =
+        ghDivisionModel.areas.foreach(a => a.paintArea())
+        context.ghDivisionView.paintDivision(ghDivisionModel.dimension._1, ghDivisionModel.dimension._2, ghDivisionModel.areas.map(a => a.areaView))
 
   /** Trait that combine provider and component for greenhouse controller.*/
   trait Interface extends Provider with Component:

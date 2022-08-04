@@ -44,8 +44,11 @@ object SimulationView:
     stage.maximized = true
     stage.title = appTitle
     val ghMVC = GreenHouseDivisionMVC(List(Plant("lemon", "citrus limon"), Plant("mint", "mentha x gracilis")))
-    baseView.component.setCenter(ghMVC.view/*SelectCityView(this, baseView)*/) //init view
+    baseView.component.setCenter(ghMVC.ghDivisionView/*SelectCityView(this, baseView)*/) //init view
+
+    ghMVC.setAreas()
     ghMVC.show()
+
     scene.root.value = baseView
     stage.scene = scene
     stage.show()

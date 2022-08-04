@@ -15,12 +15,16 @@ object GreenHouseDivisionMVC:
       with GHViewModule.Interface
       with GHControllerModule.Interface:
 
-    override val model: GHModelModule.Model = GreenHouseImpl(List("p1", "p2"), List("p1", "p2"), "Rome")
-    override val controller: GHControllerModule.Controller = GreenHouseDivisionControllerImpl()
-    override val view: GHViewModule.View = GreenHouseDivisionViewImpl()
+    override val ghDivisionModel: GHModelModule.Model = GreenHouseImpl(plants)
+    override val ghController: GHControllerModule.Controller = GreenHouseDivisionControllerImpl()
+    override val ghDivisionView: GHViewModule.View = GreenHouseDivisionViewImpl()
+
+    def setAreas(): Unit =
+      ghDivisionModel.areas = for p <- plants
+        yield AreaMVC.AreaMVCImpl(p)
 
 
-    def show(): Unit = controller.updateView()
+    def show(): Unit = ghController.updateView()
 
 
 

@@ -1,5 +1,11 @@
 package it.unibo.pps.smartgh.model.greenhouse
 
+import it.unibo.pps.smartgh.controller.AreaControllerModule
+import it.unibo.pps.smartgh.model.plants.Plant
+import it.unibo.pps.smartgh.mvc.AreaMVC.AreaMVCImpl
+import it.unibo.pps.smartgh.view.component.AreaViewModule
+import it.unibo.pps.smartgh.view.component.AreaViewModule.Component
+
 /** Implementation of the [[GHModelModule]]. */
 object GHModelModule:
   /** This trait exposes the methods for managing the GreenHouse model. */
@@ -14,26 +20,26 @@ object GHModelModule:
      * @return
      *   the list of areas
      */
-    val areas: List[String]
-
-    /** City where the greenhouse is placed. */
-    val city: String //TODO change String to City
+    var areas: List[AreaMVCImpl]
 
     /** Plants of the greenhouse.
      * @return
      *   the list of plants
      */
-    val plants: List[String]
+    val plants: List[Plant]
 
   /** A trait for defining the model instance.*/
   trait Provider:
-    val model: Model
+    val ghDivisionModel: Model
 
   /** A trait that represents the greenhouse model component. */
   trait Component:
     /** Implementation of the greenhouse model.*/
-    class GreenHouseImpl(override val plants: List[String], override val areas: List[String], override val city: String)
+    class GreenHouseImpl(override val plants: List[Plant])
       extends Model:
+
+      override var areas: List[AreaMVCImpl] = List.empty
+
       override val dimension: (Int, Int) =
         val factors = for
           i <- 1 to Math.sqrt(plants.length).toInt
@@ -46,6 +52,6 @@ object GHModelModule:
             else Some(acc._1, acc._2)
           )
         ).getOrElse((0,0))
-        
+
   /** Trait that combine provider and component for greenhouse model.*/
   trait Interface extends Provider with Component

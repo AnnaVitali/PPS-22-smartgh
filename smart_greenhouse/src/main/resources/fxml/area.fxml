@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="rect" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="areaBt" mnemonicParsing="false">
+         <graphic>
+            <VBox fx:id="params" alignment="CENTER" prefHeight="100.0" prefWidth="100.0" />
+         </graphic>
+      </Button>
+      <Label fx:id="plant" text="Label" />
+   </children>
+</VBox>
