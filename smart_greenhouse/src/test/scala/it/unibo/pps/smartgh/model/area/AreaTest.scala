@@ -20,6 +20,6 @@ class AreaTest extends AnyFunSuite with AreaModelModule.Interface:
 
   test("An area must have 4 sensors"){
     import org.scalatest.matchers.must.Matchers.mustEqual
-    areaModel.sensors.length mustEqual 4
+    areaModel.sensors.size mustEqual 4
   }
 

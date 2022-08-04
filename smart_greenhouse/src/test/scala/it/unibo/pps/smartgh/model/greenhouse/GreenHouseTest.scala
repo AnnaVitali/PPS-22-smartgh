@@ -11,7 +11,7 @@ import it.unibo.pps.smartgh.view.component.GHViewModule
 class GreenHouseTest extends AnyFunSuite with Matchers
   with GHModelModule.Interface:
 
-  override val ghDivisionModel: GHModelModule.Model = GreenHouseImpl(List(Plant("lemon", "citrus limon"), Plant("mint", "mentha x gracilis")))
+  override val ghDivisionModel: GHModelModule.GreenHouseModel = GreenHouseImpl(List(Plant("lemon", "citrus limon"), Plant("mint", "mentha x gracilis")))
 
   test(s"greenhouse should have 1 rows and 2 columns") {
     ghDivisionModel.dimension mustEqual (1, 2)
