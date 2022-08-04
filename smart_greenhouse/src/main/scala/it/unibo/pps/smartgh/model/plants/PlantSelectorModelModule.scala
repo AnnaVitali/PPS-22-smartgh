@@ -71,8 +71,6 @@ object PlantSelectorModelModule:
       override def getPlantsSelectedName(): List[String] = selectedPlants
 
       override def getPlantsSelectedIdentifier(): List[String] =
-        println(selectedPlants)
-        println("plant(" + selectedPlants(0) + ", Y).")
         selectedPlants.map(s => engine("plant(" + s + ", Y)").map(extractTermToString(_, "Y"))).flatten
 
   trait Interface extends Provider with Component

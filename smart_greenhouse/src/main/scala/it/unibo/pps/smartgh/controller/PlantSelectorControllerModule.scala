@@ -30,13 +30,8 @@ object PlantSelectorControllerModule:
     context: Requirments =>
     class PlantSelectorControllerImpl extends PlantSelectorController:
 
-      private val path = System.getProperty("user.home") + "/pps/"
-      private val file = "plants.txt"
-      private val prologFile = "plants.pl"
-      private val uploader = UploadPlants
-      uploader.writePrologFile(path, file, prologFile)
-
       override def configureAvailablePlants(): Unit =
+        println(context.plantSelectorModel.getAllAvailablePlants())
         context.selectPlantView.showSelectablePlants(context.plantSelectorModel.getAllAvailablePlants())
 
       override def notifySelectedPlant(plantName: String): Unit =

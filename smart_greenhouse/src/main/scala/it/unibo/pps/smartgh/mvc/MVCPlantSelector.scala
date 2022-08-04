@@ -14,7 +14,7 @@ import it.unibo.pps.smartgh.view.component.BaseView
 
 object MVCPlantSelector:
 
-  val filename: String = System.getProperty("user.home") + "pps/plants.pl"
+  val filename: String = System.getProperty("user.home") + "/pps/plants.pl"
 
   def apply(simulationView: SimulationView, baseView: BaseView): MVCPlantSelectorImpl =
     MVCPlantSelectorImpl(simulationView, baseView)
