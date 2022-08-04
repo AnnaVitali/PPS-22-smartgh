@@ -11,7 +11,7 @@ import it.unibo.pps.smartgh.mvc.MVCPlantSelector
 import it.unibo.pps.smartgh.mvc.MVCPlantSelector.MVCPlantSelectorImpl
 import it.unibo.pps.smartgh.view.SimulationView.{appSubtitle, appTitle}
 import it.unibo.pps.smartgh.view.component
-import javafx.scene.control.{CheckBox, Label}
+import javafx.scene.control.{Button, CheckBox, Label}
 import javafx.scene.layout.{BorderPane, VBox}
 import javafx.stage.Stage
 import org.junit.jupiter.api.TestInstance.Lifecycle
@@ -38,6 +38,8 @@ class SelectPlantViewModuleTest extends AbstractViewTest:
   private val numberPlantsSelectedId = "#numberPlantsSelectedLabel"
   private val selectablePlantsBoxId = "#selectablePlantsBox"
   private val selectedPlantBoxId = "#selectedPlantsBox"
+  private val errorLabelId = "#errorLabel"
+  private val changeSceneButtonId = "#changeSceneButton"
   private var mvc: MVCPlantSelectorImpl = _
 
   @Start
@@ -61,6 +63,17 @@ class SelectPlantViewModuleTest extends AbstractViewTest:
     verifyThat(countLabelId, hasText(countText))
     verifyThat(numberPlantsSelectedId, isVisible)
     verifyThat(numberPlantsSelectedId, hasText(numberPlantText))
+
+  @Test def testLabelError(robot: FxRobot): Unit =
+    val errorText = "At least one plant must be selected"
+    val startSimulationButton = robot.lookup(changeSceneButtonId).queryAs(classOf[Button])
+    verifyThat(errorLabelId, isVisible)
+    verifyThat(errorLabelId, hasText(""))
+    //when
+    robot.clickOn(startSimulationButton)
+
+    //then
+    verifyThat(errorLabelId, hasText(errorText))
 
   @Test def testBeforePlantSelection(robot: FxRobot): Unit =
     val initialSelectedPlant = 0
