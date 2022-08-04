@@ -24,16 +24,17 @@ import scalafx.scene.Scene
 @ExtendWith(Array(classOf[ApplicationExtension]))
 class GreenHouseDivisionViewTest extends AbstractViewTest:
 
-  val ghMVC = GreenHouseDivisionMVC(List(Plant("lemon", "citrus limon")))
+  val ghMVC = GreenHouseDivisionMVC(List(Plant("lemon", "citrus limon"), Plant("mint", "mentha x gracilis")))
   val globalGH = "#ghDivision"
 
   @Start
   private def start(stage: Stage): Unit =
     val baseView: BaseView = BaseView(appTitle, appSubtitle)
-    startApplication(stage, baseView, ghMVC.view)
+    startApplication(stage, baseView, ghMVC.ghDivisionView)
+    ghMVC.setAreas()
     ghMVC.show()
 
-  
+
   @Test def testLabels(robot: FxRobot): Unit =
     verifyThat(globalGH, isVisible)
-    verifyThat(globalGH, hasChildren(ghMVC.model.plants.length, ""))
+    verifyThat(globalGH, hasChildren(ghMVC.ghDivisionModel.plants.length, ""))
