@@ -1,6 +1,6 @@
 package it.unibo.pps.smartgh.view
 
-import it.unibo.pps.smartgh.model.city.CitiesSearcher
+import it.unibo.pps.smartgh.mvc.MVCCitySearcher
 import scalafx.scene.Scene
 import scalafx.Includes.*
 import it.unibo.pps.smartgh.view.component.*
@@ -41,7 +41,7 @@ object SimulationView:
     stage.resizable = true
     stage.maximized = true
     stage.title = appTitle
-    baseView.component.setCenter(SelectCityView(this, baseView)) //init view
+    baseView.component.setCenter(MVCCitySearcher(this, baseView).citySearcherView) //init view
     scene.root.value = baseView
     stage.scene = scene
     stage.show()
