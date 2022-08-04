@@ -1,7 +1,8 @@
 package it.unibo.pps.smartgh.model.greenhouse
 
+/** Implementation of the [[GHModelModule]]. */
 object GHModelModule:
-  /** This trait exposes the methods for managing the GreenHouse model */
+  /** This trait exposes the methods for managing the GreenHouse model. */
   trait Model:
     /** Division of the greenhouse.
      * @return
@@ -23,9 +24,14 @@ object GHModelModule:
      *   the list of plants
      */
     val plants: List[String]
+
+  /** A trait for defining the model instance.*/
   trait Provider:
     val model: Model
+
+  /** A trait that represents the greenhouse model component. */
   trait Component:
+    /** Implementation of the greenhouse model.*/
     class GreenHouseImpl(override val plants: List[String], override val areas: List[String], override val city: String)
       extends Model:
       override val dimension: (Int, Int) =
@@ -40,4 +46,6 @@ object GHModelModule:
             else Some(acc._1, acc._2)
           )
         ).getOrElse((0,0))
+        
+  /** Trait that combine provider and component for greenhouse model.*/
   trait Interface extends Provider with Component
