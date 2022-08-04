@@ -21,7 +21,7 @@ import scalafx.scene.Scene
 /** This class contains the tests to verify that the [[SelectCityView]] work correctly. */
 @TestInstance(Lifecycle.PER_CLASS)
 @ExtendWith(Array(classOf[ApplicationExtension]))
-class SelectCityViewTest extends AbstractViewTest:
+class CitySearcherViewModuleTest extends AbstractViewTest:
 
   private var citySearcherView: CitySearcherView = _
   private val textFieldId = "#selectCityTextField"

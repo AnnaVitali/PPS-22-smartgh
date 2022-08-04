@@ -1,22 +1,19 @@
 package it.unibo.pps.smartgh.model.city
 
 import it.unibo.pps.smartgh.model.city.CitySearcherModelModule.CitySearcherModel
-import org.scalatest.BeforeAndAfter
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers as ShouldMatchers
 import org.scalatest.matchers.must.Matchers as MustMatchers
 
 /** This class contains the tests to verify that the [[CitiesSearcher]] work correctly. */
-class CitiesSearcherTest extends AnyFunSuite with BeforeAndAfter with CitySearcherModelModule.Interface:
+class CitySearcherModelModuleTest extends AnyFunSuite with CitySearcherModelModule.Interface:
 
   private val path = System.getProperty("user.home") + "/pps/"
   private val file = "cities.txt"
   private val prologFile = "cities.pl"
-  override val citySearcherModel: CitySearcherModel = CitySearcherModelImpl(path + prologFile)
+  UploadCities.writePrologFile(path, file, prologFile)
 
-  before {
-    UploadCities.writePrologFile(path, file, prologFile)
-  }
+  override val citySearcherModel: CitySearcherModel = CitySearcherModelImpl(path + prologFile)
 
   test("Cities Searcher should show cities") {
     import ShouldMatchers._
