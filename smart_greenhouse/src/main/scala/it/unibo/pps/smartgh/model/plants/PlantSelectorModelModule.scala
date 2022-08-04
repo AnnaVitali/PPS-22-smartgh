@@ -5,7 +5,14 @@ import alice.tuprolog.{Prolog, SolveInfo, Struct, Term, TermVisitor, Theory, Var
 import java.util
 import scala.io.Source
 import scala.util.Using
+import monix.eval.Task
+import monix.reactive.subjects.ConcurrentSubject
+import monix.reactive.MulticastStrategy.Behavior
+import monix.reactive.Observable
+import monix.reactive.MulticastStrategy
+import monix.execution.Scheduler.Implicits.global
 
+/** Object that encloses the model module for the plant selection. */
 object PlantSelectorModelModule:
 
   /** This trait exposes methods for managing the selection of plants. */
@@ -16,6 +23,12 @@ object PlantSelectorModelModule:
       *   the [[List]] of the name of all the plants available.
       */
     def getAllAvailablePlants(): List[String]
+
+    /** Method that can be called to obtain the [[Observable]] associated to the selected plant.
+      * @return
+      *   the [[Observable]] associated to the selected plant.
+      */
+    def getPlantSelectedObservable(): Observable[List[String]]
 
     /** Method that need to be called to select a plants that you want to cultivate.
       * @param plantName
@@ -43,10 +56,15 @@ object PlantSelectorModelModule:
       */
     def getPlantsSelectedIdentifier(): List[String]
 
+  /** Trait that represents the provider of the model for the plant selection. */
   trait Provider:
     val plantSelectorModel: PlantSelectorModel
 
+  /** Trait that represents the components of the model for the plant selection. */
   trait Component:
+    /** Class that contains the [[PlantSelectorModel]] implementation.
+      * @param fileName
+      */
     class PlantSelectorModelImpl(fileName: String) extends PlantSelectorModel:
       import it.unibo.pps.smartgh.prolog.Scala2P.{*, given}
       private val prologFile = Using(Source.fromFile(fileName, enc = "UTF8")) {
@@ -56,16 +74,22 @@ object PlantSelectorModelModule:
         Theory.parseLazilyWithStandardOperators(prologFile)
       )
       private var selectedPlants: List[String] = List()
+      private val subject: ConcurrentSubject[List[String], List[String]] =
+        ConcurrentSubject[List[String]](MulticastStrategy.publish)
 
       override def getAllAvailablePlants(): List[String] =
         engine("plant(X, Y).").map(extractTermToString(_, "X").replace("'", "")).toList
 
+      override def getPlantSelectedObservable(): Observable[List[String]] = subject
+
       override def selectPlant(plantName: String): Unit =
         selectedPlants = selectedPlants :+ plantName
+        subject.onNext(selectedPlants)
 
       override def deselectPlant(plantName: String): Unit =
         if selectedPlants.contains(plantName) then
           selectedPlants = selectedPlants.take(selectedPlants.indexOf(plantName))
+          subject.onNext(selectedPlants)
         else throw new NoSuchElementException("This plant hasn't been selected")
 
       override def getPlantsSelectedName(): List[String] = selectedPlants
@@ -73,4 +97,5 @@ object PlantSelectorModelModule:
       override def getPlantsSelectedIdentifier(): List[String] =
         selectedPlants.map(s => engine("plant(" + s + ", Y)").map(extractTermToString(_, "Y"))).flatten
 
+  /** Trait that encloses the model for the plant selection. */
   trait Interface extends Provider with Component
