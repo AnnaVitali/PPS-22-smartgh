@@ -1,6 +1,8 @@
 package it.unibo.pps.smartgh.view
 
 import it.unibo.pps.smartgh.model.city.CitiesSearcher
+import it.unibo.pps.smartgh.model.plants.Plant
+import it.unibo.pps.smartgh.mvc.GreenHouseDivisionMVC
 import scalafx.scene.Scene
 import scalafx.Includes.*
 import it.unibo.pps.smartgh.view.component.*
@@ -41,8 +43,9 @@ object SimulationView:
     stage.resizable = true
     stage.maximized = true
     stage.title = appTitle
-    import it.unibo.pps.smartgh.mvc.GreenHouseDivisionMVC
-    baseView.component.setCenter(GreenHouseDivisionMVC.view/*SelectCityView(this, baseView)*/) //init view
+    val ghMVC = GreenHouseDivisionMVC(List(Plant("lemon", "citrus limon"), Plant("mint", "mentha x gracilis")))
+    baseView.component.setCenter(ghMVC.view/*SelectCityView(this, baseView)*/) //init view
+    ghMVC.show()
     scene.root.value = baseView
     stage.scene = scene
     stage.show()
