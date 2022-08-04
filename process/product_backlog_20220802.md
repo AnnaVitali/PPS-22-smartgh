@@ -50,13 +50,13 @@ Visualizzare lo stato della simulazione e, in particolare, gestire i seguenti co
             <td>Realizzazione architettura MVC tramite cake pattern per la selezione delle piante</td>
             <td>Anna</td>
             <td>6</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Realizzazione architettura MVC tramite cake pattern per la visualizzazoine dello stato globale della serra</td>
@@ -99,13 +99,13 @@ Visualizzare lo stato della simulazione e, in particolare, gestire i seguenti co
             <td>*Completare controller per gestire l'avvio del tempo</td>
             <td>Anna</td>
             <td>1</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Aggiornamento parametri ambientali tramite richieste periodiche</td>
@@ -245,3 +245,6 @@ Visualizzare lo stato della simulazione e, in particolare, gestire i seguenti co
 
 ## Sprint result:
 //TODO (Conclusioni sul lavoro svolto)
+
+#### Note:
+Gli sprint tasks marcati con (*), derivano dal precedente sprint.
