@@ -13,13 +13,13 @@ import scala.language.postfixOps
 /** Implementation of the [[AreaViewModule]]. */
 object AreaViewModule:
   /** A trait that represents the green house division view of the application. */
-  trait View extends ViewComponent[VBox]:
+  trait AreaView extends ViewComponent[VBox]:
     /**Draw the area*/
-    def paintArea(plant: String, statusColor: String): Unit
+    def paintArea(plant: String, statusColor: String, par: Map[String, Int]): Unit
 
   /** A trait for defining the view instance.*/
   trait Provider:
-    val areaView: View
+    val areaView: AreaView
 
   type Requirements = AreaControllerModule.Provider
   /** A trait that represents the greenhouse division view component. */
@@ -28,7 +28,7 @@ object AreaViewModule:
     /** Implementation of the greenhouse division view.*/
     class AreaViewImpl()
       extends AbstractViewComponent[VBox]("area.fxml")
-        with View:
+        with AreaView:
 
       override val component: VBox = loader.load[VBox]
 
@@ -41,13 +41,11 @@ object AreaViewModule:
       @FXML
       var plant: Label = _
 
-      override def paintArea(plantName: String, statusColor: String): Unit =
+      override def paintArea(plantName: String, statusColor: String, par: Map[String, Int]): Unit =
         Platform.runLater(() =>
           plant.setText(plantName)
           params.getChildren.clear()
-          params.getChildren.add(new Label("param 1"))
-          params.getChildren.add(new Label("param 2"))
-          params.getChildren.add(new Label("param 3"))
+          par foreach ((k,v) => params.getChildren.add(new Label(s"$k : $v")))
 
           areaBt.setStyle("-fx-background-color: " + statusColor)
 

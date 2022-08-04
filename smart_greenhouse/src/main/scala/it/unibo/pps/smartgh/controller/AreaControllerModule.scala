@@ -6,8 +6,8 @@ import it.unibo.pps.smartgh.view.component.AreaViewModule
 /** Implementation of the [[AreaControllerModule]]. */
 object AreaControllerModule:
   /** A trait that represents the controller for the area division. */
-  trait Controller:
-    /** TODO*/
+  trait AreaController:
+    /** Create the area view*/
     def paintArea():Unit
 
     /** TODO*/
@@ -15,20 +15,22 @@ object AreaControllerModule:
 
   /** A trait for defining the area instance.*/
   trait Provider:
-    val areaController: Controller
+    val areaController: AreaController
 
   type Requirements = AreaViewModule.Provider with AreaModelModule.Provider
   /** A trait that represents the greenhouse area component. */
   trait Component:
     context: Requirements =>
     /** Implementation of the area controller.*/
-    class AreaControllerImpl extends Controller:
+    class AreaControllerImpl extends AreaController:
       override def paintArea(): Unit =
-
         val color = if areaModel.status == AreaModelModule.NORMAL then "#33cc33" else "#cc3333"
-        areaView.paintArea(areaModel.plant.name, color)
+        areaView.paintArea(areaModel.plant.name, color, areaModel.sensorValues())
+        //TODO remove this line = used only for testing
+        areaModel.status = if areaModel.status == AreaModelModule.NORMAL then AreaModelModule.ALARM else AreaModelModule.NORMAL
 
       override def openArea(): Unit =
+        //TODO
         println(s"open area $areaModel")
 
 

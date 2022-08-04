@@ -18,17 +18,17 @@ import scala.language.postfixOps
 /** Implementation of the [[GHViewModule]]. */
 object GHViewModule:
   /** A trait that represents the green house division view of the application. */
-  trait View extends ViewComponent[VBox]:
+  trait GHDivisionView extends ViewComponent[VBox]:
     /** Draws the greenhouse division according to the rows and cols.
      * @param rows of the greenhouse grid
      * @param cols of the greenhouse grid
      * @param areas list of areas componing the greenhouse
      * */
-    def paintDivision(rows: Int, cols: Int, areas: List[AreaViewModule.View]): Unit
+    def paintDivision(rows: Int, cols: Int, areas: List[AreaViewModule.AreaView]): Unit
 
   /** A trait for defining the view instance.*/
   trait Provider:
-    val ghDivisionView: View
+    val ghDivisionView: GHDivisionView
 
   type Requirements = GHControllerModule.Provider
   /** A trait that represents the greenhouse division view component. */
@@ -37,17 +37,20 @@ object GHViewModule:
     /** Implementation of the greenhouse division view.*/
     class GreenHouseDivisionViewImpl()
       extends AbstractViewComponent[VBox]("ghDivision.fxml")
-        with View:
+        with GHDivisionView:
       private val env = GridPane()
       override val component: VBox = loader.load[VBox]
 
       @FXML
       var ghDivision: VBox = _
 
-      override def paintDivision(rows: Int, cols: Int, areas: List[AreaViewModule.View]): Unit =
+      ghDivision.getChildren.add(env)
+      env.setHgap(5)
+      env.setVgap(5)
+
+      override def paintDivision(rows: Int, cols: Int, areas: List[AreaViewModule.AreaView]): Unit =
         Platform.runLater(() =>
-          ghDivision.getChildren.clear()
-          ghDivision.getChildren.add(env)
+          env.getChildren.clear()
           var count = 0
           for
             c <- 0 until cols
@@ -56,9 +59,6 @@ object GHViewModule:
             val i = count
             env.add(areas(i), c, r)
             count = count + 1
-
-          env.setHgap(5)
-          env.setVgap(5)
         )
 
   /** Trait that combine provider and component for greenhouse division view.*/

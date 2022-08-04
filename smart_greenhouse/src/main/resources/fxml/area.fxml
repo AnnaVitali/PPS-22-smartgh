@@ -8,7 +8,7 @@
    <children>
       <Button fx:id="areaBt" mnemonicParsing="false">
          <graphic>
-            <VBox fx:id="params" alignment="CENTER" prefHeight="100.0" prefWidth="100.0" />
+            <VBox fx:id="params" alignment="CENTER_LEFT" />
          </graphic>
       </Button>
       <Label fx:id="plant" text="Label" />

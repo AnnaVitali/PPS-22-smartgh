@@ -9,7 +9,7 @@ import it.unibo.pps.smartgh.view.component.AreaViewModule.Component
 /** Implementation of the [[GHModelModule]]. */
 object GHModelModule:
   /** This trait exposes the methods for managing the GreenHouse model. */
-  trait Model:
+  trait GreenHouseModel:
     /** Division of the greenhouse.
      * @return
      *   tuple indicating the number of rows and cols (r, c).
@@ -30,13 +30,13 @@ object GHModelModule:
 
   /** A trait for defining the model instance.*/
   trait Provider:
-    val ghDivisionModel: Model
+    val ghDivisionModel: GreenHouseModel
 
   /** A trait that represents the greenhouse model component. */
   trait Component:
     /** Implementation of the greenhouse model.*/
     class GreenHouseImpl(override val plants: List[Plant])
-      extends Model:
+      extends GreenHouseModel:
 
       override var areas: List[AreaMVCImpl] = List.empty
 
