@@ -1,6 +1,5 @@
 package it.unibo.pps.smartgh.view.component
 
-import it.unibo.pps.smartgh.model.city.CitiesSearcher
 import it.unibo.pps.smartgh.model.plants.{PlantSelector, UploadPlants}
 import it.unibo.pps.smartgh.view.SimulationView.{appSubtitle, appTitle}
 import it.unibo.pps.smartgh.view.component
