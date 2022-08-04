@@ -1,6 +1,8 @@
 package it.unibo.pps.smartgh.view.component
 
+import it.unibo.pps.smartgh.mvc.MVCCitySearcher
 import it.unibo.pps.smartgh.view.SimulationView
+import it.unibo.pps.smartgh.view.component.CitySearcherViewModule.CitySearcherView
 import javafx.scene.control.TextField
 import javafx.scene.layout.{BorderPane, VBox}
 import javafx.stage.Stage
@@ -21,7 +23,7 @@ import scalafx.scene.Scene
 @ExtendWith(Array(classOf[ApplicationExtension]))
 class SelectCityViewTest extends AbstractViewTest:
 
-  private var selectCityView: SelectCityView = _
+  private var citySearcherView: CitySearcherView = _
   private val textFieldId = "#selectCityTextField"
   private val nextButtonId = "#changeSceneButton"
   private val errorLabel = "#errorLabel"
@@ -29,8 +31,8 @@ class SelectCityViewTest extends AbstractViewTest:
   @Start
   private def start(stage: Stage): Unit =
     val baseView: BaseView = BaseView(appTitle, appSubtitle)
-    selectCityView = SelectCityView(null, baseView)
-    startApplication(stage, baseView, selectCityView)
+    citySearcherView = MVCCitySearcher(null, baseView).citySearcherView
+    startApplication(stage, baseView, citySearcherView)
 
   @Test
   def testTextField(robot: FxRobot): Unit =
@@ -43,7 +45,7 @@ class SelectCityViewTest extends AbstractViewTest:
     robot.clickOn(textFieldId)
     robot.write(char)
     verifyThat(textFieldId, TextInputControlMatchers.hasText(char))
-    selectCityView.autoCompletionBinding.getAutoCompletionPopup.getSuggestions.forEach(city =>
+    citySearcherView.autoCompletionBinding.getAutoCompletionPopup.getSuggestions.forEach(city =>
       assertTrue(city.startsWith(char))
     )
 
