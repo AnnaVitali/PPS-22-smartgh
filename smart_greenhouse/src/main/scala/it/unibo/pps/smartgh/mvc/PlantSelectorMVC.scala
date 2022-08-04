@@ -12,14 +12,14 @@ import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.SelectPlantView
 import it.unibo.pps.smartgh.view.SimulationView
 import it.unibo.pps.smartgh.view.component.BaseView
 
-object MVCPlantSelector:
+object PlantSelectorMVC:
 
   val filename: String = System.getProperty("user.home") + "/pps/plants.pl"
 
-  def apply(simulationView: SimulationView, baseView: BaseView): MVCPlantSelectorImpl =
-    MVCPlantSelectorImpl(simulationView, baseView)
+  def apply(simulationView: SimulationView, baseView: BaseView): PlantSelectorMVCImpl =
+    PlantSelectorMVCImpl(simulationView, baseView)
 
-  class MVCPlantSelectorImpl(simulationView: SimulationView, baseView: BaseView)
+  class PlantSelectorMVCImpl(simulationView: SimulationView, baseView: BaseView)
       extends PlantSelectorModelModule.Interface
       with PlantSelectorControllerModule.Interface
       with SelectPlantViewModule.Interface:

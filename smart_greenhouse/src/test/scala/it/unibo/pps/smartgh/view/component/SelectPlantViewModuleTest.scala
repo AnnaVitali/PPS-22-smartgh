@@ -7,8 +7,8 @@ import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.PlantSelectorM
 import it.unibo.pps.smartgh.controller.PlantSelectorControllerModule.PlantSelectorController
 import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.SelectPlantView
 import it.unibo.pps.smartgh.model.plants.UploadPlants
-import it.unibo.pps.smartgh.mvc.MVCPlantSelector
-import it.unibo.pps.smartgh.mvc.MVCPlantSelector.MVCPlantSelectorImpl
+import it.unibo.pps.smartgh.mvc.PlantSelectorMVC
+import it.unibo.pps.smartgh.mvc.PlantSelectorMVC.PlantSelectorMVCImpl
 import it.unibo.pps.smartgh.view.SimulationView.{appSubtitle, appTitle}
 import it.unibo.pps.smartgh.view.component
 import javafx.scene.control.{Button, CheckBox, Label}
@@ -40,12 +40,12 @@ class SelectPlantViewModuleTest extends AbstractViewTest:
   private val selectedPlantBoxId = "#selectedPlantsBox"
   private val errorLabelId = "#errorLabel"
   private val changeSceneButtonId = "#changeSceneButton"
-  private var mvc: MVCPlantSelectorImpl = _
+  private var mvc: PlantSelectorMVCImpl = _
 
   @Start
   private def start(stage: Stage): Unit =
     val baseView: BaseView = BaseView(appTitle, appSubtitle)
-    mvc = MVCPlantSelectorImpl(null, baseView)
+    mvc = PlantSelectorMVCImpl(null, baseView)
     startApplication(stage, baseView, mvc.selectPlantView)
 
   @Test def testLabelsSelectPlantAndPlantSelected(robot: FxRobot): Unit =
