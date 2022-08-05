@@ -11,6 +11,8 @@ import monix.reactive.MulticastStrategy.Behavior
 import monix.reactive.Observable
 import monix.reactive.MulticastStrategy
 import monix.execution.Scheduler.Implicits.global
+import monix.execution.Ack
+import concurrent.{Promise, Future}
 
 /** Object that encloses the model module for the plant selection. */
 object PlantSelectorModelModule:
@@ -28,7 +30,7 @@ object PlantSelectorModelModule:
       * @return
       *   the [[Observable]] associated to the selected plant.
       */
-    def getPlantSelectedObservable(): Observable[List[String]]
+    def registerCallback(onNext: List[String] => Future[Ack], onError: Throwable => Unit, onComplete: () => Unit): Unit
 
     /** Method that need to be called to select a plants that you want to cultivate.
       * @param plantName
@@ -80,7 +82,12 @@ object PlantSelectorModelModule:
       override def getAllAvailablePlants(): List[String] =
         engine("plant(X, Y).").map(extractTermToString(_, "X").replace("'", "")).toList
 
-      override def getPlantSelectedObservable(): Observable[List[String]] = subject
+      override def registerCallback(
+          onNext: List[String] => Future[Ack],
+          onError: Throwable => Unit,
+          onComplete: () => Unit
+      ): Unit =
+        subject.subscribe(onNext, onError, onComplete)
 
       override def selectPlant(plantName: String): Unit =
         selectedPlants = selectedPlants :+ plantName

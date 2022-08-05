@@ -43,17 +43,15 @@ object PlantSelectorControllerModule:
     class PlantSelectorControllerImpl extends PlantSelectorController:
 
       override def configureAvailablePlants(): Unit =
-        context.plantSelectorModel
-          .getPlantSelectedObservable()
-          .subscribe(
-            (l: List[String]) => {
-              context.selectPlantView.updateSelectedPlant(l)
-              Continue
-            },
-            (ex: Throwable) => ex.printStackTrace(),
-            () => {}
-          )
-      context.selectPlantView.showSelectablePlants(context.plantSelectorModel.getAllAvailablePlants())
+        context.plantSelectorModel.registerCallback(
+          (l: List[String]) => {
+            context.selectPlantView.updateSelectedPlant(l)
+            Continue
+          },
+          (ex: Throwable) => ex.printStackTrace(),
+          () => {}
+        )
+        context.selectPlantView.showSelectablePlants(context.plantSelectorModel.getAllAvailablePlants())
 
       override def notifySelectedPlant(plantName: String): Unit =
         context.plantSelectorModel.selectPlant(plantName)
