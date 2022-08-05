@@ -6,10 +6,10 @@ import org.scalatest.matchers.should.Matchers
 /** This class contains tests to verify that the [[TimeModel]] works correctly. */
 class TimeModelTest extends AnyFunSuite with Matchers:
 
-  private val timeModel: TimeModel = TimeModel()
-
-  type TimeController = Any
-  private var unsetTimeController: TimeController = _
+//  private val timeModel: TimeModel = TimeModel()
+//
+//  type TimeController = Any
+//  private var unsetTimeController: TimeController = _
 
 //  test("When timeModel is created, controller is not set") {
 //    timeModel.controller shouldEqual unsetTimeController
@@ -19,3 +19,4 @@ class TimeModelTest extends AnyFunSuite with Matchers:
 //    timeModel.controller = "prova"
 //    timeModel.controller should not equal unsetTimeController
 //  }
+  

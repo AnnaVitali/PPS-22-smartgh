@@ -17,10 +17,9 @@ object EnvironmentMVC:
     extends EnvironmentModelModule.Interface
       with EnvironmentViewModule.Interface
       with EnvironmentControllerModule.Interface:
-
+    
     override val model: EnvironmentModelModule.EnvironmentModel = EnvironmentModelImpl(City("Rome"))
     override val view: EnvironmentViewModule.EnvironmentView = EnvironmentViewImpl(simulationView, baseView)
     override val controller: EnvironmentControllerModule.EnvironmentController = EnvironmentControllerImpl()
-
+    
     controller.startSimulation()
-    controller.updateView()

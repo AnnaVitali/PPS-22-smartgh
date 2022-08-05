@@ -1,5 +1,6 @@
 package it.unibo.pps.smartgh.model
 
+import it.unibo.pps.smartgh.controller.EnvironmentControllerModule
 import it.unibo.pps.smartgh.model.city.City
 import it.unibo.pps.smartgh.model.time.TimeModel
 
@@ -22,7 +23,6 @@ object EnvironmentModelModule:
     class EnvironmentModelImpl(override val city: City) extends EnvironmentModel:
 
       override val time: TimeModel = TimeModel()
-  
 
   trait Interface extends Provider with Component
 

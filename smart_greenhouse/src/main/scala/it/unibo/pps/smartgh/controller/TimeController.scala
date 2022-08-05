@@ -1,11 +1,14 @@
 package it.unibo.pps.smartgh.controller
 
+import it.unibo.pps.smartgh.controller.EnvironmentControllerModule.EnvironmentController
 import it.unibo.pps.smartgh.model.EnvironmentModelModule.EnvironmentModel
 import it.unibo.pps.smartgh.model.time.TimeModel
+import it.unibo.pps.smartgh.view.component.EnvironmentViewModule.EnvironmentView
 
 import scala.concurrent.duration.*
 import scala.language.postfixOps
 import scala.math.{exp, log, pow}
+import org.apache.commons.lang3.time.DurationFormatUtils
 
 /** A trait that represents the controller for the simulation timer. */
 trait TimeController:
@@ -39,8 +42,10 @@ trait TimeController:
 //    */
 //  def updateTimeValueOnView(): Unit
 
-  /** Method that is called when the simulation is finished. */
-  def finishSimulation(): Unit
+//  /** Method that is called when the simulation is finished. */
+//  def finishSimulation(): Unit
+
+  def notifyTimeValueChange(timeValue: FiniteDuration) : Unit
 
 /** Object that can be used to create a new instance of [[TimeController]]. */
 object TimeController:
@@ -49,13 +54,15 @@ object TimeController:
     * @return
     *   a new instance of [[TimeController]].
     */
-  def apply(timeModel : TimeModel): TimeController = TimeControllerImpl(timeModel)
+  def apply(timeModel : TimeModel, environmentView: EnvironmentView, environmentController : EnvironmentController): TimeController = TimeControllerImpl(timeModel, environmentView, environmentController)
 
-  private class TimeControllerImpl(timeModel : TimeModel) extends TimeController:
+  private class TimeControllerImpl(timeModel : TimeModel, environmentView: EnvironmentView, environmentController : EnvironmentController) extends TimeController:
 
     // private val model = TimeModel()
     // override val view: EnvironmentViewModule.Interface = _
 
+    var lastRequestTime : Long = -1
+    
     private val timeSpeed: Double => FiniteDuration = (x: Double) =>
       val x0 = 1
       val x1 = 10
@@ -63,7 +70,7 @@ object TimeController:
       val y1 = 50
       exp(((x - x0) / (x1 - x0)) * (log(y1) - log(y0)) + log(y0)) microseconds
 
-    // model.time.controller = this
+    timeModel.controller = this
 
     override def startSimulationTimer(): Unit = timeModel.start()
 
@@ -71,5 +78,22 @@ object TimeController:
 
     override def updateVelocityTimer(speed: Double): Unit = timeModel.setSpeed(timeSpeed(speed))
 
-    override def finishSimulation(): Unit = ???
-      // view.finishSimulation()
+    override def notifyTimeValueChange(timeValue: FiniteDuration): Unit =
+      if isSimulationEnded(timeValue) then
+          stopSimulationTimer()
+          environmentView.finishSimulation()
+      else
+        val time : String = DurationFormatUtils.formatDuration(timeValue.toMillis, "HH:mm:ss", true)
+        environmentView.displayElapsedTime(time)
+        hasNewHourPassed(timeValue)
+    
+    private def isSimulationEnded(timeValue: FiniteDuration): Boolean = timeValue.toDays.>=(1)
+
+    private def hasNewHourPassed(timeValue: FiniteDuration): Unit = 
+      if timeValue.toHours.>(lastRequestTime) then
+        environmentController.notifyEnvironmentValuesChange(timeValue.toHours.intValue)
+      else
+        lastRequestTime = timeValue.toHours
+
+//    override def finishSimulation(): Unit = ???
+//      // view.finishSimulation()
