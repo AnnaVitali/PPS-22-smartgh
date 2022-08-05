@@ -68,10 +68,23 @@ Nel momento successivo alla suddivisione dei tasks fra i diversi membri del grup
 //TODO
 
 ### 1.2.1 Aggregazione dei risultati
-//TODO intendiamo lavoro svolto per unire i diversi task eseguiti dai diversi membri del team (merge)
+
+Il progetto è stato realizzato attraverso l'utilizzo di un repository GitHub.
+
+Dopo che ad ogni membro del gruppo, sono stati affidati i diversi compiti da svolgere per lo sprint corrente, a seguito dell'incontro di sprint preview, è possibile per ogni  sviluppatore procedere nell'esecuzione dei tasks che li sono stati assegnati, in modo indipendente rispetto agli altri, aprendo un proprio branch di lavoro sul repository del progetto.
+
+Al termine dello sprint, i diversi branch su cui sono stati svolti i diversi lavori vengono chiusi e uniti tramite l'operazione di merge, al branch di sviluppo principale (`develop`). Tuttavia, nel caso in cui alcuni lavori che devono essere svolti, dipendano da altri, i diversi membri del gruppo coinvolti nella loro realizzazione, collaborano insieme per poter unire i diversi branch di lavoro realizzati, o per poterne creare di nuovi da cui partire, in modo da proseguire e completare i tasks successivi.
+
+Una volta che tutti i lavori per il progetto sono stati terminati e si è quindi pronti per la prima relese dell'aplicazione, si provvederà all'unione del branch `develop`, contenente tutti i risultati raggiunti fino a questo momento, con il branch `master`, che invece contiene le diverse versioni aggiornate e rilasciate del progetto realizzato.
+
 
 ### 1.2.2 Revisione dei task
-//TODO
+
+Al termine di ogni sprint e durante l'incontro di sprint review, si procede nella revisione del lavoro che è stato eseguito durante la settimana. In particolare, si verifica la realizzazione dei diversi tasks affidati a ogni membro del gruppo, analizzandone la loro completezza, in base alla _Definition of done_ stabilita all'inizio del progetto.
+
+Se durante l'incontro, ci si rende conto che alcuni aspetti del lavoro svolto potrebbero essere migliorati o di incompletezze nel risultato ottenuto, si richiede al membro del gruppo responsabile, di correggere o completare i lavori che li sono stati affidati,  prima di proseguire con i lavori del prossimo sprint, in base agli elementi emersi durante la revisione.
+
+Infine, a seguito dell'incontro di sprint review, si può decidere di effettuare il _refactoring_ di elementi già realizzati, dando luogo a nuovi tasks che dovranno essere realizzati nello sprint successivo.
 
 ## 1.3 Strumenti utilizzati
 
