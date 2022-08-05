@@ -1,0 +1,8 @@
+.normalText {
+    -fx-font-size: 16px;
+}
+
+.errorText{
+    -fx-font-size:12px;
+    -fx-text-fill: red;
+}
