@@ -1,7 +1,7 @@
 package it.unibo.pps.smartgh.controller
 
+import it.unibo.pps.smartgh.model.EnvironmentModelModule.EnvironmentModel
 import it.unibo.pps.smartgh.model.time.TimeModel
-import it.unibo.pps.smartgh.view.component.EnvironmentViewModule.EnvironmentView
 
 import scala.concurrent.duration.*
 import scala.language.postfixOps
@@ -34,10 +34,10 @@ trait TimeController:
     */
   def updateVelocityTimer(speed: Double): Unit
 
-  /** Method that requires the controller to update the time shown on the view.
-    * @param time
-    */
-  def update(time: String): Unit
+//  /** Method that requires the controller to update the time shown on the view.
+//    * @param time
+//    */
+//  def updateTimeValueOnView(): Unit
 
   /** Method that is called when the simulation is finished. */
   def finishSimulation(): Unit
@@ -49,13 +49,13 @@ object TimeController:
     * @return
     *   a new instance of [[TimeController]].
     */
-  def apply(timeModel: TimeModel, environmentView: EnvironmentView): TimeController = TimeControllerImpl(timeModel, environmentView)
+  def apply(timeModel : TimeModel): TimeController = TimeControllerImpl(timeModel)
 
-  private class TimeControllerImpl(timeModel: TimeModel, environmentView : EnvironmentView) extends TimeController:
+  private class TimeControllerImpl(timeModel : TimeModel) extends TimeController:
 
     // private val model = TimeModel()
     // override val view: EnvironmentViewModule.Interface = _
-    
+
     private val timeSpeed: Double => FiniteDuration = (x: Double) =>
       val x0 = 1
       val x1 = 10
@@ -63,15 +63,13 @@ object TimeController:
       val y1 = 50
       exp(((x - x0) / (x1 - x0)) * (log(y1) - log(y0)) + log(y0)) microseconds
 
-    timeModel.controller = this
+    // model.time.controller = this
 
     override def startSimulationTimer(): Unit = timeModel.start()
 
     override def stopSimulationTimer(): Unit = timeModel.stop()
 
     override def updateVelocityTimer(speed: Double): Unit = timeModel.setSpeed(timeSpeed(speed))
-
-    override def update(time: String): Unit = environmentView.setTimer(time)
 
     override def finishSimulation(): Unit = ???
       // view.finishSimulation()

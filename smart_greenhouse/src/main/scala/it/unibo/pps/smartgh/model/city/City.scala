@@ -1034,7 +1034,7 @@ trait City:
     }
 }
     */
-  def environmentValues: EnvironmentValues
+  def currentEnvironmentValues: EnvironmentValues
 
   /** Get the 4 environmental values (temp_c, humidity, condition, uv) according to a specific hour of the day.
     * @param hour in for which environmental values are requested.
@@ -1052,25 +1052,26 @@ object City:
   def apply(name: String): City = CityImpl(name)
 
   private class CityImpl(override val name: String) extends City:
-    private var envValues: EnvironmentValues = setEnvironmentValues()
-    override def environmentValues: EnvironmentValues = envValues
+
+    private val forecast : EnvironmentValues = getForecast()("forecast").asInstanceOf[Map[String, Any]]
+
+    override def currentEnvironmentValues: EnvironmentValues = mainEnvironmentValues(0)
 
     override def mainEnvironmentValues(hour: Int): EnvironmentValues =
       val h = if hour < 10 then "0" + hour + ":00" else hour.toString + ":00"
-      val forecast: Map[String, Any] = environmentValues("forecast").asInstanceOf[Map[String, Any]]
+      //val forecast: Map[String, Any] = environmentValues("forecast").asInstanceOf[Map[String, Any]]
       val hours: List[Map[String, Any]] = forecast("forecastday").asInstanceOf[List[Map[String, Any]]].
         foldLeft(forecast("forecastday").asInstanceOf[List[Map[String, Any]]])((m, acc) =>
           acc("hour").asInstanceOf[List[Map[String, Any]]]
         )
       val ch = hours.find(m => m("time").asInstanceOf[String].contains(h))
-
       Map("time" -> ch.get("time"),
         "temp_c" -> ch.get("temp_c"),
         "uv" -> ch.get("uv"),
         "humidity" -> ch.get("humidity"),
-        "condition" -> ch.getOrElse("condition", Map.empty).asInstanceOf[Map[String, Any]].get("text"))
+        "condition" -> ch.get("condition").asInstanceOf[Map[String, Any]].get("text").fold("Not available")(res => res.toString))
 
-    private def setEnvironmentValues(): EnvironmentValues =
+    private def getForecast(): EnvironmentValues =
       val apiKey = "b619d3592d8b426e8cc92336220107"
       val query =
         "http://api.weatherapi.com/v1/forecast.json?key=" + apiKey + "&q=" + name.replace(" ", "%20") + "&days=1&aqi=no&alerts=no"

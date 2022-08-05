@@ -11,9 +11,9 @@ class TimeModelTest extends AnyFunSuite with Matchers:
   type TimeController = Any
   private var unsetTimeController: TimeController = _
 
-  test("When timeModel is created, controller is not set") {
-    timeModel.controller shouldEqual unsetTimeController
-  }
+//  test("When timeModel is created, controller is not set") {
+//    timeModel.controller shouldEqual unsetTimeController
+//  }
 
 //  test("When controller has been set in timeModel, it should not be unset") {
 //    timeModel.controller = "prova"

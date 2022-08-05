@@ -17,10 +17,10 @@ class CityTest extends AnyFunSuite with Matchers with BeforeAndAfter:
   }
 
   test("after creating Rome city when we ask its environmental values they should not be empty ") {
-    city.environmentValues should not equal Map.empty[String, Any]
+    city.currentEnvironmentValues should not equal Map.empty[String, Any]
   }
 
   test("after creating Rome city its environmental values should contain locality region equals to Lazio") {
-    val location: Map[String, Any] = city.environmentValues("location").asInstanceOf[Map[String, Any]]
+    val location: Map[String, Any] = city.currentEnvironmentValues("location").asInstanceOf[Map[String, Any]]
     location.get("region") shouldEqual Some("Lazio")
   }

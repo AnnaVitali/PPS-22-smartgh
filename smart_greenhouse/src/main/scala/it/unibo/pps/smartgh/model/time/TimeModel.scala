@@ -5,8 +5,16 @@ import org.apache.commons.lang3.time.DurationFormatUtils
 import java.lang.module.FindException
 import scala.concurrent.duration.*
 import scala.language.postfixOps
+// import it.unibo.pps.smartgh.controller.TimeController
+import it.unibo.pps.smartgh.mvc.EnvironmentMVC
+import it.unibo.pps.smartgh.model.time.Timer
 
-import it.unibo.pps.smartgh.controller.TimeController
+import monix.eval.Task
+import monix.reactive.subjects.ConcurrentSubject
+import monix.reactive.MulticastStrategy.Behavior
+import monix.reactive.Observable
+import monix.reactive.MulticastStrategy
+import monix.execution.Scheduler.Implicits.global
 
 /** A trait that exposes methods to manage the time of the simulation, it represents its model. */
 trait TimeModel:
@@ -20,17 +28,19 @@ trait TimeModel:
   /** Stop the time of the current simulation. */
   def stop(): Unit
 
-  /** Getter method for the controller component.
-    * @return
-    *   the controller assoociated to the model.
-    */
-  def controller: TimeController
+//  /** Getter method for the controller component.
+//    * @return
+//    *   the controller assoociated to the model.
+//    */
+//  def controller: TimeController
+//
+//  /** Setter method for the controller component.
+//    * @param view
+//    *   the controller assoociated to the model.
+//    */
+//  def controller_=(controller: TimeController): Unit
 
-  /** Setter method for the controller component.
-    * @param view
-    *   the controller assoociated to the model.
-    */
-  def controller_=(controller: TimeController): Unit
+  def getTimeValueObservable(): Observable[FiniteDuration]
 
 /** Object that can be used to create a new instances of [[TimeModel]]. */
 object TimeModel:
@@ -40,12 +50,15 @@ object TimeModel:
 
   private class TimeModelImpl extends TimeModel:
 
-    override var controller: TimeController = _
+    // override var controller: TimeController = _
     private val endSimulation: FiniteDuration = 1 day
     private val timer: Timer = Timer(endSimulation)
 
+    private val timeValueObservable: ConcurrentSubject[FiniteDuration, FiniteDuration] =
+      ConcurrentSubject[FiniteDuration](MulticastStrategy.publish)
+
     override def start(): Unit =
-      timer.start(updateTime)
+      timer.start(updateTimeValueObservable)
 
     override def setSpeed(speed: FiniteDuration): Unit =
       timer.changeTickPeriod(speed)
@@ -53,6 +66,9 @@ object TimeModel:
     override def stop(): Unit =
       timer.stop()
 
-    private def updateTime(t: FiniteDuration): Unit =
-      val time: String = DurationFormatUtils.formatDuration(t.toMillis, "HH:mm:ss", true)
-      controller.update(time)
+    override def getTimeValueObservable(): Observable[FiniteDuration] =
+      timeValueObservable
+
+    private def updateTimeValueObservable(t: FiniteDuration): Unit =
+      // val time : String = DurationFormatUtils.formatDuration(t.toMillis, "HH:mm:ss", true)
+      timeValueObservable.onNext(t)

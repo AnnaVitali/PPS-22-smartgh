@@ -52,7 +52,7 @@ object Timer:
     var value: FiniteDuration = 0 seconds
     private var cancelable: Cancelable = _
     private var consumer: FiniteDuration => Unit = _
-
+    
     override def start(task: FiniteDuration => Unit): Unit =
       consumer = t =>
         value = t

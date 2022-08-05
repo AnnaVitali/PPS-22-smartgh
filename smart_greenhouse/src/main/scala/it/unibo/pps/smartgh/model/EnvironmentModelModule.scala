@@ -21,9 +21,8 @@ object EnvironmentModelModule:
   trait Component:
     class EnvironmentModelImpl(override val city: City) extends EnvironmentModel:
 
-      override val time: TimeModel = TimeModel()  
-      
-      
+      override val time: TimeModel = TimeModel()
+  
 
   trait Interface extends Provider with Component
 
