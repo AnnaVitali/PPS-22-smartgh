@@ -26,8 +26,6 @@ object AreaControllerModule:
       override def paintArea(): Unit =
         val color = if areaModel.status == AreaModelModule.NORMAL then "#33cc33" else "#cc3333"
         areaView.paintArea(areaModel.plant.name, color, areaModel.sensorValues())
-        //TODO remove this line = used only for testing
-        areaModel.status = if areaModel.status == AreaModelModule.NORMAL then AreaModelModule.ALARM else AreaModelModule.NORMAL
 
       override def openArea(): Unit =
         //TODO

@@ -18,7 +18,7 @@ object AreaMVC:
     extends AreaModelModule.Interface
     with AreaViewModule.Interface
     with AreaControllerModule.Interface:
-    override val areaModel = AreaImpl(plant, AreaModelModule.AreaStatus.NORMAL)
+    override val areaModel = AreaImpl(plant)
     override val areaView = AreaViewImpl()
     override val areaController= AreaControllerImpl()
 
