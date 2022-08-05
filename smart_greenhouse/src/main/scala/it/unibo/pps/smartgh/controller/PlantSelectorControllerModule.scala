@@ -57,7 +57,8 @@ object PlantSelectorControllerModule:
         context.plantSelectorModel.selectPlant(plantName)
 
       override def notifyDeselectedPlant(plantName: String): Unit =
-        context.plantSelectorModel.deselectPlant(plantName)
+        try context.plantSelectorModel.deselectPlant(plantName)
+        catch case e: NoSuchElementException => context.selectPlantView.showErrorMessage(e.getMessage())
 
       override def notifyStartSimulationClicked(): Unit =
         if context.plantSelectorModel.getPlantsSelectedName().size != 0 then
