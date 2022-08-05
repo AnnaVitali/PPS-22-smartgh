@@ -12,10 +12,19 @@ import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.SelectPlantView
 import it.unibo.pps.smartgh.view.SimulationView
 import it.unibo.pps.smartgh.view.component.BaseView
 
+/** Object that encloses the MVC structure for the plant selection. */
 object PlantSelectorMVC:
 
   val filename: String = System.getProperty("user.home") + "/pps/plants.pl"
 
+  /** Apply method for the [[PlantSelectorMVC]]
+    * @param simulationView
+    *   the root view of the application.
+    * @param baseView
+    *   the view in which the [[SelectPlantView]] is enclosed.
+    * @return
+    *   the implemntation of the plant selection MVC.
+    */
   def apply(simulationView: SimulationView, baseView: BaseView): PlantSelectorMVCImpl =
     PlantSelectorMVCImpl(simulationView, baseView)
 
