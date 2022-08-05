@@ -1,5 +1,6 @@
 package it.unibo.pps.smartgh.model.area
 
+import it.unibo.pps.smartgh.model.area.ManageSensor.ManageSensorImpl
 import it.unibo.pps.smartgh.model.plants.Plant
 import monix.reactive.subjects.ConcurrentSubject
 import monix.reactive.MulticastStrategy.Behavior
@@ -20,9 +21,9 @@ object AreaModelModule:
     /** Plant grown in the area. */
     val plant: Plant
     /** Sensor of the area. */
-    val sensors: Map[String, Int]
+    val sensors: List[ManageSensorImpl]
     /** @return the map of the actual sensors values*/
-    def sensorValues(): Map[String, Int]
+    def sensorValues(): Map[String, Float]
     /** Method that can be called to obtain the [[Observable]] associated to the status of an area.
      * @return
      *   the [[Observable]] associated to the status of an area.
@@ -39,23 +40,55 @@ object AreaModelModule:
     /** Implementation of the area model.*/
     class AreaImpl(override val plant: Plant,
                   ) extends AreaModel:
-      private var _status: AreaStatus = AreaStatus.NORMAL
 
+      private var _status: AreaStatus = AreaStatus.NORMAL
       private val subject = ConcurrentSubject[AreaStatus](MulticastStrategy.publish)
+      private val optimalValueToFloat: Map[String, Float] = plant.optimalValues.map((k, v) => (k, v.toString.toFloat))
+
+      private def checkAlarm(ms: ManageSensorImpl): Unit =
+        if (ms.actualVal compareTo ms.min ) < 0 ||  (ms.actualVal compareTo ms.max) > 0 then
+            status = ALARM
+
+      override val sensors: List[ManageSensorImpl] =
+        List(
+          ManageSensorImpl("Temperature",
+            optimalValueToFloat.getOrElse("min_temp", 0),
+            optimalValueToFloat.getOrElse("max_temp", 0),
+            1, // TODO change with new TemperatureSensor
+            15), // TODO change with optimal value for starting
+          ManageSensorImpl("Humidity",
+            optimalValueToFloat.getOrElse("min_env_humid", 0),
+            optimalValueToFloat.getOrElse("max_env_humid", 0),
+            2,
+            50),
+          ManageSensorImpl("Soil moisture",
+            optimalValueToFloat.getOrElse("min_soil_moist", 0),
+            optimalValueToFloat.getOrElse("max_soil_moist", 0),
+            3,
+            30),
+          ManageSensorImpl("Brightness",
+            optimalValueToFloat.getOrElse("min_light_lux", 0),
+            optimalValueToFloat.getOrElse("max_light_lux", 0),
+            4,
+            5000)
+        )
 
       override def status: AreaStatus = _status
 
       override def status_=(s: AreaStatus): Unit =
         _status = s
         subject.onNext(_status)
-      
-      override val sensors: Map[String, Int] = Map("Temperature" -> 1, "Brightness" -> 2, "Humidity" -> 3, "Soil moisture" -> 4)//TODO change collection of sensors
 
-      override def sensorValues(): Map[String, Int] =
-        for s <- sensors
-          yield s //TODO change with actual sensor value
+      override def sensorValues(): Map[String, Float] =
+        sensors.map(ms => (ms.name, ms.actualVal)).toMap
 
       override def changeStatusObservable(): Observable[AreaStatus] = subject
+
+      sensors.foreach(ms =>
+        //TODO sensor subscribe -> in the subscribe upd the ms actual value and check ALARM
+        checkAlarm(ms)
+        println(ms.name)
+      )
 
 
 
