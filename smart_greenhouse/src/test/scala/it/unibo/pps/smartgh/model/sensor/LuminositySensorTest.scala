@@ -14,29 +14,25 @@ import org.scalatest.matchers.should.Matchers
 import monix.reactive.subjects.ConcurrentSubject
 import monix.reactive.MulticastStrategy.Behavior
 import monix.reactive.MulticastStrategy
-import org.scalatest.BeforeAndAfter
 
 import scala.util.Random
 
-class LuminositySensorTest extends AnyFunSuite with Matchers with BeforeAndAfter:
+class LuminositySensorTest extends AnyFunSuite with Matchers:
 
   private val LS = "Luminosity sensor"
   private val initialLuminosity = 500.0
   private val minPercentage = 0.1
-  private val maxPercentage = 0.5
-  private var randomValue: Random = _
+  private val maxPercentage = 0.3
+  private var randomValue: Random = Random(10)
   private val areaComponentsState = AreaComponentsState()
   private val luminositySensor = LuminositySensor(initialLuminosity, areaComponentsState)
-  private val subjectEnvironment: ConcurrentSubject[Double, Double] =
+  private var subjectEnvironment: ConcurrentSubject[Double, Double] =
     ConcurrentSubject[Double](MulticastStrategy.publish)
-  private val subjectActions: ConcurrentSubject[AreaComponentsStateImpl, AreaComponentsStateImpl] =
+  private var subjectActions: ConcurrentSubject[AreaComponentsStateImpl, AreaComponentsStateImpl] =
     ConcurrentSubject[AreaComponentsStateImpl](MulticastStrategy.publish)
 
-  before {
-    randomValue = Random(10)
-    luminositySensor.setObserverEnvironmentValue(subjectEnvironment)
-    luminositySensor.setObserverActionsArea(subjectActions)
-  }
+  luminositySensor.setObserverEnvironmentValue(subjectEnvironment)
+  luminositySensor.setObserverActionsArea(subjectActions)
 
   test(s"$LS must be initialized with a lower value then that of the environment") {
     luminositySensor.getCurrentValue should be < initialLuminosity
@@ -53,47 +49,43 @@ class LuminositySensorTest extends AnyFunSuite with Matchers with BeforeAndAfter
     Thread.sleep(1000)
 
     println("first test value: " + luminositySensor.getCurrentValue)
-    luminositySensor.getCurrentValue shouldEqual (newEnvironmentValue - (minPercentage + (maxPercentage - minPercentage) * Random(
-      10
-    )
+    luminositySensor.getCurrentValue shouldEqual (newEnvironmentValue - (minPercentage + (maxPercentage - minPercentage) * randomValue
       .nextDouble()) * newEnvironmentValue + defaultLampBrightness)
   }
 
   test(
-    s"the current luminosity value when the area isn't shilded and it's open should be:" +
+    s"the current luminosity value when the area's shilds are up and its gates are opened should be:" +
       s" environmentValue + lampBrightness"
   ) {
     val environmentValue = 30000
-    areaComponentsState.gatesState = AreaGatesState.Open
     areaComponentsState.shildState = AreaShildState.Up
+    areaComponentsState.gatesState = AreaGatesState.Open
     subjectActions.onNext(areaComponentsState)
 
     Thread.sleep(1000)
 
-    println("second test value: " + luminositySensor.getCurrentValue)
     luminositySensor.getCurrentValue shouldEqual (environmentValue + areaComponentsState.brightnessOfTheLamps())
   }
 
   test(
-    s"the current luminosity value when the area isn't shilded and it's closed should be:" +
+    s"the current luminosity value when the area's shilds are up and its gates are closed should be:" +
       s" environmentValue - (randomValue between [0 e 5%] * environmentValue) + lampBrightness"
   ) {
     val environmentValue = 30000
-    areaComponentsState.gatesState = AreaGatesState.Close
     areaComponentsState.shildState = AreaShildState.Up
+    areaComponentsState.gatesState = AreaGatesState.Close
+
     subjectActions.onNext(areaComponentsState)
 
     Thread.sleep(1000)
 
-    println("third test value: " + luminositySensor.getCurrentValue)
-    luminositySensor.getCurrentValue shouldEqual (environmentValue - (minPercentage + (maxPercentage - minPercentage) * Random(
-      10
-    )
-      .nextDouble()) * environmentValue + areaComponentsState.brightnessOfTheLamps())
+    luminositySensor.getCurrentValue shouldEqual (environmentValue - (minPercentage + (maxPercentage - minPercentage) * randomValue
+      .nextDouble()) * environmentValue + areaComponentsState
+      .brightnessOfTheLamps())
   }
 
   test(
-    s"the current luminosity value when the area is shilded and it's closed should be equals lampBrightness"
+    s"the current luminosity value when the area's shilds are up and its gates are closed should be equals lampBrightness"
   ) {
     areaComponentsState.shildState = AreaShildState.Down
     areaComponentsState.gatesState = AreaGatesState.Close

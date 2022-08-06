@@ -23,7 +23,7 @@ object LuminositySensor:
 
   object FactoryFunctionsLuminositySensor:
     private val minPercentage = 0.1
-    private val maxPercentage = 0.5
+    private val maxPercentage = 0.3
     private val randomValue = Random(10)
 
     val computeLuminosityWithAreaGatesOpen: (currentValEnvironment: Double, currentLampBrightness: Int) => Double =
@@ -42,7 +42,7 @@ object LuminositySensor:
       extends Sensor:
     private val randomValue = Random(10)
     private val minPercentage = 0.1
-    private val maxPercentage = 0.5
+    private val maxPercentage = 0.3
     private var currentEnvironmentValue: Double = _
     private val subject: ConcurrentSubject[Double, Double] = ConcurrentSubject[Double](MulticastStrategy.publish)
     private var currentValue: Double =
@@ -72,21 +72,23 @@ object LuminositySensor:
             areaComponentsState.brightnessOfTheLamps()
           )
           println("area gates open and shild up")
-        case AreaGatesState.Close if areaComponentsState.shildState() == AreaShildState.Down =>
+        case AreaGatesState.Close if areaComponentsState.shildState().equals(AreaShildState.Down) =>
           currentValue = FactoryFunctionsLuminositySensor.computeLuminosityWithAreaGatesCloseAndShild(
             areaComponentsState.brightnessOfTheLamps()
           )
           println("area gates close and shild down")
-        case AreaGatesState.Close if areaComponentsState.shildState() == AreaShildState.Up =>
+        case AreaGatesState.Close if areaComponentsState.shildState().equals(AreaShildState.Up) =>
           currentValue = FactoryFunctionsLuminositySensor.computeLuminosityWithAreaGatesCloseAndUnshild(
             currentEnvironmentValue,
             areaComponentsState.brightnessOfTheLamps()
           )
           println("area gates close and shild up")
+        case _ =>
       subject.onNext(currentValue)
 
     private def onNextAction(): AreaComponentsStateImpl => Future[Ack] = currentareaComponentsState =>
       areaComponentsState = currentareaComponentsState
+      println(areaComponentsState.shildState())
       computeNextSensorValue()
       Continue
 
