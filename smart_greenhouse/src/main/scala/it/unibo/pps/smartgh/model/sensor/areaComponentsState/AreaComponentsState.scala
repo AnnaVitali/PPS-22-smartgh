@@ -16,6 +16,10 @@ enum AreaVentilationState:
   case VentilationActive, VentilationInactive
 export AreaVentilationState.*
 
+enum AreaHumidityState:
+  case Watering, MovingSoil, None
+export AreaHumidityState.*
+
 object AreaComponentsState:
 
   def apply(): AreaComponentsStateImpl = AreaComponentsStateImpl()
@@ -28,6 +32,7 @@ object AreaComponentsState:
     private var areaVentilationState = AreaVentilationState.VentilationInactive
     private var lampsBrightness = defaultValueLampsBrightness
     private var temperatureSet: Double = _
+    private var humidityState = AreaHumidityState.None
 
     def gatesState(): AreaGatesState = areaGatesState
     def gatesState_=(gatesState: AreaGatesState): Unit = areaGatesState = gatesState
@@ -41,3 +46,5 @@ object AreaComponentsState:
     def brightnessOfTheLamps_=(newLampsBrightness: Int): Unit = lampsBrightness = newLampsBrightness
     def temperature(): Double = temperatureSet
     def temperature_=(settedTemperature: Double): Unit = temperatureSet = settedTemperature
+    def humidityActions(): AreaHumidityState = humidityState
+    def humidityActions_=(value: AreaHumidityState): Unit = humidityState = value
