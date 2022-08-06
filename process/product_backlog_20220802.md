@@ -26,25 +26,25 @@ Visualizzare lo stato della simulazione e, in particolare, gestire i seguenti co
             <td>Refactoring schermata BaseView, con aggiunta pulsanti per la navigazione</td>
             <td>Elena</td>
             <td>2</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Realizzazione architettura MVC tramite cake pattern per la selezione della città</td>
             <td>Elena</td>
             <td>4</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>4</td>
+            <td>3</td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Realizzazione architettura MVC tramite cake pattern per la selezione delle piante</td>
@@ -205,7 +205,7 @@ Visualizzare lo stato della simulazione e, in particolare, gestire i seguenti co
             <td></td>
         </tr>
         <tr>
-            <td>Implementazione sensore umidità del suolo</td>
+            <td>Implementazione sensore umidità dell'aria</td>
             <td>Elena</td>
             <td>2</td>
             <td></td>
