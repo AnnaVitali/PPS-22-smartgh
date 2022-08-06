@@ -27,6 +27,7 @@ object AreaComponentsState:
     private var areaNebulizerState = AreaNebulizerState.NebulizationInactive
     private var areaVentilationState = AreaVentilationState.VentilationInactive
     private var lampsBrightness = defaultValueLampsBrightness
+    private var temperatureSet: Double = _
 
     def gatesState(): AreaGatesState = areaGatesState
     def gatesState_=(gatesState: AreaGatesState): Unit = areaGatesState = gatesState
@@ -38,3 +39,5 @@ object AreaComponentsState:
     def ventilationState_=(ventilationState: AreaVentilationState): Unit = areaVentilationState = ventilationState
     def brightnessOfTheLamps(): Int = lampsBrightness
     def brightnessOfTheLamps_=(newLampsBrightness: Int): Unit = lampsBrightness = newLampsBrightness
+    def temperature(): Double = temperatureSet
+    def temperature_=(settedTemperature: Double): Unit = temperatureSet = settedTemperature
