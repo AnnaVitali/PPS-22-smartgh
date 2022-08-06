@@ -1,10 +1,5 @@
 package it.unibo.pps.smartgh.model.sensor
 
-import it.unibo.pps.smartgh.model.sensor.LuminositySensor.FactoryFunctionsLuminositySensor.{
-  maxPercentage,
-  minPercentage,
-  randomValue
-}
 import it.unibo.pps.smartgh.model.sensor.areaComponentsState.AreaComponentsState
 import it.unibo.pps.smartgh.model.sensor.areaComponentsState.AreaComponentsState.AreaComponentsStateImpl
 import it.unibo.pps.smartgh.model.sensor.areaComponentsState.{AreaGatesState, AreaShildState}
@@ -35,7 +30,7 @@ class LuminositySensorTest extends AnyFunSuite with Matchers:
   luminositySensor.setObserverActionsArea(subjectActions)
 
   test(s"$LS must be initialized with a lower value then that of the environment") {
-    luminositySensor.getCurrentValue should be < initialLuminosity
+    luminositySensor.getCurrentValue() should be < initialLuminosity
   }
 
   test(
@@ -48,8 +43,9 @@ class LuminositySensorTest extends AnyFunSuite with Matchers:
 
     Thread.sleep(1000)
 
-    println("first test value: " + luminositySensor.getCurrentValue)
-    luminositySensor.getCurrentValue shouldEqual (newEnvironmentValue - (minPercentage + (maxPercentage - minPercentage) * randomValue
+    println("first test value: " + luminositySensor.getCurrentValue())
+    luminositySensor
+      .getCurrentValue() shouldEqual (newEnvironmentValue - (minPercentage + (maxPercentage - minPercentage) * randomValue
       .nextDouble()) * newEnvironmentValue + defaultLampBrightness)
   }
 
@@ -64,7 +60,7 @@ class LuminositySensorTest extends AnyFunSuite with Matchers:
 
     Thread.sleep(1000)
 
-    luminositySensor.getCurrentValue shouldEqual (environmentValue + areaComponentsState.brightnessOfTheLamps())
+    luminositySensor.getCurrentValue() shouldEqual (environmentValue + areaComponentsState.brightnessOfTheLamps())
   }
 
   test(
@@ -79,7 +75,8 @@ class LuminositySensorTest extends AnyFunSuite with Matchers:
 
     Thread.sleep(1000)
 
-    luminositySensor.getCurrentValue shouldEqual (environmentValue - (minPercentage + (maxPercentage - minPercentage) * randomValue
+    luminositySensor
+      .getCurrentValue() shouldEqual (environmentValue - (minPercentage + (maxPercentage - minPercentage) * randomValue
       .nextDouble()) * environmentValue + areaComponentsState
       .brightnessOfTheLamps())
   }
@@ -93,6 +90,6 @@ class LuminositySensorTest extends AnyFunSuite with Matchers:
 
     Thread.sleep(1000)
 
-    println("fourth test value: " + luminositySensor.getCurrentValue)
-    luminositySensor.getCurrentValue shouldEqual areaComponentsState.brightnessOfTheLamps()
+    println("fourth test value: " + luminositySensor.getCurrentValue())
+    luminositySensor.getCurrentValue() shouldEqual areaComponentsState.brightnessOfTheLamps()
   }

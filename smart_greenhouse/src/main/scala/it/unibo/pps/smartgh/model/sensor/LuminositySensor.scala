@@ -49,11 +49,11 @@ object LuminositySensor:
       initialLuminosity - (minPercentage + (maxPercentage - minPercentage) * randomValue
         .nextDouble()) * initialLuminosity
 
-    override def setObserverEnvironmentValue(observableEnvironment: Observable[Double]): Unit =
+    /* override def setObserverEnvironmentValue(observableEnvironment: Observable[Double]): Unit =
       observableEnvironment.subscribe(onNextEnvironmentValue(), (ex: Throwable) => ex.printStackTrace(), () => {})
 
     override def setObserverActionsArea(observableActionArea: Observable[AreaComponentsStateImpl]): Unit =
-      observableActionArea.subscribe(onNextAction(), (ex: Throwable) => ex.printStackTrace(), () => {})
+      observableActionArea.subscribe(onNextAction(), (ex: Throwable) => ex.printStackTrace(), () => {})*/
 
     override def registerValueCallback(
         onNext: Double => Future[Ack],
@@ -61,7 +61,7 @@ object LuminositySensor:
         onComplete: () => Unit
     ): Unit = subject.subscribe(onNext, onError, onComplete)
 
-    def getCurrentValue: Double =
+    override def getCurrentValue(): Double =
       currentValue
 
     private def computeNextSensorValue(): Unit =
@@ -86,13 +86,12 @@ object LuminositySensor:
         case _ =>
       subject.onNext(currentValue)
 
-    private def onNextAction(): AreaComponentsStateImpl => Future[Ack] = currentareaComponentsState =>
-      areaComponentsState = currentareaComponentsState
-      println(areaComponentsState.shildState())
+    override def onNextEnvironmentValue(): (newEnvironmentValue: Double) => Future[Ack] = envVal =>
+      currentEnvironmentValue = envVal
       computeNextSensorValue()
       Continue
 
-    private def onNextEnvironmentValue(): (newEnvironmentValue: Double) => Future[Ack] = envVal =>
-      currentEnvironmentValue = envVal
+    override def onNextAction(): AreaComponentsStateImpl => Future[Ack] = currentareaComponentsState =>
+      areaComponentsState = currentareaComponentsState
       computeNextSensorValue()
       Continue
