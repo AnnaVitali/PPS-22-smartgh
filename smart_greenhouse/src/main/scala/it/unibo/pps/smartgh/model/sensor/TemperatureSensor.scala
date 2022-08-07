@@ -38,9 +38,8 @@ object TemperatureSensor:
 
     override def computeNextSensorValue(): Unit =
       areaComponentsState.gatesState match
-        case AreaGatesState.Open if currentValue < currentEnvironmentValue || currentValue > currentEnvironmentValue =>
+        case AreaGatesState.Open if currentValue != currentEnvironmentValue =>
           currentValue = FactoryFunctionsTemperatureSensor.computeTemperature(currentValue, currentEnvironmentValue)
-        case AreaGatesState.Close
-            if currentValue < areaComponentsState.temperature || currentValue > areaComponentsState.temperature =>
+        case AreaGatesState.Close if currentValue != areaComponentsState.temperature =>
           FactoryFunctionsTemperatureSensor.computeTemperature(currentValue, areaComponentsState.temperature)
         case _ =>
