@@ -11,6 +11,7 @@ import javafx.geometry.Pos
 import javafx.scene.Parent
 import javafx.scene.layout.BorderPane
 import javafx.stage.Stage
+import it.unibo.pps.smartgh.mvc.EnvironmentMVC
 
 /** The view of the application. */
 trait SimulationView:
@@ -44,13 +45,8 @@ object SimulationView:
     stage.resizable = true
     stage.maximized = true
     stage.title = appTitle
-    val ghMVC = GreenHouseDivisionMVCImpl(List(Plant("lemon", "citrus limon"), Plant("mint", "mentha x gracilis")))
-
-    baseView.component.setCenter(ghMVC.ghDivisionView/*SelectCityView(this, baseView)*/) //init view
-
-    ghMVC.setAreas()
-    ghMVC.show()
-
+    val mvc: EnvironmentMVC.EnvironmentMVCImpl = EnvironmentMVC(this, baseView)
+    baseView.component.setCenter(mvc.view) //init view
     scene.root.value = baseView
     stage.scene = scene
     stage.show()

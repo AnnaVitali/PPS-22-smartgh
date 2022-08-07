@@ -10,6 +10,7 @@ import javafx.scene.layout.{HBox, VBox}
 import javafx.scene.control.{CheckBox, Label}
 import javafx.scene.layout.BorderPane
 import cats.syntax.eq.catsSyntaxEq
+import it.unibo.pps.smartgh.mvc.EnvironmentMVC
 
 import scala.jdk.javaapi.CollectionConverters.asJavaCollection
 
@@ -89,7 +90,7 @@ object SelectPlantView:
     baseView.changeSceneButton.setText("Start simulation")
     baseView.changeSceneButton.setOnMouseClicked { _ =>
       //todo
-      simulationView.changeView(GreenHouseGlobalView(simulationView, baseView))
+      simulationView.changeView(EnvironmentMVC(simulationView, baseView).view)
     }
 
     override def showSelectablePlants(selectablePlantList: List[String]): Unit =

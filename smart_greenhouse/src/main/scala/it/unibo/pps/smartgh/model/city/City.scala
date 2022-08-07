@@ -3,28 +3,35 @@ package it.unibo.pps.smartgh.model.city
 import org.json4s.*
 import org.json4s.jackson.JsonMethods.*
 import requests.Response
+
 /** This trait exposes methods for managing the selected city, represents its model. */
 trait City:
+
   /** Data structure that will contains the city's environment values. */
   type EnvironmentValues = Map[String, Any]
 
   /** @return city's name. */
   def name: String
 
-  /** @return
-    *   city's environment values, example of returned value: (location, HashMap(name -> Rome, country -> Italy, tz_id
-    * -> Europe/Rome, region -> Lazio, lon -> 12.48, localtime -> 2022-07-27 9:11, localtime_epoch -> 1658905896, lat
-    * -> 41.9)) (current,HashMap(temp_f -> 78.8, uv -> 7.0, vis_km -> 10.0, feelslike_c -> 26.9, gust_kph -> 13.7,
-    * pressure_in -> 29.83, precip_mm -> 0.0, wind_dir -> ESE, wind_mph -> 4.3, last_updated_epoch ->1658905200,
-    * feelslike_f -> 80.3, wind_kph -> 6.8, wind_degree -> 120, precip_in -> 0.0, gust_mph -> 8.5, vis_miles -> 6.0,
-    * temp_c -> 26.0, is_day -> 1, condition -> Map(text -> Sunny, icon ->
-    * //cdn.weatherapi.com/weather/64x64/day/113.png, code -> 1000), humidity -> 84, cloud -> 0, pressure_mb -> 1010.0,
-    * last_updated -> 2022-07-27 09:00)).
+  /** @return environment values that refer to the whole day. */
+  def environmentValues : EnvironmentValues
+
+  /** @return environment values updated in the last hour, according to the simulation time value.
+    * Output example:
+    *   HashMap(uv -> 1.0, temp_c -> 25.1, lux -> 0, time -> 2022-08-06 00:00, condition -> Clear, humidity -> 69) */
+  var currentEnvironmentValues: EnvironmentValues
+
+  /**
+    * Method to notify the model to update main current environment values.
+    * @param hour
+    *   current simulation time value, expressed in hours.
+    * @return main environment values updated
     */
-  def environmentValues: EnvironmentValues
+  def updateCurrentEnvironmentValues(hour: Int): Unit
 
 /** Object that can be use for managing the selected city, represents its model. */
 object City:
+
   /** Apply method for the [[City]].
     * @return
     *   the [[City]] object.
@@ -32,15 +39,53 @@ object City:
   def apply(name: String): City = CityImpl(name)
 
   private class CityImpl(override val name: String) extends City:
-    private var envValues: EnvironmentValues = setEnvironmentValues()
-    override def environmentValues: EnvironmentValues = envValues
 
-    private def setEnvironmentValues(): EnvironmentValues =
-      val apiKey = "b619d3592d8b426e8cc92336220107"
-      val query =
-        "http://api.weatherapi.com/v1/current.json?key=" + apiKey + "&q=" + name.replace(" ", "%20") + "&aqi=no"
-      val r: Response = requests.get(query)
-      if r.statusCode == 200 then
-        implicit val formats = org.json4s.DefaultFormats
-        parse(r.text()).extract[EnvironmentValues]
-      else Map()
+    override def environmentValues: EnvironmentValues = getEnvironmentValues
+    override var currentEnvironmentValues: EnvironmentValues = _
+
+    override def updateCurrentEnvironmentValues(hour: Int): Unit =
+        val h = if hour < 10 then "0" + hour + ":00" else hour.toString + ":00"
+        val forecast: Map[String, Any] = environmentValues("forecast").asInstanceOf[Map[String, Any]]
+        val hours: List[Map[String, Any]] = forecast("forecastday").asInstanceOf[List[Map[String, Any]]].
+          foldLeft(forecast("forecastday").asInstanceOf[List[Map[String, Any]]])((m, acc) =>
+              acc("hour").asInstanceOf[List[Map[String, Any]]]
+          )
+        val ch = hours.find(m => m("time").asInstanceOf[String].contains(h)).getOrElse(Map.empty)
+        currentEnvironmentValues = Map("time" -> ch("time"),
+            "temp_c" -> ch("temp_c"),
+            "uv" -> ch("uv"),
+            "lux" -> getLuxFromUVIndex(ch("uv").toString, ch("is_day").toString.toInt, ch("cloud").toString.toInt),
+            "humidity" -> ch("humidity"),
+            "condition" -> ch("condition").asInstanceOf[Map[String, Any]].get("text").fold("Not available")(res => res.toString))
+
+    private def getEnvironmentValues: EnvironmentValues =
+        val apiKey = "b619d3592d8b426e8cc92336220107"
+        val query =
+            "http://api.weatherapi.com/v1/forecast.json?key=" + apiKey + "&q=" + name.replace(" ", "%20") + "&days=1&aqi=no&alerts=no"
+        val r: Response = requests.get(query)
+        if r.statusCode == 200 then
+            implicit val formats = org.json4s.DefaultFormats
+            parse(r.text()).extract[EnvironmentValues]
+        else Map()
+
+    private val uvIndexToLux : Map[String, Double] = Map(
+      "1.0" -> 10000,
+      "2.0" -> 20000,
+      "3.0" -> 30000,
+      "4.0" -> 40000,
+      "5.0" -> 50000,
+      "6.0" -> 60000,
+      "7.0" -> 70000,
+      "8.0" -> 80000,
+      "9.0" -> 90000,
+      "10.0" -> 100000,
+      "11.0" -> 110000,
+      "12.0" -> 120000
+    )
+
+    private def getLuxFromUVIndex(uvIndex : String, isDay: Int, cloudValue : Int) : Int =
+        var lux : Double = uvIndexToLux(uvIndex)
+        if isDay.==(0) then lux = 0
+        val cloudFactor : Double = 0.05
+        lux = lux - (lux * (cloudFactor * cloudValue))
+        lux.max(0).toInt

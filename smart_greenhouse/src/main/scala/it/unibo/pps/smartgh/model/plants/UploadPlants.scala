@@ -5,9 +5,10 @@ import java.nio.file.{Files, Path}
 import scala.io.{BufferedSource, Codec, Source}
 import scala.util.Using
 
+/** This trait exposes methods to managing the uploading of plants into a prolog file. */
 trait UploadPlants:
 
-  /** function that get the file
+  /** Function that get the file
     *
     * @throws java.io.FileNotFoundException
     * @param fileName
@@ -17,7 +18,7 @@ trait UploadPlants:
     */
   def getBufferedSource(fileName: String): BufferedSource
 
-  /** function that get the number of lines of a file located in resources folder
+  /** Function that get the number of lines of a file located in resources folder
     *
     * @throws java.io.FileNotFoundException
     * @param fileName
@@ -27,7 +28,7 @@ trait UploadPlants:
     */
   def countResourcesFileLines(fileName: String): Int
 
-  /** function that get the number of lines of a file located in prolog folder
+  /** Function that get the number of lines of a file located in prolog folder
     *
     * @throws java.io.FileNotFoundException
     * @param fileName
@@ -37,7 +38,7 @@ trait UploadPlants:
     */
   def countPrologFileLines(fileName: String): Int
 
-  /** function that write the content of the input file into the output file formatted with the following prolog Theory:
+  /** Function that write the content of the input file into the output file formatted with the following prolog Theory:
     * plant("namePlant", "idPlant").
     *
     * @param path
@@ -51,6 +52,7 @@ trait UploadPlants:
     */
   def writePrologFile(path: String, inputFile: String, outFile: String): Unit
 
+/** Utility for reading a file, where the selectable plants are listed, and creating a prolog file with its content. */
 object UploadPlants extends UploadPlants:
 
   def getBufferedSource(fileName: String): BufferedSource =

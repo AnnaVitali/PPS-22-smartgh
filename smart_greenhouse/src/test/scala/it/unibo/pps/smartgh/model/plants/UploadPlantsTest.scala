@@ -5,6 +5,7 @@ import org.scalatest.matchers.should.Matchers
 
 import java.io.FileNotFoundException
 
+/** This class contains tests to verify that the [[UploadPlants]] works correctly. */
 class UploadPlantsTest extends AnyFunSuite with Matchers:
   private val path = System.getProperty("user.home") + "/pps/"
   private val file = "plants.txt"
