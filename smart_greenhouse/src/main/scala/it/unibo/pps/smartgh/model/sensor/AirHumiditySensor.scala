@@ -14,8 +14,19 @@ import monix.execution.Scheduler.Implicits.global
 
 import scala.util.Random
 
+/** Object that enclose the implementation of the air humidity sensor. */
 object AirHumiditySensor:
 
+  /** Apply method for the [[AirHumiditySensorImpl]]
+    * @param initialHumidity
+    *   the initial value detected by the environment for the air humidity.
+    * @param areaComponentsState
+    *   the actual state of the area components.
+    * @param timer
+    *   the timer of the simulation
+    * @return
+    *   the sensor responsible for detecting the air humidity of the area.
+    */
   def apply(
       initialHumidity: Double,
       areaComponentsState: AreaComponentsStateImpl,
@@ -23,11 +34,18 @@ object AirHumiditySensor:
   ): AirHumiditySensorImpl =
     AirHumiditySensorImpl(initialHumidity, areaComponentsState, timer)
 
+  /** Class that represents the air humidity sensor of an area of the greenhouse.
+    * @param initialHumidity
+    *   the initial value detected by the environment for the air humidity.
+    * @param areaComponentsState
+    *   the actual state of the area components.
+    * @param timer
+    *   the timer of the simulation
+    */
   class AirHumiditySensorImpl(initialHumidity: Double, areaComponentsState: AreaComponentsStateImpl, timer: Timer)
       extends AbstractSensorWithTimer(areaComponentsState, timer):
 
     private val timeMustPass: Int = 300
-
     private val minPercentage = 0.0
     private val maxPercentage = 0.05
     private var maxAtomizeValue: Double = _
