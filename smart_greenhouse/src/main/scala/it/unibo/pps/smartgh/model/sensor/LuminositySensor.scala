@@ -10,7 +10,7 @@ import monix.execution.Scheduler.Implicits.global
 import monix.reactive.subjects.ConcurrentSubject
 import monix.reactive.MulticastStrategy.Behavior
 import monix.reactive.MulticastStrategy
-import it.unibo.pps.smartgh.model.sensor.areaComponentsState.{AreaGatesState, AreaShildState}
+import it.unibo.pps.smartgh.model.sensor.areaComponentsState.{AreaGatesState, AreaShieldState}
 import it.unibo.pps.smartgh.model.sensor.areaComponentsState.AreaComponentsState.*
 import monix.execution.Ack.Continue
 
@@ -65,22 +65,22 @@ object LuminositySensor:
       currentValue
 
     private def computeNextSensorValue(): Unit =
-      areaComponentsState.gatesState() match
+      areaComponentsState.gatesState match
         case AreaGatesState.Open =>
           currentValue = FactoryFunctionsLuminositySensor.computeLuminosityWithAreaGatesOpen(
             currentEnvironmentValue,
-            areaComponentsState.brightnessOfTheLamps()
+            areaComponentsState.brightnessOfTheLamps
           )
           println("area gates open and shild up")
-        case AreaGatesState.Close if areaComponentsState.shildState().equals(AreaShildState.Down) =>
+        case AreaGatesState.Close if areaComponentsState.shieldState.equals(AreaShieldState.Down) =>
           currentValue = FactoryFunctionsLuminositySensor.computeLuminosityWithAreaGatesCloseAndShild(
-            areaComponentsState.brightnessOfTheLamps()
+            areaComponentsState.brightnessOfTheLamps
           )
           println("area gates close and shild down")
-        case AreaGatesState.Close if areaComponentsState.shildState().equals(AreaShildState.Up) =>
+        case AreaGatesState.Close if areaComponentsState.shieldState.equals(AreaShieldState.Up) =>
           currentValue = FactoryFunctionsLuminositySensor.computeLuminosityWithAreaGatesCloseAndUnshild(
             currentEnvironmentValue,
-            areaComponentsState.brightnessOfTheLamps()
+            areaComponentsState.brightnessOfTheLamps
           )
           println("area gates close and shild up")
         case _ =>

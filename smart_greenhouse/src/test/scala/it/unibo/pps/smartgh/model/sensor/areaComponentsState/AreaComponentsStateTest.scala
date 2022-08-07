@@ -7,14 +7,14 @@ class AreaComponentsStateTest extends AnyFunSuite with Matchers:
 
   private val areaComponentsState = AreaComponentsState()
 
-  test("At the beginning the area should be closed with shild up and nebulizer and ventilazion down") {
-    areaComponentsState.gatesState() shouldEqual AreaGatesState.Close
-    areaComponentsState.shildState() shouldEqual AreaShildState.Up
-    areaComponentsState.atomisingState() shouldEqual AreaAtomiseState.AtomisingInactive
-    areaComponentsState.ventilationState() shouldEqual AreaVentilationState.VentilationInactive
+  test("At the beginning the area should be closed with shield up and atomiser and ventilation down") {
+    areaComponentsState.gatesState shouldEqual AreaGatesState.Close
+    areaComponentsState.shieldState shouldEqual AreaShieldState.Up
+    areaComponentsState.atomisingState shouldEqual AreaAtomiseState.AtomisingInactive
+    areaComponentsState.ventilationState shouldEqual AreaVentilationState.VentilationInactive
   }
 
   test("At the beginning the lamp brightness should be initialized with the default value") {
     val defaultBrightnessValue = 100
-    areaComponentsState.brightnessOfTheLamps() shouldEqual defaultBrightnessValue
+    areaComponentsState.brightnessOfTheLamps shouldEqual defaultBrightnessValue
   }

@@ -2,7 +2,7 @@ package it.unibo.pps.smartgh.model.sensor
 
 import it.unibo.pps.smartgh.model.sensor.areaComponentsState.AreaComponentsState
 import it.unibo.pps.smartgh.model.sensor.areaComponentsState.AreaComponentsState.AreaComponentsStateImpl
-import it.unibo.pps.smartgh.model.sensor.areaComponentsState.{AreaGatesState, AreaShildState}
+import it.unibo.pps.smartgh.model.sensor.areaComponentsState.{AreaGatesState, AreaShieldState}
 import org.scalatest.funsuite.AnyFunSuite
 import monix.execution.Scheduler.Implicits.global
 import org.scalatest.matchers.should.Matchers
@@ -20,11 +20,11 @@ class TemperatureSensorTest extends AnyFunSuite with Matchers:
   private val areaComponentsState = AreaComponentsState()
   areaComponentsState.temperature = 30.0
   private val temperatureSensor = TemperatureSensor(areaComponentsState)
-  private var subjectEnvironment: ConcurrentSubject[Double, Double] =
+  private val subjectEnvironment: ConcurrentSubject[Double, Double] =
     ConcurrentSubject[Double](MulticastStrategy.publish)
-  private var subjectActions: ConcurrentSubject[AreaComponentsStateImpl, AreaComponentsStateImpl] =
+  private val subjectActions: ConcurrentSubject[AreaComponentsStateImpl, AreaComponentsStateImpl] =
     ConcurrentSubject[AreaComponentsStateImpl](MulticastStrategy.publish)
-  private var subjectTimer: ConcurrentSubject[TimerEvent, TimerEvent] =
+  private val subjectTimer: ConcurrentSubject[TimerEvent, TimerEvent] =
     ConcurrentSubject[TimerEvent](MulticastStrategy.publish)
 
   temperatureSensor.setObserverEnvironmentValue(subjectEnvironment)
@@ -32,7 +32,7 @@ class TemperatureSensorTest extends AnyFunSuite with Matchers:
   temperatureSensor.setObserverTimer(subjectTimer)
 
   test(s"$TS must be initialized with the internal environment value") {
-    temperatureSensor.getCurrentValue() shouldEqual areaComponentsState.temperature()
+    temperatureSensor.getCurrentValue() shouldEqual areaComponentsState.temperature
   }
 
   test(
