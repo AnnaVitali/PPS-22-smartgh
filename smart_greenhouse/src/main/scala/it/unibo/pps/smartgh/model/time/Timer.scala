@@ -31,10 +31,10 @@ trait Timer:
 
   /** Change the period in which the timer emits a tick. For example, with a period of 2 seconds, the timer emits a
     * value every two seconds
-    * @param period
+    * @param newPeriod
     *   time that has to pass before emitting new items
     */
-  def changeTickPeriod(period: FiniteDuration): Unit
+  def changeTickPeriod(newPeriod: FiniteDuration): Unit
 
   /** Stop the timer. */
   def stop(): Unit
@@ -59,7 +59,7 @@ object Timer:
     private var callbacks: Map[(FiniteDuration => Unit, Int), Cancelable] = Map()
 
     override def start(): Unit =
-      timer(value, period)
+      timer(value)
       callbacks = callbacks + (((t: FiniteDuration) => value = t, 1) ->
         observable
           .throttle(period, 1)
@@ -76,15 +76,16 @@ object Timer:
     override def addCallback(task: FiniteDuration => Unit, timeMustPass: Int): Unit =
       callbacks = callbacks + ((task, timeMustPass) -> registerCallback(task, timeMustPass))
 
-    override def changeTickPeriod(period: FiniteDuration): Unit =
+    override def changeTickPeriod(newPeriod: FiniteDuration): Unit =
       stop()
-      timer(value + 1.seconds, period)
+      period = newPeriod
+      timer(value + 1.seconds)
       callbacks.foreach(c => callbacks.updated(c._1, registerCallback(c._1._1, c._1._2)))
 
     override def stop(): Unit =
       callbacks.values.foreach(_.cancel())
 
-    private def timer(from: FiniteDuration, period: FiniteDuration): Unit =
+    private def timer(from: FiniteDuration): Unit =
       observable = Observable
         .fromIterable(from.toSeconds to duration.toSeconds)
         .map(Duration(_, TimeUnit.SECONDS))
