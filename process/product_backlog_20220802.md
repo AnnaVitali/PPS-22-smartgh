@@ -22,7 +22,7 @@ Visualizzare lo stato della simulazione e, in particolare, gestire i seguenti co
     </thead>
     <tbody>
         <tr>
-            <td rowspan="5">Consentire lo scorrimento fra le diverse pagine dell'applicazione</td>
+            <td rowspan="6">Consentire lo scorrimento fra le diverse pagine dell'applicazione</td>
             <td>Refactoring schermata BaseView, con aggiunta pulsanti per la navigazione</td>
             <td>Elena</td>
             <td>2</td>
@@ -242,7 +242,19 @@ Visualizzare lo stato della simulazione e, in particolare, gestire i seguenti co
         </tr>
         <tr>
             <td>Gestire interazione e collegamento fra: le aree e i sensori</td>
-            <td>Elena, Anna</td>
+            <td>Elena, Anna, Maria</td>
+            <td>4</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Gestire interazione e collegamento fra: l'environment e i sensori</td>
+            <td>Elena, Anna, Veronika</td>
             <td>4</td>
             <td></td>
             <td></td>
