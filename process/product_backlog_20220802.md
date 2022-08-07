@@ -168,7 +168,7 @@ Visualizzare lo stato della simulazione e, in particolare, gestire i seguenti co
             <td></td>
         </tr>
         <tr>
-            <td rowspan="7">Visualizzare lo stato aggiornato delle singole aree</td>
+            <td rowspan="8">Visualizzare lo stato aggiornato delle singole aree</td>
             <td>Impostazione formula di aggiornamento dei valori dei sensori</td>
             <td>Elena, Anna</td>
             <td>2</td>
