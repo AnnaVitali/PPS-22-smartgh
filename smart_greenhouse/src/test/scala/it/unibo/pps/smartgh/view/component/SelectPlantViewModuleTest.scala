@@ -1,10 +1,17 @@
 package it.unibo.pps.smartgh.view.component
 
+import it.unibo.pps.smartgh.controller.PlantSelectorControllerModule
+import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule
 import it.unibo.pps.smartgh.model.city.CitiesSearcher
-import it.unibo.pps.smartgh.model.plants.{PlantSelector, UploadPlants}
+import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.PlantSelectorModel
+import it.unibo.pps.smartgh.controller.PlantSelectorControllerModule.PlantSelectorController
+import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.SelectPlantView
+import it.unibo.pps.smartgh.model.plants.UploadPlants
+import it.unibo.pps.smartgh.mvc.PlantSelectorMVC
+import it.unibo.pps.smartgh.mvc.PlantSelectorMVC.PlantSelectorMVCImpl
 import it.unibo.pps.smartgh.view.SimulationView.{appSubtitle, appTitle}
 import it.unibo.pps.smartgh.view.component
-import javafx.scene.control.{CheckBox, Label}
+import javafx.scene.control.{Button, CheckBox, Label}
 import javafx.scene.layout.{BorderPane, VBox}
 import javafx.stage.Stage
 import org.junit.jupiter.api.TestInstance.Lifecycle
@@ -23,29 +30,23 @@ import scalafx.scene.Scene
 
 @TestInstance(Lifecycle.PER_CLASS)
 @ExtendWith(Array(classOf[ApplicationExtension]))
-class SelectPlantViewTest extends AbstractViewTest:
+class SelectPlantViewModuleTest extends AbstractViewTest:
 
-  val selectYourPlantLabelId = "#selectYourPlantLabel"
-  val plantSelectedLabelId = "#plantsSelectedLabel"
-  val countLabelId = "#countLabel"
-  val numberPlantsSelectedId = "#numberPlantsSelectedLabel"
-  val selectablePlantsBoxId = "#selectablePlantsBox"
-  val selectedPlantBoxId = "#selectedPlantsBox"
-  private val path = System.getProperty("user.home") + "/pps/"
-  private val file = "plants.txt"
-  private val prologFile = "plants.pl"
-  private val uploader = UploadPlants
-  private var plantSelector: PlantSelector = _
-
-  @BeforeAll
-  def setPrologFile(): Unit =
-    uploader.writePrologFile(path, file, prologFile)
-    plantSelector = PlantSelector(path + prologFile)
+  private val selectYourPlantLabelId = "#selectYourPlantLabel"
+  private val plantSelectedLabelId = "#plantsSelectedLabel"
+  private val countLabelId = "#countLabel"
+  private val numberPlantsSelectedId = "#numberPlantsSelectedLabel"
+  private val selectablePlantsBoxId = "#selectablePlantsBox"
+  private val selectedPlantBoxId = "#selectedPlantsBox"
+  private val errorLabelId = "#errorLabel"
+  private val changeSceneButtonId = "#changeSceneButton"
+  private var mvc: PlantSelectorMVCImpl = _
 
   @Start
   private def start(stage: Stage): Unit =
     val baseView: BaseView = BaseView(appTitle, appSubtitle)
-    startApplication(stage, baseView, SelectPlantView(null, baseView))
+    mvc = PlantSelectorMVCImpl(null, baseView)
+    startApplication(stage, baseView, mvc.selectPlantView)
 
   @Test def testLabelsSelectPlantAndPlantSelected(robot: FxRobot): Unit =
     val selectYourPlantsText = "Select your plants:"
@@ -63,6 +64,17 @@ class SelectPlantViewTest extends AbstractViewTest:
     verifyThat(numberPlantsSelectedId, isVisible)
     verifyThat(numberPlantsSelectedId, hasText(numberPlantText))
 
+  @Test def testLabelError(robot: FxRobot): Unit =
+    val errorText = "At least one plant must be selected"
+    val startSimulationButton = robot.lookup(changeSceneButtonId).queryAs(classOf[Button])
+    verifyThat(errorLabelId, isVisible)
+    verifyThat(errorLabelId, hasText(""))
+    //when
+    robot.clickOn(startSimulationButton)
+
+    //then
+    verifyThat(errorLabelId, hasText(errorText))
+
   @Test def testBeforePlantSelection(robot: FxRobot): Unit =
     val initialSelectedPlant = 0
     assert(
@@ -70,7 +82,7 @@ class SelectPlantViewTest extends AbstractViewTest:
         .lookup(selectablePlantsBoxId)
         .queryAs(classOf[VBox])
         .getChildren
-        .size == plantSelector.getAllAvailablePlants().length
+        .size == mvc.plantSelectorModel.getAllAvailablePlants().length
     )
     assert(robot.lookup(selectedPlantBoxId).queryAs(classOf[VBox]).getChildren.size == initialSelectedPlant)
 

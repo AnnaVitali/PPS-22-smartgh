@@ -69,4 +69,7 @@
          </children>
       </HBox>
    </center>
+   <bottom>
+      <Label fx:id="errorLabel" textFill="RED" BorderPane.alignment="CENTER" />
+   </bottom>
 </BorderPane>

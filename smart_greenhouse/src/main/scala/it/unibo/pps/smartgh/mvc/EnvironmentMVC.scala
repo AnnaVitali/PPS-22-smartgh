@@ -23,10 +23,10 @@ object EnvironmentMVC:
     EnvironmentMVCImpl(simulationView, baseView)
 
   class EnvironmentMVCImpl(simulationView: SimulationView, baseView: BaseView)
-    extends EnvironmentModelModule.Interface
+      extends EnvironmentModelModule.Interface
       with EnvironmentViewModule.Interface
       with EnvironmentControllerModule.Interface:
-    
+
     override val model: EnvironmentModelModule.EnvironmentModel = EnvironmentModelImpl(City("Rome"))
     override val view: EnvironmentViewModule.EnvironmentView = EnvironmentViewImpl(simulationView, baseView)
     override val controller: EnvironmentControllerModule.EnvironmentController = EnvironmentControllerImpl()
