@@ -87,13 +87,13 @@ Visualizzare lo stato della simulazione e, in particolare, gestire i seguenti co
             <td>*Refactoring schermata di visualizzazione stato globale della serra</td>
             <td>Veronika</td>
             <td>1</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>*Completare controller per gestire l'avvio del tempo</td>
