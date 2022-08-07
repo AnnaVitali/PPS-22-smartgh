@@ -3,10 +3,8 @@ package it.unibo.pps.smartgh.model.time
 import monix.eval.Task
 import monix.execution.Scheduler.Implicits.global
 import monix.execution.schedulers.TestScheduler
-import monix.execution.{Ack, Cancelable, CancelableFuture}
-import monix.reactive.{Observable, OverflowStrategy}
-import org.apache.commons.lang3.time.DurationFormatUtils
-import org.joda.time.{DateTime, Interval}
+import monix.execution.Cancelable
+import monix.reactive.Observable
 
 import java.util.concurrent.TimeUnit
 import scala.concurrent.Future
@@ -21,20 +19,23 @@ trait Timer:
   /** Current value of the timer. */
   def value: FiniteDuration
 
-  /** Start the timer.
-    * @param task
-    *   a task that will consume by the timer at each tick.
-    */
+  /** Start the timer. */
   def start(): Unit
 
+  /** Add a new callback to the timer
+    * @param task
+    *   a task that will consume by the timer at each tick.
+    * @param timeMustPass
+    *   the time must to pass to emit a next tick
+    */
   def addCallback(task: FiniteDuration => Unit, timeMustPass: Int): Unit
 
   /** Change the period in which the timer emits a tick. For example, with a period of 2 seconds, the timer emits a
     * value every two seconds
-    * @param period
+    * @param newPeriod
     *   time that has to pass before emitting new items
     */
-  def changeTickPeriod(period: FiniteDuration): Unit
+  def changeTickPeriod(newPeriod: FiniteDuration): Unit
 
   /** Stop the timer. */
   def stop(): Unit
@@ -51,20 +52,31 @@ object Timer:
   def apply(duration: FiniteDuration): Timer = TimerImpl(duration)
 
   private class TimerImpl(duration: FiniteDuration) extends Timer:
+    var value: FiniteDuration = 0 seconds
     private var observable: Observable[FiniteDuration] = _
     private var period = 1 seconds
-    var value: FiniteDuration = 0 seconds
-//    private var cancelableList: Seq[Cancelable] = Seq()
     private var consumer: FiniteDuration => Unit = _
     private var callbacks: Map[(FiniteDuration => Unit, Int), Cancelable] = Map()
 
     override def start(): Unit =
-      timer(value, period)
+      timer(value)
       callbacks = callbacks + (((t: FiniteDuration) => value = t, 1) ->
         observable
           .throttle(period, 1)
           .foreachL(value = _)
           .runToFuture)
+
+    override def addCallback(task: FiniteDuration => Unit, timeMustPass: Int): Unit =
+      callbacks = callbacks + ((task, timeMustPass) -> registerCallback(task, timeMustPass))
+
+    override def changeTickPeriod(newPeriod: FiniteDuration): Unit =
+      stop()
+      period = newPeriod
+      timer(value + 1.seconds)
+      callbacks.foreach(c => callbacks.updated(c._1, registerCallback(c._1._1, c._1._2)))
+
+    override def stop(): Unit =
+      callbacks.values.foreach(_.cancel())
 
     private def registerCallback(task: FiniteDuration => Unit, timeMustPass: Int): Cancelable =
       observable
@@ -73,29 +85,7 @@ object Timer:
         .foreachL(task)
         .runToFuture
 
-    override def addCallback(task: FiniteDuration => Unit, timeMustPass: Int): Unit =
-      callbacks = callbacks + ((task, timeMustPass) -> registerCallback(task, timeMustPass))
-
-    override def changeTickPeriod(period: FiniteDuration): Unit =
-      stop()
-      timer(value + 1.seconds, period)
-      callbacks.foreach(c => callbacks.updated(c._1, registerCallback(c._1._1, c._1._2)))
-
-    override def stop(): Unit =
-      callbacks.values.foreach(_.cancel())
-
-    private def timer(from: FiniteDuration, period: FiniteDuration): Unit =
+    private def timer(from: FiniteDuration): Unit =
       observable = Observable
         .fromIterable(from.toSeconds to duration.toSeconds)
         .map(Duration(_, TimeUnit.SECONDS))
-
-//        .throttle(period, 1)
-//        .foreachL(consumer)
-
-@main def testTimer =
-  val timer: Timer = Timer(1 day)
-  timer.start()
-  timer.addCallback((t: FiniteDuration) => println("Callback1: " + t), 5)
-  timer.addCallback((t: FiniteDuration) => println("Callback2: " + t), 2)
-
-  Thread.sleep(50000)

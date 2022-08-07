@@ -14,8 +14,19 @@ import monix.execution.Ack.Continue
 
 import scala.concurrent.Future
 
+/** Object that enclose the implementation of the soil humidity sensor. */
 object SoilHumiditySensor:
 
+  /** Apply method for the [[SoilHumiditySensorImpl]]
+    * @param initialHumidity
+    *   the initial value detected by the environment for the soil humidity.
+    * @param areaComponentsState
+    *   the actual state of the area components.
+    * @param timer
+    *   the timer of the simulation
+    * @return
+    *   the sensor responsible for detecting the soil humidity of the area.
+    */
   def apply(
       initialHumidity: Double,
       areaComponentsState: AreaComponentsStateImpl,
@@ -23,6 +34,14 @@ object SoilHumiditySensor:
   ): SoilHumiditySensorImpl =
     SoilHumiditySensorImpl(initialHumidity, areaComponentsState, timer)
 
+  /** Class that represents the soil humidity sensor of an area of the greenhouse.
+    * @param initialHumidity
+    *   the initial value detected by the environment for the soil humidity.
+    * @param areaComponentsState
+    *   the actual state of the area components.
+    * @param timer
+    *   the timer of the simulation
+    */
   class SoilHumiditySensorImpl(initialHumidity: Double, areaComponentsState: AreaComponentsStateImpl, timer: Timer)
       extends AbstractSensorWithTimer(areaComponentsState, timer):
 
