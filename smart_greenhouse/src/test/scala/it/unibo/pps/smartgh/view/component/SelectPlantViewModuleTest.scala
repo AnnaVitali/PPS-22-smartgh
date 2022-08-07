@@ -1,13 +1,5 @@
 package it.unibo.pps.smartgh.view.component
 
-import it.unibo.pps.smartgh.controller.PlantSelectorControllerModule
-import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule
-import it.unibo.pps.smartgh.model.city.CitiesSearcher
-import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.PlantSelectorModel
-import it.unibo.pps.smartgh.controller.PlantSelectorControllerModule.PlantSelectorController
-import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.SelectPlantView
-import it.unibo.pps.smartgh.model.plants.UploadPlants
-import it.unibo.pps.smartgh.mvc.PlantSelectorMVC
 import it.unibo.pps.smartgh.mvc.PlantSelectorMVC.PlantSelectorMVCImpl
 import it.unibo.pps.smartgh.view.SimulationView.{appSubtitle, appTitle}
 import it.unibo.pps.smartgh.view.component

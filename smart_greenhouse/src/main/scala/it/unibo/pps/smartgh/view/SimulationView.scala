@@ -1,7 +1,6 @@
 package it.unibo.pps.smartgh.view
 
-import it.unibo.pps.smartgh.model.city.CitiesSearcher
-import it.unibo.pps.smartgh.mvc.PlantSelectorMVC
+import it.unibo.pps.smartgh.mvc.SelectCityMVC
 import scalafx.scene.Scene
 import scalafx.Includes.*
 import it.unibo.pps.smartgh.view.component.*
@@ -43,8 +42,7 @@ object SimulationView:
     stage.resizable = true
     stage.maximized = true
     stage.title = appTitle
-    val mvc = PlantSelectorMVC(this, baseView)
-    baseView.component.setCenter(mvc.selectPlantView) //init view
+    baseView.component.setCenter(SelectCityMVC(this, baseView).selectCityView) //init view
     scene.root.value = baseView
     stage.scene = scene
     stage.show()
