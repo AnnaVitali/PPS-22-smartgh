@@ -122,7 +122,7 @@ object SelectPlantViewModule:
 
       override def moveToTheNextScene(): Unit =
         val environmentMVC = EnvironmentMVC(simulationView, baseView)
-        simulationView.changeView(environmentMVC.view)
+        simulationView.changeView(environmentMVC.environmentView)
 
       override def showErrorMessage(message: String): Unit =
         errorLabel.setText(message)

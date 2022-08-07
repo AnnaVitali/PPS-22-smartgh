@@ -1,8 +1,8 @@
 package it.unibo.pps.smartgh.controller
 
 import it.unibo.pps.smartgh.view.component.EnvironmentViewModule
-import it.unibo.pps.smartgh.model.EnvironmentModelModule
 import it.unibo.pps.smartgh.controller.TimeController
+import it.unibo.pps.smartgh.model.greenhouse.EnvironmentModelModule
 
 /** Object that encloses the controller module to manage ambient environment values and simulation time. */
 object EnvironmentControllerModule:
@@ -27,7 +27,7 @@ object EnvironmentControllerModule:
 
   /** Trait that represents the provider of the controller for environment values and time management. */
   trait Provider:
-    val controller : EnvironmentController
+    val environmentController : EnvironmentController
 
   type Requirements = EnvironmentViewModule.Provider with EnvironmentModelModule.Provider
 
@@ -38,19 +38,19 @@ object EnvironmentControllerModule:
     /** Class that contains the [[EnvironmentController]] implementation. */
     class EnvironmentControllerImpl extends EnvironmentController:
 
-      override def timeController: TimeController = TimeController(context.model.time, context.view, this)
+      override def timeController: TimeController = TimeController(context.environmentModel.time, context.environmentView, this)
 
       override def startSimulation(): Unit = timeController.startSimulationTimer()
 
       override def stopSimulation(): Unit = timeController.stopSimulationTimer()
       
       override def notifyEnvironmentValuesChange(hour: Int): Unit =
-        context.view.displayNameCity(model.city.name)
-        context.model.city.updateCurrentEnvironmentValues(hour)
-        context.view.displayEnvironmentValues(model.city.currentEnvironmentValues)
+        context.environmentView.displayNameCity(environmentModel.city.name)
+        context.environmentModel.city.updateCurrentEnvironmentValues(hour)
+        context.environmentView.displayEnvironmentValues(environmentModel.city.currentEnvironmentValues)
         // notifySensors(currentEnvironmentValues)
 
-      private def notifySensors(values: model.city.EnvironmentValues) : Unit = ???
+      private def notifySensors(values: environmentModel.city.EnvironmentValues) : Unit = ???
 
   /** Trait that encloses the controller for environment values and time management. */
   trait Interface extends Provider with Component:

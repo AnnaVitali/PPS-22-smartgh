@@ -45,7 +45,7 @@ object EnvironmentViewModule:
 
   /** Trait that represents the provider of the view for environment values and simulation time visualization. */
   trait Provider:
-    val view: EnvironmentView
+    val environmentView: EnvironmentView
 
   type Requirements = EnvironmentControllerModule.Provider
 
@@ -101,7 +101,7 @@ object EnvironmentViewModule:
 
       baseView.changeSceneButton.setText("Stop simulation")
       baseView.changeSceneButton.setOnMouseClicked { _ =>
-        context.controller.stopSimulation()
+        context.environmentController.stopSimulation()
         simulationView.changeView(FinishSimulationView(simulationView, baseView))
       }
 
@@ -131,7 +131,7 @@ object EnvironmentViewModule:
         Platform.runLater(() => simulationView.changeView(FinishSimulationView(simulationView, baseView)))
 
       private def notifySpeedChange(value: Double): Unit =
-        context.controller.timeController.updateVelocityTimer(value)
+        context.environmentController.timeController.updateVelocityTimer(value)
 
   /** Trait that encloses the controller for environment values and simulation time visualization. */
   trait Interface extends Provider with Component:

@@ -1,7 +1,7 @@
 package it.unibo.pps.smartgh.controller
 
 import it.unibo.pps.smartgh.controller.EnvironmentControllerModule.EnvironmentController
-import it.unibo.pps.smartgh.model.EnvironmentModelModule.EnvironmentModel
+import it.unibo.pps.smartgh.model.greenhouse.EnvironmentModelModule.EnvironmentModel
 import it.unibo.pps.smartgh.model.time.TimeModel
 import it.unibo.pps.smartgh.view.component.EnvironmentViewModule.EnvironmentView
 

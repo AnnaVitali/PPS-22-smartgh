@@ -97,12 +97,12 @@ object PlantSelectorModelModule:
         if selectedPlants.contains(plantName) then
           selectedPlants = selectedPlants.take(selectedPlants.indexOf(plantName))
           subject.onNext(selectedPlants)
-        else throw new NoSuchElementException("This plant hasn't been selected")
+        else throw new NoSuchElementException("You can't deselect a plant that hasn't been selected!")
 
       override def getPlantsSelectedName(): List[String] = selectedPlants
 
       override def getPlantsSelectedIdentifier(): List[String] =
-        selectedPlants.map(s => engine("plant(" + s + ", Y)").map(extractTermToString(_, "Y"))).flatten
+        selectedPlants.flatMap(s => engine("plant(" + s + ", Y)").map(extractTermToString(_, "Y")))
 
   /** Trait that encloses the model for the plant selection. */
   trait Interface extends Provider with Component
