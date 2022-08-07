@@ -66,5 +66,4 @@ class TimerTest extends AnyFunSuite with Matchers with BeforeAndAfter with Event
     eventually(timeout(Span(period.toMillis * 2, Milliseconds))) {
       timerValue shouldEqual (valueBefore + 1.seconds)
     }
-    timerValue shouldEqual duration
   }
