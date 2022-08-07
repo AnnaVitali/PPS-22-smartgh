@@ -65,13 +65,6 @@ object Timer:
     override def start(finishTask: => Unit): Unit =
       onFinishTask = _ => Task(finishTask)
       timer(value)
-      callbacks = callbacks + (((t: FiniteDuration) => value = t, 1) ->
-        observable
-          .throttle(period, 1)
-          .foreachL { i =>
-            value = i
-          }
-          .runToFuture)
 
     override def addCallback(task: FiniteDuration => Unit, timeMustPass: Int): Unit =
       callbacks = callbacks + ((task, timeMustPass) -> registerCallback(task, timeMustPass))
@@ -79,8 +72,8 @@ object Timer:
     override def changeTickPeriod(newPeriod: FiniteDuration): Unit =
       stop()
       period = newPeriod
-      timer(value + 1.seconds)
-      callbacks.foreach(c => callbacks.updated(c._1, registerCallback(c._1._1, c._1._2)))
+      timer(value)
+      callbacks = callbacks.map((k, _) => (k, registerCallback(k._1, k._2)))
 
     override def stop(): Unit =
       callbacks.values.foreach(_.cancel())
@@ -97,3 +90,4 @@ object Timer:
       observable = Observable
         .fromIterable(from.toSeconds to duration.toSeconds)
         .map(Duration(_, TimeUnit.SECONDS))
+        .doOnNext(t => Task(this.value = t))
