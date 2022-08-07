@@ -10,7 +10,7 @@ class AreaComponentsStateTest extends AnyFunSuite with Matchers:
   test("At the beginning the area should be closed with shild up and nebulizer and ventilazion down") {
     areaComponentsState.gatesState() shouldEqual AreaGatesState.Close
     areaComponentsState.shildState() shouldEqual AreaShildState.Up
-    areaComponentsState.nebulizerState() shouldEqual AreaNebulizerState.NebulizationInactive
+    areaComponentsState.atomisingState() shouldEqual AreaAtomiseState.AtomisingInactive
     areaComponentsState.ventilationState() shouldEqual AreaVentilationState.VentilationInactive
   }
 

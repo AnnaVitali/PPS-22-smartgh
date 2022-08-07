@@ -14,6 +14,9 @@ import scala.concurrent.Future
 
 object SoilHumiditySensor:
 
+  def apply(initialHumidity: Double, areaComponentsState: AreaComponentsStateImpl): SoilHumiditySensorImpl =
+    SoilHumiditySensorImpl(initialHumidity, areaComponentsState)
+
   object FactoryFunctionsSoilHumidity:
 
     private val valueRange = (0.0, 100.0)
@@ -36,11 +39,12 @@ object SoilHumiditySensor:
     val updateValueWithMovingSoil: Double => Double = currentAreaValue =>
       (currentAreaValue - currentAreaValue * movingSoilFactor).max(valueRange._1)
 
-  class SoilHumiditySensorImpl(var areaComponentsState: AreaComponentsStateImpl) extends SensorWithTimer:
+  class SoilHumiditySensorImpl(initialHumidity: Double, var areaComponentsState: AreaComponentsStateImpl)
+      extends SensorWithTimer:
 
     private val subject: ConcurrentSubject[Double, Double] = ConcurrentSubject[Double](MulticastStrategy.publish)
     private var envPrecipitationVal: Double = _
-    private var currentValue = 30.0
+    private var currentValue = initialHumidity
 
     override def registerValueCallback(
         onNext: Double => Future[Ack],

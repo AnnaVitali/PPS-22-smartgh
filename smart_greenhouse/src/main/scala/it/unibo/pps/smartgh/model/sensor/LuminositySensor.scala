@@ -12,7 +12,7 @@ import monix.reactive.MulticastStrategy.Behavior
 import monix.reactive.MulticastStrategy
 import it.unibo.pps.smartgh.model.sensor.areaComponentsState.{AreaGatesState, AreaShildState}
 import it.unibo.pps.smartgh.model.sensor.areaComponentsState.AreaComponentsState.*
-import monix.execution.Ack.{Continue, Stop}
+import monix.execution.Ack.Continue
 
 import scala.concurrent.Future
 
