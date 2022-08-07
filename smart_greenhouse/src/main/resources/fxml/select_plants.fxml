@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../css/baseStyle.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="50.0">
          <children>
             <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                <center>
-                  <ScrollPane hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                  <ScrollPane hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="normalText">
                      <content>
                         <VBox fx:id="selectablePlantsBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0" />
                      </content>
@@ -23,14 +23,14 @@
                         <Insets bottom="20.0" top="20.0" />
                      </BorderPane.margin>
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
                </top>
             </BorderPane>
             <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                <center>
-                  <ScrollPane hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
+                  <ScrollPane hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="normalText" BorderPane.alignment="CENTER">
                      <content>
                         <VBox fx:id="selectedPlantsBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0" />
                      </content>
@@ -42,7 +42,7 @@
                         <Insets bottom="20.0" top="20.0" />
                      </BorderPane.margin>
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
                </top>
@@ -59,7 +59,7 @@
                         </Label>
                         <Label fx:id="numberPlantsSelectedLabel" text="Label">
                            <font>
-                              <Font name="System Bold" size="16.0" />
+                              <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
                      </children>
@@ -70,6 +70,6 @@
       </HBox>
    </center>
    <bottom>
-      <Label fx:id="errorLabel" textFill="RED" BorderPane.alignment="CENTER" />
+      <Label fx:id="errorLabel" styleClass="errorText" BorderPane.alignment="CENTER" />
    </bottom>
 </BorderPane>

@@ -60,7 +60,7 @@ object EnvironmentViewModule:
       *   the view in which the [[EnvironmentView]] is enclosed.
       */
     class EnvironmentViewImpl(private val simulationView: SimulationView, private val baseView: BaseView)
-        extends AbstractViewComponent[BorderPane]("ghGlobal.fxml")
+        extends AbstractViewComponent[BorderPane]("environment.fxml")
         with EnvironmentView:
 
       override val component: BorderPane = loader.load[BorderPane]

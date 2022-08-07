@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="256.0" prefWidth="235.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="256.0" prefWidth="235.0" stylesheets="@../css/baseStyle.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <VBox alignment="CENTER" fillWidth="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="15.0" BorderPane.alignment="CENTER">
          <padding>
             <Insets left="20.0" right="20.0" />
          </padding>
-         <Label text="Select your city:" />
-         <TextField fx:id="selectCityTextField" alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefWidth="250.0" />
-         <Label fx:id="errorLabel" textFill="#cc0000" />
+         <Label styleClass="normalText" text="Select your city:" />
+         <TextField fx:id="selectCityTextField" alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefWidth="250.0" styleClass="normalText" />
+         <Label fx:id="errorLabel" styleClass="errorText"/>
       </VBox>
    </center>
 </BorderPane>

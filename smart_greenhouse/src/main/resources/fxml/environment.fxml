@@ -5,64 +5,59 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../css/baseStyle.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <top>
         <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10">
             <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                 <Label fx:id="locationLabel" text="Location: ">
-                    <font>
-                        <Font name="System Bold" />
-                    </font>
-                </Label>
-                <Label fx:id="setLocationLabel" text="default" />
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Label>
+                <Label fx:id="setLocationLabel" styleClass="normalText" text="default" />
             </HBox>
             <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                 <Label fx:id="dayLabel" text="Day: ">
-                    <font>
-                        <Font name="System Bold" />
-                    </font>
-                </Label>
-                <Label fx:id="setDayLabel" text="default" />
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Label>
+                <Label fx:id="setDayLabel" styleClass="normalText" text="default" />
             </HBox>
             <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                 <Label fx:id="temperatureLabel" text="Temperature: ">
-                    <font>
-                        <Font name="System Bold" />
-                    </font>
-                </Label>
-                <Label fx:id="setTemperatureLabel" text="default" />
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Label>
+                <Label fx:id="setTemperatureLabel" styleClass="normalText" text="default" />
             </HBox>
             <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                 <Label fx:id="humidityLabel" text="Humidity: ">
-                    <font>
-                        <Font name="System Bold" />
-                    </font>
-                </Label>
-                <Label fx:id="setHumidityLabel" text="default" />
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Label>
+                <Label fx:id="setHumidityLabel" styleClass="normalText" text="default" />
             </HBox>
             <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                 <Label fx:id="uvIndexLabel" text="UV index: ">
                     <font>
-                        <Font name="System Bold" />
+                        <Font name="System Bold" size="16.0" />
                     </font>
                 </Label>
-                <Label fx:id="setUvIndexLabel" text="default" />
+                <Label fx:id="setUvIndexLabel" styleClass="normalText" text="default" />
             </HBox>
             <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                 <Label fx:id="luxLabel" text="Lux: ">
                     <font>
-                        <Font name="System Bold" />
+                        <Font name="System Bold" size="16.0" />
                     </font>
                 </Label>
-                <Label fx:id="setLuxLabel" text="default" />
+                <Label fx:id="setLuxLabel" styleClass="normalText" text="default" />
             </HBox>
             <HBox layoutX="426.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                 <Label fx:id="conditionLabel" text="Condition: ">
-                    <font>
-                        <Font name="System Bold"/>
-                    </font>
-                </Label>
-                <Label fx:id="setConditionLabel" text="default"/>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Label>
+                <Label fx:id="setConditionLabel" styleClass="normalText" text="default" />
             </HBox>
 
             <BorderPane.margin>
