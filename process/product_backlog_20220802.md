@@ -83,6 +83,18 @@ Visualizzare lo stato della simulazione e, in particolare, gestire i seguenti co
             <td></td>
         </tr>
         <tr>
+            <td>Realizzazione collegamento fra i diversi mvc</td>
+            <td>Anna, Elena, Maria, Veronika</td>
+            <td>4</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
             <td rowspan="6">Visualizzare lo stato aggiornato della simulazione</td>
             <td>*Refactoring schermata di visualizzazione stato globale della serra</td>
             <td>Veronika</td>
