@@ -9,19 +9,28 @@ import monix.reactive.subjects.ConcurrentSubject
 import monix.reactive.MulticastStrategy.Behavior
 import monix.reactive.MulticastStrategy
 import it.unibo.pps.smartgh.model.sensor.areaComponentsState.{AreaGatesState, AreaHumidityState}
+import it.unibo.pps.smartgh.model.time.Timer
 import monix.execution.Ack.Continue
 
 import scala.concurrent.Future
 
 object SoilHumiditySensor:
 
-  def apply(initialHumidity: Double, areaComponentsState: AreaComponentsStateImpl): SoilHumiditySensorImpl =
-    SoilHumiditySensorImpl(initialHumidity, areaComponentsState)
+  def apply(
+      initialHumidity: Double,
+      areaComponentsState: AreaComponentsStateImpl,
+      timer: Timer
+  ): SoilHumiditySensorImpl =
+    SoilHumiditySensorImpl(initialHumidity, areaComponentsState, timer)
 
-  class SoilHumiditySensorImpl(initialHumidity: Double, areaComponentsState: AreaComponentsStateImpl)
-      extends AbstractSensorWithTimer(areaComponentsState):
+  class SoilHumiditySensorImpl(initialHumidity: Double, areaComponentsState: AreaComponentsStateImpl, timer: Timer)
+      extends AbstractSensorWithTimer(areaComponentsState, timer):
 
+    private val timeMustPass: Int = 3600
     currentValue = initialHumidity
+
+    override def registerTimerCallback(): Unit =
+      timer.addCallback(onNextTimerEvent(), timeMustPass)
 
     override def computeNextSensorValue(): Unit =
       areaComponentsState.humidityActions match

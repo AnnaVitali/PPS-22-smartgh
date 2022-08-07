@@ -3,12 +3,16 @@ package it.unibo.pps.smartgh.model.sensor
 import it.unibo.pps.smartgh.model.sensor.areaComponentsState.AreaComponentsState
 import it.unibo.pps.smartgh.model.sensor.areaComponentsState.AreaComponentsState.AreaComponentsStateImpl
 import it.unibo.pps.smartgh.model.sensor.areaComponentsState.{AreaGatesState, AreaShieldState}
+import it.unibo.pps.smartgh.model.time.Timer
 import org.scalatest.funsuite.AnyFunSuite
 import monix.execution.Scheduler.Implicits.global
 import org.scalatest.matchers.should.Matchers
 import monix.reactive.subjects.ConcurrentSubject
 import monix.reactive.MulticastStrategy.Behavior
 import monix.reactive.MulticastStrategy
+
+import scala.concurrent.duration.*
+import scala.language.postfixOps
 
 class TemperatureSensorTest extends AnyFunSuite with Matchers:
 
@@ -18,18 +22,16 @@ class TemperatureSensorTest extends AnyFunSuite with Matchers:
   private val areaFactor = 0.90
   private val environmentFactor = 0.10
   private val areaComponentsState = AreaComponentsState()
+  private val timer = Timer(1 day)
   areaComponentsState.temperature = 30.0
-  private val temperatureSensor = TemperatureSensor(areaComponentsState)
+  private val temperatureSensor = TemperatureSensor(areaComponentsState, timer)
   private val subjectEnvironment: ConcurrentSubject[Double, Double] =
     ConcurrentSubject[Double](MulticastStrategy.publish)
   private val subjectActions: ConcurrentSubject[AreaComponentsStateImpl, AreaComponentsStateImpl] =
     ConcurrentSubject[AreaComponentsStateImpl](MulticastStrategy.publish)
-  private val subjectTimer: ConcurrentSubject[TimerEvent, TimerEvent] =
-    ConcurrentSubject[TimerEvent](MulticastStrategy.publish)
 
   temperatureSensor.setObserverEnvironmentValue(subjectEnvironment)
   temperatureSensor.setObserverActionsArea(subjectActions)
-  temperatureSensor.setObserverTimer(subjectTimer)
 
   test(s"$TS must be initialized with the internal environment value") {
     temperatureSensor.getCurrentValue() shouldEqual areaComponentsState.temperature
@@ -40,16 +42,16 @@ class TemperatureSensorTest extends AnyFunSuite with Matchers:
       s"should approach this new environment value"
   ) {
     val environmentValue = 37.0
-    val afterThreeSecondsEvent = TimerEvent()
-    afterThreeSecondsEvent.description = "three seconds are elapsed"
-    areaComponentsState.gatesState = AreaGatesState.Open
 
+    timer.start()
+    timer.changeTickPeriod(10 milliseconds)
+    temperatureSensor.registerTimerCallback()
     subjectEnvironment.onNext(environmentValue)
     val firstApproach = temperatureSensor.getCurrentValue()
     firstApproach should be <= environmentValue
 
     Thread.sleep(3000)
 
-    subjectTimer.onNext(afterThreeSecondsEvent)
+    areaComponentsState.gatesState = AreaGatesState.Open
     temperatureSensor.getCurrentValue() should (be >= firstApproach and be <= environmentValue)
   }

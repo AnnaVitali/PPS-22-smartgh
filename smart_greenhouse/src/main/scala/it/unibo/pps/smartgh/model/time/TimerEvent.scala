@@ -1,4 +1,4 @@
-package it.unibo.pps.smartgh.model.sensor
+package it.unibo.pps.smartgh.model.time
 
 trait TimerEvent:
   def description: String

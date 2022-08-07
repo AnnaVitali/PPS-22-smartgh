@@ -35,7 +35,8 @@ object TimeModel:
     private val timer: Timer = Timer(endSimulation)
 
     override def start(): Unit =
-      timer.start(updateTime)
+      timer.start()
+      timer.addCallback(updateTime, 1)
 
     override def setSpeed(speed: FiniteDuration): Unit =
       timer.changeTickPeriod(speed)

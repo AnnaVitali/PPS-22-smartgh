@@ -25,7 +25,9 @@ trait Timer:
     * @param task
     *   a task that will consume by the timer at each tick.
     */
-  def start(task: FiniteDuration => Unit): Unit
+  def start(): Unit
+
+  def addCallback(task: FiniteDuration => Unit, timeMustPass: Int): Unit
 
   /** Change the period in which the timer emits a tick. For example, with a period of 2 seconds, the timer emits a
     * value every two seconds
@@ -49,26 +51,51 @@ object Timer:
   def apply(duration: FiniteDuration): Timer = TimerImpl(duration)
 
   private class TimerImpl(duration: FiniteDuration) extends Timer:
+    private var observable: Observable[FiniteDuration] = _
+    private var period = 1 seconds
     var value: FiniteDuration = 0 seconds
-    private var cancelable: Cancelable = _
+//    private var cancelableList: Seq[Cancelable] = Seq()
     private var consumer: FiniteDuration => Unit = _
+    private var callbacks: Map[(FiniteDuration => Unit, Int), Cancelable] = Map()
 
-    override def start(task: FiniteDuration => Unit): Unit =
-      consumer = t =>
-        value = t
-        task(t)
-      cancelable = timer(value, 1 seconds).runToFuture
+    override def start(): Unit =
+      timer(value, period)
+      callbacks = callbacks + (((t: FiniteDuration) => value = t, 1) ->
+        observable
+          .throttle(period, 1)
+          .foreachL(value = _)
+          .runToFuture)
+
+    private def registerCallback(task: FiniteDuration => Unit, timeMustPass: Int): Cancelable =
+      observable
+        .map(_ * timeMustPass)
+        .throttle(period * timeMustPass, 1)
+        .foreachL(task)
+        .runToFuture
+
+    override def addCallback(task: FiniteDuration => Unit, timeMustPass: Int): Unit =
+      callbacks = callbacks + ((task, timeMustPass) -> registerCallback(task, timeMustPass))
 
     override def changeTickPeriod(period: FiniteDuration): Unit =
       stop()
-      cancelable = timer(value + 1.seconds, period).runToFuture
+      timer(value + 1.seconds, period)
+      callbacks.foreach(c => callbacks.updated(c._1, registerCallback(c._1._1, c._1._2)))
 
     override def stop(): Unit =
-      cancelable.cancel()
+      callbacks.values.foreach(_.cancel())
 
-    private def timer(from: FiniteDuration, period: FiniteDuration): Task[Unit] =
-      Observable
+    private def timer(from: FiniteDuration, period: FiniteDuration): Unit =
+      observable = Observable
         .fromIterable(from.toSeconds to duration.toSeconds)
-        .throttle(period, 1)
         .map(Duration(_, TimeUnit.SECONDS))
-        .foreachL(consumer)
+
+//        .throttle(period, 1)
+//        .foreachL(consumer)
+
+@main def testTimer =
+  val timer: Timer = Timer(1 day)
+  timer.start()
+  timer.addCallback((t: FiniteDuration) => println("Callback1: " + t), 5)
+  timer.addCallback((t: FiniteDuration) => println("Callback2: " + t), 2)
+
+  Thread.sleep(50000)
