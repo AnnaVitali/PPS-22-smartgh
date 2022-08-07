@@ -7,56 +7,94 @@ import javafx.scene.layout.BorderPane
 import it.unibo.pps.smartgh.controller.EnvironmentControllerModule
 import it.unibo.pps.smartgh.mvc.GreenHouseDivisionMVC
 
-import java.text.SimpleDateFormat
-import java.util.Calendar
 import javafx.application.Platform
+import javafx.fxml.FXML
 
 import scala.language.postfixOps
 
-/** Object that can be used to create new instances of [[EnvironmentView]]. */
+/** Object that encloses the view module to display ambient environment's values and simulation time. */
 object EnvironmentViewModule:
 
-  /** A trait that represents the global greenhouse's view of the application. */
+  /** A trait that represents the environment's view of the application. */
   trait EnvironmentView extends ViewComponent[BorderPane]:
 
-    /** View component where it will be possible visualizing the division into areas */
-//    val greenHouseDivisionView: GHViewModule.Interface
-
-    /** Data structure that will contains the city's environment values. */
+    /** Data structure that will contains environment values. */
     type EnvironmentValues = Map[String, Any]
 
+    /**
+      * Method to dislay the selected city's name in location label.
+      * @param cityName
+      *   selected city's name
+      */
     def displayNameCity(cityName : String) : Unit
 
-    /** Method to update the view of environment's values
+    /** Method to update the view of environment values.
       * @param environmentValues
-      *   environment's values relating to the city selected by the user
+      *   environment values related to the city selected by the user
       */
     def displayEnvironmentValues(environmentValues: EnvironmentValues): Unit
 
-    /** Method to update the view of elapsed simulation time
+    /** Method to update the view of elapsed simulation time.
       * @param timerValue
       *   current value of the simulation timer
       */
     def displayElapsedTime(timerValue: String): Unit
 
+    /**
+      * Method to notify view that the simulation time has finished and to display [[FinishSimulationView]].
+      */
     def finishSimulation() : Unit
 
+  /** Trait that represents the provider of the view for environment values and simulation time visualization. */
   trait Provider:
     val view : EnvironmentView
 
   type Requirements = EnvironmentControllerModule.Provider
 
+  /** Trait that represents the components of the view for environment values and simulation time visualization. */
   trait Component:
     context: Requirements =>
+
+    /** Class that contains the [[EnvironmentView]] implementation.
+      * @param simulationView
+      *   the root view of the application.
+      * @param baseView
+      *   the view in which the [[EnvironmentView]] is enclosed.*/
     class EnvironmentViewImpl(private val simulationView: SimulationView, private val baseView: BaseView) extends AbstractViewComponent[BorderPane]("ghGlobal.fxml") with EnvironmentView:
 
       override val component: BorderPane = loader.load[BorderPane]
 
+      @FXML
+      var timeSpeedSlider: Slider = _
+
+      @FXML
+      var setDayLabel: Label = _
+
+      @FXML
+      var setLocationLabel: Label = _
+
+      @FXML
+      var setTemperatureLabel: Label = _
+
+      @FXML
+      var setHumidityLabel: Label = _
+
+      @FXML
+      var setUvIndexLabel: Label = _
+
+      @FXML
+      var setLuxLabel: Label = _
+
+      @FXML
+      var setConditionLabel: Label = _
+
+      @FXML
+      var timeElapsedLabel: Label = _
+
       val greenHouseMVC = GreenHouseDivisionMVC
       component.setCenter(greenHouseMVC.view)
 
-      val speedSlider: Slider = component.lookup("#timeSpeedSlider").asInstanceOf[Slider]
-      speedSlider.setOnMouseReleased(_ => notifySpeedChange(speedSlider.getValue))
+      timeSpeedSlider.setOnMouseReleased(_ => notifySpeedChange(timeSpeedSlider.getValue))
 
       baseView.changeSceneButton.setText("Stop simulation")
       baseView.changeSceneButton.setOnMouseClicked { _ =>
@@ -64,28 +102,30 @@ object EnvironmentViewModule:
         simulationView.changeView(FinishSimulationView(simulationView, baseView))
       }
 
-      val dateFormat: SimpleDateFormat = new SimpleDateFormat("dd / MM / yy")
-      val date : String = dateFormat.format(Calendar.getInstance().getTime)
-      component.lookup("#setDayLabel").asInstanceOf[Label].setText(date)
-
       override def displayNameCity(cityName: String): Unit =
-        component.lookup("#setLocationLabel").asInstanceOf[Label].setText(cityName)
+        Platform.runLater(() =>
+          setLocationLabel.setText(cityName)
+        )
 
       override def displayEnvironmentValues(environmentValues: EnvironmentValues): Unit =
         Platform.runLater(() =>
+          val date : String = environmentValues("time").toString.split(" ")(0)
+          setDayLabel.setText(date)
           val temperature : String = environmentValues("temp_c").toString
-          component.lookup("#setTemperatureLabel").asInstanceOf[Label].setText(temperature + "°")
+          setTemperatureLabel.setText(temperature + "°")
           val humidity : String = environmentValues("humidity").toString
-          component.lookup("#setHumidityLabel").asInstanceOf[Label].setText(humidity + "%")
-          val brightness : String = environmentValues("uv").toString
-          component.lookup("#setBrightnessLabel").asInstanceOf[Label].setText(brightness + " lux")
+          setHumidityLabel.setText(humidity + "%")
+          val uvIndex : String = environmentValues("uv").toString
+          setUvIndexLabel.setText(uvIndex)
+          val lux : String = environmentValues("lux").toString
+          setLuxLabel.setText(lux)
           val condition : String = environmentValues("condition").toString
-          component.lookup("#setConditionLabel").asInstanceOf[Label].setText(condition)
+          setConditionLabel.setText(condition)
         )
 
       override def displayElapsedTime(timerValue: String): Unit =
         Platform.runLater(() =>
-          component.lookup("#timeElapsedLabel").asInstanceOf[Label].setText(timerValue)
+          timeElapsedLabel.setText(timerValue)
         )
 
       override def finishSimulation(): Unit =
@@ -96,5 +136,6 @@ object EnvironmentViewModule:
       private def notifySpeedChange(value: Double): Unit =
         context.controller.timeController.updateVelocityTimer(value)
 
+  /** Trait that encloses the controller for environment values and simulation time visualization. */
   trait Interface extends Provider with Component:
     self: Requirements =>

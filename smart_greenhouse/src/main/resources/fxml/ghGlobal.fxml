@@ -41,12 +41,20 @@
                 <Label fx:id="setHumidityLabel" text="default" />
             </HBox>
             <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-                <Label fx:id="brightnessLabel" text="Brightness: ">
+                <Label fx:id="uvIndexLabel" text="UV index: ">
                     <font>
                         <Font name="System Bold" />
                     </font>
                 </Label>
-                <Label fx:id="setBrightnessLabel" text="default" />
+                <Label fx:id="setUvIndexLabel" text="default" />
+            </HBox>
+            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                <Label fx:id="luxLabel" text="Lux: ">
+                    <font>
+                        <Font name="System Bold" />
+                    </font>
+                </Label>
+                <Label fx:id="setLuxLabel" text="default" />
             </HBox>
             <HBox layoutX="426.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                 <Label fx:id="conditionLabel" text="Condition: ">

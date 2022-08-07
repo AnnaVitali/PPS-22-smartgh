@@ -13,18 +13,6 @@ import org.apache.commons.lang3.time.DurationFormatUtils
 /** A trait that represents the controller for the simulation timer. */
 trait TimeController:
 
-//  /** Getter method for the view component.
-//    * @return
-//    *   the view assoociated to the controller.
-//    */
-//  def view: EnvironmentViewModule.Interface
-//
-//  /** Setter method for the view component.
-//    * @param view
-//    *   the view associated to the controller.
-//    */
-//  def view_=(view: EnvironmentViewModule.Interface): Unit
-
   /** Method that notify the controller to start the simulation timer. */
   def startSimulationTimer(): Unit
 
@@ -37,20 +25,22 @@ trait TimeController:
     */
   def updateVelocityTimer(speed: Double): Unit
 
-//  /** Method that requires the controller to update the time shown on the view.
-//    * @param time
-//    */
-//  def updateTimeValueOnView(): Unit
-
-//  /** Method that is called when the simulation is finished. */
-//  def finishSimulation(): Unit
-
+  /** Method that notify the controller the change of the value of simulation timer.
+    * @param timeValue
+    *   new simulation time value.
+    */
   def notifyTimeValueChange(timeValue: FiniteDuration) : Unit
 
 /** Object that can be used to create a new instance of [[TimeController]]. */
 object TimeController:
 
   /** Create a new [[TimeController]].
+    * @param timeModel
+    *   model that represents simulation time.
+    * @param environmentView
+    *   view that dislays environment's values and simulation time.
+    * @param environmentController
+    *   controller that manages environment's values and simulation time.
     * @return
     *   a new instance of [[TimeController]].
     */
@@ -58,19 +48,15 @@ object TimeController:
 
   private class TimeControllerImpl(timeModel : TimeModel, environmentView: EnvironmentView, environmentController : EnvironmentController) extends TimeController:
 
-    // private val model = TimeModel()
-    // override val view: EnvironmentViewModule.Interface = _
-
-    var lastRequestTime : Long = -1
+    timeModel.controller = this
     
+    var lastRequestTime : Long = -1
     private val timeSpeed: Double => FiniteDuration = (x: Double) =>
       val x0 = 1
       val x1 = 10
       val y0 = pow(10, 6)
       val y1 = 50
       exp(((x - x0) / (x1 - x0)) * (log(y1) - log(y0)) + log(y0)) microseconds
-
-    timeModel.controller = this
 
     override def startSimulationTimer(): Unit = timeModel.start()
 
@@ -85,15 +71,13 @@ object TimeController:
       else
         val time : String = DurationFormatUtils.formatDuration(timeValue.toMillis, "HH:mm:ss", true)
         environmentView.displayElapsedTime(time)
-        hasNewHourPassed(timeValue)
+        lastRequestTime = hasNewHourPassed(timeValue)
     
     private def isSimulationEnded(timeValue: FiniteDuration): Boolean = timeValue.toDays.>=(1)
 
-    private def hasNewHourPassed(timeValue: FiniteDuration): Unit = 
+    private def hasNewHourPassed(timeValue: FiniteDuration): Long =
       if timeValue.toHours.>(lastRequestTime) then
         environmentController.notifyEnvironmentValuesChange(timeValue.toHours.intValue)
+        timeValue.toHours
       else
-        lastRequestTime = timeValue.toHours
-
-//    override def finishSimulation(): Unit = ???
-//      // view.finishSimulation()
+        lastRequestTime

@@ -42,7 +42,7 @@ object SimulationView:
     stage.resizable = true
     stage.maximized = true
     stage.title = appTitle
-    val mvc = EnvironmentMVC(this, baseView)
+    val mvc: EnvironmentMVC.EnvironmentMVCImpl = EnvironmentMVC(this, baseView)
     baseView.component.setCenter(mvc.view) //init view
     scene.root.value = baseView
     stage.scene = scene

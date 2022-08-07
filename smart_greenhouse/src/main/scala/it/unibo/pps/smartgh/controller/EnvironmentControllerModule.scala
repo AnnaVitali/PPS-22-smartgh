@@ -3,85 +3,55 @@ package it.unibo.pps.smartgh.controller
 import it.unibo.pps.smartgh.view.component.EnvironmentViewModule
 import it.unibo.pps.smartgh.model.EnvironmentModelModule
 import it.unibo.pps.smartgh.controller.TimeController
-import monix.execution.Ack.Continue
 
-import scala.concurrent.duration.FiniteDuration
-import monix.execution.Ack.{Continue, Stop}
-import monix.execution.Scheduler.Implicits.global
-import org.apache.commons.lang3.time.DurationFormatUtils
-
-import scala.language.postfixOps
-
+/** Object that encloses the controller module to manage ambient environment values and simulation time. */
 object EnvironmentControllerModule:
 
+  /** A trait that represents the controller for environment values and time management, it also allows their display in the view. */
   trait EnvironmentController:
 
-    val timeController : TimeController
+    /** @return time controller. */
+    def timeController : TimeController
 
+    /** Method that notify the controller to start the simulation. */
     def startSimulation() : Unit
 
+    /** Method that notify the controller to stop the simulation. */
     def stopSimulation() : Unit
 
-    def notifyEnvironmentValuesChange(hour: Int) : Unit 
+    /** Method that notify the controller to request environment's model to update environment values.
+      *   @param hour
+      *     time value, expressed in hours, to which the update request refers.
+      *   */
+    def notifyEnvironmentValuesChange(hour: Int) : Unit
 
+  /** Trait that represents the provider of the controller for environment values and time management. */
   trait Provider:
     val controller : EnvironmentController
 
   type Requirements = EnvironmentViewModule.Provider with EnvironmentModelModule.Provider
 
+  /** Trait that represents the components of the controller for environment values and time management. */
   trait Component:
     context: Requirements =>
+
+    /** Class that contains the [[EnvironmentController]] implementation. */
     class EnvironmentControllerImpl extends EnvironmentController:
 
-      override val timeController: TimeController = TimeController(context.model.time, view, this)
-      context.view.displayNameCity(model.city.name)
+      override def timeController: TimeController = TimeController(context.model.time, context.view, this)
 
       override def startSimulation(): Unit = timeController.startSimulationTimer()
 
       override def stopSimulation(): Unit = timeController.stopSimulationTimer()
       
       override def notifyEnvironmentValuesChange(hour: Int): Unit =
-        view.displayEnvironmentValues(model.city.mainEnvironmentValues(hour))
+        context.view.displayNameCity(model.city.name)
+        context.model.city.updateCurrentEnvironmentValues(hour)
+        context.view.displayEnvironmentValues(model.city.currentEnvironmentValues)
+        // notifySensors(currentEnvironmentValues)
 
-//      private def updateTimeValue(): Unit =
-//        model.time
-//          .getTimeValueObservable()
-//          .subscribe(
-//            (t : FiniteDuration) => {
-//              if isSimulationEnded(t) then
-//                stopSimulation()
-//                view.finishSimulation()
-//                Stop
-//              else
-//                val time : String = DurationFormatUtils.formatDuration(t.toMillis, "HH:mm:ss", true)
-//                view.displayElapsedTime(time)
-//                Continue
-//            },
-//            (ex: Throwable) => ex.printStackTrace(),
-//            () => {}
-//          )
-//
-//      private def updateEnvironmentValues() : Unit =
-//        var lastRequestTime : Long = -1
-//        model.time
-//          .getTimeValueObservable()
-//          .subscribe(
-//            (t : FiniteDuration) => {
-//              if isSimulationEnded(t) then
-//                stopSimulation()
-//                view.finishSimulation()
-//                Stop
-//              else
-//                if t.toHours.>(lastRequestTime) then
-//                  view.displayEnvironmentValues(model.city.mainEnvironmentValues(t.toHours.intValue))
-//                  lastRequestTime = t.toHours
-//                Continue
-//            },
-//            (ex: Throwable) => ex.printStackTrace(),
-//            () => {}
-//          )
+      private def notifySensors(values: model.city.EnvironmentValues) : Unit = ???
 
-//      private def isSimulationEnded(t: FiniteDuration): Boolean = t.toDays.>=(1)
-
+  /** Trait that encloses the controller for environment values and time management. */
   trait Interface extends Provider with Component:
     self: Requirements =>
