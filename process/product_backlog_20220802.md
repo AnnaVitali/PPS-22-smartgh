@@ -62,13 +62,13 @@ Visualizzare lo stato della simulazione e, in particolare, gestire i seguenti co
             <td>Realizzazione architettura MVC tramite cake pattern per la visualizzazoine dello stato globale della serra</td>
             <td>Veronika</td>
             <td>7</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>7</td>
+            <td>5</td>
+            <td>3</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Realizzazione architettura MVC tramite cake pattern per la divisione in aree della serra</td>
@@ -111,25 +111,25 @@ Visualizzare lo stato della simulazione e, in particolare, gestire i seguenti co
             <td>Aggiornamento parametri ambientali tramite richieste periodiche</td>
             <td>Veronika, Maria</td>
             <td>3</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>2</td>
+            <td>2</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Gestione e visualizzazione aggiornamento tempo</td>
             <td>Veronika</td>
             <td>3</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>3</td>
+            <td>2</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Definizione interfaccia area e realizzare la sua implementazione</td>
