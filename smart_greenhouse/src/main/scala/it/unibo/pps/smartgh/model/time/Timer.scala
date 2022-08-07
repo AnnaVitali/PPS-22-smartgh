@@ -3,10 +3,8 @@ package it.unibo.pps.smartgh.model.time
 import monix.eval.Task
 import monix.execution.Scheduler.Implicits.global
 import monix.execution.schedulers.TestScheduler
-import monix.execution.{Ack, Cancelable, CancelableFuture}
-import monix.reactive.{Observable, OverflowStrategy}
-import org.apache.commons.lang3.time.DurationFormatUtils
-import org.joda.time.{DateTime, Interval}
+import monix.execution.Cancelable
+import monix.reactive.Observable
 
 import java.util.concurrent.TimeUnit
 import scala.concurrent.Future
@@ -19,19 +17,28 @@ import scala.math.Integral.Implicits.infixIntegralOps
 trait Timer:
 
   /** Start the timer.
-    * @param tickTask
-    *   a task that will consume by the timer at each tick
     * @param finishTask
     *   a task that will consume by the timer when the timer is finished
     */
-  def start(tickTask: FiniteDuration => Unit, finishTask: => Unit): Unit
+  def start(finishTask: => Unit): Unit
+
+  /** Current value of the timer. */
+  def value: FiniteDuration
+
+  /** Add a new callback to the timer
+    * @param task
+    *   a task that will consume by the timer at each tick.
+    * @param timeMustPass
+    *   the time must to pass to emit a next tick
+    */
+  def addCallback(task: FiniteDuration => Unit, timeMustPass: Int): Unit
 
   /** Change the period in which the timer emits a tick. For example, with a period of 2 seconds, the timer emits a
     * value every two seconds
-    * @param period
+    * @param newPeriod
     *   time that has to pass before emitting new items
     */
-  def changeTickPeriod(period: FiniteDuration): Unit
+  def changeTickPeriod(newPeriod: FiniteDuration): Unit
 
   /** Stop the timer. */
   def stop(): Unit
@@ -48,29 +55,45 @@ object Timer:
   def apply(duration: FiniteDuration): Timer = TimerImpl(duration)
 
   private class TimerImpl(duration: FiniteDuration) extends Timer:
-    private var value: FiniteDuration = 1 second
-    private var cancelable: Cancelable = _
+    var value: FiniteDuration = 0 seconds
+    private var observable: Observable[FiniteDuration] = _
+    private var period = 1 seconds
     private var consumer: FiniteDuration => Unit = _
     private var onFinishTask: Option[Throwable] => Task[Unit] = _
+    private var callbacks: Map[(FiniteDuration => Unit, Int), Cancelable] = Map()
 
-    override def start(tickTask: FiniteDuration => Unit, finishTask: => Unit): Unit =
-      consumer = t =>
-        value = t
-        tickTask(t)
+    override def start(finishTask: => Unit): Unit =
       onFinishTask = _ => Task(finishTask)
-      cancelable = timer(value, 1 second).runToFuture
+      timer(value)
+      callbacks = callbacks + (((t: FiniteDuration) => value = t, 1) ->
+        observable
+          .throttle(period, 1)
+          .foreachL { i =>
+            value = i
+          }
+          .runToFuture)
 
-    override def changeTickPeriod(period: FiniteDuration): Unit =
+    override def addCallback(task: FiniteDuration => Unit, timeMustPass: Int): Unit =
+      callbacks = callbacks + ((task, timeMustPass) -> registerCallback(task, timeMustPass))
+
+    override def changeTickPeriod(newPeriod: FiniteDuration): Unit =
       stop()
-      cancelable = timer(value + 1.second, period).runToFuture
+      period = newPeriod
+      timer(value + 1.seconds)
+      callbacks.foreach(c => callbacks.updated(c._1, registerCallback(c._1._1, c._1._2)))
 
     override def stop(): Unit =
-      cancelable.cancel()
+      callbacks.values.foreach(_.cancel())
 
-    private def timer(from: FiniteDuration, period: FiniteDuration): Task[Unit] =
-      Observable
-        .fromIterable(from.toSeconds to duration.toSeconds)
-        .throttle(period, 1)
-        .map(Duration(_, TimeUnit.SECONDS))
-        .foreachL(consumer)
+    private def registerCallback(task: FiniteDuration => Unit, timeMustPass: Int): Cancelable =
+      observable
+        .map(_ * timeMustPass)
+        .throttle(period * timeMustPass, 1)
+        .foreachL(task)
         .doOnFinish(onFinishTask)
+        .runToFuture
+
+    private def timer(from: FiniteDuration): Unit =
+      observable = Observable
+        .fromIterable(from.toSeconds to duration.toSeconds)
+        .map(Duration(_, TimeUnit.SECONDS))

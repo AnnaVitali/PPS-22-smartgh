@@ -5,7 +5,7 @@ import org.scalatest.BeforeAndAfter
 import org.scalatest.concurrent.Eventually
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
-import org.scalatest.time.{Seconds, Span}
+import org.scalatest.time.{Seconds, Span, Milliseconds}
 
 import scala.concurrent.duration.*
 import scala.language.postfixOps
@@ -22,7 +22,8 @@ class TimerTest extends AnyFunSuite with Matchers with BeforeAndAfter with Event
     timerValue = 0.seconds
     finish = false
     timer = Timer(duration)
-    timer.start(timerValue = _, this.finish = true)
+    timer.start(this.finish = true)
+    timer.addCallback(timerValue = _, 1)
   }
 
   after {
@@ -54,6 +55,16 @@ class TimerTest extends AnyFunSuite with Matchers with BeforeAndAfter with Event
     timer.changeTickPeriod(200 milliseconds)
     eventually(timeout(Span(duration.toSeconds / 2, Seconds))) {
       finish shouldEqual true
+    }
+    timerValue shouldEqual duration
+  }
+
+  test("When change period, the timer should continue its value") {
+    val valueBefore = timerValue
+    val period: FiniteDuration = 200.milliseconds
+    timer.changeTickPeriod(period)
+    eventually(timeout(Span(period.toMillis * 2, Milliseconds))) {
+      timerValue shouldEqual (valueBefore + 1.seconds)
     }
     timerValue shouldEqual duration
   }
