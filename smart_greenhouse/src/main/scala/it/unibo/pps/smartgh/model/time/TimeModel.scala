@@ -1,10 +1,10 @@
 package it.unibo.pps.smartgh.model.time
 
+import it.unibo.pps.smartgh.controller.TimeController
 import org.apache.commons.lang3.time.DurationFormatUtils
 import java.lang.module.FindException
 import scala.concurrent.duration.*
 import scala.language.postfixOps
-import it.unibo.pps.smartgh.controller.TimeController
 import it.unibo.pps.smartgh.model.time.Timer
 
 /** A trait that exposes methods to manage the time of the simulation, it represents its model. */
@@ -44,7 +44,7 @@ object TimeModel:
     private val timer: Timer = Timer(endSimulation)
 
     override def start(): Unit =
-      timer.start(updateTimeValue)
+      timer.start(updateTimeValue, controller.finishSimulation())
 
     override def setSpeed(speed: FiniteDuration): Unit =
       timer.changeTickPeriod(speed)

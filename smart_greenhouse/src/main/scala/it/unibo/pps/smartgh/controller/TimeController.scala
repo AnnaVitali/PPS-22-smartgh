@@ -4,7 +4,6 @@ import it.unibo.pps.smartgh.controller.EnvironmentControllerModule.EnvironmentCo
 import it.unibo.pps.smartgh.model.greenhouse.EnvironmentModelModule.EnvironmentModel
 import it.unibo.pps.smartgh.model.time.TimeModel
 import it.unibo.pps.smartgh.view.component.EnvironmentViewModule.EnvironmentView
-
 import scala.concurrent.duration.*
 import scala.language.postfixOps
 import scala.math.{exp, log, pow}
@@ -30,6 +29,10 @@ trait TimeController:
     *   new simulation time value.
     */
   def notifyTimeValueChange(timeValue: FiniteDuration) : Unit
+
+  /** Method that is called when the simulation is finished. */
+  def finishSimulation(): Unit
+
 
 /** Object that can be used to create a new instance of [[TimeController]]. */
 object TimeController:
@@ -65,15 +68,11 @@ object TimeController:
     override def updateVelocityTimer(speed: Double): Unit = timeModel.setSpeed(timeSpeed(speed))
 
     override def notifyTimeValueChange(timeValue: FiniteDuration): Unit =
-      if isSimulationEnded(timeValue) then
-          stopSimulationTimer()
-          environmentView.finishSimulation()
-      else
-        val time : String = DurationFormatUtils.formatDuration(timeValue.toMillis, "HH:mm:ss", true)
-        environmentView.displayElapsedTime(time)
-        lastRequestTime = hasNewHourPassed(timeValue)
-    
-    private def isSimulationEnded(timeValue: FiniteDuration): Boolean = timeValue.toDays.>=(1)
+      val time : String = DurationFormatUtils.formatDuration(timeValue.toMillis, "HH:mm:ss", true)
+      environmentView.displayElapsedTime(time)
+      lastRequestTime = hasNewHourPassed(timeValue)
+
+    override def finishSimulation(): Unit = environmentView.finishSimulation()
 
     private def hasNewHourPassed(timeValue: FiniteDuration): Long =
       if timeValue.toHours.>(lastRequestTime) then
