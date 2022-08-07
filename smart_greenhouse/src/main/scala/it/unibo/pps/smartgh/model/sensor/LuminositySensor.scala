@@ -18,11 +18,26 @@ import monix.execution.Ack.Continue
 
 import scala.concurrent.Future
 
+/** Object that enclose the implementation of the luminosity sensor. */
 object LuminositySensor:
 
+  /** Apply method for the [[LuminositySensorImpl]]
+    * @param initialLuminosity
+    *   the initial value detected by the environment for the brightness.
+    * @param areaComponentsState
+    *   the actual state of the area components.
+    * @return
+    *   the sensor responsible for detecting the brightness of the area.
+    */
   def apply(initialLuminosity: Double, areaComponentsState: AreaComponentsStateImpl): LuminositySensorImpl =
     LuminositySensorImpl(initialLuminosity, areaComponentsState)
 
+  /** Class that represents the luminosity sensor of an area of the greenhouse.
+    * @param initialLuminosity
+    *   the initial value detected by the environment for the brightness.
+    * @param areaComponentsState
+    *   the actual state of the area components.
+    */
   class LuminositySensorImpl(initialLuminosity: Double, areaComponentsState: AreaComponentsStateImpl)
       extends AbstractSensor(areaComponentsState):
     private val randomValue = Random(10)
@@ -31,12 +46,6 @@ object LuminositySensor:
     currentValue = initialLuminosity - (minPercentage + (maxPercentage - minPercentage) * randomValue
       .nextDouble()) * initialLuminosity
 
-    /* override def setObserverEnvironmentValue(observableEnvironment: Observable[Double]): Unit =
-      observableEnvironment.subscribe(onNextEnvironmentValue(), (ex: Throwable) => ex.printStackTrace(), () => {})
-
-    override def setObserverActionsArea(observableActionArea: Observable[AreaComponentsStateImpl]): Unit =
-      observableActionArea.subscribe(onNextAction(), (ex: Throwable) => ex.printStackTrace(), () => {})*/
-
     override def computeNextSensorValue(): Unit =
       areaComponentsState.gatesState match
         case AreaGatesState.Open =>
@@ -44,17 +53,14 @@ object LuminositySensor:
             currentEnvironmentValue,
             areaComponentsState.brightnessOfTheLamps
           )
-          println("area gates open and shield up")
         case AreaGatesState.Close if areaComponentsState.shieldState.equals(AreaShieldState.Down) =>
           currentValue = FactoryFunctionsLuminosity.computeLuminosityWithAreaGatesCloseAndShielded(
             areaComponentsState.brightnessOfTheLamps
           )
-          println("area gates close and shield down")
         case AreaGatesState.Close if areaComponentsState.shieldState.equals(AreaShieldState.Up) =>
           currentValue = FactoryFunctionsLuminosity.computeLuminosityWithAreaGatesCloseAndUnshielded(
             currentEnvironmentValue,
             areaComponentsState.brightnessOfTheLamps
           )
-          println("area gates close and shield up")
         case _ =>
       subject.onNext(currentValue)

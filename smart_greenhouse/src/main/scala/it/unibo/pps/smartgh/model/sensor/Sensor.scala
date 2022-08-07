@@ -62,7 +62,7 @@ trait Sensor:
     * @return
     *   the value detected by the sensor at the moment of the call.
     */
-  def getCurrentValue: Double
+  def getCurrentValue(): Double
 
 /** This trait represents a sensor of emitting periodically detected values. */
 trait SensorWithTimer extends Sensor:
@@ -87,7 +87,7 @@ abstract class AbstractSensor(var areaComponentsState: AreaComponentsStateImpl) 
   protected val subject: ConcurrentSubject[Double, Double] = ConcurrentSubject[Double](MulticastStrategy.publish)
   protected var currentValue: Double = _
 
-  override def getCurrentValue: Double = currentValue
+  override def getCurrentValue(): Double = currentValue
 
   protected def computeNextSensorValue(): Unit
 
