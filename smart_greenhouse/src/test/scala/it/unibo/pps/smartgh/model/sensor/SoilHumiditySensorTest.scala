@@ -21,7 +21,6 @@ class SoilHumiditySensorTest extends AnyFunSuite with Matchers with Eventually w
 
   private var areaComponentsState: AreaComponentsStateImpl = _
   private val timer = Timer(1 day)
-  private val initialHumidity = 30.0
   private var humiditySensor: SoilHumiditySensorImpl = _
   private val subjectEnvironment: ConcurrentSubject[Double, Double] =
     ConcurrentSubject[Double](MulticastStrategy.publish)
@@ -35,7 +34,7 @@ class SoilHumiditySensorTest extends AnyFunSuite with Matchers with Eventually w
 
   before {
     areaComponentsState = AreaComponentsState()
-    humiditySensor = SoilHumiditySensor(initialHumidity, areaComponentsState, timer)
+    humiditySensor = SoilHumiditySensor(areaComponentsState, timer)
     humiditySensor.setObserverEnvironmentValue(subjectEnvironment)
     humiditySensor.setObserverActionsArea(subjectActions)
   }
@@ -45,13 +44,13 @@ class SoilHumiditySensorTest extends AnyFunSuite with Matchers with Eventually w
   }
 
   test("Temperature sensor should be initialized with the initial humidity value") {
-    humiditySensor.getCurrentValue() shouldEqual initialHumidity
+    humiditySensor.getCurrentValue() shouldEqual areaComponentsState.soilHumidity
   }
 
   test("The soil humidity value should decrease over time due to water evaporation") {
     setupTimer(50 microseconds)
     eventually(timeout(Span(5000, Milliseconds))) {
-      humiditySensor.getCurrentValue() should be < initialHumidity
+      humiditySensor.getCurrentValue() should be < areaComponentsState.soilHumidity
     }
   }
 
@@ -61,7 +60,7 @@ class SoilHumiditySensorTest extends AnyFunSuite with Matchers with Eventually w
     val precipitation = 2.0
     subjectEnvironment.onNext(precipitation)
     eventually(timeout(Span(1000, Milliseconds))) {
-      humiditySensor.getCurrentValue() should be > initialHumidity
+      humiditySensor.getCurrentValue() should be > areaComponentsState.soilHumidity
     }
   }
 
@@ -70,7 +69,7 @@ class SoilHumiditySensorTest extends AnyFunSuite with Matchers with Eventually w
     areaComponentsState.humidityActions = AreaHumidityState.Watering
     subjectActions.onNext(areaComponentsState)
     eventually(timeout(Span(2000, Milliseconds))) {
-      humiditySensor.getCurrentValue() should be > initialHumidity
+      humiditySensor.getCurrentValue() should be > areaComponentsState.soilHumidity
     }
     areaComponentsState.humidityActions shouldBe AreaHumidityState.None
   }
@@ -80,7 +79,7 @@ class SoilHumiditySensorTest extends AnyFunSuite with Matchers with Eventually w
     areaComponentsState.humidityActions = AreaHumidityState.MovingSoil
     subjectActions.onNext(areaComponentsState)
     eventually(timeout(Span(2000, Milliseconds))) {
-      humiditySensor.getCurrentValue() should be < initialHumidity
+      humiditySensor.getCurrentValue() should be < areaComponentsState.soilHumidity
     }
     areaComponentsState.humidityActions shouldBe AreaHumidityState.None
   }
