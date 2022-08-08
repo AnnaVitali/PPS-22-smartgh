@@ -7,9 +7,9 @@ object FactoryFunctionsSoilHumidity:
 
   private val valueRange = (0.0, 100.0)
   private val evaporationFactor = 100
-  private val rainFactor = 50.0 / 100
-  private val wateringFactor = 5.0 / 100
-  private val movingSoilFactor = 10.0 / 100
+  private val rainFactor = 0.50
+  private val wateringFactor = 0.05
+  private val movingSoilFactor = 0.10
 
   val updateValueWithEvaporation: Double => Double = currentAreaValue =>
     (currentAreaValue - currentAreaValue / evaporationFactor).max(valueRange._1)

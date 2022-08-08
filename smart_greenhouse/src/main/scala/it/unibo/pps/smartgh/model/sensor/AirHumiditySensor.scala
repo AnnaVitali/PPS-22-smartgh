@@ -51,9 +51,9 @@ object AirHumiditySensor:
     private var maxAtomizeValue: Double = _
     private var minVentilateValue: Double = _
     private val randomValue = currentValue * Random().nextDouble() * maxPercentage
-    private val disableActionRandomValue = areaComponentsState.gatesState match
-      case AreaGatesState.Open => 0
+    private val noActionRandomVal = areaComponentsState.gatesState match
       case AreaGatesState.Close => randomValue
+      case _ => 0
 
     currentValue = initialHumidity
 
@@ -69,20 +69,12 @@ object AirHumiditySensor:
         case AreaAtomiseState.AtomisingActive =>
           FactoryFunctionsAirHumidity.updateAtomizeValue(currentValue, maxAtomizeValue)
         case _ =>
-          FactoryFunctionsAirHumidity.updateDisableActionValue(
-            currentValue,
-            currentEnvironmentValue,
-            disableActionRandomValue
-          )
+          FactoryFunctionsAirHumidity.updateDisableActionValue(currentValue, currentEnvironmentValue, noActionRandomVal)
       areaComponentsState.ventilationState match
         case AreaVentilationState.VentilationActive =>
           currentValue = FactoryFunctionsAirHumidity.updateVentilationValue(currentValue, minVentilateValue)
         case _ =>
-          FactoryFunctionsAirHumidity.updateDisableActionValue(
-            currentValue,
-            currentEnvironmentValue,
-            disableActionRandomValue
-          )
+          FactoryFunctionsAirHumidity.updateDisableActionValue(currentValue, currentEnvironmentValue, noActionRandomVal)
       subject.onNext(currentValue)
 
     override def onNextAction(): AreaComponentsStateImpl => Future[Ack] =
