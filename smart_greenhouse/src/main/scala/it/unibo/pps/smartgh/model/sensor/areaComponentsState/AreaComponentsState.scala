@@ -39,4 +39,5 @@ object AreaComponentsState:
     var ventilationState: AreaVentilationState = AreaVentilationState.VentilationInactive
     var brightnessOfTheLamps: Int = defaultValueLampsBrightness
     var temperature: Double = 27.0
+    var airHumidity: Double = 30.0
     var humidityActions: AreaHumidityState = AreaHumidityState.None
