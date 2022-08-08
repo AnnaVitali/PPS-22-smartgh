@@ -30,8 +30,8 @@ trait TimeModel:
     *   the controller assoociated to the model.
     */
   def controller_=(controller: TimeController): Unit
-  
-  val timer : Timer
+
+  val timer: Timer
 
 /** Object that can be used to create a new instances of [[TimeModel]]. */
 object TimeModel:
