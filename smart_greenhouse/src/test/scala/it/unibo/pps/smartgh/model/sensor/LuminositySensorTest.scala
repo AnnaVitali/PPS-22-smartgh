@@ -12,6 +12,7 @@ import monix.reactive.MulticastStrategy
 
 import scala.util.Random
 
+/** This class contains the tests realized to verify that [[LuminositySensor]] behaves correctly. */
 class LuminositySensorTest extends AnyFunSuite with Matchers:
 
   private val LS = "Luminosity sensor"

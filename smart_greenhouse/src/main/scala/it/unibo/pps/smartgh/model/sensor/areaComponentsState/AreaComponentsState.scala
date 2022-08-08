@@ -38,5 +38,5 @@ object AreaComponentsState:
     var atomisingState: AreaAtomiseState = AreaAtomiseState.AtomisingInactive
     var ventilationState: AreaVentilationState = AreaVentilationState.VentilationInactive
     var brightnessOfTheLamps: Int = defaultValueLampsBrightness
-    var temperature: Double = _
+    var temperature: Double = 27.0
     var humidityActions: AreaHumidityState = AreaHumidityState.None
