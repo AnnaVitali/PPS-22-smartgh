@@ -17,19 +17,30 @@ import monix.execution.Ack.{Continue, Stop}
 
 import scala.concurrent.Future
 
+/** Object that enclose the implementation of the temperature sensor. */
 object TemperatureSensor:
 
+  /** Apply method for the [[TemperatureSensorImpl]]
+    * @param areaComponentsStateImpl
+    *   the actual state of the are components.
+    * @param timer
+    *   the simulation timer.
+    * @return
+    *   the sensor responsible for detecting the temperature of the area.
+    */
   def apply(areaComponentsStateImpl: AreaComponentsStateImpl, timer: Timer): TemperatureSensorImpl =
     TemperatureSensorImpl(areaComponentsStateImpl, timer)
 
+  /**
+    * Class that represents the temperature sensor of an area of the greenhouse.
+    * @param areaComponentsState
+    *   represents the current state of the components of the area.
+    * @param timer
+    *   the simulation timer
+    */
   class TemperatureSensorImpl(areaComponentsState: AreaComponentsStateImpl, timer: Timer)
-      extends AbstractSensorWithTimer(areaComponentsState, timer):
+    extends AbstractSensorWithTimer(areaComponentsState, timer):
     private val timeMustPass: Int = 300
-    private val randomValue = Random(10)
-    private val minPercentage = 0.1
-    private val maxPercentage = 0.10
-    private val areaFactor = 0.90
-    private val environmentFactor = 0.10
 
     currentValue = areaComponentsState.temperature
 
