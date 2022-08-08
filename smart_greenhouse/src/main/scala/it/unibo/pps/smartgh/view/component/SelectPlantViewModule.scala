@@ -36,13 +36,13 @@ object SelectPlantViewModule:
       */
     def updateSelectedPlant(selectedPlantList: List[String]): Unit
 
-    /** Method that asks the view to move to the next Scene. 
-      * @param city 
+    /** Method that asks the view to move to the next Scene.
+      * @param city
       *   the selected city by the user.
       * @param selectedPlants
       *   a list of plants selected by the user.
-      * */
-    def moveToTheNextScene(city: City, selectedPlants : List[Plant]): Unit
+      */
+    def moveToTheNextScene(city: City, selectedPlants: List[Plant]): Unit
 
     /** Method that requires to the view to show an error message.
       * @param message
@@ -122,6 +122,7 @@ object SelectPlantViewModule:
         checkBoxList.foreach(_.setOnAction { e =>
           Platform.runLater(() =>
             val checkBox = e.getSource.asInstanceOf[CheckBox]
+            if errorLabel.getText != "" then errorLabel.setText("")
             if checkBox.isSelected then context.plantSelectorController.notifySelectedPlant(checkBox.getText)
             else context.plantSelectorController.notifyDeselectedPlant(checkBox.getText)
           )
@@ -132,7 +133,7 @@ object SelectPlantViewModule:
         simulationView.changeView(environmentMVC.environmentView)
 
       override def showErrorMessage(message: String): Unit =
-        errorLabel.setText(message)
+        Platform.runLater(() => errorLabel.setText(message))
 
   /** Trait that encloses the view for the plant selection. */
   trait Interface extends Provider with Component:
