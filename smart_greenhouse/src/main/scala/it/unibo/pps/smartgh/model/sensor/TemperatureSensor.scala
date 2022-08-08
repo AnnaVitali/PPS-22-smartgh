@@ -52,5 +52,6 @@ object TemperatureSensor:
         case AreaGatesState.Open if currentValue != currentEnvironmentValue =>
           currentValue = FactoryFunctionsTemperatureSensor.computeTemperature(currentValue, currentEnvironmentValue)
         case AreaGatesState.Close if currentValue != areaComponentsState.temperature =>
-          FactoryFunctionsTemperatureSensor.computeTemperature(currentValue, areaComponentsState.temperature)
+          currentValue = FactoryFunctionsTemperatureSensor.computeTemperature(currentValue, areaComponentsState.temperature)
         case _ =>
+      subject.onNext(currentValue)

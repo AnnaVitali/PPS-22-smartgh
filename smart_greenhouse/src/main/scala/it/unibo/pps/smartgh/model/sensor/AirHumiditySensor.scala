@@ -50,7 +50,7 @@ object AirHumiditySensor:
       case AreaGatesState.Close => randomValue
       case _ => 0
 
-    currentValue = areaComponentsState.airHumidity - randomValue
+    currentValue = areaComponentsState.soilHumidity - randomValue
 
     override def registerTimerCallback(): Unit =
       timer.addCallback(onNextTimerEvent(), timeMustPass)

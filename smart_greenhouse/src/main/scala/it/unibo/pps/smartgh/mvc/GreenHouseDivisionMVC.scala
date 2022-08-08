@@ -5,6 +5,7 @@ import it.unibo.pps.smartgh.model.greenhouse.GHModelModule
 import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.model.time.Timer
 import it.unibo.pps.smartgh.view.component.GHViewModule
+import monix.reactive.subjects.ConcurrentSubject
 
 /** Object that can be used to create a new instance of [[GreenHouseDivisionMVC]]. */
 object GreenHouseDivisionMVC:
@@ -27,9 +28,11 @@ object GreenHouseDivisionMVC:
     override val ghController = GreenHouseDivisionControllerImpl()
     override val ghDivisionView = GreenHouseDivisionViewImpl()
 
-    def setAreas(timer: Timer): Unit =
+    def setAreas(timer: Timer, subjects: Map[String, ConcurrentSubject[Double, Double]]): Unit =
       ghDivisionModel.areas = for p <- plants
         yield AreaMVC(p, timer)
+
+      ghDivisionModel.areas.foreach (a => a.areaModel.setSensorSubjects(subjects))
 
     def show(): Unit = ghController.updateView()
 

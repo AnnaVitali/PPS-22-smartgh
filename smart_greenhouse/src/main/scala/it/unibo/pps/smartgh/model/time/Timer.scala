@@ -83,7 +83,7 @@ object Timer:
         .map(_ * timeMustPass)
         .throttle(period * timeMustPass, 1)
         .foreachL(task)
-        .doOnFinish(onFinishTask)
+        //.doOnFinish(onFinishTask)
         .runToFuture
 
     private def timer(from: FiniteDuration): Unit =

@@ -18,7 +18,11 @@ object EnvironmentModelModule:
     /** Object to manage the time of the simulation, it represents its model */
     val time: TimeModel
 
+    //TODO add doc
     val subjectTemperature : ConcurrentSubject[Double, Double]
+    val subjectHumidity : ConcurrentSubject[Double, Double]
+    val subjectLuminosity : ConcurrentSubject[Double, Double]
+    val subjectSoilMoisture : ConcurrentSubject[Double, Double]
 
   /** Trait that represents the provider of the model for environment values and time management. */
   trait Provider:
@@ -35,7 +39,11 @@ object EnvironmentModelModule:
 
       override val time: TimeModel = TimeModel()
 
-      val subjectTemperature = ConcurrentSubject[Double](MulticastStrategy.publish)
+      override val subjectTemperature = ConcurrentSubject[Double](MulticastStrategy.publish)
+
+      override val subjectHumidity = ConcurrentSubject[Double](MulticastStrategy.publish)
+      override val subjectLuminosity = ConcurrentSubject[Double](MulticastStrategy.publish)
+      override val subjectSoilMoisture = ConcurrentSubject[Double](MulticastStrategy.publish)
 
   /** Trait that encloses the model for environment values and time management. */
   trait Interface extends Provider with Component

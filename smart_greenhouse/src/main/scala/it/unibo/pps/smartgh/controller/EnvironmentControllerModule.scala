@@ -47,8 +47,13 @@ object EnvironmentControllerModule:
 
       override def startSimulation(): Unit =
         timeController.startSimulationTimer()
-        ghMVC.setAreas(environmentModel.time.timer)
+        ghMVC.setAreas(environmentModel.time.timer,
+          Map("temp" -> environmentModel.subjectTemperature,
+            "lux" -> environmentModel.subjectLuminosity,
+            "hum" -> environmentModel.subjectHumidity,
+            "soilMoist" -> environmentModel.subjectSoilMoisture))
         ghMVC.show()
+        
 
       override def stopSimulation(): Unit = timeController.stopSimulationTimer()
       
@@ -60,6 +65,9 @@ object EnvironmentControllerModule:
 
       private def notifySensors(values: environmentModel.city.EnvironmentValues) : Unit =
         context.environmentModel.subjectTemperature.onNext(values("temp_c").asInstanceOf[Double])
+        context.environmentModel.subjectHumidity.onNext(values("humidity").asInstanceOf[Double])
+        context.environmentModel.subjectLuminosity.onNext(values("lux").asInstanceOf[Double])
+        context.environmentModel.subjectSoilMoisture.onNext(values("condition").asInstanceOf[Double])
 
   /** Trait that encloses the controller for environment values and time management. */
   trait Interface extends Provider with Component:

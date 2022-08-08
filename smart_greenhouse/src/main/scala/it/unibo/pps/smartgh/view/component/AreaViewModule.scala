@@ -15,7 +15,7 @@ object AreaViewModule:
   /** A trait that represents the green house division view of the application. */
   trait AreaView extends ViewComponent[VBox]:
     /**Draw the area*/
-    def paintArea(plant: String, statusColor: String, par: Map[String, Float]): Unit
+    def paintArea(plant: String, statusColor: String, par: Map[String, Double]): Unit
 
   /** A trait for defining the view instance.*/
   trait Provider:
@@ -41,11 +41,11 @@ object AreaViewModule:
       @FXML
       var plant: Label = _
 
-      override def paintArea(plantName: String, statusColor: String, par: Map[String, Float]): Unit =
+      override def paintArea(plantName: String, statusColor: String, par: Map[String, Double]): Unit =
         Platform.runLater(() =>
           plant.setText(plantName)
           params.getChildren.clear()
-          par foreach ((k,v) => params.getChildren.add(new Label(s"$k : $v")))
+          par foreach ((k,v) => params.getChildren.add(new Label(s"$k : ${v}")))
 
           areaBt.setStyle("-fx-background-color: " + statusColor)
 
