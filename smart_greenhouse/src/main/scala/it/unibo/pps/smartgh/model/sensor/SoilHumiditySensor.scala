@@ -54,10 +54,10 @@ object SoilHumiditySensor:
     override def computeNextSensorValue(): Unit =
       areaComponentsState.humidityActions match
         case AreaHumidityState.Watering =>
-          FactoryFunctionsSoilHumidity.updateValueWithWatering(currentValue)
+          currentValue = FactoryFunctionsSoilHumidity.updateValueWithWatering(currentValue)
           areaComponentsState.humidityActions = AreaHumidityState.None
         case AreaHumidityState.MovingSoil =>
-          FactoryFunctionsSoilHumidity.updateValueWithMovingSoil(currentValue)
+          currentValue = FactoryFunctionsSoilHumidity.updateValueWithMovingSoil(currentValue)
           areaComponentsState.humidityActions = AreaHumidityState.None
         case _ =>
       areaComponentsState.gatesState match

@@ -18,8 +18,6 @@ import scala.util.Random
 object AirHumiditySensor:
 
   /** Apply method for the [[AirHumiditySensorImpl]]
-    * @param initialHumidity
-    *   the initial value detected by the environment for the air humidity.
     * @param areaComponentsState
     *   the actual state of the area components.
     * @param timer
@@ -28,21 +26,18 @@ object AirHumiditySensor:
     *   the sensor responsible for detecting the air humidity of the area.
     */
   def apply(
-      initialHumidity: Double,
       areaComponentsState: AreaComponentsStateImpl,
       timer: Timer
   ): AirHumiditySensorImpl =
-    AirHumiditySensorImpl(initialHumidity, areaComponentsState, timer)
+    AirHumiditySensorImpl(areaComponentsState, timer)
 
   /** Class that represents the air humidity sensor of an area of the greenhouse.
-    * @param initialHumidity
-    *   the initial value detected by the environment for the air humidity.
     * @param areaComponentsState
     *   the actual state of the area components.
     * @param timer
     *   the timer of the simulation
     */
-  class AirHumiditySensorImpl(initialHumidity: Double, areaComponentsState: AreaComponentsStateImpl, timer: Timer)
+  class AirHumiditySensorImpl(areaComponentsState: AreaComponentsStateImpl, timer: Timer)
       extends AbstractSensorWithTimer(areaComponentsState, timer):
 
     private val timeMustPass: Int = 300
@@ -55,7 +50,7 @@ object AirHumiditySensor:
       case AreaGatesState.Close => randomValue
       case _ => 0
 
-    currentValue = initialHumidity
+    currentValue = areaComponentsState.airHumidity - randomValue
 
     override def registerTimerCallback(): Unit =
       timer.addCallback(onNextTimerEvent(), timeMustPass)
@@ -67,14 +62,22 @@ object AirHumiditySensor:
         case _ =>
       areaComponentsState.atomisingState match
         case AreaAtomiseState.AtomisingActive =>
-          FactoryFunctionsAirHumidity.updateAtomizeValue(currentValue, maxAtomizeValue)
+          currentValue = FactoryFunctionsAirHumidity.updateAtomizeValue(currentValue, maxAtomizeValue)
         case _ =>
-          FactoryFunctionsAirHumidity.updateDisableActionValue(currentValue, currentEnvironmentValue, noActionRandomVal)
+          currentValue = FactoryFunctionsAirHumidity.updateDisableActionValue(
+            currentValue,
+            currentEnvironmentValue,
+            noActionRandomVal
+          )
       areaComponentsState.ventilationState match
         case AreaVentilationState.VentilationActive =>
           currentValue = FactoryFunctionsAirHumidity.updateVentilationValue(currentValue, minVentilateValue)
         case _ =>
-          FactoryFunctionsAirHumidity.updateDisableActionValue(currentValue, currentEnvironmentValue, noActionRandomVal)
+          currentValue = FactoryFunctionsAirHumidity.updateDisableActionValue(
+            currentValue,
+            currentEnvironmentValue,
+            noActionRandomVal
+          )
       subject.onNext(currentValue)
 
     override def onNextAction(): AreaComponentsStateImpl => Future[Ack] =
