@@ -3,6 +3,7 @@ package it.unibo.pps.smartgh.controller
 import it.unibo.pps.smartgh.model.plants.UploadPlants
 import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule
 import it.unibo.pps.smartgh.view.component.SelectPlantViewModule
+import it.unibo.pps.smartgh.model.city.City
 import monix.execution.Ack.{Continue, Stop}
 import monix.execution.Scheduler.Implicits.global
 
@@ -40,7 +41,7 @@ object PlantSelectorControllerModule:
     context: Requirments =>
 
     /** Class that contains the [[PlantSelectorController]] implementation. */
-    class PlantSelectorControllerImpl extends PlantSelectorController:
+    class PlantSelectorControllerImpl(city: City) extends PlantSelectorController:
 
       override def configureAvailablePlants(): Unit =
         context.plantSelectorModel.registerCallback(
@@ -62,7 +63,7 @@ object PlantSelectorControllerModule:
 
       override def notifyStartSimulationClicked(): Unit =
         if context.plantSelectorModel.getPlantsSelectedName().size != 0 then
-          context.selectPlantView.moveToTheNextScene()
+          context.selectPlantView.moveToTheNextScene(city, context.plantSelectorModel.getPlantsSelected())
         else selectPlantView.showErrorMessage("At least one plant must be selected")
 
   /** Trait that encloses the controller for the plant selection. */

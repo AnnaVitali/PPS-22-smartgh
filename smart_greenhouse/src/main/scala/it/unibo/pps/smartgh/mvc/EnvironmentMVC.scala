@@ -4,7 +4,7 @@ import it.unibo.pps.smartgh.controller.EnvironmentControllerModule
 import it.unibo.pps.smartgh.view.component.EnvironmentViewModule
 import it.unibo.pps.smartgh.model.city.City
 import it.unibo.pps.smartgh.model.greenhouse.EnvironmentModelModule
-
+import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.view.SimulationView
 import it.unibo.pps.smartgh.view.component.BaseView
 
@@ -19,16 +19,16 @@ object EnvironmentMVC:
     * @return
     *   the implemntation of [[EnvironmentMVC]].
     */
-  def apply(simulationView: SimulationView, baseView: BaseView): EnvironmentMVCImpl =
-    EnvironmentMVCImpl(simulationView, baseView)
+  def apply(simulationView: SimulationView, baseView: BaseView, city: City, selectedPlants : List[Plant]): EnvironmentMVCImpl =
+    EnvironmentMVCImpl(simulationView, baseView, city, selectedPlants)
 
-  class EnvironmentMVCImpl(simulationView: SimulationView, baseView: BaseView)
+  class EnvironmentMVCImpl(simulationView: SimulationView, baseView: BaseView, city : City, selectedPlants: List[Plant])
       extends EnvironmentModelModule.Interface
       with EnvironmentViewModule.Interface
       with EnvironmentControllerModule.Interface:
 
-    override val environmentModel: EnvironmentModelModule.EnvironmentModel = EnvironmentModelImpl(City("Rome"))
+    override val environmentModel: EnvironmentModelModule.EnvironmentModel = EnvironmentModelImpl(city)
     override val environmentView: EnvironmentViewModule.EnvironmentView = EnvironmentViewImpl(simulationView, baseView)
-    override val environmentController: EnvironmentControllerModule.EnvironmentController = EnvironmentControllerImpl()
+    override val environmentController: EnvironmentControllerModule.EnvironmentController = EnvironmentControllerImpl(selectedPlants)
 
     environmentController.startSimulation()

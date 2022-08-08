@@ -22,7 +22,7 @@ class EnvironmentViewModuleTest extends AbstractViewTest:
   @Start
   private def start(stage: Stage): Unit =
     val baseView: BaseView = BaseView(appTitle, appSubtitle)
-    startApplication(stage, baseView, EnvironmentMVC(null, baseView).environmentView)
+    startApplication(stage, baseView, EnvironmentMVC(null, baseView, null, null).environmentView)
 
   @Test def testEnvironmentLabels(robot: FxRobot): Unit =
     verifyThat("#locationLabel", isVisible)

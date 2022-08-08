@@ -72,8 +72,7 @@ object SelectCityViewModule:
         val selectedCity = selectCityTextField.getText.capitalize
         if selectedCity.isBlank then setErrorText("Please select a city")
         else if controller.containCity(selectedCity) then
-          controller.saveCity(selectedCity)
-          simulationView.changeView(PlantSelectorMVC(simulationView, baseView).selectPlantView)
+          simulationView.changeView(PlantSelectorMVC(simulationView, baseView, controller.saveCity(selectedCity)).selectPlantView)
         else setErrorText("The selected city is not valid")
       }
 

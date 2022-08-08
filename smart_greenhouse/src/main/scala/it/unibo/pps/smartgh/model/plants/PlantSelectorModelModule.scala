@@ -12,7 +12,9 @@ import monix.reactive.Observable
 import monix.reactive.MulticastStrategy
 import monix.execution.Scheduler.Implicits.global
 import monix.execution.Ack
-import concurrent.{Promise, Future}
+
+import concurrent.{Future, Promise}
+import scala.language.postfixOps
 
 /** Object that encloses the model module for the plant selection. */
 object PlantSelectorModelModule:
@@ -58,6 +60,12 @@ object PlantSelectorModelModule:
       */
     def getPlantsSelectedIdentifier(): List[String]
 
+    /** Method that returns plants selected for cultivation in the greenhouse.
+      * @return
+      *   the [[List]] of plants selected.
+      */
+    def getPlantsSelected(): List[Plant]
+
   /** Trait that represents the provider of the model for the plant selection. */
   trait Provider:
     val plantSelectorModel: PlantSelectorModel
@@ -102,7 +110,13 @@ object PlantSelectorModelModule:
       override def getPlantsSelectedName(): List[String] = selectedPlants
 
       override def getPlantsSelectedIdentifier(): List[String] =
-        selectedPlants.flatMap(s => engine("plant(" + s + ", Y)").map(extractTermToString(_, "Y")))
+        selectedPlants.map(getCorrectPlantName).flatMap(s => engine("plant(" + s + ", Y)").map(extractTermToString(_, "Y")))
+
+      override def getPlantsSelected() : List[Plant] =
+        selectedPlants.zip(getPlantsSelectedIdentifier()).map((n,i) => Plant(n,i))
+
+      private def getCorrectPlantName(plantName: String): String =
+        if plantName.contains(" ") then "\'" + plantName + "\'" else plantName
 
   /** Trait that encloses the model for the plant selection. */
   trait Interface extends Provider with Component

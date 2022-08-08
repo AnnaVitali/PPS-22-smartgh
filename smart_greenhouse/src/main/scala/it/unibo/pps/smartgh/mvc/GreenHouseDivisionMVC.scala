@@ -29,8 +29,7 @@ object GreenHouseDivisionMVC:
     def setAreas(): Unit =
       ghDivisionModel.areas = for p <- plants
         yield AreaMVC(p)
-
-
+    
     def show(): Unit = ghController.updateView()
 
 

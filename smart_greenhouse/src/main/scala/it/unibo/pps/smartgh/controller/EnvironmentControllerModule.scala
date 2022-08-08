@@ -3,6 +3,8 @@ package it.unibo.pps.smartgh.controller
 import it.unibo.pps.smartgh.view.component.EnvironmentViewModule
 import it.unibo.pps.smartgh.controller.TimeController
 import it.unibo.pps.smartgh.model.greenhouse.EnvironmentModelModule
+import it.unibo.pps.smartgh.model.plants.Plant
+import it.unibo.pps.smartgh.mvc.GreenHouseDivisionMVC
 
 /** Object that encloses the controller module to manage ambient environment values and simulation time. */
 object EnvironmentControllerModule:
@@ -36,7 +38,12 @@ object EnvironmentControllerModule:
     context: Requirements =>
 
     /** Class that contains the [[EnvironmentController]] implementation. */
-    class EnvironmentControllerImpl extends EnvironmentController:
+    class EnvironmentControllerImpl(selectedPlants : List[Plant]) extends EnvironmentController:
+
+      val ghMVC = GreenHouseDivisionMVC(selectedPlants)
+      environmentView.displayGreenHouseDivisionView(ghMVC.ghDivisionView)
+      ghMVC.setAreas()
+      ghMVC.show()
 
       override def timeController: TimeController = TimeController(context.environmentModel.time, context.environmentView, this)
 
@@ -48,9 +55,10 @@ object EnvironmentControllerModule:
         context.environmentView.displayNameCity(environmentModel.city.name)
         context.environmentModel.city.updateCurrentEnvironmentValues(hour)
         context.environmentView.displayEnvironmentValues(environmentModel.city.currentEnvironmentValues)
-        // notifySensors(currentEnvironmentValues)
+        notifySensors(environmentModel.city.currentEnvironmentValues)
 
       private def notifySensors(values: environmentModel.city.EnvironmentValues) : Unit = ???
+
 
   /** Trait that encloses the controller for environment values and time management. */
   trait Interface extends Provider with Component:

@@ -7,7 +7,7 @@ import javafx.scene.layout.BorderPane
 import it.unibo.pps.smartgh.controller.EnvironmentControllerModule
 import it.unibo.pps.smartgh.mvc.GreenHouseDivisionMVC
 import it.unibo.pps.smartgh.mvc.GreenHouseDivisionMVC.GreenHouseDivisionMVCImpl
-
+import it.unibo.pps.smartgh.view.component.GHViewModule.GHDivisionView
 import javafx.application.Platform
 import javafx.fxml.FXML
 
@@ -39,6 +39,8 @@ object EnvironmentViewModule:
       *   current value of the simulation timer
       */
     def displayElapsedTime(timerValue: String): Unit
+    
+    def displayGreenHouseDivisionView(ghDivisionView: GHDivisionView) : Unit
 
     /** Method to notify view that the simulation time has finished and to display [[FinishSimulationView]]. */
     def finishSimulation(): Unit
@@ -91,12 +93,7 @@ object EnvironmentViewModule:
 
       @FXML
       var timeElapsedLabel: Label = _
-
-      val greenHouseMVC = GreenHouseDivisionMVCImpl(List())
-      component.setCenter(greenHouseMVC.ghDivisionView)
-      greenHouseMVC.setAreas()
-      greenHouseMVC.show()
-
+      
       timeSpeedSlider.setOnMouseReleased(_ => notifySpeedChange(timeSpeedSlider.getValue))
 
       baseView.changeSceneButton.setText("Stop simulation")
@@ -126,6 +123,9 @@ object EnvironmentViewModule:
 
       override def displayElapsedTime(timerValue: String): Unit =
         Platform.runLater(() => timeElapsedLabel.setText(timerValue))
+
+      override def displayGreenHouseDivisionView(ghDivisionView: GHDivisionView): Unit =
+        component.setCenter(ghDivisionView)
 
       override def finishSimulation(): Unit =
         Platform.runLater(() => simulationView.changeView(FinishSimulationView(simulationView, baseView)))

@@ -12,6 +12,8 @@ import cats.syntax.eq.catsSyntaxEq
 import it.unibo.pps.smartgh.model.plants.{PlantSelectorModelModule, UploadPlants}
 import javafx.application.Platform
 import it.unibo.pps.smartgh.mvc.EnvironmentMVC
+import it.unibo.pps.smartgh.model.plants.Plant
+import it.unibo.pps.smartgh.model.city.City
 
 import scala.jdk.javaapi.CollectionConverters.asJavaCollection
 import scala.language.postfixOps
@@ -34,8 +36,13 @@ object SelectPlantViewModule:
       */
     def updateSelectedPlant(selectedPlantList: List[String]): Unit
 
-    /** Method that asks the view to move to the next Scene. */
-    def moveToTheNextScene(): Unit
+    /** Method that asks the view to move to the next Scene. 
+      * @param city 
+      *   the selected city by the user.
+      * @param selectedPlants
+      *   a list of plants selected by the user.
+      * */
+    def moveToTheNextScene(city: City, selectedPlants : List[Plant]): Unit
 
     /** Method that requires to the view to show an error message.
       * @param message
@@ -120,8 +127,8 @@ object SelectPlantViewModule:
           )
         })
 
-      override def moveToTheNextScene(): Unit =
-        val environmentMVC = EnvironmentMVC(simulationView, baseView)
+      override def moveToTheNextScene(city: City, selectedPlants: List[Plant]): Unit =
+        val environmentMVC = EnvironmentMVC(simulationView, baseView, city, selectedPlants)
         simulationView.changeView(environmentMVC.environmentView)
 
       override def showErrorMessage(message: String): Unit =
