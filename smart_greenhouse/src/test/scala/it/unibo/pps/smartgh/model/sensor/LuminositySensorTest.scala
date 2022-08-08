@@ -43,8 +43,7 @@ class LuminositySensorTest extends AnyFunSuite with Matchers:
     subjectEnvironment.onNext(newEnvironmentValue)
 
     Thread.sleep(1000)
-
-    println("first test value: " + luminositySensor.getCurrentValue())
+    
     luminositySensor
       .getCurrentValue() shouldEqual (newEnvironmentValue - (minPercentage + (maxPercentage - minPercentage) * randomValue
       .nextDouble()) * newEnvironmentValue + defaultLampBrightness)
@@ -89,7 +88,6 @@ class LuminositySensorTest extends AnyFunSuite with Matchers:
     subjectActions.onNext(areaComponentsState)
 
     Thread.sleep(1000)
-
-    println("fourth test value: " + luminositySensor.getCurrentValue())
+    
     luminositySensor.getCurrentValue() shouldEqual areaComponentsState.brightnessOfTheLamps
   }
