@@ -38,7 +38,7 @@ class GreenHouseDivisionViewTest extends AbstractViewTest:
   private def start(stage: Stage): Unit =
     val baseView: BaseView = BaseView(appTitle, appSubtitle)
     startApplication(stage, baseView, ghMVC.ghDivisionView)
-    ghMVC.setAreas()
+    ghMVC.setAreas(null)
     ghMVC.show()
 
 

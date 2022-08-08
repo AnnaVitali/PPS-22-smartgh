@@ -3,6 +3,7 @@ package it.unibo.pps.smartgh.mvc
 import it.unibo.pps.smartgh.controller.GHControllerModule
 import it.unibo.pps.smartgh.model.greenhouse.GHModelModule
 import it.unibo.pps.smartgh.model.plants.Plant
+import it.unibo.pps.smartgh.model.time.Timer
 import it.unibo.pps.smartgh.view.component.GHViewModule
 
 /** Object that can be used to create a new instance of [[GreenHouseDivisionMVC]]. */
@@ -26,10 +27,10 @@ object GreenHouseDivisionMVC:
     override val ghController = GreenHouseDivisionControllerImpl()
     override val ghDivisionView = GreenHouseDivisionViewImpl()
 
-    def setAreas(): Unit =
+    def setAreas(timer: Timer): Unit =
       ghDivisionModel.areas = for p <- plants
-        yield AreaMVC(p)
-    
+        yield AreaMVC(p, timer)
+
     def show(): Unit = ghController.updateView()
 
 

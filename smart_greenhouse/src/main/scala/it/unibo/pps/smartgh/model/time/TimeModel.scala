@@ -30,6 +30,8 @@ trait TimeModel:
     *   the controller assoociated to the model.
     */
   def controller_=(controller: TimeController): Unit
+  
+  val timer : Timer
 
 /** Object that can be used to create a new instances of [[TimeModel]]. */
 object TimeModel:
@@ -41,7 +43,7 @@ object TimeModel:
 
     override var controller: TimeController = _
     private val endSimulation: FiniteDuration = 1 day
-    private val timer: Timer = Timer(endSimulation)
+    override val timer: Timer = Timer(endSimulation)
 
     override def start(): Unit =
       timer.start(controller.finishSimulation())

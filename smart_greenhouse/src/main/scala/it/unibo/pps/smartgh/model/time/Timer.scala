@@ -55,7 +55,7 @@ object Timer:
   def apply(duration: FiniteDuration): Timer = TimerImpl(duration)
 
   private class TimerImpl(duration: FiniteDuration) extends Timer:
-    var value: FiniteDuration = 0 seconds
+    var value: FiniteDuration = 1 seconds
     private var observable: Observable[FiniteDuration] = _
     private var period = 1 seconds
     private var consumer: FiniteDuration => Unit = _
@@ -91,3 +91,4 @@ object Timer:
         .fromIterable(from.toSeconds to duration.toSeconds)
         .map(Duration(_, TimeUnit.SECONDS))
         .doOnNext(t => Task(this.value = t))
+        .doOnError(c => Task(System.out.println(c)))

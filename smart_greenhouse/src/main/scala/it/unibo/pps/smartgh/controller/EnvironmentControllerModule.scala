@@ -13,7 +13,7 @@ object EnvironmentControllerModule:
   trait EnvironmentController:
 
     /** @return time controller. */
-    def timeController : TimeController
+    val timeController : TimeController
 
     /** Method that notify the controller to start the simulation. */
     def startSimulation() : Unit
@@ -42,12 +42,13 @@ object EnvironmentControllerModule:
 
       val ghMVC = GreenHouseDivisionMVC(selectedPlants)
       environmentView.displayGreenHouseDivisionView(ghMVC.ghDivisionView)
-      ghMVC.setAreas()
-      ghMVC.show()
 
-      override def timeController: TimeController = TimeController(context.environmentModel.time, context.environmentView, this)
+      override val timeController: TimeController = TimeController(context.environmentModel.time, context.environmentView, this)
 
-      override def startSimulation(): Unit = timeController.startSimulationTimer()
+      override def startSimulation(): Unit =
+        timeController.startSimulationTimer()
+        ghMVC.setAreas(environmentModel.time.timer)
+        ghMVC.show()
 
       override def stopSimulation(): Unit = timeController.stopSimulationTimer()
       
@@ -57,8 +58,8 @@ object EnvironmentControllerModule:
         context.environmentView.displayEnvironmentValues(environmentModel.city.currentEnvironmentValues)
         notifySensors(environmentModel.city.currentEnvironmentValues)
 
-      private def notifySensors(values: environmentModel.city.EnvironmentValues) : Unit = ???
-
+      private def notifySensors(values: environmentModel.city.EnvironmentValues) : Unit =
+        context.environmentModel.subjectTemperature.onNext(values("temp_c").asInstanceOf[Double])
 
   /** Trait that encloses the controller for environment values and time management. */
   trait Interface extends Provider with Component:

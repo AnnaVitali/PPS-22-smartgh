@@ -2,11 +2,15 @@ package it.unibo.pps.smartgh.model.area
 
 import it.unibo.pps.smartgh.model.area.ManageSensor.ManageSensorImpl
 import it.unibo.pps.smartgh.model.plants.Plant
+import it.unibo.pps.smartgh.model.sensor.TemperatureSensor
+import it.unibo.pps.smartgh.model.sensor.areaComponentsState.AreaComponentsState
+import it.unibo.pps.smartgh.model.sensor.areaComponentsState.AreaComponentsState.AreaComponentsStateImpl
 import monix.reactive.subjects.ConcurrentSubject
 import monix.reactive.MulticastStrategy.Behavior
 import monix.reactive.Observable
 import monix.reactive.MulticastStrategy
 import monix.execution.Scheduler.Implicits.global
+import it.unibo.pps.smartgh.model.time.Timer
 
 /** Implementation of the [[AreaModelModule]]. */
 object AreaModelModule:
@@ -38,12 +42,17 @@ object AreaModelModule:
   /** A trait that represents the area model component. */
   trait Component:
     /** Implementation of the area model.*/
-    class AreaImpl(override val plant: Plant,
-                  ) extends AreaModel:
+    class AreaImpl(override val plant: Plant, val timer: Timer) extends AreaModel:
 
       private var _status: AreaStatus = AreaStatus.NORMAL
       private val subject = ConcurrentSubject[AreaStatus](MulticastStrategy.publish)
       private val optimalValueToFloat: Map[String, Float] = plant.optimalValues.map((k, v) => (k, v.toString.toFloat))
+      private val areaComponentState = AreaComponentsState()
+      private val subjectComponentsState = ConcurrentSubject[AreaComponentsStateImpl](MulticastStrategy.publish)
+      
+      private val temperatureSensor = TemperatureSensor(areaComponentState, timer)
+      temperatureSensor.registerTimerCallback()
+      temperatureSensor.setObserverActionsArea(subjectComponentsState)
 
       private def checkAlarm(ms: ManageSensorImpl): Unit =
         if (ms.actualVal compareTo ms.min ) < 0 ||  (ms.actualVal compareTo ms.max) > 0 then
@@ -54,7 +63,7 @@ object AreaModelModule:
           ManageSensorImpl("Temperature",
             optimalValueToFloat.getOrElse("min_temp", 0),
             optimalValueToFloat.getOrElse("max_temp", 0),
-            1, // TODO change with new TemperatureSensor
+            temperatureSensor, // TODO change with new TemperatureSensor
             15), // TODO change with optimal value for starting
           ManageSensorImpl("Humidity",
             optimalValueToFloat.getOrElse("min_env_humid", 0),

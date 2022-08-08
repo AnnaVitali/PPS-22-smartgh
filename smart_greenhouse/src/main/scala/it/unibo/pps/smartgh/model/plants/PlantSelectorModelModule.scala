@@ -102,8 +102,9 @@ object PlantSelectorModelModule:
         subject.onNext(selectedPlants)
 
       override def deselectPlant(plantName: String): Unit =
+        println(plantName)
         if selectedPlants.contains(plantName) then
-          selectedPlants = selectedPlants.take(selectedPlants.indexOf(plantName))
+          selectedPlants = selectedPlants.filter(_ != plantName)
           subject.onNext(selectedPlants)
         else throw new NoSuchElementException("You can't deselect a plant that hasn't been selected!")
 

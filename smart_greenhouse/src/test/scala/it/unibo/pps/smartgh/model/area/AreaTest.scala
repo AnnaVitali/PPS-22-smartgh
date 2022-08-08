@@ -6,7 +6,7 @@ import org.scalatest.funsuite.AnyFunSuite
 /** This class contains the tests to verify that the [[AreaModelModule]] works correctly. */
 class AreaTest extends AnyFunSuite with AreaModelModule.Interface:
 
-  override val areaModel = AreaImpl(Plant("lemon", "citrus limon"))
+  override val areaModel = AreaImpl(Plant("lemon", "citrus limon"), null)
 
   test("After create an area in which there is a lemon plant, The area plant's name must be lemon"){
     import org.scalatest.matchers.must.Matchers.mustEqual

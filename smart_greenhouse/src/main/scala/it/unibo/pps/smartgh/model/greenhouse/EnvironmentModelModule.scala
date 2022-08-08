@@ -2,6 +2,9 @@ package it.unibo.pps.smartgh.model.greenhouse
 
 import it.unibo.pps.smartgh.model.city.City
 import it.unibo.pps.smartgh.model.time.TimeModel
+import monix.reactive.MulticastStrategy
+import monix.reactive.subjects.ConcurrentSubject
+import monix.execution.Scheduler.Implicits.global
 
 /** Object that encloses the model module to manage ambient environment values and simulation time. */
 object EnvironmentModelModule:
@@ -14,6 +17,8 @@ object EnvironmentModelModule:
 
     /** Object to manage the time of the simulation, it represents its model */
     val time: TimeModel
+
+    val subjectTemperature : ConcurrentSubject[Double, Double]
 
   /** Trait that represents the provider of the model for environment values and time management. */
   trait Provider:
@@ -29,6 +34,8 @@ object EnvironmentModelModule:
     class EnvironmentModelImpl(override val city: City) extends EnvironmentModel:
 
       override val time: TimeModel = TimeModel()
+
+      val subjectTemperature = ConcurrentSubject[Double](MulticastStrategy.publish)
 
   /** Trait that encloses the model for environment values and time management. */
   trait Interface extends Provider with Component
