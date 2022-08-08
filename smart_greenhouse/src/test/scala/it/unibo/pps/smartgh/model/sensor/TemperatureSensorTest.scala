@@ -59,7 +59,7 @@ class TemperatureSensorTest extends AnyFunSuite with Matchers:
   ) {
     val environmentValue = 37.0
 
-    timer.start()
+    timer.start(println("time is up!"))
     timer.changeTickPeriod(10 milliseconds)
     temperatureSensor.registerTimerCallback()
     areaComponentsState.gatesState = AreaGatesState.Close
