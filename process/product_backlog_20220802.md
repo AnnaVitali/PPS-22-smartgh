@@ -22,7 +22,7 @@ Visualizzare lo stato della simulazione e, in particolare, gestire i seguenti co
     </thead>
     <tbody>
         <tr>
-            <td rowspan="6">Consentire lo scorrimento fra le diverse pagine dell'applicazione</td>
+            <td rowspan="7">Consentire lo scorrimento fra le diverse pagine dell'applicazione</td>
             <td>Refactoring schermata BaseView, con aggiunta pulsanti per la navigazione</td>
             <td>Elena</td>
             <td>2</td>
@@ -74,6 +74,18 @@ Visualizzare lo stato della simulazione e, in particolare, gestire i seguenti co
             <td>Realizzazione architettura MVC tramite cake pattern per la divisione in aree della serra</td>
             <td>Maria</td>
             <td>7</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+         <tr>
+            <td>Realizzazione MVC globale della simulazione</td>
+            <td>Anna, Elena, Maria, Veronika</td>
+            <td>3</td>
             <td></td>
             <td></td>
             <td></td>
