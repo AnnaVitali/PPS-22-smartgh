@@ -8,7 +8,7 @@ import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.Interface
 import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.Interface
 import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.PlantSelectorModel
 import it.unibo.pps.smartgh.controller.PlantSelectorControllerModule.PlantSelectorController
-import it.unibo.pps.smartgh.model.city.City
+import it.unibo.pps.smartgh.model.city.Environment
 import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.SelectPlantView
 import it.unibo.pps.smartgh.view.SimulationView
 import it.unibo.pps.smartgh.view.component.BaseView
@@ -26,10 +26,10 @@ object PlantSelectorMVC:
     * @return
     *   the implemntation of the plant selection MVC.
     */
-  def apply(simulationView: SimulationView, baseView: BaseView, city : City): PlantSelectorMVCImpl =
+  def apply(simulationView: SimulationView, baseView: BaseView, city : Environment): PlantSelectorMVCImpl =
     PlantSelectorMVCImpl(simulationView, baseView, city)
 
-  class PlantSelectorMVCImpl(simulationView: SimulationView, baseView: BaseView, city : City)
+  class PlantSelectorMVCImpl(simulationView: SimulationView, baseView: BaseView, city : Environment)
       extends PlantSelectorModelModule.Interface
       with PlantSelectorControllerModule.Interface
       with SelectPlantViewModule.Interface:

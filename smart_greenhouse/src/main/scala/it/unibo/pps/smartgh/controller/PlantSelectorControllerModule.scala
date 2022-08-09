@@ -3,7 +3,7 @@ package it.unibo.pps.smartgh.controller
 import it.unibo.pps.smartgh.model.plants.UploadPlants
 import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule
 import it.unibo.pps.smartgh.view.component.SelectPlantViewModule
-import it.unibo.pps.smartgh.model.city.City
+import it.unibo.pps.smartgh.model.city.Environment
 import monix.execution.Ack.{Continue, Stop}
 import monix.execution.Scheduler.Implicits.global
 
@@ -41,7 +41,7 @@ object PlantSelectorControllerModule:
     context: Requirments =>
 
     /** Class that contains the [[PlantSelectorController]] implementation. */
-    class PlantSelectorControllerImpl(city: City) extends PlantSelectorController:
+    class PlantSelectorControllerImpl(city: Environment) extends PlantSelectorController:
 
       override def configureAvailablePlants(): Unit =
         context.plantSelectorModel.registerCallback(

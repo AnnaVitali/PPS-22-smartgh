@@ -2,7 +2,7 @@ package it.unibo.pps.smartgh.mvc
 
 import it.unibo.pps.smartgh.controller.EnvironmentControllerModule
 import it.unibo.pps.smartgh.view.component.EnvironmentViewModule
-import it.unibo.pps.smartgh.model.city.City
+import it.unibo.pps.smartgh.model.city.Environment
 import it.unibo.pps.smartgh.model.greenhouse.EnvironmentModelModule
 import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.view.SimulationView
@@ -19,10 +19,10 @@ object EnvironmentMVC:
     * @return
     *   the implemntation of [[EnvironmentMVC]].
     */
-  def apply(simulationView: SimulationView, baseView: BaseView, city: City, selectedPlants : List[Plant]): EnvironmentMVCImpl =
+  def apply(simulationView: SimulationView, baseView: BaseView, city: Environment, selectedPlants : List[Plant]): EnvironmentMVCImpl =
     EnvironmentMVCImpl(simulationView, baseView, city, selectedPlants)
 
-  class EnvironmentMVCImpl(simulationView: SimulationView, baseView: BaseView, city : City, selectedPlants: List[Plant])
+  class EnvironmentMVCImpl(simulationView: SimulationView, baseView: BaseView, city : Environment, selectedPlants: List[Plant])
       extends EnvironmentModelModule.Interface
       with EnvironmentViewModule.Interface
       with EnvironmentControllerModule.Interface:

@@ -1,6 +1,6 @@
 package it.unibo.pps.smartgh.controller
 
-import it.unibo.pps.smartgh.model.city.City
+import it.unibo.pps.smartgh.model.city.Environment
 import it.unibo.pps.smartgh.model.city.SelectCityModelModule
 import it.unibo.pps.smartgh.model.city.SelectCityModelModule.SelectCityModel
 import it.unibo.pps.smartgh.view.component.SelectCityViewModule
@@ -18,7 +18,7 @@ object SelectCityControllerModule:
       * @return
       *   the saved city
       */
-    def saveCity(name: String): City
+    def saveCity(name: String): Environment
 
     /** Retrieves all cities.
       * @return
@@ -59,7 +59,7 @@ object SelectCityControllerModule:
       var view: SelectCityView = context.selectCityView
       val model: SelectCityModel = context.selectCityModel
 
-      override def saveCity(name: String): City = City(name)
+      override def saveCity(name: String): Environment = Environment(name)
       override def getAllCities: Seq[String] = model.getAllCities
       override def searchCities(charSequence: Seq[Char]): Seq[String] = model.searchCities(charSequence)
       override def containCity(city: String): Boolean = model.containCity(city)

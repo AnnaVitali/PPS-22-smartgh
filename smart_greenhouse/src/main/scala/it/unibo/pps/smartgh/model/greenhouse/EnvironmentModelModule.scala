@@ -1,6 +1,6 @@
 package it.unibo.pps.smartgh.model.greenhouse
 
-import it.unibo.pps.smartgh.model.city.City
+import it.unibo.pps.smartgh.model.city.Environment
 import it.unibo.pps.smartgh.model.time.TimeModel
 import monix.reactive.MulticastStrategy
 import monix.reactive.subjects.ConcurrentSubject
@@ -13,7 +13,7 @@ object EnvironmentModelModule:
   trait EnvironmentModel:
 
     /** Object that represent the city where the greenhouse is placed, it stores its environment values */
-    val city: City
+    val city: Environment
 
     /** Object to manage the time of the simulation, it represents its model */
     val time: TimeModel
@@ -35,7 +35,7 @@ object EnvironmentModelModule:
       * @param city
       *   object of the city selected by the user
       */
-    class EnvironmentModelImpl(override val city: City) extends EnvironmentModel:
+    class EnvironmentModelImpl(override val city: Environment) extends EnvironmentModel:
 
       override val time: TimeModel = TimeModel()
 

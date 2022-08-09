@@ -31,7 +31,7 @@ class CityControllerTest
   override val selectCityModel: SelectCityModel = null
   override val selectCityView: SelectCityView = null
 
-  val city: City = City("Rome")
+  val city: Environment = Environment("Rome")
 
   test("selecting Rome as city must create a Rome city object") {
     selectCityController.saveCity("Rome") === city

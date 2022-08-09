@@ -64,7 +64,7 @@ object EnvironmentControllerModule:
       override def stopSimulation(): Unit = timeController.stopSimulationTimer()
 
       override def notifyEnvironmentValuesChange(hour: Int): Unit =
-        context.environmentView.displayNameCity(environmentModel.city.name)
+        context.environmentView.displayNameCity(environmentModel.city.nameCity)
         context.environmentModel.city.updateCurrentEnvironmentValues(hour)
         context.environmentView.displayEnvironmentValues(environmentModel.city.currentEnvironmentValues)
         notifySensors(environmentModel.city.currentEnvironmentValues)
@@ -73,8 +73,6 @@ object EnvironmentControllerModule:
         context.environmentModel.subjectTemperature.onNext(values("temp_c").asInstanceOf[Double])
         context.environmentModel.subjectHumidity.onNext(values("humidity").asInstanceOf[BigInt].doubleValue)
         context.environmentModel.subjectLuminosity.onNext(values("lux").asInstanceOf[Int].toDouble)
-        //context.environmentModel.subjectSoilMoisture.onNext(30.0) NON SERVE
-
 
   /** Trait that encloses the controller for environment values and time management. */
   trait Interface extends Provider with Component:

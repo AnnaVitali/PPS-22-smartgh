@@ -5,13 +5,13 @@ import org.json4s.jackson.JsonMethods.*
 import requests.Response
 
 /** This trait exposes methods for managing the selected city, represents its model. */
-trait City:
+trait Environment:
 
   /** Data structure that will contains the city's environment values. */
   type EnvironmentValues = Map[String, Any]
 
   /** @return city's name. */
-  def name: String
+  def nameCity: String
 
   /** @return environment values that refer to the whole day. */
   def environmentValues: EnvironmentValues
@@ -31,15 +31,16 @@ trait City:
   def updateCurrentEnvironmentValues(hour: Int): Unit
 
 /** Object that can be use for managing the selected city, represents its model. */
-object City:
+object Environment:
 
-  /** Apply method for the [[City]].
+  /** Apply method for the [[Environment]].
+    *
     * @return
-    *   the [[City]] object.
+    *   the [[Environment]] object.
     */
-  def apply(name: String): City = CityImpl(name)
+  def apply(name: String): Environment = EnvironmentImpl(name)
 
-  private class CityImpl(override val name: String) extends City:
+  private class EnvironmentImpl(override val nameCity: String) extends Environment:
 
     override def environmentValues: EnvironmentValues = getEnvironmentValues
     override var currentEnvironmentValues: EnvironmentValues = _
@@ -68,7 +69,7 @@ object City:
     private def getEnvironmentValues: EnvironmentValues =
       val apiKey = "b619d3592d8b426e8cc92336220107"
       val query =
-        "http://api.weatherapi.com/v1/forecast.json?key=" + apiKey + "&q=" + name.replace(
+        "http://api.weatherapi.com/v1/forecast.json?key=" + apiKey + "&q=" + nameCity.replace(
           " ",
           "%20"
         ) + "&days=1&aqi=no&alerts=no"
