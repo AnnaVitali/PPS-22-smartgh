@@ -10,7 +10,9 @@ import scala.language.postfixOps
 /** This class contains the tests to verify that the [[AreaModelModule]] works correctly. */
 class AreaTest extends AnyFunSuite with AreaModelModule.Interface:
 
-  override val areaModel = AreaImpl(Plant("lemon", "citrus limon"), Timer(1 day))
+  private val timer = Timer(1 day)
+  timer.start(println("time is up!"))
+  override val areaModel = AreaImpl(Plant("lemon", "citrus limon"), timer)
 
   test("After create an area in which there is a lemon plant, The area plant's name must be lemon") {
     import org.scalatest.matchers.must.Matchers.mustEqual
