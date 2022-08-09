@@ -45,12 +45,14 @@ object AirHumiditySensor:
     private val maxPercentage = 0.05
     private var maxAtomizeValue: Double = _
     private var minVentilateValue: Double = _
-    private val randomValue = currentValue * Random().nextDouble() * maxPercentage + minPercentage
-    private val noActionRandomVal = areaComponentsState.gatesState match
-      case AreaGatesState.Close => randomValue
-      case _ => 0
+    private val noActionRandomVal: Double = areaComponentsState.gatesState match
+      case AreaGatesState.Close => calculateRandomValue(currentValue)
+      case _ => 0.0
 
-    currentValue = areaComponentsState.airHumidity - randomValue
+    currentValue = areaComponentsState.airHumidity - calculateRandomValue(currentValue)
+
+    private def calculateRandomValue: Double => Double = value =>
+      value * Random().nextDouble() * maxPercentage + minPercentage
 
     override def registerTimerCallback(): Unit =
       timer.addCallback(onNextTimerEvent(), timeMustPass)
@@ -75,6 +77,6 @@ object AirHumiditySensor:
       subject.onNext(currentValue)
 
     override def onNextAction(): AreaComponentsStateImpl => Future[Ack] =
-      maxAtomizeValue = currentValue + randomValue
-      minVentilateValue = currentValue - randomValue
+      maxAtomizeValue = currentValue + calculateRandomValue(currentValue)
+      minVentilateValue = currentValue - calculateRandomValue(currentValue)
       super.onNextAction()
