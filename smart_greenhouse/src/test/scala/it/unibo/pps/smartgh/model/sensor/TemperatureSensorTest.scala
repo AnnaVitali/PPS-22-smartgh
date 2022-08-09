@@ -72,5 +72,5 @@ class TemperatureSensorTest extends AnyFunSuite with Matchers:
     Thread.sleep(3000)
 
     temperatureSensor
-      .getCurrentValue() should (be <= firstApproach and be >= areaComponentsState.temperature and be >= environmentValue)
+      .getCurrentValue() should (be <= firstApproach and be >= areaComponentsState.temperature and be <= environmentValue)
   }
