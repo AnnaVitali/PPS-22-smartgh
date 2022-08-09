@@ -41,7 +41,6 @@ class AirHumiditySensorTest extends AnyFunSuite with Matchers with Eventually wi
 
   before {
     areaComponentsState = AreaComponentsState()
-    initialHumidity = areaComponentsState.airHumidity
     humiditySensor = AirHumiditySensor(areaComponentsState, timer)
     humiditySensor.setObserverEnvironmentValue(subjectEnvironment)
     humiditySensor.setObserverActionsArea(subjectActions)
