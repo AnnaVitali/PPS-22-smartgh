@@ -1,5 +1,7 @@
 package it.unibo.pps.smartgh.view.component
 
+import it.unibo.pps.smartgh.model.city.Environment
+import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.mvc.{EnvironmentMVC, SimulationMVC}
 import javafx.scene.control.Slider
 import javafx.stage.Stage
@@ -23,6 +25,9 @@ class EnvironmentViewModuleTest extends AbstractViewTest:
   private def start(stage: Stage): Unit =
     val baseView: BaseView = BaseView(appTitle, appSubtitle)
     val simulationMVC = SimulationMVC(stage)
+    simulationMVC.simulationController.environment = Environment("Cesena")
+    simulationMVC.simulationController.plantsSelected =
+      List(Plant("carrot", "carrot aurantina f1"), Plant("eggplant", "solanum melongena"))
     startApplication(stage, baseView, EnvironmentMVC(simulationMVC, baseView).environmentView)
 
   @Test def testEnvironmentLabels(robot: FxRobot): Unit =

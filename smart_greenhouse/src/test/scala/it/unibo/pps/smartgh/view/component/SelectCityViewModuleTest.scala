@@ -1,6 +1,6 @@
 package it.unibo.pps.smartgh.view.component
 
-import it.unibo.pps.smartgh.mvc.SelectCityMVC
+import it.unibo.pps.smartgh.mvc.{SelectCityMVC, SimulationMVC}
 import it.unibo.pps.smartgh.view.SimulationViewModule
 import it.unibo.pps.smartgh.view.component.SelectCityViewModule
 import it.unibo.pps.smartgh.view.component.SelectCityViewModule.SelectCityView
@@ -38,7 +38,8 @@ class SelectCityViewModuleTest extends AbstractViewTest:
   @Start
   private def start(stage: Stage): Unit =
     val baseView: BaseView = BaseView(appTitle, appSubtitle)
-    selectCityView = SelectCityMVC(null, baseView).selectCityView
+    val simulationMVC = SimulationMVC(stage)
+    selectCityView = SelectCityMVC(simulationMVC, baseView).selectCityView
     startApplication(stage, baseView, selectCityView)
 
   @Test
