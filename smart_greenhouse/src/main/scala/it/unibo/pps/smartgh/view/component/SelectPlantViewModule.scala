@@ -1,7 +1,7 @@
 package it.unibo.pps.smartgh.view.component
 
 import it.unibo.pps.smartgh.controller.PlantSelectorControllerModule
-import it.unibo.pps.smartgh.view.SimulationView
+import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.event.{ActionEvent, EventHandler}
 import javafx.fxml.FXML
@@ -12,6 +12,8 @@ import cats.syntax.eq.catsSyntaxEq
 import it.unibo.pps.smartgh.model.plants.{PlantSelectorModelModule, UploadPlants}
 import javafx.application.Platform
 import it.unibo.pps.smartgh.mvc.EnvironmentMVC
+import it.unibo.pps.smartgh.mvc.SimulationMVC
+import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.model.city.Environment
 
@@ -65,7 +67,7 @@ object SelectPlantViewModule:
       * @param baseView
       *   the view in which the [[SelectPlantView]] is enclosed.
       */
-    class SelectPlantViewImpl(private val simulationView: SimulationView, private val baseView: BaseView)
+    class SelectPlantViewImpl(simulationMVC: SimulationMVCImpl, private val baseView: BaseView)
         extends AbstractViewComponent[BorderPane]("select_plants.fxml")
         with SelectPlantView:
 
@@ -129,8 +131,8 @@ object SelectPlantViewModule:
         })
 
       override def moveToTheNextScene(city: Environment, selectedPlants: List[Plant]): Unit =
-        val environmentMVC = EnvironmentMVC(simulationView, baseView, city, selectedPlants)
-        simulationView.changeView(environmentMVC.environmentView)
+        val environmentMVC = EnvironmentMVC(simulationMVC, baseView, city, selectedPlants)
+        simulationMVC.simulationView.changeView(environmentMVC.environmentView)
 
       override def showErrorMessage(message: String): Unit =
         Platform.runLater(() => errorLabel.setText(message))

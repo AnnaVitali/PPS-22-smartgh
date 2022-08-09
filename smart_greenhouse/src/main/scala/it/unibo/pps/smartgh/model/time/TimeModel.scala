@@ -1,7 +1,8 @@
 package it.unibo.pps.smartgh.model.time
 
-import it.unibo.pps.smartgh.controller.TimeController
+import it.unibo.pps.smartgh.controller.SimulationControllerModule.SimulationController
 import org.apache.commons.lang3.time.DurationFormatUtils
+
 import java.lang.module.FindException
 import scala.concurrent.duration.*
 import scala.language.postfixOps
@@ -23,13 +24,13 @@ trait TimeModel:
     * @return
     *   the controller assoociated to the model.
     */
-  def controller: TimeController
+  def controller: SimulationController
 
   /** Setter method for the controller component.
     * @param controller
     *   the controller assoociated to the model.
     */
-  def controller_=(controller: TimeController): Unit
+  def controller_=(controller: SimulationController): Unit
 
   val timer: Timer
 
@@ -41,7 +42,7 @@ object TimeModel:
 
   private class TimeModelImpl() extends TimeModel:
 
-    override var controller: TimeController = _
+    override var controller: SimulationController = _
     private val endSimulation: FiniteDuration = 1 day
     override val timer: Timer = Timer(endSimulation)
 

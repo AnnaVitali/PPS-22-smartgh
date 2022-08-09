@@ -1,7 +1,7 @@
 package it.unibo.pps.smartgh.view.component
 
 import it.unibo.pps.smartgh.mvc.SelectCityMVC
-import it.unibo.pps.smartgh.view.SimulationView
+import it.unibo.pps.smartgh.view.SimulationViewModule
 import it.unibo.pps.smartgh.view.component.SelectCityViewModule
 import it.unibo.pps.smartgh.view.component.SelectCityViewModule.SelectCityView
 import javafx.scene.control.TextField

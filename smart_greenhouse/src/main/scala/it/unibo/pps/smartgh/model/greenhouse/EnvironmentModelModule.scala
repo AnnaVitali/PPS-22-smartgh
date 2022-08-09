@@ -13,16 +13,13 @@ object EnvironmentModelModule:
   trait EnvironmentModel:
 
     /** Object that represent the city where the greenhouse is placed, it stores its environment values */
-    val city: Environment
-
-    /** Object to manage the time of the simulation, it represents its model */
-    val time: TimeModel
+    val environment: Environment
 
     //TODO add doc
-    val subjectTemperature : ConcurrentSubject[Double, Double]
-    val subjectHumidity : ConcurrentSubject[Double, Double]
-    val subjectLuminosity : ConcurrentSubject[Double, Double]
-    val subjectSoilMoisture : ConcurrentSubject[Double, Double]
+    val subjectTemperature: ConcurrentSubject[Double, Double]
+    val subjectHumidity: ConcurrentSubject[Double, Double]
+    val subjectLuminosity: ConcurrentSubject[Double, Double]
+    val subjectSoilMoisture: ConcurrentSubject[Double, Double]
 
   /** Trait that represents the provider of the model for environment values and time management. */
   trait Provider:
@@ -32,12 +29,10 @@ object EnvironmentModelModule:
   trait Component:
 
     /** Class that contains the [[EnvironmentModel]] implementation.
-      * @param city
+      * @param environment
       *   object of the city selected by the user
       */
-    class EnvironmentModelImpl(override val city: Environment) extends EnvironmentModel:
-
-      override val time: TimeModel = TimeModel()
+    class EnvironmentModelImpl(override val environment: Environment) extends EnvironmentModel:
 
       override val subjectTemperature = ConcurrentSubject[Double](MulticastStrategy.publish)
 

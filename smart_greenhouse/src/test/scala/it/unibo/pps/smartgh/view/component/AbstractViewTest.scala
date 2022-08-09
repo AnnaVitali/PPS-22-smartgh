@@ -1,6 +1,7 @@
 package it.unibo.pps.smartgh.view.component
 
-import it.unibo.pps.smartgh.view.SimulationView
+import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
+import it.unibo.pps.smartgh.view.SimulationViewModule
 import javafx.scene.Parent
 import javafx.stage.Stage
 import org.junit.jupiter.api.{BeforeAll, TestInstance}
@@ -12,7 +13,7 @@ import scalafx.scene.Scene
 
 abstract class AbstractViewTest:
 
-  protected var simulationView: SimulationView = _
+  protected var simulationMVC: SimulationMVCImpl = _
   protected val appTitle = "Smart Greenhouse"
   protected val appSubtitle = "Simula la tua serra intelligente"
 

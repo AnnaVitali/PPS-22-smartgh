@@ -1,7 +1,8 @@
 package it.unibo.pps.smartgh.view.component
 
 import it.unibo.pps.smartgh.mvc.SelectCityMVC
-import it.unibo.pps.smartgh.view.SimulationView
+import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
+import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.fxml.FXML
 import javafx.geometry.Pos
@@ -15,17 +16,18 @@ trait FinishSimulationView extends ViewComponent[BorderPane]
 object FinishSimulationView:
 
   /** Create a new [[FinishSimulationView]] component.
+    *
     * @param simulationView
-    *   the [[SimulationView]] of the application.
+    *   the [[SimulationViewModule]] of the application.
     * @param baseView
     *   the [[BaseView]] component.
     * @return
     *   a new instance of [[FinishSimulationView]].
     */
-  def apply(simulationView: SimulationView, baseView: BaseView): FinishSimulationView =
-    FinishSimulationViewImpl(simulationView, baseView)
+  def apply(simulationMVC: SimulationMVCImpl, baseView: BaseView): FinishSimulationView =
+    FinishSimulationViewImpl(simulationMVC, baseView)
 
-  private class FinishSimulationViewImpl(private val simulationView: SimulationView, private val baseView: BaseView)
+  private class FinishSimulationViewImpl(simulationMVC: SimulationMVCImpl, private val baseView: BaseView)
       extends AbstractViewComponent[BorderPane]("finish_simulation.fxml")
       with FinishSimulationView:
 
@@ -44,5 +46,5 @@ object FinishSimulationView:
     baseView.changeSceneButton.setText("Start a new simulation")
     baseView.changeSceneButton.setOnMouseClicked { _ =>
       //todo
-      simulationView.changeView(SelectCityMVC(simulationView, baseView).selectCityView)
+      simulationMVC.simulationView.changeView(SelectCityMVC(simulationMVC, baseView).selectCityView)
     }

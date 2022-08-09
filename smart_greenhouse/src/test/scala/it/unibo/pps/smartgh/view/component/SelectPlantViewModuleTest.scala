@@ -1,7 +1,7 @@
 package it.unibo.pps.smartgh.view.component
 
 import it.unibo.pps.smartgh.mvc.PlantSelectorMVC.PlantSelectorMVCImpl
-import it.unibo.pps.smartgh.view.SimulationView.{appSubtitle, appTitle}
+import it.unibo.pps.smartgh.view.SimulationViewModule.{appSubtitle, appTitle}
 import it.unibo.pps.smartgh.view.component
 import javafx.scene.control.{Button, CheckBox, Label}
 import javafx.scene.layout.{BorderPane, VBox}

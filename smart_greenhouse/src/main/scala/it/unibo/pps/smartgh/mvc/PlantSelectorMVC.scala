@@ -10,8 +10,10 @@ import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.PlantSelectorM
 import it.unibo.pps.smartgh.controller.PlantSelectorControllerModule.PlantSelectorController
 import it.unibo.pps.smartgh.model.city.Environment
 import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.SelectPlantView
-import it.unibo.pps.smartgh.view.SimulationView
+import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
 import it.unibo.pps.smartgh.view.component.BaseView
+import it.unibo.pps.smartgh.mvc.SimulationMVC
+import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 
 /** Object that encloses the MVC structure for the plant selection. */
 object PlantSelectorMVC:
@@ -26,16 +28,16 @@ object PlantSelectorMVC:
     * @return
     *   the implemntation of the plant selection MVC.
     */
-  def apply(simulationView: SimulationView, baseView: BaseView, city : Environment): PlantSelectorMVCImpl =
-    PlantSelectorMVCImpl(simulationView, baseView, city)
+  def apply(simulationMVC: SimulationMVCImpl, baseView: BaseView, environment: Environment): PlantSelectorMVCImpl =
+    PlantSelectorMVCImpl(simulationMVC, baseView, environment)
 
-  class PlantSelectorMVCImpl(simulationView: SimulationView, baseView: BaseView, city : Environment)
+  class PlantSelectorMVCImpl(simulationMVC: SimulationMVCImpl, baseView: BaseView, environment: Environment)
       extends PlantSelectorModelModule.Interface
       with PlantSelectorControllerModule.Interface
       with SelectPlantViewModule.Interface:
 
     override val plantSelectorModel: PlantSelectorModel = PlantSelectorModelImpl(filename)
-    override val selectPlantView: SelectPlantView = SelectPlantViewImpl(simulationView, baseView)
-    override val plantSelectorController: PlantSelectorController = PlantSelectorControllerImpl(city)
+    override val selectPlantView: SelectPlantView = SelectPlantViewImpl(simulationMVC, baseView)
+    override val plantSelectorController: PlantSelectorController = PlantSelectorControllerImpl(environment)
 
     plantSelectorController.configureAvailablePlants()
