@@ -12,6 +12,7 @@ import javafx.application.Platform
 import it.unibo.pps.smartgh.mvc.PlantSelectorMVC
 import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
+import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.SelectPlantView
 
 import java.util
 import scala.jdk.javaapi.CollectionConverters.*
@@ -24,6 +25,8 @@ object SelectCityViewModule:
 
     /** The [[AutoCompletionBinding]] component. */
     def autoCompletionBinding: AutoCompletionBinding[String]
+
+    def moveToNextScene(selectPlantView: SelectPlantView): Unit
 
   /** Trait that represents the provider of the view for the city selection. */
   trait Provider:
@@ -44,12 +47,12 @@ object SelectCityViewModule:
       * @param baseView
       *   the view in which the [[SelectPlantView]] is enclosed.
       */
-    class SelectCityViewViewImpl(simulationMVC: SimulationMVCImpl, private val baseView: BaseView)
+    class SelectCityViewViewImpl(simulationView: SimulationView, private val baseView: BaseView)
         extends AbstractViewComponent[BorderPane]("select_city.fxml")
         with SelectCityView:
 
       override val component: BorderPane = loader.load[BorderPane]
-      private val controller: SelectCityController = context.selectCityController
+      //private val controller: SelectCityController = context.selectCityController
       var autoCompletionBinding: AutoCompletionBinding[String] = _
 
       @FXML
@@ -63,7 +66,7 @@ object SelectCityViewModule:
           selectCityTextField,
           text => {
             if !errorLabel.getText.isBlank then setErrorText("")
-            asJavaCollection(controller.searchCities(text.getUserText().capitalize))
+            asJavaCollection(context.selectCityController.searchCities(text.getUserText().capitalize))
           }
         )
 
@@ -73,12 +76,14 @@ object SelectCityViewModule:
       baseView.changeSceneButton.setOnMouseClicked { _ =>
         val selectedCity = selectCityTextField.getText.capitalize
         if selectedCity.isBlank then setErrorText("Please select a city")
-        else if controller.containCity(selectedCity) then
-          simulationMVC.simulationView.changeView(
-            PlantSelectorMVC(simulationMVC, baseView, controller.saveCity(selectedCity)).selectPlantView
-          )
+        else if context.selectCityController.containCity(selectedCity) then
+          context.selectCityController.saveCity(selectedCity)
+          context.selectCityController.nextMVC(baseView)
         else setErrorText("The selected city is not valid")
       }
+
+      override def moveToNextScene(selectPlantView: SelectPlantView): Unit =
+        simulationView.changeView(selectPlantView)
 
       private def setErrorText(text: String): Unit =
         Platform.runLater(() => errorLabel.setText(text))

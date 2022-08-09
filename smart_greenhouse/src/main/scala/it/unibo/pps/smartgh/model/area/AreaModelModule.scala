@@ -82,7 +82,7 @@ object AreaModelModule:
           optimalValueToDouble.getOrElse("min_" + optK, 0.0),
           optimalValueToDouble.getOrElse("max_" + optK, 0.0),
           sensorsMap(key),
-          sensorsMap(key).getCurrentValue()
+          BigDecimal(sensorsMap(key).getCurrentValue()).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble
         )
 
       configSensors()

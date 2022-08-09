@@ -14,4 +14,5 @@ object SimulationMVC:
 
     override val simulationController: SimulationControllerModule.SimulationController =
       SimulationControllerImpl()
-    override val simulationView: SimulationViewModule.SimulationView = SimulationViewImpl(this, stage)
+    override val simulationView: SimulationViewModule.SimulationView = SimulationViewImpl(stage)
+    simulationView.start(this)

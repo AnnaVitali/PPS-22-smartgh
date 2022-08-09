@@ -28,16 +28,16 @@ object PlantSelectorMVC:
     * @return
     *   the implemntation of the plant selection MVC.
     */
-  def apply(simulationMVC: SimulationMVCImpl, baseView: BaseView, environment: Environment): PlantSelectorMVCImpl =
-    PlantSelectorMVCImpl(simulationMVC, baseView, environment)
+  def apply(simulationMVC: SimulationMVCImpl, baseView: BaseView): PlantSelectorMVCImpl =
+    PlantSelectorMVCImpl(simulationMVC, baseView)
 
-  class PlantSelectorMVCImpl(simulationMVC: SimulationMVCImpl, baseView: BaseView, environment: Environment)
+  class PlantSelectorMVCImpl(simulationMVC: SimulationMVCImpl, baseView: BaseView)
       extends PlantSelectorModelModule.Interface
       with PlantSelectorControllerModule.Interface
       with SelectPlantViewModule.Interface:
 
     override val plantSelectorModel: PlantSelectorModel = PlantSelectorModelImpl(filename)
-    override val selectPlantView: SelectPlantView = SelectPlantViewImpl(simulationMVC, baseView)
-    override val plantSelectorController: PlantSelectorController = PlantSelectorControllerImpl(environment)
+    override val selectPlantView: SelectPlantView = SelectPlantViewImpl(simulationMVC.simulationView, baseView)
+    override val plantSelectorController: PlantSelectorController = PlantSelectorControllerImpl(simulationMVC)
 
     plantSelectorController.configureAvailablePlants()

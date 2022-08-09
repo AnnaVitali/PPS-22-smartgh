@@ -1,12 +1,13 @@
 package it.unibo.pps.smartgh.controller
 
-import it.unibo.pps.smartgh.view.component.EnvironmentViewModule
+import it.unibo.pps.smartgh.view.component.{BaseView, EnvironmentViewModule, FinishSimulationView}
 import it.unibo.pps.smartgh.model.greenhouse.EnvironmentModelModule
 import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.mvc.GreenHouseDivisionMVC
 import it.unibo.pps.smartgh.controller.SimulationControllerModule
 import it.unibo.pps.smartgh.controller.SimulationControllerModule.*
 import it.unibo.pps.smartgh.controller.SimulationControllerModule.SimulationController
+import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 
 /** Object that encloses the controller module to manage ambient environment values and simulation time. */
 object EnvironmentControllerModule:
@@ -32,6 +33,13 @@ object EnvironmentControllerModule:
     def notifyEnvironmentValuesChange(hour: Int): Unit
 
     def updateVelocityTimer(value: Double): Unit
+
+    def notifyTimeValueChange(timeValue: String) : Unit
+
+    def finishSimulation() : Unit
+
+    def nextMVC(baseView: BaseView): Unit
+
   /** Trait that represents the provider of the controller for environment values and time management. */
   trait Provider:
     val environmentController: EnvironmentController
@@ -45,13 +53,10 @@ object EnvironmentControllerModule:
     context: Requirements =>
 
     /** Class that contains the [[EnvironmentController]] implementation. */
-    class EnvironmentControllerImpl(selectedPlants: List[Plant]) extends EnvironmentController:
+    class EnvironmentControllerImpl(simulationMVC : SimulationMVCImpl) extends EnvironmentController:
 
-      val ghMVC = GreenHouseDivisionMVC(selectedPlants)
+      val ghMVC = GreenHouseDivisionMVC(simulationController.plantsSelected)
       environmentView.displayGreenHouseDivisionView(ghMVC.ghDivisionView)
-
-//      override val timeController: TimeController =
-//        TimeController(context.environmentModel.time, context.environmentView, this)
 
       override def startSimulation(): Unit =
         simulationController.startSimulationTimer()
@@ -74,13 +79,23 @@ object EnvironmentControllerModule:
         context.environmentView.displayEnvironmentValues(environmentModel.environment.currentEnvironmentValues)
         notifySensors(environmentModel.environment.currentEnvironmentValues)
 
+      override def updateVelocityTimer(value: Double): Unit =
+        simulationController.updateVelocityTimer(value)
+
+      override def notifyTimeValueChange(timeValue: String): Unit =
+        context.environmentView.displayElapsedTime(timeValue)
+
+      override def finishSimulation(): Unit =
+        context.environmentView.finishSimulation()
+
+      override def nextMVC(baseView: BaseView): Unit =
+        context.environmentView.moveToNextScene(FinishSimulationView(simulationMVC, baseView))
+
       private def notifySensors(values: environmentModel.environment.EnvironmentValues): Unit =
         context.environmentModel.subjectTemperature.onNext(values("temp_c").asInstanceOf[Double])
         context.environmentModel.subjectHumidity.onNext(values("humidity").asInstanceOf[BigInt].doubleValue)
         context.environmentModel.subjectLuminosity.onNext(values("lux").asInstanceOf[Int].toDouble)
 
-      override def updateVelocityTimer(value: Double): Unit =
-        simulationController.updateVelocityTimer(value)
   /** Trait that encloses the controller for environment values and time management. */
   trait Interface extends Provider with Component:
     self: Requirements =>

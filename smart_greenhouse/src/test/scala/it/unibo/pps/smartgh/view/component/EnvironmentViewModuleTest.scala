@@ -1,6 +1,6 @@
 package it.unibo.pps.smartgh.view.component
 
-import it.unibo.pps.smartgh.mvc.EnvironmentMVC
+import it.unibo.pps.smartgh.mvc.{EnvironmentMVC, SimulationMVC}
 import javafx.scene.control.Slider
 import javafx.stage.Stage
 import org.junit.jupiter.api.{Test, TestInstance}
@@ -22,7 +22,8 @@ class EnvironmentViewModuleTest extends AbstractViewTest:
   @Start
   private def start(stage: Stage): Unit =
     val baseView: BaseView = BaseView(appTitle, appSubtitle)
-    startApplication(stage, baseView, EnvironmentMVC(null, baseView, null, null).environmentView)
+    val simulationMVC = SimulationMVC(stage)
+    startApplication(stage, baseView, EnvironmentMVC(simulationMVC, baseView).environmentView)
 
   @Test def testEnvironmentLabels(robot: FxRobot): Unit =
     verifyThat("#locationLabel", isVisible)

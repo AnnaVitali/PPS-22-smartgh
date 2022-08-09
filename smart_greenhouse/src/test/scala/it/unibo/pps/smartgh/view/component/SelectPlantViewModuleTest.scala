@@ -19,6 +19,7 @@ import org.testfx.matcher.base.NodeMatchers.{hasChildren, isVisible}
 import org.testfx.matcher.control.LabeledMatchers
 import org.testfx.matcher.control.LabeledMatchers.hasText
 import scalafx.scene.Scene
+import it.unibo.pps.smartgh.mvc.SimulationMVC
 
 @TestInstance(Lifecycle.PER_CLASS)
 @ExtendWith(Array(classOf[ApplicationExtension]))
@@ -37,7 +38,8 @@ class SelectPlantViewModuleTest extends AbstractViewTest:
   @Start
   private def start(stage: Stage): Unit =
     val baseView: BaseView = BaseView(appTitle, appSubtitle)
-    mvc = PlantSelectorMVCImpl(null, baseView, null)
+    val simulationMVC = SimulationMVC(stage)
+    mvc = PlantSelectorMVCImpl(simulationMVC, baseView)
     startApplication(stage, baseView, mvc.selectPlantView)
 
   @Test def testLabelsSelectPlantAndPlantSelected(robot: FxRobot): Unit =

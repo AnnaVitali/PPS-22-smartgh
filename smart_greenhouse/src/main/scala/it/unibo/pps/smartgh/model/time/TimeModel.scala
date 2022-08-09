@@ -2,10 +2,10 @@ package it.unibo.pps.smartgh.model.time
 
 import it.unibo.pps.smartgh.controller.SimulationControllerModule.SimulationController
 import org.apache.commons.lang3.time.DurationFormatUtils
-
 import java.lang.module.FindException
 import scala.concurrent.duration.*
 import scala.language.postfixOps
+import scala.math.{exp, log, pow}
 import it.unibo.pps.smartgh.model.time.Timer
 
 /** A trait that exposes methods to manage the time of the simulation, it represents its model. */
@@ -15,7 +15,7 @@ trait TimeModel:
   def start(): Unit
 
   /** Set the speed of the current simulation. */
-  def setSpeed(speed: FiniteDuration): Unit
+  def setSpeed(speed: Double): Unit
 
   /** Stop the time of the current simulation. */
   def stop(): Unit
@@ -46,15 +46,32 @@ object TimeModel:
     private val endSimulation: FiniteDuration = 1 day
     override val timer: Timer = Timer(endSimulation)
 
+    var lastRequestTime : Long = -1
+    private val timeSpeed: Double => FiniteDuration = (x: Double) =>
+      val x0 = 1
+      val x1 = 10
+      val y0 = pow(10, 6)
+      val y1 = 50
+      exp(((x - x0) / (x1 - x0)) * (log(y1) - log(y0)) + log(y0)) microseconds
+
     override def start(): Unit =
       timer.start(controller.finishSimulation())
       timer.addCallback(updateTimeValue, 1)
 
-    override def setSpeed(speed: FiniteDuration): Unit =
-      timer.changeTickPeriod(speed)
+    override def setSpeed(speed: Double): Unit =
+      timer.changeTickPeriod(timeSpeed(speed))
 
     override def stop(): Unit =
       timer.stop()
 
     private def updateTimeValue(t: FiniteDuration): Unit =
-      controller.notifyTimeValueChange(t)
+      val timeValue : String = DurationFormatUtils.formatDuration(t.toMillis, "HH:mm:ss", true)
+      controller.notifyTimeValueChange(timeValue)
+      lastRequestTime = hasNewHourPassed(t)
+
+    private def hasNewHourPassed(timeValue: FiniteDuration): Long =
+      if timeValue.toHours.>(lastRequestTime) then
+        controller.notifyNewHourPassed(timeValue.toHours.intValue)
+        timeValue.toHours
+      else
+        lastRequestTime

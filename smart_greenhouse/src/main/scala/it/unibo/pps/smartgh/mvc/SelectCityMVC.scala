@@ -21,7 +21,7 @@ object SelectCityMVC:
       extends SelectCityModelModule.Interface
       with SelectCityViewModule.Interface
       with SelectCityControllerModule.Interface:
-
+    
     override val selectCityModel: SelectCityModel = SelectCityModelImpl(fileName)
-    override val selectCityController: SelectCityController = SelectCityControllerImpl()
-    override val selectCityView: SelectCityView = SelectCityViewViewImpl(simulationMVC, baseView)
+    override val selectCityView: SelectCityView = SelectCityViewViewImpl(simulationMVC.simulationView, baseView)
+    override val selectCityController: SelectCityController = SelectCityControllerImpl(simulationMVC)

@@ -2,10 +2,14 @@ package it.unibo.pps.smartgh.controller
 
 import it.unibo.pps.smartgh.model.plants.UploadPlants
 import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule
-import it.unibo.pps.smartgh.view.component.SelectPlantViewModule
+import it.unibo.pps.smartgh.view.component.{BaseView, SelectPlantViewModule}
 import it.unibo.pps.smartgh.model.city.Environment
+import it.unibo.pps.smartgh.controller.SimulationControllerModule
+import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
 import monix.execution.Ack.{Continue, Stop}
 import monix.execution.Scheduler.Implicits.global
+import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
+import it.unibo.pps.smartgh.mvc.EnvironmentMVC
 
 /** Object that encloses the controller module for the plant selection. */
 object PlantSelectorControllerModule:
@@ -31,6 +35,8 @@ object PlantSelectorControllerModule:
     /** Method tha notifies the controller that the start simulation button has been clicked */
     def notifyStartSimulationClicked(): Unit
 
+    def nextMVC(baseView: BaseView): Unit
+
   /** Trait that represents the provider of the controller for the plant selection. */
   trait Provider:
     val plantSelectorController: PlantSelectorController
@@ -41,7 +47,7 @@ object PlantSelectorControllerModule:
     context: Requirments =>
 
     /** Class that contains the [[PlantSelectorController]] implementation. */
-    class PlantSelectorControllerImpl(city: Environment) extends PlantSelectorController:
+    class PlantSelectorControllerImpl(simulationMVC: SimulationMVCImpl) extends PlantSelectorController:
 
       override def configureAvailablePlants(): Unit =
         context.plantSelectorModel.registerCallback(
@@ -61,9 +67,15 @@ object PlantSelectorControllerModule:
         try context.plantSelectorModel.deselectPlant(plantName)
         catch case e: NoSuchElementException => context.selectPlantView.showErrorMessage(e.getMessage())
 
+      override def nextMVC(baseView: BaseView): Unit =
+        val environmentMVC = EnvironmentMVC(simulationMVC, baseView)
+        simulationMVC.simulationController.environmentController = environmentMVC.environmentController
+        context.selectPlantView.moveToNextScene(environmentMVC.environmentView)
+
       override def notifyStartSimulationClicked(): Unit =
         if context.plantSelectorModel.getPlantsSelectedName().size != 0 then
-          context.selectPlantView.moveToTheNextScene(city, context.plantSelectorModel.getPlantsSelected())
+          simulationMVC.simulationController.plantsSelected = context.plantSelectorModel.getPlantsSelected()
+          context.selectPlantView.setNewScene()
         else selectPlantView.showErrorMessage("At least one plant must be selected")
 
   /** Trait that encloses the controller for the plant selection. */

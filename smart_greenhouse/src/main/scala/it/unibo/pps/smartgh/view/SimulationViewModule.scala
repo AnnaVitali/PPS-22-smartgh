@@ -28,22 +28,27 @@ object SimulationViewModule:
       */
     def changeView[A <: Parent](viewComponent: ViewComponent[A]): Unit
 
+    def start(simulationMVC: SimulationMVCImpl) : Unit
+
   trait Provider:
     val simulationView: SimulationView
 
   trait Component:
     /** Implementation of [[SimulationViewModule]]. */
-    class SimulationViewImpl(simulationMVC: SimulationMVCImpl, stage: Stage) extends SimulationView:
+    class SimulationViewImpl(stage: Stage) extends SimulationView:
       private val scene: Scene = Scene(stage.width.value, stage.height.value)
       private val baseView: BaseView = BaseView(appTitle, appSubtitle)
 
       stage.resizable = true
       stage.maximized = true
       stage.title = appTitle
-      baseView.component.setCenter(SelectCityMVC(simulationMVC, baseView).selectCityView) //init view
-      scene.root.value = baseView
-      stage.scene = scene
-      stage.show()
+
+      override def start(simulationMVC: SimulationMVCImpl): Unit =
+        val selectCityMVC = SelectCityMVC(simulationMVC, baseView)
+        baseView.component.setCenter(selectCityMVC.selectCityView) //init view
+        scene.root.value = baseView
+        stage.scene = scene
+        stage.show()
 
       override def changeView[A <: Parent](viewComponent: ViewComponent[A]): Unit =
         baseView.component.setCenter(viewComponent)

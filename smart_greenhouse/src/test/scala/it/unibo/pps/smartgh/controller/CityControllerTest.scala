@@ -1,9 +1,9 @@
 package it.unibo.pps.smartgh.controller
 
-import it.unibo.pps.smartgh.controller.SelectCityControllerModule.{SelectCityController, Component}
+import it.unibo.pps.smartgh.controller.SelectCityControllerModule.{Component, SelectCityController}
 import it.unibo.pps.smartgh.model.city.*
 import it.unibo.pps.smartgh.model.city.SelectCityModelModule.SelectCityModel
-import it.unibo.pps.smartgh.mvc.SelectCityMVC
+import it.unibo.pps.smartgh.mvc.{SelectCityMVC, SimulationMVC}
 import it.unibo.pps.smartgh.mvc.SelectCityMVC.SelectCityMVCImpl
 import it.unibo.pps.smartgh.view.component.{AbstractViewTest, BaseView, SelectCityViewModule}
 import it.unibo.pps.smartgh.view.component.SelectCityViewModule.SelectCityView
@@ -27,12 +27,14 @@ class CityControllerTest
     with SelectCityViewModule.Interface
     with SelectCityModelModule.Interface:
 
-  override val selectCityController: SelectCityController = SelectCityControllerImpl()
+  val simulationMVC = SimulationMVC(null)
+  override val selectCityController: SelectCityController = SelectCityControllerImpl(simulationMVC)
   override val selectCityModel: SelectCityModel = null
   override val selectCityView: SelectCityView = null
 
   val city: Environment = Environment("Rome")
 
   test("selecting Rome as city must create a Rome city object") {
-    selectCityController.saveCity("Rome") === city
+    selectCityController.saveCity("Rome")
+    simulationMVC.simulationController.environment === city
   }

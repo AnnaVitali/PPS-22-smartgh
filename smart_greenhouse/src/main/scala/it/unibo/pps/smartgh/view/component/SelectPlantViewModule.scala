@@ -2,6 +2,7 @@ package it.unibo.pps.smartgh.view.component
 
 import it.unibo.pps.smartgh.controller.PlantSelectorControllerModule
 import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
+import it.unibo.pps.smartgh.view.component.EnvironmentViewModule.EnvironmentView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.event.{ActionEvent, EventHandler}
 import javafx.fxml.FXML
@@ -44,7 +45,10 @@ object SelectPlantViewModule:
       * @param selectedPlants
       *   a list of plants selected by the user.
       */
-    def moveToTheNextScene(city: Environment, selectedPlants: List[Plant]): Unit
+    def moveToNextScene(environmentView : EnvironmentView): Unit
+    
+    //TODO add doc
+    def setNewScene(): Unit
 
     /** Method that requires to the view to show an error message.
       * @param message
@@ -67,7 +71,7 @@ object SelectPlantViewModule:
       * @param baseView
       *   the view in which the [[SelectPlantView]] is enclosed.
       */
-    class SelectPlantViewImpl(simulationMVC: SimulationMVCImpl, private val baseView: BaseView)
+    class SelectPlantViewImpl(simulationView: SimulationView, private val baseView: BaseView)
         extends AbstractViewComponent[BorderPane]("select_plants.fxml")
         with SelectPlantView:
 
@@ -129,10 +133,12 @@ object SelectPlantViewModule:
             else context.plantSelectorController.notifyDeselectedPlant(checkBox.getText)
           )
         })
-
-      override def moveToTheNextScene(city: Environment, selectedPlants: List[Plant]): Unit =
-        val environmentMVC = EnvironmentMVC(simulationMVC, baseView, city, selectedPlants)
-        simulationMVC.simulationView.changeView(environmentMVC.environmentView)
+        
+      override def moveToNextScene(environmentView: EnvironmentView): Unit =
+        simulationView.changeView(environmentView)
+      
+      override def setNewScene(): Unit =
+        plantSelectorController.nextMVC(baseView)
 
       override def showErrorMessage(message: String): Unit =
         Platform.runLater(() => errorLabel.setText(message))

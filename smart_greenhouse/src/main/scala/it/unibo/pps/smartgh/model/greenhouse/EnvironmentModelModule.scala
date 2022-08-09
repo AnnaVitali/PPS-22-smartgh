@@ -1,7 +1,6 @@
 package it.unibo.pps.smartgh.model.greenhouse
 
 import it.unibo.pps.smartgh.model.city.Environment
-import it.unibo.pps.smartgh.model.time.TimeModel
 import monix.reactive.MulticastStrategy
 import monix.reactive.subjects.ConcurrentSubject
 import monix.execution.Scheduler.Implicits.global

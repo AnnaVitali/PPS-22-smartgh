@@ -46,6 +46,8 @@ object EnvironmentViewModule:
 
     /** Method to notify view that the simulation time has finished and to display [[FinishSimulationView]]. */
     def finishSimulation(): Unit
+    
+    def moveToNextScene(finishSimulationView: FinishSimulationView) : Unit
 
   /** Trait that represents the provider of the view for environment values and simulation time visualization. */
   trait Provider:
@@ -63,7 +65,7 @@ object EnvironmentViewModule:
       * @param baseView
       *   the view in which the [[EnvironmentView]] is enclosed.
       */
-    class EnvironmentViewImpl(simulationMVC: SimulationMVCImpl, private val baseView: BaseView)
+    class EnvironmentViewImpl(simulationView: SimulationView, private val baseView: BaseView)
         extends AbstractViewComponent[BorderPane]("environment.fxml")
         with EnvironmentView:
 
@@ -101,7 +103,7 @@ object EnvironmentViewModule:
       baseView.changeSceneButton.setText("Stop simulation")
       baseView.changeSceneButton.setOnMouseClicked { _ =>
         context.environmentController.stopSimulation()
-        simulationMVC.simulationView.changeView(FinishSimulationView(simulationMVC, baseView))
+        context.environmentController.nextMVC(baseView)
       }
 
       override def displayNameCity(cityName: String): Unit =
@@ -130,7 +132,10 @@ object EnvironmentViewModule:
         component.setCenter(ghDivisionView)
 
       override def finishSimulation(): Unit =
-        Platform.runLater(() => simulationMVC.simulationView.changeView(FinishSimulationView(simulationMVC, baseView)))
+        context.environmentController.nextMVC(baseView)
+
+      override def moveToNextScene(finishSimulationView: FinishSimulationView): Unit =
+        Platform.runLater(() => simulationView.changeView(finishSimulationView))
 
       private def notifySpeedChange(value: Double): Unit =
         context.environmentController.updateVelocityTimer(value)

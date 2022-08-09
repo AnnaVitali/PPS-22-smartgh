@@ -25,28 +25,21 @@ object EnvironmentMVC:
     */
   def apply(
       simulationMVC: SimulationMVCImpl,
-      baseView: BaseView,
-      city: Environment,
-      selectedPlants: List[Plant]
+      baseView: BaseView
   ): EnvironmentMVCImpl =
-    EnvironmentMVCImpl(simulationMVC, baseView, city, selectedPlants)
+    EnvironmentMVCImpl(simulationMVC, baseView)
 
   class EnvironmentMVCImpl(
       simulationMVC: SimulationMVCImpl,
-      baseView: BaseView,
-      city: Environment,
-      selectedPlants: List[Plant]
+      baseView: BaseView
   ) extends EnvironmentModelModule.Interface
       with EnvironmentViewModule.Interface
       with EnvironmentControllerModule.Interface
       with SimulationControllerModule.Interface:
 
-    override val environmentModel: EnvironmentModelModule.EnvironmentModel = EnvironmentModelImpl(city)
-    override val environmentView: EnvironmentViewModule.EnvironmentView = EnvironmentViewImpl(simulationMVC, baseView)
-    override val environmentController: EnvironmentControllerModule.EnvironmentController = EnvironmentControllerImpl(
-      selectedPlants
-    )
-    override val simulationController: SimulationControllerModule.SimulationController =
-      simulationMVC.simulationController
-
+    override val simulationController: SimulationControllerModule.SimulationController = simulationMVC.simulationController
+    override val environmentModel: EnvironmentModelModule.EnvironmentModel = EnvironmentModelImpl(simulationController.environment)
+    override val environmentView: EnvironmentViewModule.EnvironmentView = EnvironmentViewImpl(simulationMVC.simulationView, baseView)
+    override val environmentController: EnvironmentControllerModule.EnvironmentController = EnvironmentControllerImpl(simulationMVC)
+    
     environmentController.startSimulation()

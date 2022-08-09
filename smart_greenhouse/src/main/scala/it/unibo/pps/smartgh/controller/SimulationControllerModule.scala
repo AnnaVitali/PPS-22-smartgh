@@ -6,12 +6,8 @@ import it.unibo.pps.smartgh.model.greenhouse.EnvironmentModelModule.EnvironmentM
 import it.unibo.pps.smartgh.model.time.{TimeModel, Timer}
 import it.unibo.pps.smartgh.view.component.EnvironmentViewModule.EnvironmentView
 import it.unibo.pps.smartgh.view.SimulationViewModule
-
-import scala.concurrent.duration.*
-import scala.language.postfixOps
-import scala.math.{exp, log, pow}
-import org.apache.commons.lang3.time.DurationFormatUtils
 import it.unibo.pps.smartgh.model.plants.Plant
+import it.unibo.pps.smartgh.model.city.Environment
 
 /** A trait that represents the controller for the simulation timer. */
 object SimulationControllerModule:
@@ -26,24 +22,32 @@ object SimulationControllerModule:
       *   time that has to pass before emitting new items.
       */
     def updateVelocityTimer(speed: Double): Unit
+
     /** Method that notify the controller the change of the value of simulation timer.
       * @param timeValue
       *   new simulation time value.
       */
-    def notifyTimeValueChange(timeValue: FiniteDuration): Unit
+    def notifyTimeValueChange(timeValue: String): Unit
     /** Method that is called when the simulation is finished. */
-    //TODO doc
-    def finishSimulation(): Unit
 
-    var environmentView: EnvironmentView
+    /** Method that notify new hour passed.
+      * @param timeValue
+      *   new hour passed.
+      */
+    def notifyNewHourPassed(hour : Int) : Unit
+
+    /** Method that is called when the simulation is finished. */
+    def finishSimulation(): Unit
+    
+    def resetSimulation() : Unit
 
     var environmentController: EnvironmentController
 
-    var city: String
+    var environment: Environment
 
     var plantsSelected: List[Plant]
 
-    def timer: Timer
+    var timer: Timer
 
   trait Provider:
     val simulationController: SimulationController
@@ -53,38 +57,31 @@ object SimulationControllerModule:
     /** Object that can be used to create a new instance of [[TimeController]]. */
     class SimulationControllerImpl extends SimulationController:
 
-      var lastRequestTime: Long = -1
-      override var environmentView: EnvironmentView = _
       override var environmentController: EnvironmentController = _
-      override var city: String = _
+      override var environment: Environment = _
       override var plantsSelected: List[Plant] = _
-      private val timeModel = TimeModel()
-      override def timer = timeModel.timer
+
+      private var timeModel = TimeModel()
+      override var timer = timeModel.timer
       timeModel.controller = this
-      private val timeSpeed: Double => FiniteDuration = (x: Double) =>
-        val x0 = 1
-        val x1 = 10
-        val y0 = pow(10, 6)
-        val y1 = 50
-        exp(((x - x0) / (x1 - x0)) * (log(y1) - log(y0)) + log(y0)) microseconds
 
       override def startSimulationTimer(): Unit = timeModel.start()
 
       override def stopSimulationTimer(): Unit = timeModel.stop()
 
-      override def updateVelocityTimer(speed: Double): Unit = timeModel.setSpeed(timeSpeed(speed))
+      override def updateVelocityTimer(speed: Double): Unit = timeModel.setSpeed(speed)
 
-      override def notifyTimeValueChange(timeValue: FiniteDuration): Unit =
-        val time: String = DurationFormatUtils.formatDuration(timeValue.toMillis, "HH:mm:ss", true)
-        environmentView.displayElapsedTime(time)
-        lastRequestTime = hasNewHourPassed(timeValue)
+      override def notifyTimeValueChange(timeValue: String): Unit = environmentController.notifyTimeValueChange(timeValue)
 
-      override def finishSimulation(): Unit = environmentView.finishSimulation()
+      override def notifyNewHourPassed(hour: Int): Unit = environmentController.notifyEnvironmentValuesChange(hour)
 
-      private def hasNewHourPassed(timeValue: FiniteDuration): Long =
-        if timeValue.toHours.>(lastRequestTime) then
-          environmentController.notifyEnvironmentValuesChange(timeValue.toHours.intValue)
-          timeValue.toHours
-        else lastRequestTime
+      override def finishSimulation(): Unit = environmentController.finishSimulation()
 
+      override def resetSimulation(): Unit =
+        timeModel = TimeModel()
+        timer = timeModel.timer
+        timeModel.controller = this
+        environment = null
+        plantsSelected = List.empty
+  
   trait Interface extends Provider with Component
