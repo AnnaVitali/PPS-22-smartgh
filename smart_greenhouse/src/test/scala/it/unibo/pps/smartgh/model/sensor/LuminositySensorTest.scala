@@ -38,12 +38,12 @@ class LuminositySensorTest extends AnyFunSuite with Matchers:
     s"the current luminosity value when no action has been performed but a new environment value has been emitted should be:" +
       s"environmentValue - (randomValue between [0 e 5%] * environmentValue) + defaultLampBrightness"
   ) {
-    val defaultLampBrightness = 100
-    val newEnvironmentValue = 30000
+    val defaultLampBrightness = 100.0
+    val newEnvironmentValue = 30000.0
     subjectEnvironment.onNext(newEnvironmentValue)
 
     Thread.sleep(1000)
-    
+
     luminositySensor
       .getCurrentValue() shouldEqual (newEnvironmentValue - (minPercentage + (maxPercentage - minPercentage) * randomValue
       .nextDouble()) * newEnvironmentValue + defaultLampBrightness)
@@ -53,7 +53,7 @@ class LuminositySensorTest extends AnyFunSuite with Matchers:
     s"the current luminosity value when the area's shields are up and its gates are opened should be:" +
       s" environmentValue + lampBrightness"
   ) {
-    val environmentValue = 30000
+    val environmentValue = 30000.0
     areaComponentsState.shieldState = AreaShieldState.Up
     areaComponentsState.gatesState = AreaGatesState.Open
     subjectActions.onNext(areaComponentsState)
@@ -67,7 +67,7 @@ class LuminositySensorTest extends AnyFunSuite with Matchers:
     s"the current luminosity value when the area's shields are up and its gates are closed should be:" +
       s" environmentValue - (randomValue between [0 e 5%] * environmentValue) + lampBrightness"
   ) {
-    val environmentValue = 30000
+    val environmentValue = 30000.0
     areaComponentsState.shieldState = AreaShieldState.Up
     areaComponentsState.gatesState = AreaGatesState.Close
 
@@ -88,6 +88,6 @@ class LuminositySensorTest extends AnyFunSuite with Matchers:
     subjectActions.onNext(areaComponentsState)
 
     Thread.sleep(1000)
-    
+
     luminositySensor.getCurrentValue() shouldEqual areaComponentsState.brightnessOfTheLamps
   }

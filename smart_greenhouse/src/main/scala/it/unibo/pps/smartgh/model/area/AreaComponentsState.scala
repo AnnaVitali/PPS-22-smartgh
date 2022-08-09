@@ -32,12 +32,11 @@ object AreaComponentsState:
   def apply(): AreaComponentsStateImpl = AreaComponentsStateImpl()
 
   class AreaComponentsStateImpl:
-    val defaultValueLampsBrightness = 100
     var gatesState: AreaGatesState = AreaGatesState.Close
     var shieldState: AreaShieldState = AreaShieldState.Up
     var atomisingState: AreaAtomiseState = AreaAtomiseState.AtomisingInactive
     var ventilationState: AreaVentilationState = AreaVentilationState.VentilationInactive
-    var brightnessOfTheLamps: Int = defaultValueLampsBrightness
+    var brightnessOfTheLamps: Double = 100.0
     var temperature: Double = 27.0
     var soilHumidity: Double = 30.0
     var humidityActions: AreaHumidityState = AreaHumidityState.None
