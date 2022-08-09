@@ -6,7 +6,7 @@ package it.unibo.pps.smartgh.model.sensor.factoryFunctions
 object FactoryFunctionsAirHumidity:
 
   private val valueRange = (0.0, 100.0)
-  private val actionFactor = 0.01
+  private val actionFactor = 0.05
   private val areaFactor = 0.90
   private val envFactor = 0.10
 
