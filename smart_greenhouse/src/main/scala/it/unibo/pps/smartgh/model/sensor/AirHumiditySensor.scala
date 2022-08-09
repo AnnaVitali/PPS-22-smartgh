@@ -40,17 +40,17 @@ object AirHumiditySensor:
   class AirHumiditySensorImpl(areaComponentsState: AreaComponentsStateImpl, timer: Timer)
       extends AbstractSensorWithTimer(areaComponentsState, timer):
 
-    private val timeMustPass: Int = 300
-    private val minPercentage = 0.0
+    private val timeMustPass: Int = 3600
+    private val minPercentage = 0.01
     private val maxPercentage = 0.05
     private var maxAtomizeValue: Double = _
     private var minVentilateValue: Double = _
-    private val randomValue = currentValue * Random().nextDouble() * maxPercentage
+    private val randomValue = currentValue * Random().nextDouble() * maxPercentage + minPercentage
     private val noActionRandomVal = areaComponentsState.gatesState match
       case AreaGatesState.Close => randomValue
       case _ => 0
 
-    currentValue = areaComponentsState.soilHumidity - randomValue
+    currentValue = areaComponentsState.airHumidity - randomValue
 
     override def registerTimerCallback(): Unit =
       timer.addCallback(onNextTimerEvent(), timeMustPass)
@@ -60,24 +60,18 @@ object AirHumiditySensor:
         case AreaGatesState.Open =>
           currentValue = currentEnvironmentValue
         case _ =>
-      areaComponentsState.atomisingState match
-        case AreaAtomiseState.AtomisingActive =>
+      (areaComponentsState.atomisingState, areaComponentsState.ventilationState) match
+        case (AreaAtomiseState.AtomisingActive, AreaVentilationState.VentilationInactive) =>
           currentValue = FactoryFunctionsAirHumidity.updateAtomizeValue(currentValue, maxAtomizeValue)
-        case _ =>
-          currentValue = FactoryFunctionsAirHumidity.updateDisableActionValue(
-            currentValue,
-            currentEnvironmentValue,
-            noActionRandomVal
-          )
-      areaComponentsState.ventilationState match
-        case AreaVentilationState.VentilationActive =>
+        case (AreaAtomiseState.AtomisingInactive, AreaVentilationState.VentilationActive) =>
           currentValue = FactoryFunctionsAirHumidity.updateVentilationValue(currentValue, minVentilateValue)
-        case _ =>
+        case (AreaAtomiseState.AtomisingInactive, AreaVentilationState.VentilationInactive) =>
           currentValue = FactoryFunctionsAirHumidity.updateDisableActionValue(
             currentValue,
             currentEnvironmentValue,
             noActionRandomVal
           )
+        case _ =>
       subject.onNext(currentValue)
 
     override def onNextAction(): AreaComponentsStateImpl => Future[Ack] =

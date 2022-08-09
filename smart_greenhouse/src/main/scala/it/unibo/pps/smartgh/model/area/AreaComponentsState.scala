@@ -40,4 +40,5 @@ object AreaComponentsState:
     var brightnessOfTheLamps: Int = defaultValueLampsBrightness
     var temperature: Double = 27.0
     var soilHumidity: Double = 30.0
+    var airHumidity: Double = 70.0
     var humidityActions: AreaHumidityState = AreaHumidityState.None
