@@ -2,13 +2,14 @@ package it.unibo.pps.smartgh.model.sensor
 
 import it.unibo.pps.smartgh.model.sensor.AirHumiditySensor.AirHumiditySensorImpl
 import it.unibo.pps.smartgh.model.sensor.areaComponentsState.{
+  AreaAtomiseState,
   AreaComponentsState,
   AreaGatesState,
-  AreaAtomiseState,
   AreaVentilationState
 }
 import it.unibo.pps.smartgh.model.sensor.areaComponentsState.AreaComponentsState.AreaComponentsStateImpl
 import it.unibo.pps.smartgh.model.time.Timer
+import monix.execution.Ack.Continue
 import monix.reactive.MulticastStrategy
 import monix.reactive.subjects.ConcurrentSubject
 import monix.execution.Scheduler.Implicits.global
@@ -26,7 +27,7 @@ class AirHumiditySensorTest extends AnyFunSuite with Matchers with Eventually wi
 
   private var areaComponentsState: AreaComponentsStateImpl = _
   private val timer = Timer(1 day)
-  private val initialHumidity = 30.0
+  private var initialHumidity: Double = _
   private var humiditySensor: AirHumiditySensorImpl = _
   private val subjectEnvironment: ConcurrentSubject[Double, Double] =
     ConcurrentSubject[Double](MulticastStrategy.publish)
@@ -40,7 +41,7 @@ class AirHumiditySensorTest extends AnyFunSuite with Matchers with Eventually wi
 
   before {
     areaComponentsState = AreaComponentsState()
-    areaComponentsState.soilHumidity = initialHumidity
+    initialHumidity = areaComponentsState.airHumidity
     humiditySensor = AirHumiditySensor(areaComponentsState, timer)
     humiditySensor.setObserverEnvironmentValue(subjectEnvironment)
     humiditySensor.setObserverActionsArea(subjectActions)
@@ -50,22 +51,29 @@ class AirHumiditySensorTest extends AnyFunSuite with Matchers with Eventually wi
     timer.stop()
   }
 
-//  test("The air humidity value should decrease if the ventilation is active") {
-//    setupTimer(50 microseconds)
-//    areaComponentsState.ventilationState = AreaVentilationState.VentilationActive
-//    subjectActions.onNext(areaComponentsState)
-//    val beforeValue = humiditySensor.getCurrentValue()
-//    eventually(timeout(Span(1000, Milliseconds))) {
-//      humiditySensor.getCurrentValue() should be < beforeValue
-//    }
-//  }
+  test("The air humidity value should decrease because the ventilation and the humidity are inactive") {
+    setupTimer(500 milliseconds)
+    eventually(timeout(Span(1000, Milliseconds))) {
+      humiditySensor.getCurrentValue() should be < initialHumidity
+    }
+  }
 
-  test("The air humidity value should increase if the atomiser is active") {
-    setupTimer(50 microseconds)
-    areaComponentsState.atomisingState = AreaAtomiseState.AtomisingActive
-    subjectActions.onNext(areaComponentsState)
+  test("The air humidity value should decrease if the ventilation is active") {
+    setupTimer(500 milliseconds)
     val beforeValue = humiditySensor.getCurrentValue()
+    areaComponentsState.ventilationState = AreaVentilationState.VentilationActive
+    subjectActions.onNext(areaComponentsState)
     eventually(timeout(Span(1000, Milliseconds))) {
       humiditySensor.getCurrentValue() should be < beforeValue
+    }
+  }
+
+  test("The air humidity value should increase if the atomiser is active") {
+    setupTimer(500 milliseconds)
+    val beforeValue = humiditySensor.getCurrentValue()
+    areaComponentsState.atomisingState = AreaAtomiseState.AtomisingActive
+    subjectActions.onNext(areaComponentsState)
+    eventually(timeout(Span(1000, Milliseconds))) {
+      humiditySensor.getCurrentValue() should be > beforeValue
     }
   }
