@@ -67,28 +67,33 @@ object AreaModelModule:
       private val AirHumidityKey = "Humidity"
       private val SoilHumidityKey = "Soil moisture"
       private val BrightnessKey = "Brightness"
-      private val sensorWithTimerMap: Map[String, SensorWithTimer] = Map(
-        TemperatureKey -> TemperatureSensor(areaComponentState, timer),
-        AirHumidityKey -> AirHumiditySensor(areaComponentState, timer),
-        SoilHumidityKey -> SoilHumiditySensor(areaComponentState, timer)
+      private val mapSensorNames = Map(
+        TemperatureKey -> "temp",
+        AirHumidityKey -> "env_humid",
+        SoilHumidityKey -> "soil_moist",
+        BrightnessKey -> "light_lux"
       )
-      private val sensorWithoutTimerMap: Map[String, Sensor] = Map(
-        BrightnessKey -> LuminositySensor(10000.0, areaComponentState)
-      )
+      private val sensorsMap = constructSensorsMap()
 
       override val sensors: List[ManageSensorImpl] =
-        List(manageTemperatureSensor(), manageAirHumiditySensor(), manageSoilHumiditySensor(), manageBrightnessSensor())
+        for (key, optK) <- mapSensorNames.toList
+        yield ManageSensorImpl(
+          key,
+          optimalValueToDouble.getOrElse("min_" + optK, 0.0),
+          optimalValueToDouble.getOrElse("max_" + optK, 0.0),
+          sensorsMap(key),
+          sensorsMap(key).getCurrentValue()
+        )
 
-      configGenericSensors(sensorWithoutTimerMap)
-      configSensorsWithTimer()
+      configSensors()
 
       override def setSensorSubjects(subjects: Map[String, ConcurrentSubject[Double, Double]]): Unit =
         subjects.foreach((k, v) =>
           k match
-            case "temp" => sensorWithTimerMap(TemperatureKey).setObserverEnvironmentValue(v)
-            case "hum" => sensorWithTimerMap(AirHumidityKey).setObserverEnvironmentValue(v)
-            case "lux" => sensorWithoutTimerMap(BrightnessKey).setObserverEnvironmentValue(v)
-            case "soilMoist" => sensorWithTimerMap(SoilHumidityKey).setObserverEnvironmentValue(v)
+            case "temp" => sensorsMap(TemperatureKey).setObserverEnvironmentValue(v)
+            case "hum" => sensorsMap(AirHumidityKey).setObserverEnvironmentValue(v)
+            case "lux" => sensorsMap(BrightnessKey).setObserverEnvironmentValue(v)
+            case "soilMoist" => sensorsMap(SoilHumidityKey).setObserverEnvironmentValue(v)
         )
 
       override def status: AreaStatus = _status
@@ -102,47 +107,11 @@ object AreaModelModule:
 
       override def changeStatusObservable(): Observable[AreaStatus] = subject
 
-      private def manageTemperatureSensor(): ManageSensorImpl =
-        ManageSensorImpl(
-          TemperatureKey,
-          optimalValueToDouble.getOrElse("min_temp", 0.0),
-          optimalValueToDouble.getOrElse("max_temp", 0.0),
-          sensorWithTimerMap(TemperatureKey),
-          sensorWithTimerMap(TemperatureKey).getCurrentValue()
-        )
-
-      private def manageAirHumiditySensor(): ManageSensorImpl =
-        ManageSensorImpl(
-          AirHumidityKey,
-          optimalValueToDouble.getOrElse("min_env_humid", 0.0),
-          optimalValueToDouble.getOrElse("max_env_humid", 0.0),
-          sensorWithTimerMap(AirHumidityKey),
-          sensorWithTimerMap(AirHumidityKey).getCurrentValue()
-        )
-
-      private def manageSoilHumiditySensor(): ManageSensorImpl =
-        ManageSensorImpl(
-          SoilHumidityKey,
-          optimalValueToDouble.getOrElse("min_soil_moist", 0.0),
-          optimalValueToDouble.getOrElse("max_soil_moist", 0.0),
-          sensorWithTimerMap(SoilHumidityKey),
-          sensorWithTimerMap(SoilHumidityKey).getCurrentValue()
-        )
-
-      private def manageBrightnessSensor(): ManageSensorImpl =
-        ManageSensorImpl(
-          BrightnessKey,
-          optimalValueToDouble.getOrElse("min_light_lux", 0.0),
-          optimalValueToDouble.getOrElse("max_light_lux", 0.0),
-          sensorWithoutTimerMap(BrightnessKey),
-          sensorWithoutTimerMap(BrightnessKey).getCurrentValue()
-        )
-
       private def checkAlarm(ms: ManageSensorImpl): Unit =
         if (ms.actualVal compareTo ms.min) < 0 || (ms.actualVal compareTo ms.max) > 0 then status = ALARM
 
-      private def configGenericSensors(sensorMap: Map[String, Sensor]): Unit =
-        sensorMap.foreach { (name, sensor) =>
+      private def configSensors(): Unit =
+        sensorsMap.foreach { (name, sensor) =>
           sensor.registerValueCallback(
             v => {
               val ms = sensors.find(ms => ms.name == name).orNull
@@ -154,11 +123,17 @@ object AreaModelModule:
             () => {}
           )
           sensor.setObserverActionsArea(subjectComponentsState)
+          sensor match
+            case sensorWithTimer: SensorWithTimer => sensorWithTimer.registerTimerCallback()
+            case _ =>
         }
 
-      private def configSensorsWithTimer(): Unit =
-        configGenericSensors(sensorWithTimerMap)
-        sensorWithTimerMap.foreach((n, s) => s.registerTimerCallback())
+      private def constructSensorsMap[T >: Sensor](): Map[String, T] = Map(
+        TemperatureKey -> TemperatureSensor(areaComponentState, timer),
+        AirHumidityKey -> AirHumiditySensor(areaComponentState, timer),
+        SoilHumidityKey -> SoilHumiditySensor(areaComponentState, timer),
+        BrightnessKey -> LuminositySensor(10000.0, areaComponentState)
+      )
 
   /** Trait that combine provider and component for area model. */
   trait Interface extends Provider with Component
