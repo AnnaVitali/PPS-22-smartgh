@@ -10,13 +10,13 @@ object FactoryFunctionsLuminosity:
   private val maxPercentage = 0.3
   private val randomValue = Random(10)
 
-  val computeLuminosityWithAreaGatesOpen: (Double, Int) => Double =
+  val computeLuminosityWithAreaGatesOpen: (Double, Double) => Double =
     (currentValEnvironment, currentLampBrightness) => currentValEnvironment + currentLampBrightness
 
-  val computeLuminosityWithAreaGatesCloseAndUnshielded: (Double, Int) => Double =
+  val computeLuminosityWithAreaGatesCloseAndUnshielded: (Double, Double) => Double =
     (currentValEnvironment, currentLampBrightness) =>
       currentValEnvironment - (minPercentage + (maxPercentage - minPercentage) * randomValue
         .nextDouble()) * currentValEnvironment + currentLampBrightness
 
-  val computeLuminosityWithAreaGatesCloseAndShielded: Int => Double = concurrentLampBrightness =>
+  val computeLuminosityWithAreaGatesCloseAndShielded: Double => Double = concurrentLampBrightness =>
     concurrentLampBrightness.toDouble
