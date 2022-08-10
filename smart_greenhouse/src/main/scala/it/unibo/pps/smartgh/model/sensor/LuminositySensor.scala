@@ -52,7 +52,7 @@ object LuminositySensor:
             currentEnvironmentValue,
             areaComponentsState.brightnessOfTheLamps
           )
-        case AreaGatesState.Close if areaComponentsState.shieldState.equals(AreaShieldState.Down) =>
+        case AreaGatesState.Close =>
           areaComponentsState.shieldState match
             case AreaShieldState.Down =>
               currentValue = FactoryFunctionsLuminosity.updateLuminosityWithAreaGatesCloseAndShielded(
