@@ -42,7 +42,7 @@ object AirHumiditySensor:
 
     private val timeMustPass: Int = 3600
     private val minPercentage = 0.01
-    private val maxPercentage = 0.05
+    private val maxPercentage = 0.02
     private val initialHumidity = 80.0
     private var maxAtomizeValue: Double = _
     private var minVentilateValue: Double = _
