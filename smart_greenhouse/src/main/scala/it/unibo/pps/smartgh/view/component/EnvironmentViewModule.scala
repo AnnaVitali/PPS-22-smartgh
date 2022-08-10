@@ -5,14 +5,9 @@ import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.scene.control.*
 import javafx.scene.layout.BorderPane
 import it.unibo.pps.smartgh.controller.EnvironmentControllerModule
-import it.unibo.pps.smartgh.mvc.GreenHouseDivisionMVC
-import it.unibo.pps.smartgh.mvc.GreenHouseDivisionMVC.GreenHouseDivisionMVCImpl
 import it.unibo.pps.smartgh.view.component.GHViewModule.GHDivisionView
-import it.unibo.pps.smartgh.mvc.SimulationMVC
-import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import javafx.application.Platform
 import javafx.fxml.FXML
-
 import scala.language.postfixOps
 
 /** Object that encloses the view module to display ambient environment's values and simulation time. */
@@ -32,7 +27,7 @@ object EnvironmentViewModule:
 
     /** Method to update the view of environment values.
       * @param environmentValues
-      *   environment values related to the city selected by the user
+      *   current environment values related to the city selected by the user
       */
     def displayEnvironmentValues(environmentValues: EnvironmentValues): Unit
 
@@ -42,17 +37,28 @@ object EnvironmentViewModule:
       */
     def displayElapsedTime(timerValue: String): Unit
 
+    /**
+      * Mehtod to display [[GHDivisionView]] in the [[EnvironmentView]].
+      * @param ghDivisionView view that represents the green house division in areas
+      */
     def displayGreenHouseDivisionView(ghDivisionView: GHDivisionView): Unit
 
-    /** Method to notify view that the simulation time has finished and to display [[FinishSimulationView]]. */
+    /** Method to notify view that the simulation time has finished. */
     def finishSimulation(): Unit
-    
+
+    /**
+      * Method to notify the view to display the [[FinishSimulationView]].
+      * @param finishSimulationView view that represents the last scene of the simulation.
+      */
     def moveToNextScene(finishSimulationView: FinishSimulationView) : Unit
 
   /** Trait that represents the provider of the view for environment values and simulation time visualization. */
   trait Provider:
+
+    /** The view of the environment. */
     val environmentView: EnvironmentView
 
+  /** The view requirements. */
   type Requirements = EnvironmentControllerModule.Provider
 
   /** Trait that represents the components of the view for environment values and simulation time visualization. */
@@ -140,6 +146,6 @@ object EnvironmentViewModule:
       private def notifySpeedChange(value: Double): Unit =
         context.environmentController.updateVelocityTimer(value)
 
-  /** Trait that encloses the controller for environment values and simulation time visualization. */
+  /** Trait that encloses the view for environment values and simulation time visualization. */
   trait Interface extends Provider with Component:
     self: Requirements =>
