@@ -43,7 +43,7 @@ object SelectCityModelModule:
 
     /** Class that contains the [[SelectCityModel]] implementation.
       * @param citiesFilePath
-      *   the cities file path
+      *   the cities file path.
       */
     class SelectCityModelImpl(citiesFilePath: String) extends SelectCityModel:
       import it.unibo.pps.smartgh.prolog.Scala2P.{*, given}

@@ -17,25 +17,18 @@ import scala.concurrent.Future
 /** Object that enclose the implementation of the soil humidity sensor. */
 object SoilHumiditySensor:
 
-  /** Apply method for the [[SoilHumiditySensorImpl]]
-    * @param initialHumidity
-    *   the initial value detected by the environment for the soil humidity.
+  /** Apply method for the [[SoilHumiditySensorImpl]].
     * @param areaComponentsState
     *   the actual state of the area components.
     * @param timer
-    *   the timer of the simulation
+    *   the timer of the simulation.
     * @return
-    *   the sensor responsible for detecting the soil humidity of the area.
+    *   a new sensor responsible for detecting the soil humidity of the area.
     */
-  def apply(
-      areaComponentsState: AreaComponentsStateImpl,
-      timer: Timer
-  ): SoilHumiditySensorImpl =
+  def apply(areaComponentsState: AreaComponentsStateImpl, timer: Timer): SoilHumiditySensorImpl =
     SoilHumiditySensorImpl(areaComponentsState, timer)
 
   /** Class that represents the soil humidity sensor of an area of the greenhouse.
-    * @param initialHumidity
-    *   the initial value detected by the environment for the soil humidity.
     * @param areaComponentsState
     *   the actual state of the area components.
     * @param timer

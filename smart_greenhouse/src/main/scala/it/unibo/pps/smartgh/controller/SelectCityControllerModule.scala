@@ -17,65 +17,68 @@ object SelectCityControllerModule:
 
     /** Save the selected city and change.
       * @param name
-      *   name of the selected city
-      * @return
-      *   the saved city
+      *   name of the selected city.
       */
     def saveCity(name: String): Unit
 
     /** Retrieves all cities.
       * @return
-      *   a sequences of city names
+      *   a sequences of city names.
       */
     def getAllCities: Seq[String]
 
     /** Method for searching cities beginning with the given characters.
       * @param charSequence
-      *   a sequence of characters that the name of the city begins with
+      *   a sequence of characters that the name of the city begins with.
       * @return
-      *   a sequence of city names
+      *   a sequence of city names.
       */
     def searchCities(charSequence: Seq[Char]): Seq[String]
 
     /** Check whether all cities contain a given city.
       * @param city
-      *   the city to test
+      *   the city to test.
       * @return
-      *   true if contain the city, false otherwise
+      *   true if contain the city, false otherwise.
       */
     def containCity(city: String): Boolean
 
-    //TODO add doc
+    /** Method that asks the controller to instantiate the next MVC, for the next scene.
+      * @param baseView
+      *   the template view for the next scene.
+      */
     def nextMVC(baseView: BaseView): Unit
 
   /** Trait that represents the provider of the controller for the city selection. */
   trait Provider:
-    /** The controller of city selection */
+
+    /** The controller of city selection. */
     val selectCityController: SelectCityController
 
   /** The controller requirements. */
   type Requirements = SelectCityViewModule.Provider with SelectCityModelModule.Provider
 
-  /** Trait that represents the components of the controller for the city selection. */
+  /** Trait that represent the controller component for the city selection. */
   trait Component:
     context: Requirements =>
 
-    /** Class that contains the [[SelectCityController]] implementation. */
+    /** Class that contains the [[SelectCityController]] implementation.
+      * @param simulationMVC
+      *   the simulationMVC of the application.
+      */
     class SelectCityControllerImpl(simulationMVC: SimulationMVCImpl) extends SelectCityController:
-//      var view: SelectCityView = context.selectCityView
-//      val model: SelectCityModel = context.selectCityModel
 
       override def saveCity(name: String): Unit =
         simulationMVC.simulationController.environment = Environment(name)
 
       override def nextMVC(baseView: BaseView): Unit =
         val plantSelectorMVC = PlantSelectorMVC(simulationMVC, baseView)
-        context.selectCityView.moveToNextScene(plantSelectorMVC.selectPlantView)
+        selectCityView.moveToNextScene(plantSelectorMVC.selectPlantView)
 
-      override def getAllCities: Seq[String] = context.selectCityModel.getAllCities
-      override def searchCities(charSequence: Seq[Char]): Seq[String] = context.selectCityModel.searchCities(charSequence)
-      override def containCity(city: String): Boolean = context.selectCityModel.containCity(city)
+      override def getAllCities: Seq[String] = selectCityModel.getAllCities
+      override def searchCities(charSequence: Seq[Char]): Seq[String] = selectCityModel.searchCities(charSequence)
+      override def containCity(city: String): Boolean = selectCityModel.containCity(city)
 
-  /** Trait that encloses the controller for the city selection. */
+  /** Trait that combine provider and component for city selection. */
   trait Interface extends Provider with Component:
     self: Requirements =>

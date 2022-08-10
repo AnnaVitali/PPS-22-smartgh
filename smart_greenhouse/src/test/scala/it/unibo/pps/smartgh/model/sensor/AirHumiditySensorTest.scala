@@ -23,19 +23,17 @@ import scala.concurrent.duration.FiniteDuration
 import scala.concurrent.duration.*
 import scala.language.postfixOps
 
+/** This class contains the tests realized to verify that [[AirHumiditySensor]] behaves correctly. */
 class AirHumiditySensorTest extends AnyFunSuite with Matchers with Eventually with BeforeAndAfter:
 
   private var areaComponentsState: AreaComponentsStateImpl = _
   private val timer = Timer(1 day)
   private val initialHumidity: Double = 80.0
   private var humiditySensor: AirHumiditySensorImpl = _
-  private val subjectEnvironment: ConcurrentSubject[Double, Double] =
-    ConcurrentSubject[Double](MulticastStrategy.publish)
-  private val subjectActions: ConcurrentSubject[AreaComponentsStateImpl, AreaComponentsStateImpl] =
-    ConcurrentSubject[AreaComponentsStateImpl](MulticastStrategy.publish)
+  private val subjectEnvironment = ConcurrentSubject[Double](MulticastStrategy.publish)
+  private val subjectActions = ConcurrentSubject[AreaComponentsStateImpl](MulticastStrategy.publish)
 
   private def setupTimer(tickPeriod: FiniteDuration): Unit =
-    timer.start(println("time is up!"))
     timer.changeTickPeriod(tickPeriod)
     humiditySensor.registerTimerCallback()
 
@@ -50,6 +48,7 @@ class AirHumiditySensorTest extends AnyFunSuite with Matchers with Eventually wi
     humiditySensor = AirHumiditySensor(areaComponentsState, timer)
     humiditySensor.setObserverEnvironmentValue(subjectEnvironment)
     humiditySensor.setObserverActionsArea(subjectActions)
+    timer.start(println("time is up!"))
   }
 
   after {

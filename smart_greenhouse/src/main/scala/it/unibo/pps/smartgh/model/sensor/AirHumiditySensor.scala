@@ -17,18 +17,15 @@ import scala.util.Random
 /** Object that enclose the implementation of the air humidity sensor. */
 object AirHumiditySensor:
 
-  /** Apply method for the [[AirHumiditySensorImpl]]
+  /** Apply method for the [[AirHumiditySensor]].
     * @param areaComponentsState
     *   the actual state of the area components.
     * @param timer
-    *   the timer of the simulation
+    *   the timer of the simulation.
     * @return
-    *   the sensor responsible for detecting the air humidity of the area.
+    *   a new sensor responsible for detecting the air humidity of the area.
     */
-  def apply(
-      areaComponentsState: AreaComponentsStateImpl,
-      timer: Timer
-  ): AirHumiditySensorImpl =
+  def apply(areaComponentsState: AreaComponentsStateImpl, timer: Timer): AirHumiditySensorImpl =
     AirHumiditySensorImpl(areaComponentsState, timer)
 
   /** Class that represents the air humidity sensor of an area of the greenhouse.
