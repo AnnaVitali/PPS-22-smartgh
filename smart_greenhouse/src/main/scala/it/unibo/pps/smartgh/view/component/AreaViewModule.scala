@@ -25,7 +25,9 @@ object AreaViewModule:
   /** A trait that represents the greenhouse division view component. */
   trait Component:
     context: Requirements =>
-    /** Implementation of the greenhouse division view.*/
+    /** Implementation of the greenhouse division view.
+     * @return
+     *   the implementation of the [[AreaViewImpl]].*/
     class AreaViewImpl()
       extends AbstractViewComponent[VBox]("area.fxml")
         with AreaView:

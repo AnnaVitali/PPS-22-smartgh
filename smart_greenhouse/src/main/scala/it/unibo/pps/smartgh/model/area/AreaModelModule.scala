@@ -33,8 +33,10 @@ object AreaModelModule:
   trait AreaModel:
     def status_=(s: AreaStatus): Unit
     def status: AreaStatus
-    /** Plant grown in the area. */
+    /** [[Plant]] grown in the area. */
     val plant: Plant
+    /** Simulation [[Timer]]. */
+    val timer: Timer
     /** Sensor of the area. */
     val sensors: List[ManageSensorImpl]
     /** @return the map of the actual sensors values */
@@ -45,7 +47,10 @@ object AreaModelModule:
       */
     def changeStatusObservable(): Observable[AreaStatus]
 
-    //TODO doc
+    /**
+     * Set the sensors' subjects
+     * @param subjects
+     * */
     def setSensorSubjects(subjects: Map[String, ConcurrentSubject[Double, Double]]): Unit
 
   /** A trait for defining the model instance. */
@@ -54,8 +59,12 @@ object AreaModelModule:
 
   /** A trait that represents the area model component. */
   trait Component:
-    /** Implementation of the area model. */
-    class AreaImpl(override val plant: Plant, val timer: Timer) extends AreaModel:
+    /** Implementation of the area model. 
+     * @param plant [[Plant]] grown in the area. 
+     * @param timer instance of the simulation [[Timer]]
+     * @return
+     *   the implementation of the [[AreaImpl]].*/
+    class AreaImpl(override val plant: Plant, override val timer: Timer) extends AreaModel:
 
       private var _status: AreaStatus = AreaStatus.NORMAL
       private val subject = ConcurrentSubject[AreaStatus](MulticastStrategy.publish)

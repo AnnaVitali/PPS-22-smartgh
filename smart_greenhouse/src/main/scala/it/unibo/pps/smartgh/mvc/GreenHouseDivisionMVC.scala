@@ -10,12 +10,14 @@ import monix.reactive.subjects.ConcurrentSubject
 /** Object that can be used to create a new instance of [[GreenHouseDivisionMVC]]. */
 object GreenHouseDivisionMVC:
   /** Create a new [[GreenHouseDivisionMVCImpl]].
+   * @param plants list of [[Plant]]
    * @return
    *   a new instance of [[GreenHouseDivisionMVCImpl]].
    */
   def apply(plants: List[Plant]): GreenHouseDivisionMVCImpl = GreenHouseDivisionMVCImpl(plants)
 
   /** Create a new [[GreenHouseDivisionMVCImpl]].
+   * @param plants list of [[Plant]]
    * @return
    *   a new instance of [[GreenHouseDivisionMVCImpl]].
    */

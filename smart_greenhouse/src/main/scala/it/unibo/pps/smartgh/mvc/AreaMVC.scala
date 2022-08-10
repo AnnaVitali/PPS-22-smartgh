@@ -9,12 +9,18 @@ import it.unibo.pps.smartgh.view.component.AreaViewModule
 /** Object that can be used to create a new instance of [[AreaMVCImpl]]. */
 object AreaMVC:
   /** Create a new [[AreaMVCImpl]].
+   * @param plant of the Area
+   * @param timer instance of the simulation [[Timer]] 
    * @return
    *   a new instance of [[AreaMVCImpl]].
    */
   def apply(plant: Plant, timer: Timer): AreaMVCImpl = AreaMVCImpl(plant, timer)
 
-  /**Implementation of the area MVC*/
+  /**Implementation of the area MVC
+   * @param plant of the Area
+   * @param timer instance of the simulation [[Timer]] 
+   * @return
+   *   the implementation of the [[AreaMVCImpl]].*/
   class AreaMVCImpl(plant: Plant, timer: Timer)
     extends AreaModelModule.Interface
     with AreaViewModule.Interface

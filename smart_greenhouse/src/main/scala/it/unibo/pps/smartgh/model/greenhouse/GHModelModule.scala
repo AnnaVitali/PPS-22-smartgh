@@ -34,7 +34,10 @@ object GHModelModule:
 
   /** A trait that represents the greenhouse model component. */
   trait Component:
-    /** Implementation of the greenhouse model.*/
+    /** Implementation of the greenhouse model.
+     * @param plants list of [[Plant]]
+     * @return
+     *   the implementation of the [[GreenHouseImpl]].*/
     class GreenHouseImpl(override val plants: List[Plant])
       extends GreenHouseModel:
 

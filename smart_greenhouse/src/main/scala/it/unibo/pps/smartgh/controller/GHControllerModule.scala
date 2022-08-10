@@ -31,7 +31,9 @@ object GHControllerModule:
   /** A trait that represents the greenhouse controller component. */
   trait Component:
     context: Requirements =>
-    /** Implementation of the greenhouse controller.*/
+    /** Implementation of the greenhouse controller.
+     * @return
+     *   the implementation of the [[GreenHouseDivisionControllerImpl]].*/
     class GreenHouseDivisionControllerImpl() extends GreenHouseController:
 
       private def drawView(): Unit =
@@ -47,16 +49,14 @@ object GHControllerModule:
 
       override def updateView(): Unit =
         ghDivisionModel.areas.foreach(a =>
-          val canc = a.areaModel.changeStatusObservable().subscribe(
+          a.areaModel.changeStatusObservable().subscribe(
             (s: AreaStatus) => {
               if s == AreaStatus.ALARM then drawView()
               Continue
             },
             (ex: Throwable) => ex.printStackTrace(),
             () => {}
-          )
-
-          canc :: subscriptionAlarm
+          ) :: subscriptionAlarm
         )
 
         subscriptionTimeout = timeoutUpd.subscribe()

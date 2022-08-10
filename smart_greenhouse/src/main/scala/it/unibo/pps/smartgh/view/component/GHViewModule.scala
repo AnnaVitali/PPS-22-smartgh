@@ -34,7 +34,9 @@ object GHViewModule:
   /** A trait that represents the greenhouse division view component. */
   trait Component:
     context: Requirements =>
-    /** Implementation of the greenhouse division view.*/
+    /** Implementation of the greenhouse division view.
+     * @return
+     *   the implementation of the [[GreenHouseDivisionViewImpl]].*/
     class GreenHouseDivisionViewImpl()
       extends AbstractViewComponent[VBox]("ghDivision.fxml")
         with GHDivisionView:

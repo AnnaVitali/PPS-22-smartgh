@@ -21,7 +21,9 @@ object AreaControllerModule:
   /** A trait that represents the greenhouse area component. */
   trait Component:
     context: Requirements =>
-    /** Implementation of the area controller.*/
+    /** Implementation of the area controller.
+     * @return
+     *   the implementation of the [[AreaControllerImpl]].*/
     class AreaControllerImpl extends AreaController:
       override def paintArea(): Unit =
         val color = if areaModel.status == AreaModelModule.NORMAL then "#33cc33" else "#cc3333"
