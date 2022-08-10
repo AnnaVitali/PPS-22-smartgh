@@ -1,6 +1,8 @@
 # Sprint Backlog 2022-07-25
-## Sprint goal:
-Realizzare le funzinalità di base, per poter impostare l'ambiente della simulazione.
+## Sprint goal
+L'obiettivo di questo sprint, consiste nel realizzare le funzinalità di base per poter impostare l'ambiente della simulazione.
+
+## Product backlog
 
 <table>
     <thead>
@@ -215,5 +217,5 @@ Realizzare le funzinalità di base, per poter impostare l'ambiente della simulaz
     </tbody>
 </table>
 
-## Sprint result:
-//TODO (Conclusioni sul lavoro svolto)
+## Sprint result
+Al termine di questo sprint, è possibile visualizzare e interagire con le diverse schermate dell'applicazione singolarmente ed è inoltre possibile, lanciare l'avvio della simulazione tramite dei parametri di default, potendo osservare lo scorrere del tempo e modificarne la velcotià di esecuzione.

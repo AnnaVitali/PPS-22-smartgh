@@ -1,10 +1,14 @@
 # Sprint Backlog2022-08-02
-## Sprint goal:
-Visualizzare lo stato della simulazione e, in particolare, gestire i seguenti componenti:
- - aree della serra,
- - sensori,
+## Sprint goal
+L'obiettivo di questo sprint, consiste nel dare la possibilità all'utente di visualizzare lo stato della simulazione.
+
+In particolare, per raggiungere questo scopo, occorre gestire i seguenti componenti:
+ - le aree della serra,
+ - i sensori,
  - i valori rilevati dai sensori nelle diverse aree,
  - i parametri ambientali.
+
+## Product backlog
 
 <table>
     <thead>
@@ -85,7 +89,7 @@ Visualizzare lo stato della simulazione e, in particolare, gestire i seguenti co
          <tr>
             <td>Realizzazione MVC globale della simulazione</td>
             <td>Anna, Elena, Maria, Veronika</td>
-            <td>3</td>
+            <td>4</td>
             <td></td>
             <td></td>
             <td></td>
@@ -95,7 +99,7 @@ Visualizzare lo stato della simulazione e, in particolare, gestire i seguenti co
             <td></td>
         </tr>
         <tr>
-            <td>Realizzazione collegamento fra i diversi mvc</td>
+            <td>Realizzazione collegamento fra i diversi MVC</td>
             <td>Anna, Elena, Maria, Veronika</td>
             <td>4</td>
             <td></td>
@@ -184,54 +188,54 @@ Visualizzare lo stato della simulazione e, in particolare, gestire i seguenti co
             <td>Impostazione formula di aggiornamento dei valori dei sensori</td>
             <td>Elena, Anna</td>
             <td>2</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>2</td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Definizione interfaccia sensori</td>
             <td>Elena, Anna</td>
-            <td>3</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Implementazione sensore luminosità</td>
             <td>Anna</td>
-            <td>2</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Implementazione sensore temperatura</td>
             <td>Anna</td>
-            <td>2</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Implementazione sensore umidità dell'aria</td>
             <td>Elena</td>
-            <td>2</td>
+            <td>3</td>
             <td></td>
             <td></td>
             <td></td>
@@ -243,7 +247,7 @@ Visualizzare lo stato della simulazione e, in particolare, gestire i seguenti co
         <tr>
             <td>Implementazione sensore umidità del terreno</td>
             <td>Elena</td>
-            <td>2</td>
+            <td>3</td>
             <td></td>
             <td></td>
             <td></td>
@@ -255,7 +259,7 @@ Visualizzare lo stato della simulazione e, in particolare, gestire i seguenti co
         <tr>
             <td>Gestire interazione e collegamento fra: le aree e i sensori</td>
             <td>Elena, Anna, Maria</td>
-            <td>4</td>
+            <td>3</td>
             <td></td>
             <td></td>
             <td></td>
@@ -267,7 +271,7 @@ Visualizzare lo stato della simulazione e, in particolare, gestire i seguenti co
         <tr>
             <td>Gestire interazione e collegamento fra: l'environment e i sensori</td>
             <td>Elena, Anna, Veronika</td>
-            <td>4</td>
+            <td>3</td>
             <td></td>
             <td></td>
             <td></td>
@@ -279,7 +283,7 @@ Visualizzare lo stato della simulazione e, in particolare, gestire i seguenti co
     </tbody>
 </table>
 
-## Sprint result:
+## Sprint result
 //TODO (Conclusioni sul lavoro svolto)
 
 #### Note:
