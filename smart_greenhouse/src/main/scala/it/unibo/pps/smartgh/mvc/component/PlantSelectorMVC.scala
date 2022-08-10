@@ -1,5 +1,6 @@
 package it.unibo.pps.smartgh.mvc.component
 
+import it.unibo.pps.smartgh.Config
 import it.unibo.pps.smartgh.controller.component.PlantSelectorControllerModule.PlantSelectorController
 import it.unibo.pps.smartgh.controller.component.PlantSelectorControllerModule
 import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule
@@ -10,8 +11,6 @@ import it.unibo.pps.smartgh.view.component.{BaseView, SelectPlantViewModule}
 
 /** Object that encloses the MVC structure for the plant selection. */
 object PlantSelectorMVC:
-
-  val filename: String = System.getProperty("user.home") + "/pps/plants.pl"
 
   /** Apply method for the [[PlantSelectorMVC]]
     * @param simulationMVC
@@ -35,7 +34,7 @@ object PlantSelectorMVC:
       with PlantSelectorControllerModule.Interface
       with SelectPlantViewModule.Interface:
 
-    override val plantSelectorModel: PlantSelectorModel = PlantSelectorModelImpl(filename)
+    override val plantSelectorModel: PlantSelectorModel = PlantSelectorModelImpl(Config.path + Config.plantsOutputFile)
     override val selectPlantView: SelectPlantView = SelectPlantViewImpl(simulationMVC.simulationView, baseView)
     override val plantSelectorController: PlantSelectorController = PlantSelectorControllerImpl(simulationMVC)
 

@@ -7,13 +7,12 @@ import scalafx.application.JFXApp3
 import scalafx.application.JFXApp3.PrimaryStage
 import it.unibo.pps.smartgh.view.SimulationViewModule
 import scalafx.Includes.*
+import it.unibo.pps.smartgh.Config
 
 /** Main class of the application. */
 object Main extends JFXApp3:
 
-  private val path = System.getProperty("user.home") + "/pps/"
-
   override def start(): Unit =
-    UploadCities.writePrologFile(path, "cities.txt", "cities.pl")
-    UploadPlants.writePrologFile(path, "plants.txt", "plants.pl")
+    UploadCities.writePrologFile(Config.path, Config.citiesInputFile, Config.citiesOutputFile)
+    UploadPlants.writePrologFile(Config.path, Config.plantsInputFile, Config.plantsOutputFile)
     SimulationMVC(PrimaryStage())

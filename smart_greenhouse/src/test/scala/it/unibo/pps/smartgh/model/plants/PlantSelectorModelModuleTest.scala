@@ -6,6 +6,7 @@ import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.PlantSelectorM
 import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.Component
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
+import it.unibo.pps.smartgh.Config
 
 import java.util.NoSuchElementException
 
@@ -17,9 +18,9 @@ class PlantSelectorModelModuleTest
     with PlantSelectorModelModule.Interface:
 
   private val PS = "Plant Selector"
-  private val path = System.getProperty("user.home") + "/pps/"
-  private val file = "plants.txt"
-  private val prologFile = "plants.pl"
+  private val path = Config.path
+  private val file = Config.plantsInputFile
+  private val prologFile = Config.plantsOutputFile
   private val uploader = UploadPlants
   uploader.writePrologFile(path, file, prologFile)
   override val plantSelectorModel = new PlantSelectorModelImpl(path + prologFile)

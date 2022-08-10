@@ -1,5 +1,6 @@
 package it.unibo.pps.smartgh.model.plants
 
+import it.unibo.pps.smartgh.Config
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 
@@ -7,9 +8,9 @@ import java.io.FileNotFoundException
 
 /** This class contains tests to verify that the [[UploadPlants]] works correctly. */
 class UploadPlantsTest extends AnyFunSuite with Matchers:
-  private val path = System.getProperty("user.home") + "/pps/"
-  private val file = "plants.txt"
-  private val prologFile = "plants.pl"
+  private val path = Config.path
+  private val file = Config.plantsInputFile
+  private val prologFile = Config.plantsOutputFile
   private val uploader = UploadPlants
 
   test(s"$file file lines number should equal to 25") {
