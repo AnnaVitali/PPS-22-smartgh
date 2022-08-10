@@ -236,25 +236,25 @@ In particolare, per raggiungere questo scopo, occorre gestire i seguenti compone
             <td>Implementazione sensore umidità dell'aria</td>
             <td>Elena</td>
             <td>3</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>2</td>
+            <td>1</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Implementazione sensore umidità del terreno</td>
             <td>Elena</td>
             <td>3</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Gestire interazione e collegamento fra: le aree e i sensori</td>
