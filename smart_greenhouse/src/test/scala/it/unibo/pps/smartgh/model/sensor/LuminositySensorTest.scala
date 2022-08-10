@@ -48,7 +48,7 @@ class LuminositySensorTest extends AnyFunSuite with Matchers with BeforeAndAfter
     val minValue = environmentValue - (maxPercentage * environmentValue) + defaultLampBrightness
     subjectEnvironment.onNext(environmentValue)
 
-    Thread.sleep(1000)
+    Thread.sleep(3000)
     luminositySensor.getCurrentValue should (be >= minValue and be <= maxValue)
   }
 
@@ -62,7 +62,7 @@ class LuminositySensorTest extends AnyFunSuite with Matchers with BeforeAndAfter
     subjectEnvironment.onNext(environmentValue)
     subjectActions.onNext(areaComponentsState)
 
-    Thread.sleep(1000)
+    Thread.sleep(3000)
 
     luminositySensor.getCurrentValue shouldEqual (environmentValue + areaComponentsState.brightnessOfTheLamps)
   }
@@ -79,7 +79,7 @@ class LuminositySensorTest extends AnyFunSuite with Matchers with BeforeAndAfter
     subjectEnvironment.onNext(environmentValue)
     subjectActions.onNext(areaComponentsState)
 
-    Thread.sleep(1000)
+    Thread.sleep(3000)
 
     luminositySensor.getCurrentValue should (be >= minValue and be <= maxValue)
   }
@@ -91,7 +91,7 @@ class LuminositySensorTest extends AnyFunSuite with Matchers with BeforeAndAfter
     areaComponentsState.gatesState = AreaGatesState.Close
     subjectActions.onNext(areaComponentsState)
 
-    Thread.sleep(1000)
+    Thread.sleep(3000)
 
     luminositySensor.getCurrentValue shouldEqual areaComponentsState.brightnessOfTheLamps
   }
