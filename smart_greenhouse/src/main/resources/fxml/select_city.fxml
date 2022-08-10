@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="256.0" prefWidth="235.0" stylesheets="@../css/baseStyle.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="256.0" prefWidth="235.0" stylesheets="@../css/baseStyle.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <VBox alignment="CENTER" fillWidth="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="15.0" BorderPane.alignment="CENTER">
          <padding>

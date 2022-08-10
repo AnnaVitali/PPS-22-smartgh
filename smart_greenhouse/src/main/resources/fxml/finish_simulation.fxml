@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../css/baseStyle.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../css/baseStyle.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <Label fx:id="simulationEndedLabel" text="Label" BorderPane.alignment="CENTER">
          <font>

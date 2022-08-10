@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane fx:id="borderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="normalText" stylesheets="@../css/baseStyle.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="borderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="normalText" stylesheets="@../css/baseStyle.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
          <Label fx:id="titleLabel" text="Title">
