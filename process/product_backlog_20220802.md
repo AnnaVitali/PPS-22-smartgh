@@ -6,7 +6,8 @@ In particolare, per raggiungere questo scopo, occorre gestire i seguenti compone
  - le aree della serra,
  - i sensori,
  - i valori rilevati dai sensori nelle diverse aree,
- - i parametri ambientali.
+ - i parametri ambientali,
+ - il tempo virtuale della simulazione.
 
 ## Product backlog
 
@@ -77,38 +78,38 @@ In particolare, per raggiungere questo scopo, occorre gestire i seguenti compone
         <tr>
             <td>Realizzazione architettura MVC tramite cake pattern per la divisione in aree della serra</td>
             <td>Maria</td>
-            <td>7</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>6</td>
+            <td>6</td>
+            <td>4</td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
          <tr>
             <td>Realizzazione MVC globale della simulazione</td>
             <td>Anna, Elena, Maria, Veronika</td>
             <td>4</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+            <td>2</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Realizzazione collegamento fra i diversi MVC</td>
             <td>Anna, Elena, Maria, Veronika</td>
             <td>4</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+            <td>2</td>
+            <td>0</td>
         </tr>
         <tr>
             <td rowspan="6">Visualizzare lo stato aggiornato della simulazione</td>
@@ -138,7 +139,7 @@ In particolare, per raggiungere questo scopo, occorre gestire i seguenti compone
         <tr>
             <td>Aggiornamento parametri ambientali tramite richieste periodiche</td>
             <td>Veronika, Maria</td>
-            <td>3</td>
+            <td>4</td>
             <td>2</td>
             <td>2</td>
             <td>1</td>
@@ -163,25 +164,25 @@ In particolare, per raggiungere questo scopo, occorre gestire i seguenti compone
             <td>Definizione interfaccia area e realizzare la sua implementazione</td>
             <td>Maria</td>
             <td>3</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>3</td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Gestire il collegamento fra: la serra, le aree e le piante</td>
             <td>Maria</td>
             <td>3</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>3</td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td rowspan="8">Visualizzare lo stato aggiornato delle singole aree</td>
@@ -260,31 +261,31 @@ In particolare, per raggiungere questo scopo, occorre gestire i seguenti compone
             <td>Gestire interazione e collegamento fra: le aree e i sensori</td>
             <td>Elena, Anna, Maria</td>
             <td>3</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Gestire interazione e collegamento fra: l'environment e i sensori</td>
             <td>Elena, Anna, Veronika</td>
             <td>3</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
     </tbody>
 </table>
 
 ## Sprint result
-//TODO (Conclusioni sul lavoro svolto)
+Al termine di questo sprint è possibile interagire con le schermate principali che riguardano la personalizzazione dei parametri scelti dall'utente e la visualizzazione dell'andamento della simulazione. Quest'ultima consiste nell'aggiornamento periodico (diretto dal tempo virtuale) dei parametri rilevati dai sensori nelle diverse aree, sulla base di quelli ottenuti rispetto alla località selezionata. 
 
 #### Note:
 Gli sprint tasks marcati con (*), derivano dal precedente sprint.
