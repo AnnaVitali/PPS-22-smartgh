@@ -1,5 +1,6 @@
 package it.unibo.pps.smartgh.view.component
 
+import it.unibo.pps.smartgh.model.city.Environment
 import it.unibo.pps.smartgh.mvc.{SelectCityMVC, SimulationMVC}
 import it.unibo.pps.smartgh.view.SimulationViewModule
 import it.unibo.pps.smartgh.view.component.SelectCityViewModule
@@ -38,7 +39,7 @@ class SelectCityViewModuleTest extends AbstractViewTest:
   @Start
   private def start(stage: Stage): Unit =
     val baseView: BaseView = BaseView(appTitle, appSubtitle)
-    val simulationMVC = SimulationMVC(stage)
+    simulationMVC = SimulationMVC(stage)
     selectCityView = SelectCityMVC(simulationMVC, baseView).selectCityView
     startApplication(stage, baseView, selectCityView)
 
@@ -71,8 +72,10 @@ class SelectCityViewModuleTest extends AbstractViewTest:
     verifyThat(errorLabel, LabeledMatchers.hasText("The selected city is not valid"))
 
   @Test
-  def testSelectCity(robot: FxRobot): Unit =
-    val city = "Rome"
-    writeCityAndVerifyField(robot, city)
+  def testSelectCityAndSave(robot: FxRobot): Unit =
+    val city: Environment = Environment("Rome")
+    writeCityAndVerifyField(robot, city.nameCity)
     robot.clickOn(nextButtonId)
     verifyThat(errorLabel, LabeledMatchers.hasText(""))
+    assertEquals(city.nameCity, simulationMVC.simulationController.environment.nameCity)
+    assertEquals(city.currentEnvironmentValues, simulationMVC.simulationController.environment.currentEnvironmentValues)
