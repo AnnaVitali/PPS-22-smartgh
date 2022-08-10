@@ -4,7 +4,7 @@ import org.json4s.*
 import org.json4s.jackson.JsonMethods.*
 import requests.Response
 
-/** This trait exposes methods for managing the selected city, represents its model. */
+/** This trait exposes methods for managing the environment, represents its model. */
 trait Environment:
 
   /** Data structure that will contains the city's environment values. */
@@ -25,20 +25,24 @@ trait Environment:
   /** Method to notify the model to update main current environment values.
     * @param hour
     *   current simulation time value, expressed in hours.
-    * @return
-    *   main environment values updated
     */
   def updateCurrentEnvironmentValues(hour: Int): Unit
 
-/** Object that can be use for managing the selected city, represents its model. */
+/** Object that can be use for managing the environment, represents its model. */
 object Environment:
 
   /** Apply method for the [[Environment]].
+    * @param name
+    *   city's name
     * @return
     *   the [[Environment]] object.
     */
   def apply(name: String): Environment = EnvironmentImpl(name)
 
+  /** Class that contains the [[Environment]] implementation.
+    * @param nameCity
+    *   city's name.
+    */
   private class EnvironmentImpl(override val nameCity: String) extends Environment:
 
     override def environmentValues: EnvironmentValues = getEnvironmentValues
@@ -74,7 +78,7 @@ object Environment:
         ) + "&days=1&aqi=no&alerts=no"
       val r: Response = requests.get(query)
       if r.statusCode == 200 then
-        implicit val formats = org.json4s.DefaultFormats
+        implicit val formats: DefaultFormats.type = org.json4s.DefaultFormats
         parse(r.text()).extract[EnvironmentValues]
       else Map()
 
