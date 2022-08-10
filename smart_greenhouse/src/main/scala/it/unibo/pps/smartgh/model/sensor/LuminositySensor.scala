@@ -53,13 +53,15 @@ object LuminositySensor:
             areaComponentsState.brightnessOfTheLamps
           )
         case AreaGatesState.Close if areaComponentsState.shieldState.equals(AreaShieldState.Down) =>
-          currentValue = FactoryFunctionsLuminosity.updateLuminosityWithAreaGatesCloseAndShielded(
-            areaComponentsState.brightnessOfTheLamps
-          )
-        case AreaGatesState.Close if areaComponentsState.shieldState.equals(AreaShieldState.Up) =>
-          currentValue = FactoryFunctionsLuminosity.updateLuminosityWithAreaGatesCloseAndUnshielded(
-            currentEnvironmentValue,
-            areaComponentsState.brightnessOfTheLamps
-          )
+          areaComponentsState.shieldState match
+            case AreaShieldState.Down =>
+              currentValue = FactoryFunctionsLuminosity.updateLuminosityWithAreaGatesCloseAndShielded(
+                areaComponentsState.brightnessOfTheLamps
+              )
+            case AreaShieldState.Up =>
+              currentValue = FactoryFunctionsLuminosity.updateLuminosityWithAreaGatesCloseAndUnshielded(
+                currentEnvironmentValue,
+                areaComponentsState.brightnessOfTheLamps
+              )
         case _ =>
       subject.onNext(currentValue)
