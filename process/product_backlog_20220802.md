@@ -1,4 +1,4 @@
-# Sprint Backlog2022-08-02
+# Sprint Backlog 2022-08-02
 ## Sprint goal
 L'obiettivo di questo sprint, consiste nel dare la possibilità all'utente di visualizzare lo stato della simulazione.
 
