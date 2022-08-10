@@ -218,4 +218,4 @@ L'obiettivo di questo sprint, consiste nel realizzare le funzinalità di base pe
 </table>
 
 ## Sprint result
-Al termine di questo sprint, è possibile visualizzare e interagire con le diverse schermate dell'applicazione singolarmente ed è inoltre possibile, lanciare l'avvio della simulazione tramite dei parametri di default, potendo osservare lo scorrere del tempo e modificarne la velcotià di esecuzione.
+Al termine di questo sprint, è possibile visualizzare e interagire con le diverse schermate dell'applicazione singolarmente ed è inoltre possibile, lanciare l'avvio della simulazione tramite dei parametri di default, potendo osservare lo scorrere del tempo e modificarne la velocità di esecuzione.
