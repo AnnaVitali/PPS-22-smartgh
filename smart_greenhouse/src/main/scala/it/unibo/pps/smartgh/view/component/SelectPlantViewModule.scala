@@ -130,8 +130,8 @@ object SelectPlantViewModule:
           Platform.runLater(() =>
             val checkBox = e.getSource.asInstanceOf[CheckBox]
             if errorLabel.getText != "" then errorLabel.setText("")
-            if checkBox.isSelected then context.plantSelectorController.notifySelectedPlant(checkBox.getText)
-            else context.plantSelectorController.notifyDeselectedPlant(checkBox.getText)
+            if checkBox.isSelected then plantSelectorController.notifySelectedPlant(checkBox.getText)
+            else plantSelectorController.notifyDeselectedPlant(checkBox.getText)
           )
         })
 

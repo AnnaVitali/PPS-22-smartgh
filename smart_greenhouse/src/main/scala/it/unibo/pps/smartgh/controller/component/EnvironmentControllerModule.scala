@@ -90,27 +90,27 @@ object EnvironmentControllerModule:
       override def stopSimulation(): Unit = simulationController.stopSimulationTimer()
 
       override def notifyEnvironmentValuesChange(hour: Int): Unit =
-        context.environmentView.displayNameCity(environmentModel.environment.nameCity)
-        context.environmentModel.environment.updateCurrentEnvironmentValues(hour)
-        context.environmentView.displayEnvironmentValues(environmentModel.environment.currentEnvironmentValues)
+        environmentView.displayNameCity(environmentModel.environment.nameCity)
+        environmentModel.environment.updateCurrentEnvironmentValues(hour)
+        environmentView.displayEnvironmentValues(environmentModel.environment.currentEnvironmentValues)
         notifySensors(environmentModel.environment.currentEnvironmentValues)
 
       override def updateVelocityTimer(value: Double): Unit =
         simulationController.updateVelocityTimer(value)
 
       override def notifyTimeValueChange(timeValue: String): Unit =
-        context.environmentView.displayElapsedTime(timeValue)
+        environmentView.displayElapsedTime(timeValue)
 
       override def finishSimulation(): Unit =
-        context.environmentView.finishSimulation()
+        environmentView.finishSimulation()
 
       override def nextMVC(baseView: BaseView): Unit =
-        context.environmentView.moveToNextScene(FinishSimulationView(simulationMVC, baseView))
+        environmentView.moveToNextScene(FinishSimulationView(simulationMVC, baseView))
 
       private def notifySensors(values: environmentModel.environment.EnvironmentValues): Unit =
-        context.environmentModel.subjectTemperature.onNext(values("temp_c").asInstanceOf[Double])
-        context.environmentModel.subjectHumidity.onNext(values("humidity").asInstanceOf[BigInt].doubleValue)
-        context.environmentModel.subjectLuminosity.onNext(values("lux").asInstanceOf[Int].toDouble)
+        environmentModel.subjectTemperature.onNext(values("temp_c").asInstanceOf[Double])
+        environmentModel.subjectHumidity.onNext(values("humidity").asInstanceOf[BigInt].doubleValue)
+        environmentModel.subjectLuminosity.onNext(values("lux").asInstanceOf[Int].toDouble)
 
   /** Trait that encloses the controller for environment values management and time visualization. */
   trait Interface extends Provider with Component:

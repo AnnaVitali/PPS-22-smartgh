@@ -75,7 +75,7 @@ object AreaViewModule:
               )
           }
           areaBt.setOnMouseClicked { _ =>
-            context.areaController.openArea()
+            areaController.openArea()
           }
 
           rect.setStyle("-fx-border-color: #000000")

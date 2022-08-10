@@ -108,8 +108,8 @@ object EnvironmentViewModule:
 
       baseView.changeSceneButton.setText("Stop simulation")
       baseView.changeSceneButton.setOnMouseClicked { _ =>
-        context.environmentController.stopSimulation()
-        context.environmentController.nextMVC(baseView)
+        environmentController.stopSimulation()
+        environmentController.nextMVC(baseView)
       }
 
       override def displayNameCity(cityName: String): Unit =
@@ -138,13 +138,13 @@ object EnvironmentViewModule:
         component.setCenter(ghDivisionView)
 
       override def finishSimulation(): Unit =
-        context.environmentController.nextMVC(baseView)
+        environmentController.nextMVC(baseView)
 
       override def moveToNextScene(finishSimulationView: FinishSimulationView): Unit =
         Platform.runLater(() => simulationView.changeView(finishSimulationView))
 
       private def notifySpeedChange(value: Double): Unit =
-        context.environmentController.updateVelocityTimer(value)
+        environmentController.updateVelocityTimer(value)
 
   /** Trait that encloses the view for environment values and simulation time visualization. */
   trait Interface extends Provider with Component:

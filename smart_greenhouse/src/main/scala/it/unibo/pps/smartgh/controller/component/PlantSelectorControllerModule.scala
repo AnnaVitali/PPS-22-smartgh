@@ -55,32 +55,32 @@ object PlantSelectorControllerModule:
     class PlantSelectorControllerImpl(simulationMVC: SimulationMVCImpl) extends PlantSelectorController:
 
       override def configureAvailablePlants(): Unit =
-        context.plantSelectorModel.registerCallback(
+        plantSelectorModel.registerCallback(
           (l: List[String]) => {
-            context.selectPlantView.updateSelectedPlant(l)
+            selectPlantView.updateSelectedPlant(l)
             Continue
           },
           (ex: Throwable) => ex.printStackTrace(),
           () => {}
         )
-        context.selectPlantView.showSelectablePlants(context.plantSelectorModel.getAllAvailablePlants())
+        selectPlantView.showSelectablePlants(plantSelectorModel.getAllAvailablePlants)
 
       override def notifySelectedPlant(plantName: String): Unit =
-        context.plantSelectorModel.selectPlant(plantName)
+        plantSelectorModel.selectPlant(plantName)
 
       override def notifyDeselectedPlant(plantName: String): Unit =
-        try context.plantSelectorModel.deselectPlant(plantName)
-        catch case e: NoSuchElementException => context.selectPlantView.showErrorMessage(e.getMessage)
+        try plantSelectorModel.deselectPlant(plantName)
+        catch case e: NoSuchElementException => selectPlantView.showErrorMessage(e.getMessage)
 
       override def nextMVC(baseView: BaseView): Unit =
         val environmentMVC = component.EnvironmentMVC(simulationMVC, baseView)
         simulationMVC.simulationController.environmentController = environmentMVC.environmentController
-        context.selectPlantView.moveToNextScene(environmentMVC.environmentView)
+        selectPlantView.moveToNextScene(environmentMVC.environmentView)
 
       override def notifyStartSimulationClicked(): Unit =
-        if context.plantSelectorModel.getPlantsSelectedName().nonEmpty then
-          simulationMVC.simulationController.plantsSelected = context.plantSelectorModel.getPlantsSelected()
-          context.selectPlantView.setNewScene()
+        if plantSelectorModel.getPlantsSelectedName.nonEmpty then
+          simulationMVC.simulationController.plantsSelected = plantSelectorModel.getPlantsSelected
+          selectPlantView.setNewScene()
         else selectPlantView.showErrorMessage("At least one plant must be selected")
 
   /** Trait that encloses the controller for the plant selection. */

@@ -35,7 +35,7 @@ object GHControllerModule:
 
       private def drawView(): Unit =
         ghDivisionModel.areas.foreach(a => a.paintArea())
-        context.ghDivisionView.paintDivision(
+        ghDivisionView.paintDivision(
           ghDivisionModel.dimension._1,
           ghDivisionModel.dimension._2,
           ghDivisionModel.areas.map(a => a.areaView)
