@@ -1,6 +1,6 @@
 package it.unibo.pps.smartgh.model.sensor
 
-import it.unibo.pps.smartgh.model.sensor.areaComponentsState.AreaComponentsState.AreaComponentsStateImpl
+import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
 import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsSoilHumidity
 import monix.execution.Ack
 import monix.reactive.Observable
@@ -8,7 +8,7 @@ import monix.execution.Scheduler.Implicits.global
 import monix.reactive.subjects.ConcurrentSubject
 import monix.reactive.MulticastStrategy.Behavior
 import monix.reactive.MulticastStrategy
-import it.unibo.pps.smartgh.model.sensor.areaComponentsState.{AreaGatesState, AreaHumidityState}
+import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaHumidityState}
 import it.unibo.pps.smartgh.model.time.Timer
 import monix.execution.Ack.Continue
 

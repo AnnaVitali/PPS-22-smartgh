@@ -17,9 +17,6 @@ object EnvironmentControllerModule:
     */
   trait EnvironmentController:
 
-    /** @return time controller. */
-    //val timeController: TimeController
-
     /** Method that notify the controller to start the simulation. */
     def startSimulation(): Unit
 
@@ -34,9 +31,9 @@ object EnvironmentControllerModule:
 
     def updateVelocityTimer(value: Double): Unit
 
-    def notifyTimeValueChange(timeValue: String) : Unit
+    def notifyTimeValueChange(timeValue: String): Unit
 
-    def finishSimulation() : Unit
+    def finishSimulation(): Unit
 
     def nextMVC(baseView: BaseView): Unit
 
@@ -44,6 +41,7 @@ object EnvironmentControllerModule:
   trait Provider:
     val environmentController: EnvironmentController
 
+  /** The controller requirements. */
   type Requirements = EnvironmentViewModule.Provider
     with EnvironmentModelModule.Provider
     with SimulationControllerModule.Provider
@@ -53,7 +51,7 @@ object EnvironmentControllerModule:
     context: Requirements =>
 
     /** Class that contains the [[EnvironmentController]] implementation. */
-    class EnvironmentControllerImpl(simulationMVC : SimulationMVCImpl) extends EnvironmentController:
+    class EnvironmentControllerImpl(simulationMVC: SimulationMVCImpl) extends EnvironmentController:
 
       val ghMVC = GreenHouseDivisionMVC(simulationController.plantsSelected)
       environmentView.displayGreenHouseDivisionView(ghMVC.ghDivisionView)

@@ -43,14 +43,20 @@ object PlantSelectorControllerModule:
 
   /** Trait that represents the provider of the controller for the plant selection. */
   trait Provider:
+    /** The plant selector controller. */
     val plantSelectorController: PlantSelectorController
+
+  /** The requirements for the controller. */
   type Requirements = PlantSelectorModelModule.Provider with SelectPlantViewModule.Provider
 
   /** Trait that represents the components of the controller for the plant selection. */
   trait Component:
     context: Requirements =>
 
-    /** Class that contains the [[PlantSelectorController]] implementation. */
+    /** Class that contains the [[PlantSelectorController]] implementation.
+      * @param simulationMVC
+      *   the simulationMVC of the application.
+      */
     class PlantSelectorControllerImpl(simulationMVC: SimulationMVCImpl) extends PlantSelectorController:
 
       override def configureAvailablePlants(): Unit =

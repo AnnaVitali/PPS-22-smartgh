@@ -1,6 +1,6 @@
 package it.unibo.pps.smartgh.model.area
 
-import it.unibo.pps.smartgh.model.sensor.areaComponentsState.*
+import it.unibo.pps.smartgh.model.area.AreaComponentsState.*
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 

@@ -10,9 +10,9 @@ import it.unibo.pps.smartgh.model.sensor.{
   SoilHumiditySensor,
   TemperatureSensor
 }
-import it.unibo.pps.smartgh.model.sensor.areaComponentsState.AreaComponentsState
-import it.unibo.pps.smartgh.model.sensor.areaComponentsState.AreaGatesState
-import it.unibo.pps.smartgh.model.sensor.areaComponentsState.AreaComponentsState.AreaComponentsStateImpl
+import it.unibo.pps.smartgh.model.area.AreaComponentsState
+import it.unibo.pps.smartgh.model.area.AreaGatesState
+import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
 import monix.reactive.subjects.ConcurrentSubject
 import monix.reactive.MulticastStrategy.Behavior
 import monix.reactive.Observable
@@ -47,10 +47,9 @@ object AreaModelModule:
       */
     def changeStatusObservable(): Observable[AreaStatus]
 
-    /**
-     * Set the sensors' subjects
-     * @param subjects
-     * */
+    /** Set the sensors' subjects
+      * @param subjects
+      */
     def setSensorSubjects(subjects: Map[String, ConcurrentSubject[Double, Double]]): Unit
 
   /** A trait for defining the model instance. */
@@ -59,11 +58,12 @@ object AreaModelModule:
 
   /** A trait that represents the area model component. */
   trait Component:
-    /** Implementation of the area model. 
-     * @param plant [[Plant]] grown in the area. 
-     * @param timer instance of the simulation [[Timer]]
-     * @return
-     *   the implementation of the [[AreaImpl]].*/
+    /** Implementation of the area model.
+      * @param plant
+      *   [[Plant]] grown in the area.
+      * @param timer
+      *   instance of the simulation [[Timer]].
+      */
     class AreaImpl(override val plant: Plant, override val timer: Timer) extends AreaModel:
 
       private var _status: AreaStatus = AreaStatus.NORMAL

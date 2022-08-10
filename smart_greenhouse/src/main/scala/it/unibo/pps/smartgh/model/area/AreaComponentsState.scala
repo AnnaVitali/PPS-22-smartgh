@@ -1,21 +1,26 @@
-package it.unibo.pps.smartgh.model.sensor.areaComponentsState
+package it.unibo.pps.smartgh.model.area
 
+/** State of the gates. */
 enum AreaGatesState:
   case Open, Close
 export AreaGatesState.*
 
+/** State of the shields. */
 enum AreaShieldState:
   case Up, Down
 export AreaShieldState.*
 
+/** State of the atomise system. */
 enum AreaAtomiseState:
   case AtomisingActive, AtomisingInactive
 export AreaAtomiseState.*
 
+/** State of the ventilation system. */
 enum AreaVentilationState:
   case VentilationActive, VentilationInactive
 export AreaVentilationState.*
 
+/** State of the soil moisture system. */
 enum AreaHumidityState:
   case Watering, MovingSoil, None
 export AreaHumidityState.*
@@ -31,6 +36,7 @@ object AreaComponentsState:
     */
   def apply(): AreaComponentsStateImpl = AreaComponentsStateImpl()
 
+  /** Implementation of the [[AreaComponentsStateImpl]]. */
   class AreaComponentsStateImpl:
     var gatesState: AreaGatesState = AreaGatesState.Close
     var shieldState: AreaShieldState = AreaShieldState.Up

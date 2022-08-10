@@ -1,9 +1,9 @@
 package it.unibo.pps.smartgh.model.sensor
 
 import it.unibo.pps.smartgh.model.sensor.LuminositySensor.LuminositySensorImpl
-import it.unibo.pps.smartgh.model.sensor.areaComponentsState.AreaComponentsState
-import it.unibo.pps.smartgh.model.sensor.areaComponentsState.AreaComponentsState.AreaComponentsStateImpl
-import it.unibo.pps.smartgh.model.sensor.areaComponentsState.{AreaGatesState, AreaShieldState}
+import it.unibo.pps.smartgh.model.area.AreaComponentsState
+import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
+import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaShieldState}
 import org.scalatest.funsuite.AnyFunSuite
 import monix.execution.Scheduler.Implicits.global
 import org.scalatest.matchers.should.Matchers

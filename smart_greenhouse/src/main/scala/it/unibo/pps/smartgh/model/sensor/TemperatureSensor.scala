@@ -1,18 +1,17 @@
 package it.unibo.pps.smartgh.model.sensor
 
-import it.unibo.pps.smartgh.model.sensor.areaComponentsState.AreaComponentsState.AreaComponentsStateImpl
 import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsTemperature
 import it.unibo.pps.smartgh.model.time.Timer
 import monix.execution.Ack
 import monix.reactive.Observable
-
 import scala.util.Random
 import monix.execution.Scheduler.Implicits.global
 import monix.reactive.subjects.ConcurrentSubject
 import monix.reactive.MulticastStrategy.Behavior
 import monix.reactive.MulticastStrategy
-import it.unibo.pps.smartgh.model.sensor.areaComponentsState.{AreaGatesState, AreaShieldState}
-import it.unibo.pps.smartgh.model.sensor.areaComponentsState.AreaComponentsState.*
+import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaShieldState}
+import it.unibo.pps.smartgh.model.area.AreaComponentsState
+import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
 import monix.execution.Ack.{Continue, Stop}
 
 import scala.concurrent.Future
@@ -31,15 +30,14 @@ object TemperatureSensor:
   def apply(areaComponentsStateImpl: AreaComponentsStateImpl, timer: Timer): TemperatureSensorImpl =
     TemperatureSensorImpl(areaComponentsStateImpl, timer)
 
-  /**
-    * Class that represents the temperature sensor of an area of the greenhouse.
+  /** Class that represents the temperature sensor of an area of the greenhouse.
     * @param areaComponentsState
     *   represents the current state of the components of the area.
     * @param timer
     *   the simulation timer
     */
   class TemperatureSensorImpl(areaComponentsState: AreaComponentsStateImpl, timer: Timer)
-    extends AbstractSensorWithTimer(areaComponentsState, timer):
+      extends AbstractSensorWithTimer(areaComponentsState, timer):
     private val timeMustPass: Int = 300
 
     currentValue = areaComponentsState.temperature

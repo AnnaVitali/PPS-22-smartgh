@@ -1,9 +1,9 @@
 package it.unibo.pps.smartgh.model.sensor
 
-import it.unibo.pps.smartgh.model.sensor.areaComponentsState.AreaComponentsState.AreaComponentsStateImpl
+import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
 import monix.execution.Ack
 import monix.reactive.{MulticastStrategy, Observable}
-import it.unibo.pps.smartgh.model.sensor.areaComponentsState.AreaComponentsState
+import it.unibo.pps.smartgh.model.area.AreaComponentsState
 import it.unibo.pps.smartgh.model.time.Timer
 import monix.execution.Scheduler.Implicits.global
 import monix.execution.Ack.Continue

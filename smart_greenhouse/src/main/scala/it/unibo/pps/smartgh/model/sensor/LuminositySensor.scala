@@ -2,7 +2,7 @@ package it.unibo.pps.smartgh.model.sensor
 
 import com.sun.javafx.webkit.theme.ContextMenuImpl
 import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsLuminosity
-import it.unibo.pps.smartgh.model.sensor.areaComponentsState.AreaComponentsState.AreaComponentsStateImpl
+import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
 import it.unibo.pps.smartgh.model.sensor.AbstractSensor
 import monix.execution.Ack
 import monix.reactive.Observable
@@ -12,8 +12,8 @@ import monix.execution.Scheduler.Implicits.global
 import monix.reactive.subjects.ConcurrentSubject
 import monix.reactive.MulticastStrategy.Behavior
 import monix.reactive.MulticastStrategy
-import it.unibo.pps.smartgh.model.sensor.areaComponentsState.{AreaGatesState, AreaShieldState}
-import it.unibo.pps.smartgh.model.sensor.areaComponentsState.AreaComponentsState.*
+import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaShieldState}
+import it.unibo.pps.smartgh.model.area.AreaComponentsState.*
 import monix.execution.Ack.Continue
 
 import scala.concurrent.Future

@@ -1,13 +1,8 @@
 package it.unibo.pps.smartgh.model.sensor
 
 import it.unibo.pps.smartgh.model.sensor.AirHumiditySensor.AirHumiditySensorImpl
-import it.unibo.pps.smartgh.model.sensor.areaComponentsState.{
-  AreaAtomiseState,
-  AreaComponentsState,
-  AreaGatesState,
-  AreaVentilationState
-}
-import it.unibo.pps.smartgh.model.sensor.areaComponentsState.AreaComponentsState.AreaComponentsStateImpl
+import it.unibo.pps.smartgh.model.area.{AreaAtomiseState, AreaComponentsState, AreaGatesState, AreaVentilationState}
+import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
 import it.unibo.pps.smartgh.model.time.Timer
 import monix.execution.Ack.Continue
 import monix.reactive.MulticastStrategy
