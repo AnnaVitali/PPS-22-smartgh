@@ -76,7 +76,7 @@ class SelectPlantViewModuleTest extends AbstractViewTest:
         .lookup(selectablePlantsBoxId)
         .queryAs(classOf[VBox])
         .getChildren
-        .size == mvc.plantSelectorModel.getAllAvailablePlants().length
+        .size == mvc.plantSelectorModel.getAllAvailablePlants.length
     )
     assert(robot.lookup(selectedPlantBoxId).queryAs(classOf[VBox]).getChildren.size == initialSelectedPlant)
 

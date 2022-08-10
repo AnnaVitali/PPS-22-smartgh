@@ -26,22 +26,22 @@ class PlantSelectorModelModuleTest
   override val plantSelectorModel = new PlantSelectorModelImpl(path + prologFile)
 
   test(s"$PS should show all the possibile plants that can be cultivated") {
-    plantSelectorModel.getAllAvailablePlants().size should be > 0
+    plantSelectorModel.getAllAvailablePlants.size should be > 0
   }
 
   test(s"$PS should maintain the selected plants name") {
     val plantIndex = 0
-    val selectedPlant = plantSelectorModel.getAllAvailablePlants()(plantIndex)
+    val selectedPlant = plantSelectorModel.getAllAvailablePlants(plantIndex)
     plantSelectorModel.selectPlant(selectedPlant)
-    plantSelectorModel.getPlantsSelectedName()(plantIndex) shouldEqual selectedPlant
+    plantSelectorModel.getPlantsSelectedName(plantIndex) shouldEqual selectedPlant
   }
 
   test(s"$PS should allow the deselection of a plant") {
     val plantIndex = 0
-    val selectedPlant = plantSelectorModel.getAllAvailablePlants()(plantIndex)
+    val selectedPlant = plantSelectorModel.getAllAvailablePlants(plantIndex)
     plantSelectorModel.selectPlant(selectedPlant)
     plantSelectorModel.deselectPlant(selectedPlant)
-    plantSelectorModel.getPlantsSelectedName().size shouldEqual 0
+    plantSelectorModel.getPlantsSelectedName.size shouldEqual 0
   }
 
   test(
@@ -49,7 +49,7 @@ class PlantSelectorModelModuleTest
       "NoSuchElementException"
   ) {
     val plantIndex = 0
-    val notSelectedPlant = plantSelectorModel.getAllAvailablePlants()(plantIndex)
+    val notSelectedPlant = plantSelectorModel.getAllAvailablePlants(plantIndex)
     assertThrows[NoSuchElementException] {
       plantSelectorModel.deselectPlant(notSelectedPlant)
     }
@@ -57,14 +57,14 @@ class PlantSelectorModelModuleTest
 
   test(s"$PS should maintain the selected plants identifier") {
     val plantIndex = 0
-    val selectedPlant = plantSelectorModel.getAllAvailablePlants()(plantIndex)
+    val selectedPlant = plantSelectorModel.getAllAvailablePlants(plantIndex)
     plantSelectorModel.selectPlant(selectedPlant)
-    plantSelectorModel.getPlantsSelectedIdentifier().size shouldEqual plantSelectorModel.getPlantsSelectedName().size
+    plantSelectorModel.getPlantsSelectedIdentifier.size shouldEqual plantSelectorModel.getPlantsSelectedName.size
   }
 
   test(s"$PS should maintain the selected plants") {
     val plantIndex = 0
-    val selectedPlant = plantSelectorModel.getAllAvailablePlants()(plantIndex)
+    val selectedPlant = plantSelectorModel.getAllAvailablePlants(plantIndex)
     plantSelectorModel.selectPlant(selectedPlant)
-    plantSelectorModel.getPlantsSelected().size shouldEqual plantSelectorModel.getPlantsSelectedName().size
+    plantSelectorModel.getPlantsSelected.size shouldEqual plantSelectorModel.getPlantsSelectedName.size
   }
