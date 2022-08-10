@@ -21,12 +21,12 @@ object PlantSelectorMVC:
   val filename: String = System.getProperty("user.home") + "/pps/plants.pl"
 
   /** Apply method for the [[PlantSelectorMVC]]
-    * @param simulationView
-    *   the root view of the application.
+    * @param simulationMVC
+    *   the root MVC of the application.
     * @param baseView
     *   the view in which the [[SelectPlantView]] is enclosed.
     * @return
-    *   the implemntation of the plant selection MVC.
+    *   the implementation of the plant selection MVC.
     */
   def apply(simulationMVC: SimulationMVCImpl, baseView: BaseView): PlantSelectorMVCImpl =
     PlantSelectorMVCImpl(simulationMVC, baseView)

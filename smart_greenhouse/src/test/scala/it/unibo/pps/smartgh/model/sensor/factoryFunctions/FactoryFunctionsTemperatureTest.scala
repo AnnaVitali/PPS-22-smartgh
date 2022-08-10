@@ -23,7 +23,7 @@ class FactoryFunctionsTemperatureTest extends AnyFunSuite with Matchers with Bef
   ) {
     val temperatureToReach = 37.0
     nUpdates.foreach { _ =>
-      currentTemperatureValue = basicValueTest((initialValue, temperatureToReach), factory.computeTemperature.tupled)
+      currentTemperatureValue = basicValueTest((initialValue, temperatureToReach), factory.updateTemperature.tupled)
       if currentTemperatureValue >= initialValue then initialValue = currentTemperatureValue
     }
 

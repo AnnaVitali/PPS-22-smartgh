@@ -40,7 +40,7 @@ object LuminositySensor:
     */
   class LuminositySensorImpl(initialLuminosity: Double, areaComponentsState: AreaComponentsStateImpl)
       extends AbstractSensor(areaComponentsState):
-    private val randomValue = Random(10)
+    private val randomValue = Random()
     private val minPercentage = 0.1
     private val maxPercentage = 0.3
     currentValue = initialLuminosity - (minPercentage + (maxPercentage - minPercentage) * randomValue
@@ -49,16 +49,16 @@ object LuminositySensor:
     override def computeNextSensorValue(): Unit =
       areaComponentsState.gatesState match
         case AreaGatesState.Open =>
-          currentValue = FactoryFunctionsLuminosity.computeLuminosityWithAreaGatesOpen(
+          currentValue = FactoryFunctionsLuminosity.updateLuminosityWithAreaGatesOpen(
             currentEnvironmentValue,
             areaComponentsState.brightnessOfTheLamps
           )
         case AreaGatesState.Close if areaComponentsState.shieldState.equals(AreaShieldState.Down) =>
-          currentValue = FactoryFunctionsLuminosity.computeLuminosityWithAreaGatesCloseAndShielded(
+          currentValue = FactoryFunctionsLuminosity.updateLuminosityWithAreaGatesCloseAndShielded(
             areaComponentsState.brightnessOfTheLamps
           )
         case AreaGatesState.Close if areaComponentsState.shieldState.equals(AreaShieldState.Up) =>
-          currentValue = FactoryFunctionsLuminosity.computeLuminosityWithAreaGatesCloseAndUnshielded(
+          currentValue = FactoryFunctionsLuminosity.updateLuminosityWithAreaGatesCloseAndUnshielded(
             currentEnvironmentValue,
             areaComponentsState.brightnessOfTheLamps
           )

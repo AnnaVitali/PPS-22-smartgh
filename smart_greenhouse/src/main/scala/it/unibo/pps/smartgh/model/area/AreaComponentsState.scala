@@ -20,8 +20,8 @@ enum AreaHumidityState:
   case Watering, MovingSoil, None
 export AreaHumidityState.*
 
-/** Object that monitoring the state of the area components in relation to the actions performed by the user for
-  * changing the value detected by the sensors.
+/** Object that monitors the state of the area components, in relation to the actions performed by the user for changing
+  * the value detected by the sensors.
   */
 object AreaComponentsState:
 

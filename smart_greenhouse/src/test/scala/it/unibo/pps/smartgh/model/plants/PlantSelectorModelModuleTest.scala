@@ -28,7 +28,7 @@ class PlantSelectorModelModuleTest
     plantSelectorModel.getAllAvailablePlants().size should be > 0
   }
 
-  test(s"$PS should mantain the selected plants name") {
+  test(s"$PS should maintain the selected plants name") {
     val plantIndex = 0
     val selectedPlant = plantSelectorModel.getAllAvailablePlants()(plantIndex)
     plantSelectorModel.selectPlant(selectedPlant)
@@ -54,9 +54,16 @@ class PlantSelectorModelModuleTest
     }
   }
 
-  test(s"$PS should mantain the selected plants identifier") {
+  test(s"$PS should maintain the selected plants identifier") {
     val plantIndex = 0
     val selectedPlant = plantSelectorModel.getAllAvailablePlants()(plantIndex)
     plantSelectorModel.selectPlant(selectedPlant)
     plantSelectorModel.getPlantsSelectedIdentifier().size shouldEqual plantSelectorModel.getPlantsSelectedName().size
+  }
+
+  test(s"$PS should maintain the selected plants") {
+    val plantIndex = 0
+    val selectedPlant = plantSelectorModel.getAllAvailablePlants()(plantIndex)
+    plantSelectorModel.selectPlant(selectedPlant)
+    plantSelectorModel.getPlantsSelected().size shouldEqual plantSelectorModel.getPlantsSelectedName().size
   }
