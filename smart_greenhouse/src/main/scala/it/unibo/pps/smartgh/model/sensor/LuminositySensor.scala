@@ -49,16 +49,16 @@ object LuminositySensor:
     override def computeNextSensorValue(): Unit =
       areaComponentsState.gatesState match
         case AreaGatesState.Open =>
-          currentValue = FactoryFunctionsLuminosity.computeLuminosityWithAreaGatesOpen(
+          currentValue = FactoryFunctionsLuminosity.updateLuminosityWithAreaGatesOpen(
             currentEnvironmentValue,
             areaComponentsState.brightnessOfTheLamps
           )
         case AreaGatesState.Close if areaComponentsState.shieldState.equals(AreaShieldState.Down) =>
-          currentValue = FactoryFunctionsLuminosity.computeLuminosityWithAreaGatesCloseAndShielded(
+          currentValue = FactoryFunctionsLuminosity.updateLuminosityWithAreaGatesCloseAndShielded(
             areaComponentsState.brightnessOfTheLamps
           )
         case AreaGatesState.Close if areaComponentsState.shieldState.equals(AreaShieldState.Up) =>
-          currentValue = FactoryFunctionsLuminosity.computeLuminosityWithAreaGatesCloseAndUnshielded(
+          currentValue = FactoryFunctionsLuminosity.updateLuminosityWithAreaGatesCloseAndUnshielded(
             currentEnvironmentValue,
             areaComponentsState.brightnessOfTheLamps
           )

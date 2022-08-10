@@ -42,11 +42,11 @@ trait Sensor:
     */
   def registerValueCallback(onNext: Double => Future[Ack], onError: Throwable => Unit, onComplete: () => Unit): Unit
 
-  /** Method that specifies which operations need to be performed when the user takes a new action
+  /** Method that specifies which operations need to be performed when the user takes a new action.
     *
     * @return
     *   a function that takes the action performed by the user and returns an [[Ack]] whether or not it is possibile to
-    *   continue with operations
+    *   continue with the operations.
     */
   def onNextAction(): AreaComponentsStateImpl => Future[Ack]
 
@@ -74,6 +74,7 @@ trait SensorWithTimer extends Sensor:
 
   /** Method that encloses the actions that need to be done when the period of the time is elapsed.
     * @return
+    *   a function that takes the value of the clock and return nothing.
     */
   def onNextTimerEvent(): FiniteDuration => Unit
 

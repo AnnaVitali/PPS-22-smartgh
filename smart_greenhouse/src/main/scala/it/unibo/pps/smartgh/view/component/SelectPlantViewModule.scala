@@ -34,20 +34,18 @@ object SelectPlantViewModule:
     def showSelectablePlants(selectablePlantList: List[String]): Unit
 
     /** * Method to update the view of the selected plants.
-      * @param selectedPlant
-      *   the plant that has been selected by the user.
+      * @param selectedPlantList
+      *   the [[List]] of the plant that has been selected by the user.
       */
     def updateSelectedPlant(selectedPlantList: List[String]): Unit
 
     /** Method that asks the view to move to the next Scene.
-      * @param city
-      *   the selected city by the user.
-      * @param selectedPlants
-      *   a list of plants selected by the user.
+      * @param environmentView
+      *   the next scene that needs to be shown.
       */
-    def moveToNextScene(environmentView : EnvironmentView): Unit
-    
-    //TODO add doc
+    def moveToNextScene(environmentView: EnvironmentView): Unit
+
+    /** Method that asks to the view to setup the next scene. */
     def setNewScene(): Unit
 
     /** Method that requires to the view to show an error message.
@@ -59,11 +57,11 @@ object SelectPlantViewModule:
   /** Trait that represents the provider of the view for the plant selection. */
   trait Provider:
     val selectPlantView: SelectPlantView
-  type Requirments = PlantSelectorControllerModule.Provider
+  type Requirements = PlantSelectorControllerModule.Provider
 
   /** Trait that represents the components of the view for the plant selection. */
   trait Component:
-    context: Requirments =>
+    context: Requirements =>
 
     /** Class that contains the [[SelectPlantView]] implementation.
       * @param simulationView
@@ -133,10 +131,10 @@ object SelectPlantViewModule:
             else context.plantSelectorController.notifyDeselectedPlant(checkBox.getText)
           )
         })
-        
+
       override def moveToNextScene(environmentView: EnvironmentView): Unit =
         simulationView.changeView(environmentView)
-      
+
       override def setNewScene(): Unit =
         plantSelectorController.nextMVC(baseView)
 
@@ -145,4 +143,4 @@ object SelectPlantViewModule:
 
   /** Trait that encloses the view for the plant selection. */
   trait Interface extends Provider with Component:
-    self: Requirments =>
+    self: Requirements =>

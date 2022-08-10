@@ -14,12 +14,13 @@ import monix.execution.Scheduler.Implicits.global
 import monix.execution.Ack
 
 import concurrent.{Future, Promise}
+import scala.::
 import scala.language.postfixOps
 
 /** Object that encloses the model module for the plant selection. */
 object PlantSelectorModelModule:
 
-  /** This trait exposes methods for managing the selection of plants. */
+  /** This trait exposes methods for managing the selection of the plants. */
   trait PlantSelectorModel:
 
     /** Method for obtaining all the available plants that can be cultivated in the greenhouse.
@@ -28,9 +29,13 @@ object PlantSelectorModelModule:
       */
     def getAllAvailablePlants(): List[String]
 
-    /** Method that can be called to obtain the [[Observable]] associated to the selected plant.
-      * @return
-      *   the [[Observable]] associated to the selected plant.
+    /** Method that registers the callback for the plant [[Observable]].
+      * @param onNext
+      *   specify which is the action that needs to be taken when a new plant has been selected.
+      * @param onError
+      *   specify which is the action that needs to be taken when an error occur.
+      * @param onComplete
+      *   specify which is the action that needs to be taken when the emission of the data ends.
       */
     def registerCallback(onNext: List[String] => Future[Ack], onError: Throwable => Unit, onComplete: () => Unit): Unit
 
@@ -48,21 +53,21 @@ object PlantSelectorModelModule:
       */
     def deselectPlant(plantName: String): Unit
 
-    /** Method that returns the name of the plants selected for cultivation in the greenhouse.
+    /** Method that returns the name of the plants selected for the cultivation in the greenhouse.
       * @return
-      *   the [[List]] of the neme of the plants selected.
+      *   the [[List]] of the name of the plants selected.
       */
     def getPlantsSelectedName(): List[String]
 
-    /** Method that returns the identifier of the plants selected for cultivation in the greenhouse.
+    /** Method that returns the identifier of the plants selected for the cultivation in the greenhouse.
       * @return
       *   the [[List]] of the identifier of the plants selected.
       */
     def getPlantsSelectedIdentifier(): List[String]
 
-    /** Method that returns plants selected for cultivation in the greenhouse.
+    /** Method that returns the plants selected for the cultivation in the greenhouse.
       * @return
-      *   the [[List]] of plants selected.
+      *   the [[List]] of [[Plant]] selected.
       */
     def getPlantsSelected(): List[Plant]
 
@@ -74,6 +79,7 @@ object PlantSelectorModelModule:
   trait Component:
     /** Class that contains the [[PlantSelectorModel]] implementation.
       * @param fileName
+      *   the name of the prolog file from which the plants will be taken.
       */
     class PlantSelectorModelImpl(fileName: String) extends PlantSelectorModel:
       import it.unibo.pps.smartgh.prolog.Scala2P.{*, given}
@@ -111,10 +117,12 @@ object PlantSelectorModelModule:
       override def getPlantsSelectedName(): List[String] = selectedPlants
 
       override def getPlantsSelectedIdentifier(): List[String] =
-        selectedPlants.map(getCorrectPlantName).flatMap(s => engine("plant(" + s + ", Y)").map(extractTermToString(_, "Y")))
+        selectedPlants
+          .map(getCorrectPlantName)
+          .flatMap(s => engine("plant(" + s + ", Y)").map(extractTermToString(_, "Y")))
 
-      override def getPlantsSelected() : List[Plant] =
-        selectedPlants.zip(getPlantsSelectedIdentifier()).map((n,i) => Plant(n,i))
+      override def getPlantsSelected(): List[Plant] =
+        selectedPlants.zip(getPlantsSelectedIdentifier()).map((n, i) => Plant(n, i))
 
       private def getCorrectPlantName(plantName: String): String =
         if plantName.contains(" ") then "\'" + plantName + "\'" else plantName

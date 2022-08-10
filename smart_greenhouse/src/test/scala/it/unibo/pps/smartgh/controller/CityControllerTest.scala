@@ -1,3 +1,4 @@
+/*
 package it.unibo.pps.smartgh.controller
 
 import it.unibo.pps.smartgh.controller.SelectCityControllerModule.{Component, SelectCityController}
@@ -40,3 +41,4 @@ class CityControllerTest
     //simulationMVC.simulationController.environment === city
     println("TEST NOTHING TODO")
   }
+ */

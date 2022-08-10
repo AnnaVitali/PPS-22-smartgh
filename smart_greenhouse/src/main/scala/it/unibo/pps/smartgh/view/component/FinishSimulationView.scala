@@ -18,8 +18,8 @@ object FinishSimulationView:
 
   /** Create a new [[FinishSimulationView]] component.
     *
-    * @param simulationView
-    *   the [[SimulationViewModule]] of the application.
+    * @param simulationMVC
+    *   the root MVC of the application.
     * @param baseView
     *   the [[BaseView]] component.
     * @return
@@ -36,8 +36,6 @@ object FinishSimulationView:
 
     @FXML
     var simulationEndedLabel: Label = _
-
-    val startNewSimulationButton: Button = baseView.changeSceneButton
 
     simulationEndedLabel.setText("Simulation ended!")
 //    startNewSimulationButton.setStyle("-fx-background-color: #33cc33")

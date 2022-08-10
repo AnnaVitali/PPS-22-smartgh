@@ -16,7 +16,7 @@ class FactoryFunctionsLuminosityTest extends AnyFunSuite with Matchers with Befo
 
   test("computeLuminosityWithAreaGatesCloseAndShielded should modify the brightness to the passed value") {
     val lampBrightness = 2000.0
-    currentBrightness = factory.computeLuminosityWithAreaGatesCloseAndShielded(lampBrightness)
+    currentBrightness = factory.updateLuminosityWithAreaGatesCloseAndShielded(lampBrightness)
     currentBrightness should (be >= minBrightness and equal(lampBrightness))
   }
 
@@ -26,7 +26,7 @@ class FactoryFunctionsLuminosityTest extends AnyFunSuite with Matchers with Befo
   ) {
     val lampBrightness = 2000.0
     val environmentBrightness = 4000.0
-    currentBrightness = factory.computeLuminosityWithAreaGatesCloseAndUnshielded(environmentBrightness, lampBrightness)
+    currentBrightness = factory.updateLuminosityWithAreaGatesCloseAndUnshielded(environmentBrightness, lampBrightness)
     currentBrightness should be <= (environmentBrightness + lampBrightness)
 
   }
@@ -37,6 +37,6 @@ class FactoryFunctionsLuminosityTest extends AnyFunSuite with Matchers with Befo
   ) {
     val lampBrightness = 2000.0
     val environmentBrightness = 2000.0
-    currentBrightness = factory.computeLuminosityWithAreaGatesOpen(environmentBrightness, lampBrightness)
+    currentBrightness = factory.updateLuminosityWithAreaGatesOpen(environmentBrightness, lampBrightness)
     currentBrightness shouldEqual (environmentBrightness + lampBrightness)
   }

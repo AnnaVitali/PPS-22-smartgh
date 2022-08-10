@@ -7,5 +7,5 @@ object FactoryFunctionsTemperature:
   private val areaFactor = 0.90
   private val environmentFactor = 0.10
 
-  val computeTemperature: (Double, Double) => Double =
+  val updateTemperature: (Double, Double) => Double =
     (currentAreaVal, temperatureToReach) => (currentAreaVal * areaFactor) + (temperatureToReach * environmentFactor)
