@@ -54,6 +54,7 @@ object AreaModelModule:
 
     /** Set the sensors' subjects
       * @param subjects
+      *   the subject of the sensor.
       */
     def setSensorSubjects(subjects: Map[String, ConcurrentSubject[Double, Double]]): Unit
 
@@ -97,7 +98,7 @@ object AreaModelModule:
           optimalValueToDouble.getOrElse("min_" + optK, 0.0),
           optimalValueToDouble.getOrElse("max_" + optK, 0.0),
           sensorsMap(key),
-          BigDecimal(sensorsMap(key).getCurrentValue()).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble
+          BigDecimal(sensorsMap(key).getCurrentValue).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble
         )
 
       configSensors()

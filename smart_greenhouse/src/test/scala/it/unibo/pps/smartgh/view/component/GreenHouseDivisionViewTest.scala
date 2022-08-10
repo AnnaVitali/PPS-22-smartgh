@@ -35,7 +35,7 @@ import scala.language.postfixOps
 @ExtendWith(Array(classOf[ApplicationExtension]))
 class GreenHouseDivisionViewTest extends AbstractViewTest:
 
-  val ghMVC = GreenHouseDivisionMVC(List(Plant("lemon", "citrus limon"), Plant("mint", "mentha x gracilis")))
+  val ghMVC: GreenHouseDivisionMVC.GreenHouseDivisionMVCImpl = GreenHouseDivisionMVC(List(Plant("lemon", "citrus limon"), Plant("mint", "mentha x gracilis")))
   val globalGH = "#ghDivision"
   val areaBt = "#areaBt"
   private val timer = Timer(1 day)

@@ -15,7 +15,7 @@ object EnvironmentMVC:
     * @param baseView
     *   the view in which the [[EnvironmentView]] is enclosed.
     * @return
-    *   the implemntation of [[EnvironmentMVC]].
+    *   the implementation of [[EnvironmentMVC]].
     */
   def apply(
       simulationMVC: SimulationMVCImpl,

@@ -40,11 +40,10 @@ object LuminositySensor:
     */
   class LuminositySensorImpl(initialLuminosity: Double, areaComponentsState: AreaComponentsStateImpl)
       extends AbstractSensor(areaComponentsState):
-    private val randomValue = Random()
-    private val minPercentage = 0.1
-    private val maxPercentage = 0.3
-    currentValue = initialLuminosity - (minPercentage + (maxPercentage - minPercentage) * randomValue
-      .nextDouble()) * initialLuminosity
+    private val minPercentage = 0.01
+    private val maxPercentage = 0.05
+    currentValue = initialLuminosity - (Random
+      .nextDouble() * (maxPercentage - minPercentage) + minPercentage) * initialLuminosity
 
     override def computeNextSensorValue(): Unit =
       areaComponentsState.gatesState match

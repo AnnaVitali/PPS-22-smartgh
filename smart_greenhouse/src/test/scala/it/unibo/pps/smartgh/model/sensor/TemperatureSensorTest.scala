@@ -30,7 +30,7 @@ class TemperatureSensorTest extends AnyFunSuite with Matchers:
   temperatureSensor.setObserverActionsArea(subjectActions)
 
   test(s"$TS must be initialized with the internal environment value") {
-    temperatureSensor.getCurrentValue() shouldEqual areaComponentsState.temperature
+    temperatureSensor.getCurrentValue shouldEqual areaComponentsState.temperature
   }
 
   test(
@@ -43,14 +43,14 @@ class TemperatureSensorTest extends AnyFunSuite with Matchers:
     timer.changeTickPeriod(10 milliseconds)
     temperatureSensor.registerTimerCallback()
     subjectEnvironment.onNext(environmentValue)
-    val firstApproach = temperatureSensor.getCurrentValue()
+    val firstApproach = temperatureSensor.getCurrentValue
     firstApproach should be <= environmentValue
 
     Thread.sleep(3000)
 
     areaComponentsState.gatesState = AreaGatesState.Open
     subjectActions.onNext(areaComponentsState)
-    temperatureSensor.getCurrentValue() should (be >= firstApproach and be <= environmentValue)
+    temperatureSensor.getCurrentValue should (be >= firstApproach and be <= environmentValue)
   }
 
   test(
@@ -66,11 +66,10 @@ class TemperatureSensorTest extends AnyFunSuite with Matchers:
     subjectActions.onNext(areaComponentsState)
     areaComponentsState.temperature = 27.0
     subjectEnvironment.onNext(environmentValue)
-    val firstApproach = temperatureSensor.getCurrentValue()
+    val firstApproach = temperatureSensor.getCurrentValue
     firstApproach should be <= environmentValue
 
     Thread.sleep(3000)
 
-    temperatureSensor
-      .getCurrentValue() should (be <= firstApproach and be >= areaComponentsState.temperature and be <= environmentValue)
+    temperatureSensor.getCurrentValue should (be <= firstApproach and be >= areaComponentsState.temperature and be <= environmentValue)
   }

@@ -36,7 +36,7 @@ class TimerTest extends AnyFunSuite with Matchers with BeforeAndAfter with Event
     }
   }
 
-  test("When the timer is finished it should have the value at the setted duration") {
+  test("When the timer is finished it should have the value at the set duration") {
     eventually(timeout(Span(duration.toSeconds + 2, Seconds))) {
       finish shouldEqual true
     }

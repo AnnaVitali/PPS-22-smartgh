@@ -27,7 +27,7 @@ object PlantSelectorModelModule:
       * @return
       *   the [[List]] of the name of all the plants available.
       */
-    def getAllAvailablePlants(): List[String]
+    def getAllAvailablePlants: List[String]
 
     /** Method that registers the callback for the plant [[Observable]].
       * @param onNext
@@ -57,19 +57,19 @@ object PlantSelectorModelModule:
       * @return
       *   the [[List]] of the name of the plants selected.
       */
-    def getPlantsSelectedName(): List[String]
+    def getPlantsSelectedName: List[String]
 
     /** Method that returns the identifier of the plants selected for the cultivation in the greenhouse.
       * @return
       *   the [[List]] of the identifier of the plants selected.
       */
-    def getPlantsSelectedIdentifier(): List[String]
+    def getPlantsSelectedIdentifier: List[String]
 
     /** Method that returns the plants selected for the cultivation in the greenhouse.
       * @return
       *   the [[List]] of [[Plant]] selected.
       */
-    def getPlantsSelected(): List[Plant]
+    def getPlantsSelected: List[Plant]
 
   /** Trait that represents the provider of the model for the plant selection. */
   trait Provider:
@@ -94,7 +94,7 @@ object PlantSelectorModelModule:
       private val subject: ConcurrentSubject[List[String], List[String]] =
         ConcurrentSubject[List[String]](MulticastStrategy.publish)
 
-      override def getAllAvailablePlants(): List[String] =
+      override def getAllAvailablePlants: List[String] =
         engine("plant(X, Y).").map(extractTermToString(_, "X").replace("'", "")).toList
 
       override def registerCallback(
@@ -114,15 +114,15 @@ object PlantSelectorModelModule:
           subject.onNext(selectedPlants)
         else throw new NoSuchElementException("You can't deselect a plant that hasn't been selected!")
 
-      override def getPlantsSelectedName(): List[String] = selectedPlants
+      override def getPlantsSelectedName: List[String] = selectedPlants
 
-      override def getPlantsSelectedIdentifier(): List[String] =
+      override def getPlantsSelectedIdentifier: List[String] =
         selectedPlants
           .map(getCorrectPlantName)
           .flatMap(s => engine("plant(" + s + ", Y)").map(extractTermToString(_, "Y")))
 
-      override def getPlantsSelected(): List[Plant] =
-        selectedPlants.zip(getPlantsSelectedIdentifier()).map((n, i) => Plant(n, i))
+      override def getPlantsSelected: List[Plant] =
+        selectedPlants.zip(getPlantsSelectedIdentifier).map((n, i) => Plant(n, i))
 
       private def getCorrectPlantName(plantName: String): String =
         if plantName.contains(" ") then "\'" + plantName + "\'" else plantName

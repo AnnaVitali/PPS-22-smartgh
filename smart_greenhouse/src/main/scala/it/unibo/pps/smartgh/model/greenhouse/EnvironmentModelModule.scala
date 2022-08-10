@@ -39,10 +39,10 @@ object EnvironmentModelModule:
       */
     class EnvironmentModelImpl(override val environment: Environment) extends EnvironmentModel:
 
-      override val subjectTemperature = ConcurrentSubject[Double](MulticastStrategy.publish)
-      override val subjectHumidity = ConcurrentSubject[Double](MulticastStrategy.publish)
-      override val subjectLuminosity = ConcurrentSubject[Double](MulticastStrategy.publish)
-      override val subjectSoilMoisture = ConcurrentSubject[Double](MulticastStrategy.publish)
+      override val subjectTemperature: ConcurrentSubject[Double, Double] = ConcurrentSubject[Double](MulticastStrategy.publish)
+      override val subjectHumidity: ConcurrentSubject[Double, Double] = ConcurrentSubject[Double](MulticastStrategy.publish)
+      override val subjectLuminosity: ConcurrentSubject[Double, Double] = ConcurrentSubject[Double](MulticastStrategy.publish)
+      override val subjectSoilMoisture: ConcurrentSubject[Double, Double] = ConcurrentSubject[Double](MulticastStrategy.publish)
 
   /** Trait that encloses the model for environment values and time management. */
   trait Interface extends Provider with Component

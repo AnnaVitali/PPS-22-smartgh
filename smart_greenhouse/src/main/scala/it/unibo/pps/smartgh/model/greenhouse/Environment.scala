@@ -53,7 +53,7 @@ object Environment:
       val forecast: Map[String, Any] = environmentValues("forecast").asInstanceOf[Map[String, Any]]
       val hours: List[Map[String, Any]] = forecast("forecastday")
         .asInstanceOf[List[Map[String, Any]]]
-        .foldLeft(forecast("forecastday").asInstanceOf[List[Map[String, Any]]])((m, acc) =>
+        .foldLeft(forecast("forecastday").asInstanceOf[List[Map[String, Any]]])((_, acc) =>
           acc("hour").asInstanceOf[List[Map[String, Any]]]
         )
       val ch = hours.find(m => m("time").asInstanceOf[String].contains(h)).getOrElse(Map.empty)

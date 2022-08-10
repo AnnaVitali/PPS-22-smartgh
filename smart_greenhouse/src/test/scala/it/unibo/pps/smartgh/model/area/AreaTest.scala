@@ -12,7 +12,7 @@ class AreaTest extends AnyFunSuite with AreaModelModule.Interface:
 
   private val timer = Timer(1 day)
   timer.start(println("time is up!"))
-  override val areaModel = AreaImpl(Plant("lemon", "citrus limon"), timer)
+  override val areaModel: AreaModelModule.AreaModel = AreaImpl(Plant("lemon", "citrus limon"), timer)
 
   test("After create an area in which there is a lemon plant, The area plant's name must be lemon") {
     import org.scalatest.matchers.must.Matchers.mustEqual

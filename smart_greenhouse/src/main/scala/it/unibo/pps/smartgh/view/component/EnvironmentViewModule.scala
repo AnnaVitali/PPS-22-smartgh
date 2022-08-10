@@ -19,7 +19,7 @@ object EnvironmentViewModule:
     /** Data structure that will contains environment values. */
     type EnvironmentValues = Map[String, Any]
 
-    /** Method to dislay the selected city's name in location label.
+    /** Method to display the selected city's name in location label.
       * @param cityName
       *   selected city's name
       */
@@ -37,20 +37,20 @@ object EnvironmentViewModule:
       */
     def displayElapsedTime(timerValue: String): Unit
 
-    /**
-      * Mehtod to display [[GHDivisionView]] in the [[EnvironmentView]].
-      * @param ghDivisionView view that represents the green house division in areas
+    /** Method to display [[GHDivisionView]] in the [[EnvironmentView]].
+      * @param ghDivisionView
+      *   view that represents the green house division in areas
       */
     def displayGreenHouseDivisionView(ghDivisionView: GHDivisionView): Unit
 
     /** Method to notify view that the simulation time has finished. */
     def finishSimulation(): Unit
 
-    /**
-      * Method to notify the view to display the [[FinishSimulationView]].
-      * @param finishSimulationView view that represents the last scene of the simulation.
+    /** Method to notify the view to display the [[FinishSimulationView]].
+      * @param finishSimulationView
+      *   view that represents the last scene of the simulation.
       */
-    def moveToNextScene(finishSimulationView: FinishSimulationView) : Unit
+    def moveToNextScene(finishSimulationView: FinishSimulationView): Unit
 
   /** Trait that represents the provider of the view for environment values and simulation time visualization. */
   trait Provider:

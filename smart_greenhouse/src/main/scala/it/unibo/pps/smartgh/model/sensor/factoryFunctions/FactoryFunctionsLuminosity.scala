@@ -6,9 +6,8 @@ import scala.util.Random
   * value of the [[LuminositySensor]].
   */
 object FactoryFunctionsLuminosity:
-  private val minPercentage = 0.1
-  private val maxPercentage = 0.3
-  private val randomValue = Random(10)
+  private val minPercentage = 0.01
+  private val maxPercentage = 0.05
 
   /** Update the luminosity value when gates are open. */
   val updateLuminosityWithAreaGatesOpen: (Double, Double) => Double =
@@ -17,8 +16,8 @@ object FactoryFunctionsLuminosity:
   /** Update the luminosity value when gates are open and shields are up. */
   val updateLuminosityWithAreaGatesCloseAndUnshielded: (Double, Double) => Double =
     (currentValEnvironment, currentLampBrightness) =>
-      currentValEnvironment - (minPercentage + (maxPercentage - minPercentage) * randomValue
-        .nextDouble()) * currentValEnvironment + currentLampBrightness
+      currentValEnvironment - (Random
+        .nextDouble() * (maxPercentage - minPercentage) + minPercentage) * currentValEnvironment + currentLampBrightness
 
   /** Update the luminosity value when area gates are closed and shields are down. */
   val updateLuminosityWithAreaGatesCloseAndShielded: Double => Double = concurrentLampBrightness =>

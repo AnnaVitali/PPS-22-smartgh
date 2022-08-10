@@ -22,7 +22,7 @@ import scalafx.scene.Scene
 class FinishSimulationViewTest extends AbstractViewTest:
 
   val finishSimulationLabelId = "#simulationEndedLabel"
-  val startNewSimulationButtonlId = "#changeSceneButton"
+  val startNewSimulationButtonId = "#changeSceneButton"
 
   @Start
   private def start(stage: Stage): Unit =
@@ -37,6 +37,6 @@ class FinishSimulationViewTest extends AbstractViewTest:
 
   @Test def testButton(robot: FxRobot): Unit =
     val startNewSimulationText = "Start a new simulation"
-    verifyThat(startNewSimulationButtonlId, isVisible)
-    verifyThat(startNewSimulationButtonlId, hasText(startNewSimulationText))
+    verifyThat(startNewSimulationButtonId, isVisible)
+    verifyThat(startNewSimulationButtonId, hasText(startNewSimulationText))
 //TODO verify button click with robot

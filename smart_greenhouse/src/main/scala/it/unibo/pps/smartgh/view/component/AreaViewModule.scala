@@ -57,7 +57,7 @@ object AreaViewModule:
 
           areaBt.setStyle("-fx-background-color: " + statusColor)
 
-          areaBt.setOnMouseEntered { e =>
+          areaBt.setOnMouseEntered { _ =>
             areaBt.getGraphic
               .asInstanceOf[VBox]
               .getChildren
@@ -66,7 +66,7 @@ object AreaViewModule:
               )
           }
 
-          areaBt.setOnMouseExited { e =>
+          areaBt.setOnMouseExited { _ =>
             areaBt.getGraphic
               .asInstanceOf[VBox]
               .getChildren
@@ -74,7 +74,7 @@ object AreaViewModule:
                 c.asInstanceOf[Label].setStyle("-fx-text-fill: #000000 ; -fx-background-color: " + statusColor)
               )
           }
-          areaBt.setOnMouseClicked { e =>
+          areaBt.setOnMouseClicked { _ =>
             context.areaController.openArea()
           }
 

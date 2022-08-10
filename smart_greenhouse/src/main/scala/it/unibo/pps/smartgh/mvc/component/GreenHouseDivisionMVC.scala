@@ -29,9 +29,9 @@ object GreenHouseDivisionMVC:
       with GHViewModule.Interface
       with GHControllerModule.Interface:
 
-    override val ghDivisionModel = GreenHouseImpl(plants)
-    override val ghController = GreenHouseDivisionControllerImpl()
-    override val ghDivisionView = GreenHouseDivisionViewImpl()
+    override val ghDivisionModel: GHModelModule.GreenHouseModel = GreenHouseImpl(plants)
+    override val ghController: GHControllerModule.GreenHouseController = GreenHouseDivisionControllerImpl()
+    override val ghDivisionView: GHViewModule.GHDivisionView = GreenHouseDivisionViewImpl()
 
     /** Create and set the greenhouse division areas.
       * @param timer

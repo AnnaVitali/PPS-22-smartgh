@@ -84,7 +84,7 @@ object Plant:
       info.get("image_url").fold[String]("images/plantIcon.png")(res => res.toString)
 
     private def getOptimalValues(info: RequestResult): RequestResult =
-      info.filter((f, v) => detectedParameters contains f)
+      info.filter((f, _) => detectedParameters contains f)
 
     private def getDescription: String =
       val query =
@@ -94,7 +94,7 @@ object Plant:
         val r: Response = requests.get(query)
         implicit val formats: DefaultFormats.type = org.json4s.DefaultFormats
         parse(r.text())
-          .findField((f, v) => f === "extract")
+          .findField((f, _) => f === "extract")
           .fold("No description available")(res => res._2.values.toString)
       } catch {
         case e: RequestFailedException => "No description available"
