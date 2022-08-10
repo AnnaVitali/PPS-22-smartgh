@@ -9,18 +9,19 @@ import scala.util.Using
 trait UploadCities:
 
   /** Function that get the file.
-    *
     * @throws java.io.FileNotFoundException
+    *   file not found
     * @param fileName
     *   name of file
     * @return
-    *   BufferdSource
+    *   BufferedSource
     */
   def getBufferedSource(fileName: String): BufferedSource
 
   /** Function that get the number of lines of a file located in resources folder.
     *
     * @throws java.io.FileNotFoundException
+    *   file not found
     * @param fileName
     *   name of file
     * @return
@@ -31,6 +32,7 @@ trait UploadCities:
   /** Function that get the number of lines of a file located in prolog folder.
     *
     * @throws java.io.FileNotFoundException
+    *   file not found
     * @param fileName
     *   name of file
     * @return

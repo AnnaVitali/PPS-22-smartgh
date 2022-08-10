@@ -20,26 +20,31 @@ object GHViewModule:
   /** A trait that represents the green house division view of the application. */
   trait GHDivisionView extends ViewComponent[VBox]:
     /** Draws the greenhouse division according to the rows and cols.
-     * @param rows of the greenhouse grid
-     * @param cols of the greenhouse grid
-     * @param areas list of areas componing the greenhouse
-     * */
+      * @param rows
+      *   of the greenhouse grid
+      * @param cols
+      *   of the greenhouse grid
+      * @param areas
+      *   list of areas composing the greenhouse
+      */
     def paintDivision(rows: Int, cols: Int, areas: List[AreaViewModule.AreaView]): Unit
 
-  /** A trait for defining the view instance.*/
+  /** A trait for defining the view instance. */
   trait Provider:
+    /** Greenhouse division view. */
     val ghDivisionView: GHDivisionView
 
+  /** Requirements for the [[GHDivisionView]]. */
   type Requirements = GHControllerModule.Provider
+
   /** A trait that represents the greenhouse division view component. */
   trait Component:
     context: Requirements =>
     /** Implementation of the greenhouse division view.
-     * @return
-     *   the implementation of the [[GreenHouseDivisionViewImpl]].*/
-    class GreenHouseDivisionViewImpl()
-      extends AbstractViewComponent[VBox]("ghDivision.fxml")
-        with GHDivisionView:
+      * @return
+      *   the implementation of the [[GreenHouseDivisionViewImpl]].
+      */
+    class GreenHouseDivisionViewImpl() extends AbstractViewComponent[VBox]("ghDivision.fxml") with GHDivisionView:
       private val env = GridPane()
       override val component: VBox = loader.load[VBox]
 
@@ -63,6 +68,6 @@ object GHViewModule:
             count = count + 1
         )
 
-  /** Trait that combine provider and component for greenhouse division view.*/
+  /** Trait that combine provider and component for greenhouse division view. */
   trait Interface extends Provider with Component:
     self: Requirements =>

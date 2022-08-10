@@ -27,9 +27,7 @@ trait Sensor:
     * @param observableActionArea
     *   the [[Observable]] representing the actions performed by the user.
     */
-  def setObserverActionsArea(
-      observableActionArea: Observable[AreaComponentsStateImpl]
-  ): Unit =
+  def setObserverActionsArea(observableActionArea: Observable[AreaComponentsStateImpl]): Unit =
     observableActionArea.subscribe(onNextAction(), (ex: Throwable) => ex.printStackTrace(), () => {})
 
   /** Method that deals with recording the callback that need to be performed when a new value is detected.

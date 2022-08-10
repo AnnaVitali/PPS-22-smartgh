@@ -18,7 +18,7 @@ object SelectCityMVC:
     * @param simulationMVC
     *   the [[SimulationMVCImpl]] of the application.
     * @param baseView
-    *   the view in which the [[EnvironmentView]] is enclosed.
+    *   the view in which the [[SelectCityView]] is enclosed.
     * @return
     *   a new instance of [[SelectCityMVCImpl]].
     */
@@ -29,7 +29,7 @@ object SelectCityMVC:
     * @param simulationMVC
     *   the [[SimulationMVCImpl]] of the application.
     * @param baseView
-    *   the view in which the [[EnvironmentView]] is enclosed.
+    *   the view in which the [[SelectCityView]] is enclosed.
     */
   class SelectCityMVCImpl(simulationMVC: SimulationMVCImpl, baseView: BaseView)
       extends SelectCityModelModule.Interface

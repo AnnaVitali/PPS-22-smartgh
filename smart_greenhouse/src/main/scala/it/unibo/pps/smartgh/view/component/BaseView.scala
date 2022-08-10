@@ -8,6 +8,7 @@ import javafx.scene.control.{Button, Label}
 
 /** A trait that represents the base view of the application. */
 trait BaseView extends ViewComponent[BorderPane]:
+  /** Change scene button. */
   var changeSceneButton: Button
 
 /** Object that can be used to create new instances of [[BaseView]]. */

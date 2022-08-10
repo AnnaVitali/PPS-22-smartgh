@@ -14,23 +14,29 @@ import scala.language.postfixOps
 object AreaViewModule:
   /** A trait that represents the green house division view of the application. */
   trait AreaView extends ViewComponent[VBox]:
-    /**Draw the area*/
+    /** Draw the area.
+      * @param plant
+      *   name of the [[Plant]] that grows in the area
+      * @param statusColor
+      *   color of the status of the area
+      * @param par
+      *   parameters of the area
+      */
     def paintArea(plant: String, statusColor: String, par: Map[String, Double]): Unit
 
-  /** A trait for defining the view instance.*/
+  /** A trait for defining the view instance. */
   trait Provider:
+    /** The area's view. */
     val areaView: AreaView
 
+  /** The requirements for the [[AreaView]]. */
   type Requirements = AreaControllerModule.Provider
+
   /** A trait that represents the greenhouse division view component. */
   trait Component:
     context: Requirements =>
-    /** Implementation of the greenhouse division view.
-     * @return
-     *   the implementation of the [[AreaViewImpl]].*/
-    class AreaViewImpl()
-      extends AbstractViewComponent[VBox]("area.fxml")
-        with AreaView:
+    /** Implementation of the greenhouse division view. */
+    class AreaViewImpl() extends AbstractViewComponent[VBox]("area.fxml") with AreaView:
 
       override val component: VBox = loader.load[VBox]
 
@@ -47,7 +53,7 @@ object AreaViewModule:
         Platform.runLater(() =>
           plant.setText(plantName)
           params.getChildren.clear()
-          par foreach ((k,v) => params.getChildren.add(new Label(s"$k : ${v}")))
+          par foreach ((k, v) => params.getChildren.add(new Label(s"$k : $v")))
 
           areaBt.setStyle("-fx-background-color: " + statusColor)
 
@@ -55,14 +61,18 @@ object AreaViewModule:
             areaBt.getGraphic
               .asInstanceOf[VBox]
               .getChildren
-              .forEach(c => c.asInstanceOf[Label].setStyle("-fx-text-fill: #ffffff ; -fx-background-color: " + statusColor))
+              .forEach(c =>
+                c.asInstanceOf[Label].setStyle("-fx-text-fill: #ffffff ; -fx-background-color: " + statusColor)
+              )
           }
 
           areaBt.setOnMouseExited { e =>
             areaBt.getGraphic
               .asInstanceOf[VBox]
               .getChildren
-              .forEach(c => c.asInstanceOf[Label].setStyle("-fx-text-fill: #000000 ; -fx-background-color: " + statusColor))
+              .forEach(c =>
+                c.asInstanceOf[Label].setStyle("-fx-text-fill: #000000 ; -fx-background-color: " + statusColor)
+              )
           }
           areaBt.setOnMouseClicked { e =>
             context.areaController.openArea()
@@ -71,7 +81,6 @@ object AreaViewModule:
           rect.setStyle("-fx-border-color: #000000")
         )
 
-
-  /** Trait that combine provider and component for area view.*/
+  /** Trait that combine provider and component for area view. */
   trait Interface extends Provider with Component:
     self: Requirements =>

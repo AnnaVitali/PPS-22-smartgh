@@ -10,11 +10,14 @@ object FactoryFunctionsAirHumidity:
   private val areaFactor = 0.90
   private val envFactor = 0.10
 
+  /** Update the ventilation value. */
   val updateVentilationValue: (Double, Double) => Double = (currentValue, minValue) =>
     (currentValue - currentValue * actionFactor).max(minValue)
 
+  /** Update the atomize value. */
   val updateAtomizeValue: (Double, Double) => Double = (currentValue, maxValue) =>
     (currentValue + currentValue * actionFactor).min(maxValue)
 
+  /** Update the action value when system actions are disabled. */
   val updateDisableActionValue: (Double, Double, Double) => Double = (currentValue, envValue, randomVal) =>
     (currentValue * areaFactor + envValue * envFactor - randomVal).max(valueRange._1).min(valueRange._2)

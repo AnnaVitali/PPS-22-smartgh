@@ -11,35 +11,35 @@ object GHModelModule:
   /** This trait exposes the methods for managing the GreenHouse model. */
   trait GreenHouseModel:
     /** Division of the greenhouse.
-     * @return
-     *   tuple indicating the number of rows and cols (r, c).
-     */
+      * @return
+      *   tuple indicating the number of rows and cols (r, c).
+      */
     val dimension: (Int, Int)
 
     /** Areas of the greenhouse.
-     * @return
-     *   the list of areas
-     */
+      * @return
+      *   the list of areas
+      */
     var areas: List[AreaMVCImpl]
 
     /** Plants of the greenhouse.
-     * @return
-     *   the list of plants
-     */
+      * @return
+      *   the list of plants
+      */
     val plants: List[Plant]
 
-  /** A trait for defining the model instance.*/
+  /** A trait for defining the model instance. */
   trait Provider:
+    /** The green house division model. */
     val ghDivisionModel: GreenHouseModel
 
   /** A trait that represents the greenhouse model component. */
   trait Component:
     /** Implementation of the greenhouse model.
-     * @param plants list of [[Plant]]
-     * @return
-     *   the implementation of the [[GreenHouseImpl]].*/
-    class GreenHouseImpl(override val plants: List[Plant])
-      extends GreenHouseModel:
+      * @param plants
+      *   list of [[Plant]]
+      */
+    class GreenHouseImpl(override val plants: List[Plant]) extends GreenHouseModel:
 
       override var areas: List[AreaMVCImpl] = List.empty
 
@@ -49,12 +49,14 @@ object GHModelModule:
           if plants.length % i == 0
         yield (i, plants.length / i)
         //print(factors)
-        factors.foldLeft(factors.headOption)((f, acc) =>
-          f.fold(Some(0,0))((r, c) =>
-            if Math.abs(r - c) <= Math.abs(acc._1 - acc._2) then Some(r, c)
-            else Some(acc._1, acc._2)
+        factors
+          .foldLeft(factors.headOption)((f, acc) =>
+            f.fold(Some(0, 0))((r, c) =>
+              if Math.abs(r - c) <= Math.abs(acc._1 - acc._2) then Some(r, c)
+              else Some(acc._1, acc._2)
+            )
           )
-        ).getOrElse((0,0))
+          .getOrElse((0, 0))
 
-  /** Trait that combine provider and component for greenhouse model.*/
+  /** Trait that combine provider and component for greenhouse model. */
   trait Interface extends Provider with Component

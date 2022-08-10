@@ -11,23 +11,24 @@ object EnvironmentModelModule:
   /** A trait that represents the model for environment values and time management. */
   trait EnvironmentModel:
 
-    /** Object that represent the city where the greenhouse is placed, it stores its [[Environment]] values */
+    /** Object that represent the city where the greenhouse is placed, it stores its [[Environment]] values. */
     val environment: Environment
 
-    /** set subject for Temperature sensor [[it.unibo.pps.smartgh.model.sensor.TemperatureSensor]]*/
+    /** set subject for Temperature sensor [[it.unibo.pps.smartgh.model.sensor.TemperatureSensor]]. */
     val subjectTemperature: ConcurrentSubject[Double, Double]
-    
-    /** set subject for Humidity sensor [[it.unibo.pps.smartgh.model.sensor.SoilHumiditySensor]]*/
+
+    /** set subject for Humidity sensor [[it.unibo.pps.smartgh.model.sensor.SoilHumiditySensor]]. */
     val subjectHumidity: ConcurrentSubject[Double, Double]
-    
-    /** set subject for Luminosity sensor [[it.unibo.pps.smartgh.model.sensor.LuminositySensor]]*/
+
+    /** set subject for Luminosity sensor [[it.unibo.pps.smartgh.model.sensor.LuminositySensor]]. */
     val subjectLuminosity: ConcurrentSubject[Double, Double]
-    
-    /** set subject for soil moisture sensor [[it.unibo.pps.smartgh.model.sensor.SoilHumiditySensor]]*/
+
+    /** set subject for soil moisture sensor [[it.unibo.pps.smartgh.model.sensor.SoilHumiditySensor]]. */
     val subjectSoilMoisture: ConcurrentSubject[Double, Double]
 
   /** Trait that represents the provider of the model for environment values and time management. */
   trait Provider:
+    /** The environment model. */
     val environmentModel: EnvironmentModel
 
   /** Trait that represents the components of the model for environment values and time management. */

@@ -20,7 +20,7 @@ import org.testfx.matcher.control.LabeledMatchers
 import org.testfx.matcher.control.LabeledMatchers.hasText
 import scalafx.scene.Scene
 import it.unibo.pps.smartgh.mvc.SimulationMVC
-
+/** This class contains the tests to verify that the [[SelectPlantViewModule]] work correctly. */
 @TestInstance(Lifecycle.PER_CLASS)
 @ExtendWith(Array(classOf[ApplicationExtension]))
 class SelectPlantViewModuleTest extends AbstractViewTest:

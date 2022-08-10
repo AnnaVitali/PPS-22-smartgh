@@ -11,6 +11,7 @@ import org.testfx.framework.junit5.{ApplicationExtension, Start}
 import org.testfx.util.WaitForAsyncUtils
 import scalafx.scene.Scene
 
+/** Abstract class for testing the view. */
 abstract class AbstractViewTest:
 
   protected var simulationMVC: SimulationMVCImpl = _

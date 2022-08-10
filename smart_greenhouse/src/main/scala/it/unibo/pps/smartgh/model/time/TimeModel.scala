@@ -22,16 +22,17 @@ trait TimeModel:
 
   /** Getter method for the controller component.
     * @return
-    *   the controller assoociated to the model.
+    *   the controller associated to the model.
     */
   def controller: SimulationController
 
   /** Setter method for the controller component.
     * @param controller
-    *   the controller assoociated to the model.
+    *   the controller associated to the model.
     */
   def controller_=(controller: SimulationController): Unit
 
+  /** Simulation's [[Timer]]. */
   val timer: Timer
 
 /** Object that can be used to create a new instances of [[TimeModel]]. */
@@ -46,7 +47,7 @@ object TimeModel:
     private val endSimulation: FiniteDuration = 1 day
     override val timer: Timer = Timer(endSimulation)
 
-    var lastRequestTime : Long = -1
+    var lastRequestTime: Long = -1
     private val timeSpeed: Double => FiniteDuration = (x: Double) =>
       val x0 = 1
       val x1 = 10
@@ -65,7 +66,7 @@ object TimeModel:
       timer.stop()
 
     private def updateTimeValue(t: FiniteDuration): Unit =
-      val timeValue : String = DurationFormatUtils.formatDuration(t.toMillis, "HH:mm:ss", true)
+      val timeValue: String = DurationFormatUtils.formatDuration(t.toMillis, "HH:mm:ss", true)
       controller.notifyTimeValueChange(timeValue)
       lastRequestTime = hasNewHourPassed(t)
 
@@ -73,5 +74,4 @@ object TimeModel:
       if timeValue.toHours.>(lastRequestTime) then
         controller.notifyNewHourPassed(timeValue.toHours.intValue)
         timeValue.toHours
-      else
-        lastRequestTime
+      else lastRequestTime

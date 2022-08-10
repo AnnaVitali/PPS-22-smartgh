@@ -34,7 +34,6 @@ trait Environment:
 object Environment:
 
   /** Apply method for the [[Environment]].
-    *
     * @return
     *   the [[Environment]] object.
     */

@@ -10,19 +10,21 @@ import monix.reactive.subjects.ConcurrentSubject
 /** Object that can be used to create a new instance of [[GreenHouseDivisionMVC]]. */
 object GreenHouseDivisionMVC:
   /** Create a new [[GreenHouseDivisionMVCImpl]].
-   * @param plants list of [[Plant]]
-   * @return
-   *   a new instance of [[GreenHouseDivisionMVCImpl]].
-   */
+    * @param plants
+    *   list of [[Plant]]
+    * @return
+    *   a new instance of [[GreenHouseDivisionMVCImpl]].
+    */
   def apply(plants: List[Plant]): GreenHouseDivisionMVCImpl = GreenHouseDivisionMVCImpl(plants)
 
   /** Create a new [[GreenHouseDivisionMVCImpl]].
-   * @param plants list of [[Plant]]
-   * @return
-   *   a new instance of [[GreenHouseDivisionMVCImpl]].
-   */
+    * @param plants
+    *   list of [[Plant]]
+    * @return
+    *   a new instance of [[GreenHouseDivisionMVCImpl]].
+    */
   class GreenHouseDivisionMVCImpl(plants: List[Plant])
-    extends GHModelModule.Interface
+      extends GHModelModule.Interface
       with GHViewModule.Interface
       with GHControllerModule.Interface:
 
@@ -30,19 +32,18 @@ object GreenHouseDivisionMVC:
     override val ghController = GreenHouseDivisionControllerImpl()
     override val ghDivisionView = GreenHouseDivisionViewImpl()
 
+    /** Create and set the greenhouse division areas.
+      * @param timer
+      *   of the simulation
+      * @param subjects
+      *   for the sensors
+      */
     def setAreas(timer: Timer, subjects: Map[String, ConcurrentSubject[Double, Double]]): Unit =
-      ghDivisionModel.areas = for p <- plants
+      ghDivisionModel.areas =
+        for p <- plants
         yield AreaMVC(p, timer)
 
-      ghDivisionModel.areas.foreach (a => a.areaModel.setSensorSubjects(subjects))
+      ghDivisionModel.areas.foreach(a => a.areaModel.setSensorSubjects(subjects))
 
+    /** Show the greenhouse and its division. */
     def show(): Unit = ghController.updateView()
-
-
-
-
-
-
-
-
-

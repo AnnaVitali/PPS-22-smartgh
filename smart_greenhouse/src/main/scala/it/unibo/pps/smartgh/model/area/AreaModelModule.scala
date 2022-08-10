@@ -31,7 +31,12 @@ object AreaModelModule:
 
   /** This trait exposes the methods for managing the area model. */
   trait AreaModel:
+    /** Set the status of the area.
+      * @param s
+      *   new [[AreaStatus]]
+      */
     def status_=(s: AreaStatus): Unit
+    /** Status of the area. */
     def status: AreaStatus
     /** [[Plant]] grown in the area. */
     val plant: Plant
@@ -54,6 +59,7 @@ object AreaModelModule:
 
   /** A trait for defining the model instance. */
   trait Provider:
+    /** The area model. */
     val areaModel: AreaModel
 
   /** A trait that represents the area model component. */

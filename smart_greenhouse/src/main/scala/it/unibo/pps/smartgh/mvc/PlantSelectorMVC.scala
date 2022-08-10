@@ -31,6 +31,12 @@ object PlantSelectorMVC:
   def apply(simulationMVC: SimulationMVCImpl, baseView: BaseView): PlantSelectorMVCImpl =
     PlantSelectorMVCImpl(simulationMVC, baseView)
 
+  /** Implementation of the [[PlantSelectorMVCImpl]].
+    * @param simulationMVC
+    *   [[SimulationMVCImpl]] of the simulation
+    * @param baseView
+    *   [[BaseView]] of the simulation
+    */
   class PlantSelectorMVCImpl(simulationMVC: SimulationMVCImpl, baseView: BaseView)
       extends PlantSelectorModelModule.Interface
       with PlantSelectorControllerModule.Interface

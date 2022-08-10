@@ -56,7 +56,10 @@ object SelectPlantViewModule:
 
   /** Trait that represents the provider of the view for the plant selection. */
   trait Provider:
+    /** Select plant view. */
     val selectPlantView: SelectPlantView
+
+  /** Requirements for the [[SelectPlantView]] */
   type Requirements = PlantSelectorControllerModule.Provider
 
   /** Trait that represents the components of the view for the plant selection. */

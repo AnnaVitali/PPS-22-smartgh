@@ -25,7 +25,7 @@ trait Timer:
   /** Current value of the timer. */
   def value: FiniteDuration
 
-  /** Add a new callback to the timer
+  /** Add a new callback to the timer.
     * @param task
     *   a task that will consume by the timer at each tick.
     * @param timeMustPass
@@ -34,7 +34,7 @@ trait Timer:
   def addCallback(task: FiniteDuration => Unit, timeMustPass: Int): Unit
 
   /** Change the period in which the timer emits a tick. For example, with a period of 2 seconds, the timer emits a
-    * value every two seconds
+    * value every two seconds.
     * @param newPeriod
     *   time that has to pass before emitting new items
     */
@@ -58,7 +58,6 @@ object Timer:
     var value: FiniteDuration = 1 seconds
     private var observable: Observable[FiniteDuration] = _
     private var period = 1 seconds
-    private var consumer: FiniteDuration => Unit = _
     private var onFinishTask: Option[Throwable] => Task[Unit] = _
     private var callbacks: Map[(FiniteDuration => Unit, Int), Cancelable] = Map()
 
@@ -91,4 +90,3 @@ object Timer:
         .fromIterable(from.toSeconds to duration.toSeconds)
         .map(Duration(_, TimeUnit.SECONDS))
         .doOnNext(t => Task(this.value = t))
-        .doOnError(c => Task(System.out.println(c)))

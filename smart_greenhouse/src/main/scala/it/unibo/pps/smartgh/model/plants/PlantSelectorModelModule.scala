@@ -73,6 +73,7 @@ object PlantSelectorModelModule:
 
   /** Trait that represents the provider of the model for the plant selection. */
   trait Provider:
+    /** The plant selector model. */
     val plantSelectorModel: PlantSelectorModel
 
   /** Trait that represents the components of the model for the plant selection. */
@@ -108,7 +109,6 @@ object PlantSelectorModelModule:
         subject.onNext(selectedPlants)
 
       override def deselectPlant(plantName: String): Unit =
-        println(plantName)
         if selectedPlants.contains(plantName) then
           selectedPlants = selectedPlants.filter(_ != plantName)
           subject.onNext(selectedPlants)
