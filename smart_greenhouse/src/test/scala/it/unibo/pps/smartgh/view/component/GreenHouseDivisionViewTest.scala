@@ -49,6 +49,7 @@ class GreenHouseDivisionViewTest extends AbstractViewTest:
     startApplication(stage, baseView, ghMVC.ghDivisionView)
     ghMVC.setAreas(timer, Map.empty)
     ghMVC.show()
+    Thread.sleep(2000)
 
   @Test def testLabels(robot: FxRobot): Unit =
     verifyThat(globalGH, isVisible)
