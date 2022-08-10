@@ -17,15 +17,14 @@ import org.scalatest.time.{Milliseconds, Span}
 import scala.concurrent.duration.*
 import scala.language.postfixOps
 
+/** This class contains the tests realized to verify that [[SoilHumiditySensor]] behaves correctly. */
 class SoilHumiditySensorTest extends AnyFunSuite with Matchers with Eventually with BeforeAndAfter:
 
   private var areaComponentsState: AreaComponentsStateImpl = _
   private val timer = Timer(1 day)
   private var humiditySensor: SoilHumiditySensorImpl = _
-  private val subjectEnvironment: ConcurrentSubject[Double, Double] =
-    ConcurrentSubject[Double](MulticastStrategy.publish)
-  private val subjectActions: ConcurrentSubject[AreaComponentsStateImpl, AreaComponentsStateImpl] =
-    ConcurrentSubject[AreaComponentsStateImpl](MulticastStrategy.publish)
+  private val subjectEnvironment = ConcurrentSubject[Double](MulticastStrategy.publish)
+  private val subjectActions = ConcurrentSubject[AreaComponentsStateImpl](MulticastStrategy.publish)
 
   private def setupTimer(tickPeriod: FiniteDuration): Unit =
     timer.start(println("time is up!"))

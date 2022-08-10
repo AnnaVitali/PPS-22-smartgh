@@ -38,7 +38,7 @@ class SelectPlantViewModuleTest extends AbstractViewTest:
   @Start
   private def start(stage: Stage): Unit =
     val baseView: BaseView = BaseView(appTitle, appSubtitle)
-    val simulationMVC = SimulationMVC(stage)
+    simulationMVC = SimulationMVC(stage)
     mvc = PlantSelectorMVCImpl(simulationMVC, baseView)
     startApplication(stage, baseView, mvc.selectPlantView)
 

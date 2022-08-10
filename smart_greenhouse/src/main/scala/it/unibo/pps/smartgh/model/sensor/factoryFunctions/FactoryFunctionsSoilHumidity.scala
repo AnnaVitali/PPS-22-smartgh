@@ -1,6 +1,6 @@
 package it.unibo.pps.smartgh.model.sensor.factoryFunctions
 
-/** Object that represents a factory for the different functions that can be applied to calculate the new brightness
+/** Object that represents a factory for the different functions that can be applied to calculate the new soil humidity
   * value of the [[SoilHumiditySensor]].
   */
 object FactoryFunctionsSoilHumidity:

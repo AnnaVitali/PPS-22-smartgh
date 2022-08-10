@@ -4,6 +4,7 @@ import it.unibo.pps.smartgh.mvc.{SelectCityMVC, SimulationMVC}
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
+import javafx.application.Platform
 import javafx.fxml.FXML
 import javafx.geometry.Pos
 import javafx.scene.layout.BorderPane
@@ -36,13 +37,17 @@ object FinishSimulationView:
 
     @FXML
     var simulationEndedLabel: Label = _
+    
+    val startNewSimulationButton: Button = baseView.changeSceneButton
 
-    simulationEndedLabel.setText("Simulation ended!")
 //    startNewSimulationButton.setStyle("-fx-background-color: #33cc33")
 //    startNewSimulationButton.setOnMouseEntered(_ => startNewSimulationButton.setStyle("-fx-background-color: #5cd65c"))
 //    startNewSimulationButton.setOnMouseExited(_ => startNewSimulationButton.setStyle("-fx-background-color: #33cc33"))
 
-    baseView.changeSceneButton.setText("Start a new simulation")
+    Platform.runLater { () =>
+      simulationEndedLabel.setText("Simulation ended!")
+      baseView.changeSceneButton.setText("Start a new simulation")
+    }
     baseView.changeSceneButton.setOnMouseClicked { _ =>
       simulationMVC.simulationController.resetSimulation()
       simulationMVC.simulationView.changeView(SelectCityMVC(simulationMVC, baseView).selectCityView)

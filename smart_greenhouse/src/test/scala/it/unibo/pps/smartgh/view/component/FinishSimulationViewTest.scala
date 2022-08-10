@@ -1,5 +1,6 @@
 package it.unibo.pps.smartgh.view.component
 
+import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.view.component
 import javafx.scene.layout.{BorderPane, VBox}
 import javafx.stage.Stage
@@ -26,7 +27,8 @@ class FinishSimulationViewTest extends AbstractViewTest:
   @Start
   private def start(stage: Stage): Unit =
     val baseView: BaseView = BaseView(appTitle, appSubtitle)
-    startApplication(stage, baseView, FinishSimulationView(null, baseView))
+    simulationMVC = SimulationMVC(stage)
+    startApplication(stage, baseView, FinishSimulationView(simulationMVC, baseView))
 
   @Test def testLabel(robot: FxRobot): Unit =
     val simulationEndedText = "Simulation ended!"

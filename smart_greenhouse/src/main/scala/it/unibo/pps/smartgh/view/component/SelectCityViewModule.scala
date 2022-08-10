@@ -26,6 +26,10 @@ object SelectCityViewModule:
     /** The [[AutoCompletionBinding]] component. */
     def autoCompletionBinding: AutoCompletionBinding[String]
 
+    /** Method that asks the view to move to the next Scene.
+      * @param selectPlantView
+      *   the next scene that needs to be shown.
+      */
     def moveToNextScene(selectPlantView: SelectPlantView): Unit
 
   /** Trait that represents the provider of the view for the city selection. */
@@ -52,7 +56,6 @@ object SelectCityViewModule:
         with SelectCityView:
 
       override val component: BorderPane = loader.load[BorderPane]
-      //private val controller: SelectCityController = context.selectCityController
       var autoCompletionBinding: AutoCompletionBinding[String] = _
 
       @FXML
@@ -66,19 +69,19 @@ object SelectCityViewModule:
           selectCityTextField,
           text => {
             if !errorLabel.getText.isBlank then setErrorText("")
-            asJavaCollection(context.selectCityController.searchCities(text.getUserText().capitalize))
+            asJavaCollection(selectCityController.searchCities(text.getUserText().capitalize))
           }
         )
 
       autoCompletionBinding.setDelay(0)
 
-      baseView.changeSceneButton.setText("Next")
+      Platform.runLater(() => baseView.changeSceneButton.setText("Next"))
       baseView.changeSceneButton.setOnMouseClicked { _ =>
         val selectedCity = selectCityTextField.getText.capitalize
         if selectedCity.isBlank then setErrorText("Please select a city")
-        else if context.selectCityController.containCity(selectedCity) then
-          context.selectCityController.saveCity(selectedCity)
-          context.selectCityController.nextMVC(baseView)
+        else if selectCityController.containCity(selectedCity) then
+          selectCityController.saveCity(selectedCity)
+          selectCityController.nextMVC(baseView)
         else setErrorText("The selected city is not valid")
       }
 
