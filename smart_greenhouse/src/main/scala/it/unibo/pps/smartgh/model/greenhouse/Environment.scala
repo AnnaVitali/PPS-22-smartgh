@@ -1,4 +1,4 @@
-package it.unibo.pps.smartgh.model.city
+package it.unibo.pps.smartgh.model.greenhouse
 
 import org.json4s.*
 import org.json4s.jackson.JsonMethods.*

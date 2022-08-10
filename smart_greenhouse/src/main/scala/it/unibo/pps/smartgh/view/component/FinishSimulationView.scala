@@ -1,7 +1,7 @@
 package it.unibo.pps.smartgh.view.component
 
-import it.unibo.pps.smartgh.mvc.{SelectCityMVC, SimulationMVC}
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
+import it.unibo.pps.smartgh.mvc.component.SelectCityMVC
 import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.application.Platform
@@ -37,7 +37,7 @@ object FinishSimulationView:
 
     @FXML
     var simulationEndedLabel: Label = _
-    
+
     val startNewSimulationButton: Button = baseView.changeSceneButton
 
 //    startNewSimulationButton.setStyle("-fx-background-color: #33cc33")

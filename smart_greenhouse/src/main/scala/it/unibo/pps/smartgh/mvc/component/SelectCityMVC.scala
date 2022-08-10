@@ -1,13 +1,12 @@
-package it.unibo.pps.smartgh.mvc
+package it.unibo.pps.smartgh.mvc.component
 
-import it.unibo.pps.smartgh.controller.SelectCityControllerModule
-import it.unibo.pps.smartgh.controller.SelectCityControllerModule.SelectCityController
-import it.unibo.pps.smartgh.model.city.{SelectCityModelModule, UploadCities}
+import it.unibo.pps.smartgh.controller.component.SelectCityControllerModule.SelectCityController
+import it.unibo.pps.smartgh.controller.component.SelectCityControllerModule
+import it.unibo.pps.smartgh.model.city.SelectCityModelModule
 import it.unibo.pps.smartgh.model.city.SelectCityModelModule.SelectCityModel
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
-import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
-import it.unibo.pps.smartgh.view.component.{BaseView, SelectCityViewModule}
 import it.unibo.pps.smartgh.view.component.SelectCityViewModule.SelectCityView
+import it.unibo.pps.smartgh.view.component.{BaseView, SelectCityViewModule}
 
 /** Object that incapsulate the model view and controller module for the plant selection. */
 object SelectCityMVC:

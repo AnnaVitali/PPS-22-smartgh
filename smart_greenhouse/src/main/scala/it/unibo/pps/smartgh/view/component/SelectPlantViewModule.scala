@@ -1,6 +1,5 @@
 package it.unibo.pps.smartgh.view.component
 
-import it.unibo.pps.smartgh.controller.PlantSelectorControllerModule
 import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
 import it.unibo.pps.smartgh.view.component.EnvironmentViewModule.EnvironmentView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
@@ -10,13 +9,14 @@ import javafx.scene.layout.{HBox, VBox}
 import javafx.scene.control.{CheckBox, Label}
 import javafx.scene.layout.BorderPane
 import cats.syntax.eq.catsSyntaxEq
+import it.unibo.pps.smartgh.controller.component.PlantSelectorControllerModule
+import it.unibo.pps.smartgh.model.greenhouse.Environment
 import it.unibo.pps.smartgh.model.plants.{PlantSelectorModelModule, UploadPlants}
 import javafx.application.Platform
-import it.unibo.pps.smartgh.mvc.EnvironmentMVC
 import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.model.plants.Plant
-import it.unibo.pps.smartgh.model.city.Environment
+import it.unibo.pps.smartgh.mvc.component.EnvironmentMVC
 
 import scala.jdk.javaapi.CollectionConverters.asJavaCollection
 import scala.language.postfixOps

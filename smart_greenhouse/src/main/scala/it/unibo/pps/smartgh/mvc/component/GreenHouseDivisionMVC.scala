@@ -1,9 +1,10 @@
-package it.unibo.pps.smartgh.mvc
+package it.unibo.pps.smartgh.mvc.component
 
-import it.unibo.pps.smartgh.controller.GHControllerModule
+import it.unibo.pps.smartgh.controller.component.GHControllerModule
 import it.unibo.pps.smartgh.model.greenhouse.GHModelModule
 import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.model.time.Timer
+import it.unibo.pps.smartgh.mvc.component.AreaMVC
 import it.unibo.pps.smartgh.view.component.GHViewModule
 import monix.reactive.subjects.ConcurrentSubject
 

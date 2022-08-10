@@ -1,6 +1,6 @@
 package it.unibo.pps.smartgh.model.city
 
-import it.unibo.pps.smartgh.model.city.Environment
+import it.unibo.pps.smartgh.model.greenhouse.Environment
 import org.scalatest.BeforeAndAfter
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers

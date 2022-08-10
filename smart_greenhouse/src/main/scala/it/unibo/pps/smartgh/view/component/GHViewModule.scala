@@ -1,7 +1,7 @@
 package it.unibo.pps.smartgh.view.component
 
 import cats.syntax.eq.catsSyntaxEq
-import it.unibo.pps.smartgh.controller.GHControllerModule
+import it.unibo.pps.smartgh.controller.component.GHControllerModule
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.application.Platform
 import javafx.fxml.FXML

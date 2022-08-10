@@ -1,10 +1,10 @@
 package it.unibo.pps.smartgh.view.component
 
+import it.unibo.pps.smartgh.controller.component.EnvironmentControllerModule
 import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.scene.control.*
 import javafx.scene.layout.BorderPane
-import it.unibo.pps.smartgh.controller.EnvironmentControllerModule
 import it.unibo.pps.smartgh.view.component.GHViewModule.GHDivisionView
 import javafx.application.Platform
 import javafx.fxml.FXML

@@ -1,13 +1,13 @@
 package it.unibo.pps.smartgh.view.component
 
 import com.sun.javafx.css.StyleClassSet.getStyleClass
-import it.unibo.pps.smartgh.controller.GHControllerModule
+import it.unibo.pps.smartgh.controller.component.GHControllerModule
 import it.unibo.pps.smartgh.model.area.AreaModelModule
-import it.unibo.pps.smartgh.model.city.Environment
-import it.unibo.pps.smartgh.model.greenhouse.GHModelModule
+import it.unibo.pps.smartgh.model.greenhouse.{Environment, GHModelModule}
 import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.model.time.Timer
-import it.unibo.pps.smartgh.mvc.{GreenHouseDivisionMVC, SimulationMVC}
+import it.unibo.pps.smartgh.mvc.SimulationMVC
+import it.unibo.pps.smartgh.mvc.component.GreenHouseDivisionMVC
 import it.unibo.pps.smartgh.view.component.*
 import javafx.scene.Node
 import javafx.scene.control.Button

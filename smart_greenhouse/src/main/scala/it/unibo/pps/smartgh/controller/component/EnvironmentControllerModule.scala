@@ -1,15 +1,17 @@
-package it.unibo.pps.smartgh.controller
+package it.unibo.pps.smartgh.controller.component
 
-import it.unibo.pps.smartgh.view.component.{BaseView, EnvironmentViewModule, FinishSimulationView}
+import it.unibo.pps.smartgh.controller.SimulationControllerModule
 import it.unibo.pps.smartgh.model.greenhouse.EnvironmentModelModule
-import it.unibo.pps.smartgh.mvc.GreenHouseDivisionMVC
-import it.unibo.pps.smartgh.controller.SimulationControllerModule.*
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
+import it.unibo.pps.smartgh.mvc.component.GreenHouseDivisionMVC
+import it.unibo.pps.smartgh.view.component.{BaseView, EnvironmentViewModule, FinishSimulationView}
 
-/** Object that encloses the controller module to manage ambient environment values and to visualize of simulation time. */
+/** Object that encloses the controller module to manage ambient environment values and to visualize of simulation time.
+  */
 object EnvironmentControllerModule:
 
-  /** A trait that represents the controller to manage ambient environment values and to visualize of simulation time. */
+  /** A trait that represents the controller to manage ambient environment values and to visualize of simulation time.
+    */
   trait EnvironmentController:
 
     /** Method that notify the controller to start the simulation time and to display the division on areas. */
@@ -18,27 +20,26 @@ object EnvironmentControllerModule:
     /** Method that notify the controller to stop the simulation time. */
     def stopSimulation(): Unit
 
-    /** Method that notify the controller to request environment's model to update environment values, and to send changes to view component and sensors.
+    /** Method that notify the controller to request environment's model to update environment values, and to send
+      * changes to view component and sensors.
       * @param hour
       *   time value, expressed in hours, to which the update request refers.
       */
     def notifyEnvironmentValuesChange(hour: Int): Unit
 
-    /**
-      * Method to notify simulation controller to update velocity of the simulation time.
-      * @param value value of the speed factor.
+    /** Method to notify simulation controller to update velocity of the simulation time.
+      * @param value
+      *   value of the speed factor.
       */
     def updateVelocityTimer(value: Double): Unit
 
-    /**
-      * Method to notify environment controller about time value change.
-      * @param timeValue new time value
+    /** Method to notify environment controller about time value change.
+      * @param timeValue
+      *   new time value
       */
     def notifyTimeValueChange(timeValue: String): Unit
 
-    /**
-      * Method that asks the controller to finish the visualization of the simulation.
-      */
+    /** Method that asks the controller to finish the visualization of the simulation. */
     def finishSimulation(): Unit
 
     /** Method that asks the controller to instantiate the next MVC, for the next scene.
@@ -57,17 +58,20 @@ object EnvironmentControllerModule:
     with EnvironmentModelModule.Provider
     with SimulationControllerModule.Provider
 
-  /** Trait that represents the components of the controller for environment values management and time visualization. */
+  /** Trait that represents the components of the controller for environment values management and time visualization.
+    */
   trait Component:
     context: Requirements =>
 
     /** Class that contains the [[EnvironmentController]] implementation.
       * @param simulationMVC
       *   the simulationMVC of the application.
-      * */
+      */
     class EnvironmentControllerImpl(simulationMVC: SimulationMVCImpl) extends EnvironmentController:
 
-      val ghMVC: GreenHouseDivisionMVC.GreenHouseDivisionMVCImpl = GreenHouseDivisionMVC(simulationController.plantsSelected)
+      val ghMVC: GreenHouseDivisionMVC.GreenHouseDivisionMVCImpl = GreenHouseDivisionMVC(
+        simulationController.plantsSelected
+      )
       environmentView.displayGreenHouseDivisionView(ghMVC.ghDivisionView)
 
       override def startSimulation(): Unit =

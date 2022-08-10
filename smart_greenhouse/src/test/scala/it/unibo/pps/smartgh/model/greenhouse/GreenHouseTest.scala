@@ -1,6 +1,6 @@
 package it.unibo.pps.smartgh.model.greenhouse
 
-import it.unibo.pps.smartgh.controller.GHControllerModule
+import it.unibo.pps.smartgh.controller.component.GHControllerModule
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.must.Matchers
 import it.unibo.pps.smartgh.model.greenhouse.GHModelModule

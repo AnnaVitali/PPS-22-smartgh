@@ -1,6 +1,5 @@
 package it.unibo.pps.smartgh.view
 
-import it.unibo.pps.smartgh.mvc.SelectCityMVC
 import scalafx.scene.Scene
 import scalafx.Includes.*
 import it.unibo.pps.smartgh.view.component.*
@@ -8,9 +7,9 @@ import javafx.geometry.Pos
 import javafx.scene.Parent
 import javafx.scene.layout.BorderPane
 import javafx.stage.Stage
-import it.unibo.pps.smartgh.mvc.EnvironmentMVC
-import it.unibo.pps.smartgh.mvc.SimulationMVC
+import it.unibo.pps.smartgh.mvc.{SimulationMVC, component}
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
+import it.unibo.pps.smartgh.mvc.component.{EnvironmentMVC, SelectCityMVC}
 import javafx.application.Platform
 
 /** Object that encloses the view module for the simulation. */
@@ -55,7 +54,7 @@ object SimulationViewModule:
       stage.title = appTitle
 
       override def start(simulationMVC: SimulationMVCImpl): Unit =
-        val selectCityMVC = SelectCityMVC(simulationMVC, baseView)
+        val selectCityMVC = component.SelectCityMVC(simulationMVC, baseView)
         baseView.component.setCenter(selectCityMVC.selectCityView) //init view
         scene.root.value = baseView
         stage.scene = scene

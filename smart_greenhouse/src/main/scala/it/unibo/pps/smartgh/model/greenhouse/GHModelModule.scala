@@ -1,8 +1,8 @@
 package it.unibo.pps.smartgh.model.greenhouse
 
-import it.unibo.pps.smartgh.controller.AreaControllerModule
+import it.unibo.pps.smartgh.controller.component.AreaControllerModule
 import it.unibo.pps.smartgh.model.plants.Plant
-import it.unibo.pps.smartgh.mvc.AreaMVC.AreaMVCImpl
+import it.unibo.pps.smartgh.mvc.component.AreaMVC.AreaMVCImpl
 import it.unibo.pps.smartgh.view.component.AreaViewModule
 import it.unibo.pps.smartgh.view.component.AreaViewModule.Component
 

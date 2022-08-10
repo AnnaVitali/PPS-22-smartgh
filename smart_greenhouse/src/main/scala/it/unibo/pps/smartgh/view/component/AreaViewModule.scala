@@ -1,7 +1,7 @@
 package it.unibo.pps.smartgh.view.component
 
+import it.unibo.pps.smartgh.controller.component.AreaControllerModule
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
-import it.unibo.pps.smartgh.controller.AreaControllerModule
 import javafx.application.Platform
 import javafx.fxml.FXML
 import javafx.scene.control.Button

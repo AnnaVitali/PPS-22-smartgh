@@ -1,17 +1,13 @@
-package it.unibo.pps.smartgh.controller
+package it.unibo.pps.smartgh.controller.component
 
 import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaStatus
 import it.unibo.pps.smartgh.model.greenhouse.GHModelModule
-import it.unibo.pps.smartgh.model.plants.Plant
-import it.unibo.pps.smartgh.mvc.AreaMVC.AreaMVCImpl
 import it.unibo.pps.smartgh.view.component.GHViewModule
 import monix.execution.Ack.Continue
-import monix.reactive.Observable
-import monix.execution.Scheduler.Implicits.global
 import monix.execution.Cancelable
-
+import monix.reactive.Observable
 import concurrent.duration.DurationInt
-import scala.language.postfixOps
+import monix.execution.Scheduler.Implicits.global
 
 /** Implementation of the [[GHControllerModule]]. */
 object GHControllerModule:

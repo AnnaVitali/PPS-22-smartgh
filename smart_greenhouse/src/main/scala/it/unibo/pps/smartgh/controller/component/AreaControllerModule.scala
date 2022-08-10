@@ -1,4 +1,4 @@
-package it.unibo.pps.smartgh.controller
+package it.unibo.pps.smartgh.controller.component
 
 import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.view.component.AreaViewModule

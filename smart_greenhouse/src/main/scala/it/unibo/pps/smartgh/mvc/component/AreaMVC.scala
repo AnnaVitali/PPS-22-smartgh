@@ -1,6 +1,6 @@
-package it.unibo.pps.smartgh.mvc
+package it.unibo.pps.smartgh.mvc.component
 
-import it.unibo.pps.smartgh.controller.AreaControllerModule
+import it.unibo.pps.smartgh.controller.component.AreaControllerModule
 import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.model.time.Timer

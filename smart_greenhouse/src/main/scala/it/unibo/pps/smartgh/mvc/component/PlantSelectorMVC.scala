@@ -1,19 +1,12 @@
-package it.unibo.pps.smartgh.mvc
+package it.unibo.pps.smartgh.mvc.component
 
+import it.unibo.pps.smartgh.controller.component.PlantSelectorControllerModule.PlantSelectorController
+import it.unibo.pps.smartgh.controller.component.PlantSelectorControllerModule
 import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule
-import it.unibo.pps.smartgh.controller.PlantSelectorControllerModule
-import it.unibo.pps.smartgh.view.component.SelectPlantViewModule
-import it.unibo.pps.smartgh.controller.PlantSelectorControllerModule.Interface
-import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.Interface
-import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.Interface
 import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.PlantSelectorModel
-import it.unibo.pps.smartgh.controller.PlantSelectorControllerModule.PlantSelectorController
-import it.unibo.pps.smartgh.model.city.Environment
-import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.SelectPlantView
-import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
-import it.unibo.pps.smartgh.view.component.BaseView
-import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
+import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.SelectPlantView
+import it.unibo.pps.smartgh.view.component.{BaseView, SelectPlantViewModule}
 
 /** Object that encloses the MVC structure for the plant selection. */
 object PlantSelectorMVC:

@@ -1,15 +1,10 @@
-package it.unibo.pps.smartgh.controller
+package it.unibo.pps.smartgh.controller.component
 
-import it.unibo.pps.smartgh.model.plants.UploadPlants
 import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule
-import it.unibo.pps.smartgh.view.component.{BaseView, SelectPlantViewModule}
-import it.unibo.pps.smartgh.model.city.Environment
-import it.unibo.pps.smartgh.controller.SimulationControllerModule
-import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
-import monix.execution.Ack.{Continue, Stop}
-import monix.execution.Scheduler.Implicits.global
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
-import it.unibo.pps.smartgh.mvc.EnvironmentMVC
+import it.unibo.pps.smartgh.mvc.component
+import it.unibo.pps.smartgh.view.component.{BaseView, SelectPlantViewModule}
+import monix.execution.Ack.Continue
 
 /** Object that encloses the controller module for the plant selection. */
 object PlantSelectorControllerModule:
@@ -78,7 +73,7 @@ object PlantSelectorControllerModule:
         catch case e: NoSuchElementException => context.selectPlantView.showErrorMessage(e.getMessage)
 
       override def nextMVC(baseView: BaseView): Unit =
-        val environmentMVC = EnvironmentMVC(simulationMVC, baseView)
+        val environmentMVC = component.EnvironmentMVC(simulationMVC, baseView)
         simulationMVC.simulationController.environmentController = environmentMVC.environmentController
         context.selectPlantView.moveToNextScene(environmentMVC.environmentView)
 

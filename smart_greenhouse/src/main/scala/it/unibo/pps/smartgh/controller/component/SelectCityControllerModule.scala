@@ -1,13 +1,10 @@
-package it.unibo.pps.smartgh.controller
+package it.unibo.pps.smartgh.controller.component
 
-import it.unibo.pps.smartgh.model.city.Environment
 import it.unibo.pps.smartgh.model.city.SelectCityModelModule
-import it.unibo.pps.smartgh.model.city.SelectCityModelModule.SelectCityModel
-import it.unibo.pps.smartgh.view.component.{BaseView, SelectCityViewModule}
-import it.unibo.pps.smartgh.view.component.SelectCityViewModule.SelectCityView
-import it.unibo.pps.smartgh.controller.SimulationControllerModule.SimulationController
+import it.unibo.pps.smartgh.model.greenhouse.Environment
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
-import it.unibo.pps.smartgh.mvc.PlantSelectorMVC
+import it.unibo.pps.smartgh.mvc.component
+import it.unibo.pps.smartgh.view.component.{BaseView, SelectCityViewModule}
 
 /** Object that encloses the controller module for the city selection. */
 object SelectCityControllerModule:
@@ -72,7 +69,7 @@ object SelectCityControllerModule:
         simulationMVC.simulationController.environment = Environment(name)
 
       override def nextMVC(baseView: BaseView): Unit =
-        val plantSelectorMVC = PlantSelectorMVC(simulationMVC, baseView)
+        val plantSelectorMVC = component.PlantSelectorMVC(simulationMVC, baseView)
         selectCityView.moveToNextScene(plantSelectorMVC.selectPlantView)
 
       override def getAllCities: Seq[String] = selectCityModel.getAllCities

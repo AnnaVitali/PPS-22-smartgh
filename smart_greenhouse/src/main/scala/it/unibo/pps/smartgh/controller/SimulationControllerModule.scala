@@ -1,13 +1,13 @@
 package it.unibo.pps.smartgh.controller
 
-import it.unibo.pps.smartgh.controller.EnvironmentControllerModule.EnvironmentController
-import it.unibo.pps.smartgh.controller.PlantSelectorControllerModule.Requirements
+import it.unibo.pps.smartgh.controller.component.EnvironmentControllerModule.EnvironmentController
+import it.unibo.pps.smartgh.controller.component.PlantSelectorControllerModule.Requirements
+import it.unibo.pps.smartgh.model.greenhouse.Environment
 import it.unibo.pps.smartgh.model.greenhouse.EnvironmentModelModule.EnvironmentModel
 import it.unibo.pps.smartgh.model.time.{TimeModel, Timer}
 import it.unibo.pps.smartgh.view.component.EnvironmentViewModule.EnvironmentView
 import it.unibo.pps.smartgh.view.SimulationViewModule
 import it.unibo.pps.smartgh.model.plants.Plant
-import it.unibo.pps.smartgh.model.city.Environment
 
 /** Object that encloses the controller module for the simulation. */
 object SimulationControllerModule:
