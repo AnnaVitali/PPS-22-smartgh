@@ -36,13 +36,13 @@ L'obiettivo di questo sprint, consiste nel dare la possibilità all'utente di po
             <td>Refactor e ottimizzazione views dell'applicazione</td>
             <td>Veronika</td>
             <td>2</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Realizzare model dettaglio aree</td>
