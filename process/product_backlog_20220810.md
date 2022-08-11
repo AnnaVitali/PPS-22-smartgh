@@ -20,7 +20,7 @@ L'obiettivo di questo sprint, consiste nel dare la possibilità all'utente di po
     </thead>
     <tbody>
         <tr>
-            <td rowspan="5">Consentire la gestione di un'area</td>
+            <td rowspan="6">Consentire la gestione di un'area</td>
             <td>Refactor e ottimizzazione controllers dell'applicazione</td>
             <td>Anna</td>
             <td>2</td>
