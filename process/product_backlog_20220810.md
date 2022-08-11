@@ -24,13 +24,13 @@ L'obiettivo di questo sprint, consiste nel dare la possibilità all'utente di po
             <td>Refactor e ottimizzazione controllers dell'applicazione</td>
             <td>Anna</td>
             <td>2</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Refactor e ottimizzazione views dell'applicazione</td>
