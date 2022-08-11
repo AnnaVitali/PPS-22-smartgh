@@ -46,3 +46,14 @@ object AreaComponentsState:
     var temperature: Double = 27.0
     val soilHumidity: Double = 30.0
     var humidityActions: AreaHumidityState = AreaHumidityState.None
+
+    def copy(): AreaComponentsStateImpl =
+      val copy = AreaComponentsState()
+      copy.shieldState = shieldState
+      copy.temperature = temperature
+      copy.gatesState = gatesState
+      copy.humidityActions = humidityActions
+      copy.atomisingState = atomisingState
+      copy.ventilationState = ventilationState
+      copy.brightnessOfTheLamps = brightnessOfTheLamps
+      copy
