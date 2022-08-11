@@ -38,4 +38,4 @@ object PlantSelectorMVC:
     override val selectPlantView: SelectPlantView = SelectPlantViewImpl(simulationMVC.simulationView, baseView)
     override val plantSelectorController: PlantSelectorController = PlantSelectorControllerImpl(simulationMVC)
 
-    plantSelectorController.configureAvailablePlants()
+    plantSelectorController.configureModelCallbacks()

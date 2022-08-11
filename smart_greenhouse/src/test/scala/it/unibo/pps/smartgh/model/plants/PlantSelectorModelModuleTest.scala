@@ -7,6 +7,7 @@ import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.Component
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 import it.unibo.pps.smartgh.Config
+import monix.execution.Ack.Continue
 
 import java.util.NoSuchElementException
 
@@ -65,6 +66,14 @@ class PlantSelectorModelModuleTest
   test(s"$PS should maintain the selected plants") {
     val plantIndex = 0
     val selectedPlant = plantSelectorModel.getAllAvailablePlants(plantIndex)
+    var plantList: List[Plant] = List()
     plantSelectorModel.selectPlant(selectedPlant)
-    plantSelectorModel.getPlantsSelected.size shouldEqual plantSelectorModel.getPlantsSelectedName.size
+    plantSelectorModel.registerCallbackPlantInfo(
+      (p: Plant) => {
+        plantList = plantList :+ p
+        Continue
+      },
+      (ex: Throwable) => ex.printStackTrace(),
+      () => plantList shouldEqual plantSelectorModel.getPlantsSelectedName.size
+    )
   }

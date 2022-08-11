@@ -4,7 +4,9 @@ import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.mvc.component
 import it.unibo.pps.smartgh.view.component.{BaseView, SelectPlantViewModule}
+import it.unibo.pps.smartgh.model.plants
 import monix.execution.Ack.Continue
+import it.unibo.pps.smartgh.model.plants.Plant
 
 /** Object that encloses the controller module for the plant selection. */
 object PlantSelectorControllerModule:
@@ -13,7 +15,7 @@ object PlantSelectorControllerModule:
   trait PlantSelectorController extends SceneController:
 
     /** Method that requires to the controller to configure the available plants that can be chosen by the user. */
-    def configureAvailablePlants(): Unit
+    def configureModelCallbacks(): Unit
 
     /** Method that notifies the controller that a plant has been selected.
       * @param plantName
@@ -48,16 +50,9 @@ object PlantSelectorControllerModule:
       */
     class PlantSelectorControllerImpl(simulationMVC: SimulationMVCImpl) extends PlantSelectorController:
 
-      override def configureAvailablePlants(): Unit =
-        plantSelectorModel.registerCallback(
-          (l: List[String]) => {
-            selectPlantView.updateSelectedPlant(l)
-            Continue
-          },
-          (ex: Throwable) => ex.printStackTrace(),
-          () => {}
-        )
-        selectPlantView.showSelectablePlants(plantSelectorModel.getAllAvailablePlants)
+      override def configureModelCallbacks(): Unit =
+        configurePlantSelectionCallback()
+        configurePlantInfoCallback()
 
       override def notifySelectedPlant(plantName: String): Unit =
         plantSelectorModel.selectPlant(plantName)
@@ -73,9 +68,32 @@ object PlantSelectorControllerModule:
 
       override def notifyStartSimulationClicked(): Unit =
         if plantSelectorModel.getPlantsSelectedName.nonEmpty then
-          simulationMVC.simulationController.plantsSelected = plantSelectorModel.getPlantsSelected
+          plantSelectorModel.startEmittingPlantsSelected()
           selectPlantView.setNewScene()
         else selectPlantView.showErrorMessage("At least one plant must be selected")
+
+      private def configurePlantSelectionCallback(): Unit =
+        plantSelectorModel.registerCallbackPlantSelection(
+          (l: List[String]) => {
+            selectPlantView.updateSelectedPlant(l)
+            Continue
+          },
+          (ex: Throwable) => ex.printStackTrace(),
+          () => {}
+        )
+        selectPlantView.showSelectablePlants(plantSelectorModel.getAllAvailablePlants)
+
+      private def configurePlantInfoCallback(): Unit =
+        var plantList: List[Plant] = List()
+        plantSelectorModel.registerCallbackPlantInfo(
+          (p: Plant) => {
+            plantList = plantList :+ p
+            Continue
+          },
+          (ex: Throwable) => ex.printStackTrace(),
+          () => simulationMVC.simulationController.plantsSelected = plantList
+        )
+        selectPlantView.showSelectablePlants(plantSelectorModel.getAllAvailablePlants)
 
   /** Trait that encloses the controller for the plant selection. */
   trait Interface extends Provider with Component:
