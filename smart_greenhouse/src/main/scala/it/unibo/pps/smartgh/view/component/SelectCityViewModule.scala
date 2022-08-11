@@ -21,16 +21,10 @@ import scala.jdk.javaapi.CollectionConverters.*
 object SelectCityViewModule:
 
   /** A trait that represents the select city scene of the application. */
-  trait SelectCityView extends ViewComponent[BorderPane]:
+  trait SelectCityView extends ViewComponent[BorderPane] with ContiguousSceneView[BorderPane]:
 
     /** The [[AutoCompletionBinding]] component. */
     def autoCompletionBinding: AutoCompletionBinding[String]
-
-    /** Method that asks the view to move to the next Scene.
-      * @param selectPlantView
-      *   the next scene that needs to be shown.
-      */
-    def moveToNextScene(selectPlantView: SelectPlantView): Unit
 
   /** Trait that represents the provider of the view for the city selection. */
   trait Provider:
@@ -81,13 +75,16 @@ object SelectCityViewModule:
         if selectedCity.isBlank then setErrorText("Please select a city")
         else if selectCityController.containCity(selectedCity) then
           selectCityController.saveCity(selectedCity)
-          selectCityController.instantiateNextSceneMVC(baseView)
+          setNewScene()
         else setErrorText("The selected city is not valid")
       }
 
-      override def moveToNextScene(selectPlantView: SelectPlantView): Unit =
-        simulationView.changeView(selectPlantView)
+      override def setNewScene(): Unit =
+        selectCityController.instantiateNextSceneMVC(baseView)
 
+      override def moveToNextScene(component: ViewComponent[BorderPane]): Unit =
+        simulationView.changeView(component)
+        
       private def setErrorText(text: String): Unit =
         Platform.runLater(() => errorLabel.setText(text))
 
