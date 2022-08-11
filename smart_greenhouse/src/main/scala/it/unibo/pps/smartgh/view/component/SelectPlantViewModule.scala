@@ -111,7 +111,7 @@ object SelectPlantViewModule:
 
       baseView.changeSceneButton.setText("Start simulation")
       baseView.changeSceneButton.setOnMouseClicked { _ =>
-        Platform.runLater(() => context.plantSelectorController.notifyStartSimulationClicked())
+        context.plantSelectorController.notifyStartSimulationClicked()
       }
 
       override def showSelectablePlants(selectablePlantList: List[String]): Unit =
@@ -139,7 +139,7 @@ object SelectPlantViewModule:
         simulationView.changeView(environmentView)
 
       override def setNewScene(): Unit =
-        plantSelectorController.nextMVC(baseView)
+        plantSelectorController.instantiateNextSceneMVC(baseView)
 
       override def showErrorMessage(message: String): Unit =
         Platform.runLater(() => errorLabel.setText(message))

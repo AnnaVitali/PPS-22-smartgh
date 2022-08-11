@@ -12,7 +12,7 @@ object EnvironmentControllerModule:
 
   /** A trait that represents the controller to manage ambient environment values and to visualize of simulation time.
     */
-  trait EnvironmentController:
+  trait EnvironmentController extends SceneController:
 
     /** Method that notify the controller to start the simulation time and to display the division on areas. */
     def startSimulation(): Unit
@@ -41,12 +41,6 @@ object EnvironmentControllerModule:
 
     /** Method that asks the controller to finish the visualization of the simulation. */
     def finishSimulation(): Unit
-
-    /** Method that asks the controller to instantiate the next MVC, for the next scene.
-      * @param baseView
-      *   the template view for the next scene.
-      */
-    def nextMVC(baseView: BaseView): Unit
 
   /** Trait that represents the provider of the controller for environment values and time management. */
   trait Provider:
@@ -104,7 +98,7 @@ object EnvironmentControllerModule:
       override def finishSimulation(): Unit =
         environmentView.finishSimulation()
 
-      override def nextMVC(baseView: BaseView): Unit =
+      override def instantiateNextSceneMVC(baseView: BaseView): Unit =
         environmentView.moveToNextScene(FinishSimulationView(simulationMVC, baseView))
 
       private def notifySensors(values: environmentModel.environment.EnvironmentValues): Unit =

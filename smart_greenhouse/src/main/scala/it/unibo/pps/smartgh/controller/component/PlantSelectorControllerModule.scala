@@ -10,7 +10,7 @@ import monix.execution.Ack.Continue
 object PlantSelectorControllerModule:
 
   /** A trait that represents the controller for the plant selection scene. */
-  trait PlantSelectorController:
+  trait PlantSelectorController extends SceneController:
 
     /** Method that requires to the controller to configure the available plants that can be chosen by the user. */
     def configureAvailablePlants(): Unit
@@ -29,12 +29,6 @@ object PlantSelectorControllerModule:
 
     /** Method that notifies the controller that the start simulation button has been clicked */
     def notifyStartSimulationClicked(): Unit
-
-    /** Method that asks the controller to instantiate the next MVC, for the next scene.
-      * @param baseView
-      *   the template view for the next scene
-      */
-    def nextMVC(baseView: BaseView): Unit
 
   /** Trait that represents the provider of the controller for the plant selection. */
   trait Provider:
@@ -72,7 +66,7 @@ object PlantSelectorControllerModule:
         try plantSelectorModel.deselectPlant(plantName)
         catch case e: NoSuchElementException => selectPlantView.showErrorMessage(e.getMessage)
 
-      override def nextMVC(baseView: BaseView): Unit =
+      override def instantiateNextSceneMVC(baseView: BaseView): Unit =
         val environmentMVC = component.EnvironmentMVC(simulationMVC, baseView)
         simulationMVC.simulationController.environmentController = environmentMVC.environmentController
         selectPlantView.moveToNextScene(environmentMVC.environmentView)
