@@ -46,10 +46,7 @@ object LoadingPlantViewModule:
       baseView.changeSceneButton.setVisible(false)
 
       override def incrementProgressIndicator(increment: Double): Unit =
-        Platform.runLater(() =>
-          println("call progress indicator")
-          progressIndicator.setProgress(increment)
-        )
+        Platform.runLater(() => progressIndicator.setProgress(increment))
 
       override def setupNextScene(): Unit =
         Platform.runLater(() => loadingPlantController.instantiateNextSceneMVC(baseView))
