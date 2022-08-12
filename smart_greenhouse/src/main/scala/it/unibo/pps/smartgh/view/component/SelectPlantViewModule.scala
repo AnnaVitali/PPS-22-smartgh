@@ -115,9 +115,11 @@ object SelectPlantViewModule:
       }
 
       override def showSelectablePlants(selectablePlantList: List[String]): Unit =
-        val selectablePlantsCheckBoxList = selectablePlantList.map(new CheckBox(_))
-        addEventHandlerToCheckBoxes(selectablePlantsCheckBoxList)
-        selectablePlantsBox.getChildren.addAll(asJavaCollection(selectablePlantsCheckBoxList))
+        Platform.runLater(() =>
+          val selectablePlantsCheckBoxList = selectablePlantList.map(new CheckBox(_))
+          addEventHandlerToCheckBoxes(selectablePlantsCheckBoxList)
+          selectablePlantsBox.getChildren.addAll(asJavaCollection(selectablePlantsCheckBoxList))
+        )
 
       override def updateSelectedPlant(selectedPlants: List[String]): Unit =
         Platform.runLater(() =>
@@ -136,10 +138,10 @@ object SelectPlantViewModule:
         })
 
       override def moveToNextScene(environmentView: EnvironmentView): Unit =
-        simulationView.changeView(environmentView)
+        Platform.runLater(() => simulationView.changeView(environmentView))
 
       override def setNewScene(): Unit =
-        plantSelectorController.instantiateNextSceneMVC(baseView)
+        Platform.runLater(() => plantSelectorController.instantiateNextSceneMVC(baseView))
 
       override def showErrorMessage(message: String): Unit =
         Platform.runLater(() => errorLabel.setText(message))

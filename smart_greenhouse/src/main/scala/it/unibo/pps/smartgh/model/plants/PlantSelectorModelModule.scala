@@ -130,14 +130,19 @@ object PlantSelectorModelModule:
         subjectPlantInfo.subscribe(onNext, onError, onComplete)
 
       override def selectPlant(plantName: String): Unit =
-        selectedPlants = selectedPlants :+ plantName
-        subjectPlantSelection.onNext(selectedPlants)
+        Task {
+          selectedPlants = selectedPlants :+ plantName
+          subjectPlantSelection.onNext(selectedPlants)
+        }.executeAsync.runToFuture
 
       override def deselectPlant(plantName: String): Unit =
-        if selectedPlants.contains(plantName) then
-          selectedPlants = selectedPlants.filter(_ != plantName)
-          subjectPlantSelection.onNext(selectedPlants)
-        else throw new NoSuchElementException("You can't deselect a plant that hasn't been selected!")
+        Task {
+          if selectedPlants.contains(plantName) then
+            selectedPlants = selectedPlants.filter(_ != plantName)
+            subjectPlantSelection
+              .onNext(selectedPlants)
+          else throw new NoSuchElementException("You can't deselect a plant that hasn't been selected!")
+        }.executeAsync.runToFuture
 
       override def getPlantsSelectedName: List[String] = selectedPlants
 
@@ -147,10 +152,13 @@ object PlantSelectorModelModule:
           .flatMap(s => engine("plant(" + s + ", Y)").map(extractTermToString(_, "Y")))
 
       override def startEmittingPlantsSelected(): Unit =
-        selectedPlants
-          .zip(getPlantsSelectedIdentifier)
-          .map((n, i) => subjectPlantInfo.onNext(Plant(n, i)))
-        subjectPlantInfo.onComplete()
+        Task {
+          selectedPlants
+            .zip(getPlantsSelectedIdentifier)
+            .map((n, i) => subjectPlantInfo.onNext(Plant(n, i)))
+          subjectPlantInfo
+            .onComplete()
+        }.executeAsync.runToFuture
 
       private def getCorrectPlantName(plantName: String): String =
         if plantName.contains(" ") then "\'" + plantName + "\'" else plantName

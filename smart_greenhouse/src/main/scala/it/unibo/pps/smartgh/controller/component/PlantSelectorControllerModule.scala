@@ -69,7 +69,8 @@ object PlantSelectorControllerModule:
       override def notifyStartSimulationClicked(): Unit =
         if plantSelectorModel.getPlantsSelectedName.nonEmpty then
           plantSelectorModel.startEmittingPlantsSelected()
-          selectPlantView.setNewScene()
+          println("is async?")
+        //TODO qui mostrare elemento intermedio
         else selectPlantView.showErrorMessage("At least one plant must be selected")
 
       private def configurePlantSelectionCallback(): Unit =
@@ -88,12 +89,15 @@ object PlantSelectorControllerModule:
         plantSelectorModel.registerCallbackPlantInfo(
           (p: Plant) => {
             plantList = plantList :+ p
+            println("plant ready !")
             Continue
           },
           (ex: Throwable) => ex.printStackTrace(),
-          () => simulationMVC.simulationController.plantsSelected = plantList
+          () => {
+            simulationMVC.simulationController.plantsSelected = plantList
+            selectPlantView.setNewScene()
+          }
         )
-        selectPlantView.showSelectablePlants(plantSelectorModel.getAllAvailablePlants)
 
   /** Trait that encloses the controller for the plant selection. */
   trait Interface extends Provider with Component:
