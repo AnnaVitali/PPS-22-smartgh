@@ -2,8 +2,12 @@ package it.unibo.pps.smartgh.model.area
 
 import it.unibo.pps.smartgh.model.area
 import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
+import it.unibo.pps.smartgh.model.area.ManageSensor.ManageSensorImpl
 import it.unibo.pps.smartgh.model.plants.Plant
+import it.unibo.pps.smartgh.model.sensor.LuminositySensor.LuminositySensorImpl
 import it.unibo.pps.smartgh.model.time.Timer
+import monix.reactive.MulticastStrategy
+import monix.reactive.subjects.ConcurrentSubject
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.must.Matchers
 import org.scalatest.matchers.must.Matchers.mustEqual
@@ -106,5 +110,15 @@ class AreaTest extends AnyFunSuite with AreaModelModule.Interface with Matchers:
   }
 
   test("if a sensor has the current value out of the optimal values range its status must be ALARM") {
-    //TODO
+    import monix.execution.Scheduler.Implicits.global
+    import it.unibo.pps.smartgh.model.sensor.SensorStatus
+    val lumSensor = areaModel.sensors.find(ms => ms.name == "Brightness").orNull
+    lumSensor.status mustEqual SensorStatus.NORMAL
+    val subjectEnvironment: ConcurrentSubject[Double, Double] =
+      ConcurrentSubject[Double](MulticastStrategy.publish)
+    areaModel.setSensorSubjects(Map("lux" -> subjectEnvironment))
+    subjectEnvironment.onNext(0)
+    Thread.sleep(100)
+    lumSensor.status mustEqual SensorStatus.ALARM
+
   }
