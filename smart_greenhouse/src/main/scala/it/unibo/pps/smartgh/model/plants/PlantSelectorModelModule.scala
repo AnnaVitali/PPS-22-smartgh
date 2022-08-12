@@ -84,6 +84,8 @@ object PlantSelectorModelModule:
       */
     def getPlantsSelectedIdentifier: List[String]
 
+    def getPlantSelectedCount: Int
+
     /** Method that returns the plants selected for the cultivation in the greenhouse. */
     def startEmittingPlantsSelected(): Unit
 
@@ -158,10 +160,11 @@ object PlantSelectorModelModule:
         Task {
           selectedPlants
             .zip(getPlantsSelectedIdentifier)
-            .map((n, i) => subjectPlantInfo.onNext(Plant(n, i)))
-          subjectPlantInfo
-            .onComplete()
+            .foreach((name, identifier) => subjectPlantInfo.onNext(Plant(name, identifier)))
+          subjectPlantInfo.onComplete()
         }.executeAsync.runToFuture
+
+      override def getPlantSelectedCount: Int = selectedPlants.size
 
       private def getCorrectPlantName(plantName: String): String =
         if plantName.contains(" ") then "\'" + plantName + "\'" else plantName

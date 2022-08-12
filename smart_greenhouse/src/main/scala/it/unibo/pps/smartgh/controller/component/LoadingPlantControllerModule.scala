@@ -13,7 +13,7 @@ object LoadingPlantControllerModule:
 
   trait LoadingPlantController extends SceneController:
 
-    def registerModelCallback(): Unit
+    def setupBehaviour(): Unit
 
   trait Provider:
 
@@ -37,7 +37,7 @@ object LoadingPlantControllerModule:
       }
       private val onCompletePlantsEmission: () => Unit = () => loadingPlantView.setupNextScene()
 
-      override def registerModelCallback(): Unit =
+      override def setupBehaviour(): Unit =
         plantSelectorModel.registerCallbackPlantInfo(
           onNextPlantEmitted,
           (ex: Throwable) => ex.printStackTrace(),

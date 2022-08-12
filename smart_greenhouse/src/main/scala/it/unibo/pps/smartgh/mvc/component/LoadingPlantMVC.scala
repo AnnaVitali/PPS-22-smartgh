@@ -29,4 +29,4 @@ object LoadingPlantMVC:
     override val loadingPlantController: LoadingPlantControllerModule.LoadingPlantController =
       LoadingPlantControllerImpl(simulationMVC)
 
-    loadingPlantController.registerModelCallback()
+    loadingPlantController.setupBehaviour()

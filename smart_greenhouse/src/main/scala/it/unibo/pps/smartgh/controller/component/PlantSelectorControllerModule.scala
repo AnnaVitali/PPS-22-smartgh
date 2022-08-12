@@ -8,6 +8,11 @@ import it.unibo.pps.smartgh.model.plants
 import monix.execution.Ack.Continue
 import it.unibo.pps.smartgh.model.plants.Plant
 
+import concurrent.{Future, Promise}
+import monix.execution.{Ack, Cancelable}
+import it.unibo.pps.smartgh.mvc.component.EnvironmentMVC.EnvironmentMVCImpl
+import it.unibo.pps.smartgh.mvc.component.LoadingPlantMVC
+
 /** Object that encloses the controller module for the plant selection. */
 object PlantSelectorControllerModule:
 
@@ -15,7 +20,7 @@ object PlantSelectorControllerModule:
   trait PlantSelectorController extends SceneController:
 
     /** Method that requires to the controller to configure the available plants that can be chosen by the user. */
-    def configureModelCallbacks(): Unit
+    def setupBehaviour(): Unit
 
     /** Method that notifies the controller that a plant has been selected.
       * @param plantName
@@ -28,9 +33,6 @@ object PlantSelectorControllerModule:
       *   the name of the plant that has been deselected.
       */
     def notifyDeselectedPlant(plantName: String): Unit
-
-    /** Method that notifies the controller that the start simulation button has been clicked */
-    def notifyStartSimulationClicked(): Unit
 
   /** Trait that represents the provider of the controller for the plant selection. */
   trait Provider:
@@ -50,9 +52,15 @@ object PlantSelectorControllerModule:
       */
     class PlantSelectorControllerImpl(simulationMVC: SimulationMVCImpl) extends PlantSelectorController:
 
-      override def configureModelCallbacks(): Unit =
+      private val onNextSelection: List[String] => Future[Ack] = l => {
+        selectPlantView.updateSelectedPlant(l)
+        Continue
+      }
+      private val onSelectionError: Throwable => Unit = ex => selectPlantView.showErrorMessage(ex.getMessage)
+
+      override def setupBehaviour(): Unit =
         configurePlantSelectionCallback()
-        configurePlantInfoCallback()
+        selectPlantView.showSelectablePlants(plantSelectorModel.getAllAvailablePlants)
 
       override def notifySelectedPlant(plantName: String): Unit =
         plantSelectorModel.selectPlant(plantName)
@@ -62,42 +70,14 @@ object PlantSelectorControllerModule:
         catch case e: NoSuchElementException => selectPlantView.showErrorMessage(e.getMessage)
 
       override def instantiateNextSceneMVC(baseView: BaseView): Unit =
-        val environmentMVC = component.EnvironmentMVC(simulationMVC, baseView)
-        simulationMVC.simulationController.environmentController = environmentMVC.environmentController
-        selectPlantView.moveToNextScene(environmentMVC.environmentView)
-
-      override def notifyStartSimulationClicked(): Unit =
         if plantSelectorModel.getPlantsSelectedName.nonEmpty then
+          val loadingPlantMVC = LoadingPlantMVC(simulationMVC, plantSelectorModel, baseView)
+          selectPlantView.moveToNextScene(loadingPlantMVC.loadingPlantView)
           plantSelectorModel.startEmittingPlantsSelected()
-          println("is async?")
-        //TODO qui mostrare elemento intermedio
         else selectPlantView.showErrorMessage("At least one plant must be selected")
 
       private def configurePlantSelectionCallback(): Unit =
-        plantSelectorModel.registerCallbackPlantSelection(
-          (l: List[String]) => {
-            selectPlantView.updateSelectedPlant(l)
-            Continue
-          },
-          (ex: Throwable) => selectPlantView.showErrorMessage(ex.getMessage),
-          () => {}
-        )
-        selectPlantView.showSelectablePlants(plantSelectorModel.getAllAvailablePlants)
-
-      private def configurePlantInfoCallback(): Unit =
-        var plantList: List[Plant] = List()
-        plantSelectorModel.registerCallbackPlantInfo(
-          (p: Plant) => {
-            plantList = plantList :+ p
-            println("plant ready !")
-            Continue
-          },
-          (ex: Throwable) => ex.printStackTrace(),
-          () => {
-            simulationMVC.simulationController.plantsSelected = plantList
-            selectPlantView.setNewScene()
-          }
-        )
+        plantSelectorModel.registerCallbackPlantSelection(onNextSelection, onSelectionError, () => {})
 
   /** Trait that encloses the controller for the plant selection. */
   trait Interface extends Provider with Component:
