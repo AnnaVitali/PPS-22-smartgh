@@ -4,9 +4,8 @@ import it.unibo.pps.smartgh.controller.component.AreaControllerModule
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.application.Platform
 import javafx.fxml.FXML
-import javafx.scene.control.Button
+import javafx.scene.control.{Button, Label, ScrollPane}
 import javafx.scene.layout.VBox
-import javafx.scene.control.Label
 
 import scala.language.postfixOps
 
@@ -53,7 +52,12 @@ object AreaViewModule:
         Platform.runLater(() =>
           plant.setText(plantName)
           params.getChildren.clear()
-          par foreach ((k, v) => params.getChildren.add(new Label(s"$k : $v")))
+          par foreach ((k, v) =>
+            val l = new Label(s"$k : $v")
+            l.setMaxWidth(200)
+            l.setMinWidth(200)
+            params.getChildren.add(l)
+          )
 
           areaBt.setStyle("-fx-background-color: " + statusColor)
 

@@ -5,7 +5,7 @@ import it.unibo.pps.smartgh.controller.component.GHControllerModule
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.application.Platform
 import javafx.fxml.FXML
-import javafx.scene.control.Label
+import javafx.scene.control.{Label, ScrollPane}
 import javafx.scene.layout.{GridPane, StackPane, VBox}
 import scalafx.geometry.Pos
 import scalafx.scene.Cursor.Text
@@ -18,7 +18,7 @@ import scala.language.postfixOps
 /** Implementation of the [[GHViewModule]]. */
 object GHViewModule:
   /** A trait that represents the green house division view of the application. */
-  trait GHDivisionView extends ViewComponent[VBox]:
+  trait GHDivisionView extends ViewComponent[ScrollPane]:
     /** Draws the greenhouse division according to the rows and cols.
       * @param rows
       *   of the greenhouse grid
@@ -44,12 +44,14 @@ object GHViewModule:
       * @return
       *   the implementation of the [[GreenHouseDivisionViewImpl]].
       */
-    class GreenHouseDivisionViewImpl() extends AbstractViewComponent[VBox]("ghDivision.fxml") with GHDivisionView:
+    class GreenHouseDivisionViewImpl() extends AbstractViewComponent[ScrollPane]("ghDivision.fxml") with GHDivisionView:
       private val env = GridPane()
-      override val component: VBox = loader.load[VBox]
+      override val component: ScrollPane = loader.load[ScrollPane]
 
       @FXML
       var ghDivision: VBox = _
+      @FXML
+      var scroll: ScrollPane = _
 
       ghDivision.getChildren.add(env)
       env.setHgap(5)
