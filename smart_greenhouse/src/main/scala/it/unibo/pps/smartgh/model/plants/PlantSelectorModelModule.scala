@@ -11,7 +11,7 @@ import monix.reactive.MulticastStrategy.Behavior
 import monix.reactive.Observable
 import monix.reactive.MulticastStrategy
 import monix.execution.Scheduler.Implicits.global
-import monix.execution.Ack
+import monix.execution.{Ack, Cancelable}
 import it.unibo.pps.smartgh.model.plants.Plant
 
 import concurrent.{Future, Promise}
@@ -41,7 +41,7 @@ object PlantSelectorModelModule:
         onNext: List[String] => Future[Ack],
         onError: Throwable => Unit,
         onComplete: () => Unit
-    ): Unit
+    ): Cancelable
 
     /** Method that registers the callback for the plant information.
       *
@@ -56,7 +56,7 @@ object PlantSelectorModelModule:
         onNext: Plant => Future[Ack],
         onError: Throwable => Unit,
         onComplete: () => Unit
-    ): Unit
+    ): Cancelable
 
     /** Method that need to be called to select a plants that you want to cultivate.
       * @param plantName
@@ -113,20 +113,20 @@ object PlantSelectorModelModule:
         ConcurrentSubject[Plant](MulticastStrategy.publish)
 
       override def getAllAvailablePlants: List[String] =
-        engine("plant(X, Y).").map(extractTermToString(_, "X").replace("'", "")).toList
+        engine("plant(X, Y)").map(extractTermToString(_, "X").replace("'", "")).toList
 
       override def registerCallbackPlantSelection(
           onNext: List[String] => Future[Ack],
           onError: Throwable => Unit,
           onComplete: () => Unit
-      ): Unit =
+      ): Cancelable =
         subjectPlantSelection.subscribe(onNext, onError, onComplete)
 
       override def registerCallbackPlantInfo(
           onNext: Plant => Future[Ack],
           onError: Throwable => Unit,
           onComplete: () => Unit
-      ): Unit =
+      ): Cancelable =
         subjectPlantInfo.subscribe(onNext, onError, onComplete)
 
       override def selectPlant(plantName: String): Unit =
@@ -141,7 +141,10 @@ object PlantSelectorModelModule:
             selectedPlants = selectedPlants.filter(_ != plantName)
             subjectPlantSelection
               .onNext(selectedPlants)
-          else throw new NoSuchElementException("You can't deselect a plant that hasn't been selected!")
+          else
+            subjectPlantSelection.onError(
+              new NoSuchElementException("You can't deselect a plant that hasn't been selected!")
+            )
         }.executeAsync.runToFuture
 
       override def getPlantsSelectedName: List[String] = selectedPlants

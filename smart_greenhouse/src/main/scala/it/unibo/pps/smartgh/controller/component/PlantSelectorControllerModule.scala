@@ -79,7 +79,7 @@ object PlantSelectorControllerModule:
             selectPlantView.updateSelectedPlant(l)
             Continue
           },
-          (ex: Throwable) => ex.printStackTrace(),
+          (ex: Throwable) => selectPlantView.showErrorMessage(ex.getMessage),
           () => {}
         )
         selectPlantView.showSelectablePlants(plantSelectorModel.getAllAvailablePlants)
