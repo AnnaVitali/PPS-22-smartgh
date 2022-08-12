@@ -118,7 +118,7 @@ class AreaTest extends AnyFunSuite with AreaModelModule.Interface with Matchers:
       ConcurrentSubject[Double](MulticastStrategy.publish)
     areaModel.setSensorSubjects(Map("lux" -> subjectEnvironment))
     subjectEnvironment.onNext(0)
-    Thread.sleep(100)
+    Thread.sleep(1000)
     lumSensor.status mustEqual SensorStatus.ALARM
 
   }

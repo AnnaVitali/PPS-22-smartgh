@@ -21,6 +21,8 @@ import monix.execution.Scheduler.Implicits.global
 import it.unibo.pps.smartgh.model.time.Timer
 import monix.execution.Ack.{Continue, Stop}
 import it.unibo.pps.smartgh.model.sensor.SensorStatus
+import monix.eval.Task
+
 import scala.math.BigDecimal
 
 /** Implementation of the [[AreaModelModule]]. */
@@ -196,8 +198,10 @@ object AreaModelModule:
       override def status: AreaStatus = _status
 
       override def status_=(s: AreaStatus): Unit =
-        _status = s
-        subject.onNext(_status)
+        Task {
+          _status = s
+          subject.onNext(_status)
+        }.executeAsync.runToFuture
 
       override def sensorValues(): Map[String, Double] =
         sensors.map(ms => (ms.name, ms.actualVal)).toMap
