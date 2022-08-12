@@ -144,7 +144,7 @@ L'obiettivo di questo sprint, consiste nel dare la possibilità all'utente di po
         </tr>
         <tr>
             <td>Creare e gestire view component per il loading dell'applicazione</td>
-            <td>Veronika</td>
+            <td>Anna</td>
             <td>4</td>
             <td></td>
             <td></td>
@@ -181,7 +181,7 @@ L'obiettivo di questo sprint, consiste nel dare la possibilità all'utente di po
         </tr>
         <tr>
             <td>Inserire guida utente nell'applicazione</td>
-            <td>Anna</td>
+            <td>Veronika</td>
             <td>4</td>
             <td></td>
             <td></td>
