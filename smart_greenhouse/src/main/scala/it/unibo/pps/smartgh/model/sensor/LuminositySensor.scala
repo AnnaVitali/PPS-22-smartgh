@@ -14,6 +14,7 @@ import monix.reactive.MulticastStrategy.Behavior
 import monix.reactive.MulticastStrategy
 import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaShieldState}
 import it.unibo.pps.smartgh.model.area.AreaComponentsState.*
+import monix.eval.Task
 import monix.execution.Ack.Continue
 
 import scala.concurrent.Future
@@ -46,22 +47,24 @@ object LuminositySensor:
       .nextDouble() * (maxPercentage - minPercentage) + minPercentage) * initialLuminosity
 
     override def computeNextSensorValue(): Unit =
-      areaComponentsState.gatesState match
-        case AreaGatesState.Open =>
-          currentValue = FactoryFunctionsLuminosity.updateLuminosityWithAreaGatesOpen(
-            currentEnvironmentValue,
-            areaComponentsState.brightnessOfTheLamps
-          )
-        case AreaGatesState.Close =>
-          areaComponentsState.shieldState match
-            case AreaShieldState.Down =>
-              currentValue = FactoryFunctionsLuminosity.updateLuminosityWithAreaGatesCloseAndShielded(
-                areaComponentsState.brightnessOfTheLamps
-              )
-            case AreaShieldState.Up =>
-              currentValue = FactoryFunctionsLuminosity.updateLuminosityWithAreaGatesCloseAndUnshielded(
-                currentEnvironmentValue,
-                areaComponentsState.brightnessOfTheLamps
-              )
-        case _ =>
-      subject.onNext(currentValue)
+      Task {
+        areaComponentsState.gatesState match
+          case AreaGatesState.Open =>
+            currentValue = FactoryFunctionsLuminosity.updateLuminosityWithAreaGatesOpen(
+              currentEnvironmentValue,
+              areaComponentsState.brightnessOfTheLamps
+            )
+          case AreaGatesState.Close =>
+            areaComponentsState.shieldState match
+              case AreaShieldState.Down =>
+                currentValue = FactoryFunctionsLuminosity.updateLuminosityWithAreaGatesCloseAndShielded(
+                  areaComponentsState.brightnessOfTheLamps
+                )
+              case AreaShieldState.Up =>
+                currentValue = FactoryFunctionsLuminosity.updateLuminosityWithAreaGatesCloseAndUnshielded(
+                  currentEnvironmentValue,
+                  areaComponentsState.brightnessOfTheLamps
+                )
+          case _ =>
+        subject.onNext(currentValue)
+      }.executeAsync.runToFuture
