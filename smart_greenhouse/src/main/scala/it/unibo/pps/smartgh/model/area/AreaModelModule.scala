@@ -226,9 +226,11 @@ object AreaModelModule:
 
       private def checkAlarm(ms: ManageSensorImpl): Unit =
         if (ms.actualVal compareTo ms.min) < 0 || (ms.actualVal compareTo ms.max) > 0 then
-          status = ALARM
+          if status == NORMAL then status = ALARM
           ms.status = SensorStatus.ALARM
-        else ms.status = SensorStatus.NORMAL
+        else
+          ms.status = SensorStatus.NORMAL
+          if sensors.forall(ms => ms.status == SensorStatus.NORMAL) then status = NORMAL
 
       private def configSensors(): Unit =
         sensorsMap.foreach { (name, sensor) =>
