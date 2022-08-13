@@ -63,7 +63,7 @@ object LoadingPlantViewModule:
       @FXML
       var progressIndicator: ProgressIndicator = _
 
-      textLabel.setText("loading of plant data in progress, wait a few moments")
+      textLabel.setText("Loading of plant data in progress, wait a few moments")
       baseView.changeSceneButton.setVisible(false)
 
       override def incrementProgressIndicator(increment: Double): Unit =
