@@ -41,7 +41,7 @@ object SelectPlantViewModule:
     def updateSelectedPlant(selectedPlantList: List[String]): Unit
 
     /** Method that asks the view to move to the next Scene.
-      * @param loadingPlantView
+      * @param nextView
       *   the next scene that needs to be shown.
       */
     def moveToNextScene(nextView: LoadingPlantView): Unit
