@@ -4,6 +4,7 @@ import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsTemper
 import it.unibo.pps.smartgh.model.time.Timer
 import monix.execution.Ack
 import monix.reactive.Observable
+
 import scala.util.Random
 import monix.execution.Scheduler.Implicits.global
 import monix.reactive.subjects.ConcurrentSubject
@@ -12,6 +13,7 @@ import monix.reactive.MulticastStrategy
 import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaShieldState}
 import it.unibo.pps.smartgh.model.area.AreaComponentsState
 import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
+import monix.eval.Task
 import monix.execution.Ack.{Continue, Stop}
 
 import scala.concurrent.Future
@@ -46,10 +48,12 @@ object TemperatureSensor:
       timer.addCallback(onNextTimerEvent(), timeMustPass)
 
     override def computeNextSensorValue(): Unit =
-      areaComponentsState.gatesState match
-        case AreaGatesState.Open if currentValue != currentEnvironmentValue =>
-          currentValue = FactoryFunctionsTemperature.updateTemperature(currentValue, currentEnvironmentValue)
-        case AreaGatesState.Close if currentValue != areaComponentsState.temperature =>
-          currentValue = FactoryFunctionsTemperature.updateTemperature(currentValue, areaComponentsState.temperature)
-        case _ =>
-      subject.onNext(currentValue)
+      Task {
+        areaComponentsState.gatesState match
+          case AreaGatesState.Open if currentValue != currentEnvironmentValue =>
+            currentValue = FactoryFunctionsTemperature.updateTemperature(currentValue, currentEnvironmentValue)
+          case AreaGatesState.Close if currentValue != areaComponentsState.temperature =>
+            currentValue = FactoryFunctionsTemperature.updateTemperature(currentValue, areaComponentsState.temperature)
+          case _ =>
+        subject.onNext(currentValue)
+      }.executeAsync.runToFuture
