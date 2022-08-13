@@ -9,21 +9,31 @@ import it.unibo.pps.smartgh.model.plants.Plant
 import monix.execution.{Ack, Cancelable}
 import concurrent.{Future, Promise}
 
+/** Object that enclose the controller module for loading the plants data. */
 object LoadingPlantControllerModule:
-
+  /** A trait that represents the controller for loading the plants data. */
   trait LoadingPlantController extends SceneController:
 
+    /** Method that requires to the controller to setup the working environment. */
     def setupBehaviour(): Unit
 
+  /** Trait that represents the provider of the controller for loading the plants data. */
   trait Provider:
 
+    /** The loading plant controller. */
     val loadingPlantController: LoadingPlantController
 
+  /** The requirements for the controller. */
   type Requirements = PlantSelectorModelModule.Provider with LoadingPlantViewModule.Provider
 
+  /** Trait that represents the components of the controller for loading the plants data. */
   trait Component:
     context: Requirements =>
 
+    /** Class that contains the [[LoadingPlantController]] implementation.
+      * @param simulationMVC
+      *   the simulationMVC of the application.
+      */
     class LoadingPlantControllerImpl(simulationMVC: SimulationMVCImpl) extends LoadingPlantController:
 
       private var plantList: List[Plant] = List()

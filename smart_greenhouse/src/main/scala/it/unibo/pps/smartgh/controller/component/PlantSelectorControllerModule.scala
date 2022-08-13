@@ -19,7 +19,7 @@ object PlantSelectorControllerModule:
   /** A trait that represents the controller for the plant selection scene. */
   trait PlantSelectorController extends SceneController:
 
-    /** Method that requires to the controller to configure the available plants that can be chosen by the user. */
+    /** Method that requires to the controller to setup the working environment.*/
     def setupBehaviour(): Unit
 
     /** Method that notifies the controller that a plant has been selected.

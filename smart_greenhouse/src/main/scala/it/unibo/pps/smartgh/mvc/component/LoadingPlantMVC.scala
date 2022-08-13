@@ -6,8 +6,19 @@ import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.PlantSelectorM
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.view.component.{BaseView, LoadingPlantViewModule}
 
+/** Object that encloses the MVC structure for loading the plants data. */
 object LoadingPlantMVC:
 
+  /** Apply method for the [[LoadingPlantMVC]].
+    * @param simulationMVC
+    *   the root MVC of the application.
+    * @param model
+    *   the model for the [[LoadingPlantMVC]]
+    * @param baseView
+    *   the view in which the [[LoadingPlantView]] is enclosed.
+    * @return
+    *   the implementation of the loading plant MVC.
+    */
   def apply(
       simulationMVC: SimulationMVCImpl,
       model: PlantSelectorModel,
@@ -15,6 +26,14 @@ object LoadingPlantMVC:
   ): LoadingPlantMVCImpl =
     LoadingPlantMVCImpl(simulationMVC, model, baseView)
 
+  /** Implementation of the [[LoadingPlantMVC]].
+    * @param simulationMVC
+    *   the root MVC of the application.
+    * @param model
+    *   the view in which the [[LoadingPlantView]] is enclosed.
+    * @param baseView
+    *   the view in which the [[LoadingPlantView]] is enclosed.
+    */
   class LoadingPlantMVCImpl(
       simulationMVC: SimulationMVCImpl,
       model: PlantSelectorModel,
