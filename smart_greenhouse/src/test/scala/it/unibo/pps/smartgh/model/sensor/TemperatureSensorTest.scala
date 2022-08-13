@@ -3,6 +3,7 @@ package it.unibo.pps.smartgh.model.sensor
 import it.unibo.pps.smartgh.model.area.AreaComponentsState
 import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
 import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaShieldState}
+import it.unibo.pps.smartgh.model.sensor.TemperatureSensor.TemperatureSensorImpl
 import it.unibo.pps.smartgh.model.time.Timer
 import org.scalatest.funsuite.AnyFunSuite
 import monix.execution.Scheduler.Implicits.global
@@ -10,24 +11,36 @@ import org.scalatest.matchers.should.Matchers
 import monix.reactive.subjects.ConcurrentSubject
 import monix.reactive.MulticastStrategy.Behavior
 import monix.reactive.MulticastStrategy
+import org.scalatest.BeforeAndAfter
+import org.scalatest.concurrent.Eventually
+import org.scalatest.time.{Milliseconds, Span}
 
 import scala.concurrent.duration.*
 import scala.language.postfixOps
 
 /** This class contains the tests realized to verify that [[TemperatureSensor]] behaves correctly. */
-class TemperatureSensorTest extends AnyFunSuite with Matchers:
+class TemperatureSensorTest extends AnyFunSuite with Matchers with BeforeAndAfter with Eventually:
 
   private val TS = "Temperature sensor"
   private val areaComponentsState = AreaComponentsState()
   private val timer = Timer(1 day)
-  private val temperatureSensor = TemperatureSensor(areaComponentsState, timer)
+  private var temperatureSensor: TemperatureSensorImpl = _
   private val subjectEnvironment: ConcurrentSubject[Double, Double] =
     ConcurrentSubject[Double](MulticastStrategy.publish)
   private val subjectActions: ConcurrentSubject[AreaComponentsStateImpl, AreaComponentsStateImpl] =
     ConcurrentSubject[AreaComponentsStateImpl](MulticastStrategy.publish)
 
-  temperatureSensor.setObserverEnvironmentValue(subjectEnvironment)
-  temperatureSensor.setObserverActionsArea(subjectActions)
+  before {
+    temperatureSensor = TemperatureSensor(areaComponentsState, timer)
+    temperatureSensor.setObserverEnvironmentValue(subjectEnvironment)
+    temperatureSensor.setObserverActionsArea(subjectActions)
+    timer.start(println("time is up!"))
+    timer.changeTickPeriod(10 milliseconds)
+  }
+
+  after {
+    timer.stop()
+  }
 
   test(s"$TS must be initialized with the internal environment value") {
     temperatureSensor.getCurrentValue shouldEqual areaComponentsState.temperature
@@ -38,19 +51,22 @@ class TemperatureSensorTest extends AnyFunSuite with Matchers:
       s"should approach this new environment value"
   ) {
     val environmentValue = 37.0
+    var firstApproach: Double = 0.0
 
-    timer.start(println("time is up!"))
-    timer.changeTickPeriod(10 milliseconds)
     temperatureSensor.registerTimerCallback()
     subjectEnvironment.onNext(environmentValue)
-    val firstApproach = temperatureSensor.getCurrentValue
-    firstApproach should be <= environmentValue
 
-    Thread.sleep(3000)
+    eventually(timeout(Span(3000, Milliseconds))) {
+      firstApproach = temperatureSensor.getCurrentValue
+      firstApproach should be <= environmentValue
+    }
 
     areaComponentsState.gatesState = AreaGatesState.Open
     subjectActions.onNext(areaComponentsState)
-    temperatureSensor.getCurrentValue should (be >= firstApproach and be <= environmentValue)
+
+    eventually(timeout(Span(3000, Milliseconds))) {
+      temperatureSensor.getCurrentValue should (be >= firstApproach and be <= environmentValue)
+    }
   }
 
   test(
@@ -58,18 +74,20 @@ class TemperatureSensorTest extends AnyFunSuite with Matchers:
       s"should approach the internal temperature"
   ) {
     val environmentValue = 37.0
-
-    timer.start(println("time is up!"))
-    timer.changeTickPeriod(10 milliseconds)
+    var firstApproach: Double = 0.0
     temperatureSensor.registerTimerCallback()
     areaComponentsState.gatesState = AreaGatesState.Close
     subjectActions.onNext(areaComponentsState)
+
+    eventually(timeout(Span(3000, Milliseconds))) {
+      firstApproach = temperatureSensor.getCurrentValue
+      firstApproach should be <= environmentValue
+    }
+
     areaComponentsState.temperature = 27.0
     subjectEnvironment.onNext(environmentValue)
-    val firstApproach = temperatureSensor.getCurrentValue
-    firstApproach should be <= environmentValue
 
-    Thread.sleep(3000)
-
-    temperatureSensor.getCurrentValue should (be <= firstApproach and be >= areaComponentsState.temperature and be <= environmentValue)
+    eventually(timeout(Span(3000, Milliseconds))) {
+      temperatureSensor.getCurrentValue should (be <= firstApproach and be >= areaComponentsState.temperature and be <= environmentValue)
+    }
   }
