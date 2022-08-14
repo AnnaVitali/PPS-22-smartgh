@@ -16,7 +16,7 @@ import javafx.application.Platform
 object SimulationViewModule:
 
   private val appTitle = "Smart Greenhouse"
-  private val appSubtitle = "Simula la tua serra intelligente"
+  private val appSubtitle = "Simulate your smart greenhouse"
 
   /** A trait that represents the simulation view. */
   trait SimulationView:
