@@ -1,8 +1,27 @@
 .normalText {
-    -fx-font-size: 16px;
+    -fx-font-size: 14px;
 }
 
-.errorText{
+.titleText {
     -fx-font-size: 14px;
-    -fx-text-fill: red;
+    -fx-font-weight: bold;
+}
+
+.errorText {
+    -fx-font-size: 14px;
+    -fx-text-fill: #842029;
+}
+
+.descriptionText {
+    -fx-font-size: 14px;
+}
+
+.alarmPane {
+    -fx-background-color: #F8D7DA;
+    -fx-stroke: #F1AEB5;
+    -fx-stroke-width: 2;
+}
+
+.transparentPane {
+    -fx-background-color: transparent;
 }
