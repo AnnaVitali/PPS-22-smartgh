@@ -8,7 +8,10 @@ import javafx.scene.layout.BorderPane
 import it.unibo.pps.smartgh.view.component.GHViewModule.GHDivisionView
 import javafx.application.Platform
 import javafx.fxml.FXML
+import javafx.stage.Stage
 import scala.language.postfixOps
+import it.unibo.pps.smartgh.view.component.HelpView
+import scalafx.application.JFXApp3.Stage
 
 /** Object that encloses the view module to display ambient environment's values and simulation time. */
 object EnvironmentViewModule:
@@ -103,6 +106,14 @@ object EnvironmentViewModule:
 
       @FXML
       var timeElapsedLabel: Label = _
+
+      @FXML
+      var helpButton: Button = _
+
+      helpButton.setOnMouseClicked{_ =>
+        val helpView = HelpView(new Stage())
+        this.component.getScene.getWindow.setOnCloseRequest(_ => helpView.closeWindow())
+      }
 
       timeSpeedSlider.setOnMouseReleased(_ => notifySpeedChange(timeSpeedSlider.getValue))
 
