@@ -117,3 +117,8 @@ abstract class AbstractSensorWithTimer(areaComponentsState: AreaComponentsStateI
     with SensorWithTimer:
 
   override def onNextTimerEvent(): FiniteDuration => Unit = time => computeNextSensorValue()
+
+/** Enum that indicate the two possible state that can have a sensor. */
+enum SensorStatus:
+  case ALARM, NORMAL
+export SensorStatus.*

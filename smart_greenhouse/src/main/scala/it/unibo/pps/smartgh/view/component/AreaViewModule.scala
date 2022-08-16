@@ -4,9 +4,8 @@ import it.unibo.pps.smartgh.controller.component.AreaControllerModule
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.application.Platform
 import javafx.fxml.FXML
-import javafx.scene.control.Button
+import javafx.scene.control.{Button, Label, ScrollPane}
 import javafx.scene.layout.VBox
-import javafx.scene.control.Label
 
 import scala.language.postfixOps
 
@@ -49,29 +48,41 @@ object AreaViewModule:
       @FXML
       var plant: Label = _
 
+      private var actualAreaTextColor = "#000000"
+
       override def paintArea(plantName: String, statusColor: String, par: Map[String, Double]): Unit =
         Platform.runLater(() =>
           plant.setText(plantName)
           params.getChildren.clear()
-          par foreach ((k, v) => params.getChildren.add(new Label(s"$k : $v")))
+          par foreach ((k, v) =>
+            val l = new Label(s"$k : $v")
+            l.setMaxWidth(200)
+            l.setMinWidth(200)
+            l.setStyle(s"-fx-text-fill: $actualAreaTextColor")
+            params.getChildren.add(l)
+          )
 
           areaBt.setStyle("-fx-background-color: " + statusColor)
 
           areaBt.setOnMouseEntered { _ =>
+            actualAreaTextColor = "#ffffff"
             areaBt.getGraphic
               .asInstanceOf[VBox]
               .getChildren
               .forEach(c =>
-                c.asInstanceOf[Label].setStyle("-fx-text-fill: #ffffff ; -fx-background-color: " + statusColor)
+                c.asInstanceOf[Label]
+                  .setStyle(s"-fx-text-fill: $actualAreaTextColor ; -fx-background-color: $statusColor")
               )
           }
 
           areaBt.setOnMouseExited { _ =>
+            actualAreaTextColor = "#000000"
             areaBt.getGraphic
               .asInstanceOf[VBox]
               .getChildren
               .forEach(c =>
-                c.asInstanceOf[Label].setStyle("-fx-text-fill: #000000 ; -fx-background-color: " + statusColor)
+                c.asInstanceOf[Label]
+                  .setStyle(s"-fx-text-fill: $actualAreaTextColor ; -fx-background-color: $statusColor")
               )
           }
           areaBt.setOnMouseClicked { _ =>

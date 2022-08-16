@@ -14,6 +14,8 @@ import javafx.scene.control.Button
 import javafx.scene.layout.VBox
 import javafx.scene.paint.Color
 import javafx.stage.Stage
+import monix.reactive.MulticastStrategy
+import monix.reactive.subjects.ConcurrentSubject
 import org.junit.jupiter.api.Assertions.{assertFalse, assertTrue}
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.{BeforeAll, TestInstance}
@@ -35,7 +37,9 @@ import scala.language.postfixOps
 @ExtendWith(Array(classOf[ApplicationExtension]))
 class GreenHouseDivisionViewTest extends AbstractViewTest:
 
-  val ghMVC: GreenHouseDivisionMVC.GreenHouseDivisionMVCImpl = GreenHouseDivisionMVC(List(Plant("lemon", "citrus limon"), Plant("mint", "mentha x gracilis")))
+  val ghMVC: GreenHouseDivisionMVC.GreenHouseDivisionMVCImpl = GreenHouseDivisionMVC(
+    List(Plant("lemon", "citrus limon"), Plant("mint", "mentha x gracilis"))
+  )
   val globalGH = "#ghDivision"
   val areaBt = "#areaBt"
   private val timer = Timer(1 day)
@@ -49,7 +53,7 @@ class GreenHouseDivisionViewTest extends AbstractViewTest:
     startApplication(stage, baseView, ghMVC.ghDivisionView)
     ghMVC.setAreas(timer, Map.empty)
     ghMVC.show()
-    Thread.sleep(2000)
+    Thread.sleep(5000)
 
   @Test def testLabels(robot: FxRobot): Unit =
     verifyThat(globalGH, isVisible)
@@ -78,3 +82,25 @@ class GreenHouseDivisionViewTest extends AbstractViewTest:
     Thread.sleep(5000)
     ghMVC.ghDivisionModel.areas.foreach(a => a.areaModel.status = AreaModelModule.AreaStatus.NORMAL)
     assertFalse(robot.lookup("#areaBt").queryButton.getStyle.contains("#33cc33"))
+
+  @Test def testAreaChangeStatusWithSensor(robot: FxRobot): Unit =
+    import monix.execution.Scheduler.Implicits.global
+    import it.unibo.pps.smartgh.model.sensor.SensorStatus
+    import it.unibo.pps.smartgh.model.area.AreaGatesState
+    val areaModel = ghMVC.ghDivisionModel.areas.head.areaModel
+    areaModel.updBrightnessOfLamp(0)
+    val subjectEnvironment: ConcurrentSubject[Double, Double] =
+      ConcurrentSubject[Double](MulticastStrategy.publish)
+    areaModel.setSensorSubjects(Map("lux" -> subjectEnvironment))
+
+    subjectEnvironment.onNext(20000)
+    Thread.sleep(5000)
+    assertTrue(robot.lookup("#areaBt").queryButton.getStyle.contains("#33cc33")) //NORMAL STATUS
+
+    subjectEnvironment.onNext(0)
+    Thread.sleep(8000)
+    assertTrue(robot.lookup("#areaBt").queryButton.getStyle.contains("#cc3333")) //ALARM STATUS
+
+    subjectEnvironment.onNext(10000)
+    Thread.sleep(5000)
+    assertTrue(robot.lookup("#areaBt").queryButton.getStyle.contains("#33cc33")) //NORMAL STATUS
