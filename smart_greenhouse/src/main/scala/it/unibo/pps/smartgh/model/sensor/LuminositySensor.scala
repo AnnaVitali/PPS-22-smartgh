@@ -65,6 +65,5 @@ object LuminositySensor:
                   currentEnvironmentValue,
                   areaComponentsState.brightnessOfTheLamps
                 )
-          case _ =>
         subject.onNext(currentValue)
       }.executeAsync.runToFuture
