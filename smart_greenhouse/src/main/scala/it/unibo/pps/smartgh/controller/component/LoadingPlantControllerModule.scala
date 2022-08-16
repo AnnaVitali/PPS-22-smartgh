@@ -36,7 +36,7 @@ object LoadingPlantControllerModule:
       */
     class LoadingPlantControllerImpl(simulationMVC: SimulationMVCImpl) extends LoadingPlantController:
 
-      private var plantList: List[Plant] = List()
+      private var plantList: Vector[Plant] = Vector.empty
       private val progressIndicatorIncrement: Int => Double = maxDimension => (100 / maxDimension.toDouble) * 0.01
       private val onNextPlantEmitted: Plant => Future[Ack] = p => {
         plantList = plantList :+ p
@@ -55,7 +55,7 @@ object LoadingPlantControllerModule:
         )
 
       override def instantiateNextSceneMVC(baseView: BaseView): Unit =
-        simulationMVC.simulationController.plantsSelected = plantList
+        simulationMVC.simulationController.plantsSelected = plantList.toList
         val environmentMVC = component.EnvironmentMVC(simulationMVC, baseView)
         simulationMVC.simulationController.environmentController = environmentMVC.environmentController
         loadingPlantView.moveToNextScene(environmentMVC.environmentView)
