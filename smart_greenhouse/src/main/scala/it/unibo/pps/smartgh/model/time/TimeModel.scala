@@ -2,11 +2,17 @@ package it.unibo.pps.smartgh.model.time
 
 import it.unibo.pps.smartgh.controller.SimulationControllerModule.SimulationController
 import org.apache.commons.lang3.time.DurationFormatUtils
+
 import java.lang.module.FindException
 import scala.concurrent.duration.*
 import scala.language.postfixOps
 import scala.math.{exp, log, pow}
 import it.unibo.pps.smartgh.model.time.Timer
+import monix.eval.Task
+import monix.execution.Scheduler.Implicits.global
+
+import scala.concurrent.{Await, Future}
+import scala.util.{Failure, Success}
 
 /** A trait that exposes methods to manage the time of the simulation, it represents its model. */
 trait TimeModel:
@@ -56,22 +62,32 @@ object TimeModel:
       exp(((x - x0) / (x1 - x0)) * (log(y1) - log(y0)) + log(y0)) microseconds
 
     override def start(): Unit =
-      timer.start(controller.finishSimulation())
-      timer.addCallback(updateTimeValue, 1)
+      Task {
+        timer.start(controller.finishSimulation())
+        timer.addCallback(updateTimeValue, 1)
+      }.executeAsync.runToFuture
 
     override def setSpeed(speed: Double): Unit =
-      timer.changeTickPeriod(timeSpeed(speed))
+      Task {
+        timer.changeTickPeriod(timeSpeed(speed))
+      }.executeAsync.runToFuture
 
     override def stop(): Unit =
-      timer.stop()
+      Task {
+        timer.stop()
+      }.executeAsync.runToFuture
 
     private def updateTimeValue(t: FiniteDuration): Unit =
-      val timeValue: String = DurationFormatUtils.formatDuration(t.toMillis, "HH:mm:ss", true)
-      controller.notifyTimeValueChange(timeValue)
-      lastRequestTime = hasNewHourPassed(t)
+      Task {
+        val timeValue: String = DurationFormatUtils.formatDuration(t.toMillis, "HH:mm:ss", true)
+        controller.notifyTimeValueChange(timeValue)
+        lastRequestTime = Await.result(hasNewHourPassed(t), 60 seconds)
+      }.executeAsync.runToFuture
 
-    private def hasNewHourPassed(timeValue: FiniteDuration): Long =
-      if timeValue.toHours.>(lastRequestTime) then
-        controller.notifyNewHourPassed(timeValue.toHours.intValue)
-        timeValue.toHours
-      else lastRequestTime
+    private def hasNewHourPassed(timeValue: FiniteDuration): Future[Long] =
+      Task {
+        if timeValue.toHours.>(lastRequestTime) then
+          controller.notifyNewHourPassed(timeValue.toHours.intValue)
+          timeValue.toHours
+        else lastRequestTime
+      }.executeAsync.runToFuture
