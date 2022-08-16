@@ -17,6 +17,8 @@ import javafx.application.Platform
 import javafx.fxml.FXML
 import javafx.scene.Parent
 import javafx.scene.control.{Label, ScrollPane, Separator}
+import javafx.scene.image.Image
+import javafx.scene.image.ImageView
 import javafx.scene.layout.VBox
 
 object AreaDetailsViewModule:
@@ -24,6 +26,13 @@ object AreaDetailsViewModule:
   trait AreaDetailsView extends ViewComponent[ScrollPane]:
     def moveToNextScene[A <: Parent](viewComponent: ViewComponent[A]): Unit
     def initializeParameters(simulationMVC: SimulationMVCImpl, areaModel: AreaModel): Unit
+    def updatePlantInformation(
+        name: String,
+        description: String,
+        imageUrl: String,
+        optimalValues: Map[String, Any]
+    ): Unit
+    def updateTime(time: String): Unit
 
   trait Provider:
     val areaDetailsView: AreaDetailsView
@@ -46,6 +55,12 @@ object AreaDetailsViewModule:
       var plantDescriptionLabel: Label = _
 
       @FXML
+      var plantImage: ImageView = _
+
+      @FXML
+      var timerLabel: Label = _
+
+      @FXML
       var parametersVbox: VBox = _
 
       Platform.runLater(() => baseView.changeSceneButton.setText("Back"))
@@ -64,6 +79,20 @@ object AreaDetailsViewModule:
 
       override def moveToNextScene[A <: Parent](viewComponent: ViewComponent[A]): Unit =
         simulationView.changeView(viewComponent)
+
+      override def updatePlantInformation(
+          name: String,
+          description: String,
+          imageUrl: String,
+          optimalValues: Map[String, Any]
+      ): Unit =
+        Platform.runLater { () =>
+          plantNameLabel.setText(name)
+          plantDescriptionLabel.setText(description)
+          plantImage.setImage(Image(imageUrl))
+        }
+
+      override def updateTime(time: String): Unit = Platform.runLater(() => timerLabel.setText(time))
 
   trait Interface extends Provider with Component:
     self: Requirements =>

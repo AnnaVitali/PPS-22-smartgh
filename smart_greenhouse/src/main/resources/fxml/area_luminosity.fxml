@@ -52,6 +52,9 @@
         <Slider blockIncrement="0.0" majorTickUnit="500.0" max="6500.0" minorTickCount="100" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <padding>
             <Insets left="10.0" right="10.0" />
-         </padding></Slider>
+         </padding>
+         <opaqueInsets>
+            <Insets left="10.0" right="10.0" />
+         </opaqueInsets></Slider>
     </GridPane>
 </GridPane>
