@@ -35,11 +35,7 @@ object GHControllerModule:
 
       private def drawView(): Unit =
         ghDivisionModel.areas.foreach(a => a.paintArea())
-        ghDivisionView.paintDivision(
-          ghDivisionModel.dimension._1,
-          ghDivisionModel.dimension._2,
-          ghDivisionModel.areas.map(a => a.areaView)
-        )
+        ghDivisionView.paintDivision(ghDivisionModel.areas.map(a => a.areaView))
 
       private val timeoutUpd = Observable
         .interval(3.seconds)
