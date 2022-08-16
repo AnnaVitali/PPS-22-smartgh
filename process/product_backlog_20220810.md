@@ -97,13 +97,13 @@ L'obiettivo di questo sprint, consiste nel dare la possibilità all'utente di po
             <td>gestire tramite reactive programming le richieste per i parametri delle piante</td>
             <td>Anna</td>
             <td>3</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>3</td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>gestire tramite reactive programming le richieste per i parametri dell'ambiente</td>
@@ -146,13 +146,13 @@ L'obiettivo di questo sprint, consiste nel dare la possibilità all'utente di po
             <td>Creare e gestire view component per il loading dell'applicazione</td>
             <td>Anna</td>
             <td>4</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Verificare adattabilità dei diversi componenti alla dimensione dello schermo e al resizing</td>
