@@ -5,6 +5,16 @@ import org.json4s.jackson.JsonMethods.*
 import requests.*
 import cats.syntax.eq.catsSyntaxEq
 
+import monix.eval.Task
+import monix.reactive.subjects.ConcurrentSubject
+import monix.reactive.MulticastStrategy.Behavior
+import monix.reactive.Observable
+import monix.reactive.MulticastStrategy
+import monix.execution.Scheduler.Implicits.global
+import monix.execution.Ack
+
+import concurrent.{Future, Promise}
+
 /** This trait exposes methods for managing a selected plant, it represents its model. */
 trait Plant:
 
@@ -30,15 +40,19 @@ trait Plant:
 object Plant:
 
   /** Creates a new [[Plant]] object.
-    * @param name plant's name.
-    * @param id plant's id
+    * @param name
+    *   plant's name.
+    * @param id
+    *   plant's id
     */
   def apply(name: String, id: String): Plant = PlantImpl(name, id)
 
   /** Class that contains the [[Plant]] implementation.
-    * @param name plant's name.
-    * @param id plant's id
-    * */
+    * @param name
+    *   plant's name.
+    * @param id
+    *   plant's id
+    */
   private class PlantImpl(override val name: String, override val id: String) extends Plant:
 
     type RequestResult = Map[String, Any]

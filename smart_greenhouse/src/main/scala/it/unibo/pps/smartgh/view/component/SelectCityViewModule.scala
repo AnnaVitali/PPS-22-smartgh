@@ -81,7 +81,7 @@ object SelectCityViewModule:
         if selectedCity.isBlank then setErrorText("Please select a city")
         else if selectCityController.containCity(selectedCity) then
           selectCityController.saveCity(selectedCity)
-          selectCityController.nextMVC(baseView)
+          selectCityController.instantiateNextSceneMVC(baseView)
         else setErrorText("The selected city is not valid")
       }
 

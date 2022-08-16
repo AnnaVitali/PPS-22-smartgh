@@ -10,6 +10,7 @@ import monix.reactive.MulticastStrategy.Behavior
 import monix.reactive.MulticastStrategy
 import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaHumidityState}
 import it.unibo.pps.smartgh.model.time.Timer
+import monix.eval.Task
 import monix.execution.Ack.Continue
 
 import scala.concurrent.Future
@@ -44,18 +45,20 @@ object SoilHumiditySensor:
       timer.addCallback(onNextTimerEvent(), timeMustPass)
 
     override def computeNextSensorValue(): Unit =
-      areaComponentsState.humidityActions match
-        case AreaHumidityState.Watering =>
-          currentValue = FactoryFunctionsSoilHumidity.updateValueWithWatering(currentValue)
-          areaComponentsState.humidityActions = AreaHumidityState.None
-        case AreaHumidityState.MovingSoil =>
-          currentValue = FactoryFunctionsSoilHumidity.updateValueWithMovingSoil(currentValue)
-          areaComponentsState.humidityActions = AreaHumidityState.None
-        case _ =>
-      areaComponentsState.gatesState match
-        case AreaGatesState.Close =>
-          currentValue = FactoryFunctionsSoilHumidity.updateValueWithEvaporation(currentValue)
-        case _ =>
-          currentValue =
-            FactoryFunctionsSoilHumidity.updateValueWithAreaGatesOpen(currentValue, currentEnvironmentValue)
-      subject.onNext(currentValue)
+      Task {
+        areaComponentsState.humidityActions match
+          case AreaHumidityState.Watering =>
+            currentValue = FactoryFunctionsSoilHumidity.updateValueWithWatering(currentValue)
+            areaComponentsState.humidityActions = AreaHumidityState.None
+          case AreaHumidityState.MovingSoil =>
+            currentValue = FactoryFunctionsSoilHumidity.updateValueWithMovingSoil(currentValue)
+            areaComponentsState.humidityActions = AreaHumidityState.None
+          case _ =>
+        areaComponentsState.gatesState match
+          case AreaGatesState.Close =>
+            currentValue = FactoryFunctionsSoilHumidity.updateValueWithEvaporation(currentValue)
+          case _ =>
+            currentValue =
+              FactoryFunctionsSoilHumidity.updateValueWithAreaGatesOpen(currentValue, currentEnvironmentValue)
+        subject.onNext(currentValue)
+      }.executeAsync.runToFuture

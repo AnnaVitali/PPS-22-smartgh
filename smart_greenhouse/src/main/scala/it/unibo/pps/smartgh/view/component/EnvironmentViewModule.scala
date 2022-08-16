@@ -109,7 +109,7 @@ object EnvironmentViewModule:
       baseView.changeSceneButton.setText("Stop simulation")
       baseView.changeSceneButton.setOnMouseClicked { _ =>
         environmentController.stopSimulation()
-        environmentController.nextMVC(baseView)
+        environmentController.instantiateNextSceneMVC(baseView)
       }
 
       override def displayNameCity(cityName: String): Unit =
@@ -138,7 +138,7 @@ object EnvironmentViewModule:
         component.setCenter(ghDivisionView)
 
       override def finishSimulation(): Unit =
-        environmentController.nextMVC(baseView)
+        environmentController.instantiateNextSceneMVC(baseView)
 
       override def moveToNextScene(finishSimulationView: FinishSimulationView): Unit =
         Platform.runLater(() => simulationView.changeView(finishSimulationView))

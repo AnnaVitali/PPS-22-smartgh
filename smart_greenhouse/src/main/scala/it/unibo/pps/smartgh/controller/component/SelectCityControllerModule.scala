@@ -10,7 +10,7 @@ import it.unibo.pps.smartgh.view.component.{BaseView, SelectCityViewModule}
 object SelectCityControllerModule:
 
   /** A trait that represents the controller for the scene of city selection. */
-  trait SelectCityController:
+  trait SelectCityController extends SceneController:
 
     /** Save the selected city and change.
       * @param name
@@ -40,12 +40,6 @@ object SelectCityControllerModule:
       */
     def containCity(city: String): Boolean
 
-    /** Method that asks the controller to instantiate the next MVC, for the next scene.
-      * @param baseView
-      *   the template view for the next scene.
-      */
-    def nextMVC(baseView: BaseView): Unit
-
   /** Trait that represents the provider of the controller for the city selection. */
   trait Provider:
 
@@ -68,7 +62,7 @@ object SelectCityControllerModule:
       override def saveCity(name: String): Unit =
         simulationMVC.simulationController.environment = Environment(name)
 
-      override def nextMVC(baseView: BaseView): Unit =
+      override def instantiateNextSceneMVC(baseView: BaseView): Unit =
         val plantSelectorMVC = component.PlantSelectorMVC(simulationMVC, baseView)
         selectCityView.moveToNextScene(plantSelectorMVC.selectPlantView)
 

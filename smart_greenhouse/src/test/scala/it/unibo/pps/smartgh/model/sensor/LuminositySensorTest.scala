@@ -11,11 +11,13 @@ import monix.reactive.subjects.ConcurrentSubject
 import monix.reactive.MulticastStrategy.Behavior
 import monix.reactive.MulticastStrategy
 import org.scalatest.BeforeAndAfter
+import org.scalatest.concurrent.Eventually
+import org.scalatest.time.{Milliseconds, Span}
 
 import scala.util.Random
 
 /** This class contains the tests realized to verify that [[LuminositySensor]] behaves correctly. */
-class LuminositySensorTest extends AnyFunSuite with Matchers with BeforeAndAfter:
+class LuminositySensorTest extends AnyFunSuite with Matchers with BeforeAndAfter with Eventually:
 
   private val initialLuminosity = 500.0
   private val minPercentage = 0.01
@@ -48,8 +50,10 @@ class LuminositySensorTest extends AnyFunSuite with Matchers with BeforeAndAfter
     val minValue = environmentValue - (maxPercentage * environmentValue) + defaultLampBrightness
     subjectEnvironment.onNext(environmentValue)
 
-    Thread.sleep(3000)
-    luminositySensor.getCurrentValue should (be >= minValue and be <= maxValue)
+    eventually(timeout(Span(3000, Milliseconds))) {
+      luminositySensor.getCurrentValue should (be >= minValue and be <= maxValue)
+    }
+
   }
 
   test(
@@ -62,9 +66,9 @@ class LuminositySensorTest extends AnyFunSuite with Matchers with BeforeAndAfter
     subjectEnvironment.onNext(environmentValue)
     subjectActions.onNext(areaComponentsState)
 
-    Thread.sleep(3000)
-
-    luminositySensor.getCurrentValue shouldEqual (environmentValue + areaComponentsState.brightnessOfTheLamps)
+    eventually(timeout(Span(3000, Milliseconds))) {
+      luminositySensor.getCurrentValue shouldEqual (environmentValue + areaComponentsState.brightnessOfTheLamps)
+    }
   }
 
   test(
@@ -79,9 +83,9 @@ class LuminositySensorTest extends AnyFunSuite with Matchers with BeforeAndAfter
     subjectEnvironment.onNext(environmentValue)
     subjectActions.onNext(areaComponentsState)
 
-    Thread.sleep(3000)
-
-    luminositySensor.getCurrentValue should (be >= minValue and be <= maxValue)
+    eventually(timeout(Span(3000, Milliseconds))) {
+      luminositySensor.getCurrentValue should (be >= minValue and be <= maxValue)
+    }
   }
 
   test(
@@ -91,7 +95,7 @@ class LuminositySensorTest extends AnyFunSuite with Matchers with BeforeAndAfter
     areaComponentsState.gatesState = AreaGatesState.Close
     subjectActions.onNext(areaComponentsState)
 
-    Thread.sleep(3000)
-
-    luminositySensor.getCurrentValue shouldEqual areaComponentsState.brightnessOfTheLamps
+    eventually(timeout(Span(3000, Milliseconds))) {
+      luminositySensor.getCurrentValue shouldEqual areaComponentsState.brightnessOfTheLamps
+    }
   }

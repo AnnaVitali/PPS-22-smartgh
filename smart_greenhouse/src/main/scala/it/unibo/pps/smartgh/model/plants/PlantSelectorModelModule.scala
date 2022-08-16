@@ -11,10 +11,10 @@ import monix.reactive.MulticastStrategy.Behavior
 import monix.reactive.Observable
 import monix.reactive.MulticastStrategy
 import monix.execution.Scheduler.Implicits.global
-import monix.execution.Ack
+import monix.execution.{Ack, Cancelable}
+import it.unibo.pps.smartgh.model.plants.Plant
 
 import concurrent.{Future, Promise}
-import scala.::
 import scala.language.postfixOps
 
 /** Object that encloses the model module for the plant selection. */
@@ -37,7 +37,26 @@ object PlantSelectorModelModule:
       * @param onComplete
       *   specify which is the action that needs to be taken when the emission of the data ends.
       */
-    def registerCallback(onNext: List[String] => Future[Ack], onError: Throwable => Unit, onComplete: () => Unit): Unit
+    def registerCallbackPlantSelection(
+        onNext: List[String] => Future[Ack],
+        onError: Throwable => Unit,
+        onComplete: () => Unit
+    ): Cancelable
+
+    /** Method that registers the callback for the plant information.
+      *
+      * @param onNext
+      *   specify which is the action that needs to be taken when new plant information are available.
+      * @param onError
+      *   specify which is the action that needs to be taken when an error occur.
+      * @param onComplete
+      *   specify which is the action that needs to be taken when the emission of the data ends.
+      */
+    def registerCallbackPlantInfo(
+        onNext: Plant => Future[Ack],
+        onError: Throwable => Unit,
+        onComplete: () => Unit
+    ): Cancelable
 
     /** Method that need to be called to select a plants that you want to cultivate.
       * @param plantName
@@ -65,11 +84,10 @@ object PlantSelectorModelModule:
       */
     def getPlantsSelectedIdentifier: List[String]
 
-    /** Method that returns the plants selected for the cultivation in the greenhouse.
-      * @return
-      *   the [[List]] of [[Plant]] selected.
-      */
-    def getPlantsSelected: List[Plant]
+    def getPlantSelectedCount: Int
+
+    /** Method that returns the plants selected for the cultivation in the greenhouse. */
+    def startEmittingPlantsSelected(): Unit
 
   /** Trait that represents the provider of the model for the plant selection. */
   trait Provider:
@@ -91,28 +109,45 @@ object PlantSelectorModelModule:
         Theory.parseLazilyWithStandardOperators(prologFile)
       )
       private var selectedPlants: List[String] = List()
-      private val subject: ConcurrentSubject[List[String], List[String]] =
+      private val subjectPlantSelection: ConcurrentSubject[List[String], List[String]] =
         ConcurrentSubject[List[String]](MulticastStrategy.publish)
+      private val subjectPlantInfo: ConcurrentSubject[Plant, Plant] =
+        ConcurrentSubject[Plant](MulticastStrategy.publish)
 
       override def getAllAvailablePlants: List[String] =
-        engine("plant(X, Y).").map(extractTermToString(_, "X").replace("'", "")).toList
+        engine("plant(X, Y)").map(extractTermToString(_, "X").replace("'", "")).toList
 
-      override def registerCallback(
+      override def registerCallbackPlantSelection(
           onNext: List[String] => Future[Ack],
           onError: Throwable => Unit,
           onComplete: () => Unit
-      ): Unit =
-        subject.subscribe(onNext, onError, onComplete)
+      ): Cancelable =
+        subjectPlantSelection.subscribe(onNext, onError, onComplete)
+
+      override def registerCallbackPlantInfo(
+          onNext: Plant => Future[Ack],
+          onError: Throwable => Unit,
+          onComplete: () => Unit
+      ): Cancelable =
+        subjectPlantInfo.subscribe(onNext, onError, onComplete)
 
       override def selectPlant(plantName: String): Unit =
-        selectedPlants = selectedPlants :+ plantName
-        subject.onNext(selectedPlants)
+        Task {
+          selectedPlants = selectedPlants :+ plantName
+          subjectPlantSelection.onNext(selectedPlants)
+        }.executeAsync.runToFuture
 
       override def deselectPlant(plantName: String): Unit =
-        if selectedPlants.contains(plantName) then
-          selectedPlants = selectedPlants.filter(_ != plantName)
-          subject.onNext(selectedPlants)
-        else throw new NoSuchElementException("You can't deselect a plant that hasn't been selected!")
+        Task {
+          if selectedPlants.contains(plantName) then
+            selectedPlants = selectedPlants.filter(_ != plantName)
+            subjectPlantSelection
+              .onNext(selectedPlants)
+          else
+            subjectPlantSelection.onError(
+              new NoSuchElementException("You can't deselect a plant that hasn't been selected!")
+            )
+        }.executeAsync.runToFuture
 
       override def getPlantsSelectedName: List[String] = selectedPlants
 
@@ -121,8 +156,15 @@ object PlantSelectorModelModule:
           .map(getCorrectPlantName)
           .flatMap(s => engine("plant(" + s + ", Y)").map(extractTermToString(_, "Y")))
 
-      override def getPlantsSelected: List[Plant] =
-        selectedPlants.zip(getPlantsSelectedIdentifier).map((n, i) => Plant(n, i))
+      override def startEmittingPlantsSelected(): Unit =
+        Task {
+          selectedPlants
+            .zip(getPlantsSelectedIdentifier)
+            .foreach((name, identifier) => subjectPlantInfo.onNext(Plant(name, identifier)))
+          subjectPlantInfo.onComplete()
+        }.executeAsync.runToFuture
+
+      override def getPlantSelectedCount: Int = selectedPlants.size
 
       private def getCorrectPlantName(plantName: String): String =
         if plantName.contains(" ") then "\'" + plantName + "\'" else plantName
