@@ -3,11 +3,16 @@ package it.unibo.pps.smartgh.view.component
 import it.unibo.pps.smartgh.controller.component.{AreaControllerModule, AreaDetailsControllerModule}
 import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaModel
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
-import it.unibo.pps.smartgh.mvc.component.AreaLuminosityMVC
+import it.unibo.pps.smartgh.mvc.component.areaParameters.{
+  AreaAirHumidityMVC,
+  AreaLuminosityMVC,
+  AreaSoilMoistureMVC,
+  AreaTemperatureMVC
+}
 import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
 import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.SelectPlantView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
-import it.unibo.pps.smartgh.view.component.AreaLuminosityViewModule
+import it.unibo.pps.smartgh.view.component.areaParameters.AreaLuminosityViewModule
 import javafx.application.Platform
 import javafx.fxml.FXML
 import javafx.scene.Parent
@@ -45,10 +50,16 @@ object AreaDetailsViewModule:
 
       Platform.runLater(() => baseView.changeSceneButton.setText("Back"))
       baseView.changeSceneButton.setOnMouseClicked { _ => /*todo*/ }
-      areaDetailsController.initializeView()
 
       override def initializeParameters(simulationMVC: SimulationMVCImpl, areaModel: AreaModel): Unit =
+        //todo: automatizzare la creazione delle tipologie di parametri
         parametersVbox.getChildren.add(AreaLuminosityMVC(simulationMVC, baseView, areaModel).areaLuminosityView)
+        parametersVbox.getChildren.add(Separator())
+        parametersVbox.getChildren.add(AreaTemperatureMVC(simulationMVC, areaModel).areaTemperatureView)
+        parametersVbox.getChildren.add(Separator())
+        parametersVbox.getChildren.add(AreaAirHumidityMVC(simulationMVC, areaModel).areaAirHumidityView)
+        parametersVbox.getChildren.add(Separator())
+        parametersVbox.getChildren.add(AreaSoilMoistureMVC(simulationMVC, areaModel).areaSoilMoistureView)
         parametersVbox.getChildren.add(Separator())
 
       override def moveToNextScene[A <: Parent](viewComponent: ViewComponent[A]): Unit =
