@@ -11,13 +11,55 @@ L'ordine di priorità dei diversi product backlog è dato dall'ordine con cui es
 
 <table>
   <thead>
-    <td>Sprint</td>
-    <td>Macro-obiettivi</td>
-    <td>Stima del lavoro</td>
+    <td><b>Sprint</b></td>
+    <td><b>Macro-obiettivi</b></td>
+    <td><b>Stima finale del costo</b></td>
   </thead>
   <tr>
-  <td>(link file sprint backlog)</td>
-  <td></td>
-  <td></td>
+    <td rowspan="3"><a href="product_backlog_20220725.md">Sprint 1</a></td>
+    <td>Selezionare la città di ubicazione della serra</td>
+    <td>15</td>
+  </tr>
+  <tr>
+    <td>Selezionare le piante da coltivare all'interno della serra</td>
+    <td>16</td>
+  </tr>
+  <tr>
+    <td>Avvio della simulazione</td>
+    <td>21</td>
+  </tr>
+  <tr>
+    <td colspan="3"><b>Costo totale sprint:</b> 52</td>
+  </tr>
+  <td rowspan="3"><a href="product_backlog_20220802.md">Sprint 2</a></td>
+    <td>Consentire lo scorrimento fra le diverse pagine dell'applicazione</td>
+    <td>29</td>
+  </tr>
+  <tr>
+    <td>Visualizzare lo stato aggiornato della simulazione</td>
+    <td>15</td>
+  </tr>
+  <tr>
+    <td>Visualizzare lo stato aggiornato delle singole aree</td>
+    <td>24</td>
+  </tr>
+  <tr>
+    <td colspan="3"><b>Costo totale sprint:</b> 68</td>
+  </tr>
+  <td rowspan="4"><a href="product_backlog_20220810.md">Sprint 3</a></td>
+    <td>Consentire la gestione di un'area</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Miglioramento reattività dell'applicazione</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Miglioramento dell'esperienza utente</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Guida utente per l'applicazione</td>
+    <td></td>
   </tr>
 </table>
