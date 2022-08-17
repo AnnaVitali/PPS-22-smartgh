@@ -25,3 +25,26 @@
 .transparentPane {
     -fx-background-color: transparent;
 }
+
+.toggle-button, .outlined-btn {
+    -fx-background-color: white;
+    -fx-border-color: #17A2B8;
+    -fx-border-width: 1;
+    -fx-border-style: solid;
+    -fx-border-radius: 5;
+    -fx-cursor: pointer;
+    -fx-text-fill: #17A2B8;
+}
+
+.toggle-button:selected, .toggle-button:hover, .outlined-btn:hover, .slider .thumb {
+    -fx-background-color: #17A2B8;
+    -fx-text-fill: #FFFFFF;
+}
+
+.outlined-btn:pressed {
+    -fx-effect: dropshadow(three-pass-box, #49d3e9, 5, 0, 0, 0);
+}
+
+.slider{
+    -fx-control-inner-background: #FFFFFF
+}

@@ -43,7 +43,7 @@
         </padding>
         <Label text="Decrease moisture:" />
         <Label text="Increase moisture:" GridPane.rowIndex="1" />
-        <Button mnemonicParsing="false" text="Moving the soil" GridPane.columnIndex="1" />
-        <Button mnemonicParsing="false" text="Watering" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Button mnemonicParsing="false" styleClass="outlined-btn" text="Moving the soil" GridPane.columnIndex="1" />
+        <Button mnemonicParsing="false" styleClass="outlined-btn" text="Watering" GridPane.columnIndex="1" GridPane.rowIndex="1" />
     </GridPane>
 </GridPane>

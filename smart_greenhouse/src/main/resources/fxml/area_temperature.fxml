@@ -49,11 +49,10 @@
             <ToggleButton mnemonicParsing="false" text="Yes" />
             <ToggleButton mnemonicParsing="false" text="No" />
         </HBox>
-        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1"
-              GridPane.rowIndex="1">
-            <Button mnemonicParsing="false" text="-"/>
-            <Label text="xx"/>
-            <Button mnemonicParsing="false" text="+"/>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" styleClass="outlined-btn" text="-" />
+            <Label text="xx" />
+            <Button mnemonicParsing="false" styleClass="outlined-btn" text="+" />
         </HBox>
     </GridPane>
 </GridPane>
