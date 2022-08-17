@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-          xmlns="http://javafx.com/javafx/16">
+<GridPane alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <columnConstraints>
         <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" percentWidth="20.0" />
         <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" percentWidth="20.0" />
@@ -46,8 +45,8 @@
         <Label text="Isolate structure:" />
         <Label text="Regulate the zone temperature:" GridPane.rowIndex="1" />
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-            <ToggleButton mnemonicParsing="false" text="Yes" />
-            <ToggleButton mnemonicParsing="false" text="No" />
+            <ToggleButton fx:id="openStructureBtn" mnemonicParsing="false" text="Open" />
+            <ToggleButton fx:id="closeStructureBtn" mnemonicParsing="false" selected="true" text="Close" />
         </HBox>
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <Button mnemonicParsing="false" styleClass="outlined-btn" text="-" />

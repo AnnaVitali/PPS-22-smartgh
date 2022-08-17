@@ -3,6 +3,8 @@ package it.unibo.pps.smartgh.view.component.areaParameters
 import it.unibo.pps.smartgh.controller.component.areaParameters.AreaTemperatureControllerModule
 import it.unibo.pps.smartgh.view.component.ViewComponent
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
+import javafx.fxml.FXML
+import javafx.scene.control.ToggleButton
 import javafx.scene.layout.GridPane
 
 object AreaTemperatureViewModule:
@@ -22,6 +24,15 @@ object AreaTemperatureViewModule:
         with AreaTemperatureView:
 
       override val component: GridPane = loader.load[GridPane]
+
+      @FXML
+      var openStructureBtn: ToggleButton = _
+
+      @FXML
+      var closeStructureBtn: ToggleButton = _
+
+      openStructureBtn.setOnMouseClicked(_ => closeStructureBtn.setSelected(false))
+      closeStructureBtn.setOnMouseClicked(_ => openStructureBtn.setSelected(false))
 
   trait Interface extends Provider with Component:
     self: Requirements =>

@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-          xmlns="http://javafx.com/javafx/16">
+<GridPane alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <columnConstraints>
         <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" percentWidth="20.0" />
         <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" percentWidth="20.0" />
@@ -43,7 +42,7 @@
         </padding>
         <Label text="Decrease humidity:" />
         <Label text="Increase humidity:" GridPane.rowIndex="1" />
-         <ToggleButton mnemonicParsing="false" text="Activate the ventilation" GridPane.columnIndex="1" />
-      <ToggleButton mnemonicParsing="false" text="Activate the atomiser" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         <ToggleButton fx:id="ventilationBtn" mnemonicParsing="false" text="Activate the ventilation" GridPane.columnIndex="1" />
+      <ToggleButton fx:id="atomiserBtn" mnemonicParsing="false" text="Activate the atomiser" GridPane.columnIndex="1" GridPane.rowIndex="1" />
     </GridPane>
 </GridPane>

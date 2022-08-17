@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-          xmlns="http://javafx.com/javafx/16">
+<GridPane alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <columnConstraints>
         <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" percentWidth="20.0" />
         <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" percentWidth="20.0" />
@@ -43,7 +42,7 @@
         </padding>
         <Label text="Decrease moisture:" />
         <Label text="Increase moisture:" GridPane.rowIndex="1" />
-        <Button mnemonicParsing="false" styleClass="outlined-btn" text="Moving the soil" GridPane.columnIndex="1" />
-        <Button mnemonicParsing="false" styleClass="outlined-btn" text="Watering" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Button fx:id="movingSoilBtn" mnemonicParsing="false" styleClass="outlined-btn" text="Moving the soil" GridPane.columnIndex="1" />
+        <Button fx:id="wateringBtn" mnemonicParsing="false" styleClass="outlined-btn" text="Watering" GridPane.columnIndex="1" GridPane.rowIndex="1" />
     </GridPane>
 </GridPane>

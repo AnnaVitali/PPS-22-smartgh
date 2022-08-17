@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-          xmlns="http://javafx.com/javafx/16">
+<GridPane alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <columnConstraints>
         <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" percentWidth="20.0" />
         <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" percentWidth="20.0" />
@@ -46,8 +45,8 @@
         <Label text="Shielding:" />
         <Label text="Lamp brightness:" GridPane.rowIndex="1" />
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-            <ToggleButton mnemonicParsing="false" text="Open" />
-            <ToggleButton mnemonicParsing="false" text="Close" />
+            <ToggleButton fx:id="openShieldingBtn" mnemonicParsing="false" text="Open" />
+            <ToggleButton fx:id="closeShieldingBtn" mnemonicParsing="false" selected="true" text="Close" />
         </HBox>
         <Slider blockIncrement="0.0" majorTickUnit="500.0" max="6500.0" minorTickCount="100" showTickLabels="true" showTickMarks="true" snapToTicks="true" styleClass="slider" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <padding>

@@ -3,6 +3,8 @@ package it.unibo.pps.smartgh.view.component.areaParameters
 import it.unibo.pps.smartgh.controller.component.areaParameters.AreaSoilMoistureControllerModule
 import it.unibo.pps.smartgh.view.component.ViewComponent
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
+import javafx.fxml.FXML
+import javafx.scene.control.Button
 import javafx.scene.layout.GridPane
 
 object AreaSoilMoistureViewModule:
@@ -22,6 +24,15 @@ object AreaSoilMoistureViewModule:
         with AreaSoilMoistureView:
 
       override val component: GridPane = loader.load[GridPane]
+
+      @FXML
+      var movingSoilBtn: Button = _
+
+      @FXML
+      var wateringBtn: Button = _
+
+      movingSoilBtn.setOnMouseClicked { _ => }
+      wateringBtn.setOnMouseClicked { _ => }
 
   trait Interface extends Provider with Component:
     self: Requirements =>
