@@ -18,6 +18,8 @@ object AreaDetailsMVC:
       with AreaDetailsViewModule.Interface
       with AreaDetailsControllerModule.Interface:
 
-    override val areaModel: AreaModel = areaModel
-    override val areaDetailsController: AreaDetailsController = AreaDetailsControllerImpl(simulationMVC)
+    override val areaModel: AreaModel = model
     override val areaDetailsView: AreaDetailsView = AreaDetailsViewImpl(simulationMVC.simulationView, baseView)
+    override val areaDetailsController: AreaDetailsController = AreaDetailsControllerImpl(simulationMVC)
+
+    areaDetailsController.initializeView()

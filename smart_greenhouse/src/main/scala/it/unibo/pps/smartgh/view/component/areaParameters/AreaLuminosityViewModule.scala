@@ -1,6 +1,7 @@
-package it.unibo.pps.smartgh.view.component
+package it.unibo.pps.smartgh.view.component.areaParameters
 
-import it.unibo.pps.smartgh.controller.component.AreaLuminosityControllerModule
+import it.unibo.pps.smartgh.controller.component.areaParameters.AreaLuminosityControllerModule
+import it.unibo.pps.smartgh.view.component.ViewComponent
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.scene.layout.GridPane
 

@@ -62,7 +62,7 @@ class LuminositySensorTest extends AnyFunSuite with Matchers with BeforeAndAfter
     subjectEnvironment.onNext(environmentValue)
     subjectActions.onNext(areaComponentsState)
 
-    Thread.sleep(3000)
+    Thread.sleep(5000)
 
     luminositySensor.getCurrentValue shouldEqual (environmentValue + areaComponentsState.brightnessOfTheLamps)
   }

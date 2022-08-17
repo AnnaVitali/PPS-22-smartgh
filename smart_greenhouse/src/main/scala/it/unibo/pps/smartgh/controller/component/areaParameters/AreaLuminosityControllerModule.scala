@@ -1,8 +1,10 @@
-package it.unibo.pps.smartgh.controller.component
+package it.unibo.pps.smartgh.controller.component.areaParameters
 
+import it.unibo.pps.smartgh.controller.component.SceneController
 import it.unibo.pps.smartgh.model.area.AreaModelModule
-import it.unibo.pps.smartgh.view.component.{AreaLuminosityViewModule, BaseView}
 import it.unibo.pps.smartgh.model.area.AreaShieldState
+import it.unibo.pps.smartgh.view.component.BaseView
+import it.unibo.pps.smartgh.view.component.areaParameters.AreaLuminosityViewModule
 
 object AreaLuminosityControllerModule:
 
