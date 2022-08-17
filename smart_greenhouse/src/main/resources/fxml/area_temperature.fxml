@@ -49,9 +49,9 @@
             <ToggleButton fx:id="closeStructureBtn" mnemonicParsing="false" selected="true" text="Close" />
         </HBox>
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-            <Button mnemonicParsing="false" styleClass="outlined-btn" text="-" />
-            <Label text="xx" />
-            <Button mnemonicParsing="false" styleClass="outlined-btn" text="+" />
+            <Button fx:id="minusTempBtn" mnemonicParsing="false" styleClass="outlined-btn" text="-" />
+            <Label fx:id="regulateTempLabel" text="27" />
+            <Button fx:id="plusTempBtn" mnemonicParsing="false" styleClass="outlined-btn" text="+" />
         </HBox>
     </GridPane>
 </GridPane>

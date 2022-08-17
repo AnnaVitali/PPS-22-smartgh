@@ -31,7 +31,7 @@ object AreaSoilMoistureControllerModule:
     context: Requirements =>
 
     class AreaSoilMoistureControllerImpl() extends AreaSoilMoistureController:
-      private val soilMoistureSensor = areaModel.sensors.find(ms => ms.name == "Soil moisture").orNull
+      private val soilMoistureSensor = areaModel.sensors.find(_.name == "Soil moisture").orNull
 
       override def openGates(): Unit = areaModel.updGateState(AreaGatesState.Open)
 

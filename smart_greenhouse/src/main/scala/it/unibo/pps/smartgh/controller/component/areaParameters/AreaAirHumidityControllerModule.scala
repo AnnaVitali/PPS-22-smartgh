@@ -27,7 +27,7 @@ object AreaAirHumidityControllerModule:
     context: Requirements =>
 
     class AreaAirHumidityControllerImpl() extends AreaAirHumidityController:
-      private val humSensor = areaModel.sensors.find(ms => ms.name == "Humidity").orNull
+      private val humSensor = areaModel.sensors.find(_.name == "Humidity").orNull
 
       override def activateVentilation(): Unit =
         areaModel.updVentilationState(AreaVentilationState.VentilationActive)

@@ -31,8 +31,8 @@ object AreaSoilMoistureViewModule:
       @FXML
       var wateringBtn: Button = _
 
-      movingSoilBtn.setOnMouseClicked { _ => }
-      wateringBtn.setOnMouseClicked { _ => }
+      movingSoilBtn.setOnMouseClicked(_ => areaSoilMoistureController.movingSoil())
+      wateringBtn.setOnMouseClicked(_ => areaSoilMoistureController.watering())
 
   trait Interface extends Provider with Component:
     self: Requirements =>

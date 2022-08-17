@@ -28,7 +28,7 @@ object AreaTemperatureControllerModule:
     context: Requirements =>
 
     class AreaTemperatureControllerImpl() extends AreaTemperatureController:
-      private val soilMoistureSensor = areaModel.sensors.find(ms => ms.name == "Temperature").orNull
+      private val soilMoistureSensor = areaModel.sensors.find(_.name == "Temperature").orNull
 
       override def updTempValue(value: Double): Unit = areaModel.updTemperature(value)
       override def openGates(): Unit = areaModel.updGateState(AreaGatesState.Open)

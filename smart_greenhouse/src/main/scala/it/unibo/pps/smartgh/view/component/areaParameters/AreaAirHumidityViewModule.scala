@@ -32,13 +32,21 @@ object AreaAirHumidityViewModule:
       var atomiserBtn: ToggleButton = _
 
       ventilationBtn.setOnMouseClicked { _ =>
-        ventilationBtn.setText(
-          if ventilationBtn.isSelected then "Deactivate the ventilation" else "Activate the ventilation"
-        )
+        if ventilationBtn.isSelected then
+          ventilationBtn.setText("Deactivate the ventilation")
+          areaAirHumidityController.activateVentilation()
+        else
+          ventilationBtn.setText("Activate the ventilation")
+          areaAirHumidityController.deactivateVentilation()
       }
 
       atomiserBtn.setOnMouseClicked { _ =>
-        atomiserBtn.setText(if atomiserBtn.isSelected then "Deactivate the atomiser" else "Activate the atomiser")
+        if atomiserBtn.isSelected then
+          atomiserBtn.setText("Disable atomise area")
+          areaAirHumidityController.atomiseArea()
+        else
+          atomiserBtn.setText("Atomise area")
+          areaAirHumidityController.disableAtomiseArea()
       }
 
   trait Interface extends Provider with Component:

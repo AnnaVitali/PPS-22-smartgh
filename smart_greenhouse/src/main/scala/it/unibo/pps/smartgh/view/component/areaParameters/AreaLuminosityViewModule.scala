@@ -4,7 +4,7 @@ import it.unibo.pps.smartgh.controller.component.areaParameters.AreaLuminosityCo
 import it.unibo.pps.smartgh.view.component.ViewComponent
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.fxml.FXML
-import javafx.scene.control.ToggleButton
+import javafx.scene.control.{Slider, ToggleButton}
 import javafx.scene.layout.GridPane
 
 object AreaLuminosityViewModule:
@@ -26,13 +26,25 @@ object AreaLuminosityViewModule:
       override val component: GridPane = loader.load[GridPane]
 
       @FXML
-      var openShieldingBtn: ToggleButton = _
+      var upShieldingBtn: ToggleButton = _
 
       @FXML
-      var closeShieldingBtn: ToggleButton = _
+      var downShieldingBtn: ToggleButton = _
 
-      openShieldingBtn.setOnMouseClicked(_ => closeShieldingBtn.setSelected(false))
-      closeShieldingBtn.setOnMouseClicked(_ => openShieldingBtn.setSelected(false))
+      @FXML
+      var lampBrightnessSlider: Slider = _
+
+      upShieldingBtn.setOnMouseClicked { _ =>
+        downShieldingBtn.setSelected(false)
+        areaLuminosityController.shieldsDown()
+      }
+
+      downShieldingBtn.setOnMouseClicked { _ =>
+        upShieldingBtn.setSelected(false)
+        areaLuminosityController.shieldsUp()
+      }
+
+      lampBrightnessSlider.setOnMouseReleased(_ => areaLuminosityController.updLampValue(lampBrightnessSlider.getValue))
 
   trait Interface extends Provider with Component:
     self: Requirements =>
