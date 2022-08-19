@@ -1,6 +1,6 @@
 # Sprint Backlog 2022-08-10
 ## Sprint goal
-L'obiettivo di questo sprint, consiste nel dare la possibilità all'utente di poter visualizzare il dettaglio dello stato di un'area e di intraprendere le operazioni correttive necessarie, al fine di riportare i parametri in allarme all'interno del range ottimale per la pianta.
+L'obiettivo di questo sprint, consiste nel dare la possibilità all'utente di poter visualizzare il dettaglio dello stato di un'area e di poter intraprendere operazioni correttive, necessarie al fine di riportare i parametri in allarme all'interno del range ottimale per la pianta. Inoltre, si vuole migliorare l'esperienza utente fornita fino a questo momento, migliorando la reattività e l'aspetto dell'interfaccia grafica.
 
 ## Product backlog
 
