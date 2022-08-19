@@ -41,7 +41,7 @@ Al termine di questo sprint, è possibile interagire con le schermate principali
 Infine, alla conclusione dello sprint, sommando i diversi costi per i lavori che sono stati svolti, si ottiene che il costo totale, per il lavoro richiesto nel realizzare i diversi _product backlog_, è di 68.
 
 ### 6.2.3 Sprint 3 - 10/08/2022
-L'obiettivo di questo sprint, consiste nel dare la possibilità all'utente di poter visualizzare il dettaglio dello stato di un'area e di poter intraprendere operazioni correttive, necessarie al fine di riportare i parametri in allarme all'interno del range ottimale per la pianta. Inoltre, si vuole migliorare l'esperienza utente fornita fino a questo momento, migliorando la reattività e l'aspetto dell'interfaccia grafica.
+L'obiettivo di questo sprint, consiste nel dare la possibilità all'utente di poter visualizzare il dettaglio dello stato di un'area e di poter intraprendere operazioni correttive, necessarie al fine di riportare i parametri in allarme all'interno del range ottimale per la pianta. Inoltre, si vuole migliorare l'esperienza utente fornita fino a questo momento, migliorando la reattività e l'aspetto dell'interfaccia grafica. 
 
 I _product backlog_ che sono stati individuati per questo sprint sono i seguenti:
 
