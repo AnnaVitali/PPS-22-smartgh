@@ -37,7 +37,7 @@ object AreaAirHumidityControllerModule:
   trait Component:
     context: Requirements =>
 
-    class AreaAirHumidityControllerImpl()
+    class AreaAirHumidityControllerImpl(updateStateMessage: (String, Boolean) => Unit)
         extends AbstractAreaParameterController
         with AreaAirHumidityControllerController:
       private val humSensor = areaModel.sensors.find(_.name.contentEquals("Humidity")).orNull
@@ -45,7 +45,7 @@ object AreaAirHumidityControllerModule:
       timeoutUpd = Observable
         .interval(3.seconds)
         .map { _ =>
-//          updateStateMessage(humSensor.message, humSensor.status == SensorStatus.ALARM)
+          updateStateMessage(humSensor.message, humSensor.status == SensorStatus.ALARM)
           areaAirHumidityView.updateCurrentValue(humSensor.actualVal, humSensor.status.toString)
         }
 

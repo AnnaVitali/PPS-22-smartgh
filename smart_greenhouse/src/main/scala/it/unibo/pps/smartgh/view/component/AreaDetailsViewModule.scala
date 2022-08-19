@@ -19,17 +19,13 @@ import javafx.scene.Parent
 import javafx.scene.control.{Label, ScrollPane, Separator}
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
-import javafx.scene.layout.VBox
+import javafx.scene.layout.{Pane, VBox}
 
 object AreaDetailsViewModule:
 
   trait AreaDetailsView extends ViewComponent[ScrollPane]:
     def moveToNextScene[A <: Parent](viewComponent: ViewComponent[A]): Unit
-    def initializeParameters(
-        simulationMVC: SimulationMVCImpl,
-        areaModel: AreaModel,
-        updateStateMessage: (String, Boolean) => Unit
-    ): Unit
+    def initializeParameters(areaModel: AreaModel, updateStateMessage: (String, Boolean) => Unit): Unit
     def updatePlantInformation(name: String, description: String, imageUrl: String): Unit
     def updateTime(time: String): Unit
     def updateState(state: String): Unit
@@ -68,26 +64,24 @@ object AreaDetailsViewModule:
       var parametersVbox: VBox = _
 
       @FXML
+      var alarmPane: Pane = _
+
+      @FXML
       var alarmLabel: Label = _
 
       Platform.runLater(() => baseView.changeSceneButton.setText("Back"))
       baseView.changeSceneButton.setOnMouseClicked { _ => /*todo*/ }
+      alarmPane.managedProperty().bind(alarmPane.visibleProperty())
 
-      override def initializeParameters(
-          simulationMVC: SimulationMVCImpl,
-          areaModel: AreaModel,
-          updateStateMessage: (String, Boolean) => Unit
-      ): Unit =
+      override def initializeParameters(areaModel: AreaModel, updateStateMessage: (String, Boolean) => Unit): Unit =
         //todo: automatizzare la creazione delle tipologie di parametri
-        parametersVbox.getChildren.add(AreaLuminosityMVC(simulationMVC, baseView, areaModel).areaLuminosityView)
+        parametersVbox.getChildren.add(AreaLuminosityMVC(areaModel, updateStateMessage).areaLuminosityView)
         parametersVbox.getChildren.add(Separator())
-        parametersVbox.getChildren.add(AreaTemperatureMVC(simulationMVC, areaModel).areaTemperatureView)
+        parametersVbox.getChildren.add(AreaTemperatureMVC(areaModel, updateStateMessage).areaTemperatureView)
         parametersVbox.getChildren.add(Separator())
-        parametersVbox.getChildren.add(AreaAirHumidityMVC(simulationMVC, areaModel).areaAirHumidityView)
+        parametersVbox.getChildren.add(AreaAirHumidityMVC(areaModel, updateStateMessage).areaAirHumidityView)
         parametersVbox.getChildren.add(Separator())
-        parametersVbox.getChildren.add(
-          AreaSoilMoistureMVC(simulationMVC, areaModel, updateStateMessage).areaSoilMoistureView
-        )
+        parametersVbox.getChildren.add(AreaSoilMoistureMVC(areaModel, updateStateMessage).areaSoilMoistureView)
         parametersVbox.getChildren.add(Separator())
 
       override def moveToNextScene[A <: Parent](viewComponent: ViewComponent[A]): Unit =
@@ -107,7 +101,11 @@ object AreaDetailsViewModule:
         statusLabel.getStyleClass.setAll(state)
       }
 
-      override def updateStateMessages(messages: String): Unit = Platform.runLater(() => alarmLabel.setText(messages))
+      override def updateStateMessages(messages: String): Unit =
+        Platform.runLater { () =>
+          alarmPane.setVisible(!messages.isBlank)
+          alarmLabel.setText(messages)
+        }
 
   trait Interface extends Provider with Component:
     self: Requirements =>

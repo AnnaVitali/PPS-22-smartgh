@@ -11,16 +11,16 @@ import it.unibo.pps.smartgh.view.component.areaParameters.AreaLuminosityViewModu
 
 object AreaLuminosityMVC:
 
-  def apply(simulationMVC: SimulationMVCImpl, baseView: BaseView, areaModel: AreaModel): AreaLuminosityMVCImpl =
-    AreaLuminosityMVCImpl(simulationMVC, baseView, areaModel)
+  def apply(areaModel: AreaModel, updateStateMessage: (String, Boolean) => Unit): AreaLuminosityMVCImpl =
+    AreaLuminosityMVCImpl(areaModel, updateStateMessage)
 
-  class AreaLuminosityMVCImpl(simulationMVCImpl: SimulationMVCImpl, baseView: BaseView, model: AreaModel)
+  class AreaLuminosityMVCImpl(model: AreaModel, updateStateMessage: (String, Boolean) => Unit)
       extends AreaModelModule.Interface
       with AreaLuminosityViewModule.Interface
       with AreaLuminosityControllerModule.Interface:
 
     override val areaModel: AreaModel = model
-    override val areaLuminosityController: AreaLuminosityController = AreaLuminosityControllerImpl()
+    override val areaLuminosityController: AreaLuminosityController = AreaLuminosityControllerImpl(updateStateMessage)
     override val areaLuminosityView: AreaLuminosityView = AreaLuminosityViewImpl()
 
     areaLuminosityController.initializeView()

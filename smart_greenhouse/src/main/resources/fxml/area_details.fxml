@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -46,19 +47,27 @@
                 </Label>
             </VBox>
         </HBox>
-        <VBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308">
+        <VBox alignment="CENTER_LEFT" fillWidth="false" maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS">
             <HBox spacing="5.0">
                 <Label styleClass="titleText" text="State:" />
-                <Label styleClass="normalText" text="State" />
+                <Label fx:id="statusLabel" styleClass="normalText" />
             </HBox>
-            <Pane maxHeight="1.7976931348623157E308" styleClass="alarmPane">
-                <Label maxHeight="1.7976931348623157E308" styleClass="errorText" text="Regulate brightness: increase lamp brightness" wrapText="true" />
-                <padding>
-                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                </padding>
+            <Pane fx:id="alarmPane" styleClass="alarmPane" visible="false" VBox.vgrow="NEVER">
+                <Label fx:id="alarmLabel" maxHeight="1.7976931348623157E308" styleClass="errorText" wrapText="true">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <graphic>
+                   <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                       <Image url="@../images/error.png" />
+                   </ImageView>
+               </graphic></Label>
                 <VBox.margin>
                     <Insets top="2.0" />
                 </VBox.margin>
+            <padding>
+               <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+            </padding>
             </Pane>
         </VBox>
         <VBox fx:id="parametersVbox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">

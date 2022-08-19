@@ -42,7 +42,7 @@ object AreaDetailsControllerModule:
             (ex: Throwable) => ex.printStackTrace(),
             () => {}
           )
-        areaDetailsView.initializeParameters(simulationMVC, areaModel, updateStateMessage)
+        areaDetailsView.initializeParameters(areaModel, updateStateMessage)
         val plant = areaModel.plant
         areaDetailsView.updatePlantInformation(plant.name, plant.description, plant.imageUrl)
         areaModel.timer.addCallback(
@@ -53,7 +53,7 @@ object AreaDetailsControllerModule:
       private def updateStateMessage(message: String, show: Boolean): Unit =
         if show && (!messages.contains(message)) then messages = messages.prepended(message)
         else if !show && messages.contains(message) then messages = messages.filter(m => !m.contentEquals(message))
-        areaDetailsView.updateStateMessages(messages.mkString)
+        areaDetailsView.updateStateMessages(messages.mkString("", "\n", ""))
 
   trait Interface extends Provider with Component:
     self: Requirements =>

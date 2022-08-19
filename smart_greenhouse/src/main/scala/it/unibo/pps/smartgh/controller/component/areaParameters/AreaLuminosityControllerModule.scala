@@ -39,15 +39,18 @@ object AreaLuminosityControllerModule:
   trait Component:
     context: Requirements =>
 
-    class AreaLuminosityControllerImpl() extends AbstractAreaParameterController with AreaLuminosityController:
+    class AreaLuminosityControllerImpl(updateStateMessage: (String, Boolean) => Unit)
+        extends AbstractAreaParameterController
+        with AreaLuminosityController:
       private val lumSensor = areaModel.sensors.find(_.name.contentEquals("Brightness")).orNull
 
       timeoutUpd = Observable
         .interval(3.seconds)
         .map { _ =>
-//          updateStateMessage(lumSensor.message, lumSensor.status == SensorStatus.ALARM)
+          updateStateMessage(lumSensor.message, lumSensor.status == SensorStatus.ALARM)
           areaLuminosityView.updateCurrentValue(lumSensor.actualVal, lumSensor.status.toString)
         }
+
       override def getOptimalValues: (Double, Double) = (lumSensor.min, lumSensor.max)
 
       override def updLampValue(value: Double): Unit = areaModel.updBrightnessOfLamp(value)

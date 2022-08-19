@@ -10,16 +10,18 @@ import it.unibo.pps.smartgh.view.component.areaParameters.AreaAirHumidityViewMod
 
 object AreaAirHumidityMVC:
 
-  def apply(simulationMVC: SimulationMVCImpl, areaModel: AreaModel): AreaAirHumidityMVCImpl =
-    AreaAirHumidityMVCImpl(simulationMVC, areaModel)
+  def apply(areaModel: AreaModel, updateStateMessage: (String, Boolean) => Unit): AreaAirHumidityMVCImpl =
+    AreaAirHumidityMVCImpl(areaModel, updateStateMessage)
 
-  class AreaAirHumidityMVCImpl(simulationMVCImpl: SimulationMVCImpl, model: AreaModel)
+  class AreaAirHumidityMVCImpl(model: AreaModel, updateStateMessage: (String, Boolean) => Unit)
       extends AreaModelModule.Interface
       with AreaAirHumidityViewModule.Interface
       with AreaAirHumidityControllerModule.Interface:
 
     override val areaModel: AreaModel = model
-    override val areaAirHumidityController: AreaAirHumidityControllerController = AreaAirHumidityControllerImpl()
+    override val areaAirHumidityController: AreaAirHumidityControllerController = AreaAirHumidityControllerImpl(
+      updateStateMessage
+    )
     override val areaAirHumidityView: AreaAirHumidityView = AreaAirHumidityViewImpl()
 
     areaAirHumidityController.initializeView()

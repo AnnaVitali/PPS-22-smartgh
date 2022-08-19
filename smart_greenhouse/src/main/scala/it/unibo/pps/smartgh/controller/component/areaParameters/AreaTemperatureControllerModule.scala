@@ -38,20 +38,21 @@ object AreaTemperatureControllerModule:
   trait Component:
     context: Requirements =>
 
-    class AreaTemperatureControllerImpl() extends AbstractAreaParameterController with AreaTemperatureController:
+    class AreaTemperatureControllerImpl(updateStateMessage: (String, Boolean) => Unit)
+        extends AbstractAreaParameterController
+        with AreaTemperatureController:
       private val temperatureSensor = areaModel.sensors.find(_.name.contentEquals("Temperature")).orNull
 
       timeoutUpd = Observable
         .interval(3.seconds)
         .map { _ =>
-//          updateStateMessage(temperatureSensor.message, temperatureSensor.status == SensorStatus.ALARM)
+          updateStateMessage(temperatureSensor.message, temperatureSensor.status == SensorStatus.ALARM)
           areaTemperatureView.updateCurrentValue(temperatureSensor.actualVal, temperatureSensor.status.toString)
         }
 
       override def initialValue: Double = 27.0 //todo
 
       override def getOptimalValues: (Double, Double) = (temperatureSensor.min, temperatureSensor.max)
-//      override def currentValue: Double = temperatureSensor.actualVal
       override def updTempValue(value: Double): Unit = areaModel.updTemperature(value)
       override def openGates(): Unit = areaModel.updGateState(AreaGatesState.Open)
       override def closeGates(): Unit = areaModel.updGateState(AreaGatesState.Close)

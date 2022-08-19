@@ -10,16 +10,18 @@ import it.unibo.pps.smartgh.view.component.areaParameters.AreaTemperatureViewMod
 
 object AreaTemperatureMVC:
 
-  def apply(simulationMVC: SimulationMVCImpl, areaModel: AreaModel): AreaTemperatureMVCImpl =
-    AreaTemperatureMVCImpl(simulationMVC, areaModel)
+  def apply(areaModel: AreaModel, updateStateMessage: (String, Boolean) => Unit): AreaTemperatureMVCImpl =
+    AreaTemperatureMVCImpl(areaModel, updateStateMessage)
 
-  class AreaTemperatureMVCImpl(simulationMVCImpl: SimulationMVCImpl, model: AreaModel)
+  class AreaTemperatureMVCImpl(model: AreaModel, updateStateMessage: (String, Boolean) => Unit)
       extends AreaModelModule.Interface
       with AreaTemperatureViewModule.Interface
       with AreaTemperatureControllerModule.Interface:
 
     override val areaModel: AreaModel = model
-    override val areaTemperatureController: AreaTemperatureController = AreaTemperatureControllerImpl()
+    override val areaTemperatureController: AreaTemperatureController = AreaTemperatureControllerImpl(
+      updateStateMessage
+    )
     override val areaTemperatureView: AreaTemperatureView = AreaTemperatureViewImpl()
 
     areaTemperatureController.initializeView()
