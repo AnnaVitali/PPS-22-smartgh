@@ -84,6 +84,10 @@ object PlantSelectorModelModule:
       */
     def getPlantsSelectedIdentifier: List[String]
 
+    /** Method that returns the number of plants selected.
+      * @return
+      *   the selected plants count.
+      */
     def getPlantSelectedCount: Int
 
     /** Method that returns the plants selected for the cultivation in the greenhouse. */

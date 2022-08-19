@@ -51,9 +51,9 @@ object TemperatureSensor:
       Task {
         areaComponentsState.gatesState match
           case AreaGatesState.Open if currentValue != currentEnvironmentValue =>
-            currentValue = FactoryFunctionsTemperature.updateTemperature(currentValue, currentEnvironmentValue)
+            currentValue = FactoryFunctionsTemperature.updateTemperatureApproachingTemperatureToReach(currentValue, currentEnvironmentValue)
           case AreaGatesState.Close if currentValue != areaComponentsState.temperature =>
-            currentValue = FactoryFunctionsTemperature.updateTemperature(currentValue, areaComponentsState.temperature)
+            currentValue = FactoryFunctionsTemperature.updateTemperatureApproachingTemperatureToReach(currentValue, areaComponentsState.temperature)
           case _ =>
         subject.onNext(currentValue)
       }.executeAsync.runToFuture
