@@ -4,7 +4,7 @@ import it.unibo.pps.smartgh.controller.component.areaParameters.AreaSoilMoisture
 import it.unibo.pps.smartgh.view.component.ViewComponent
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.fxml.FXML
-import javafx.scene.control.Button
+import javafx.scene.control.{Button, Label}
 import javafx.scene.layout.GridPane
 
 object AreaSoilMoistureViewModule:
@@ -26,11 +26,15 @@ object AreaSoilMoistureViewModule:
       override val component: GridPane = loader.load[GridPane]
 
       @FXML
+      var descriptionLabel: Label = _
+
+      @FXML
       var movingSoilBtn: Button = _
 
       @FXML
       var wateringBtn: Button = _
 
+      descriptionLabel.setText("Soil moisture " + areaSoilMoistureController.getOptimalValues.toString())
       movingSoilBtn.setOnMouseClicked(_ => areaSoilMoistureController.movingSoil())
       wateringBtn.setOnMouseClicked(_ => areaSoilMoistureController.watering())
 

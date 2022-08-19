@@ -8,7 +8,8 @@ import it.unibo.pps.smartgh.view.component.areaParameters.AreaLuminosityViewModu
 
 object AreaLuminosityControllerModule:
 
-  trait AreaLuminosityController:
+  trait AreaLuminosityController extends AreaParameterController:
+
     /** Update the lamp brightness value
       * @param value
       *   that represents the lamp brightness
@@ -30,7 +31,9 @@ object AreaLuminosityControllerModule:
     context: Requirements =>
 
     class AreaLuminosityControllerImpl() extends AreaLuminosityController:
-      private val lumSensor = areaModel.sensors.find(_.name == "Brightness").orNull
+      private val lumSensor = areaModel.sensors.find(_.name.contentEquals("Brightness")).orNull
+
+      override def getOptimalValues: (Double, Double) = (lumSensor.min, lumSensor.max)
 
       override def updLampValue(value: Double): Unit = areaModel.updBrightnessOfLamp(value)
 

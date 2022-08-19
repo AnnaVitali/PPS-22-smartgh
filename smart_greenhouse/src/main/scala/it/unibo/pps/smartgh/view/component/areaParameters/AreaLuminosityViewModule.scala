@@ -4,7 +4,7 @@ import it.unibo.pps.smartgh.controller.component.areaParameters.AreaLuminosityCo
 import it.unibo.pps.smartgh.view.component.ViewComponent
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.fxml.FXML
-import javafx.scene.control.{Slider, ToggleButton}
+import javafx.scene.control.{Label, Slider, ToggleButton}
 import javafx.scene.layout.GridPane
 
 object AreaLuminosityViewModule:
@@ -26,6 +26,9 @@ object AreaLuminosityViewModule:
       override val component: GridPane = loader.load[GridPane]
 
       @FXML
+      var descriptionLabel: Label = _
+
+      @FXML
       var upShieldingBtn: ToggleButton = _
 
       @FXML
@@ -33,6 +36,8 @@ object AreaLuminosityViewModule:
 
       @FXML
       var lampBrightnessSlider: Slider = _
+
+      descriptionLabel.setText("Luminosity " + areaLuminosityController.getOptimalValues.toString())
 
       upShieldingBtn.setOnMouseClicked { _ =>
         downShieldingBtn.setSelected(false)

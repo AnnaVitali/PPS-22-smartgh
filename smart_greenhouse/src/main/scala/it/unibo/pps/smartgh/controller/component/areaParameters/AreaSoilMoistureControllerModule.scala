@@ -6,7 +6,7 @@ import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaHumidityState}
 
 object AreaSoilMoistureControllerModule:
 
-  trait AreaSoilMoistureController:
+  trait AreaSoilMoistureController extends AreaParameterController:
     /** Open the area gates. */
     def openGates(): Unit
 
@@ -31,7 +31,9 @@ object AreaSoilMoistureControllerModule:
     context: Requirements =>
 
     class AreaSoilMoistureControllerImpl() extends AreaSoilMoistureController:
-      private val soilMoistureSensor = areaModel.sensors.find(_.name == "Soil moisture").orNull
+      private val soilMoistureSensor = areaModel.sensors.find(_.name.contentEquals("Soil moisture")).orNull
+
+      override def getOptimalValues: (Double, Double) = (soilMoistureSensor.min, soilMoistureSensor.max)
 
       override def openGates(): Unit = areaModel.updGateState(AreaGatesState.Open)
 

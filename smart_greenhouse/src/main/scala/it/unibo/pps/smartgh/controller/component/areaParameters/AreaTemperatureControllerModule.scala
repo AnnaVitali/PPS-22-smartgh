@@ -6,7 +6,7 @@ import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaShieldState}
 
 object AreaTemperatureControllerModule:
 
-  trait AreaTemperatureController:
+  trait AreaTemperatureController extends AreaParameterController:
     /** Update the temperature inside the area.
       * @param value
       *   New temperature value
@@ -28,8 +28,9 @@ object AreaTemperatureControllerModule:
     context: Requirements =>
 
     class AreaTemperatureControllerImpl() extends AreaTemperatureController:
-      private val soilMoistureSensor = areaModel.sensors.find(_.name == "Temperature").orNull
+      private val soilMoistureSensor = areaModel.sensors.find(_.name.contentEquals("Temperature")).orNull
 
+      override def getOptimalValues: (Double, Double) = (soilMoistureSensor.min, soilMoistureSensor.max)
       override def updTempValue(value: Double): Unit = areaModel.updTemperature(value)
       override def openGates(): Unit = areaModel.updGateState(AreaGatesState.Open)
       override def closeGates(): Unit = areaModel.updGateState(AreaGatesState.Close)

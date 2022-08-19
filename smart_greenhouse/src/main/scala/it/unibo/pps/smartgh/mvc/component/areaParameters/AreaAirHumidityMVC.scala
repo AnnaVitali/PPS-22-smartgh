@@ -1,6 +1,6 @@
 package it.unibo.pps.smartgh.mvc.component.areaParameters
 
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaAirHumidityControllerModule.AreaAirHumidityController
+import it.unibo.pps.smartgh.controller.component.areaParameters.AreaAirHumidityControllerModule.AreaAirHumidityControllerController
 import it.unibo.pps.smartgh.controller.component.areaParameters.AreaAirHumidityControllerModule
 import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaModel
@@ -19,5 +19,5 @@ object AreaAirHumidityMVC:
       with AreaAirHumidityControllerModule.Interface:
 
     override val areaModel: AreaModel = model
-    override val areaAirHumidityController: AreaAirHumidityController = AreaAirHumidityControllerImpl()
+    override val areaAirHumidityController: AreaAirHumidityControllerController = AreaAirHumidityControllerImpl()
     override val areaAirHumidityView: AreaAirHumidityView = AreaAirHumidityViewImpl()

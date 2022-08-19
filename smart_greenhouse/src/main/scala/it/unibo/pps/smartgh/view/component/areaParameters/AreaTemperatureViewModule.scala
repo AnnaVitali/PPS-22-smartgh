@@ -28,6 +28,9 @@ object AreaTemperatureViewModule:
       override val component: GridPane = loader.load[GridPane]
 
       @FXML
+      var descriptionLabel: Label = _
+
+      @FXML
       var openStructureBtn: ToggleButton = _
 
       @FXML
@@ -41,6 +44,8 @@ object AreaTemperatureViewModule:
 
       @FXML
       var plusTempBtn: Button = _
+
+      descriptionLabel.setText("Temperature " + areaTemperatureController.getOptimalValues.toString())
 
       openStructureBtn.setOnMouseClicked { _ =>
         closeStructureBtn.setSelected(false)

@@ -4,7 +4,7 @@ import it.unibo.pps.smartgh.controller.component.areaParameters.AreaAirHumidityC
 import it.unibo.pps.smartgh.view.component.ViewComponent
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.fxml.FXML
-import javafx.scene.control.ToggleButton
+import javafx.scene.control.{Label, ToggleButton}
 import javafx.scene.layout.GridPane
 
 object AreaAirHumidityViewModule:
@@ -26,10 +26,15 @@ object AreaAirHumidityViewModule:
       override val component: GridPane = loader.load[GridPane]
 
       @FXML
+      var descriptionLabel: Label = _
+
+      @FXML
       var ventilationBtn: ToggleButton = _
 
       @FXML
       var atomiserBtn: ToggleButton = _
+
+      descriptionLabel.setText("Air humidity " + areaAirHumidityController.getOptimalValues.toString())
 
       ventilationBtn.setOnMouseClicked { _ =>
         if ventilationBtn.isSelected then

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
     <columnConstraints>
         <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" percentWidth="20.0" />
         <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" percentWidth="20.0" />
@@ -21,7 +21,7 @@
     <padding>
         <Insets bottom="5.0" top="5.0" />
     </padding>
-    <Label text="Luminosity (xx - yy)" />
+    <Label fx:id="descriptionLabel" />
     <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="xx" GridPane.columnIndex="1">
         <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
