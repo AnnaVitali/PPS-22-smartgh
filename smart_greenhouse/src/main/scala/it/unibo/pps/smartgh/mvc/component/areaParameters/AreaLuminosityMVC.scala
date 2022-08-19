@@ -21,4 +21,4 @@ object AreaLuminosityMVC:
     override val areaLuminosityController: AreaLuminosityController = AreaLuminosityControllerImpl(updateStateMessage)
     override val areaLuminosityView: AreaLuminosityView = AreaLuminosityViewImpl()
 
-    areaLuminosityController.initializeView()
+    areaLuminosityController.initializeView(areaLuminosityView)

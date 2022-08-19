@@ -23,7 +23,7 @@ object AreaSoilMoistureViewModule:
     context: Requirements =>
 
     class AreaSoilMoistureViewImpl()
-        extends AbstractAreaParametersView[GridPane]("area_soil_moisture.fxml")
+        extends AbstractAreaParametersView[GridPane]("area_soil_moisture.fxml", "Soil moisture")
         with AreaSoilMoistureView:
 
       override val component: GridPane = loader.load[GridPane]
@@ -34,7 +34,7 @@ object AreaSoilMoistureViewModule:
       @FXML
       var wateringBtn: Button = _
 
-      descriptionLabel.setText("Soil moisture " + areaSoilMoistureController.getOptimalValues.toString())
+      updateDescription(areaSoilMoistureController.getOptimalValues)
       movingSoilBtn.setOnMouseClicked(_ => areaSoilMoistureController.movingSoil())
       wateringBtn.setOnMouseClicked(_ => areaSoilMoistureController.watering())
 

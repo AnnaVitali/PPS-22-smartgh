@@ -23,4 +23,4 @@ object AreaTemperatureMVC:
     )
     override val areaTemperatureView: AreaTemperatureView = AreaTemperatureViewImpl()
 
-    areaTemperatureController.initializeView()
+    areaTemperatureController.initializeView(areaTemperatureView)

@@ -11,7 +11,6 @@ import it.unibo.pps.smartgh.view.component.areaParameters.AreaSoilMoistureViewMo
 object AreaSoilMoistureControllerModule:
 
   trait AreaSoilMoistureController extends AreaParameterController:
-    def initializeView(): Unit
     /** Open the area gates. */
     def openGates(): Unit
 
@@ -38,10 +37,8 @@ object AreaSoilMoistureControllerModule:
     context: Requirements =>
 
     class AreaSoilMoistureControllerImpl(updateStateMessage: (String, Boolean) => Unit)
-        extends AbstractAreaParameterController(areaModel, "Soil moisture")
+        extends AbstractAreaParameterController("Soil moisture", areaModel, updateStateMessage)
         with AreaSoilMoistureController:
-
-      override def getOptimalValues: (Double, Double) = (sensor.min, sensor.max)
 
       override def openGates(): Unit = areaModel.updGateState(AreaGatesState.Open)
 
@@ -52,10 +49,6 @@ object AreaSoilMoistureControllerModule:
       override def watering(): Unit = areaModel.updHumidityAction(AreaHumidityState.Watering)
 
       override def noAction(): Unit = areaModel.updHumidityAction(AreaHumidityState.None)
-
-      override def updateValues(): Unit =
-        updateStateMessage(sensor.message, sensor.status == SensorStatus.ALARM)
-        areaSoilMoistureView.updateCurrentValue(sensor.actualVal, sensor.status.toString)
 
   trait Interface extends Provider with Component:
     self: Requirements =>

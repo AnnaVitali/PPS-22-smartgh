@@ -11,6 +11,8 @@ object ManageSensor:
     *   value
     * @param max
     *   value
+    * @param um
+    *   the unit of measurement of the value detected by the sensor
     * @param sensor
     *   instance of the corresponding [[Sensor]]
     * @param actualVal
@@ -24,6 +26,7 @@ object ManageSensor:
       name: String,
       min: Double,
       max: Double,
+      um: String,
       sensor: Sensor,
       var actualVal: Double,
       message: String,

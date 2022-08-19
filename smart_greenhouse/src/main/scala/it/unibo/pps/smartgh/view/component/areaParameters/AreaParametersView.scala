@@ -9,9 +9,10 @@ import javafx.scene.control.Label
 object AreaParametersView:
 
   trait AreaParametersView:
-    def updateCurrentValue(value: Double, status: String): Unit
+    def updateDescription(optimalValue: String): Unit
+    def updateCurrentValue(value: String, status: String): Unit
 
-  abstract class AbstractAreaParametersView[A <: Parent](fxmlFileName: String)
+  abstract class AbstractAreaParametersView[A <: Parent](fxmlFileName: String, parameter: String)
       extends AbstractViewComponent[A](fxmlFileName)
       with AreaParametersView:
 
@@ -21,8 +22,11 @@ object AreaParametersView:
     @FXML
     var currentValueLabel: Label = _
 
-    override def updateCurrentValue(value: Double, status: String): Unit =
+    override def updateDescription(optimalValue: String): Unit =
+      descriptionLabel.setText(parameter + " " + optimalValue)
+
+    override def updateCurrentValue(value: String, status: String): Unit =
       Platform.runLater { () =>
-        currentValueLabel.setText(value.toString)
+        currentValueLabel.setText(value)
         currentValueLabel.getStyleClass.setAll(status + "State")
       }

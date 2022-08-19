@@ -23,4 +23,4 @@ object AreaAirHumidityMVC:
     )
     override val areaAirHumidityView: AreaAirHumidityView = AreaAirHumidityViewImpl()
 
-    areaAirHumidityController.initializeView()
+    areaAirHumidityController.initializeView(areaAirHumidityView)

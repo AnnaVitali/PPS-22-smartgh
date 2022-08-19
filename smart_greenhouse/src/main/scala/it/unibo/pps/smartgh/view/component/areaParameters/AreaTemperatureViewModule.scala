@@ -23,7 +23,7 @@ object AreaTemperatureViewModule:
     context: Requirements =>
 
     class AreaTemperatureViewImpl()
-        extends AbstractAreaParametersView[GridPane]("area_temperature.fxml")
+        extends AbstractAreaParametersView[GridPane]("area_temperature.fxml", "Temperature")
         with AreaTemperatureView:
 
       private val tempStep = 0.5
@@ -45,7 +45,7 @@ object AreaTemperatureViewModule:
       @FXML
       var plusTempBtn: Button = _
 
-      descriptionLabel.setText("Temperature " + areaTemperatureController.getOptimalValues.toString())
+      updateDescription(areaTemperatureController.getOptimalValues)
 
       openStructureBtn.setOnMouseClicked { _ =>
         closeStructureBtn.setSelected(false)

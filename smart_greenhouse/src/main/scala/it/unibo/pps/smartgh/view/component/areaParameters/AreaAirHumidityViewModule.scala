@@ -32,7 +32,7 @@ object AreaAirHumidityViewModule:
     context: Requirements =>
 
     class AreaAirHumidityViewImpl()
-        extends AbstractAreaParametersView[GridPane]("area_air_humidity.fxml")
+        extends AbstractAreaParametersView[GridPane]("area_air_humidity.fxml", "Air humidity")
         with AreaAirHumidityView:
 
       override val component: GridPane = loader.load[GridPane]
@@ -43,7 +43,7 @@ object AreaAirHumidityViewModule:
       @FXML
       var atomiserBtn: ToggleButton = _
 
-      descriptionLabel.setText("Air humidity " + areaAirHumidityController.getOptimalValues.toString())
+      updateDescription(areaAirHumidityController.getOptimalValues)
 
       ventilationBtn.setOnMouseClicked { _ =>
         if ventilationBtn.isSelected then

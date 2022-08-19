@@ -6,6 +6,7 @@ import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.{
   AbstractAreaParametersView,
   AreaParametersView
 }
+import javafx.util.StringConverter
 import javafx.fxml.FXML
 import javafx.scene.control.{Label, Slider, ToggleButton}
 import javafx.scene.layout.GridPane
@@ -23,7 +24,7 @@ object AreaLuminosityViewModule:
     context: Requirements =>
 
     class AreaLuminosityViewImpl()
-        extends AbstractAreaParametersView[GridPane]("area_luminosity.fxml")
+        extends AbstractAreaParametersView[GridPane]("area_luminosity.fxml", "Luminosity")
         with AreaLuminosityView:
 
       override val component: GridPane = loader.load[GridPane]
@@ -37,7 +38,7 @@ object AreaLuminosityViewModule:
       @FXML
       var lampBrightnessSlider: Slider = _
 
-      descriptionLabel.setText("Luminosity " + areaLuminosityController.getOptimalValues.toString())
+      updateDescription(areaLuminosityController.getOptimalValues)
 
       upShieldingBtn.setOnMouseClicked { _ =>
         downShieldingBtn.setSelected(false)
@@ -51,6 +52,11 @@ object AreaLuminosityViewModule:
 
       lampBrightnessSlider.setOnMouseReleased(_ =>
         areaLuminosityController.updLampValue(lampBrightnessSlider.getValue * 1000)
+      )
+
+      lampBrightnessSlider.setLabelFormatter(new StringConverter[java.lang.Double]:
+        override def toString(n: java.lang.Double): String = n + "k"
+        override def fromString(s: String): java.lang.Double = java.lang.Double.valueOf(s.dropRight(1))
       )
 
   trait Interface extends Provider with Component:

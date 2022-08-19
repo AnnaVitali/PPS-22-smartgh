@@ -33,20 +33,14 @@ object AreaLuminosityControllerModule:
     context: Requirements =>
 
     class AreaLuminosityControllerImpl(updateStateMessage: (String, Boolean) => Unit)
-        extends AbstractAreaParameterController(areaModel, "Brightness")
+        extends AbstractAreaParameterController("Brightness", areaModel, updateStateMessage)
         with AreaLuminosityController:
-
-      override def getOptimalValues: (Double, Double) = (sensor.min, sensor.max)
 
       override def updLampValue(value: Double): Unit = areaModel.updBrightnessOfLamp(value)
 
       override def shieldsDown(): Unit = areaModel.updShieldState(AreaShieldState.Down)
 
       override def shieldsUp(): Unit = areaModel.updShieldState(AreaShieldState.Up)
-
-      override def updateValues(): Unit =
-        updateStateMessage(sensor.message, sensor.status == SensorStatus.ALARM)
-        areaLuminosityView.updateCurrentValue(sensor.actualVal, sensor.status.toString)
 
   trait Interface extends Provider with Component:
     self: Requirements =>

@@ -34,19 +34,14 @@ object AreaTemperatureControllerModule:
     context: Requirements =>
 
     class AreaTemperatureControllerImpl(updateStateMessage: (String, Boolean) => Unit)
-        extends AbstractAreaParameterController(areaModel, "Temperature")
+        extends AbstractAreaParameterController("Temperature", areaModel, updateStateMessage)
         with AreaTemperatureController:
 
       override def initialValue: Double = 27.0 //todo
 
-      override def getOptimalValues: (Double, Double) = (sensor.min, sensor.max)
       override def updTempValue(value: Double): Unit = areaModel.updTemperature(value)
       override def openGates(): Unit = areaModel.updGateState(AreaGatesState.Open)
       override def closeGates(): Unit = areaModel.updGateState(AreaGatesState.Close)
-
-      override def updateValues(): Unit =
-        updateStateMessage(sensor.message, sensor.status == SensorStatus.ALARM)
-        areaTemperatureView.updateCurrentValue(sensor.actualVal, sensor.status.toString)
 
   trait Interface extends Provider with Component:
     self: Requirements =>

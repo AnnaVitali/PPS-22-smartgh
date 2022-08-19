@@ -23,4 +23,4 @@ object AreaSoilMoistureMVC:
     )
     override val areaSoilMoistureView: AreaSoilMoistureView = AreaSoilMoistureViewImpl()
 
-    areaSoilMoistureController.initializeView()
+    areaSoilMoistureController.initializeView(areaSoilMoistureView)

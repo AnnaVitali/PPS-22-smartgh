@@ -136,32 +136,36 @@ object AreaModelModule:
       private val mapSensorNamesAndMessages: Map[String, Map[String, String]] = Map(
         TemperatureKey -> Map(
           ("name", "temp"),
+          ("um", "°"),
           (
             "message",
-            "adjust the indoor temperature by also considering the outdoor temperature, to manage it better you could " +
+            "Adjust the indoor temperature by also considering the outdoor temperature, to manage it better you could " +
               "close the greenhouse (and screen it) and set the indoor temperature"
           )
         ),
         AirHumidityKey -> Map(
           ("name", "env_humid"),
+          ("um", "%"),
           (
             "message",
-            "adjust the indoor humidity considering also the outdoor humidity, also you can ventilate the area to decrease " +
+            "Adjust the indoor humidity considering also the outdoor humidity, also you can ventilate the area to decrease " +
               "it or vaporize to increase it"
           )
         ),
         SoilHumidityKey -> Map(
           "name" -> "soil_moist",
+          ("um", "%"),
           (
             "message",
-            "adjust soil moisture considering weather conditions, also decrease it by loosening the soil or increase it by watering"
+            "Adjust soil moisture considering weather conditions, also decrease it by loosening the soil or increase it by watering"
           )
         ),
         BrightnessKey -> Map(
           ("name", "light_lux"),
+          ("um", "Lux"),
           (
             "message",
-            "adjust the indoor brightness considering the outdoor brightness, also you can shield the area " +
+            "Adjust the indoor brightness considering the outdoor brightness, also you can shield the area " +
               "and/or adjust the brightness of the lamps"
           )
         )
@@ -173,11 +177,13 @@ object AreaModelModule:
         for
           (key, m) <- mapSensorNamesAndMessages.toList
           optK = m.getOrElse("name", "")
+          um = m.getOrElse("um", "")
           msg = m.getOrElse("message", "")
         yield ManageSensorImpl(
           key,
           optimalValueToDouble.getOrElse("min_" + optK, 0.0),
           optimalValueToDouble.getOrElse("max_" + optK, 0.0),
+          um,
           sensorsMap(key),
           BigDecimal(sensorsMap(key).getCurrentValue).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble,
           msg,

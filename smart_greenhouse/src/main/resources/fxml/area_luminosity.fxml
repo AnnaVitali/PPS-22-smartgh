@@ -43,7 +43,7 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
         </padding>
         <Label text="Shielding:" />
-        <Label text="Lamp brightness (x 1000):" GridPane.rowIndex="1" />
+        <Label text="Lamp brightness:" GridPane.rowIndex="1" />
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
             <ToggleButton fx:id="upShieldingBtn" mnemonicParsing="false" text="Up" />
             <ToggleButton fx:id="downShieldingBtn" mnemonicParsing="false" selected="true" text="Down" />
