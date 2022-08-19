@@ -44,18 +44,10 @@ object AreaSoilMoistureControllerModule:
     context: Requirements =>
 
     class AreaSoilMoistureControllerImpl(updateStateMessage: (String, Boolean) => Unit)
-        extends AbstractAreaParameterController
+        extends AbstractAreaParameterController(areaModel, "Soil moisture")
         with AreaSoilMoistureController:
-      private val soilMoistureSensor = areaModel.sensors.find(_.name.contentEquals("Soil moisture")).orNull
 
-      timeoutUpd = Observable
-        .interval(3.seconds)
-        .map { _ =>
-          updateStateMessage(soilMoistureSensor.message, soilMoistureSensor.status == SensorStatus.ALARM)
-          areaSoilMoistureView.updateCurrentValue(soilMoistureSensor.actualVal, soilMoistureSensor.status.toString)
-        }
-
-      override def getOptimalValues: (Double, Double) = (soilMoistureSensor.min, soilMoistureSensor.max)
+      override def getOptimalValues: (Double, Double) = (sensor.min, sensor.max)
 
       override def openGates(): Unit = areaModel.updGateState(AreaGatesState.Open)
 
@@ -66,6 +58,10 @@ object AreaSoilMoistureControllerModule:
       override def watering(): Unit = areaModel.updHumidityAction(AreaHumidityState.Watering)
 
       override def noAction(): Unit = areaModel.updHumidityAction(AreaHumidityState.None)
+
+      override def updateValues(): Unit =
+        updateStateMessage(sensor.message, sensor.status == SensorStatus.ALARM)
+        areaSoilMoistureView.updateCurrentValue(sensor.actualVal, sensor.status.toString)
 
   trait Interface extends Provider with Component:
     self: Requirements =>

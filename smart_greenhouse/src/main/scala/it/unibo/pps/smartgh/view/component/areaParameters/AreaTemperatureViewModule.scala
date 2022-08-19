@@ -3,7 +3,10 @@ package it.unibo.pps.smartgh.view.component.areaParameters
 import it.unibo.pps.smartgh.controller.component.areaParameters.AreaTemperatureControllerModule
 import it.unibo.pps.smartgh.view.component.ViewComponent
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.AreaParametersView
+import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.{
+  AbstractAreaParametersView,
+  AreaParametersView
+}
 import javafx.application.Platform
 import javafx.fxml.FXML
 import javafx.scene.control.{Button, Label, ToggleButton}
@@ -22,18 +25,12 @@ object AreaTemperatureViewModule:
     context: Requirements =>
 
     class AreaTemperatureViewImpl()
-        extends AbstractViewComponent[GridPane]("area_temperature.fxml")
+        extends AbstractAreaParametersView[GridPane]("area_temperature.fxml")
         with AreaTemperatureView:
 
       private val tempStep = 0.5
       private val tempRange = (10.0 + tempStep, 40.0 - tempStep)
       override val component: GridPane = loader.load[GridPane]
-
-      @FXML
-      var descriptionLabel: Label = _
-
-      @FXML
-      var currentValueLabel: Label = _
 
       @FXML
       var openStructureBtn: ToggleButton = _
@@ -67,13 +64,6 @@ object AreaTemperatureViewModule:
       minusTempBtn.setOnMouseClicked(_ => updateTempValue(_ - tempStep))
       plusTempBtn.setOnMouseClicked(_ => updateTempValue(_ + tempStep))
       regulateTempLabel.setText(areaTemperatureController.initialValue.toString)
-//      currentValueLabel.setText(areaTemperatureController.currentValue.toString)
-
-      override def updateCurrentValue(value: Double, status: String): Unit =
-        Platform.runLater { () =>
-          currentValueLabel.setText(value.toString)
-          currentValueLabel.getStyleClass.setAll(status + "State")
-        }
 
       private def setRegulateTempAvailable(b: Boolean): Unit =
         minusTempBtn.setDisable(!b)

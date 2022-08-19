@@ -38,18 +38,10 @@ object AreaAirHumidityControllerModule:
     context: Requirements =>
 
     class AreaAirHumidityControllerImpl(updateStateMessage: (String, Boolean) => Unit)
-        extends AbstractAreaParameterController
+        extends AbstractAreaParameterController(areaModel, "Humidity")
         with AreaAirHumidityControllerController:
-      private val humSensor = areaModel.sensors.find(_.name.contentEquals("Humidity")).orNull
 
-      timeoutUpd = Observable
-        .interval(3.seconds)
-        .map { _ =>
-          updateStateMessage(humSensor.message, humSensor.status == SensorStatus.ALARM)
-          areaAirHumidityView.updateCurrentValue(humSensor.actualVal, humSensor.status.toString)
-        }
-
-      override def getOptimalValues: (Double, Double) = (humSensor.min, humSensor.max)
+      override def getOptimalValues: (Double, Double) = (sensor.min, sensor.max)
 
       override def activateVentilation(): Unit =
         areaModel.updVentilationState(AreaVentilationState.VentilationActive)
@@ -62,6 +54,10 @@ object AreaAirHumidityControllerModule:
 
       override def disableAtomiseArea(): Unit =
         areaModel.updAtomizeState(AreaAtomiseState.AtomisingInactive)
+
+      override def updateValues(): Unit =
+        updateStateMessage(sensor.message, sensor.status == SensorStatus.ALARM)
+        areaAirHumidityView.updateCurrentValue(sensor.actualVal, sensor.status.toString)
 
   trait Interface extends Provider with Component:
     self: Requirements =>

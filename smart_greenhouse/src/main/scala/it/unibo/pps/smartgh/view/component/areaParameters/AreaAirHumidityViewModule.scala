@@ -3,6 +3,7 @@ package it.unibo.pps.smartgh.view.component.areaParameters
 import it.unibo.pps.smartgh.controller.component.areaParameters.AreaAirHumidityControllerModule
 import it.unibo.pps.smartgh.view.component.ViewComponent
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
+import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.AbstractAreaParametersView
 import javafx.application.Platform
 import javafx.fxml.FXML
 import javafx.scene.control.{Label, ToggleButton}
@@ -22,16 +23,10 @@ object AreaAirHumidityViewModule:
     context: Requirements =>
 
     class AreaAirHumidityViewImpl()
-        extends AbstractViewComponent[GridPane]("area_air_humidity.fxml")
+        extends AbstractAreaParametersView[GridPane]("area_air_humidity.fxml")
         with AreaAirHumidityView:
 
       override val component: GridPane = loader.load[GridPane]
-
-      @FXML
-      var descriptionLabel: Label = _
-
-      @FXML
-      var currentValueLabel: Label = _
 
       @FXML
       var ventilationBtn: ToggleButton = _
@@ -58,12 +53,6 @@ object AreaAirHumidityViewModule:
           atomiserBtn.setText("Atomise area")
           areaAirHumidityController.disableAtomiseArea()
       }
-
-      override def updateCurrentValue(value: Double, status: String): Unit =
-        Platform.runLater { () =>
-          currentValueLabel.setText(value.toString)
-          currentValueLabel.getStyleClass.setAll(status + "State")
-        }
 
   trait Interface extends Provider with Component:
     self: Requirements =>
