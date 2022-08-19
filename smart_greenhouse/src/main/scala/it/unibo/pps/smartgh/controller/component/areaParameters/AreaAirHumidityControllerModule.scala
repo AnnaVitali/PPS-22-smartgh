@@ -4,15 +4,9 @@ import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParameterCon
   AbstractAreaParameterController,
   AreaParameterController
 }
-import it.unibo.pps.smartgh.model.area.AreaModelModule
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaAirHumidityViewModule
-import it.unibo.pps.smartgh.model.area.{AreaAtomiseState, AreaVentilationState}
+import it.unibo.pps.smartgh.model.area.{AreaAtomiseState, AreaModelModule, AreaVentilationState}
 import it.unibo.pps.smartgh.model.sensor.SensorStatus
-import monix.execution.Cancelable
-import monix.reactive.Observable
-
-import concurrent.duration.DurationInt
-import monix.execution.Scheduler.Implicits.global
+import it.unibo.pps.smartgh.view.component.areaParameters.AreaAirHumidityViewModule
 
 object AreaAirHumidityControllerModule:
 

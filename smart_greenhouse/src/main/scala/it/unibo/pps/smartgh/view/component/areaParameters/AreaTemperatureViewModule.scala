@@ -2,12 +2,10 @@ package it.unibo.pps.smartgh.view.component.areaParameters
 
 import it.unibo.pps.smartgh.controller.component.areaParameters.AreaTemperatureControllerModule
 import it.unibo.pps.smartgh.view.component.ViewComponent
-import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.{
   AbstractAreaParametersView,
   AreaParametersView
 }
-import javafx.application.Platform
 import javafx.fxml.FXML
 import javafx.scene.control.{Button, Label, ToggleButton}
 import javafx.scene.layout.GridPane

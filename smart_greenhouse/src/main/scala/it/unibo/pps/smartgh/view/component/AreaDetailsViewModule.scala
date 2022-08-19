@@ -1,8 +1,7 @@
 package it.unibo.pps.smartgh.view.component
 
-import it.unibo.pps.smartgh.controller.component.{AreaControllerModule, AreaDetailsControllerModule}
+import it.unibo.pps.smartgh.controller.component.AreaDetailsControllerModule
 import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaModel
-import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.mvc.component.areaParameters.{
   AreaAirHumidityMVC,
   AreaLuminosityMVC,
@@ -12,13 +11,11 @@ import it.unibo.pps.smartgh.mvc.component.areaParameters.{
 import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
 import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.SelectPlantView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaLuminosityViewModule
 import javafx.application.Platform
 import javafx.fxml.FXML
 import javafx.scene.Parent
 import javafx.scene.control.{Label, ScrollPane, Separator}
-import javafx.scene.image.Image
-import javafx.scene.image.ImageView
+import javafx.scene.image.{Image, ImageView}
 import javafx.scene.layout.{Pane, VBox}
 
 object AreaDetailsViewModule:

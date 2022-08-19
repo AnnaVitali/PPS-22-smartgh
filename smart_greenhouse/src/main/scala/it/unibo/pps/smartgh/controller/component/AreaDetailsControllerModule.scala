@@ -1,14 +1,12 @@
 package it.unibo.pps.smartgh.controller.component
 
 import it.unibo.pps.smartgh.model.area.AreaModelModule
+import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaStatus
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.view.component.{AreaDetailsViewModule, BaseView}
-import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaStatus
 import monix.execution.Ack.Continue
 import monix.execution.Scheduler.Implicits.global
 import org.apache.commons.lang3.time.DurationFormatUtils
-
-import scala.concurrent.duration.FiniteDuration
 
 object AreaDetailsControllerModule:
 

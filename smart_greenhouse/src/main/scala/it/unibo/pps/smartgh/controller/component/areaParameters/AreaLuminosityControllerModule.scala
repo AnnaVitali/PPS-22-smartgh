@@ -4,16 +4,9 @@ import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParameterCon
   AbstractAreaParameterController,
   AreaParameterController
 }
-import it.unibo.pps.smartgh.controller.component.SceneController
-import it.unibo.pps.smartgh.model.area.AreaModelModule
-import it.unibo.pps.smartgh.model.area.AreaShieldState
+import it.unibo.pps.smartgh.model.area.{AreaModelModule, AreaShieldState}
 import it.unibo.pps.smartgh.model.sensor.SensorStatus
-import it.unibo.pps.smartgh.view.component.BaseView
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaLuminosityViewModule
-import monix.reactive.Observable
-
-import concurrent.duration.DurationInt
-import monix.execution.Scheduler.Implicits.global
 
 object AreaLuminosityControllerModule:
 

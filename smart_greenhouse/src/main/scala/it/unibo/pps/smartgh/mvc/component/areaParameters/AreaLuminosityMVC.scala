@@ -1,11 +1,9 @@
 package it.unibo.pps.smartgh.mvc.component.areaParameters
 
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaLuminosityControllerModule.AreaLuminosityController
 import it.unibo.pps.smartgh.controller.component.areaParameters.AreaLuminosityControllerModule
+import it.unibo.pps.smartgh.controller.component.areaParameters.AreaLuminosityControllerModule.AreaLuminosityController
 import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaModel
-import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
-import it.unibo.pps.smartgh.view.component.BaseView
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaLuminosityViewModule
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaLuminosityViewModule.AreaLuminosityView
 

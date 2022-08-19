@@ -2,17 +2,17 @@ package it.unibo.pps.smartgh.view.component.areaParameters
 
 import it.unibo.pps.smartgh.controller.component.areaParameters.AreaSoilMoistureControllerModule
 import it.unibo.pps.smartgh.view.component.ViewComponent
-import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.AbstractAreaParametersView
-import javafx.application.Platform
+import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.{
+  AbstractAreaParametersView,
+  AreaParametersView
+}
 import javafx.fxml.FXML
 import javafx.scene.control.{Button, Label}
 import javafx.scene.layout.GridPane
 
 object AreaSoilMoistureViewModule:
 
-  trait AreaSoilMoistureView extends ViewComponent[GridPane]:
-    def updateCurrentValue(value: Double, status: String): Unit
+  trait AreaSoilMoistureView extends ViewComponent[GridPane] with AreaParametersView
 
   trait Provider:
     val areaSoilMoistureView: AreaSoilMoistureView

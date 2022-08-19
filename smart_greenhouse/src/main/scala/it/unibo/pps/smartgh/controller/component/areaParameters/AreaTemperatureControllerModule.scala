@@ -4,14 +4,9 @@ import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParameterCon
   AbstractAreaParameterController,
   AreaParameterController
 }
-import it.unibo.pps.smartgh.model.area.AreaModelModule
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaTemperatureViewModule
-import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaShieldState}
+import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaModelModule}
 import it.unibo.pps.smartgh.model.sensor.SensorStatus
-import monix.reactive.Observable
-
-import concurrent.duration.DurationInt
-import monix.execution.Scheduler.Implicits.global
+import it.unibo.pps.smartgh.view.component.areaParameters.AreaTemperatureViewModule
 
 object AreaTemperatureControllerModule:
 

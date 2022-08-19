@@ -1,7 +1,7 @@
 package it.unibo.pps.smartgh.mvc.component
 
+import it.unibo.pps.smartgh.controller.component.AreaDetailsControllerModule
 import it.unibo.pps.smartgh.controller.component.AreaDetailsControllerModule.AreaDetailsController
-import it.unibo.pps.smartgh.controller.component.{AreaControllerModule, AreaDetailsControllerModule}
 import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaModel
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl

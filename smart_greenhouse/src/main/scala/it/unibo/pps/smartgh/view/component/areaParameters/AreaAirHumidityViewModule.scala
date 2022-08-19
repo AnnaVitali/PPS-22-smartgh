@@ -2,17 +2,26 @@ package it.unibo.pps.smartgh.view.component.areaParameters
 
 import it.unibo.pps.smartgh.controller.component.areaParameters.AreaAirHumidityControllerModule
 import it.unibo.pps.smartgh.view.component.ViewComponent
-import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.AbstractAreaParametersView
-import javafx.application.Platform
+import it.unibo.pps.smartgh.view.component.areaParameters.AreaAirHumidityViewModule.VentilationText
+import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.{
+  AbstractAreaParametersView,
+  AreaParametersView
+}
 import javafx.fxml.FXML
 import javafx.scene.control.{Label, ToggleButton}
-import javafx.scene.layout.GridPane
+import javafx.scene.layout.{Border, GridPane}
 
 object AreaAirHumidityViewModule:
 
-  trait AreaAirHumidityView extends ViewComponent[GridPane]:
-    def updateCurrentValue(value: Double, status: String): Unit
+  enum VentilationText(val text: String):
+    case ACTIVE extends VentilationText("Activate the ventilation")
+    case DEACTIVE extends VentilationText("Deactivate the ventilation")
+
+  enum AtomiserText(val text: String):
+    case ACTIVE extends AtomiserText("Atomise area")
+    case DEACTIVE extends AtomiserText("Disable atomise area")
+
+  trait AreaAirHumidityView extends ViewComponent[GridPane] with AreaParametersView
 
   trait Provider:
     val areaAirHumidityView: AreaAirHumidityView
@@ -38,19 +47,19 @@ object AreaAirHumidityViewModule:
 
       ventilationBtn.setOnMouseClicked { _ =>
         if ventilationBtn.isSelected then
-          ventilationBtn.setText("Deactivate the ventilation")
+          ventilationBtn.setText(VentilationText.DEACTIVE.text)
           areaAirHumidityController.activateVentilation()
         else
-          ventilationBtn.setText("Activate the ventilation")
+          ventilationBtn.setText(VentilationText.ACTIVE.text)
           areaAirHumidityController.deactivateVentilation()
       }
 
       atomiserBtn.setOnMouseClicked { _ =>
         if atomiserBtn.isSelected then
-          atomiserBtn.setText("Disable atomise area")
+          atomiserBtn.setText(AtomiserText.DEACTIVE.text)
           areaAirHumidityController.atomiseArea()
         else
-          atomiserBtn.setText("Atomise area")
+          atomiserBtn.setText(AtomiserText.ACTIVE.text)
           areaAirHumidityController.disableAtomiseArea()
       }
 
