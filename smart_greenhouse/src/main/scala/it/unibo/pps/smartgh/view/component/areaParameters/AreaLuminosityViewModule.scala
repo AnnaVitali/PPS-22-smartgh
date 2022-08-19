@@ -3,13 +3,15 @@ package it.unibo.pps.smartgh.view.component.areaParameters
 import it.unibo.pps.smartgh.controller.component.areaParameters.AreaLuminosityControllerModule
 import it.unibo.pps.smartgh.view.component.ViewComponent
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
+import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.AreaParametersView
+import javafx.application.Platform
 import javafx.fxml.FXML
 import javafx.scene.control.{Label, Slider, ToggleButton}
 import javafx.scene.layout.GridPane
 
 object AreaLuminosityViewModule:
 
-  trait AreaLuminosityView extends ViewComponent[GridPane]
+  trait AreaLuminosityView extends ViewComponent[GridPane] with AreaParametersView
 
   trait Provider:
     val areaLuminosityView: AreaLuminosityView
@@ -27,6 +29,9 @@ object AreaLuminosityViewModule:
 
       @FXML
       var descriptionLabel: Label = _
+
+      @FXML
+      var currentValueLabel: Label = _
 
       @FXML
       var upShieldingBtn: ToggleButton = _
@@ -49,7 +54,15 @@ object AreaLuminosityViewModule:
         areaLuminosityController.shieldsUp()
       }
 
-      lampBrightnessSlider.setOnMouseReleased(_ => areaLuminosityController.updLampValue(lampBrightnessSlider.getValue))
+      lampBrightnessSlider.setOnMouseReleased(_ =>
+        areaLuminosityController.updLampValue(lampBrightnessSlider.getValue * 1000)
+      )
+
+      override def updateCurrentValue(value: Double, status: String): Unit =
+        Platform.runLater { () =>
+          currentValueLabel.setText(value.toString)
+          currentValueLabel.getStyleClass.setAll(status + "State")
+        }
 
   trait Interface extends Provider with Component:
     self: Requirements =>

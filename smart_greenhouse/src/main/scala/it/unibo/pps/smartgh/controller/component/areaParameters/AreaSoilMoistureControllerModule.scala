@@ -1,12 +1,23 @@
 package it.unibo.pps.smartgh.controller.component.areaParameters
 
+import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParameterController.{
+  AbstractAreaParameterController,
+  AreaParameterController
+}
 import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaSoilMoistureViewModule
 import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaHumidityState}
+import it.unibo.pps.smartgh.model.sensor.SensorStatus
+import monix.execution.Cancelable
+import monix.reactive.Observable
+
+import concurrent.duration.DurationInt
+import monix.execution.Scheduler.Implicits.global
 
 object AreaSoilMoistureControllerModule:
 
   trait AreaSoilMoistureController extends AreaParameterController:
+    def initializeView(): Unit
     /** Open the area gates. */
     def openGates(): Unit
 
@@ -22,6 +33,8 @@ object AreaSoilMoistureControllerModule:
     /** Define that no action is performed on the area. */
     def noAction(): Unit
 
+    def stopListening(): Unit
+
   trait Provider:
     val areaSoilMoistureController: AreaSoilMoistureController
 
@@ -30,8 +43,17 @@ object AreaSoilMoistureControllerModule:
   trait Component:
     context: Requirements =>
 
-    class AreaSoilMoistureControllerImpl() extends AreaSoilMoistureController:
+    class AreaSoilMoistureControllerImpl(updateStateMessage: (String, Boolean) => Unit)
+        extends AbstractAreaParameterController
+        with AreaSoilMoistureController:
       private val soilMoistureSensor = areaModel.sensors.find(_.name.contentEquals("Soil moisture")).orNull
+
+      timeoutUpd = Observable
+        .interval(3.seconds)
+        .map { _ =>
+          updateStateMessage(soilMoistureSensor.message, soilMoistureSensor.status == SensorStatus.ALARM)
+          areaSoilMoistureView.updateCurrentValue(soilMoistureSensor.actualVal, soilMoistureSensor.status.toString)
+        }
 
       override def getOptimalValues: (Double, Double) = (soilMoistureSensor.min, soilMoistureSensor.max)
 

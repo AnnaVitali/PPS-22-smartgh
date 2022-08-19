@@ -10,14 +10,25 @@ import it.unibo.pps.smartgh.view.component.areaParameters.AreaSoilMoistureViewMo
 
 object AreaSoilMoistureMVC:
 
-  def apply(simulationMVC: SimulationMVCImpl, areaModel: AreaModel): AreaSoilMoistureMVCImpl =
-    AreaSoilMoistureMVCImpl(simulationMVC, areaModel)
+  def apply(
+      simulationMVC: SimulationMVCImpl,
+      areaModel: AreaModel,
+      updateStateMessage: (String, Boolean) => Unit
+  ): AreaSoilMoistureMVCImpl =
+    AreaSoilMoistureMVCImpl(simulationMVC, areaModel, updateStateMessage)
 
-  class AreaSoilMoistureMVCImpl(simulationMVCImpl: SimulationMVCImpl, model: AreaModel)
-      extends AreaModelModule.Interface
+  class AreaSoilMoistureMVCImpl(
+      simulationMVCImpl: SimulationMVCImpl,
+      model: AreaModel,
+      updateStateMessage: (String, Boolean) => Unit
+  ) extends AreaModelModule.Interface
       with AreaSoilMoistureViewModule.Interface
       with AreaSoilMoistureControllerModule.Interface:
 
     override val areaModel: AreaModel = model
-    override val areaSoilMoistureController: AreaSoilMoistureController = AreaSoilMoistureControllerImpl()
+    override val areaSoilMoistureController: AreaSoilMoistureController = AreaSoilMoistureControllerImpl(
+      updateStateMessage
+    )
     override val areaSoilMoistureView: AreaSoilMoistureView = AreaSoilMoistureViewImpl()
+
+    areaSoilMoistureController.initializeView()

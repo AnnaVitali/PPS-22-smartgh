@@ -19,10 +19,10 @@
     <padding>
         <Insets bottom="5.0" top="5.0" />
     </padding>
-    <Label fx:id="descriptionLabel"/>
-    <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="xx" GridPane.columnIndex="1">
+    <Label fx:id="descriptionLabel" />
+    <Label fx:id="currentValueLabel" text="23" GridPane.columnIndex="1">
         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
         </padding>
     </Label>
     <GridPane alignment="CENTER" hgap="10.0" vgap="10.0" GridPane.columnIndex="2">

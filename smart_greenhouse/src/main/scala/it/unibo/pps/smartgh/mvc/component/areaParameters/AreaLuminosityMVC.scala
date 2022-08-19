@@ -22,3 +22,5 @@ object AreaLuminosityMVC:
     override val areaModel: AreaModel = model
     override val areaLuminosityController: AreaLuminosityController = AreaLuminosityControllerImpl()
     override val areaLuminosityView: AreaLuminosityView = AreaLuminosityViewImpl()
+
+    areaLuminosityController.initializeView()

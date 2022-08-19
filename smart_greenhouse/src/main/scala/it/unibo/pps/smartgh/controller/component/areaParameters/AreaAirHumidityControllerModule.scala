@@ -1,8 +1,18 @@
 package it.unibo.pps.smartgh.controller.component.areaParameters
 
+import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParameterController.{
+  AbstractAreaParameterController,
+  AreaParameterController
+}
 import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaAirHumidityViewModule
 import it.unibo.pps.smartgh.model.area.{AreaAtomiseState, AreaVentilationState}
+import it.unibo.pps.smartgh.model.sensor.SensorStatus
+import monix.execution.Cancelable
+import monix.reactive.Observable
+
+import concurrent.duration.DurationInt
+import monix.execution.Scheduler.Implicits.global
 
 object AreaAirHumidityControllerModule:
 
@@ -27,8 +37,17 @@ object AreaAirHumidityControllerModule:
   trait Component:
     context: Requirements =>
 
-    class AreaAirHumidityControllerImpl() extends AreaAirHumidityControllerController:
+    class AreaAirHumidityControllerImpl()
+        extends AbstractAreaParameterController
+        with AreaAirHumidityControllerController:
       private val humSensor = areaModel.sensors.find(_.name.contentEquals("Humidity")).orNull
+
+      timeoutUpd = Observable
+        .interval(3.seconds)
+        .map { _ =>
+//          updateStateMessage(humSensor.message, humSensor.status == SensorStatus.ALARM)
+          areaAirHumidityView.updateCurrentValue(humSensor.actualVal, humSensor.status.toString)
+        }
 
       override def getOptimalValues: (Double, Double) = (humSensor.min, humSensor.max)
 

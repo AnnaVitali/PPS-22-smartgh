@@ -3,13 +3,15 @@ package it.unibo.pps.smartgh.view.component.areaParameters
 import it.unibo.pps.smartgh.controller.component.areaParameters.AreaSoilMoistureControllerModule
 import it.unibo.pps.smartgh.view.component.ViewComponent
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
+import javafx.application.Platform
 import javafx.fxml.FXML
 import javafx.scene.control.{Button, Label}
 import javafx.scene.layout.GridPane
 
 object AreaSoilMoistureViewModule:
 
-  trait AreaSoilMoistureView extends ViewComponent[GridPane]
+  trait AreaSoilMoistureView extends ViewComponent[GridPane]:
+    def updateCurrentValue(value: Double, status: String): Unit
 
   trait Provider:
     val areaSoilMoistureView: AreaSoilMoistureView
@@ -29,6 +31,9 @@ object AreaSoilMoistureViewModule:
       var descriptionLabel: Label = _
 
       @FXML
+      var currentValueLabel: Label = _
+
+      @FXML
       var movingSoilBtn: Button = _
 
       @FXML
@@ -37,6 +42,13 @@ object AreaSoilMoistureViewModule:
       descriptionLabel.setText("Soil moisture " + areaSoilMoistureController.getOptimalValues.toString())
       movingSoilBtn.setOnMouseClicked(_ => areaSoilMoistureController.movingSoil())
       wateringBtn.setOnMouseClicked(_ => areaSoilMoistureController.watering())
+//      currentValueLabel.setText(areaSoilMoistureController.currentValue.toString)
+
+      override def updateCurrentValue(value: Double, status: String): Unit =
+        Platform.runLater { () =>
+          currentValueLabel.setText(value.toString)
+          currentValueLabel.getStyleClass.setAll(status + "State")
+        }
 
   trait Interface extends Provider with Component:
     self: Requirements =>

@@ -1,10 +1,19 @@
 package it.unibo.pps.smartgh.controller.component.areaParameters
 
+import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParameterController.{
+  AbstractAreaParameterController,
+  AreaParameterController
+}
 import it.unibo.pps.smartgh.controller.component.SceneController
 import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.model.area.AreaShieldState
+import it.unibo.pps.smartgh.model.sensor.SensorStatus
 import it.unibo.pps.smartgh.view.component.BaseView
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaLuminosityViewModule
+import monix.reactive.Observable
+
+import concurrent.duration.DurationInt
+import monix.execution.Scheduler.Implicits.global
 
 object AreaLuminosityControllerModule:
 
@@ -30,9 +39,15 @@ object AreaLuminosityControllerModule:
   trait Component:
     context: Requirements =>
 
-    class AreaLuminosityControllerImpl() extends AreaLuminosityController:
+    class AreaLuminosityControllerImpl() extends AbstractAreaParameterController with AreaLuminosityController:
       private val lumSensor = areaModel.sensors.find(_.name.contentEquals("Brightness")).orNull
 
+      timeoutUpd = Observable
+        .interval(3.seconds)
+        .map { _ =>
+//          updateStateMessage(lumSensor.message, lumSensor.status == SensorStatus.ALARM)
+          areaLuminosityView.updateCurrentValue(lumSensor.actualVal, lumSensor.status.toString)
+        }
       override def getOptimalValues: (Double, Double) = (lumSensor.min, lumSensor.max)
 
       override def updLampValue(value: Double): Unit = areaModel.updBrightnessOfLamp(value)
