@@ -47,50 +47,50 @@ L'obiettivo di questo sprint, consiste nel dare la possibilità all'utente di po
         <tr>
             <td>Realizzare model dettaglio aree</td>
             <td>Maria</td>
-            <td>4</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Realizzare controller dettaglio aree</td>
             <td>Maria, Elena</td>
             <td>4</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>4</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Realizzare view dettaglio aree</td>
             <td>Elena</td>
+            <td>7</td>
             <td>5</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>5</td>
+            <td>4</td>
+            <td>4</td>
+            <td>3</td>
+            <td>3</td>
+            <td>2</td>
         </tr>
         <tr>
             <td>Collegare mvc dettaglio aree all'applicazione</td>
             <td>Anna, Elena, Maria, Veronika</td>
-            <td>4</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>0</td>
         </tr>
         <tr>
             <td rowspan="2">Miglioramento reattività dell'applicazione</td>
@@ -122,25 +122,25 @@ L'obiettivo di questo sprint, consiste nel dare la possibilità all'utente di po
             <td>Sistemare stile pulsanti delle diverse schermate</td>
             <td>Elena</td>
             <td>3</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>2</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
         </tr>
         <tr>
             <td>Sistemare elementi dell'interfaccia grafica</td>
-            <td>Anna, Elena, Maria, Veronika</td>
-            <td>4</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Elena, Maria, Veronika</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>2</td>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Creare e gestire view component per il loading dell'applicazione</td>
@@ -157,27 +157,27 @@ L'obiettivo di questo sprint, consiste nel dare la possibilità all'utente di po
         <tr>
             <td>Verificare adattabilità dei diversi componenti alla dimensione dello schermo e al resizing</td>
             <td>Maria</td>
-            <td>4</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td rowspan="2">Guida utente per l'applicazione</td>
             <td>Scrivere guida utente per l'applicazione</td>
             <td>Anna, Elena, Maria, Veronika</td>
             <td>3</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
         </tr>
         <tr>
             <td>Inserire guida utente nell'applicazione</td>
