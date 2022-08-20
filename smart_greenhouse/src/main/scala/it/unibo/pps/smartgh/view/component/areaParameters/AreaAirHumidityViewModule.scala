@@ -1,6 +1,7 @@
 package it.unibo.pps.smartgh.view.component.areaParameters
 
 import it.unibo.pps.smartgh.controller.component.areaParameters.AreaAirHumidityControllerModule
+import it.unibo.pps.smartgh.controller.component.areaParameters.AreaAirHumidityControllerModule.AreaAirHumidityController
 import it.unibo.pps.smartgh.view.component.ViewComponent
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaAirHumidityViewModule.VentilationText
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.{
@@ -24,7 +25,7 @@ object AreaAirHumidityViewModule:
   trait AreaAirHumidityView extends ViewComponent[GridPane] with AreaParametersView
 
   trait Provider:
-    val areaAirHumidityView: AreaAirHumidityView
+    val parameterView: AreaParametersView
 
   type Requirements = AreaAirHumidityControllerModule.Provider
 
@@ -36,14 +37,13 @@ object AreaAirHumidityViewModule:
         with AreaAirHumidityView:
 
       override val component: GridPane = loader.load[GridPane]
+      private val areaAirHumidityController = parameterController.asInstanceOf[AreaAirHumidityController]
 
       @FXML
       var ventilationBtn: ToggleButton = _
 
       @FXML
       var atomiserBtn: ToggleButton = _
-
-      updateDescription(areaAirHumidityController.getOptimalValues)
 
       ventilationBtn.setOnMouseClicked { _ =>
         if ventilationBtn.isSelected then

@@ -10,7 +10,8 @@ import it.unibo.pps.smartgh.view.component.areaParameters.AreaAirHumidityViewMod
 
 object AreaAirHumidityControllerModule:
 
-  trait AreaAirHumidityControllerController extends AreaParametersController:
+  trait AreaAirHumidityController extends AreaParametersController:
+
     /** Activate the area ventilation. */
     def activateVentilation(): Unit
 
@@ -24,7 +25,7 @@ object AreaAirHumidityControllerModule:
     def disableAtomiseArea(): Unit
 
   trait Provider:
-    val areaAirHumidityController: AreaAirHumidityControllerController
+    val parameterController: AreaParametersController
 
   type Requirements = AreaAirHumidityViewModule.Provider with AreaModelModule.Provider
 
@@ -33,7 +34,7 @@ object AreaAirHumidityControllerModule:
 
     class AreaAirHumidityControllerImpl(updateStateMessage: (String, Boolean) => Unit)
         extends AbstractAreaParametersController("Humidity", areaModel, updateStateMessage)
-        with AreaAirHumidityControllerController:
+        with AreaAirHumidityController:
 
       override def activateVentilation(): Unit =
         areaModel.updVentilationState(AreaVentilationState.VentilationActive)

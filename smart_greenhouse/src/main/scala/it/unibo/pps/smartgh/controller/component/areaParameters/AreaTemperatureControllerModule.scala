@@ -26,7 +26,7 @@ object AreaTemperatureControllerModule:
     def closeGates(): Unit
 
   trait Provider:
-    val areaTemperatureController: AreaTemperatureController
+    val parameterController: AreaParametersController
 
   type Requirements = AreaTemperatureViewModule.Provider with AreaModelModule.Provider
 

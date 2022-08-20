@@ -29,7 +29,7 @@ object AreaLuminosityControllerModule:
     def isShielded: Boolean
 
   trait Provider:
-    val areaLuminosityController: AreaLuminosityController
+    val parameterController: AreaParametersController
 
   type Requirements = AreaLuminosityViewModule.Provider with AreaModelModule.Provider
 

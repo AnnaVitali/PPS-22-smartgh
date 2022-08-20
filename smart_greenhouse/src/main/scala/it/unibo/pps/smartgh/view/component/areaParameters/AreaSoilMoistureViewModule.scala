@@ -1,6 +1,7 @@
 package it.unibo.pps.smartgh.view.component.areaParameters
 
 import it.unibo.pps.smartgh.controller.component.areaParameters.AreaSoilMoistureControllerModule
+import it.unibo.pps.smartgh.controller.component.areaParameters.AreaSoilMoistureControllerModule.AreaSoilMoistureController
 import it.unibo.pps.smartgh.view.component.ViewComponent
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.{
   AbstractAreaParametersView,
@@ -15,7 +16,7 @@ object AreaSoilMoistureViewModule:
   trait AreaSoilMoistureView extends ViewComponent[GridPane] with AreaParametersView
 
   trait Provider:
-    val areaSoilMoistureView: AreaSoilMoistureView
+    val parameterView: AreaParametersView
 
   type Requirements = AreaSoilMoistureControllerModule.Provider
 
@@ -27,6 +28,7 @@ object AreaSoilMoistureViewModule:
         with AreaSoilMoistureView:
 
       override val component: GridPane = loader.load[GridPane]
+      private val areaSoilMoistureController = parameterController.asInstanceOf[AreaSoilMoistureController]
 
       @FXML
       var movingSoilBtn: Button = _
@@ -34,7 +36,6 @@ object AreaSoilMoistureViewModule:
       @FXML
       var wateringBtn: Button = _
 
-      updateDescription(areaSoilMoistureController.getOptimalValues)
       movingSoilBtn.setOnMouseClicked(_ => areaSoilMoistureController.movingSoil())
       wateringBtn.setOnMouseClicked(_ => areaSoilMoistureController.watering())
 

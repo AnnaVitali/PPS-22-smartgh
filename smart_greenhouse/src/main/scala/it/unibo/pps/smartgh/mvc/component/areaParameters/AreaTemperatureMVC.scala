@@ -1,5 +1,6 @@
 package it.unibo.pps.smartgh.mvc.component.areaParameters
 
+import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersController.AreaParametersController
 import it.unibo.pps.smartgh.controller.component.areaParameters.{
   AreaParametersController,
   AreaTemperatureControllerModule
@@ -7,6 +8,7 @@ import it.unibo.pps.smartgh.controller.component.areaParameters.{
 import it.unibo.pps.smartgh.controller.component.areaParameters.AreaTemperatureControllerModule.AreaTemperatureController
 import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaModel
+import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.AreaParametersView
 import it.unibo.pps.smartgh.view.component.areaParameters.{AreaParametersView, AreaTemperatureViewModule}
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaTemperatureViewModule.AreaTemperatureView
 
@@ -22,13 +24,7 @@ object AreaTemperatureMVC:
       with AreaParametersMVC:
 
     override val areaModel: AreaModel = model
-    override val areaTemperatureController: AreaTemperatureController = AreaTemperatureControllerImpl(
-      updateStateMessage
-    )
-    override val areaTemperatureView: AreaTemperatureView = AreaTemperatureViewImpl()
+    override val parameterController: AreaParametersController = AreaTemperatureControllerImpl(updateStateMessage)
+    override val parameterView: AreaParametersView = AreaTemperatureViewImpl()
 
-    override def view: AreaParametersView.AreaParametersView = areaTemperatureView
-
-    override def controller: AreaParametersController.AreaParametersController = areaTemperatureController
-
-    areaTemperatureController.initializeView(areaTemperatureView)
+    parameterController.initializeView(parameterView)

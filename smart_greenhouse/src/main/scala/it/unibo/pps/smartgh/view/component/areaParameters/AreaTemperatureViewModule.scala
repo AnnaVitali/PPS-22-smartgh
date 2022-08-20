@@ -1,6 +1,7 @@
 package it.unibo.pps.smartgh.view.component.areaParameters
 
 import it.unibo.pps.smartgh.controller.component.areaParameters.AreaTemperatureControllerModule
+import it.unibo.pps.smartgh.controller.component.areaParameters.AreaTemperatureControllerModule.AreaTemperatureController
 import it.unibo.pps.smartgh.view.component.ViewComponent
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.{
   AbstractAreaParametersView,
@@ -15,7 +16,7 @@ object AreaTemperatureViewModule:
   trait AreaTemperatureView extends ViewComponent[GridPane] with AreaParametersView
 
   trait Provider:
-    val areaTemperatureView: AreaTemperatureView
+    val parameterView: AreaParametersView
 
   type Requirements = AreaTemperatureControllerModule.Provider
 
@@ -26,9 +27,10 @@ object AreaTemperatureViewModule:
         extends AbstractAreaParametersView[GridPane]("area_temperature.fxml", "Temperature")
         with AreaTemperatureView:
 
+      override val component: GridPane = loader.load[GridPane]
       private val tempStep = 0.5
       private val tempRange = (10.0 + tempStep, 40.0 - tempStep)
-      override val component: GridPane = loader.load[GridPane]
+      private val areaTemperatureController = parameterController.asInstanceOf[AreaTemperatureController]
 
       @FXML
       var openStructureBtn: ToggleButton = _
@@ -44,8 +46,6 @@ object AreaTemperatureViewModule:
 
       @FXML
       var plusTempBtn: Button = _
-
-      updateDescription(areaTemperatureController.getOptimalValues)
 
       openStructureBtn.setOnMouseClicked { _ =>
         closeStructureBtn.setSelected(false)

@@ -1,6 +1,7 @@
 package it.unibo.pps.smartgh.view.component.areaParameters
 
 import it.unibo.pps.smartgh.controller.component.areaParameters.AreaLuminosityControllerModule
+import it.unibo.pps.smartgh.controller.component.areaParameters.AreaLuminosityControllerModule.AreaLuminosityController
 import it.unibo.pps.smartgh.view.component.ViewComponent
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.{
   AbstractAreaParametersView,
@@ -18,7 +19,7 @@ object AreaLuminosityViewModule:
   trait AreaLuminosityView extends ViewComponent[GridPane] with AreaParametersView
 
   trait Provider:
-    val areaLuminosityView: AreaLuminosityView
+    val parameterView: AreaParametersView
 
   type Requirements = AreaLuminosityControllerModule.Provider
 
@@ -30,6 +31,7 @@ object AreaLuminosityViewModule:
         with AreaLuminosityView:
 
       override val component: GridPane = loader.load[GridPane]
+      private val areaLuminosityController = parameterController.asInstanceOf[AreaLuminosityController]
 
       @FXML
       var upShieldingBtn: ToggleButton = _
@@ -40,7 +42,6 @@ object AreaLuminosityViewModule:
       @FXML
       var lampBrightnessSlider: Slider = _
 
-      updateDescription(areaLuminosityController.getOptimalValues)
       lampBrightnessSlider.setValue(areaLuminosityController.getLampValue / lampFactor)
       initShieldingBtn(areaLuminosityController.isShielded)
 

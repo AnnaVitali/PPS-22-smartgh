@@ -29,7 +29,7 @@ object AreaSoilMoistureControllerModule:
     def stopListening(): Unit
 
   trait Provider:
-    val areaSoilMoistureController: AreaSoilMoistureController
+    val parameterController: AreaParametersController
 
   type Requirements = AreaSoilMoistureViewModule.Provider with AreaModelModule.Provider
 

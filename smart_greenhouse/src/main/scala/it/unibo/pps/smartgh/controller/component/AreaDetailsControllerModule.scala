@@ -32,7 +32,7 @@ object AreaDetailsControllerModule:
 
       private var messages: Seq[String] = Seq.empty
 
-      private val sensorMVC: Seq[AreaParametersMVC] = Seq(
+      private val parametersMVC: Seq[AreaParametersMVC] = Seq(
         AreaLuminosityMVC(areaModel, updateStateMessage),
         AreaTemperatureMVC(areaModel, updateStateMessage),
         AreaAirHumidityMVC(areaModel, updateStateMessage),
@@ -41,22 +41,21 @@ object AreaDetailsControllerModule:
 
       override def instantiateNextSceneMVC(baseView: BaseView): Unit =
         areaDetailsView.moveToNextScene(simulationMVC.simulationController.environmentController.envView())
-        sensorMVC.foreach(s => s.controller.stopListening())
+        parametersMVC.foreach(s => s.parameterController.stopListening())
         simulationMVC.simulationController.environmentController.backToEnvironment()
 
       override def initializeView(): Unit =
         areaModel
           .changeStatusObservable()
           .subscribe(
-            (s: AreaStatus) => {
-              areaDetailsView.updateState(s.toString)
-              Continue
+            { s =>
+              areaDetailsView.updateState(s.toString); Continue
             },
-            (ex: Throwable) => ex.printStackTrace(),
+            _.printStackTrace(),
             () => {}
           )
         areaDetailsView.updateState(areaModel.status.toString)
-        areaDetailsView.initializeParameters(sensorMVC.map(p => p.view))
+        areaDetailsView.initializeParameters(parametersMVC.map(p => p.parameterView))
         val plant = areaModel.plant
         areaDetailsView.updatePlantInformation(plant.name, plant.description, plant.imageUrl)
         simulationMVC.simulationController.environmentController.subscribeTimerValue(areaDetailsView.updateTime)

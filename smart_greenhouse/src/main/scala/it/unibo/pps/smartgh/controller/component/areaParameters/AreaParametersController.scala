@@ -39,6 +39,7 @@ object AreaParametersController:
           view.updateCurrentValue("%.2f %s".format(sensor.actualVal, sensor.um), sensor.status.toString)
         }
       subscriptionTimeout = timeoutUpd.subscribe()
+      view.updateDescription(getOptimalValues)
 
     override def stopListening(): Unit =
       subscriptionTimeout.cancel()

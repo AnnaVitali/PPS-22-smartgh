@@ -5,10 +5,12 @@ import it.unibo.pps.smartgh.controller.component.areaParameters.{
   AreaParametersController
 }
 import it.unibo.pps.smartgh.controller.component.areaParameters.AreaLuminosityControllerModule.AreaLuminosityController
+import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersController.AreaParametersController
 import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaModel
 import it.unibo.pps.smartgh.view.component.areaParameters.{AreaLuminosityViewModule, AreaParametersView}
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaLuminosityViewModule.AreaLuminosityView
+import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.AreaParametersView
 
 object AreaLuminosityMVC:
 
@@ -22,11 +24,7 @@ object AreaLuminosityMVC:
       with AreaParametersMVC:
 
     override val areaModel: AreaModel = model
-    override val areaLuminosityController: AreaLuminosityController = AreaLuminosityControllerImpl(updateStateMessage)
-    override val areaLuminosityView: AreaLuminosityView = AreaLuminosityViewImpl()
+    override val parameterController: AreaParametersController = AreaLuminosityControllerImpl(updateStateMessage)
+    override val parameterView: AreaParametersView = AreaLuminosityViewImpl()
 
-    override def view: AreaParametersView.AreaParametersView = areaLuminosityView
-
-    override def controller: AreaParametersController.AreaParametersController = areaLuminosityController
-
-    areaLuminosityController.initializeView(areaLuminosityView)
+    parameterController.initializeView(parameterView)

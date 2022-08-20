@@ -1,5 +1,6 @@
 package it.unibo.pps.smartgh.mvc.component.areaParameters
 
+import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersController.AreaParametersController
 import it.unibo.pps.smartgh.controller.component.areaParameters.{
   AreaParametersController,
   AreaSoilMoistureControllerModule
@@ -7,6 +8,7 @@ import it.unibo.pps.smartgh.controller.component.areaParameters.{
 import it.unibo.pps.smartgh.controller.component.areaParameters.AreaSoilMoistureControllerModule.AreaSoilMoistureController
 import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaModel
+import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.AreaParametersView
 import it.unibo.pps.smartgh.view.component.areaParameters.{AreaParametersView, AreaSoilMoistureViewModule}
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaSoilMoistureViewModule.AreaSoilMoistureView
 
@@ -22,13 +24,7 @@ object AreaSoilMoistureMVC:
       with AreaParametersMVC:
 
     override val areaModel: AreaModel = model
-    override val areaSoilMoistureController: AreaSoilMoistureController = AreaSoilMoistureControllerImpl(
-      updateStateMessage
-    )
-    override val areaSoilMoistureView: AreaSoilMoistureView = AreaSoilMoistureViewImpl()
+    override val parameterController: AreaParametersController = AreaSoilMoistureControllerImpl(updateStateMessage)
+    override val parameterView: AreaParametersView = AreaSoilMoistureViewImpl()
 
-    override def view: AreaParametersView.AreaParametersView = areaSoilMoistureView
-
-    override def controller: AreaParametersController.AreaParametersController = areaSoilMoistureController
-
-    areaSoilMoistureController.initializeView(areaSoilMoistureView)
+    parameterController.initializeView(parameterView)
