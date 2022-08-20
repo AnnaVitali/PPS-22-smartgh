@@ -104,7 +104,7 @@ object EnvironmentViewModule:
       @FXML
       var helpButton: Button = _
 
-      helpButton.setOnMouseClicked{_ =>
+      helpButton.setOnMouseClicked { _ =>
         val helpView = HelpView(new Stage())
         this.component.getScene.getWindow.setOnCloseRequest(_ => helpView.closeWindow())
       }
@@ -140,6 +140,7 @@ object EnvironmentViewModule:
         Platform.runLater(() => timeElapsedLabel.setText(timerValue))
 
       override def displayGreenHouseDivisionView(ghDivisionView: GHDivisionView): Unit =
+        ghDivisionView.baseView = baseView
         component.setCenter(ghDivisionView)
 
       override def finishSimulation(): Unit =

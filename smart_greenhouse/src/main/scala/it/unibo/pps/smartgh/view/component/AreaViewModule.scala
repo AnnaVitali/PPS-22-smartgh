@@ -1,6 +1,7 @@
 package it.unibo.pps.smartgh.view.component
 
 import it.unibo.pps.smartgh.controller.component.AreaControllerModule
+import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.application.Platform
 import javafx.fxml.FXML
@@ -12,7 +13,7 @@ import scala.language.postfixOps
 /** Implementation of the [[AreaViewModule]]. */
 object AreaViewModule:
   /** A trait that represents the green house division view of the application. */
-  trait AreaView extends ViewComponent[VBox]:
+  trait AreaView extends ViewComponent[VBox] with ContiguousSceneView[ScrollPane]:
     /** Draw the area.
       * @param plant
       *   name of the [[Plant]] that grows in the area
@@ -22,6 +23,9 @@ object AreaViewModule:
       *   parameters of the area
       */
     def paintArea(plant: String, statusColor: String, par: Map[String, Double]): Unit
+
+    /** Set the [[BaseView]]. */
+    var baseView: BaseView
 
   /** A trait for defining the view instance. */
   trait Provider:
@@ -35,9 +39,10 @@ object AreaViewModule:
   trait Component:
     context: Requirements =>
     /** Implementation of the greenhouse division view. */
-    class AreaViewImpl() extends AbstractViewComponent[VBox]("area.fxml") with AreaView:
+    class AreaViewImpl(simulationView: SimulationView) extends AbstractViewComponent[VBox]("area.fxml") with AreaView:
 
       override val component: VBox = loader.load[VBox]
+      override var baseView: BaseView = _
 
       @FXML
       var params: VBox = _
@@ -86,11 +91,17 @@ object AreaViewModule:
               )
           }
           areaBt.setOnMouseClicked { _ =>
-            areaController.openArea()
+            setNewScene()
           }
 
           rect.setStyle("-fx-border-color: #000000")
         )
+
+      override def moveToNextScene(component: ViewComponent[ScrollPane]): Unit =
+        Platform.runLater(() => simulationView.changeView(component))
+
+      override def setNewScene(): Unit =
+        areaController.instantiateNextSceneMVC(baseView)
 
   /** Trait that combine provider and component for area view. */
   trait Interface extends Provider with Component:

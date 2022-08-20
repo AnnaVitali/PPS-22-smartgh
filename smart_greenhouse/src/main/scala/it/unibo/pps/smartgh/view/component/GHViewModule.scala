@@ -29,6 +29,15 @@ object GHViewModule:
       */
     def paintDivision(areas: List[AreaViewModule.AreaView]): Unit
 
+    /** Set the base view */
+    var baseView: BaseView
+
+    /** Set the baseView into the [[AreaViewModule]].
+      * @param areas
+      *   List of areas that compose the greenhouse
+      */
+    def setAreaBaseView(areas: List[AreaViewModule.AreaView]): Unit
+
   /** A trait for defining the view instance. */
   trait Provider:
     /** Greenhouse division view. */
@@ -47,6 +56,7 @@ object GHViewModule:
     class GreenHouseDivisionViewImpl() extends AbstractViewComponent[ScrollPane]("ghDivision.fxml") with GHDivisionView:
       private val env = GridPane()
       override val component: ScrollPane = loader.load[ScrollPane]
+      override var baseView: BaseView = _
 
       @FXML
       var ghDivision: VBox = _
@@ -56,6 +66,9 @@ object GHViewModule:
       ghDivision.getChildren.add(env)
       env.setHgap(5)
       env.setVgap(5)
+
+      override def setAreaBaseView(areas: List[AreaViewModule.AreaView]): Unit =
+        areas.foreach(a => a.baseView = baseView)
 
       override def paintDivision(areas: List[AreaViewModule.AreaView]): Unit =
         val cols = 5

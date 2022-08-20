@@ -64,7 +64,8 @@ object EnvironmentControllerModule:
     class EnvironmentControllerImpl(simulationMVC: SimulationMVCImpl) extends EnvironmentController:
 
       val ghMVC: GreenHouseDivisionMVC.GreenHouseDivisionMVCImpl = GreenHouseDivisionMVC(
-        simulationController.plantsSelected
+        simulationController.plantsSelected,
+        simulationMVC
       )
       environmentView.displayGreenHouseDivisionView(ghMVC.ghDivisionView)
 

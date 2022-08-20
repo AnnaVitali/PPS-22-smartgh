@@ -26,7 +26,7 @@ import scala.language.postfixOps
 object SelectPlantViewModule:
 
   /** A trait that represents the select plants scene of the application. */
-  trait SelectPlantView extends ViewComponent[BorderPane] with ContiguousSceneView[BorderPane]:
+  trait SelectPlantView extends ViewComponent[BorderPane] with ContiguousSceneView[VBox]:
 
     /** Method that shows the plant that can be selected.
       * @param selectablePlantList
@@ -39,7 +39,7 @@ object SelectPlantViewModule:
       *   the [[List]] of the plant that has been selected by the user.
       */
     def updateSelectedPlant(selectedPlantList: List[String]): Unit
-    
+
     /** Method that requires to the view to show an error message.
       * @param message
       *   the error message that needs to be shown to the user.
@@ -129,16 +129,11 @@ object SelectPlantViewModule:
           )
         })
 
-<<<<<<< HEAD
-      override def moveToNextScene(nextView: LoadingPlantView): Unit =
+      override def moveToNextScene(nextView: ViewComponent[VBox]): Unit =
         Platform.runLater(() => simulationView.changeView(nextView))
-=======
+
       override def setNewScene(): Unit =
         plantSelectorController.instantiateNextSceneMVC(baseView)
->>>>>>> feature/refactorViews
-
-      override def moveToNextScene(component: ViewComponent[BorderPane]): Unit =
-        simulationView.changeView(component)
 
       override def showErrorMessage(message: String): Unit =
         Platform.runLater(() => errorLabel.setText(message))
