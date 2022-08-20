@@ -59,13 +59,11 @@
                </font></Label>
                 <Label fx:id="setConditionLabel" styleClass="normalText" text="default" />
             </HBox>
-
             <BorderPane.margin>
                 <Insets bottom="30.0" />
             </BorderPane.margin>
         </HBox>
     </top>
-
     <bottom>
         <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
             <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
@@ -88,7 +86,7 @@
                         <Font name="System Bold" />
                     </font>
                 </Label>
-                <Slider id="timeSpeedSlider" fx:id="timeSpeedSlider" majorTickUnit="1" max="10" min="1" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true"> </Slider>
+                <Slider id="timeSpeedSlider" fx:id="timeSpeedSlider" majorTickUnit="1" max="10" min="1" minorTickCount="0" prefWidth="150" showTickLabels="true" showTickMarks="true" snapToTicks="true"> </Slider>
             </HBox>
 
             <BorderPane.margin>
@@ -96,4 +94,11 @@
             </BorderPane.margin>
         </VBox>
     </bottom>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="helpButton" alignment="TOP_LEFT" mnemonicParsing="false" text="?" />
+         </children>
+      </VBox>
+   </right>
 </BorderPane>
