@@ -1,8 +1,8 @@
 package it.unibo.pps.smartgh.controller.component.areaParameters
 
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParameterController.{
-  AbstractAreaParameterController,
-  AreaParameterController
+import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersController.{
+  AbstractAreaParametersController,
+  AreaParametersController
 }
 import it.unibo.pps.smartgh.model.area.{AreaModelModule, AreaShieldState}
 import it.unibo.pps.smartgh.model.sensor.SensorStatus
@@ -10,7 +10,7 @@ import it.unibo.pps.smartgh.view.component.areaParameters.AreaLuminosityViewModu
 
 object AreaLuminosityControllerModule:
 
-  trait AreaLuminosityController extends AreaParameterController:
+  trait AreaLuminosityController extends AreaParametersController:
 
     /** Update the lamp brightness value
       * @param value
@@ -33,7 +33,7 @@ object AreaLuminosityControllerModule:
     context: Requirements =>
 
     class AreaLuminosityControllerImpl(updateStateMessage: (String, Boolean) => Unit)
-        extends AbstractAreaParameterController("Brightness", areaModel, updateStateMessage)
+        extends AbstractAreaParametersController("Brightness", areaModel, updateStateMessage)
         with AreaLuminosityController:
 
       override def updLampValue(value: Double): Unit = areaModel.updBrightnessOfLamp(value)

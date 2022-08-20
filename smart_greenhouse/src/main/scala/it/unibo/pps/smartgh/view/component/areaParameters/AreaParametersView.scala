@@ -1,14 +1,16 @@
 package it.unibo.pps.smartgh.view.component.areaParameters
 
+import it.unibo.pps.smartgh.view.component.ViewComponent
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.application.Platform
 import javafx.fxml.FXML
 import javafx.scene.Parent
 import javafx.scene.control.Label
+import javafx.scene.layout.GridPane
 
 object AreaParametersView:
 
-  trait AreaParametersView:
+  trait AreaParametersView extends ViewComponent[GridPane]:
     def updateDescription(optimalValue: String): Unit
     def updateCurrentValue(value: String, status: String): Unit
 

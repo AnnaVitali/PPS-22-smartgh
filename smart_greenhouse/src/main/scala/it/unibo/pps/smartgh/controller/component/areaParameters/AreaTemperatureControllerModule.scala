@@ -1,8 +1,8 @@
 package it.unibo.pps.smartgh.controller.component.areaParameters
 
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParameterController.{
-  AbstractAreaParameterController,
-  AreaParameterController
+import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersController.{
+  AbstractAreaParametersController,
+  AreaParametersController
 }
 import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaModelModule}
 import it.unibo.pps.smartgh.model.sensor.SensorStatus
@@ -10,7 +10,7 @@ import it.unibo.pps.smartgh.view.component.areaParameters.AreaTemperatureViewMod
 
 object AreaTemperatureControllerModule:
 
-  trait AreaTemperatureController extends AreaParameterController:
+  trait AreaTemperatureController extends AreaParametersController:
 
     def initialValue: Double
     /** Update the temperature inside the area.
@@ -34,7 +34,7 @@ object AreaTemperatureControllerModule:
     context: Requirements =>
 
     class AreaTemperatureControllerImpl(updateStateMessage: (String, Boolean) => Unit)
-        extends AbstractAreaParameterController("Temperature", areaModel, updateStateMessage)
+        extends AbstractAreaParametersController("Temperature", areaModel, updateStateMessage)
         with AreaTemperatureController:
 
       override def initialValue: Double = 27.0 //todo

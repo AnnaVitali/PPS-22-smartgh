@@ -11,19 +11,20 @@ import it.unibo.pps.smartgh.mvc.component.areaParameters.{
 import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
 import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.SelectPlantView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
+import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.AreaParametersView
 import javafx.application.Platform
 import javafx.fxml.FXML
 import javafx.scene.Parent
 import javafx.scene.control.{Label, ScrollPane, Separator}
 import javafx.scene.image.{Image, ImageView}
-import javafx.scene.layout.{BorderPane, Pane, VBox}
+import javafx.scene.layout.{BorderPane, GridPane, Pane, VBox}
 
 import java.net.URL
 
 object AreaDetailsViewModule:
 
   trait AreaDetailsView extends ViewComponent[ScrollPane] with ContiguousSceneView[BorderPane]:
-    def initializeParameters(areaModel: AreaModel, updateStateMessage: (String, Boolean) => Unit): Unit
+    def initializeParameters(initializeParam: Seq[AreaParametersView]): Unit
     def updatePlantInformation(name: String, description: String, imageUrl: String): Unit
     def updateTime(time: String): Unit
     def updateState(state: String): Unit
@@ -71,16 +72,11 @@ object AreaDetailsViewModule:
       baseView.changeSceneButton.setOnMouseClicked(_ => setNewScene())
       alarmPane.managedProperty().bind(alarmPane.visibleProperty())
 
-      override def initializeParameters(areaModel: AreaModel, updateStateMessage: (String, Boolean) => Unit): Unit =
-        //todo: automatizzare la creazione delle tipologie di parametri
-        parametersVbox.getChildren.add(AreaLuminosityMVC(areaModel, updateStateMessage).areaLuminosityView)
-        parametersVbox.getChildren.add(Separator())
-        parametersVbox.getChildren.add(AreaTemperatureMVC(areaModel, updateStateMessage).areaTemperatureView)
-        parametersVbox.getChildren.add(Separator())
-        parametersVbox.getChildren.add(AreaAirHumidityMVC(areaModel, updateStateMessage).areaAirHumidityView)
-        parametersVbox.getChildren.add(Separator())
-        parametersVbox.getChildren.add(AreaSoilMoistureMVC(areaModel, updateStateMessage).areaSoilMoistureView)
-        parametersVbox.getChildren.add(Separator())
+      override def initializeParameters(initializeParam: Seq[AreaParametersView]): Unit =
+        initializeParam.foreach { v =>
+          parametersVbox.getChildren.add(v)
+          parametersVbox.getChildren.add(Separator())
+        }
 
       override def updatePlantInformation(name: String, description: String, imageUrl: String): Unit =
         Platform.runLater { () =>

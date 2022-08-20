@@ -49,6 +49,9 @@ object EnvironmentViewModule:
     /** Method to notify view that the simulation time has finished. */
     def finishSimulation(): Unit
 
+    /** Set the back button. */
+    def setBackButton(): Unit
+
   /** Trait that represents the provider of the view for environment values and simulation time visualization. */
   trait Provider:
 
@@ -111,11 +114,14 @@ object EnvironmentViewModule:
 
       timeSpeedSlider.setOnMouseReleased(_ => notifySpeedChange(timeSpeedSlider.getValue))
 
-      baseView.changeSceneButton.setText("Stop simulation")
-      baseView.changeSceneButton.setOnMouseClicked { _ =>
-        environmentController.stopSimulation()
-        environmentController.instantiateNextSceneMVC(baseView)
-      }
+      setBackButton()
+
+      override def setBackButton(): Unit =
+        baseView.changeSceneButton.setText("Stop simulation")
+        baseView.changeSceneButton.setOnMouseClicked { _ =>
+          environmentController.stopSimulation()
+          environmentController.instantiateNextSceneMVC(baseView)
+        }
 
       override def displayNameCity(cityName: String): Unit =
         Platform.runLater(() => setLocationLabel.setText(cityName))

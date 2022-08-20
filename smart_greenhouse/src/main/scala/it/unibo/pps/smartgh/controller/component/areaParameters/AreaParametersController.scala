@@ -10,20 +10,20 @@ import monix.reactive.Observable
 
 import scala.concurrent.duration.DurationInt
 
-object AreaParameterController:
+object AreaParametersController:
 
   private val updatePeriod = 2.seconds
 
-  trait AreaParameterController:
+  trait AreaParametersController:
     def getOptimalValues: String
     def initializeView(areaParametersView: AreaParametersView): Unit
     def stopListening(): Unit
 
-  abstract class AbstractAreaParameterController(
+  abstract class AbstractAreaParametersController(
       name: String,
       areaModel: AreaModel,
       updateStateMessage: (String, Boolean) => Unit
-  ) extends AreaParameterController:
+  ) extends AreaParametersController:
     protected val sensor: ManageSensorImpl = areaModel.sensors.find(_.name.contentEquals(name)).orNull
     protected var timeoutUpd: Observable[Unit] = _
 

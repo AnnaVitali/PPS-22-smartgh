@@ -1,8 +1,8 @@
 package it.unibo.pps.smartgh.controller.component.areaParameters
 
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParameterController.{
-  AbstractAreaParameterController,
-  AreaParameterController
+import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersController.{
+  AbstractAreaParametersController,
+  AreaParametersController
 }
 import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaHumidityState, AreaModelModule}
 import it.unibo.pps.smartgh.model.sensor.SensorStatus
@@ -10,7 +10,7 @@ import it.unibo.pps.smartgh.view.component.areaParameters.AreaSoilMoistureViewMo
 
 object AreaSoilMoistureControllerModule:
 
-  trait AreaSoilMoistureController extends AreaParameterController:
+  trait AreaSoilMoistureController extends AreaParametersController:
     /** Open the area gates. */
     def openGates(): Unit
 
@@ -37,7 +37,7 @@ object AreaSoilMoistureControllerModule:
     context: Requirements =>
 
     class AreaSoilMoistureControllerImpl(updateStateMessage: (String, Boolean) => Unit)
-        extends AbstractAreaParameterController("Soil moisture", areaModel, updateStateMessage)
+        extends AbstractAreaParametersController("Soil moisture", areaModel, updateStateMessage)
         with AreaSoilMoistureController:
 
       override def openGates(): Unit = areaModel.updGateState(AreaGatesState.Open)
