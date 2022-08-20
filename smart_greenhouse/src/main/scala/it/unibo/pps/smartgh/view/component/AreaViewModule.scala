@@ -61,8 +61,8 @@ object AreaViewModule:
           params.getChildren.clear()
           par foreach ((k, v) =>
             val l = new Label(s"$k : $v")
-            l.setMaxWidth(200)
-            l.setMinWidth(200)
+            l.setMaxWidth(170)
+            l.setMinWidth(170)
             l.setStyle(s"-fx-text-fill: $actualAreaTextColor")
             params.getChildren.add(l)
           )
@@ -98,7 +98,7 @@ object AreaViewModule:
         )
 
       override def moveToNextScene(component: ViewComponent[ScrollPane]): Unit =
-        Platform.runLater(() => simulationView.changeView(component))
+        simulationView.changeView(component)
 
       override def setNewScene(): Unit =
         areaController.instantiateNextSceneMVC(baseView)

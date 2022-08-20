@@ -48,7 +48,7 @@ object GreenHouseDivisionMVC:
     def setAreas(timer: Timer, subjects: Map[String, ConcurrentSubject[Double, Double]]): Unit =
       ghDivisionModel.areas =
         for p <- plants
-        yield AreaMVC(p, timer, simulationMVC)
+        yield AreaMVC(p, timer, simulationMVC, this)
 
       ghDivisionModel.areas.foreach(a => a.areaModel.setSensorSubjects(subjects))
 

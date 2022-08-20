@@ -4,7 +4,13 @@ import it.unibo.pps.smartgh.controller.SimulationControllerModule
 import it.unibo.pps.smartgh.model.greenhouse.EnvironmentModelModule
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.mvc.component.GreenHouseDivisionMVC
+import it.unibo.pps.smartgh.view.component.EnvironmentViewModule.EnvironmentView
 import it.unibo.pps.smartgh.view.component.{BaseView, EnvironmentViewModule, FinishSimulationView}
+import monix.eval.Task
+import monix.execution.Ack.Continue
+import monix.reactive.MulticastStrategy
+import monix.reactive.subjects.ConcurrentSubject
+import monix.execution.Scheduler.Implicits.global
 
 /** Object that encloses the controller module to manage ambient environment values and to visualize of simulation time.
   */
@@ -42,6 +48,18 @@ object EnvironmentControllerModule:
     /** Method that asks the controller to finish the visualization of the simulation. */
     def finishSimulation(): Unit
 
+    /** Gets the [[EnvironmentView]]
+      * @return
+      *   the [[EnvironmentView]]
+      */
+    def envView(): EnvironmentView
+
+    /** Subscription to the timer value change
+      * @param callback
+      *   subscribe callback
+      */
+    def subscribeTimerValue(callback: String => Unit): Unit
+
   /** Trait that represents the provider of the controller for environment values and time management. */
   trait Provider:
     /** The environment controller. */
@@ -62,8 +80,9 @@ object EnvironmentControllerModule:
       *   the simulationMVC of the application.
       */
     class EnvironmentControllerImpl(simulationMVC: SimulationMVCImpl) extends EnvironmentController:
+      private val subject = ConcurrentSubject[String](MulticastStrategy.publish)
 
-      val ghMVC: GreenHouseDivisionMVC.GreenHouseDivisionMVCImpl = GreenHouseDivisionMVC(
+      private val ghMVC: GreenHouseDivisionMVC.GreenHouseDivisionMVCImpl = GreenHouseDivisionMVC(
         simulationController.plantsSelected,
         simulationMVC
       )
@@ -94,13 +113,28 @@ object EnvironmentControllerModule:
         simulationController.updateVelocityTimer(value)
 
       override def notifyTimeValueChange(timeValue: String): Unit =
-        environmentView.displayElapsedTime(timeValue)
+        Task {
+          subject.onNext(timeValue)
+          environmentView.displayElapsedTime(timeValue)
+        }.executeAsync.runToFuture
 
       override def finishSimulation(): Unit =
         environmentView.finishSimulation()
 
       override def instantiateNextSceneMVC(baseView: BaseView): Unit =
         environmentView.moveToNextScene(FinishSimulationView(simulationMVC, baseView))
+
+      override def envView(): EnvironmentView = environmentView
+
+      override def subscribeTimerValue(callback: String => Unit): Unit =
+        subject.subscribe(
+          (s: String) => {
+            callback(s)
+            Continue
+          },
+          (ex: Throwable) => ex.printStackTrace(),
+          () => {}
+        )
 
       private def notifySensors(values: environmentModel.environment.EnvironmentValues): Unit =
         environmentModel.subjectTemperature.onNext(values("temp_c").asInstanceOf[Double])

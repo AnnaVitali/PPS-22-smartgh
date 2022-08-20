@@ -5,6 +5,7 @@ import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.model.time.Timer
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
+import it.unibo.pps.smartgh.mvc.component.GreenHouseDivisionMVC.GreenHouseDivisionMVCImpl
 import it.unibo.pps.smartgh.view.component.AreaViewModule
 
 /** Object that can be used to create a new instance of [[AreaMVCImpl]]. */
@@ -16,11 +17,18 @@ object AreaMVC:
     *   instance of the simulation [[Timer]]
     * @param simulationMVC
     *   the simulation MVC instance
+    * @param greenHouseDivisionMVC
+    *   instance of the [[GreenHouseDivisionMVC]]
     * @return
     *   a new instance of [[AreaMVCImpl]].
     */
-  def apply(plant: Plant, timer: Timer, simulationMVC: SimulationMVCImpl): AreaMVCImpl =
-    AreaMVCImpl(plant, timer, simulationMVC)
+  def apply(
+      plant: Plant,
+      timer: Timer,
+      simulationMVC: SimulationMVCImpl,
+      greenHouseDivisionMVC: GreenHouseDivisionMVCImpl
+  ): AreaMVCImpl =
+    AreaMVCImpl(plant, timer, simulationMVC, greenHouseDivisionMVC)
 
   /** Implementation of the area MVC.
     * @param plant
@@ -29,14 +37,21 @@ object AreaMVC:
     *   the simulation MVC instance
     * @param timer
     *   instance of the simulation [[Timer]]
+    * @param greenHouseDivisionMVC
+    *   instance of the [[GreenHouseDivisionMVC]]
     */
-  class AreaMVCImpl(plant: Plant, timer: Timer, simulationMVC: SimulationMVCImpl)
-      extends AreaModelModule.Interface
+  class AreaMVCImpl(
+      plant: Plant,
+      timer: Timer,
+      simulationMVC: SimulationMVCImpl,
+      greenHouseDivisionMVC: GreenHouseDivisionMVCImpl
+  ) extends AreaModelModule.Interface
       with AreaViewModule.Interface
       with AreaControllerModule.Interface:
     override val areaModel: AreaModelModule.AreaModel = AreaImpl(plant, timer)
     override val areaView: AreaViewModule.AreaView = AreaViewImpl(simulationMVC.simulationView)
-    override val areaController: AreaControllerModule.AreaController = AreaControllerImpl(simulationMVC)
+    override val areaController: AreaControllerModule.AreaController =
+      AreaControllerImpl(simulationMVC, greenHouseDivisionMVC)
 
     /** Paint the area. */
     def paintArea(): Unit = areaController.paintArea()

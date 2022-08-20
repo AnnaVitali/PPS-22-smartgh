@@ -25,7 +25,8 @@ object AreaDetailsControllerModule:
 
       private var messages: Seq[String] = Seq.empty
 
-      override def instantiateNextSceneMVC(baseView: BaseView): Unit = ???
+      override def instantiateNextSceneMVC(baseView: BaseView): Unit =
+        areaDetailsView.moveToNextScene(simulationMVC.simulationController.environmentController.envView())
 
       override def initializeView(): Unit =
         areaModel
@@ -43,10 +44,7 @@ object AreaDetailsControllerModule:
         areaDetailsView.initializeParameters(areaModel, updateStateMessage)
         val plant = areaModel.plant
         areaDetailsView.updatePlantInformation(plant.name, plant.description, plant.imageUrl)
-        areaModel.timer.addCallback(
-          time => areaDetailsView.updateTime(DurationFormatUtils.formatDuration(time.toMillis, "HH:mm:ss", true)),
-          1
-        )
+        simulationMVC.simulationController.environmentController.subscribeTimerValue(areaDetailsView.updateTime)
 
       private def updateStateMessage(message: String, show: Boolean): Unit =
         if show && (!messages.contains(message)) then messages = messages.prepended(message)

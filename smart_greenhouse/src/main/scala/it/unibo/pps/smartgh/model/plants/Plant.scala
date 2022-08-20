@@ -96,7 +96,6 @@ object Plant:
       }
 
     private def getImageUrl(info: RequestResult): String =
-      println(info.get("image_url").fold[String]("images/plantIcon.png")(res => res.toString))
       info.get("image_url").fold[String]("images/plantIcon.png")(res => res.toString)
 
     private def getOptimalValues(info: RequestResult): RequestResult =

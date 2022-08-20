@@ -16,12 +16,13 @@ import javafx.fxml.FXML
 import javafx.scene.Parent
 import javafx.scene.control.{Label, ScrollPane, Separator}
 import javafx.scene.image.{Image, ImageView}
-import javafx.scene.layout.{Pane, VBox}
+import javafx.scene.layout.{BorderPane, Pane, VBox}
+
+import java.net.URL
 
 object AreaDetailsViewModule:
 
-  trait AreaDetailsView extends ViewComponent[ScrollPane]:
-    def moveToNextScene[A <: Parent](viewComponent: ViewComponent[A]): Unit
+  trait AreaDetailsView extends ViewComponent[ScrollPane] with ContiguousSceneView[BorderPane]:
     def initializeParameters(areaModel: AreaModel, updateStateMessage: (String, Boolean) => Unit): Unit
     def updatePlantInformation(name: String, description: String, imageUrl: String): Unit
     def updateTime(time: String): Unit
@@ -67,7 +68,7 @@ object AreaDetailsViewModule:
       var alarmLabel: Label = _
 
       Platform.runLater(() => baseView.changeSceneButton.setText("Back"))
-      baseView.changeSceneButton.setOnMouseClicked { _ => /*todo*/ }
+      baseView.changeSceneButton.setOnMouseClicked(_ => setNewScene())
       alarmPane.managedProperty().bind(alarmPane.visibleProperty())
 
       override def initializeParameters(areaModel: AreaModel, updateStateMessage: (String, Boolean) => Unit): Unit =
@@ -80,9 +81,6 @@ object AreaDetailsViewModule:
         parametersVbox.getChildren.add(Separator())
         parametersVbox.getChildren.add(AreaSoilMoistureMVC(areaModel, updateStateMessage).areaSoilMoistureView)
         parametersVbox.getChildren.add(Separator())
-
-      override def moveToNextScene[A <: Parent](viewComponent: ViewComponent[A]): Unit =
-        simulationView.changeView(viewComponent)
 
       override def updatePlantInformation(name: String, description: String, imageUrl: String): Unit =
         Platform.runLater { () =>
@@ -103,6 +101,12 @@ object AreaDetailsViewModule:
           alarmPane.setVisible(!messages.isBlank)
           alarmLabel.setText(messages)
         }
+
+      override def moveToNextScene(component: ViewComponent[BorderPane]): Unit =
+        simulationView.changeView(component)
+
+      override def setNewScene(): Unit =
+        areaDetailsController.instantiateNextSceneMVC(baseView)
 
   trait Interface extends Provider with Component:
     self: Requirements =>
