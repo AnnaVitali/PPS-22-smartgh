@@ -1,42 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../css/baseStyle.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <top>
         <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10">
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-                <Label fx:id="locationLabel" text="Location: ">
+            <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                <Label fx:id="locationLabel" contentDisplay="BOTTOM" text="Location: ">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font></Label>
-                <Label fx:id="setLocationLabel" styleClass="normalText" text="default" />
+                <Label fx:id="setLocationLabel" alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" styleClass="normalText" text="default" />
             </HBox>
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+            <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                 <Label fx:id="dayLabel" text="Day: ">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font></Label>
                 <Label fx:id="setDayLabel" styleClass="normalText" text="default" />
             </HBox>
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+            <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                 <Label fx:id="temperatureLabel" text="Temperature: ">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font></Label>
                 <Label fx:id="setTemperatureLabel" styleClass="normalText" text="default" />
             </HBox>
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+            <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                 <Label fx:id="humidityLabel" text="Humidity: ">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font></Label>
                 <Label fx:id="setHumidityLabel" styleClass="normalText" text="default" />
             </HBox>
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+            <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                 <Label fx:id="uvIndexLabel" text="UV index: ">
                     <font>
                         <Font name="System Bold" size="16.0" />
@@ -44,7 +48,7 @@
                 </Label>
                 <Label fx:id="setUvIndexLabel" styleClass="normalText" text="default" />
             </HBox>
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+            <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                 <Label fx:id="luxLabel" text="Lux: ">
                     <font>
                         <Font name="System Bold" size="16.0" />
@@ -52,13 +56,18 @@
                 </Label>
                 <Label fx:id="setLuxLabel" styleClass="normalText" text="default" />
             </HBox>
-            <HBox layoutX="426.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+            <HBox alignment="CENTER" layoutX="426.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                 <Label fx:id="conditionLabel" text="Condition: ">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font></Label>
                 <Label fx:id="setConditionLabel" styleClass="normalText" text="default" />
             </HBox>
+         <Button fx:id="helpButton" alignment="TOP_LEFT" mnemonicParsing="false" text="?">
+            <HBox.margin>
+               <Insets left="100.0" />
+            </HBox.margin>
+         </Button>
             <BorderPane.margin>
                 <Insets bottom="30.0" />
             </BorderPane.margin>
@@ -94,11 +103,4 @@
             </BorderPane.margin>
         </VBox>
     </bottom>
-   <right>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="helpButton" alignment="TOP_LEFT" mnemonicParsing="false" text="?" />
-         </children>
-      </VBox>
-   </right>
 </BorderPane>

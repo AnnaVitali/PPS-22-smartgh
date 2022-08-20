@@ -103,7 +103,7 @@ object Plant:
 
     private def getDescription: String =
       val query =
-        "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=" + id
+        "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=" + name
           .replace(" ", "%20")
           .replace("\'", "")
       try {

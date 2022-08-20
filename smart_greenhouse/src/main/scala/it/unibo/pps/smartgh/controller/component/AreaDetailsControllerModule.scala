@@ -49,14 +49,13 @@ object AreaDetailsControllerModule:
           .changeStatusObservable()
           .subscribe(
             (s: AreaStatus) => {
-              s match
-                case AreaStatus.ALARM => areaDetailsView.updateState(s.toString)
-                case _ =>
+              areaDetailsView.updateState(s.toString)
               Continue
             },
             (ex: Throwable) => ex.printStackTrace(),
             () => {}
           )
+        areaDetailsView.updateState(areaModel.status.toString)
         areaDetailsView.initializeParameters(sensorMVC.map(p => p.view))
         val plant = areaModel.plant
         areaDetailsView.updatePlantInformation(plant.name, plant.description, plant.imageUrl)

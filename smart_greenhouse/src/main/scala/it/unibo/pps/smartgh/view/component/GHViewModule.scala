@@ -20,10 +20,6 @@ object GHViewModule:
   /** A trait that represents the green house division view of the application. */
   trait GHDivisionView extends ViewComponent[ScrollPane]:
     /** Draws the greenhouse division according to the rows and cols.
-      * @param rows
-      *   of the greenhouse grid
-      * @param cols
-      *   of the greenhouse grid
       * @param areas
       *   list of areas composing the greenhouse
       */
@@ -54,16 +50,15 @@ object GHViewModule:
       *   the implementation of the [[GreenHouseDivisionViewImpl]].
       */
     class GreenHouseDivisionViewImpl() extends AbstractViewComponent[ScrollPane]("ghDivision.fxml") with GHDivisionView:
-      private val env = GridPane()
       override val component: ScrollPane = loader.load[ScrollPane]
       override var baseView: BaseView = _
 
       @FXML
-      var ghDivision: VBox = _
+      var env: GridPane = _
+
       @FXML
       var scroll: ScrollPane = _
 
-      ghDivision.getChildren.add(env)
       env.setHgap(5)
       env.setVgap(5)
 
