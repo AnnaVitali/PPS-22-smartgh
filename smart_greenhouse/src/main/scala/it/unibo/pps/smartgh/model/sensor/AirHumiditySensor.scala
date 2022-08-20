@@ -40,6 +40,7 @@ object AirHumiditySensor:
   class AirHumiditySensorImpl(areaComponentsState: AreaComponentsStateImpl, timer: Timer)
       extends AbstractSensorWithTimer(areaComponentsState, timer):
 
+    private val valueRange = (0.0, 100.0)
     private val timeMustPass: Int = 3600
     private val minPercentage = 0.01
     private val maxPercentage = 0.02
@@ -61,7 +62,7 @@ object AirHumiditySensor:
     override def computeNextSensorValue(): Unit =
       areaComponentsState.gatesState match
         case AreaGatesState.Open => currentValue = currentEnvironmentValue
-        case _ => currentValue = currentEnvironmentValue - calculateRandomValue(currentValue)
+        case _ => currentValue = (currentEnvironmentValue - calculateRandomValue(currentValue)).max(valueRange._1)
       (areaComponentsState.atomisingState, areaComponentsState.ventilationState) match
         case (AreaAtomiseState.AtomisingActive, AreaVentilationState.VentilationInactive) =>
           currentValue = FactoryFunctionsAirHumidity.updateAtomizeValue(currentValue, maxAtomizeValue)
@@ -77,6 +78,6 @@ object AirHumiditySensor:
       subject.onNext(currentValue)
 
     override def onNextAction(): AreaComponentsStateImpl => Future[Ack] =
-      maxAtomizeValue = currentValue + calculateRandomValue(currentValue)
-      minVentilateValue = currentValue - calculateRandomValue(currentValue)
+      maxAtomizeValue = (currentValue + calculateRandomValue(currentValue)).min(valueRange._2)
+      minVentilateValue = (currentValue - calculateRandomValue(currentValue)).max(valueRange._1)
       super.onNextAction()
