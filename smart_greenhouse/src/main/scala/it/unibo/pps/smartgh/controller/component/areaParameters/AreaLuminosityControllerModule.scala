@@ -18,11 +18,15 @@ object AreaLuminosityControllerModule:
       */
     def updLampValue(value: Double): Unit
 
+    def getLampValue: Double
+
     /** Put down the area shields */
     def shieldsDown(): Unit
 
     /** Put up the area shields */
     def shieldsUp(): Unit
+
+    def isShielded: Boolean
 
   trait Provider:
     val areaLuminosityController: AreaLuminosityController
@@ -38,9 +42,13 @@ object AreaLuminosityControllerModule:
 
       override def updLampValue(value: Double): Unit = areaModel.updBrightnessOfLamp(value)
 
+      override def getLampValue: Double = areaModel.getBrightnessOfLamp
+
       override def shieldsDown(): Unit = areaModel.updShieldState(AreaShieldState.Down)
 
       override def shieldsUp(): Unit = areaModel.updShieldState(AreaShieldState.Up)
+
+      override def isShielded: Boolean = areaModel.isShielded
 
   trait Interface extends Provider with Component:
     self: Requirements =>

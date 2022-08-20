@@ -61,7 +61,7 @@ object AreaModelModule:
     def setSensorSubjects(subjects: Map[String, ConcurrentSubject[Double, Double]]): Unit
 
     /** Update the [[AreaGatesState]] due to a user action.
-      * @param value
+      * @param state
       *   the new state for the gate
       */
     def updGateState(state: AreaGatesState): Unit
@@ -71,6 +71,9 @@ object AreaModelModule:
       *   new shield state
       */
     def updShieldState(state: AreaShieldState): Unit
+
+    /** Get the shielded information. */
+    def isShielded: Boolean
 
     /** Update the [[AreaAtomiseState]] due to a user action.
       * @param state
@@ -95,6 +98,9 @@ object AreaModelModule:
       *   new brightness value
       */
     def updBrightnessOfLamp(value: Double): Unit
+
+    /** Get the current lamps' brightness. */
+    def getBrightnessOfLamp: Double
 
     /** Update the temperature value due to a user action.
       * @param value
@@ -218,6 +224,8 @@ object AreaModelModule:
 
       override def updBrightnessOfLamp(value: Double): Unit = areaComponentState.brightnessOfTheLamps = value
 
+      override def getBrightnessOfLamp: Double = areaComponentState.brightnessOfTheLamps
+
       override def updHumidityAction(state: AreaHumidityState): Unit = areaComponentState.humidityActions = state
 
       override def updAtomizeState(state: AreaAtomiseState): Unit = areaComponentState.atomisingState = state
@@ -225,6 +233,8 @@ object AreaModelModule:
       override def updGateState(state: AreaGatesState): Unit = areaComponentState.gatesState = state
 
       override def updShieldState(state: AreaShieldState): Unit = areaComponentState.shieldState = state
+
+      override def isShielded: Boolean = areaComponentState.shieldState == AreaShieldState.Down
 
       override def updVentilationState(state: AreaVentilationState): Unit = areaComponentState.ventilationState = state
 
