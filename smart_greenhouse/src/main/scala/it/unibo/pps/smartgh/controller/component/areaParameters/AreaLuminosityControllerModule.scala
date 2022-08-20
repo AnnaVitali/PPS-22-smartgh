@@ -4,9 +4,10 @@ import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersCo
   AbstractAreaParametersController,
   AreaParametersController
 }
-import it.unibo.pps.smartgh.model.area.{AreaModelModule, AreaShieldState}
+import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaModelModule, AreaShieldState}
 import it.unibo.pps.smartgh.model.sensor.SensorStatus
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaLuminosityViewModule
+import it.unibo.pps.smartgh.view.component.areaParameters.AreaLuminosityViewModule.AreaLuminosityView
+import it.unibo.pps.smartgh.view.component.areaParameters.{AreaLuminosityViewModule, AreaParametersView}
 
 object AreaLuminosityControllerModule:
 
@@ -49,6 +50,10 @@ object AreaLuminosityControllerModule:
       override def shieldsUp(): Unit = areaModel.updShieldState(AreaShieldState.Up)
 
       override def isShielded: Boolean = areaModel.isShielded
+
+      override protected def updateValues(view: AreaParametersView.AreaParametersView): Unit =
+        super.updateValues(view)
+        view.asInstanceOf[AreaLuminosityView].checkGatesState(areaModel.gatesState == AreaGatesState.Open)
 
   trait Interface extends Provider with Component:
     self: Requirements =>

@@ -16,7 +16,8 @@ object AreaLuminosityViewModule:
 
   private val lampFactor: Double = 1000.0
 
-  trait AreaLuminosityView extends ViewComponent[GridPane] with AreaParametersView
+  trait AreaLuminosityView extends ViewComponent[GridPane] with AreaParametersView:
+    def checkGatesState(isOpen: Boolean): Unit
 
   trait Provider:
     val parameterView: AreaParametersView
@@ -64,9 +65,19 @@ object AreaLuminosityViewModule:
         override def fromString(s: String): java.lang.Double = java.lang.Double.valueOf(s.dropRight(1))
       )
 
+      override def checkGatesState(isOpen: Boolean): Unit =
+        if isOpen then
+          disablingShieldingBtn(true)
+          if downShieldingBtn.isSelected then initShieldingBtn(false)
+        else if downShieldingBtn.isDisabled then disablingShieldingBtn(false)
+
       private def initShieldingBtn(isShielded: Boolean): Unit =
         downShieldingBtn.setSelected(isShielded)
         upShieldingBtn.setSelected(!isShielded)
+
+      private def disablingShieldingBtn(disabled: Boolean): Unit =
+        downShieldingBtn.setDisable(disabled)
+        upShieldingBtn.setDisable(disabled)
 
   trait Interface extends Provider with Component:
     self: Requirements =>
