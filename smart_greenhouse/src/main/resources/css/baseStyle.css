@@ -1,8 +1,66 @@
 .normalText {
-    -fx-font-size: 16px;
+    -fx-font-size: 14px;
 }
 
-.errorText{
+.titleText {
     -fx-font-size: 14px;
-    -fx-text-fill: red;
+    -fx-font-weight: bold;
+}
+
+.NORMAL {
+    -fx-text-fill: #04B700;
+}
+
+.errorText, .ALARM {
+    /*-fx-font-size: 14px;*/
+    -fx-text-fill: #842029;
+}
+
+.descriptionText {
+    -fx-font-size: 14px;
+}
+
+.ALARMState {
+    -fx-background-color: #F8D7DA;
+}
+
+.NORMALState {
+    -fx-background-color: transparent;
+}
+
+.alarmPane {
+    -fx-background-color: #F8D7DA;
+    /*-fx-stroke: #F1AEB5;*/
+    /*-fx-stroke-width: 2;*/
+    -fx-border-color: #F1AEB5;
+    -fx-border-width: 1;
+    -fx-border-style: solid;
+    -fx-border-radius: 5;
+}
+
+.transparentPane {
+    -fx-background-color: transparent;
+}
+
+.toggle-button, .outlined-btn {
+    -fx-background-color: white;
+    -fx-border-color: #17A2B8;
+    -fx-border-width: 1;
+    -fx-border-style: solid;
+    -fx-border-radius: 5;
+    -fx-cursor: pointer;
+    -fx-text-fill: #17A2B8;
+}
+
+.toggle-button:selected, .toggle-button:hover, .outlined-btn:hover, .slider .thumb {
+    -fx-background-color: #17A2B8;
+    -fx-text-fill: #FFFFFF;
+}
+
+.outlined-btn:pressed {
+    -fx-effect: dropshadow(three-pass-box, #49d3e9, 5, 0, 0, 0);
+}
+
+.slider{
+    -fx-control-inner-background: #FFFFFF
 }

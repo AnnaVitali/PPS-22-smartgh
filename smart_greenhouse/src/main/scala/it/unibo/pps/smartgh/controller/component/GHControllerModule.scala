@@ -42,7 +42,7 @@ object GHControllerModule:
         )
 
       private val timeoutUpd = Observable
-        .interval(5.seconds)
+        .interval(3.seconds)
         .map(_ => drawView())
       private var subscriptionTimeout: Cancelable = _
       private val subscriptionAlarm: List[Cancelable] = List.empty
