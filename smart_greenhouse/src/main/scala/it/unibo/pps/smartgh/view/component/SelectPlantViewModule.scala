@@ -17,6 +17,7 @@ import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.mvc.component.EnvironmentMVC
+import it.unibo.pps.smartgh.view.component.LoadingPlantViewModule.LoadingPlantView
 
 import scala.jdk.javaapi.CollectionConverters.asJavaCollection
 import scala.language.postfixOps
@@ -25,7 +26,7 @@ import scala.language.postfixOps
 object SelectPlantViewModule:
 
   /** A trait that represents the select plants scene of the application. */
-  trait SelectPlantView extends ViewComponent[BorderPane]:
+  trait SelectPlantView extends ViewComponent[BorderPane] with ContiguousSceneView[VBox]:
 
     /** Method that shows the plant that can be selected.
       * @param selectablePlantList
@@ -38,15 +39,6 @@ object SelectPlantViewModule:
       *   the [[List]] of the plant that has been selected by the user.
       */
     def updateSelectedPlant(selectedPlantList: List[String]): Unit
-
-    /** Method that asks the view to move to the next Scene.
-      * @param environmentView
-      *   the next scene that needs to be shown.
-      */
-    def moveToNextScene(environmentView: EnvironmentView): Unit
-
-    /** Method that asks to the view to setup the next scene. */
-    def setNewScene(): Unit
 
     /** Method that requires to the view to show an error message.
       * @param message
@@ -111,13 +103,15 @@ object SelectPlantViewModule:
 
       baseView.changeSceneButton.setText("Start simulation")
       baseView.changeSceneButton.setOnMouseClicked { _ =>
-        plantSelectorController.notifyStartSimulationClicked()
+        plantSelectorController.instantiateNextSceneMVC(baseView)
       }
 
       override def showSelectablePlants(selectablePlantList: List[String]): Unit =
-        val selectablePlantsCheckBoxList = selectablePlantList.map(new CheckBox(_))
-        addEventHandlerToCheckBoxes(selectablePlantsCheckBoxList)
-        selectablePlantsBox.getChildren.addAll(asJavaCollection(selectablePlantsCheckBoxList))
+        Platform.runLater(() =>
+          val selectablePlantsCheckBoxList = selectablePlantList.map(new CheckBox(_))
+          addEventHandlerToCheckBoxes(selectablePlantsCheckBoxList)
+          selectablePlantsBox.getChildren.addAll(asJavaCollection(selectablePlantsCheckBoxList))
+        )
 
       override def updateSelectedPlant(selectedPlants: List[String]): Unit =
         Platform.runLater(() =>
@@ -135,8 +129,8 @@ object SelectPlantViewModule:
           )
         })
 
-      override def moveToNextScene(environmentView: EnvironmentView): Unit =
-        simulationView.changeView(environmentView)
+      override def moveToNextScene(nextView: ViewComponent[VBox]): Unit =
+        Platform.runLater(() => simulationView.changeView(nextView))
 
       override def setNewScene(): Unit =
         plantSelectorController.instantiateNextSceneMVC(baseView)

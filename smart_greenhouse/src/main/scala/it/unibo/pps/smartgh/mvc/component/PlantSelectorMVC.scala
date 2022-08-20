@@ -12,7 +12,7 @@ import it.unibo.pps.smartgh.view.component.{BaseView, SelectPlantViewModule}
 /** Object that encloses the MVC structure for the plant selection. */
 object PlantSelectorMVC:
 
-  /** Apply method for the [[PlantSelectorMVC]]
+  /** Apply method for the [[PlantSelectorMVC]].
     * @param simulationMVC
     *   the root MVC of the application.
     * @param baseView
@@ -38,4 +38,4 @@ object PlantSelectorMVC:
     override val selectPlantView: SelectPlantView = SelectPlantViewImpl(simulationMVC.simulationView, baseView)
     override val plantSelectorController: PlantSelectorController = PlantSelectorControllerImpl(simulationMVC)
 
-    plantSelectorController.configureAvailablePlants()
+    plantSelectorController.setupBehaviour()

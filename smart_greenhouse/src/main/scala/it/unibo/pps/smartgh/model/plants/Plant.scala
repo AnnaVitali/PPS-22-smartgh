@@ -5,6 +5,16 @@ import org.json4s.jackson.JsonMethods.*
 import requests.*
 import cats.syntax.eq.catsSyntaxEq
 
+import monix.eval.Task
+import monix.reactive.subjects.ConcurrentSubject
+import monix.reactive.MulticastStrategy.Behavior
+import monix.reactive.Observable
+import monix.reactive.MulticastStrategy
+import monix.execution.Scheduler.Implicits.global
+import monix.execution.Ack
+
+import concurrent.{Future, Promise}
+
 /** This trait exposes methods for managing a selected plant, it represents its model. */
 trait Plant:
 
@@ -30,15 +40,19 @@ trait Plant:
 object Plant:
 
   /** Creates a new [[Plant]] object.
-    * @param name plant's name.
-    * @param id plant's id
+    * @param name
+    *   plant's name.
+    * @param id
+    *   plant's id
     */
   def apply(name: String, id: String): Plant = PlantImpl(name, id)
 
   /** Class that contains the [[Plant]] implementation.
-    * @param name plant's name.
-    * @param id plant's id
-    * */
+    * @param name
+    *   plant's name.
+    * @param id
+    *   plant's id
+    */
   private class PlantImpl(override val name: String, override val id: String) extends Plant:
 
     type RequestResult = Map[String, Any]
@@ -71,7 +85,8 @@ object Plant:
     private def getInfo: RequestResult =
       val accessToken = getAccessToken
       val authorizationHeader = ("Authorization", "Bearer " + accessToken)
-      val url = "https://open.plantbook.io/api/v1/plant/detail/" + id.replace(" ", "%20") + "/?format=json"
+      val url =
+        "https://open.plantbook.io/api/v1/plant/detail/" + id.replace(" ", "%20").replace("\'", "") + "/?format=json"
       try {
         val r: Response = requests.get(url = url, headers = Iterable(authorizationHeader))
         implicit val formats: DefaultFormats.type = org.json4s.DefaultFormats
@@ -90,6 +105,7 @@ object Plant:
       val query =
         "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=" + id
           .replace(" ", "%20")
+          .replace("\'", "")
       try {
         val r: Response = requests.get(query)
         implicit val formats: DefaultFormats.type = org.json4s.DefaultFormats

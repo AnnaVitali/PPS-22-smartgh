@@ -35,19 +35,17 @@ object GHControllerModule:
 
       private def drawView(): Unit =
         ghDivisionModel.areas.foreach(a => a.paintArea())
-        ghDivisionView.paintDivision(
-          ghDivisionModel.dimension._1,
-          ghDivisionModel.dimension._2,
-          ghDivisionModel.areas.map(a => a.areaView)
-        )
+        ghDivisionView.paintDivision(ghDivisionModel.areas.map(a => a.areaView))
 
       private val timeoutUpd = Observable
-        .interval(5.seconds)
+        .interval(3.seconds)
         .map(_ => drawView())
       private var subscriptionTimeout: Cancelable = _
       private val subscriptionAlarm: List[Cancelable] = List.empty
 
       override def updateView(): Unit =
+        ghDivisionView.setAreaBaseView(ghDivisionModel.areas.map(a => a.areaView))
+
         ghDivisionModel.areas.foreach(a =>
           a.areaModel
             .changeStatusObservable()

@@ -4,6 +4,7 @@ import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateIm
 import it.unibo.pps.smartgh.model.area.{AreaAtomiseState, AreaGatesState, AreaVentilationState}
 import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsAirHumidity
 import it.unibo.pps.smartgh.model.time.Timer
+import monix.eval.Task
 import monix.execution.Ack
 import monix.execution.Ack.Continue
 import monix.reactive.MulticastStrategy
@@ -40,6 +41,7 @@ object AirHumiditySensor:
   class AirHumiditySensorImpl(areaComponentsState: AreaComponentsStateImpl, timer: Timer)
       extends AbstractSensorWithTimer(areaComponentsState, timer):
 
+    private val valueRange = (0.0, 100.0)
     private val timeMustPass: Int = 3600
     private val minPercentage = 0.01
     private val maxPercentage = 0.02
@@ -59,24 +61,26 @@ object AirHumiditySensor:
       timer.addCallback(onNextTimerEvent(), timeMustPass)
 
     override def computeNextSensorValue(): Unit =
-      areaComponentsState.gatesState match
-        case AreaGatesState.Open => currentValue = currentEnvironmentValue
-        case _ => currentValue = currentEnvironmentValue - calculateRandomValue(currentValue)
-      (areaComponentsState.atomisingState, areaComponentsState.ventilationState) match
-        case (AreaAtomiseState.AtomisingActive, AreaVentilationState.VentilationInactive) =>
-          currentValue = FactoryFunctionsAirHumidity.updateAtomizeValue(currentValue, maxAtomizeValue)
-        case (AreaAtomiseState.AtomisingInactive, AreaVentilationState.VentilationActive) =>
-          currentValue = FactoryFunctionsAirHumidity.updateVentilationValue(currentValue, minVentilateValue)
-        case (AreaAtomiseState.AtomisingInactive, AreaVentilationState.VentilationInactive) =>
-          currentValue = FactoryFunctionsAirHumidity.updateDisableActionValue(
-            currentValue,
-            currentEnvironmentValue,
-            noActionRandomVal
-          )
-        case _ =>
-      subject.onNext(currentValue)
+      Task {
+        areaComponentsState.gatesState match
+          case AreaGatesState.Open => currentValue = currentEnvironmentValue
+          case _ => currentValue = (currentEnvironmentValue - calculateRandomValue(currentValue)).max(valueRange._1)
+        (areaComponentsState.atomisingState, areaComponentsState.ventilationState) match
+          case (AreaAtomiseState.AtomisingActive, AreaVentilationState.VentilationInactive) =>
+            currentValue = FactoryFunctionsAirHumidity.updateAtomizeValue(currentValue, maxAtomizeValue)
+          case (AreaAtomiseState.AtomisingInactive, AreaVentilationState.VentilationActive) =>
+            currentValue = FactoryFunctionsAirHumidity.updateVentilationValue(currentValue, minVentilateValue)
+          case (AreaAtomiseState.AtomisingInactive, AreaVentilationState.VentilationInactive) =>
+            currentValue = FactoryFunctionsAirHumidity.updateDisableActionValue(
+              currentValue,
+              currentEnvironmentValue,
+              noActionRandomVal
+            )
+          case _ =>
+        subject.onNext(currentValue)
+      }.executeAsync.runToFuture
 
     override def onNextAction(): AreaComponentsStateImpl => Future[Ack] =
-      maxAtomizeValue = currentValue + calculateRandomValue(currentValue)
-      minVentilateValue = currentValue - calculateRandomValue(currentValue)
+      maxAtomizeValue = (currentValue + calculateRandomValue(currentValue)).min(valueRange._2)
+      minVentilateValue = (currentValue - calculateRandomValue(currentValue)).max(valueRange._1)
       super.onNextAction()

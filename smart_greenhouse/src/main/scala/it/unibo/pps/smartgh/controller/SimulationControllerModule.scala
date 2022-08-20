@@ -77,18 +77,23 @@ object SimulationControllerModule:
       override var timer: Timer = timeModel.timer
       timeModel.controller = this
 
-      override def startSimulationTimer(): Unit = timeModel.start()
+      override def startSimulationTimer(): Unit =
+        timeModel.start()
 
-      override def stopSimulationTimer(): Unit = timeModel.stop()
+      override def stopSimulationTimer(): Unit =
+        timeModel.stop()
 
-      override def updateVelocityTimer(speed: Double): Unit = timeModel.setSpeed(speed)
+      override def updateVelocityTimer(speed: Double): Unit =
+        timeModel.setSpeed(speed)
 
       override def notifyTimeValueChange(timeValue: String): Unit =
         environmentController.notifyTimeValueChange(timeValue)
 
-      override def notifyNewHourPassed(hour: Int): Unit = environmentController.notifyEnvironmentValuesChange(hour)
+      override def notifyNewHourPassed(hour: Int): Unit =
+        environmentController.notifyEnvironmentValuesChange(hour)
 
-      override def finishSimulation(): Unit = environmentController.finishSimulation()
+      override def finishSimulation(): Unit =
+        environmentController.finishSimulation()
 
       override def resetSimulation(): Unit =
         timeModel = TimeModel()

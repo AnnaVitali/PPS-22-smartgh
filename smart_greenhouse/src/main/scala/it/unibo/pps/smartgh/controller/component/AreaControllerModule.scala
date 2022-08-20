@@ -1,17 +1,17 @@
 package it.unibo.pps.smartgh.controller.component
 
 import it.unibo.pps.smartgh.model.area.AreaModelModule
-import it.unibo.pps.smartgh.view.component.AreaViewModule
+import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
+import it.unibo.pps.smartgh.view.component.{AreaViewModule, BaseView}
+import it.unibo.pps.smartgh.mvc.component.AreaDetailsMVC
+import it.unibo.pps.smartgh.mvc.component.GreenHouseDivisionMVC.GreenHouseDivisionMVCImpl
 
 /** Implementation of the [[AreaControllerModule]]. */
 object AreaControllerModule:
   /** A trait that represents the controller for the area division. */
-  trait AreaController:
+  trait AreaController extends SceneController:
     /** Create the area view. */
     def paintArea(): Unit
-
-    /** TODO */
-    def openArea(): Unit
 
   /** A trait for defining the area instance. */
   trait Provider:
@@ -24,8 +24,15 @@ object AreaControllerModule:
   /** A trait that represents the greenhouse area component. */
   trait Component:
     context: Requirements =>
-    /** Implementation of the area controller. */
-    class AreaControllerImpl extends AreaController:
+
+    /** Implementation of the area controller.
+      * @param simulationMVCImpl
+      *   implementation of the simulation MVC
+      * @param ghMVC
+      *   implementation of the greenhouse division MVC
+      */
+    class AreaControllerImpl(simulationMVCImpl: SimulationMVCImpl, ghMVC: GreenHouseDivisionMVCImpl)
+        extends AreaController:
       override def paintArea(): Unit =
         val color = areaModel.status match
           case AreaModelModule.NORMAL => "#33cc33"
@@ -33,9 +40,9 @@ object AreaControllerModule:
 
         areaView.paintArea(areaModel.plant.name, color, areaModel.sensorValues())
 
-      override def openArea(): Unit =
-        //TODO
-        println(s"open area $areaModel")
+      override def instantiateNextSceneMVC(baseView: BaseView): Unit =
+        ghMVC.ghController.stopListening()
+        areaView.moveToNextScene(AreaDetailsMVC(simulationMVCImpl, baseView, areaModel).areaDetailsView)
 
   /** Trait that combine provider and component for area controller. */
   trait Interface extends Provider with Component:

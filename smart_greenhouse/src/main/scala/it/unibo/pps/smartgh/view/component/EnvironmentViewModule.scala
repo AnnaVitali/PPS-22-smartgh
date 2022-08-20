@@ -17,7 +17,7 @@ import scalafx.application.JFXApp3.Stage
 object EnvironmentViewModule:
 
   /** A trait that represents the environment's view of the application. */
-  trait EnvironmentView extends ViewComponent[BorderPane]:
+  trait EnvironmentView extends ViewComponent[BorderPane] with ContiguousSceneView[BorderPane]:
 
     /** Data structure that will contains environment values. */
     type EnvironmentValues = Map[String, Any]
@@ -49,11 +49,8 @@ object EnvironmentViewModule:
     /** Method to notify view that the simulation time has finished. */
     def finishSimulation(): Unit
 
-    /** Method to notify the view to display the [[FinishSimulationView]].
-      * @param finishSimulationView
-      *   view that represents the last scene of the simulation.
-      */
-    def moveToNextScene(finishSimulationView: FinishSimulationView): Unit
+    /** Set the back button. */
+    def setBackButton(): Unit
 
   /** Trait that represents the provider of the view for environment values and simulation time visualization. */
   trait Provider:
@@ -110,18 +107,21 @@ object EnvironmentViewModule:
       @FXML
       var helpButton: Button = _
 
-      helpButton.setOnMouseClicked{_ =>
+      helpButton.setOnMouseClicked { _ =>
         val helpView = HelpView(new Stage())
         this.component.getScene.getWindow.setOnCloseRequest(_ => helpView.closeWindow())
       }
 
       timeSpeedSlider.setOnMouseReleased(_ => notifySpeedChange(timeSpeedSlider.getValue))
 
-      baseView.changeSceneButton.setText("Stop simulation")
-      baseView.changeSceneButton.setOnMouseClicked { _ =>
-        environmentController.stopSimulation()
-        environmentController.instantiateNextSceneMVC(baseView)
-      }
+      setBackButton()
+
+      override def setBackButton(): Unit =
+        baseView.changeSceneButton.setText("Stop simulation")
+        baseView.changeSceneButton.setOnMouseClicked { _ =>
+          environmentController.stopSimulation()
+          environmentController.instantiateNextSceneMVC(baseView)
+        }
 
       override def displayNameCity(cityName: String): Unit =
         Platform.runLater(() => setLocationLabel.setText(cityName))
@@ -146,13 +146,17 @@ object EnvironmentViewModule:
         Platform.runLater(() => timeElapsedLabel.setText(timerValue))
 
       override def displayGreenHouseDivisionView(ghDivisionView: GHDivisionView): Unit =
+        ghDivisionView.baseView = baseView
         component.setCenter(ghDivisionView)
 
       override def finishSimulation(): Unit =
+        setNewScene()
+
+      override def setNewScene(): Unit =
         environmentController.instantiateNextSceneMVC(baseView)
 
-      override def moveToNextScene(finishSimulationView: FinishSimulationView): Unit =
-        Platform.runLater(() => simulationView.changeView(finishSimulationView))
+      override def moveToNextScene(component: ViewComponent[BorderPane]): Unit =
+        Platform.runLater(() => simulationView.changeView(component))
 
       private def notifySpeedChange(value: Double): Unit =
         environmentController.updateVelocityTimer(value)
