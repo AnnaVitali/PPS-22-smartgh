@@ -8,6 +8,9 @@ import javafx.stage.Stage
 import scalafx.scene.Scene
 import scalafx.Includes.*
 
+import scala.io.{BufferedSource, Source}
+import scala.language.postfixOps
+
 /** A trait that represents the view for user guide. */
 trait HelpView extends ViewComponent[BorderPane]:
 
@@ -37,8 +40,10 @@ object HelpView:
         @FXML
         var helpTextArea : TextArea = _
 
-        val helpText : String = "prova"
-
+        val filename = "userGuide.txt"
+        val fileSource: BufferedSource = Source.fromResource(filename)
+        val helpText : String = fileSource.getLines.mkString("\n")
+        fileSource.close
         helpTextArea.setText(helpText)
 
         override def closeWindow(): Unit =
