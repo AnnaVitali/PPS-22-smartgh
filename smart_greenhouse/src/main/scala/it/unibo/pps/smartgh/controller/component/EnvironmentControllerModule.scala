@@ -60,6 +60,9 @@ object EnvironmentControllerModule:
       */
     def subscribeTimerValue(callback: String => Unit): Unit
 
+    /** Restore environment after back button. */
+    def backToEnvironment(): Unit
+
   /** Trait that represents the provider of the controller for environment values and time management. */
   trait Provider:
     /** The environment controller. */
@@ -125,6 +128,10 @@ object EnvironmentControllerModule:
         environmentView.moveToNextScene(FinishSimulationView(simulationMVC, baseView))
 
       override def envView(): EnvironmentView = environmentView
+
+      override def backToEnvironment(): Unit =
+        environmentView.setBackButton()
+        ghMVC.ghController.updateView()
 
       override def subscribeTimerValue(callback: String => Unit): Unit =
         subject.subscribe(

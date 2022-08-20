@@ -42,7 +42,7 @@ object AreaDetailsControllerModule:
       override def instantiateNextSceneMVC(baseView: BaseView): Unit =
         areaDetailsView.moveToNextScene(simulationMVC.simulationController.environmentController.envView())
         sensorMVC.foreach(s => s.controller.stopListening())
-        simulationMVC.simulationController.environmentController.envView().setBackButton()
+        simulationMVC.simulationController.environmentController.backToEnvironment()
 
       override def initializeView(): Unit =
         areaModel
