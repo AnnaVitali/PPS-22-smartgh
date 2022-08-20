@@ -27,7 +27,7 @@ object GHViewModule:
       * @param areas
       *   list of areas composing the greenhouse
       */
-    def paintDivision(rows: Int, cols: Int, areas: List[AreaViewModule.AreaView]): Unit
+    def paintDivision(areas: List[AreaViewModule.AreaView]): Unit
 
   /** A trait for defining the view instance. */
   trait Provider:
@@ -57,16 +57,17 @@ object GHViewModule:
       env.setHgap(5)
       env.setVgap(5)
 
-      override def paintDivision(rows: Int, cols: Int, areas: List[AreaViewModule.AreaView]): Unit =
+      override def paintDivision(areas: List[AreaViewModule.AreaView]): Unit =
+        val cols = 5
         Platform.runLater(() =>
           env.getChildren.clear()
           var count = 0
           for
+            r <- 0 until Math.ceil(areas.length / cols).toInt + (if areas.length % cols == 0 then 0 else 1)
             c <- 0 until cols
-            r <- 0 until rows
+            if count < areas.length
           do
-            val i = count
-            env.add(areas(i), c, r)
+            env.add(areas(count), c, r)
             count = count + 1
         )
 

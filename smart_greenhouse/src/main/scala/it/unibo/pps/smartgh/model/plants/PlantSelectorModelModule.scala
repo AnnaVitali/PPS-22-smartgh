@@ -112,7 +112,7 @@ object PlantSelectorModelModule:
       private val engine = prologEngine(
         Theory.parseLazilyWithStandardOperators(prologFile)
       )
-      private var selectedPlants: List[String] = List()
+      private var selectedPlants: Vector[String] = Vector.empty
       private val subjectPlantSelection: ConcurrentSubject[List[String], List[String]] =
         ConcurrentSubject[List[String]](MulticastStrategy.publish)
       private val subjectPlantInfo: ConcurrentSubject[Plant, Plant] =
@@ -138,7 +138,7 @@ object PlantSelectorModelModule:
       override def selectPlant(plantName: String): Unit =
         Task {
           selectedPlants = selectedPlants :+ plantName
-          subjectPlantSelection.onNext(selectedPlants)
+          subjectPlantSelection.onNext(selectedPlants.toList)
         }.executeAsync.runToFuture
 
       override def deselectPlant(plantName: String): Unit =
@@ -146,19 +146,20 @@ object PlantSelectorModelModule:
           if selectedPlants.contains(plantName) then
             selectedPlants = selectedPlants.filter(_ != plantName)
             subjectPlantSelection
-              .onNext(selectedPlants)
+              .onNext(selectedPlants.toList)
           else
             subjectPlantSelection.onError(
               new NoSuchElementException("You can't deselect a plant that hasn't been selected!")
             )
         }.executeAsync.runToFuture
 
-      override def getPlantsSelectedName: List[String] = selectedPlants
+      override def getPlantsSelectedName: List[String] = selectedPlants.toList
 
       override def getPlantsSelectedIdentifier: List[String] =
         selectedPlants
           .map(getCorrectPlantName)
           .flatMap(s => engine("plant(" + s + ", Y)").map(extractTermToString(_, "Y")))
+          .toList
 
       override def startEmittingPlantsSelected(): Unit =
         Task {

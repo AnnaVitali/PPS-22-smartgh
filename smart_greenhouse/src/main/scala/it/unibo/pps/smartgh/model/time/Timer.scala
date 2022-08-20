@@ -62,7 +62,6 @@ object Timer:
     private var callbacks: Map[(FiniteDuration => Unit, Int), Cancelable] = Map()
 
     override def start(finishTask: => Unit): Unit =
-      println("start called")
       onFinishTask = _ => Task(finishTask)
       timer(value)
 
@@ -70,7 +69,6 @@ object Timer:
       callbacks = callbacks + ((task, timeMustPass) -> registerCallback(task, timeMustPass))
 
     override def changeTickPeriod(newPeriod: FiniteDuration): Unit =
-      println("timer velocity updated")
       stop()
       period = newPeriod
       timer(value)
