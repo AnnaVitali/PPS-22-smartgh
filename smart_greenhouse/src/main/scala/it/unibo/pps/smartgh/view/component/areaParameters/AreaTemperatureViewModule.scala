@@ -47,6 +47,9 @@ object AreaTemperatureViewModule:
       @FXML
       var plusTempBtn: Button = _
 
+      regulateTempLabel.setText(areaTemperatureController.temperature.toString)
+      initGatesBtn(areaTemperatureController.isGatesOpen)
+
       openStructureBtn.setOnMouseClicked { _ =>
         closeStructureBtn.setSelected(false)
         areaTemperatureController.openGates()
@@ -61,7 +64,11 @@ object AreaTemperatureViewModule:
 
       minusTempBtn.setOnMouseClicked(_ => updateTempValue(_ - tempStep))
       plusTempBtn.setOnMouseClicked(_ => updateTempValue(_ + tempStep))
-      regulateTempLabel.setText(areaTemperatureController.initialValue.toString)
+
+      private def initGatesBtn(isOpen: Boolean): Unit =
+        openStructureBtn.setSelected(isOpen)
+        closeStructureBtn.setSelected(!isOpen)
+        setRegulateTempAvailable(!isOpen)
 
       private def setRegulateTempAvailable(b: Boolean): Unit =
         minusTempBtn.setDisable(!b)

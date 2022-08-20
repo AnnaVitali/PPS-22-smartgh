@@ -18,11 +18,23 @@ object AreaAirHumidityControllerModule:
     /** Deactivate the area ventilation. */
     def deactivateVentilation(): Unit
 
+    /** Specifies whether the ventilator is activated.
+      * @return
+      *   true if is active, false otherwise
+      */
+    def isVentilationActivated: Boolean
+
     /** Atomise the area */
     def atomiseArea(): Unit
 
     /** Disable the atomisation of the area */
     def disableAtomiseArea(): Unit
+
+    /** Specifies whether the atomiser is activated.
+      * @return
+      *   true if is active, false otherwise
+      */
+    def isAtomiserActivated: Boolean
 
   trait Provider:
     val parameterController: AreaParametersController
@@ -42,11 +54,16 @@ object AreaAirHumidityControllerModule:
       override def deactivateVentilation(): Unit =
         areaModel.updVentilationState(AreaVentilationState.VentilationInactive)
 
+      override def isVentilationActivated: Boolean =
+        areaModel.ventilationState == AreaVentilationState.VentilationActive
+
       override def atomiseArea(): Unit =
         areaModel.updAtomizeState(AreaAtomiseState.AtomisingActive)
 
       override def disableAtomiseArea(): Unit =
         areaModel.updAtomizeState(AreaAtomiseState.AtomisingInactive)
+
+      override def isAtomiserActivated: Boolean = areaModel.atomiserState == AreaAtomiseState.AtomisingActive
 
   trait Interface extends Provider with Component:
     self: Requirements =>

@@ -66,6 +66,12 @@ object AreaModelModule:
       */
     def updGateState(state: AreaGatesState): Unit
 
+    /** Get the [[AreaGatesState]].
+      * @return
+      *   the gates state
+      */
+    def gatesState: AreaGatesState
+
     /** Update the [[AreaShieldState]]due to a user action.
       * @param state
       *   new shield state
@@ -75,11 +81,23 @@ object AreaModelModule:
     /** Get the shielded information. */
     def isShielded: Boolean
 
+    /** Get the atomiser state.
+      * @return
+      *   the [[AreaAtomiseState]].
+      */
+    def atomiserState: AreaAtomiseState
+
     /** Update the [[AreaAtomiseState]] due to a user action.
       * @param state
       *   new atomize state
       */
     def updAtomizeState(state: AreaAtomiseState): Unit
+
+    /** Get the ventilation state.
+      * @return
+      *   the [[AreaVentilationState]].
+      */
+    def ventilationState: AreaVentilationState
 
     /** Update the [[AreaVentilationState]] due to a user action.
       * @param state
@@ -101,6 +119,12 @@ object AreaModelModule:
 
     /** Get the current lamps' brightness. */
     def getBrightnessOfLamp: Double
+
+    /** Get the current temperature.
+      * @return
+      *   the temperature value
+      */
+    def temperature: Double
 
     /** Update the temperature value due to a user action.
       * @param value
@@ -220,6 +244,8 @@ object AreaModelModule:
 
       override def changeStatusObservable(): Observable[AreaStatus] = subject
 
+      override def temperature: Double = areaComponentState.temperature
+
       override def updTemperature(value: Double): Unit = areaComponentState.temperature = value
 
       override def updBrightnessOfLamp(value: Double): Unit = areaComponentState.brightnessOfTheLamps = value
@@ -228,13 +254,19 @@ object AreaModelModule:
 
       override def updHumidityAction(state: AreaHumidityState): Unit = areaComponentState.humidityActions = state
 
+      override def atomiserState: AreaAtomiseState = areaComponentState.atomisingState
+
       override def updAtomizeState(state: AreaAtomiseState): Unit = areaComponentState.atomisingState = state
+
+      override def gatesState: AreaGatesState = areaComponentState.gatesState
 
       override def updGateState(state: AreaGatesState): Unit = areaComponentState.gatesState = state
 
       override def updShieldState(state: AreaShieldState): Unit = areaComponentState.shieldState = state
 
       override def isShielded: Boolean = areaComponentState.shieldState == AreaShieldState.Down
+
+      override def ventilationState: AreaVentilationState = areaComponentState.ventilationState
 
       override def updVentilationState(state: AreaVentilationState): Unit = areaComponentState.ventilationState = state
 

@@ -45,6 +45,9 @@ object AreaAirHumidityViewModule:
       @FXML
       var atomiserBtn: ToggleButton = _
 
+      ventilationBtn.setSelected(areaAirHumidityController.isVentilationActivated)
+      atomiserBtn.setSelected(areaAirHumidityController.isAtomiserActivated)
+
       ventilationBtn.setOnMouseClicked { _ =>
         if ventilationBtn.isSelected then
           ventilationBtn.setText(VentilationText.DEACTIVE.text)
