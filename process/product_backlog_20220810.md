@@ -108,14 +108,14 @@ L'obiettivo di questo sprint, consiste nel dare la possibilità all'utente di po
         <tr>
             <td>gestire tramite reactive programming le richieste per i parametri dell'ambiente</td>
             <td>Veronika</td>
-            <td>3</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
             <td rowspan="4">Miglioramento Dell'esperienza utente</td>
@@ -183,13 +183,13 @@ L'obiettivo di questo sprint, consiste nel dare la possibilità all'utente di po
             <td>Inserire guida utente nell'applicazione</td>
             <td>Veronika</td>
             <td>4</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>4</td>
+            <td>4</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
     </tbody>
 </table>
