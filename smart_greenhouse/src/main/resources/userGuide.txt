@@ -1,0 +1,11 @@
+This screen shows at the top the environmental data related to the weather conditions that occur in the city of location of the greenhouse, which are updated periodically, hourly.
+
+In the central section it is possible to visualize the subdivision in areas of the structure and each of these reports the information related to the cultivated plant and the environmental parameters detected within the area, which are influenced by those of the environment. Moreover, you can deduce the alarm status of an area based on the color shown. Specifically, the green color indicates an optimal situation for the growth of the plant; while the red color indicates a critical situation for it, i.e. sensors within the area have detected one or more values of the environmental parameters that do not fall within the optimal range.
+
+At the bottom of the screen the user has the possibility to view the running time, which starts virtually from 00:00 and ends at 24:00, so the simulation has a total duration of 24 hours. In the part below the virtual time display, the user has a slider with which to increase the speed of the simulation. Alternatively, using the "Terminate simulation" button, the simulation can be terminated early.
+
+Clicking on a specific area will bring up the detail screen where it will be possible to view: the image and description of the cultivated plant; the status of the area, whether alarm or normal; the optimal and current values for each environmental parameter detected by the sensors placed within the area; and the actions that can be taken to adjust the parameters detected within it.
+
+In relation to each parameter, there is an indication whether critical values have been detected or not. In the event that an alarm situation is reported, the user will be shown hints about the actions that can be taken to bring the area back to an optimal condition.
+
+If the user has decided to finish the simulation in advance or the 24 virtual hours have passed, the user will be redirected to the end simulation screen where he will have the opportunity to start a new one, simply by clicking on the button "Start a new simulation".
