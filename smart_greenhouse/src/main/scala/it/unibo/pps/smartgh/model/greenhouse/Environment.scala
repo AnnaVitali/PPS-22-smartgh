@@ -1,8 +1,16 @@
 package it.unibo.pps.smartgh.model.greenhouse
 
+import monix.eval.Task
+import monix.execution.Ack.Continue
+import monix.execution.{Ack, Cancelable}
+import monix.reactive.MulticastStrategy
+import monix.reactive.subjects.ConcurrentSubject
 import org.json4s.*
 import org.json4s.jackson.JsonMethods.*
 import requests.Response
+
+import scala.concurrent.Future
+import monix.execution.Scheduler.Implicits.global
 
 /** This trait exposes methods for managing the environment, represents its model. */
 trait Environment:
@@ -14,7 +22,7 @@ trait Environment:
   def nameCity: String
 
   /** @return environment values that refer to the whole day. */
-  def environmentValues: EnvironmentValues
+  var environmentValues: EnvironmentValues
 
   /** @return
     *   environment values updated in the last hour, according to the simulation time value. Output example: HashMap(uv
@@ -45,7 +53,17 @@ object Environment:
     */
   private class EnvironmentImpl(override val nameCity: String) extends Environment:
 
-    override def environmentValues: EnvironmentValues = getEnvironmentValues
+    override var environmentValues: EnvironmentValues = _
+    private val subjectEnvironmentValues: ConcurrentSubject[EnvironmentValues, EnvironmentValues] =
+      ConcurrentSubject[EnvironmentValues](MulticastStrategy.publish)
+    private val onNextEnvironmentValuesEmitted: EnvironmentValues => Future[Ack] =
+      v => {
+        environmentValues = v
+        Continue
+      }
+    subjectEnvironmentValues.subscribe(onNextEnvironmentValuesEmitted, (ex: Throwable) => ex.printStackTrace(), () => {})
+    getEnvironmentValues()
+
     override var currentEnvironmentValues: EnvironmentValues = _
 
     override def updateCurrentEnvironmentValues(hour: Int): Unit =
@@ -69,18 +87,21 @@ object Environment:
           .fold("Not available")(res => res.toString)
       )
 
-    private def getEnvironmentValues: EnvironmentValues =
-      val apiKey = "b619d3592d8b426e8cc92336220107"
-      val query =
-        "http://api.weatherapi.com/v1/forecast.json?key=" + apiKey + "&q=" + nameCity.replace(
-          " ",
-          "%20"
-        ) + "&days=1&aqi=no&alerts=no"
-      val r: Response = requests.get(query)
-      if r.statusCode == 200 then
-        implicit val formats: DefaultFormats.type = org.json4s.DefaultFormats
-        parse(r.text()).extract[EnvironmentValues]
-      else Map()
+    private def getEnvironmentValues(): Unit =
+      Task{
+        val apiKey = "b619d3592d8b426e8cc92336220107"
+        val query =
+          "http://api.weatherapi.com/v1/forecast.json?key=" + apiKey + "&q=" + nameCity.replace(
+            " ",
+            "%20"
+          ) + "&days=1&aqi=no&alerts=no"
+        val r: Response = requests.get(query)
+        if r.statusCode == 200 then
+          implicit val formats: DefaultFormats.type = org.json4s.DefaultFormats
+          subjectEnvironmentValues.onNext(parse(r.text()).extract[EnvironmentValues])
+        else subjectEnvironmentValues.onNext(Map())
+        subjectEnvironmentValues.onComplete()
+      }.executeAsync.runToFuture
 
     private val uvIndexToLux: Map[String, Double] =
       (1 to 12).map(i => (i.toDouble.toString, (i * 10000).toDouble)).toMap
