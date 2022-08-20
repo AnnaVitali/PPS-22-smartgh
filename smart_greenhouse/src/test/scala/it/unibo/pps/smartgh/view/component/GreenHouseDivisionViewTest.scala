@@ -39,7 +39,7 @@ import scala.language.postfixOps
 class GreenHouseDivisionViewTest extends AbstractViewTest:
 
   var ghMVC: GreenHouseDivisionMVC.GreenHouseDivisionMVCImpl = _
-  val globalGH = "#ghDivision"
+  val globalGH = "#env"
   val areaBt = "#areaBt"
   private val timer = Timer(1 day)
   timer.start(println("time is up!"))
