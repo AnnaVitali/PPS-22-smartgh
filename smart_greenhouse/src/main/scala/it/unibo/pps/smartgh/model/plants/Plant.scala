@@ -85,7 +85,8 @@ object Plant:
     private def getInfo: RequestResult =
       val accessToken = getAccessToken
       val authorizationHeader = ("Authorization", "Bearer " + accessToken)
-      val url = "https://open.plantbook.io/api/v1/plant/detail/" + id.replace(" ", "%20") + "/?format=json"
+      val url =
+        "https://open.plantbook.io/api/v1/plant/detail/" + id.replace(" ", "%20").replace("\'", "") + "/?format=json"
       try {
         val r: Response = requests.get(url = url, headers = Iterable(authorizationHeader))
         implicit val formats: DefaultFormats.type = org.json4s.DefaultFormats
@@ -95,6 +96,7 @@ object Plant:
       }
 
     private def getImageUrl(info: RequestResult): String =
+      println(info.get("image_url").fold[String]("images/plantIcon.png")(res => res.toString))
       info.get("image_url").fold[String]("images/plantIcon.png")(res => res.toString)
 
     private def getOptimalValues(info: RequestResult): RequestResult =
@@ -104,6 +106,7 @@ object Plant:
       val query =
         "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=" + id
           .replace(" ", "%20")
+          .replace("\'", "")
       try {
         val r: Response = requests.get(query)
         implicit val formats: DefaultFormats.type = org.json4s.DefaultFormats
