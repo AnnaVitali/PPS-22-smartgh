@@ -14,7 +14,7 @@ import scala.language.postfixOps
 object EnvironmentViewModule:
 
   /** A trait that represents the environment's view of the application. */
-  trait EnvironmentView extends ViewComponent[BorderPane]:
+  trait EnvironmentView extends ViewComponent[BorderPane] with ContiguousSceneView[BorderPane]:
 
     /** Data structure that will contains environment values. */
     type EnvironmentValues = Map[String, Any]
@@ -45,12 +45,6 @@ object EnvironmentViewModule:
 
     /** Method to notify view that the simulation time has finished. */
     def finishSimulation(): Unit
-
-    /** Method to notify the view to display the [[FinishSimulationView]].
-      * @param finishSimulationView
-      *   view that represents the last scene of the simulation.
-      */
-    def moveToNextScene(finishSimulationView: FinishSimulationView): Unit
 
   /** Trait that represents the provider of the view for environment values and simulation time visualization. */
   trait Provider:
@@ -138,10 +132,13 @@ object EnvironmentViewModule:
         component.setCenter(ghDivisionView)
 
       override def finishSimulation(): Unit =
+        setNewScene()
+
+      override def setNewScene(): Unit =
         environmentController.instantiateNextSceneMVC(baseView)
 
-      override def moveToNextScene(finishSimulationView: FinishSimulationView): Unit =
-        Platform.runLater(() => simulationView.changeView(finishSimulationView))
+      override def moveToNextScene(component: ViewComponent[BorderPane]): Unit =
+        Platform.runLater(() => simulationView.changeView(component))
 
       private def notifySpeedChange(value: Double): Unit =
         environmentController.updateVelocityTimer(value)
