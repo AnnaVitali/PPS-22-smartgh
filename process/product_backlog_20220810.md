@@ -195,4 +195,4 @@ L'obiettivo di questo sprint, consiste nel dare la possibilità all'utente di po
 </table>
 
 ## Sprint result
-//TODO (Conclusioni sul lavoro svolto)
+Al termine dello sprint, l'utente è in grado di visualizzare il dettaglio di un area potendo gestire situazioni di allarme, accedere a una guida utente per poter meglio comprendere il funzionamento dell'applicazione e interagire con un'interfaccia grafica maggiormante reattiva e stilisticamente migliorata rispetto alla precedente.
