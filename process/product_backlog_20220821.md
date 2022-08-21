@@ -1,4 +1,4 @@
-# Sprint Backlog "inserisci data"
+# Sprint Backlog 2022-08-21
 ## Sprint goal
 L'obiettivo di questo sprint, consiste nel revisionare quanto prodotto fino ad ora e nella consegna dell'applicazione ultimata all'utente.
 
