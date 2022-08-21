@@ -13,6 +13,7 @@ object AreaSoilMoistureControllerModule:
 
   /** A trait that represents the area soil humidity controller parameter. */
   trait AreaSoilMoistureController extends AreaParametersController:
+
     /** Open the area gates. */
     def openGates(): Unit
 
@@ -27,8 +28,6 @@ object AreaSoilMoistureControllerModule:
 
     /** Define that no action is performed on the area. */
     def noAction(): Unit
-
-    def stopListening(): Unit
 
   /** Trait that represents the provider of the controller for the area soil humidity parameter. */
   trait Provider:

@@ -16,12 +16,16 @@ object AreaLuminosityControllerModule:
   /** A trait that represents the area air luminosity controller parameter. */
   trait AreaLuminosityController extends AreaParametersController:
 
-    /** Update the lamp brightness value
+    /** Update the lamp brightness value.
       * @param value
       *   that represents the lamp brightness
       */
     def updLampValue(value: Double): Unit
 
+    /** Get the lamp value.
+      * @return
+      *   the regulated lamp value
+      */
     def getLampValue: Double
 
     /** Put down the area shields */
@@ -30,6 +34,10 @@ object AreaLuminosityControllerModule:
     /** Put up the area shields */
     def shieldsUp(): Unit
 
+    /** Get the shielding state.
+      * @return
+      *   true if the shields is down, false otherwise
+      */
     def isShielded: Boolean
 
   /** Trait that represents the provider of the controller for the area luminosity parameter. */
