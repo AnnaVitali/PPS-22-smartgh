@@ -41,6 +41,8 @@ class GreenHouseDivisionViewTest extends AbstractViewTest:
   var ghMVC: GreenHouseDivisionMVC.GreenHouseDivisionMVCImpl = _
   val globalGH = "#env"
   val areaBt = "#areaBt"
+  val normalStateClassStyle = "NORMALState"
+  val alarmStateClassStyle = "ALARMState"
   private val timer = Timer(1 day)
   timer.start(println("time is up!"))
 
@@ -64,20 +66,20 @@ class GreenHouseDivisionViewTest extends AbstractViewTest:
     verifyThat(globalGH, hasChildren(ghMVC.ghDivisionModel.plants.length, ""))
 
   @Test def testStartAreaColor(robot: FxRobot): Unit =
-    assertTrue(robot.lookup(areaBt).queryButton.getStyle.contains("#33cc33"))
+    assertTrue(robot.lookup(areaBt).queryButton.getStyleClass.contains(normalStateClassStyle))
 
   @Test def testChangeAreaColor(robot: FxRobot): Unit =
     ghMVC.ghDivisionModel.areas.foreach(a => a.areaModel.status = AreaModelModule.AreaStatus.ALARM)
     Thread.sleep(1000)
-    assertFalse(robot.lookup(areaBt).queryButton.getStyle.contains("#33cc33"))
+    assertFalse(robot.lookup(areaBt).queryButton.getStyleClass.contains(normalStateClassStyle))
 
   @Test def testChangeAreaColorMultiple(robot: FxRobot): Unit =
     ghMVC.ghDivisionModel.areas.foreach(a => a.areaModel.status = AreaModelModule.AreaStatus.ALARM)
     Thread.sleep(1000)
-    assertTrue(robot.lookup(areaBt).queryButton.getStyle.contains("#cc3333"))
+    assertTrue(robot.lookup(areaBt).queryButton.getStyleClass.contains(alarmStateClassStyle))
     ghMVC.ghDivisionModel.areas.foreach(a => a.areaModel.status = AreaModelModule.AreaStatus.NORMAL)
     Thread.sleep(6000)
-    assertTrue(robot.lookup(areaBt).queryButton.getStyle.contains("#33cc33"))
+    assertTrue(robot.lookup(areaBt).queryButton.getStyleClass.contains(normalStateClassStyle))
 
   @Test def testStopListening(robot: FxRobot): Unit =
     ghMVC.ghDivisionModel.areas.foreach(a => a.areaModel.status = AreaModelModule.AreaStatus.ALARM)
@@ -85,7 +87,7 @@ class GreenHouseDivisionViewTest extends AbstractViewTest:
     ghMVC.ghController.stopListening()
     Thread.sleep(5000)
     ghMVC.ghDivisionModel.areas.foreach(a => a.areaModel.status = AreaModelModule.AreaStatus.NORMAL)
-    assertFalse(robot.lookup(areaBt).queryButton.getStyle.contains("#33cc33"))
+    assertFalse(robot.lookup(areaBt).queryButton.getStyleClass.contains(normalStateClassStyle))
 
   @Test def testAreaChangeStatusWithSensor(robot: FxRobot): Unit =
     import monix.execution.Scheduler.Implicits.global
@@ -99,12 +101,12 @@ class GreenHouseDivisionViewTest extends AbstractViewTest:
 
     subjectEnvironment.onNext(20000)
     Thread.sleep(5000)
-    assertTrue(robot.lookup(areaBt).queryButton.getStyle.contains("#33cc33")) //NORMAL STATUS
+    assertTrue(robot.lookup(areaBt).queryButton.getStyleClass.contains(normalStateClassStyle)) //NORMAL STATUS
 
     subjectEnvironment.onNext(0)
     Thread.sleep(8000)
-    assertTrue(robot.lookup(areaBt).queryButton.getStyle.contains("#cc3333")) //ALARM STATUS
+    assertTrue(robot.lookup(areaBt).queryButton.getStyleClass.contains(alarmStateClassStyle)) //ALARM STATUS
 
     subjectEnvironment.onNext(10000)
     Thread.sleep(5000)
-    assertTrue(robot.lookup(areaBt).queryButton.getStyle.contains("#33cc33")) //NORMAL STATUS
+    assertTrue(robot.lookup(areaBt).queryButton.getStyleClass.contains(normalStateClassStyle)) //NORMAL STATUS
