@@ -7,10 +7,11 @@ import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.{
   AbstractAreaParametersView,
   AreaParametersView
 }
-import javafx.util.StringConverter
 import javafx.fxml.FXML
 import javafx.scene.control.{Label, Slider, ToggleButton}
 import javafx.scene.layout.GridPane
+import scalafx.util.StringConverter
+import scalafx.util.StringConverter.sfxStringConverter2jfx
 
 /** Object that encloses the view module for the area luminosity parameter. */
 object AreaLuminosityViewModule:
@@ -73,15 +74,14 @@ object AreaLuminosityViewModule:
         areaLuminosityController.updLampValue(lampBrightnessSlider.getValue * lampFactor)
       )
 
-      lampBrightnessSlider.setLabelFormatter(new StringConverter[java.lang.Double]:
-        override def toString(n: java.lang.Double): String = n + "k"
-        override def fromString(s: String): java.lang.Double = java.lang.Double.valueOf(s.dropRight(1))
-      )
+      lampBrightnessSlider.setLabelFormatter(sfxStringConverter2jfx(StringConverter(_.dropRight(1).toDouble, _ + "k")))
 
       override def setUpActions(isGatesOpen: Boolean): Unit =
         if isGatesOpen then
           disablingShieldingBtn(true)
-          if downShieldingBtn.isSelected then initShieldingBtn(false)
+          if downShieldingBtn.isSelected then
+            initShieldingBtn(false)
+            areaLuminosityController.shieldsUp()
         else if downShieldingBtn.isDisabled then disablingShieldingBtn(false)
 
       private def initShieldingBtn(isShielded: Boolean): Unit =

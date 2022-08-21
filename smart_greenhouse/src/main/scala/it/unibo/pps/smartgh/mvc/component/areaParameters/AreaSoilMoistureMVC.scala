@@ -1,16 +1,16 @@
 package it.unibo.pps.smartgh.mvc.component.areaParameters
 
 import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersController.AreaParametersController
+import it.unibo.pps.smartgh.controller.component.areaParameters.AreaSoilMoistureControllerModule.AreaSoilMoistureController
 import it.unibo.pps.smartgh.controller.component.areaParameters.{
   AreaParametersController,
   AreaSoilMoistureControllerModule
 }
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaSoilMoistureControllerModule.AreaSoilMoistureController
 import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaModel
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.AreaParametersView
-import it.unibo.pps.smartgh.view.component.areaParameters.{AreaParametersView, AreaSoilMoistureViewModule}
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaSoilMoistureViewModule.AreaSoilMoistureView
+import it.unibo.pps.smartgh.view.component.areaParameters.{AreaParametersView, AreaSoilMoistureViewModule}
 
 /** Object that incapsulate the model view and controller module for area soil humidity. */
 object AreaSoilMoistureMVC:

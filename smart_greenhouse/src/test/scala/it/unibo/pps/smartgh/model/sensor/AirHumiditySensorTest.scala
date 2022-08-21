@@ -1,20 +1,18 @@
 package it.unibo.pps.smartgh.model.sensor
 
-import it.unibo.pps.smartgh.model.sensor.AirHumiditySensor.AirHumiditySensorImpl
-import it.unibo.pps.smartgh.model.area.{AreaAtomiseState, AreaComponentsState, AreaGatesState, AreaVentilationState}
 import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
+import it.unibo.pps.smartgh.model.area.{AreaAtomiseState, AreaComponentsState, AreaVentilationState}
+import it.unibo.pps.smartgh.model.sensor.AirHumiditySensor.AirHumiditySensorImpl
 import it.unibo.pps.smartgh.model.time.Timer
-import monix.execution.Ack.Continue
+import monix.execution.Scheduler.Implicits.global
 import monix.reactive.MulticastStrategy
 import monix.reactive.subjects.ConcurrentSubject
-import monix.execution.Scheduler.Implicits.global
 import org.scalatest.BeforeAndAfter
 import org.scalatest.concurrent.Eventually
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.time.{Milliseconds, Span}
 
-import scala.concurrent.duration.FiniteDuration
 import scala.concurrent.duration.*
 import scala.language.postfixOps
 

@@ -1,16 +1,16 @@
 package it.unibo.pps.smartgh.mvc.component.areaParameters
 
+import it.unibo.pps.smartgh.controller.component.areaParameters.AreaAirHumidityControllerModule.AreaAirHumidityController
+import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersController.AreaParametersController
 import it.unibo.pps.smartgh.controller.component.areaParameters.{
   AreaAirHumidityControllerModule,
   AreaParametersController
 }
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaAirHumidityControllerModule.AreaAirHumidityController
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersController.AreaParametersController
 import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaModel
-import it.unibo.pps.smartgh.view.component.areaParameters.{AreaAirHumidityViewModule, AreaParametersView}
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaAirHumidityViewModule.AreaAirHumidityView
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.AreaParametersView
+import it.unibo.pps.smartgh.view.component.areaParameters.{AreaAirHumidityViewModule, AreaParametersView}
 
 /** Object that incapsulate the model view and controller module for area air humidity. */
 object AreaAirHumidityMVC:

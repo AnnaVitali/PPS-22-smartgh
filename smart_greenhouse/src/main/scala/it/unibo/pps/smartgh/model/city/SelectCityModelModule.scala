@@ -1,6 +1,6 @@
 package it.unibo.pps.smartgh.model.city
 
-import alice.tuprolog.{Prolog, SolveInfo, Struct, Term, Theory}
+import alice.tuprolog.*
 
 import scala.io.{Codec, Source}
 import scala.util.Using
@@ -46,7 +46,7 @@ object SelectCityModelModule:
       *   the cities file path.
       */
     class SelectCityModelImpl(citiesFilePath: String) extends SelectCityModel:
-      import it.unibo.pps.smartgh.prolog.Scala2P.{*, given}
+      import it.unibo.pps.smartgh.prolog.Scala2P.{prologEngine, extractTermToString, given}
       private val prologFile = Using(Source.fromFile(citiesFilePath, enc = "UTF8"))(_.mkString).getOrElse("")
       private val engine = prologEngine(Theory.parseLazilyWithStandardOperators(prologFile))
       private val cities = engine("citta(X)").map(extractTerm).toSeq

@@ -3,8 +3,8 @@ package it.unibo.pps.smartgh.view.component
 import it.unibo.pps.smartgh.view.component.ViewComponent
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.fxml.FXML
-import javafx.scene.layout.BorderPane
 import javafx.scene.control.{Button, Label}
+import javafx.scene.layout.BorderPane
 
 /** A trait that represents the base view of the application. */
 trait BaseView extends ViewComponent[BorderPane]:

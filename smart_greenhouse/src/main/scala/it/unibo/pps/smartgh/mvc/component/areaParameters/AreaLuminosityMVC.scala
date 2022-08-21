@@ -1,16 +1,16 @@
 package it.unibo.pps.smartgh.mvc.component.areaParameters
 
+import it.unibo.pps.smartgh.controller.component.areaParameters.AreaLuminosityControllerModule.AreaLuminosityController
+import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersController.AreaParametersController
 import it.unibo.pps.smartgh.controller.component.areaParameters.{
   AreaLuminosityControllerModule,
   AreaParametersController
 }
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaLuminosityControllerModule.AreaLuminosityController
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersController.AreaParametersController
 import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaModel
-import it.unibo.pps.smartgh.view.component.areaParameters.{AreaLuminosityViewModule, AreaParametersView}
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaLuminosityViewModule.AreaLuminosityView
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.AreaParametersView
+import it.unibo.pps.smartgh.view.component.areaParameters.{AreaLuminosityViewModule, AreaParametersView}
 
 /** Object that incapsulate the model view and controller module for area luminosity. */
 object AreaLuminosityMVC:

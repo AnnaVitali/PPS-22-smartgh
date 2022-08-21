@@ -7,12 +7,11 @@ import it.unibo.pps.smartgh.model.time.Timer
 import monix.eval.Task
 import monix.execution.Ack
 import monix.execution.Ack.Continue
+import monix.execution.Scheduler.Implicits.global
 import monix.reactive.MulticastStrategy
 import monix.reactive.subjects.ConcurrentSubject
 
 import scala.concurrent.Future
-import monix.execution.Scheduler.Implicits.global
-
 import scala.util.Random
 
 /** Object that enclose the implementation of the air humidity sensor. */
@@ -26,10 +25,7 @@ object AirHumiditySensor:
     * @return
     *   the sensor responsible for detecting the air humidity of the area.
     */
-  def apply(
-      areaComponentsState: AreaComponentsStateImpl,
-      timer: Timer
-  ): AirHumiditySensorImpl =
+  def apply(areaComponentsState: AreaComponentsStateImpl, timer: Timer): AirHumiditySensorImpl =
     AirHumiditySensorImpl(areaComponentsState, timer)
 
   /** Class that represents the air humidity sensor of an area of the greenhouse.

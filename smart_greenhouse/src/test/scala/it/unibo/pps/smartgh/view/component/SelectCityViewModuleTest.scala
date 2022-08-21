@@ -1,24 +1,21 @@
 package it.unibo.pps.smartgh.view.component
 
 import it.unibo.pps.smartgh.model.greenhouse.Environment
-import it.unibo.pps.smartgh.mvc.{SimulationMVC, component}
 import it.unibo.pps.smartgh.mvc.component.SelectCityMVC
-import it.unibo.pps.smartgh.view.SimulationViewModule
+import it.unibo.pps.smartgh.mvc.{SimulationMVC, component}
 import it.unibo.pps.smartgh.view.component.SelectCityViewModule
 import it.unibo.pps.smartgh.view.component.SelectCityViewModule.SelectCityView
 import javafx.scene.control.TextField
-import javafx.scene.layout.{BorderPane, VBox}
 import javafx.stage.Stage
-import org.junit.jupiter.api.{BeforeAll, Test, TestInstance}
-import org.junit.jupiter.api.extension.ExtendWith
-import org.testfx.framework.junit5.{ApplicationExtension, Start}
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.TestInstance.Lifecycle
+import org.junit.jupiter.api.extension.ExtendWith
+import org.junit.jupiter.api.{Test, TestInstance}
 import org.testfx.api.FxAssert.verifyThat
 import org.testfx.api.FxRobot
-import org.testfx.matcher.base.NodeMatchers.{isEnabled, isFocused, isVisible}
+import org.testfx.framework.junit5.{ApplicationExtension, Start}
+import org.testfx.matcher.base.NodeMatchers.{isEnabled, isVisible}
 import org.testfx.matcher.control.{LabeledMatchers, TextInputControlMatchers}
-import org.testfx.util.WaitForAsyncUtils
 import scalafx.scene.Scene
 
 /** This class contains the tests to verify that the [[SelectCityViewModule]] work correctly. */
