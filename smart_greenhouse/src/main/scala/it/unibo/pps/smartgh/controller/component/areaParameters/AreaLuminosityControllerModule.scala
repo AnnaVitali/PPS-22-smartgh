@@ -41,7 +41,8 @@ object AreaLuminosityControllerModule:
         extends AbstractAreaParametersController("Brightness", areaModel, updateStateMessage)
         with AreaLuminosityController:
 
-      override def updLampValue(value: Double): Unit = areaModel.updBrightnessOfLamp(value)
+      override def updLampValue(value: Double): Unit =
+        areaModel.updBrightnessOfLamp(value)
 
       override def getLampValue: Double = areaModel.getBrightnessOfLamp
 
