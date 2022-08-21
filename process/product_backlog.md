@@ -48,18 +48,41 @@ L'ordine di priorità dei diversi product backlog è dato dall'ordine con cui es
   </tr>
   <td rowspan="4"><a href="product_backlog_20220810.md">Sprint 3</a></td>
     <td>Consentire la gestione di un'area</td>
-    <td></td>
+    <td>21</td>
   </tr>
   <tr>
     <td>Miglioramento reattività dell'applicazione</td>
-    <td></td>
+    <td>6</td>
   </tr>
   <tr>
     <td>Miglioramento dell'esperienza utente</td>
-    <td></td>
+    <td>12</td>
   </tr>
   <tr>
     <td>Guida utente per l'applicazione</td>
-    <td></td>
+    <td>7</td>
+  </tr>
+  <tr>
+    <td colspan="3"><b>Costo totale sprint:</b> 46</td>
+  </tr>
+  </tr>
+  <td rowspan="5"><a href="product_backlog_20220821.md">Sprint 4</a></td>
+    <td>Consentire la gestione di un'area</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>Miglioramento dell'esperienza utente</td>
+    <td>?</td>
+  </tr>
+  <tr>
+    <td>Documentazione</td>
+    <td>?</td>
+  </tr>
+   <tr>
+    <td>Applicazione finale</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td colspan="3"><b>Costo totale sprint:</b> ??</td>
   </tr>
 </table>
