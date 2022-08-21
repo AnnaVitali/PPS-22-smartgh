@@ -177,7 +177,7 @@ L'obiettivo di questo sprint, consiste nel dare la possibilità all'utente di po
             <td>3</td>
             <td>1</td>
             <td>1</td>
-            <td>1</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Inserire guida utente nell'applicazione</td>
