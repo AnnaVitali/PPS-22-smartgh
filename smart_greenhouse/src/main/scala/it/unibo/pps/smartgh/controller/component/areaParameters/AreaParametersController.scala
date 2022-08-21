@@ -10,10 +10,12 @@ import monix.reactive.Observable
 
 import scala.concurrent.duration.DurationInt
 
+/** Object that encloses the generic controller module for the area parameters. */
 object AreaParametersController:
 
   private val updatePeriod = 2.seconds
 
+  /** A trait that represents the generic controller for area parameters. */
   trait AreaParametersController:
     def getOptimalValues: String
     def initializeView(areaParametersView: AreaParametersView): Unit

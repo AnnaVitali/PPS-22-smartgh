@@ -8,9 +8,12 @@ import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaModelModule, AreaShi
 import it.unibo.pps.smartgh.model.sensor.SensorStatus
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaLuminosityViewModule.AreaLuminosityView
 import it.unibo.pps.smartgh.view.component.areaParameters.{AreaLuminosityViewModule, AreaParametersView}
+import org.scalactic.TripleEquals.convertToEqualizer
 
+/** Object that encloses the controller module for the area luminosity parameter. */
 object AreaLuminosityControllerModule:
 
+  /** A trait that represents the area air luminosity controller parameter. */
   trait AreaLuminosityController extends AreaParametersController:
 
     /** Update the lamp brightness value
@@ -29,14 +32,23 @@ object AreaLuminosityControllerModule:
 
     def isShielded: Boolean
 
+  /** Trait that represents the provider of the controller for the area luminosity parameter. */
   trait Provider:
+
+    /** The controller of area luminosity parameter. */
     val parameterController: AreaParametersController
 
+  /** The controller requirements. */
   type Requirements = AreaLuminosityViewModule.Provider with AreaModelModule.Provider
 
+  /** Trait that represent the controller component for the area luminosity parameter. */
   trait Component:
     context: Requirements =>
 
+    /** Class that contains the [[AreaLuminosityController]] implementation.
+      * @param updateStateMessage
+      *   a function for update states message.
+      */
     class AreaLuminosityControllerImpl(updateStateMessage: (String, Boolean) => Unit)
         extends AbstractAreaParametersController("Brightness", areaModel, updateStateMessage)
         with AreaLuminosityController:
@@ -53,7 +65,8 @@ object AreaLuminosityControllerModule:
 
       override protected def updateValues(view: AreaParametersView.AreaParametersView): Unit =
         super.updateValues(view)
-        view.asInstanceOf[AreaLuminosityView].checkGatesState(areaModel.gatesState == AreaGatesState.Open)
+        view.asInstanceOf[AreaLuminosityView].checkGatesState(areaModel.gatesState === AreaGatesState.Open)
 
+  /** Trait that combine provider and component for area luminosity parameter. */
   trait Interface extends Provider with Component:
     self: Requirements =>
