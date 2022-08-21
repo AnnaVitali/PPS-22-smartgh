@@ -11,18 +11,26 @@ import javafx.fxml.FXML
 import javafx.scene.control.{Button, Label}
 import javafx.scene.layout.GridPane
 
+/** Object that encloses the view module for the area soil humidity parameter. */
 object AreaSoilMoistureViewModule:
 
+  /** Trait that represents the area soil moisture parameter view. */
   trait AreaSoilMoistureView extends ViewComponent[GridPane] with AreaParametersView
 
+  /** Trait that represents the provider of the area soil moisture parameter. */
   trait Provider:
+
+    /** The view of area soil moisture parameter. */
     val parameterView: AreaParametersView
 
+  /** The view requirements. */
   type Requirements = AreaSoilMoistureControllerModule.Provider
 
+  /** Trait that represents the components of the view for the area soil moisture parameter. */
   trait Component:
     context: Requirements =>
 
+    /** Class that contains the [[AreaSoilMoistureView]] implementation. */
     class AreaSoilMoistureViewImpl()
         extends AbstractAreaParametersView[GridPane]("area_soil_moisture.fxml", "Soil moisture")
         with AreaSoilMoistureView:
@@ -39,5 +47,6 @@ object AreaSoilMoistureViewModule:
       movingSoilBtn.setOnMouseClicked(_ => areaSoilMoistureController.movingSoil())
       wateringBtn.setOnMouseClicked(_ => areaSoilMoistureController.watering())
 
+  /** Trait that encloses the view for area soil humidity parameter. */
   trait Interface extends Provider with Component:
     self: Requirements =>

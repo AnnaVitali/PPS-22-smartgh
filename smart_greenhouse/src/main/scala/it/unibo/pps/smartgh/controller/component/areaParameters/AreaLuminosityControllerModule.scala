@@ -65,7 +65,7 @@ object AreaLuminosityControllerModule:
 
       override protected def updateValues(view: AreaParametersView.AreaParametersView): Unit =
         super.updateValues(view)
-        view.asInstanceOf[AreaLuminosityView].checkGatesState(areaModel.gatesState === AreaGatesState.Open)
+        view.asInstanceOf[AreaLuminosityView].setUpActions(areaModel.gatesState === AreaGatesState.Open)
 
   /** Trait that combine provider and component for area luminosity parameter. */
   trait Interface extends Provider with Component:
