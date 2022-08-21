@@ -252,31 +252,48 @@ object AreaModelModule:
 
       override def temperature: Double = areaComponentState.temperature
 
-      override def updTemperature(value: Double): Unit = areaComponentState.temperature = value
+      override def updTemperature(value: Double): Unit =
+        areaComponentState.temperature = value
+        notifySensorStatusChange()
 
-      override def updBrightnessOfLamp(value: Double): Unit = areaComponentState.brightnessOfTheLamps = value
+      override def updBrightnessOfLamp(value: Double): Unit =
+        areaComponentState.brightnessOfTheLamps = value
+        notifySensorStatusChange()
 
       override def getBrightnessOfLamp: Double = areaComponentState.brightnessOfTheLamps
 
-      override def updHumidityAction(state: AreaHumidityState): Unit = areaComponentState.humidityActions = state
+      override def updHumidityAction(state: AreaHumidityState): Unit =
+        areaComponentState.humidityActions = state
+        notifySensorStatusChange()
 
       override def atomiserState: AreaAtomiseState = areaComponentState.atomisingState
 
-      override def updAtomizeState(state: AreaAtomiseState): Unit = areaComponentState.atomisingState = state
+      override def updAtomizeState(state: AreaAtomiseState): Unit =
+        areaComponentState.atomisingState = state
+        notifySensorStatusChange()
 
       override def gatesState: AreaGatesState = areaComponentState.gatesState
 
-      override def updGateState(state: AreaGatesState): Unit = areaComponentState.gatesState = state
+      override def updGateState(state: AreaGatesState): Unit =
+        areaComponentState.gatesState = state
+        notifySensorStatusChange()
 
-      override def updShieldState(state: AreaShieldState): Unit = areaComponentState.shieldState = state
+      override def updShieldState(state: AreaShieldState): Unit =
+        areaComponentState.shieldState = state
+        notifySensorStatusChange()
 
       override def isShielded: Boolean = areaComponentState.shieldState == AreaShieldState.Down
 
       override def ventilationState: AreaVentilationState = areaComponentState.ventilationState
 
-      override def updVentilationState(state: AreaVentilationState): Unit = areaComponentState.ventilationState = state
+      override def updVentilationState(state: AreaVentilationState): Unit =
+        areaComponentState.ventilationState = state
+        notifySensorStatusChange()
 
       override def getAreaComponent: AreaComponentsStateImpl = areaComponentState.copy()
+
+      private def notifySensorStatusChange(): Unit =
+        subjectComponentsState.onNext(areaComponentState)
 
       private def checkAlarm(ms: ManageSensorImpl): Unit =
         if (ms.actualVal compareTo ms.min) < 0 || (ms.actualVal compareTo ms.max) > 0 then

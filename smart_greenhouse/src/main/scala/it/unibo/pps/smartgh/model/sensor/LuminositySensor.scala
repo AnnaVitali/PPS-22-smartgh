@@ -45,7 +45,7 @@ object LuminositySensor:
     private val maxPercentage = 0.05
     currentValue = initialLuminosity - (Random
       .nextDouble() * (maxPercentage - minPercentage) + minPercentage) * initialLuminosity
-
+    
     override def computeNextSensorValue(): Unit =
       Task {
         areaComponentsState.gatesState match
