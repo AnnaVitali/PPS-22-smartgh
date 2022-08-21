@@ -78,7 +78,10 @@ object AreaModelModule:
       */
     def updShieldState(state: AreaShieldState): Unit
 
-    /** Get the shielded information. */
+    /** Get the shielded information.
+      * @return
+      *   if the area is shielded or not
+      */
     def isShielded: Boolean
 
     /** Get the atomiser state.
@@ -117,7 +120,10 @@ object AreaModelModule:
       */
     def updBrightnessOfLamp(value: Double): Unit
 
-    /** Get the current lamps' brightness. */
+    /** Get the current lamps' brightness.
+      * @return
+      *   the lamp brightness value
+      */
     def getBrightnessOfLamp: Double
 
     /** Get the current temperature.

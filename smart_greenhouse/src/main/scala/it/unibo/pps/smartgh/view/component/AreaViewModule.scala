@@ -38,7 +38,10 @@ object AreaViewModule:
   /** A trait that represents the greenhouse division view component. */
   trait Component:
     context: Requirements =>
-    /** Implementation of the greenhouse division view. */
+    /** Implementation of the greenhouse division view.
+      * @param simulationView
+      *   instance of the [[SimulationView]]
+      */
     class AreaViewImpl(simulationView: SimulationView) extends AbstractViewComponent[VBox]("area.fxml") with AreaView:
 
       override val component: VBox = loader.load[VBox]
