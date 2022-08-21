@@ -17,7 +17,7 @@ class AreaComponentsStateTest extends AnyFunSuite with Matchers:
   }
 
   test("At the beginning the lamp brightness should be initialized with the default value") {
-    val defaultBrightnessValue = 100
+    val defaultBrightnessValue = 3000.0
     areaComponentsState.brightnessOfTheLamps shouldEqual defaultBrightnessValue
   }
 
