@@ -32,7 +32,7 @@ L'obiettivo di questo sprint, consiste nel revisionare quanto prodotto fino ad o
             <td></td>
         </tr>
         <tr>
-            <td rowspan="2">Miglioramento dell'esperienza utente</td>
+            <td rowspan="6">Miglioramento dell'esperienza utente</td>
             <td>*Sistemare stile pulsanti delle diverse schermate</td>
             <td>Elena</td>
             <td>1</td>
@@ -45,9 +45,57 @@ L'obiettivo di questo sprint, consiste nel revisionare quanto prodotto fino ad o
             <td></td>
         </tr>
         <tr>
-            <td>Verifica del coretto funzionamento dell'applicazione</td>
+            <td>Verifica del coretto funzionamento dell'applicazione tramite test manuali</td>
             <td>Anna, Elena, Maria, Veronika</td>
             <td>?</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Refactor registrazione callbacks timer</td>
+            <td>Anna, Elena</td>
+            <td>4</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+         <tr>
+            <td>Refactor gestione stati aree e sensori</td>
+            <td>Maria</td>
+            <td>3</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Sostituzione piante prive di descrizione o con descrizione non esaustiva</td>
+            <td>Veronika</td>
+            <td>2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+         <tr>
+            <td>Refactor gestione stati pulsanti della schermata dettaglio area</td>
+            <td>Elena</td>
+            <td>2</td>
             <td></td>
             <td></td>
             <td></td>
@@ -82,7 +130,7 @@ L'obiettivo di questo sprint, consiste nel revisionare quanto prodotto fino ad o
             <td></td>
         </tr>
         <tr>
-            <td>Scrivere file README</td>
+            <td>Scrivere file README.md</td>
             <td>Anna, Elena, Maria, Veronika</td>
             <td>3</td>
             <td></td>
