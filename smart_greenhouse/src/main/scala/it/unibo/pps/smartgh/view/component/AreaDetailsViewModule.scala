@@ -15,9 +15,12 @@ import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.Are
 import javafx.application.Platform
 import javafx.fxml.FXML
 import javafx.scene.Parent
-import javafx.scene.control.{Label, ScrollPane, Separator}
+import javafx.scene.control.{Label, ProgressIndicator, ScrollPane, Separator}
 import javafx.scene.image.{Image, ImageView}
 import javafx.scene.layout.{BorderPane, GridPane, Pane, VBox}
+import monix.eval.Task
+
+import monix.execution.Scheduler.Implicits.global
 
 import java.net.URL
 
@@ -110,9 +113,13 @@ object AreaDetailsViewModule:
       @FXML
       var alarmLabel: Label = _
 
+      @FXML
+      var loadingImg: ProgressIndicator = _
+
       Platform.runLater(() => baseView.changeSceneButton.setText("Back"))
       baseView.changeSceneButton.setOnMouseClicked(_ => setNewScene())
       alarmPane.managedProperty().bind(alarmPane.visibleProperty())
+      loadingImg.setVisible(true)
 
       override def initializeParameters(parameters: Seq[AreaParametersView]): Unit =
         parameters.foreach { v =>
@@ -124,7 +131,10 @@ object AreaDetailsViewModule:
         Platform.runLater { () =>
           plantNameLabel.setText(name.capitalize)
           plantDescriptionLabel.setText(description)
-          plantImage.setImage(Image(imageUrl))
+          Task {
+            plantImage.setImage(Image(imageUrl))
+            loadingImg.setVisible(false)
+          }.executeAsync.runToFuture
         }
 
       override def updateTime(time: String): Unit = Platform.runLater(() => timerLabel.setText(time))
