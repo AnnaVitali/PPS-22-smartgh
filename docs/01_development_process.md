@@ -467,7 +467,7 @@ Nel momento successivo alla suddivisione dei tasks fra i diversi membri del grup
   
 </table>
 
-* questi task sono stati completati a seguito di una collaborazione fra più componenti del gruppo.
+\* questi task sono stati completati a seguito di una collaborazione fra più componenti del gruppo.
 
 ### 1.2.1 Aggregazione dei risultati
 
