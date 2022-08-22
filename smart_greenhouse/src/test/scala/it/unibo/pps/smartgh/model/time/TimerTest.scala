@@ -19,7 +19,7 @@ class TimerTest extends AnyFunSuite with Matchers with BeforeAndAfter with Event
   private var finish: Boolean = _
 
   before {
-    timerValue = 0.seconds
+    timerValue = 1.seconds
     finish = false
     timer = Timer(duration)
     timer.start(timerValue = _, this.finish = true)
@@ -59,8 +59,8 @@ class TimerTest extends AnyFunSuite with Matchers with BeforeAndAfter with Event
   }
 
   test("When change period, the timer should continue its value") {
-    val valueBefore = timerValue
     val period: FiniteDuration = 200.milliseconds
+    val valueBefore = timerValue
     timer.changeTickPeriod(period)
     eventually(timeout(Span(duration.toSeconds, Seconds))) {
       timerValue shouldEqual (valueBefore + 1.seconds)

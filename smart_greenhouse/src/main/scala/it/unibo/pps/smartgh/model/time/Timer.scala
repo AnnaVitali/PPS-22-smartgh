@@ -64,7 +64,7 @@ object Timer:
 
     override def changeTickPeriod(period: FiniteDuration): Unit =
       stop()
-      cancelable = timer(value, period).runToFuture
+      cancelable = timer(value + 1.second, period).runToFuture
 
     override def stop(): Unit =
       cancelable.cancel()

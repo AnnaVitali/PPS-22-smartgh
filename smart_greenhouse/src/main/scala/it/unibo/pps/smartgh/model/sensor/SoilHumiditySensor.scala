@@ -49,7 +49,6 @@ object SoilHumiditySensor:
 
     override def computeNextSensorValue(): Unit =
       Task {
-        println("TASK: compute next sensor value")
         areaComponentsState.humidityActions match
           case AreaHumidityState.Watering =>
             currentValue = FactoryFunctionsSoilHumidity.updateValueWithWatering(currentValue)
