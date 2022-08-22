@@ -59,13 +59,413 @@ All’avvio di ciascuno Sprint settimanale, mediante il _product backlog_ sono s
 Nel momento successivo alla suddivisione dei tasks fra i diversi membri del gruppo, ogni sviluppatore ha la possibilità di iniziare a svolgere i diversi lavori che li sono stati affidati, nell’ ordine che ritiene più opportuno. In particolare, ogni componente del team ha contribuito al progetto realizzando i tasks descritti di seguito.
 
 #### Folin Veronika
-//TODO
+
+<table>
+  <thead>
+    <td><b>Macro-obiettivo</b></td>
+    <td><b>Task</b></td>
+  </thead>
+  
+  <tr>
+    <td rowspan="2">Selezionare le piante da coltivare all'interno della serra</td>
+    <td>Caricamento delle piante selezionabili in un file Prolog</td>
+  </tr>
+  <tr>
+    <td>Creare interfaccia componente pianta</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="2">Avvio della simulazione</td>
+    <td>Creare layout schermata di visualizzazione stato globale della serra</td>
+  </tr>
+  <tr>
+    <td>Creare componente Model per gestire l'avvio del tempo</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="3">Consentire lo scorrimento fra le diverse pagine dell'applicazione</td>
+    <td>Realizzazione architettura MVC tramite cake pattern per la visualizzazoine dello stato globale della serra</td>
+  </tr>
+  <tr>
+    <td>Realizzazione MVC globale della simulazione*</td>
+  </tr>
+  <tr>
+    <td>Realizzazione collegamento fra i diversi MVC*</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="2">Visualizzare lo stato aggiornato della simulazione</td>
+    <td>Aggiornamento parametri ambientali tramite richieste periodiche*</td>
+  </tr>
+  <tr>
+    <td>Gestione e visualizzazione aggiornamento tempo</td>
+  </tr>
+  
+  <tr>
+    <td>Visualizzare lo stato aggiornato delle singole aree</td>
+    <td>Gestire interazione e collegamento fra: l'environment e i sensori*</td>
+  </tr>
+  
+   <tr>
+    <td rowspan="2">Consentire la gestione di un'area</td>
+    <td>Refactor e ottimizzazione views dell'applicazione</td>
+  </tr>
+  <tr>
+    <td>Collegare mvc dettaglio aree all'applicazione*</td>
+  </tr>
+  
+  <tr>
+    <td>Miglioramento reattività dell'applicazione</td>
+    <td>Gestire tramite reactive programming le richieste per i parametri dell'ambiente</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="2">Miglioramento dell'esperienza utente</td>
+    <td>Sistemare elementi dell'interfaccia grafica*</td>
+  </tr>
+  <tr>
+    <td>Verifica del coretto funzionamento dell'applicazione*</td>
+  </tr>
+  
+  <tr>
+    <td>Guida utente per l'applicazione</td>
+    <td>Inserire guida utente nell'applicazione</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="3">Documentazione</td>
+    <td>Raffinare diagrammi UML*</td>
+  </tr>
+  <tr>
+    <td>Terminare report*</td>
+  </tr>
+  <tr>
+    <td>Scrivere file README*</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="3">Applicazione finale</td>
+    <td>Realizzare file .jar*</td>
+  </tr>
+  <tr>
+    <td>Valutare coverage finale ottenuta*</td>
+  </tr>
+  <tr>
+    <td>Effettuare prima release dell'applicazione*</td>
+  </tr>
+  
+ </table>
+ 
 #### Mengozzi Maria
-//TODO
+
+<table>
+  <thead>
+    <td><b>Macro-obiettivo</b></td>
+    <td><b>Task</b></td>
+  </thead>
+  
+  <tr>
+    <td rowspan="3">Selezionare la città di ubicazione della serra</td>
+    <td>Caricamento delle città in un file Prolog</td>
+  </tr>
+  <tr>
+    <td>Creare interfaccia componente città</td>
+  </tr>
+  <tr>
+    <td>Realizzazione meccanismo di salvataggio della città selezionata</td>
+  </tr>
+  
+  <tr>
+    <td>Avvio della simulazione</td>
+    <td>Realizzare la visualizzazione della suddivisione in aree e del nome delle piante in ciascuna zona della serra</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="3">Consentire lo scorrimento fra le diverse pagine dell'applicazione</td>
+    <td>Realizzazione architettura MVC tramite cake pattern per la divisione in aree della serra</td>
+  </tr>
+  <tr>
+    <td>Realizzazione MVC globale della simulazione*</td>
+  </tr>
+  <tr>
+    <td>Realizzazione collegamento fra i diversi MVC*</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="3">Visualizzare lo stato aggiornato della simulazione</td>
+    <td>Aggiornamento parametri ambientali tramite richieste periodiche*</td>
+  </tr>
+  <tr>
+    <td>Definizione interfaccia area e realizzare la sua implementazione</td>
+  </tr>
+  <tr>
+    <td>Gestire il collegamento fra: la serra, le aree e le piante</td>
+  </tr>
+  
+  <tr>
+    <td>Visualizzare lo stato aggiornato delle singole aree</td>
+    <td>Gestire interazione e collegamento fra: le aree e i sensori*</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="3">Consentire la gestione di un'area</td>
+    <td>Realizzare model dettaglio aree</td>
+  </tr>
+  <tr>
+    <td>Realizzare controller dettaglio aree*</td>
+  </tr>
+  <tr>
+    <td>Collegare mvc dettaglio aree all'applicazione*</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="3">Miglioramento dell'esperienza utente</td>
+    <td>Sistemare elementi dell'interfaccia grafica*</td>
+  </tr>
+  <tr>
+    <td>Verificare adattabilità dei diversi componenti alla dimensione dello schermo e al resizing</td>
+  </tr>
+  <tr>
+    <td>Verifica del coretto funzionamento dell'applicazione*</td>
+  </tr>
+  
+  <tr>
+    <td>Guida utente per l'applicazione</td>
+    <td>Scrivere guida utente per l'applicazione*</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="3">Documentazione</td>
+    <td>Raffinare diagrammi UML*</td>
+  </tr>
+  <tr>
+    <td>Terminare report*</td>
+  </tr>
+  <tr>
+    <td>Scrivere file README*</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="3">Applicazione finale</td>
+    <td>Realizzare file .jar*</td>
+  </tr>
+  <tr>
+    <td>Valutare coverage finale ottenuta*</td>
+  </tr>
+  <tr>
+    <td>Effettuare prima release dell'applicazione*</td>
+  </tr>
+  
+ </table>
+
 #### Vitali Anna
-//TODO
+
+<table>
+  <thead>
+    <td><b>Macro-obiettivo</b></td>
+    <td><b>Task</b></td>
+  </thead>
+  
+  <tr>
+    <td rowspan="2">Selezionare le piante da coltivare all'interno della serra</td>
+    <td>Creare layout schermata di selezione delle piante</td>
+  </tr>
+  <tr>
+    <td>Realizzazione meccanismo di salvataggio delle piante selezionate</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="2">Avvio della simulazione</td>
+    <td>Creare componente Controller gestire l'avvio del tempo</td>
+  </tr>
+  <tr>
+    <td>Creare layout schermata di fine simulazione</td>
+  </tr>
+ 
+  <tr>
+    <td rowspan="3">Consentire lo scorrimento fra le diverse pagine dell'applicazione</td>
+    <td>Realizzazione architettura MVC tramite cake pattern per la selezione delle piante</td>
+  </tr>
+  <tr>
+    <td>Realizzazione MVC globale della simulazione*</td>
+  </tr>
+  <tr>
+    <td>Realizzazione collegamento fra i diversi MVC*</td>
+  </tr>
+  
+ <tr>
+    <td rowspan="6">Visualizzare lo stato aggiornato delle singole aree</td>
+    <td>Impostazione formula di aggiornamento dei valori dei sensori*</td>
+  </tr>
+  <tr>
+    <td>Definizione interfaccia sensori*</td>
+  </tr>
+  <tr>
+    <td>Implementazione sensore luminosità</td>
+  </tr>
+  <tr>
+    <td>Implementazione sensore temperatura</td>
+  </tr>
+  <tr>
+    <td>Gestire interazione e collegamento fra: le aree e i sensori*</td>
+  </tr>
+  <tr>
+    <td>Gestire interazione e collegamento fra: l'environment e i sensori*</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="2">Consentire la gestione di un'area</td>
+    <td>Refactor e ottimizzazione controllers dell'applicazione</td>
+  </tr>
+  <tr>
+    <td>Collegare mvc dettaglio aree all'applicazione*</td>
+  </tr>
+  
+  <tr>
+    <td>Miglioramento reattività dell'applicazione</td>
+    <td>Gestire tramite reactive programming le richieste per i parametri delle piante</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="2">Miglioramento dell'esperienza utente</td>
+    <td>Sistemare elementi dell'interfaccia grafica*</td>
+  </tr>
+  <tr>
+    <td>Verifica del coretto funzionamento dell'applicazione*</td>
+  </tr>
+  
+  <tr>
+    <td>Guida utente per l'applicazione</td>
+    <td>Scrivere guida utente per l'applicazione*</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="3">Documentazione</td>
+    <td>Raffinare diagrammi UML*</td>
+  </tr>
+  <tr>
+    <td>Terminare report*</td>
+  </tr>
+  <tr>
+    <td>Scrivere file README*</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="3">Applicazione finale</td>
+    <td>Realizzare file .jar*</td>
+  </tr>
+  <tr>
+    <td>Valutare coverage finale ottenuta*</td>
+  </tr>
+  <tr>
+    <td>Effettuare prima release dell'applicazione*</td>
+  </tr>
+  
+ </table>
+
 #### Yan Elena
-//TODO
+
+<table>
+  <thead>
+    <td><b>Macro-obiettivo</b></td>
+    <td><b>Task</b></td>
+  </thead>
+  
+  <tr>
+    <td rowspan="2">Selezionare la città di ubicazione della serra</td>
+    <td>Creare layout schermata di selezione della città</td>
+  </tr>
+  <tr>
+    <td>Realizzazione live search delle città</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="2">Avvio della simulazione</td>
+    <td>Gestire l'aggiornamento dello scorrere del tempo</td>
+  </tr>
+  <tr>
+    <td>Gestire la modifica della velocità dello scorre del tempo</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="4">Consentire lo scorrimento fra le diverse pagine dell'applicazione</td>
+    <td>Refactoring schermata BaseView, con aggiunta pulsanti per la navigazione</td>
+  </tr>
+  <tr>
+    <td>Realizzazione architettura MVC tramite cake pattern per la selezione della città</td>
+  </tr>
+  <tr>
+    <td>Realizzazione MVC globale della simulazione*</td>
+  </tr>
+  <tr>
+    <td>Realizzazione collegamento fra i diversi MVC*</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="6">Visualizzare lo stato aggiornato delle singole aree</td>
+    <td>Impostazione formula di aggiornamento dei valori dei sensori*</td>
+  </tr>
+  <tr>
+    <td>Definizione interfaccia sensori*</td>
+  </tr>
+  <tr>
+    <td>Implementazione sensore umidità dell'aria</td>
+  </tr>
+  <tr>
+    <td>Implementazione sensore umidità del terreno</td>
+  </tr>
+  <tr>
+    <td>Gestire interazione e collegamento fra: le aree e i sensori*</td>
+  </tr>
+  <tr>
+    <td>Gestire interazione e collegamento fra: l'environment e i sensori*</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="3">Consentire la gestione di un'area</td>
+    <td>Realizzare controller dettaglio aree*</td>
+  </tr>
+  <tr>
+    <td>Realizzare view dettaglio aree</td>
+  </tr>
+  <tr>
+    <td>Collegare mvc dettaglio aree all'applicazione*</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="3">Miglioramento dell'esperienza utente</td>
+    <td>Sistemare stile pulsanti delle diverse schermate</td>
+  </tr>
+  <tr>
+    <td>Sistemare elementi dell'interfaccia grafica*</td>
+  </tr>
+  <tr>
+    <td>Verifica del coretto funzionamento dell'applicazione*</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="3">Documentazione</td>
+    <td>Raffinare diagrammi UML*</td>
+  </tr>
+  <tr>
+    <td>Terminare report*</td>
+  </tr>
+  <tr>
+    <td>Scrivere file README*</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="3">Applicazione finale</td>
+    <td>Realizzare file .jar*</td>
+  </tr>
+  <tr>
+    <td>Valutare coverage finale ottenuta*</td>
+  </tr>
+  <tr>
+    <td>Effettuare prima release dell'applicazione*</td>
+  </tr>
+  
+</table>
 
 ### 1.2.1 Aggregazione dei risultati
 
