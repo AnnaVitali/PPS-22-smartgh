@@ -183,3 +183,6 @@ L'obiettivo di questo sprint, consiste nel revisionare quanto prodotto fino ad o
 
 ## Sprint result
 //TODO (Conclusioni sul lavoro svolto)
+
+#### Note:
+Gli sprint tasks marcati con (*), derivano dal precedente sprint.
