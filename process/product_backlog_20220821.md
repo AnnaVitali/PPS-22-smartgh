@@ -119,7 +119,7 @@ L'obiettivo di questo sprint, consiste nel revisionare quanto prodotto fino ad o
             <td></td>
         </tr>
         <tr>
-            <td>Effettuare prima relase dell'applicazione</td>
+            <td>Effettuare prima release dell'applicazione</td>
             <td>Anna, Elena, Maria, Veronika</td>
             <td>1</td>
             <td></td>
