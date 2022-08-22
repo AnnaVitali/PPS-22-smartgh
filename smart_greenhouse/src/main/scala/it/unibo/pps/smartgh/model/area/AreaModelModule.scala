@@ -159,7 +159,7 @@ object AreaModelModule:
       */
     class AreaImpl(override val plant: Plant, override val timer: Timer) extends AreaModel:
 
-      private var _status: AreaStatus = AreaStatus.NORMAL
+      private var _status: AreaStatus = _
       private val subject = ConcurrentSubject[AreaStatus](MulticastStrategy.publish)
       private val optimalValueToDouble: Map[String, Double] =
         plant.optimalValues.map((k, v) => (k, v.toString.toDouble))
@@ -330,6 +330,10 @@ object AreaModelModule:
             case sensorWithTimer: SensorWithTimer => sensorWithTimer.registerTimerCallback()
             case _ =>
         }
+        if sensors.forall(ms => ms.status == SensorStatus.NORMAL) then 
+          status = NORMAL 
+        else 
+          status = ALARM
 
       private def constructSensorsMap[T >: Sensor](): Map[String, T] = Map(
         TemperatureKey -> TemperatureSensor(areaComponentState, timer),

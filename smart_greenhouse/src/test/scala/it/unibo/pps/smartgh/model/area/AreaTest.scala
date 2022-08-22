@@ -5,6 +5,7 @@ import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateIm
 import it.unibo.pps.smartgh.model.area.ManageSensor.ManageSensorImpl
 import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.model.sensor.LuminositySensor.LuminositySensorImpl
+import it.unibo.pps.smartgh.model.sensor.SensorStatus
 import it.unibo.pps.smartgh.model.time.Timer
 import monix.reactive.MulticastStrategy
 import monix.reactive.subjects.ConcurrentSubject
@@ -30,8 +31,11 @@ class AreaTest extends AnyFunSuite with AreaModelModule.Interface with Matchers:
     areaModel.plant.name mustEqual "lemon"
   }
 
-  test("After create an area its state must be equal to Normal") {
-    areaModel.status mustEqual AreaModelModule.AreaStatus.NORMAL
+  test("After create an area its state must be equal to Normal if all sensors status is Normal else must be equal to alarm") {
+    if areaModel.sensors.forall(s => s.status == SensorStatus.NORMAL) then
+      areaModel.status mustEqual AreaModelModule.AreaStatus.NORMAL
+    else
+      areaModel.status mustEqual AreaModelModule.AreaStatus.ALARM
   }
 
   test("An area must have 4 sensors") {
@@ -114,8 +118,8 @@ class AreaTest extends AnyFunSuite with AreaModelModule.Interface with Matchers:
   }
 
   test("if a sensor has the current value out of the optimal values range its status must be ALARM") {
-    import monix.execution.Scheduler.Implicits.global
     import it.unibo.pps.smartgh.model.sensor.SensorStatus
+    import monix.execution.Scheduler.Implicits.global
     areaModel.updBrightnessOfLamp(0)
     val lumSensor = areaModel.sensors.find(ms => ms.name == "Brightness").orNull
     val subjectEnvironment: ConcurrentSubject[Double, Double] =
