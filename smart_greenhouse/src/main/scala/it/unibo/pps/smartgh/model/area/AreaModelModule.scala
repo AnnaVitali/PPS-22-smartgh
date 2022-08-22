@@ -1,27 +1,20 @@
 package it.unibo.pps.smartgh.model.area
 
+import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
+import it.unibo.pps.smartgh.model.area.{AreaComponentsState, AreaGatesState}
+import it.unibo.pps.smartgh.model.area.AreaSensorHelper
+import it.unibo.pps.smartgh.model.area.AreaSensorHelper.AreaSensorHelperImpl
+import it.unibo.pps.smartgh.model.area.ManageSensor
 import it.unibo.pps.smartgh.model.area.ManageSensor.ManageSensorImpl
 import it.unibo.pps.smartgh.model.plants.Plant
-import it.unibo.pps.smartgh.model.sensor.{
-  AirHumiditySensor,
-  LuminositySensor,
-  Sensor,
-  SensorWithTimer,
-  SoilHumiditySensor,
-  TemperatureSensor
-}
-import it.unibo.pps.smartgh.model.area.AreaComponentsState
-import it.unibo.pps.smartgh.model.area.AreaGatesState
-import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
-import monix.reactive.subjects.ConcurrentSubject
-import monix.reactive.MulticastStrategy.Behavior
-import monix.reactive.Observable
-import monix.reactive.MulticastStrategy
-import monix.execution.Scheduler.Implicits.global
+import it.unibo.pps.smartgh.model.sensor.*
 import it.unibo.pps.smartgh.model.time.Timer
-import monix.execution.Ack.{Continue, Stop}
-import it.unibo.pps.smartgh.model.sensor.SensorStatus
 import monix.eval.Task
+import monix.execution.Ack.{Continue, Stop}
+import monix.execution.Scheduler.Implicits.global
+import monix.reactive.MulticastStrategy.Behavior
+import monix.reactive.{MulticastStrategy, Observable}
+import monix.reactive.subjects.ConcurrentSubject
 
 import scala.math.BigDecimal
 
@@ -165,87 +158,14 @@ object AreaModelModule:
         plant.optimalValues.map((k, v) => (k, v.toString.toDouble))
       private val areaComponentState = AreaComponentsState()
       private val subjectComponentsState = ConcurrentSubject[AreaComponentsStateImpl](MulticastStrategy.publish)
-      private val TemperatureKey = "Temperature"
-      private val AirHumidityKey = "Humidity"
-      private val SoilHumidityKey = "Soil moisture"
-      private val BrightnessKey = "Brightness"
-      private val mapSensorNamesAndMessages: Map[String, Map[String, String]] = Map(
-        TemperatureKey -> Map(
-          ("name", "temp"),
-          ("um", "°"),
-          (
-            "message",
-            "Adjust the indoor temperature by also considering the outdoor temperature, to manage it better you could " +
-              "close the greenhouse (and screen it) and set the indoor temperature"
-          )
-        ),
-        AirHumidityKey -> Map(
-          ("name", "env_humid"),
-          ("um", "%"),
-          (
-            "message",
-            "Adjust the indoor humidity considering also the outdoor humidity, also you can ventilate the area to decrease " +
-              "it or vaporize to increase it"
-          )
-        ),
-        SoilHumidityKey -> Map(
-          "name" -> "soil_moist",
-          ("um", "%"),
-          (
-            "message",
-            "Adjust soil moisture considering weather conditions, also decrease it by loosening the soil or increase it by watering"
-          )
-        ),
-        BrightnessKey -> Map(
-          ("name", "light_lux"),
-          ("um", "Lux"),
-          (
-            "message",
-            "Adjust the indoor brightness considering the outdoor brightness, also you can shield the area " +
-              "and/or adjust the brightness of the lamps"
-          )
-        )
-      )
+      private val areaSensorHelper: AreaSensorHelperImpl = AreaSensorHelperImpl(areaComponentState, timer)
 
-      private val sensorsMap = constructSensorsMap()
+      override val sensors: List[ManageSensorImpl] = areaSensorHelper.manageSensorList(optimalValueToDouble)
 
-      private def firstSensorStatus(actualVal: Double, min: Double, max: Double): SensorStatus =
-        if (actualVal compareTo min) < 0 || (actualVal compareTo max) > 0 then
-          SensorStatus.ALARM
-        else
-          SensorStatus.NORMAL
-
-      override val sensors: List[ManageSensorImpl] =
-        for
-          (key, m) <- mapSensorNamesAndMessages.toList
-          optK = m.getOrElse("name", "")
-          um = m.getOrElse("um", "")
-          msg = m.getOrElse("message", "")
-        yield ManageSensorImpl(
-          key,
-          optimalValueToDouble.getOrElse("min_" + optK, 0.0),
-          optimalValueToDouble.getOrElse("max_" + optK, 0.0),
-          um,
-          sensorsMap(key),
-          BigDecimal(sensorsMap(key).getCurrentValue).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble,
-          msg,
-          firstSensorStatus(
-            BigDecimal(sensorsMap(key).getCurrentValue).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble,
-            optimalValueToDouble.getOrElse("min_" + optK, 0.0),
-            optimalValueToDouble.getOrElse("max_" + optK, 0.0)
-          )
-        )
-
-      configSensors()
+      status = areaSensorHelper.configSensors(sensors, checkAlarm, subjectComponentsState)
 
       override def setSensorSubjects(subjects: Map[String, ConcurrentSubject[Double, Double]]): Unit =
-        subjects.foreach((k, v) =>
-          k match
-            case "temp" => sensorsMap(TemperatureKey).setObserverEnvironmentValue(v)
-            case "hum" => sensorsMap(AirHumidityKey).setObserverEnvironmentValue(v)
-            case "lux" => sensorsMap(BrightnessKey).setObserverEnvironmentValue(v)
-            case "soilMoist" => sensorsMap(SoilHumidityKey).setObserverEnvironmentValue(v)
-        )
+        areaSensorHelper.setSensorSubjects(subjects)
 
       override def status: AreaStatus = _status
 
@@ -313,34 +233,6 @@ object AreaModelModule:
           ms.status = SensorStatus.NORMAL
           if sensors.forall(ms => ms.status == SensorStatus.NORMAL) then status = NORMAL
 
-      private def configSensors(): Unit =
-        sensorsMap.foreach { (name, sensor) =>
-          sensor.registerValueCallback(
-            v => {
-              val ms = sensors.find(ms => ms.name == name).orNull
-              ms.actualVal = BigDecimal(v).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble
-              checkAlarm(ms)
-              Continue
-            },
-            (ex: Throwable) => ex.printStackTrace(),
-            () => {}
-          )
-          sensor.setObserverActionsArea(subjectComponentsState)
-          sensor match
-            case sensorWithTimer: SensorWithTimer => sensorWithTimer.registerTimerCallback()
-            case _ =>
-        }
-        if sensors.forall(ms => ms.status == SensorStatus.NORMAL) then 
-          status = NORMAL 
-        else 
-          status = ALARM
-
-      private def constructSensorsMap[T >: Sensor](): Map[String, T] = Map(
-        TemperatureKey -> TemperatureSensor(areaComponentState, timer),
-        AirHumidityKey -> AirHumiditySensor(areaComponentState, timer),
-        SoilHumidityKey -> SoilHumiditySensor(areaComponentState, timer),
-        BrightnessKey -> LuminositySensor(10000.0, areaComponentState)
-      )
 
   /** Trait that combine provider and component for area model. */
   trait Interface extends Provider with Component

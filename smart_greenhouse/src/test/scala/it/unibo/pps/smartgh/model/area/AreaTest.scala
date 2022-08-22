@@ -89,28 +89,6 @@ class AreaTest extends AnyFunSuite with AreaModelModule.Interface with Matchers:
     areaModel.getAreaComponent.atomisingState mustEqual AreaAtomiseState.AtomisingInactive
   }
 
-  test(
-    "If a user watering the area, then its state must be watering"
-  ) {
-    areaModel.updHumidityAction(AreaHumidityState.Watering)
-    areaModel.getAreaComponent.humidityActions mustEqual AreaHumidityState.Watering
-  }
-
-  test(
-    "If a user moving the soil of the area, then its state must be MovingSoil"
-  ) {
-    areaModel.updHumidityAction(AreaHumidityState.MovingSoil)
-    areaModel.getAreaComponent.humidityActions mustEqual AreaHumidityState.MovingSoil
-  }
-
-  test(
-    "If a user before perform an action on humidity of the area and then stop it, the area state state must be None"
-  ) {
-    areaModel.updHumidityAction(AreaHumidityState.MovingSoil)
-    areaModel.getAreaComponent.humidityActions mustEqual AreaHumidityState.MovingSoil
-    areaModel.updHumidityAction(AreaHumidityState.None)
-    areaModel.getAreaComponent.humidityActions mustEqual AreaHumidityState.None
-  }
 
   test("If a user set the lamp brightness to 40000 then the area lamp brightness must be 40000") {
     areaModel.updBrightnessOfLamp(40000)
