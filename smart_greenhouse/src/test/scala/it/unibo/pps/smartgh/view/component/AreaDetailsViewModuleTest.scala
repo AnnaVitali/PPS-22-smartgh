@@ -1,5 +1,6 @@
 package it.unibo.pps.smartgh.view.component
 
+import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaStatus
 import it.unibo.pps.smartgh.model.greenhouse.Environment
 import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.model.time.Timer
@@ -80,14 +81,16 @@ class AreaDetailsViewModuleTest extends AbstractViewTest:
     val alarmPane = robot.lookup(alarmPaneId).queryParent()
     val alarmLabel = robot.lookup(alarmMsg).queryLabeled()
     assertFalse(stateLabel.getText.isBlank)
-    if stateLabel.getText.contentEquals("NORMAL") then
-      eventually(timeout(Span(8000, Milliseconds))) {
-        assertFalse(alarmPane.isVisible)
-        assertTrue(alarmLabel.getText.isBlank)
-      }
-    else if stateLabel.getText.contentEquals("ALARM") then
-      eventually(timeout(Span(8000, Milliseconds))) {
-        verifyThat(alarmPane, isVisible)
-        assertFalse(alarmLabel.getText.isBlank)
-      }
-    else fail("Status text is not set correctly")
+    areaDetailsMVC.areaModel.status match
+      case AreaStatus.NORMAL =>
+        eventually(timeout(Span(10000, Milliseconds))) {
+          verifyThat(stateId, hasText("NORMAL"))
+          assertFalse(alarmPane.isVisible)
+          assertTrue(alarmLabel.getText.isBlank)
+        }
+      case _ =>
+        eventually(timeout(Span(10000, Milliseconds))) {
+          verifyThat(stateId, hasText("ALARM"))
+          verifyThat(alarmPane, isVisible)
+          assertFalse(alarmLabel.getText.isBlank)
+        }
