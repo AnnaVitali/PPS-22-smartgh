@@ -109,6 +109,8 @@ object EnvironmentViewModule:
 
       helpButton.setOnMouseClicked { _ =>
         val helpView = HelpView(new Stage())
+        helpButton.setDisable(true)
+        helpView.getScene.getWindow.setOnCloseRequest(_ => helpButton.setDisable(false))
         this.component.getScene.getWindow.setOnCloseRequest(_ => helpView.closeWindow())
       }
 
