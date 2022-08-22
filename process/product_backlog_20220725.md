@@ -143,7 +143,7 @@ L'obiettivo di questo sprint, consiste nel realizzare le funzinalità di base pe
             <td>1</td>
         </tr>
         <tr>
-            <td>Realizzare la visualizzazione della località, della suddivisione in aree e del nome delle piante, in ciascuna zona della serra</td>
+            <td>Realizzare la visualizzazione della suddivisione in aree e del nome delle piante in ciascuna zona della serra</td>
             <td>Maria</td>
             <td>5</td>
             <td>5</td>
