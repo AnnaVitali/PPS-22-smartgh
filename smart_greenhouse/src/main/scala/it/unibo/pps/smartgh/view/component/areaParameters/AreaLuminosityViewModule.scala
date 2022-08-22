@@ -61,13 +61,13 @@ object AreaLuminosityViewModule:
       initShieldingBtn(areaLuminosityController.isShielded)
 
       upShieldingBtn.setOnMouseClicked { _ =>
-        downShieldingBtn.setSelected(false)
-        areaLuminosityController.shieldsUp()
+        if upShieldingBtn.isSelected then areaLuminosityController.shieldsUp()
+        else upShieldingBtn.setSelected(true)
       }
 
       downShieldingBtn.setOnMouseClicked { _ =>
-        upShieldingBtn.setSelected(false)
-        areaLuminosityController.shieldsDown()
+        if downShieldingBtn.isSelected then areaLuminosityController.shieldsDown()
+        else downShieldingBtn.setSelected(true)
       }
 
       lampBrightnessSlider.setOnMouseReleased(_ =>

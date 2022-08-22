@@ -59,15 +59,17 @@ object AreaTemperatureViewModule:
       initGatesBtn(areaTemperatureController.isGatesOpen)
 
       openStructureBtn.setOnMouseClicked { _ =>
-        closeStructureBtn.setSelected(false)
-        areaTemperatureController.openGates()
-        setRegulateTempAvailable(false)
+        if openStructureBtn.isSelected then
+          areaTemperatureController.openGates()
+          setRegulateTempAvailable(false)
+        else openStructureBtn.setSelected(true)
       }
 
       closeStructureBtn.setOnMouseClicked { _ =>
-        openStructureBtn.setSelected(false)
-        areaTemperatureController.closeGates()
-        setRegulateTempAvailable(true)
+        if closeStructureBtn.isSelected then
+          areaTemperatureController.closeGates()
+          setRegulateTempAvailable(true)
+        else closeStructureBtn.setSelected(true)
       }
 
       minusTempBtn.setOnMouseClicked(_ => updateTempValue(_ - tempStep))
