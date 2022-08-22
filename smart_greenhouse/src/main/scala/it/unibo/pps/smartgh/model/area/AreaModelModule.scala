@@ -209,6 +209,12 @@ object AreaModelModule:
 
       private val sensorsMap = constructSensorsMap()
 
+      private def firstSensorStatus(actualVal: Double, min: Double, max: Double): SensorStatus =
+        if (actualVal compareTo min) < 0 || (actualVal compareTo max) > 0 then
+          SensorStatus.ALARM
+        else
+          SensorStatus.NORMAL
+
       override val sensors: List[ManageSensorImpl] =
         for
           (key, m) <- mapSensorNamesAndMessages.toList
@@ -223,7 +229,11 @@ object AreaModelModule:
           sensorsMap(key),
           BigDecimal(sensorsMap(key).getCurrentValue).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble,
           msg,
-          SensorStatus.NORMAL
+          firstSensorStatus(
+            BigDecimal(sensorsMap(key).getCurrentValue).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble,
+            optimalValueToDouble.getOrElse("min_" + optK, 0.0),
+            optimalValueToDouble.getOrElse("max_" + optK, 0.0)
+          )
         )
 
       configSensors()
