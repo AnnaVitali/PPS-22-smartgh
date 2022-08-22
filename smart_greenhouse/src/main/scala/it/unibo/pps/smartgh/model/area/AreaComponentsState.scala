@@ -1,5 +1,7 @@
 package it.unibo.pps.smartgh.model.area
 
+import scala.util.Random
+
 /** State of the gates. */
 enum AreaGatesState:
   case Open, Close
@@ -38,13 +40,13 @@ object AreaComponentsState:
 
   /** Implementation of the [[AreaComponentsStateImpl]]. */
   class AreaComponentsStateImpl:
-    var gatesState: AreaGatesState = AreaGatesState.Close
+    var gatesState: AreaGatesState = AreaGatesState.Open
     var shieldState: AreaShieldState = AreaShieldState.Up
     var atomisingState: AreaAtomiseState = AreaAtomiseState.AtomisingInactive
     var ventilationState: AreaVentilationState = AreaVentilationState.VentilationInactive
     var brightnessOfTheLamps: Double = 3000.0
     var temperature: Double = 27.0
-    val soilHumidity: Double = 30.0
+    val soilHumidity: Double = Random.nextDouble() * (20.0 - 10.0) + 10.0
     var humidityActions: AreaHumidityState = AreaHumidityState.None
 
     def copy(): AreaComponentsStateImpl =
