@@ -169,7 +169,7 @@ L'obiettivo di questo sprint, consiste nel dare la possibilità all'utente di po
         <tr>
             <td rowspan="2">Guida utente per l'applicazione</td>
             <td>Scrivere guida utente per l'applicazione</td>
-            <td>Anna, Elena, Maria, Veronika</td>
+            <td>Anna, Maria, Veronika</td>
             <td>3</td>
             <td>3</td>
             <td>3</td>
