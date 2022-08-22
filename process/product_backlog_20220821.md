@@ -59,7 +59,7 @@ L'obiettivo di questo sprint, consiste nel revisionare quanto prodotto fino ad o
         <tr>
             <td>Refactor registrazione callbacks timer</td>
             <td>Anna, Elena</td>
-            <td>4</td>
+            <td>5</td>
             <td></td>
             <td></td>
             <td></td>
