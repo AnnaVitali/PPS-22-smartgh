@@ -9,9 +9,12 @@ import it.unibo.pps.smartgh.model.time.Timer
 import monix.reactive.MulticastStrategy
 import monix.reactive.subjects.ConcurrentSubject
 import org.scalatest.BeforeAndAfter
+import org.scalatest.concurrent.Eventually.eventually
+import org.scalatest.concurrent.Futures.timeout
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.must.Matchers
 import org.scalatest.matchers.must.Matchers.mustEqual
+import org.scalatest.time.{Milliseconds, Span}
 
 import scala.concurrent.duration.*
 import scala.language.postfixOps
@@ -115,12 +118,11 @@ class AreaTest extends AnyFunSuite with AreaModelModule.Interface with Matchers:
     import it.unibo.pps.smartgh.model.sensor.SensorStatus
     areaModel.updBrightnessOfLamp(0)
     val lumSensor = areaModel.sensors.find(ms => ms.name == "Brightness").orNull
-    lumSensor.status mustEqual SensorStatus.NORMAL
     val subjectEnvironment: ConcurrentSubject[Double, Double] =
       ConcurrentSubject[Double](MulticastStrategy.publish)
     areaModel.setSensorSubjects(Map("lux" -> subjectEnvironment))
     subjectEnvironment.onNext(0)
-    Thread.sleep(5000)
-    lumSensor.status mustEqual SensorStatus.ALARM
-
+    eventually(timeout(Span(6000, Milliseconds))) {
+      lumSensor.status mustEqual SensorStatus.ALARM
+    }
   }

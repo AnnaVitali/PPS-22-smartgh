@@ -81,9 +81,13 @@ class AreaDetailsViewModuleTest extends AbstractViewTest:
     val alarmLabel = robot.lookup(alarmMsg).queryLabeled()
     assertFalse(stateLabel.getText.isBlank)
     if stateLabel.getText.contentEquals("NORMAL") then
-      assertFalse(alarmPane.isVisible)
-      assertTrue(alarmLabel.getText.isBlank)
+      eventually(timeout(Span(8000, Milliseconds))) {
+        assertFalse(alarmPane.isVisible)
+        assertTrue(alarmLabel.getText.isBlank)
+      }
     else if stateLabel.getText.contentEquals("ALARM") then
-      verifyThat(alarmPane, isVisible)
-      assertFalse(alarmLabel.getText.isBlank)
+      eventually(timeout(Span(8000, Milliseconds))) {
+        verifyThat(alarmPane, isVisible)
+        assertFalse(alarmLabel.getText.isBlank)
+      }
     else fail("Status text is not set correctly")
