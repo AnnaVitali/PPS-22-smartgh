@@ -4,6 +4,7 @@ import it.unibo.pps.smartgh.model.greenhouse.Environment
 import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.model.time.Timer
 import it.unibo.pps.smartgh.mvc.SimulationMVC
+import it.unibo.pps.smartgh.mvc.component.AreaDetailsMVC.AreaDetailsMVCImpl
 import it.unibo.pps.smartgh.mvc.component.{AreaDetailsMVC, AreaMVC, EnvironmentMVC, GreenHouseDivisionMVC}
 import it.unibo.pps.smartgh.view.component.AreaDetailsViewModule.AreaDetailsView
 import javafx.scene.control.Label
@@ -32,7 +33,7 @@ import scala.concurrent.duration.DurationInt
 @ExtendWith(Array(classOf[ApplicationExtension]))
 class AreaDetailsViewModuleTest extends AbstractViewTest:
 
-  private var areaDetailsView: AreaDetailsView = _
+  protected var areaDetailsMVC: AreaDetailsMVCImpl = _
   private val environment = Environment("Rome")
   private val plant = Plant("lemon", "citrus limon")
   private val plantNameId = "#plantNameLabel"
@@ -44,7 +45,7 @@ class AreaDetailsViewModuleTest extends AbstractViewTest:
   private val alarmMsg = "#alarmLabel"
 
   @Start
-  private def start(stage: Stage): Unit =
+  def start(stage: Stage): Unit =
     val baseView = BaseView(appTitle, appSubtitle)
     simulationMVC = SimulationMVC(stage)
     simulationMVC.simulationController.startSimulationTimer()
@@ -54,8 +55,8 @@ class AreaDetailsViewModuleTest extends AbstractViewTest:
     simulationMVC.simulationController.environmentController = environmentMVC.environmentController
     val greenHouseMVC = GreenHouseDivisionMVC(List(plant), simulationMVC)
     val areaMCV = AreaMVC(plant, simulationMVC.simulationController.timer, simulationMVC, greenHouseMVC)
-    areaDetailsView = AreaDetailsMVC(simulationMVC, baseView, areaMCV.areaModel).areaDetailsView
-    startApplication(stage, baseView, areaDetailsView)
+    areaDetailsMVC = AreaDetailsMVC(simulationMVC, baseView, areaMCV.areaModel)
+    startApplication(stage, baseView, areaDetailsMVC.areaDetailsView)
 
   @Test
   def testPlantInformation(robot: FxRobot): Unit =
