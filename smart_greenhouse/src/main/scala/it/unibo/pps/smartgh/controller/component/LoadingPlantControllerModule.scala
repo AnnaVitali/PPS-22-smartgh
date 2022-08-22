@@ -57,7 +57,6 @@ object LoadingPlantControllerModule:
       override def instantiateNextSceneMVC(baseView: BaseView): Unit =
         simulationMVC.simulationController.plantsSelected = plantList.toList
         val environmentMVC = component.EnvironmentMVC(simulationMVC, baseView)
-        simulationMVC.simulationController.environmentController = environmentMVC.environmentController
         loadingPlantView.moveToNextScene(environmentMVC.environmentView)
 
   trait Interface extends Provider with Component:

@@ -48,4 +48,5 @@ object EnvironmentMVC:
       simulationMVC
     )
 
+    simulationMVC.simulationController.environmentController = environmentController
     environmentController.startSimulation()

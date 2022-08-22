@@ -5,12 +5,14 @@ import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateIm
 import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaShieldState}
 import it.unibo.pps.smartgh.model.sensor.TemperatureSensor.TemperatureSensorImpl
 import it.unibo.pps.smartgh.model.time.Timer
+import monix.execution.Ack.Continue
 import org.scalatest.funsuite.AnyFunSuite
 import monix.execution.Scheduler.Implicits.global
 import org.scalatest.matchers.should.Matchers
 import monix.reactive.subjects.ConcurrentSubject
 import monix.reactive.MulticastStrategy.Behavior
 import monix.reactive.MulticastStrategy
+import org.apache.commons.lang3.time.DurationFormatUtils
 import org.scalatest.BeforeAndAfter
 import org.scalatest.concurrent.Eventually
 import org.scalatest.time.{Milliseconds, Span}
@@ -29,12 +31,27 @@ class TemperatureSensorTest extends AnyFunSuite with Matchers with BeforeAndAfte
     ConcurrentSubject[Double](MulticastStrategy.publish)
   private val subjectActions: ConcurrentSubject[AreaComponentsStateImpl, AreaComponentsStateImpl] =
     ConcurrentSubject[AreaComponentsStateImpl](MulticastStrategy.publish)
+  private val subjectTimer = ConcurrentSubject[String](MulticastStrategy.publish)
 
   before {
-    temperatureSensor = TemperatureSensor(areaComponentsState, timer)
+    temperatureSensor = TemperatureSensor(
+      areaComponentsState,
+      (callback: String => Unit) =>
+        subjectTimer.subscribe(
+          (s: String) => {
+            callback(s)
+            Continue
+          },
+          (ex: Throwable) => ex.printStackTrace(),
+          () => {}
+        )
+    )
     temperatureSensor.setObserverEnvironmentValue(subjectEnvironment)
     temperatureSensor.setObserverActionsArea(subjectActions)
-    timer.start(println("time is up!"))
+    timer.start(
+      t => subjectTimer.onNext(DurationFormatUtils.formatDuration(t.toMillis, "HH:mm:ss", true)),
+      println("time is up!")
+    )
     timer.changeTickPeriod(10 milliseconds)
   }
 

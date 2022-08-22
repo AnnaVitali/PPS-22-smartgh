@@ -24,36 +24,47 @@ object TemperatureSensor:
   /** Apply method for the [[TemperatureSensorImpl]]
     * @param areaComponentsStateImpl
     *   the actual state of the are components.
-    * @param timer
-    *   the simulation timer.
+    * @param addTimerCallback
+    *   the callback for the timer.
     * @return
     *   the sensor responsible for detecting the temperature of the area.
     */
-  def apply(areaComponentsStateImpl: AreaComponentsStateImpl, timer: Timer): TemperatureSensorImpl =
-    TemperatureSensorImpl(areaComponentsStateImpl, timer)
+  def apply(
+      areaComponentsStateImpl: AreaComponentsStateImpl,
+      addTimerCallback: (f: String => Unit) => Unit
+  ): TemperatureSensorImpl =
+    TemperatureSensorImpl(areaComponentsStateImpl, addTimerCallback)
 
   /** Class that represents the temperature sensor of an area of the greenhouse.
     * @param areaComponentsState
     *   represents the current state of the components of the area.
-    * @param timer
-    *   the simulation timer
+    * @param addTimerCallback
+    *   the callback for the timer.
     */
-  class TemperatureSensorImpl(areaComponentsState: AreaComponentsStateImpl, timer: Timer)
-      extends AbstractSensorWithTimer(areaComponentsState, timer):
-    private val timeMustPass: Int = 300
+  class TemperatureSensorImpl(
+      areaComponentsState: AreaComponentsStateImpl,
+      addTimerCallback: (f: String => Unit) => Unit
+  ) extends AbstractSensorWithTimer(areaComponentsState, addTimerCallback):
+    private val timeMustPass: Int = 5
 
     currentValue = areaComponentsState.temperature
 
     override def registerTimerCallback(): Unit =
-      timer.addCallback(onNextTimerEvent(), timeMustPass)
+      addTimerCallback((s: String) => if s.takeRight(2).toInt % timeMustPass == 0 then onNextTimerEvent())
 
     override def computeNextSensorValue(): Unit =
       Task {
         areaComponentsState.gatesState match
           case AreaGatesState.Open if currentValue != currentEnvironmentValue =>
-            currentValue = FactoryFunctionsTemperature.updateTemperatureApproachingTemperatureToReach(currentValue, currentEnvironmentValue)
+            currentValue = FactoryFunctionsTemperature.updateTemperatureApproachingTemperatureToReach(
+              currentValue,
+              currentEnvironmentValue
+            )
           case AreaGatesState.Close if currentValue != areaComponentsState.temperature =>
-            currentValue = FactoryFunctionsTemperature.updateTemperatureApproachingTemperatureToReach(currentValue, areaComponentsState.temperature)
+            currentValue = FactoryFunctionsTemperature.updateTemperatureApproachingTemperatureToReach(
+              currentValue,
+              areaComponentsState.temperature
+            )
           case _ =>
         subject.onNext(currentValue)
       }.executeAsync.runToFuture

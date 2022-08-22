@@ -25,23 +25,28 @@ object SoilHumiditySensor:
     * @return
     *   a new sensor responsible for detecting the soil humidity of the area.
     */
-  def apply(areaComponentsState: AreaComponentsStateImpl, timer: Timer): SoilHumiditySensorImpl =
-    SoilHumiditySensorImpl(areaComponentsState, timer)
+  def apply(
+      areaComponentsState: AreaComponentsStateImpl,
+      addTimerCallback: (f: String => Unit) => Unit
+  ): SoilHumiditySensorImpl =
+    SoilHumiditySensorImpl(areaComponentsState, addTimerCallback)
 
   /** Class that represents the soil humidity sensor of an area of the greenhouse.
     * @param areaComponentsState
     *   the actual state of the area components.
-    * @param timer
-    *   the timer of the simulation
+    * @param addTimerCallback
+    *   the callback for the timer.
     */
-  class SoilHumiditySensorImpl(areaComponentsState: AreaComponentsStateImpl, timer: Timer)
-      extends AbstractSensorWithTimer(areaComponentsState, timer):
+  class SoilHumiditySensorImpl(
+      areaComponentsState: AreaComponentsStateImpl,
+      addTimerCallback: (f: String => Unit) => Unit
+  ) extends AbstractSensorWithTimer(areaComponentsState, addTimerCallback):
 
     private val timeMustPass: Int = 3600
     currentValue = areaComponentsState.soilHumidity
 
     override def registerTimerCallback(): Unit =
-      timer.addCallback(onNextTimerEvent(), timeMustPass)
+      addTimerCallback((s: String) => if s.takeRight(5).contentEquals("00:00") then onNextTimerEvent())
 
     override def computeNextSensorValue(): Unit =
       Task {

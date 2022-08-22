@@ -25,17 +25,22 @@ object AirHumiditySensor:
     * @return
     *   the sensor responsible for detecting the air humidity of the area.
     */
-  def apply(areaComponentsState: AreaComponentsStateImpl, timer: Timer): AirHumiditySensorImpl =
-    AirHumiditySensorImpl(areaComponentsState, timer)
+  def apply(
+      areaComponentsState: AreaComponentsStateImpl,
+      addTimerCallback: (f: String => Unit) => Unit
+  ): AirHumiditySensorImpl =
+    AirHumiditySensorImpl(areaComponentsState, addTimerCallback)
 
   /** Class that represents the air humidity sensor of an area of the greenhouse.
     * @param areaComponentsState
     *   the actual state of the area components.
-    * @param timer
-    *   the timer of the simulation
+    * @param addTimerCallback
+    *   the callback for the timer.
     */
-  class AirHumiditySensorImpl(areaComponentsState: AreaComponentsStateImpl, timer: Timer)
-      extends AbstractSensorWithTimer(areaComponentsState, timer):
+  class AirHumiditySensorImpl(
+      areaComponentsState: AreaComponentsStateImpl,
+      addTimerCallback: (f: String => Unit) => Unit
+  ) extends AbstractSensorWithTimer(areaComponentsState, addTimerCallback):
 
     private val valueRange = (0.0, 100.0)
     private val timeMustPass: Int = 3600
@@ -54,7 +59,7 @@ object AirHumiditySensor:
       value * Random().nextDouble() * maxPercentage + minPercentage
 
     override def registerTimerCallback(): Unit =
-      timer.addCallback(onNextTimerEvent(), timeMustPass)
+      addTimerCallback((s: String) => if s.takeRight(5).contentEquals("00:00") then onNextTimerEvent())
 
     override def computeNextSensorValue(): Unit =
       Task {

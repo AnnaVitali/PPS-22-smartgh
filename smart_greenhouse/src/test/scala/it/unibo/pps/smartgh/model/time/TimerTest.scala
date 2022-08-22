@@ -22,8 +22,7 @@ class TimerTest extends AnyFunSuite with Matchers with BeforeAndAfter with Event
     timerValue = 0.seconds
     finish = false
     timer = Timer(duration)
-    timer.start(this.finish = true)
-    timer.addCallback(timerValue = _, 1)
+    timer.start(timerValue = _, this.finish = true)
   }
 
   after {

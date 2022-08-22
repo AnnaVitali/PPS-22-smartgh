@@ -6,6 +6,8 @@ import it.unibo.pps.smartgh.model.area.ManageSensor.ManageSensorImpl
 import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.model.sensor.LuminositySensor.LuminositySensorImpl
 import it.unibo.pps.smartgh.model.time.Timer
+import monix.execution.Ack.Continue
+import monix.eval.Task.timer
 import monix.reactive.MulticastStrategy
 import monix.reactive.subjects.ConcurrentSubject
 import org.scalatest.BeforeAndAfter
@@ -17,14 +19,32 @@ import org.scalatest.matchers.must.Matchers.mustEqual
 import org.scalatest.time.{Milliseconds, Span}
 
 import scala.concurrent.duration.*
+import monix.execution.Scheduler.Implicits.global
+import org.apache.commons.lang3.time.DurationFormatUtils
+
 import scala.language.postfixOps
 
 /** This class contains the tests to verify that the [[AreaModelModule]] works correctly. */
 class AreaTest extends AnyFunSuite with AreaModelModule.Interface with Matchers:
 
+  private val subject = ConcurrentSubject[String](MulticastStrategy.publish)
   private val timer = Timer(1 day)
-  timer.start(println("time is up!"))
-  override val areaModel: AreaModelModule.AreaModel = AreaImpl(Plant("lemon", "citrus limon"), timer)
+  timer.start(
+    t => subject.onNext(DurationFormatUtils.formatDuration(t.toMillis, "HH:mm:ss", true)),
+    println("time is up!")
+  )
+  override val areaModel: AreaModelModule.AreaModel = AreaImpl(
+    Plant("lemon", "citrus limon"),
+    (callback: String => Unit) =>
+      subject.subscribe(
+        (s: String) => {
+          callback(s)
+          Continue
+        },
+        (ex: Throwable) => ex.printStackTrace(),
+        () => {}
+      )
+  )
 
   test("After create an area in which there is a lemon plant, The area plant's name must be lemon") {
     areaModel.plant.name mustEqual "lemon"

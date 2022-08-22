@@ -109,11 +109,13 @@ abstract class AbstractSensor(var areaComponentsState: AreaComponentsStateImpl) 
 /** Abstract class that encloses the common aspects of the [[SensorWithTimer]] implementations.
   * @param areaComponentsState
   *   represents the current state of the components of the area.
-  * @param timer
-  *   the simulation timer
+  * @param addTimerCallback
+  *   the callback for the timer.
   */
-abstract class AbstractSensorWithTimer(areaComponentsState: AreaComponentsStateImpl, timer: Timer)
-    extends AbstractSensor(areaComponentsState)
+abstract class AbstractSensorWithTimer(
+    areaComponentsState: AreaComponentsStateImpl,
+    addTimerCallback: (f: String => Unit) => Unit
+) extends AbstractSensor(areaComponentsState)
     with SensorWithTimer:
 
   override def onNextTimerEvent(): FiniteDuration => Unit = time => computeNextSensorValue()

@@ -48,7 +48,7 @@ class GreenHouseDivisionViewTest extends AbstractViewTest:
   val normalStateClassStyle = "NORMALState"
   val alarmStateClassStyle = "ALARMState"
   private val timer = Timer(1 day)
-  timer.start(println("time is up!"))
+  timer.start(_ => {}, println("time is up!"))
 
   @Start
   private def start(stage: Stage): Unit =
@@ -60,7 +60,7 @@ class GreenHouseDivisionViewTest extends AbstractViewTest:
       simulationMVC
     )
     startApplication(stage, baseView, ghMVC.ghDivisionView)
-    ghMVC.setAreas(timer, Map.empty)
+    ghMVC.setAreas(Map.empty)
     ghMVC.show()
 //    Thread.sleep(10000)
 

@@ -62,8 +62,7 @@ object TimeModel:
       exp(((x - x0) / (x1 - x0)) * (log(y1) - log(y0)) + log(y0)) microseconds
 
     override def start(): Unit =
-      timer.start(controller.finishSimulation())
-      timer.addCallback(updateTimeValue, 1)
+      timer.start(updateTimeValue, controller.finishSimulation())
 
     override def setSpeed(speed: Double): Unit =
       Task {

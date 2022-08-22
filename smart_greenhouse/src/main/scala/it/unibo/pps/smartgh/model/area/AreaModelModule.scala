@@ -42,8 +42,6 @@ object AreaModelModule:
     def status: AreaStatus
     /** [[Plant]] grown in the area. */
     val plant: Plant
-    /** Simulation [[Timer]]. */
-    val timer: Timer
     /** Sensor of the area. */
     val sensors: List[ManageSensorImpl]
     /** @return the map of the actual sensors values */
@@ -157,7 +155,7 @@ object AreaModelModule:
       * @param timer
       *   instance of the simulation [[Timer]].
       */
-    class AreaImpl(override val plant: Plant, override val timer: Timer) extends AreaModel:
+    class AreaImpl(override val plant: Plant, val addTimerCallback: (f: String => Unit) => Unit) extends AreaModel:
 
       private var _status: AreaStatus = AreaStatus.NORMAL
       private val subject = ConcurrentSubject[AreaStatus](MulticastStrategy.publish)
@@ -210,10 +208,8 @@ object AreaModelModule:
       private val sensorsMap = constructSensorsMap()
 
       private def firstSensorStatus(actualVal: Double, min: Double, max: Double): SensorStatus =
-        if (actualVal compareTo min) < 0 || (actualVal compareTo max) > 0 then
-          SensorStatus.ALARM
-        else
-          SensorStatus.NORMAL
+        if (actualVal compareTo min) < 0 || (actualVal compareTo max) > 0 then SensorStatus.ALARM
+        else SensorStatus.NORMAL
 
       override val sensors: List[ManageSensorImpl] =
         for
@@ -332,9 +328,9 @@ object AreaModelModule:
         }
 
       private def constructSensorsMap[T >: Sensor](): Map[String, T] = Map(
-        TemperatureKey -> TemperatureSensor(areaComponentState, timer),
-        AirHumidityKey -> AirHumiditySensor(areaComponentState, timer),
-        SoilHumidityKey -> SoilHumiditySensor(areaComponentState, timer),
+        TemperatureKey -> TemperatureSensor(areaComponentState, addTimerCallback),
+        AirHumidityKey -> AirHumiditySensor(areaComponentState, addTimerCallback),
+        SoilHumidityKey -> SoilHumiditySensor(areaComponentState, addTimerCallback),
         BrightnessKey -> LuminositySensor(10000.0, areaComponentState)
       )
 
