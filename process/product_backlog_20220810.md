@@ -94,7 +94,7 @@ L'obiettivo di questo sprint, consiste nel dare la possibilità all'utente di po
         </tr>
         <tr>
             <td rowspan="2">Miglioramento reattività dell'applicazione</td>
-            <td>gestire tramite reactive programming le richieste per i parametri delle piante</td>
+            <td>Gestire tramite reactive programming le richieste per i parametri delle piante</td>
             <td>Anna</td>
             <td>3</td>
             <td>3</td>
@@ -106,7 +106,7 @@ L'obiettivo di questo sprint, consiste nel dare la possibilità all'utente di po
             <td>0</td>
         </tr>
         <tr>
-            <td>gestire tramite reactive programming le richieste per i parametri dell'ambiente</td>
+            <td>Gestire tramite reactive programming le richieste per i parametri dell'ambiente</td>
             <td>Veronika</td>
             <td>3</td>
             <td>3</td>
@@ -118,7 +118,7 @@ L'obiettivo di questo sprint, consiste nel dare la possibilità all'utente di po
             <td>0</td>
         </tr>
         <tr>
-            <td rowspan="4">Miglioramento Dell'esperienza utente</td>
+            <td rowspan="4">Miglioramento dell'esperienza utente</td>
             <td>Sistemare stile pulsanti delle diverse schermate</td>
             <td>Elena</td>
             <td>3</td>
