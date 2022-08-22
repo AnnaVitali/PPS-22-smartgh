@@ -64,3 +64,7 @@
 .slider{
     -fx-control-inner-background: #FFFFFF
 }
+
+#areaBt:hover{
+    -fx-font-weight: bold;
+}

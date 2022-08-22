@@ -5,10 +5,10 @@
 <?import javafx.scene.layout.VBox?>
 
 <VBox fx:id="rect" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-      minWidth="-Infinity" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
-   <Button fx:id="areaBt" mnemonicParsing="false">
+      minWidth="-Infinity" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@../css/baseStyle.css">
+   <Button fx:id="areaBt" mnemonicParsing="false" stylesheets="@../css/baseStyle.css">
       <graphic>
-         <VBox fx:id="params" alignment="CENTER_LEFT"/>
+         <VBox fx:id="params" alignment="CENTER_LEFT" stylesheets="@../css/baseStyle.css"/>
       </graphic>
    </Button>
    <Label fx:id="plant" text="Label"/>

@@ -34,9 +34,7 @@ object AreaControllerModule:
     class AreaControllerImpl(simulationMVCImpl: SimulationMVCImpl, ghMVC: GreenHouseDivisionMVCImpl)
         extends AreaController:
       override def paintArea(): Unit =
-        val color = areaModel.status match
-          case AreaModelModule.NORMAL => "#33cc33"
-          case _ => "#cc3333"
+        val color = areaModel.status.toString
 
         areaView.paintArea(areaModel.plant.name, color, areaModel.sensorValues())
 

@@ -10,14 +10,14 @@ class AreaComponentsStateTest extends AnyFunSuite with Matchers:
   private val areaComponentsState = AreaComponentsState()
 
   test("At the beginning the area should be closed with shield up and atomiser and ventilation down") {
-    areaComponentsState.gatesState shouldEqual AreaGatesState.Close
+    areaComponentsState.gatesState shouldEqual AreaGatesState.Open
     areaComponentsState.shieldState shouldEqual AreaShieldState.Up
     areaComponentsState.atomisingState shouldEqual AreaAtomiseState.AtomisingInactive
     areaComponentsState.ventilationState shouldEqual AreaVentilationState.VentilationInactive
   }
 
   test("At the beginning the lamp brightness should be initialized with the default value") {
-    val defaultBrightnessValue = 100
+    val defaultBrightnessValue = 3000.0
     areaComponentsState.brightnessOfTheLamps shouldEqual defaultBrightnessValue
   }
 
@@ -26,7 +26,13 @@ class AreaComponentsStateTest extends AnyFunSuite with Matchers:
     areaComponentsState.temperature shouldEqual defaultTemperatureValue
   }
 
-  test("When a new action bby the user is performed the area components state should change") {
+  test("At the beginning the humidity should be between the maximum and minimum values") {
+    val maxInitialHumidity = 20.0
+    val minInitialHumidity = 10.0
+    areaComponentsState.soilHumidity should (be >= minInitialHumidity and be <= maxInitialHumidity)
+  }
+
+  test("When a new action by the user is performed the area components state should change") {
     val newInternalTemperature = 30.0
     val newLampBrightness = 500
     areaComponentsState.shieldState = AreaShieldState.Up

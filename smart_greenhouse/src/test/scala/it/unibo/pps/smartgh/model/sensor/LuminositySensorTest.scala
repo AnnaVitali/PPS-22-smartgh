@@ -44,7 +44,7 @@ class LuminositySensorTest extends AnyFunSuite with Matchers with BeforeAndAfter
     s"the current luminosity value when no action has been performed but a new environment value has been " +
       s"emitted should be a value between the maximum possible and the minimum"
   ) {
-    val defaultLampBrightness = 100.0
+    val defaultLampBrightness = 3000.0
     val environmentValue = 30000.0
     val maxValue = environmentValue - (minPercentage * environmentValue) + defaultLampBrightness
     val minValue = environmentValue - (maxPercentage * environmentValue) + defaultLampBrightness
@@ -65,7 +65,7 @@ class LuminositySensorTest extends AnyFunSuite with Matchers with BeforeAndAfter
     areaComponentsState.gatesState = AreaGatesState.Open
     subjectEnvironment.onNext(environmentValue)
     subjectActions.onNext(areaComponentsState)
-    
+
     eventually(timeout(Span(5000, Milliseconds))) {
       luminositySensor.getCurrentValue shouldEqual (environmentValue + areaComponentsState.brightnessOfTheLamps)
     }

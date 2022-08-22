@@ -38,7 +38,10 @@ object AreaViewModule:
   /** A trait that represents the greenhouse division view component. */
   trait Component:
     context: Requirements =>
-    /** Implementation of the greenhouse division view. */
+    /** Implementation of the greenhouse division view.
+      * @param simulationView
+      *   instance of the [[SimulationView]]
+      */
     class AreaViewImpl(simulationView: SimulationView) extends AbstractViewComponent[VBox]("area.fxml") with AreaView:
 
       override val component: VBox = loader.load[VBox]
@@ -53,8 +56,6 @@ object AreaViewModule:
       @FXML
       var plant: Label = _
 
-      private var actualAreaTextColor = "#000000"
-
       override def paintArea(plantName: String, statusColor: String, par: Map[String, Double]): Unit =
         Platform.runLater(() =>
           plant.setText(plantName)
@@ -63,33 +64,17 @@ object AreaViewModule:
             val l = new Label(s"$k : $v")
             l.setMaxWidth(170)
             l.setMinWidth(170)
-            l.setStyle(s"-fx-text-fill: $actualAreaTextColor")
+            l.getStyleClass.setAll(statusColor)
             params.getChildren.add(l)
           )
 
-          areaBt.setStyle("-fx-background-color: " + statusColor)
+          areaBt.getStyleClass.setAll(statusColor + "State")
 
-          areaBt.setOnMouseEntered { _ =>
-            actualAreaTextColor = "#ffffff"
-            areaBt.getGraphic
-              .asInstanceOf[VBox]
-              .getChildren
-              .forEach(c =>
-                c.asInstanceOf[Label]
-                  .setStyle(s"-fx-text-fill: $actualAreaTextColor ; -fx-background-color: $statusColor")
-              )
-          }
+          areaBt.getGraphic
+            .asInstanceOf[VBox]
+            .getChildren
+            .forEach(c => c.asInstanceOf[Label].getStyleClass.setAll(statusColor))
 
-          areaBt.setOnMouseExited { _ =>
-            actualAreaTextColor = "#000000"
-            areaBt.getGraphic
-              .asInstanceOf[VBox]
-              .getChildren
-              .forEach(c =>
-                c.asInstanceOf[Label]
-                  .setStyle(s"-fx-text-fill: $actualAreaTextColor ; -fx-background-color: $statusColor")
-              )
-          }
           areaBt.setOnMouseClicked { _ =>
             setNewScene()
           }
