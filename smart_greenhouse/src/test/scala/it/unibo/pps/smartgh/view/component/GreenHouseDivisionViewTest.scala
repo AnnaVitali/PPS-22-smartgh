@@ -8,7 +8,7 @@ import it.unibo.pps.smartgh.model.greenhouse.{Environment, GHModelModule}
 import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.model.time.Timer
 import it.unibo.pps.smartgh.mvc.SimulationMVC
-import it.unibo.pps.smartgh.mvc.component.GreenHouseDivisionMVC
+import it.unibo.pps.smartgh.mvc.component.{EnvironmentMVC, GreenHouseDivisionMVC}
 import it.unibo.pps.smartgh.view.component.*
 import javafx.scene.Node
 import javafx.scene.control.Button
@@ -17,6 +17,7 @@ import javafx.scene.paint.Color
 import javafx.stage.Stage
 import monix.reactive.MulticastStrategy
 import monix.reactive.subjects.ConcurrentSubject
+import org.apache.commons.lang3.time.DurationFormatUtils
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Assertions.{assertFalse, assertTrue}
 import org.junit.jupiter.api.Test
@@ -33,6 +34,7 @@ import org.testfx.matcher.base.NodeMatchers.{hasChildren, isVisible}
 import org.testfx.matcher.control.ButtonMatchers
 import org.testfx.matcher.control.LabeledMatchers.hasText
 import org.testfx.util.WaitForAsyncUtils
+import monix.execution.Scheduler.Implicits.global
 
 import scala.concurrent.duration.*
 import scala.language.postfixOps
@@ -47,16 +49,19 @@ class GreenHouseDivisionViewTest extends AbstractViewTest:
   val areaBt = "#areaBt"
   val normalStateClassStyle = "NORMALState"
   val alarmStateClassStyle = "ALARMState"
-  private val timer = Timer(1 day)
-  timer.start(_ => {}, println("time is up!"))
+  private val subjectTimer = ConcurrentSubject[String](MulticastStrategy.publish)
 
   @Start
   private def start(stage: Stage): Unit =
     val baseView: BaseView = BaseView(appTitle, appSubtitle)
     simulationMVC = SimulationMVC(stage)
     simulationMVC.simulationController.environment = Environment("Cesena")
+    simulationMVC.simulationController.plantsSelected =
+      List(Plant("lemon", "citrus limon"), Plant("mint", "mentha x gracilis"))
+    val environmentMVC = EnvironmentMVC(simulationMVC, baseView)
+    simulationMVC.simulationController.startSimulationTimer()
     ghMVC = GreenHouseDivisionMVC(
-      List(Plant("lemon", "citrus limon"), Plant("mint", "mentha x gracilis")),
+      simulationMVC.simulationController.plantsSelected,
       simulationMVC
     )
     startApplication(stage, baseView, ghMVC.ghDivisionView)

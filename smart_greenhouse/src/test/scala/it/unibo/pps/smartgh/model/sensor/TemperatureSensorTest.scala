@@ -70,7 +70,6 @@ class TemperatureSensorTest extends AnyFunSuite with Matchers with BeforeAndAfte
     val environmentValue = 37.0
     var firstApproach: Double = 0.0
 
-    temperatureSensor.registerTimerCallback()
     subjectEnvironment.onNext(environmentValue)
 
     eventually(timeout(Span(3000, Milliseconds))) {
@@ -92,7 +91,6 @@ class TemperatureSensorTest extends AnyFunSuite with Matchers with BeforeAndAfte
   ) {
     val environmentValue = 37.0
     var firstApproach: Double = 0.0
-    temperatureSensor.registerTimerCallback()
     areaComponentsState.gatesState = AreaGatesState.Close
     subjectActions.onNext(areaComponentsState)
 

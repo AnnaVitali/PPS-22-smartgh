@@ -322,9 +322,6 @@ object AreaModelModule:
             () => {}
           )
           sensor.setObserverActionsArea(subjectComponentsState)
-          sensor match
-            case sensorWithTimer: SensorWithTimer => sensorWithTimer.registerTimerCallback()
-            case _ =>
         }
 
       private def constructSensorsMap[T >: Sensor](): Map[String, T] = Map(

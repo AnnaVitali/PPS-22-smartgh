@@ -34,7 +34,6 @@ class SoilHumiditySensorTest extends AnyFunSuite with Matchers with Eventually w
       println("time is up!")
     )
     timer.changeTickPeriod(tickPeriod)
-    humiditySensor.registerTimerCallback()
 
   before {
     areaComponentsState = AreaComponentsState()
@@ -59,12 +58,13 @@ class SoilHumiditySensorTest extends AnyFunSuite with Matchers with Eventually w
   }
 
   test("Temperature sensor should be initialized with the initial humidity value") {
+    setupTimer(1 second)
     humiditySensor.getCurrentValue shouldEqual areaComponentsState.soilHumidity
   }
 
   test("The soil humidity value should decrease over time due to water evaporation") {
     setupTimer(50 microseconds)
-    eventually(timeout(Span(5000, Milliseconds))) {
+    eventually(timeout(Span(8000, Milliseconds))) {
       humiditySensor.getCurrentValue should be < areaComponentsState.soilHumidity
     }
   }

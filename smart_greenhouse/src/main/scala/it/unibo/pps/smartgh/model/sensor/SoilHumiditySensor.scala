@@ -12,6 +12,7 @@ import monix.reactive.MulticastStrategy.Behavior
 import monix.reactive.{MulticastStrategy, Observable}
 import monix.reactive.subjects.ConcurrentSubject
 
+import scala.concurrent.duration.*
 import scala.concurrent.Future
 
 /** Object that enclose the implementation of the soil humidity sensor. */
@@ -44,12 +45,11 @@ object SoilHumiditySensor:
 
     private val timeMustPass: Int = 3600
     currentValue = areaComponentsState.soilHumidity
-
-    override def registerTimerCallback(): Unit =
-      addTimerCallback((s: String) => if s.takeRight(5).contentEquals("00:00") then onNextTimerEvent())
+    registerTimerCallback(_.takeRight(5).contentEquals("00:00"))
 
     override def computeNextSensorValue(): Unit =
       Task {
+        println("TASK: compute next sensor value")
         areaComponentsState.humidityActions match
           case AreaHumidityState.Watering =>
             currentValue = FactoryFunctionsSoilHumidity.updateValueWithWatering(currentValue)

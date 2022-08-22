@@ -67,14 +67,10 @@ trait SensorWithTimer extends Sensor:
 
   /** Method that need to be called to associate the sensor to the simulation timer, this method can be called only once
     * that the timer has started.
+    * @param verifyTimePass
+    *   a function for verify the passed time
     */
-  def registerTimerCallback(): Unit
-
-  /** Method that encloses the actions that need to be done when the period of the time is elapsed.
-    * @return
-    *   a function that takes the value of the clock and return nothing.
-    */
-  def onNextTimerEvent(): FiniteDuration => Unit
+  protected def registerTimerCallback(verifyTimePass: String => Boolean): Unit
 
 /** Abstract class that enclose the common aspects of the [[Sensor]] implementations.
   * @param areaComponentsState
@@ -118,7 +114,8 @@ abstract class AbstractSensorWithTimer(
 ) extends AbstractSensor(areaComponentsState)
     with SensorWithTimer:
 
-  override def onNextTimerEvent(): FiniteDuration => Unit = time => computeNextSensorValue()
+  override protected def registerTimerCallback(verifyTimePass: String => Boolean): Unit =
+    addTimerCallback((s: String) => if verifyTimePass(s) then computeNextSensorValue())
 
 /** Enum that indicate the two possible state that can have a sensor. */
 enum SensorStatus:

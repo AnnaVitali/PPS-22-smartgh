@@ -53,7 +53,6 @@ class AreaDetailsViewModuleTest extends AbstractViewTest:
     simulationMVC.simulationController.plantsSelected = List(plant)
     val environmentMVC = EnvironmentMVC(simulationMVC, baseView)
     simulationMVC.simulationController.environment = environment
-    simulationMVC.simulationController.environmentController = environmentMVC.environmentController
     val greenHouseMVC = GreenHouseDivisionMVC(List(plant), simulationMVC)
     val areaMCV = AreaMVC(plant, simulationMVC, greenHouseMVC)
     areaDetailsMVC = AreaDetailsMVC(simulationMVC, baseView, areaMCV.areaModel)

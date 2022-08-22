@@ -31,7 +31,6 @@ class AirHumiditySensorTest extends AnyFunSuite with Matchers with Eventually wi
 
   private def setupTimer(tickPeriod: FiniteDuration): Unit =
     timer.changeTickPeriod(tickPeriod)
-    humiditySensor.registerTimerCallback()
 
   private def initialValueTest(): Unit =
     subjectEnvironment.onNext(initialHumidity)

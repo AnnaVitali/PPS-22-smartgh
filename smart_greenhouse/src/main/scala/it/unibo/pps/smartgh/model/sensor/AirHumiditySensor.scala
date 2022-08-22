@@ -54,12 +54,10 @@ object AirHumiditySensor:
       case _ => 0.0
 
     currentValue = initialHumidity
+    registerTimerCallback(_.takeRight(5).contentEquals("00:00"))
 
     private def calculateRandomValue: Double => Double = value =>
       value * Random().nextDouble() * maxPercentage + minPercentage
-
-    override def registerTimerCallback(): Unit =
-      addTimerCallback((s: String) => if s.takeRight(5).contentEquals("00:00") then onNextTimerEvent())
 
     override def computeNextSensorValue(): Unit =
       Task {

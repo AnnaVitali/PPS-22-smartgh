@@ -48,9 +48,7 @@ object TemperatureSensor:
     private val timeMustPass: Int = 5
 
     currentValue = areaComponentsState.temperature
-
-    override def registerTimerCallback(): Unit =
-      addTimerCallback((s: String) => if s.takeRight(2).toInt % timeMustPass == 0 then onNextTimerEvent())
+    registerTimerCallback(_.takeRight(2).toInt % timeMustPass == 0)
 
     override def computeNextSensorValue(): Unit =
       Task {
