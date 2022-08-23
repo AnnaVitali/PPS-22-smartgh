@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -42,7 +43,10 @@
         </padding>
         <Label text="Decrease humidity:" />
         <Label text="Increase humidity:" GridPane.rowIndex="1" />
-         <ToggleButton fx:id="ventilationBtn" mnemonicParsing="false" text="Activate the ventilation" GridPane.columnIndex="1" />
-      <ToggleButton fx:id="atomiserBtn" mnemonicParsing="false" text="Activate the atomiser" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         <ToggleButton fx:id="ventilationBtn" mnemonicParsing="false" text="Activate the ventilation" GridPane.columnIndex="1">
+         <toggleGroup>
+            <ToggleGroup fx:id="humidityAction" />
+         </toggleGroup></ToggleButton>
+      <ToggleButton fx:id="atomiserBtn" mnemonicParsing="false" text="Atomise area" toggleGroup="$humidityAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
     </GridPane>
 </GridPane>

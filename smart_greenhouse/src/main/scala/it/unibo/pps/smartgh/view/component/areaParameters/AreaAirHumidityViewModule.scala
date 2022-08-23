@@ -19,7 +19,7 @@ object AreaAirHumidityViewModule:
   enum VentilationText(val text: String):
 
     /** The activation status of the ventilation. */
-    case ACTIVE extends VentilationText("Activate the ventilation")
+    case ACTIVATE extends VentilationText("Activate the ventilation")
 
     /** The deactivation status of the ventilation. */
     case DEACTIVATE extends VentilationText("Deactivate the ventilation")
@@ -28,7 +28,7 @@ object AreaAirHumidityViewModule:
   enum AtomiserText(val text: String):
 
     /** The activation status of the atomiser. */
-    case ACTIVE extends AtomiserText("Atomise area")
+    case ACTIVATE extends AtomiserText("Atomise area")
 
     /** The deactivation status of the atomiser. */
     case DEACTIVATE extends AtomiserText("Disable atomise area")
@@ -68,21 +68,27 @@ object AreaAirHumidityViewModule:
 
       ventilationBtn.setOnMouseClicked { _ =>
         if ventilationBtn.isSelected then
+          if areaAirHumidityController.isAtomiserActivated then deactivateAtomiser()
           ventilationBtn.setText(VentilationText.DEACTIVATE.text)
           areaAirHumidityController.activateVentilation()
-        else
-          ventilationBtn.setText(VentilationText.ACTIVE.text)
-          areaAirHumidityController.deactivateVentilation()
+        else deactivateVentilation()
       }
 
       atomiserBtn.setOnMouseClicked { _ =>
         if atomiserBtn.isSelected then
+          if areaAirHumidityController.isVentilationActivated then deactivateVentilation()
           atomiserBtn.setText(AtomiserText.DEACTIVATE.text)
           areaAirHumidityController.atomiseArea()
-        else
-          atomiserBtn.setText(AtomiserText.ACTIVE.text)
-          areaAirHumidityController.disableAtomiseArea()
+        else deactivateAtomiser()
       }
+
+      private def deactivateVentilation(): Unit =
+        ventilationBtn.setText(VentilationText.ACTIVATE.text)
+        areaAirHumidityController.deactivateVentilation()
+
+      private def deactivateAtomiser(): Unit =
+        atomiserBtn.setText(AtomiserText.ACTIVATE.text)
+        areaAirHumidityController.disableAtomiseArea()
 
   /** Trait that encloses the view for area air humidity parameter. */
   trait Interface extends Provider with Component:
