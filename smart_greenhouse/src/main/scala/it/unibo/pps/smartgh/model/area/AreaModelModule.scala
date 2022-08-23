@@ -117,7 +117,7 @@ object AreaModelModule:
       */
     class AreaImpl(override val plant: Plant, val addTimerCallback: (f: String => Unit) => Unit) extends AreaModel:
 
-      private var _status: AreaStatus = _
+      private var _status: AreaStatus = NORMAL
       private val subject = ConcurrentSubject[AreaStatus](MulticastStrategy.publish)
       private val optimalValueToDouble: Map[String, Double] =
         plant.optimalValues.map((k, v) => (k, v.toString.toDouble))
