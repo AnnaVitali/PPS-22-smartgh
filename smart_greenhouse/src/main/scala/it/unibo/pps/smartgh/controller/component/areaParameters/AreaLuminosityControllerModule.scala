@@ -64,17 +64,19 @@ object AreaLuminosityControllerModule:
       override def updLampValue(value: Double): Unit =
         areaModel.updBrightnessOfLamp(value)
 
-      override def getLampValue: Double = areaModel.getBrightnessOfLamp
+      override def getLampValue: Double = areaModel.getAreaComponent.brightnessOfTheLamps
 
       override def shieldsDown(): Unit = areaModel.updShieldState(AreaShieldState.Down)
 
       override def shieldsUp(): Unit = areaModel.updShieldState(AreaShieldState.Up)
 
-      override def isShielded: Boolean = areaModel.isShielded
+      override def isShielded: Boolean = areaModel.getAreaComponent.shieldState === AreaShieldState.Down
 
       override protected def updateValues(view: AreaParametersView.AreaParametersView): Unit =
         super.updateValues(view)
-        view.asInstanceOf[AreaLuminosityView].setUpActions(areaModel.gatesState === AreaGatesState.Open)
+        view
+          .asInstanceOf[AreaLuminosityView]
+          .setUpActions(areaModel.getAreaComponent.gatesState === AreaGatesState.Open)
 
   /** Trait that combine provider and component for area luminosity parameter. */
   trait Interface extends Provider with Component:

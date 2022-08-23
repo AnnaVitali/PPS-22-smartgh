@@ -67,7 +67,7 @@ object AreaAirHumidityControllerModule:
         areaModel.updVentilationState(AreaVentilationState.VentilationInactive)
 
       override def isVentilationActivated: Boolean =
-        areaModel.ventilationState === AreaVentilationState.VentilationActive
+        areaModel.getAreaComponent.ventilationState === AreaVentilationState.VentilationActive
 
       override def atomiseArea(): Unit =
         areaModel.updAtomizeState(AreaAtomiseState.AtomisingActive)
@@ -75,7 +75,8 @@ object AreaAirHumidityControllerModule:
       override def disableAtomiseArea(): Unit =
         areaModel.updAtomizeState(AreaAtomiseState.AtomisingInactive)
 
-      override def isAtomiserActivated: Boolean = areaModel.atomiserState === AreaAtomiseState.AtomisingActive
+      override def isAtomiserActivated: Boolean =
+        areaModel.getAreaComponent.atomisingState === AreaAtomiseState.AtomisingActive
 
   /** Trait that combine provider and component for area air humidity parameter. */
   trait Interface extends Provider with Component:

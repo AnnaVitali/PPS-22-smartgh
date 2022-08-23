@@ -35,10 +35,13 @@ object AreaModelModule:
     def status: AreaStatus
     /** [[Plant]] grown in the area. */
     val plant: Plant
+    /** A helper for sensors */
+    val areaSensorHelper: AreaSensorHelperImpl
     /** Sensor of the area. */
     val sensors: List[ManageSensorImpl]
     /** @return the map of the actual sensors values */
     def sensorValues(): Map[String, Double]
+
     /** Method that can be called to obtain the [[Observable]] associated to the status of an area.
       * @return
       *   the [[Observable]] associated to the status of an area.
@@ -57,41 +60,17 @@ object AreaModelModule:
       */
     def updGateState(state: AreaGatesState): Unit
 
-    /** Get the [[AreaGatesState]].
-      * @return
-      *   the gates state
-      */
-    def gatesState: AreaGatesState
-
     /** Update the [[AreaShieldState]]due to a user action.
       * @param state
       *   new shield state
       */
     def updShieldState(state: AreaShieldState): Unit
 
-    /** Get the shielded information.
-      * @return
-      *   if the area is shielded or not
-      */
-    def isShielded: Boolean
-
-    /** Get the atomiser state.
-      * @return
-      *   the [[AreaAtomiseState]].
-      */
-    def atomiserState: AreaAtomiseState
-
     /** Update the [[AreaAtomiseState]] due to a user action.
       * @param state
       *   new atomize state
       */
     def updAtomizeState(state: AreaAtomiseState): Unit
-
-    /** Get the ventilation state.
-      * @return
-      *   the [[AreaVentilationState]].
-      */
-    def ventilationState: AreaVentilationState
 
     /** Update the [[AreaVentilationState]] due to a user action.
       * @param state
@@ -110,18 +89,6 @@ object AreaModelModule:
       *   new brightness value
       */
     def updBrightnessOfLamp(value: Double): Unit
-
-    /** Get the current lamps' brightness.
-      * @return
-      *   the lamp brightness value
-      */
-    def getBrightnessOfLamp: Double
-
-    /** Get the current temperature.
-      * @return
-      *   the temperature value
-      */
-    def temperature: Double
 
     /** Update the temperature value due to a user action.
       * @param value
@@ -156,8 +123,8 @@ object AreaModelModule:
         plant.optimalValues.map((k, v) => (k, v.toString.toDouble))
       private val areaComponentState = AreaComponentsState()
       private val subjectComponentsState = ConcurrentSubject[AreaComponentsStateImpl](MulticastStrategy.publish)
-      private val areaSensorHelper: AreaSensorHelperImpl = AreaSensorHelperImpl(areaComponentState, addTimerCallback)
 
+      override val areaSensorHelper: AreaSensorHelperImpl = AreaSensorHelperImpl(areaComponentState, addTimerCallback)
       override val sensors: List[ManageSensorImpl] = areaSensorHelper.manageSensorList(optimalValueToDouble)
 
       status = areaSensorHelper.configSensors(sensors, checkAlarm, subjectComponentsState)
@@ -178,8 +145,6 @@ object AreaModelModule:
 
       override def changeStatusObservable(): Observable[AreaStatus] = subject
 
-      override def temperature: Double = areaComponentState.temperature
-
       override def updTemperature(value: Double): Unit =
         areaComponentState.temperature = value
         notifySensorStatusChange()
@@ -188,19 +153,13 @@ object AreaModelModule:
         areaComponentState.brightnessOfTheLamps = value
         notifySensorStatusChange()
 
-      override def getBrightnessOfLamp: Double = areaComponentState.brightnessOfTheLamps
-
       override def updHumidityAction(state: AreaHumidityState): Unit =
         areaComponentState.humidityActions = state
         notifySensorStatusChange()
 
-      override def atomiserState: AreaAtomiseState = areaComponentState.atomisingState
-
       override def updAtomizeState(state: AreaAtomiseState): Unit =
         areaComponentState.atomisingState = state
         notifySensorStatusChange()
-
-      override def gatesState: AreaGatesState = areaComponentState.gatesState
 
       override def updGateState(state: AreaGatesState): Unit =
         areaComponentState.gatesState = state
@@ -209,10 +168,6 @@ object AreaModelModule:
       override def updShieldState(state: AreaShieldState): Unit =
         areaComponentState.shieldState = state
         notifySensorStatusChange()
-
-      override def isShielded: Boolean = areaComponentState.shieldState == AreaShieldState.Down
-
-      override def ventilationState: AreaVentilationState = areaComponentState.ventilationState
 
       override def updVentilationState(state: AreaVentilationState): Unit =
         areaComponentState.ventilationState = state

@@ -51,13 +51,9 @@ object AreaSoilMoistureControllerModule:
         with AreaSoilMoistureController:
 
       override def openGates(): Unit = areaModel.updGateState(AreaGatesState.Open)
-
       override def closeGates(): Unit = areaModel.updGateState(AreaGatesState.Close)
-
       override def movingSoil(): Unit = areaModel.updHumidityAction(AreaHumidityState.MovingSoil)
-
       override def watering(): Unit = areaModel.updHumidityAction(AreaHumidityState.Watering)
-
       override def noAction(): Unit = areaModel.updHumidityAction(AreaHumidityState.None)
 
   /** Trait that combine provider and component for area soil moisture parameter. */

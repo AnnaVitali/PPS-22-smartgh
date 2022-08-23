@@ -44,12 +44,8 @@ object AreaDetailsControllerModule:
     class AreaDetailsControllerImpl(simulationMVC: SimulationMVCImpl) extends AreaDetailsController:
 
       private var messages: Seq[String] = Seq.empty
-      private val parametersMVC: Seq[AreaParametersMVC] = Seq(
-        AreaLuminosityMVC(areaModel, updateStateMessage),
-        AreaTemperatureMVC(areaModel, updateStateMessage),
-        AreaAirHumidityMVC(areaModel, updateStateMessage),
-        AreaSoilMoistureMVC(areaModel, updateStateMessage)
-      )
+      private val parametersMVC: Seq[AreaParametersMVC] =
+        areaModel.areaSensorHelper.parametersMVC(areaModel, updateStateMessage)
 
       override def instantiateNextSceneMVC(baseView: BaseView): Unit =
         areaDetailsView.moveToNextScene(simulationMVC.simulationController.environmentController.envView())

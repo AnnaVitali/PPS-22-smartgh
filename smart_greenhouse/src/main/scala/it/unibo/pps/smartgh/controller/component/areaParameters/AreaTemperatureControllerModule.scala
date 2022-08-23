@@ -59,9 +59,9 @@ object AreaTemperatureControllerModule:
         extends AbstractAreaParametersController("Temperature", areaModel, updateStateMessage)
         with AreaTemperatureController:
 
-      override def temperature: Double = areaModel.temperature
+      override def temperature: Double = areaModel.getAreaComponent.temperature
       override def updTempValue(value: Double): Unit = areaModel.updTemperature(value)
-      override def isGatesOpen: Boolean = areaModel.gatesState === AreaGatesState.Open
+      override def isGatesOpen: Boolean = areaModel.getAreaComponent.gatesState === AreaGatesState.Open
       override def openGates(): Unit = areaModel.updGateState(AreaGatesState.Open)
       override def closeGates(): Unit = areaModel.updGateState(AreaGatesState.Close)
 

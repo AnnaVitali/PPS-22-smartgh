@@ -1,6 +1,6 @@
 package it.unibo.pps.smartgh.model.area
 
-import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaStatus
+import it.unibo.pps.smartgh.model.area.AreaModelModule.{AreaModel, AreaStatus}
 import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaStatus.{ALARM, NORMAL}
 import it.unibo.pps.smartgh.model.area.ManageSensor.ManageSensorImpl
 import it.unibo.pps.smartgh.model.sensor.{
@@ -16,6 +16,13 @@ import monix.execution.Ack.Continue
 import monix.reactive.subjects.ConcurrentSubject
 import it.unibo.pps.smartgh.model.time.Timer
 import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
+import it.unibo.pps.smartgh.mvc.component.areaParameters.{
+  AreaAirHumidityMVC,
+  AreaLuminosityMVC,
+  AreaParametersMVC,
+  AreaSoilMoistureMVC,
+  AreaTemperatureMVC
+}
 import monix.eval.Task.timer
 /** Implementation of the [[AreaSensorHelper]]. */
 object AreaSensorHelper:
@@ -147,3 +154,11 @@ object AreaSensorHelper:
       }
       if sensors.forall(ms => ms.status == SensorStatus.NORMAL) then NORMAL
       else ALARM
+
+    def parametersMVC(areaModel: AreaModel, updateStateMessage: (String, Boolean) => Unit): Seq[AreaParametersMVC] =
+      Seq(
+        AreaLuminosityMVC(areaModel, updateStateMessage),
+        AreaTemperatureMVC(areaModel, updateStateMessage),
+        AreaAirHumidityMVC(areaModel, updateStateMessage),
+        AreaSoilMoistureMVC(areaModel, updateStateMessage)
+      )
