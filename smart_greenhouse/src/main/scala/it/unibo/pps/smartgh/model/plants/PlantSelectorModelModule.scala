@@ -16,6 +16,7 @@ import it.unibo.pps.smartgh.model.plants.Plant
 
 import concurrent.{Future, Promise}
 import scala.language.postfixOps
+import org.scalactic.TripleEquals.convertToEqualizer
 
 /** Object that encloses the model module for the plant selection. */
 object PlantSelectorModelModule:
@@ -144,7 +145,7 @@ object PlantSelectorModelModule:
       override def deselectPlant(plantName: String): Unit =
         Task {
           if selectedPlants.contains(plantName) then
-            selectedPlants = selectedPlants.filter(_ != plantName)
+            selectedPlants = selectedPlants.filter(_  !== plantName)
             subjectPlantSelection
               .onNext(selectedPlants.toList)
           else

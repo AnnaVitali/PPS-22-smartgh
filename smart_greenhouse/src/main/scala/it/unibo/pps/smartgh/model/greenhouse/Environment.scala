@@ -62,7 +62,7 @@ object Environment:
         Continue
       }
     subjectEnvironmentValues.subscribe(onNextEnvironmentValuesEmitted, (ex: Throwable) => ex.printStackTrace(), () => {})
-    getEnvironmentValues()
+    getEnvironmentValues
 
     override var currentEnvironmentValues: EnvironmentValues = _
 
@@ -87,7 +87,7 @@ object Environment:
           .fold("Not available")(res => res.toString)
       )
 
-    private def getEnvironmentValues() : Unit =
+    private def getEnvironmentValues =
       Task{
         val apiKey = "b619d3592d8b426e8cc92336220107"
         val query =

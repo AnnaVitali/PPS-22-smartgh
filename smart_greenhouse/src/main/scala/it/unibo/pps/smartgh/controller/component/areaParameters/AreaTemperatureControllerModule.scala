@@ -4,6 +4,7 @@ import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersCo
 import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaModelModule}
 import it.unibo.pps.smartgh.model.sensor.SensorStatus
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaTemperatureViewModule
+import org.scalactic.TripleEquals.convertToEqualizer
 
 object AreaTemperatureControllerModule:
 
@@ -47,7 +48,7 @@ object AreaTemperatureControllerModule:
 
       override def temperature: Double = areaModel.temperature
       override def updTempValue(value: Double): Unit = areaModel.updTemperature(value)
-      override def isGatesOpen: Boolean = areaModel.gatesState == AreaGatesState.Open
+      override def isGatesOpen: Boolean = areaModel.gatesState === AreaGatesState.Open
       override def openGates(): Unit = areaModel.updGateState(AreaGatesState.Open)
       override def closeGates(): Unit = areaModel.updGateState(AreaGatesState.Close)
 

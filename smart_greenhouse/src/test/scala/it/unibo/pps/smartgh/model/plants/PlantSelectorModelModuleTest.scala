@@ -29,7 +29,7 @@ class PlantSelectorModelModuleTest
   private var subscription: Option[Cancelable] = None
 
   after {
-    if subscription.isDefined then subscription.get.cancel()
+    if subscription.isDefined then subscription.getOrElse(cancel())
   }
 
   test(s"$PS should show all the possible plants that can be cultivated") {
@@ -110,7 +110,7 @@ class PlantSelectorModelModuleTest
     val errorMessage = "You can't deselect a plant that hasn't been selected!"
     val onError: Throwable => Unit = (ex: Throwable) => {
       assert(ex.isInstanceOf[NoSuchElementException])
-      assert(ex.getMessage.equals(errorMessage))
+      assert(ex.getMessage === errorMessage)
     }
     subscription = Some(plantSelectorModel.registerCallbackPlantSelection(_ => Continue, onError, () => {}))
     plantSelectorModel.deselectPlant(notSelectedPlant)

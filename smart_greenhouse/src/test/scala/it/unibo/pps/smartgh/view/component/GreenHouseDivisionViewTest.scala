@@ -92,7 +92,7 @@ class GreenHouseDivisionViewTest extends AbstractViewTest:
     import it.unibo.pps.smartgh.model.area.AreaGatesState
     import it.unibo.pps.smartgh.model.sensor.SensorStatus
     import monix.execution.Scheduler.Implicits.global
-    val areaModel = ghMVC.ghDivisionModel.areas.head.areaModel
+    val areaModel = ghMVC.ghDivisionModel.areas.headOption.get.areaModel
     areaModel.updBrightnessOfLamp(0)
     val subjectEnvironment: ConcurrentSubject[Double, Double] =
       ConcurrentSubject[Double](MulticastStrategy.publish)

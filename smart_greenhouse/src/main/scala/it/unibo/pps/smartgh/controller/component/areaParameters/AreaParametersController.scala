@@ -7,6 +7,7 @@ import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.Are
 import monix.execution.Cancelable
 import monix.execution.Scheduler.Implicits.global
 import monix.reactive.Observable
+import org.scalactic.TripleEquals.convertToEqualizer
 
 import scala.concurrent.duration.DurationInt
 
@@ -42,5 +43,5 @@ object AreaParametersController:
       subscriptionTimeout.cancel()
 
     protected def updateValues(view: AreaParametersView): Unit =
-      updateStateMessage(sensor.message, sensor.status == SensorStatus.ALARM)
+      updateStateMessage(sensor.message, sensor.status === SensorStatus.ALARM)
       view.updateCurrentValue("%.2f %s".format(sensor.actualVal, sensor.um), sensor.status.toString)

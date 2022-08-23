@@ -114,7 +114,7 @@ class AreaTest extends AnyFunSuite with AreaModelModule.Interface with Matchers:
     import it.unibo.pps.smartgh.model.sensor.SensorStatus
     import monix.execution.Scheduler.Implicits.global
     areaModel.updBrightnessOfLamp(0)
-    val lumSensor = areaModel.sensors.find(ms => ms.name == "Brightness").orNull
+    val lumSensor = areaModel.sensors.find(ms => ms.name === "Brightness").orNull
     lumSensor.status mustEqual SensorStatus.NORMAL
     val subjectEnvironment: ConcurrentSubject[Double, Double] =
       ConcurrentSubject[Double](MulticastStrategy.publish)

@@ -7,6 +7,7 @@ import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersCo
 import it.unibo.pps.smartgh.model.area.{AreaAtomiseState, AreaModelModule, AreaVentilationState}
 import it.unibo.pps.smartgh.model.sensor.SensorStatus
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaAirHumidityViewModule
+import org.scalactic.TripleEquals.convertToEqualizer
 
 object AreaAirHumidityControllerModule:
 
@@ -55,7 +56,7 @@ object AreaAirHumidityControllerModule:
         areaModel.updVentilationState(AreaVentilationState.VentilationInactive)
 
       override def isVentilationActivated: Boolean =
-        areaModel.ventilationState == AreaVentilationState.VentilationActive
+        areaModel.ventilationState === AreaVentilationState.VentilationActive
 
       override def atomiseArea(): Unit =
         areaModel.updAtomizeState(AreaAtomiseState.AtomisingActive)
@@ -63,7 +64,7 @@ object AreaAirHumidityControllerModule:
       override def disableAtomiseArea(): Unit =
         areaModel.updAtomizeState(AreaAtomiseState.AtomisingInactive)
 
-      override def isAtomiserActivated: Boolean = areaModel.atomiserState == AreaAtomiseState.AtomisingActive
+      override def isAtomiserActivated: Boolean = areaModel.atomiserState === AreaAtomiseState.AtomisingActive
 
   trait Interface extends Provider with Component:
     self: Requirements =>

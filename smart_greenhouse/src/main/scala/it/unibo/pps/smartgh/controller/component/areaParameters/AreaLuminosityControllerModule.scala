@@ -5,6 +5,7 @@ import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaModelModule, AreaShi
 import it.unibo.pps.smartgh.model.sensor.SensorStatus
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaLuminosityViewModule.AreaLuminosityView
 import it.unibo.pps.smartgh.view.component.areaParameters.{AreaLuminosityViewModule, AreaParametersView}
+import org.scalactic.TripleEquals.convertToEqualizer
 
 object AreaLuminosityControllerModule:
 
@@ -51,7 +52,7 @@ object AreaLuminosityControllerModule:
 
       override protected def updateValues(view: AreaParametersView.AreaParametersView): Unit =
         super.updateValues(view)
-        view.asInstanceOf[AreaLuminosityView].checkGatesState(areaModel.gatesState == AreaGatesState.Open)
+        view.asInstanceOf[AreaLuminosityView].checkGatesState(areaModel.gatesState === AreaGatesState.Open)
 
   trait Interface extends Provider with Component:
     self: Requirements =>

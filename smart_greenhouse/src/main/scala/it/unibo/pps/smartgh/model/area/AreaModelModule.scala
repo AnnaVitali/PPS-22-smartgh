@@ -1,8 +1,8 @@
 package it.unibo.pps.smartgh.model.area
 
 import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
-import it.unibo.pps.smartgh.model.area.{AreaComponentsState, AreaGatesState}
 import it.unibo.pps.smartgh.model.area.ManageSensor.ManageSensorImpl
+import it.unibo.pps.smartgh.model.area.{AreaComponentsState, AreaGatesState}
 import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.model.sensor.*
 import it.unibo.pps.smartgh.model.time.Timer
@@ -10,8 +10,9 @@ import monix.eval.Task
 import monix.execution.Ack.{Continue, Stop}
 import monix.execution.Scheduler.Implicits.global
 import monix.reactive.MulticastStrategy.Behavior
-import monix.reactive.{MulticastStrategy, Observable}
 import monix.reactive.subjects.ConcurrentSubject
+import monix.reactive.{MulticastStrategy, Observable}
+import org.scalactic.TripleEquals.convertToEqualizer
 
 import scala.math.BigDecimal
 
@@ -282,7 +283,7 @@ object AreaModelModule:
         areaComponentState.shieldState = state
         notifySensorStatusChange()
 
-      override def isShielded: Boolean = areaComponentState.shieldState == AreaShieldState.Down
+      override def isShielded: Boolean = areaComponentState.shieldState === AreaShieldState.Down
 
       override def ventilationState: AreaVentilationState = areaComponentState.ventilationState
 
@@ -297,17 +298,17 @@ object AreaModelModule:
 
       private def checkAlarm(ms: ManageSensorImpl): Unit =
         if (ms.actualVal compareTo ms.min) < 0 || (ms.actualVal compareTo ms.max) > 0 then
-          if status == NORMAL then status = ALARM
+          if status === NORMAL then status = ALARM
           ms.status = SensorStatus.ALARM
         else
           ms.status = SensorStatus.NORMAL
-          if sensors.forall(ms => ms.status == SensorStatus.NORMAL) then status = NORMAL
+          if sensors.forall(ms => ms.status === SensorStatus.NORMAL) then status = NORMAL
 
       private def configSensors(): Unit =
         sensorsMap.foreach { (name, sensor) =>
           sensor.registerValueCallback(
             v => {
-              val ms = sensors.find(ms => ms.name == name).orNull
+              val ms = sensors.find(ms => ms.name === name).orNull
               ms.actualVal = BigDecimal(v).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble
               checkAlarm(ms)
               Continue
