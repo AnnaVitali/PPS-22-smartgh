@@ -14,7 +14,12 @@
 //TODO Maria
 
 ### 4.2.2 Selezione delle piante
-//TODO Anna
+Per poter realizzare il meccanismo di selezione delle piante si è deciso di adottare, come già detto precedentemente, il Pattern MVC e il Cake Pattern.
+
+In particolare, come si può vedere dalla figura …. La classe PlantSelectorMVC, racchiude i componenti: PlantSelectorModel, PlantSelectorController e PlantSelectorView derivanti dai rispettivi moduli. L’adozione di quest’architettura, quindi, non rende più necessaria l’istanziazione di ogni componente e il loro successivo collegamento per risolvere le diverse dipendenze, ma gli elementi del pattern MVC vengono racchiusi all’interno di PlantSelectorMVC e possono essere acceduti liberamente.
+
+Per poter utilizzare PlantSelectorModel, PlantSelectorController o PlantSelectorView, basterà semplicemente istanziare PlantSelectorMVC e accedere ai suoi elementi. 
+
 
 #### 4.2.2.1 Plant
 //TODO Vero
