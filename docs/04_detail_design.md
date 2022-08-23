@@ -20,13 +20,12 @@ In particolare, come si può vedere dalla figura [4.2.2.1], la classe `PlantSele
 
 Per poter utilizzare `PlantSelectorModel`, `PlantSelectorController` o `PlantSelectorView`, basterà semplicemente istanziare `PlantSelectorMVC` e accedere ai suoi elementi. 
 
-![plant selector MVC][4.2.2.1]
+<div align="center">
+  <img src="img/plant_selector_MVC.png" />
+  <p> Fig. 4.2.2.1 - Architettura PlantSelectorMVC </p>
+</div>
 
 [4.2.2.1]: img/plant_selector_MVC.png
-
-<p align = "center">
-Fig. 4.2.2.1 - Architettura PlantSelectorMVC
-</p>
 
 #### 4.2.2.1 Plant
 //TODO Vero
