@@ -27,7 +27,7 @@ class AreaAirHumidityViewModuleTest extends AbstractAreaParametersViewTest("Air 
   @Test
   def testVentilationBtn(robot: FxRobot): Unit =
     val button = getToggleButton(robot, ventilationBtnId)
-    basicToggleButtonTest(button, ventilationBtnId, VentilationText.ACTIVATE.text)
+    basicToggleButtonTest(button, ventilationBtnId, VentilationText.ACTIVATE.text, false)
 
     robot.clickOn(ventilationBtnId)
 
@@ -37,7 +37,7 @@ class AreaAirHumidityViewModuleTest extends AbstractAreaParametersViewTest("Air 
   @Test
   def testAtomiserBtn(robot: FxRobot): Unit =
     val button = getToggleButton(robot, atomiserBtnId)
-    basicToggleButtonTest(button, atomiserBtnId, AtomiserText.ACTIVATE.text)
+    basicToggleButtonTest(button, atomiserBtnId, AtomiserText.ACTIVATE.text, false)
 
     robot.clickOn(atomiserBtnId)
 

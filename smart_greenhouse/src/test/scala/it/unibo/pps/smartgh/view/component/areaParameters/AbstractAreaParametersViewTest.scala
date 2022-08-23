@@ -51,7 +51,7 @@ abstract class AbstractAreaParametersViewTest(parameterName: String, sensorName:
   protected def getToggleButton(robot: FxRobot, buttonId: String): ToggleButton =
     robot.lookup(buttonId).queryAs(classOf[ToggleButton])
 
-  protected def basicToggleButtonTest(button: ToggleButton, buttonId: String, text: String): Unit =
+  protected def basicToggleButtonTest(button: ToggleButton, buttonId: String, text: String, selected: Boolean): Unit =
     verifyThat(buttonId, isVisible)
-    assertFalse(button.isSelected)
+    assertTrue(button.isSelected == selected)
     verifyThat(buttonId, hasText(text))
