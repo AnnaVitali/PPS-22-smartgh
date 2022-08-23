@@ -10,8 +10,8 @@ import javafx.scene.layout.{GridPane, StackPane, VBox}
 import scalafx.geometry.Pos
 import scalafx.scene.Cursor.Text
 import scalafx.scene.control.Button
-import scalafx.scene.paint.Color.*
 import scalafx.scene.layout.Pane
+import scalafx.scene.paint.Color.*
 import scalafx.scene.shape.Rectangle
 
 import scala.language.postfixOps
@@ -51,8 +51,10 @@ object GHViewModule:
       */
     class GreenHouseDivisionViewImpl() extends AbstractViewComponent[ScrollPane]("ghDivision.fxml") with GHDivisionView:
       override val component: ScrollPane = loader.load[ScrollPane]
+      //noinspection VarCouldBeVal
       override var baseView: BaseView = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var env: GridPane = _
 
@@ -69,6 +71,7 @@ object GHViewModule:
         val cols = 5
         Platform.runLater(() =>
           env.getChildren.clear()
+          //noinspection VarCouldBeVal
           var count = 0
           for
             r <- 0 until Math.ceil(areas.length / cols).toInt + (if areas.length % cols == 0 then 0 else 1)

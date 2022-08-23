@@ -18,9 +18,11 @@ object AreaParametersView:
       extends AbstractViewComponent[A](fxmlFileName)
       with AreaParametersView:
 
+    //noinspection VarCouldBeVal
     @FXML
     var descriptionLabel: Label = _
 
+    //noinspection VarCouldBeVal
     @FXML
     var currentValueLabel: Label = _
 

@@ -1,12 +1,13 @@
 package it.unibo.pps.smartgh.model.city
 
+import it.unibo.pps.smartgh.Config
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.{BeforeAndAfter, BeforeAndAfterEach}
-import it.unibo.pps.smartgh.Config
 
 import java.io.FileNotFoundException
 import scala.io.Source
+
 /** This class contains the tests to verify that the [[UploadCities]] works correctly. */
 class UploadCitiesTest extends AnyFunSuite with Matchers:
   private val path = Config.path

@@ -2,16 +2,17 @@ package it.unibo.pps.smartgh.view.component
 
 import it.unibo.pps.smartgh.controller.component.EnvironmentControllerModule
 import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
-import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
-import javafx.scene.control.*
-import javafx.scene.layout.BorderPane
 import it.unibo.pps.smartgh.view.component.GHViewModule.GHDivisionView
+import it.unibo.pps.smartgh.view.component.HelpView
+import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.application.Platform
 import javafx.fxml.FXML
+import javafx.scene.control.*
+import javafx.scene.layout.BorderPane
 import javafx.stage.Stage
-import scala.language.postfixOps
-import it.unibo.pps.smartgh.view.component.HelpView
 import scalafx.application.JFXApp3.Stage
+
+import scala.language.postfixOps
 
 /** Object that encloses the view module to display ambient environment's values and simulation time. */
 object EnvironmentViewModule:
@@ -77,12 +78,14 @@ object EnvironmentViewModule:
 
       override val component: BorderPane = loader.load[BorderPane]
 
+      //noinspection VarCouldBeVal
       @FXML
       var timeSpeedSlider: Slider = _
 
       @FXML
       var setDayLabel: Label = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var setLocationLabel: Label = _
 
@@ -101,9 +104,11 @@ object EnvironmentViewModule:
       @FXML
       var setConditionLabel: Label = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var timeElapsedLabel: Label = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var helpButton: Button = _
 

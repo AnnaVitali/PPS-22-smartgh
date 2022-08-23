@@ -1,16 +1,16 @@
 package it.unibo.pps.smartgh.view
 
-import scalafx.scene.Scene
-import scalafx.Includes.*
+import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
+import it.unibo.pps.smartgh.mvc.component.{EnvironmentMVC, SelectCityMVC}
+import it.unibo.pps.smartgh.mvc.{SimulationMVC, component}
 import it.unibo.pps.smartgh.view.component.*
+import javafx.application.Platform
 import javafx.geometry.Pos
 import javafx.scene.Parent
 import javafx.scene.layout.BorderPane
 import javafx.stage.Stage
-import it.unibo.pps.smartgh.mvc.{SimulationMVC, component}
-import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
-import it.unibo.pps.smartgh.mvc.component.{EnvironmentMVC, SelectCityMVC}
-import javafx.application.Platform
+import scalafx.Includes.*
+import scalafx.scene.Scene
 
 /** Object that encloses the view module for the simulation. */
 object SimulationViewModule:

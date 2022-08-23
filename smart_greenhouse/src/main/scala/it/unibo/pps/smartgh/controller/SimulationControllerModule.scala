@@ -4,10 +4,10 @@ import it.unibo.pps.smartgh.controller.component.EnvironmentControllerModule.Env
 import it.unibo.pps.smartgh.controller.component.PlantSelectorControllerModule.Requirements
 import it.unibo.pps.smartgh.model.greenhouse.Environment
 import it.unibo.pps.smartgh.model.greenhouse.EnvironmentModelModule.EnvironmentModel
-import it.unibo.pps.smartgh.model.time.{TimeModel, Timer}
-import it.unibo.pps.smartgh.view.component.EnvironmentViewModule.EnvironmentView
-import it.unibo.pps.smartgh.view.SimulationViewModule
 import it.unibo.pps.smartgh.model.plants.Plant
+import it.unibo.pps.smartgh.model.time.{TimeModel, Timer}
+import it.unibo.pps.smartgh.view.SimulationViewModule
+import it.unibo.pps.smartgh.view.component.EnvironmentViewModule.EnvironmentView
 
 /** Object that encloses the controller module for the simulation. */
 object SimulationControllerModule:
@@ -69,6 +69,7 @@ object SimulationControllerModule:
     /** Object that can be used to create a new instance of [[SimulationController]]. */
     class SimulationControllerImpl extends SimulationController:
 
+      //noinspection VarCouldBeVal
       override var environmentController: EnvironmentController = _
       override var environment: Environment = _
       override var plantsSelected: List[Plant] = _

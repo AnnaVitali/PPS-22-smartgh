@@ -1,9 +1,9 @@
 package it.unibo.pps.smartgh.model.time
 
 import monix.eval.Task
+import monix.execution.Cancelable
 import monix.execution.Scheduler.Implicits.global
 import monix.execution.schedulers.TestScheduler
-import monix.execution.Cancelable
 import monix.reactive.Observable
 
 import java.util.concurrent.TimeUnit

@@ -1,14 +1,13 @@
 package it.unibo.pps.smartgh.model.plants
 
-import org.scalatest.BeforeAndAfter
 import alice.tuprolog.Theory
-import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.PlantSelectorModel
-import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.Component
-import org.scalatest.funsuite.AnyFunSuite
-import org.scalatest.matchers.should.Matchers
 import it.unibo.pps.smartgh.Config
+import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.{Component, PlantSelectorModel}
 import monix.execution.Ack.{Continue, Stop}
 import monix.execution.Cancelable
+import org.scalatest.BeforeAndAfter
+import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.matchers.should.Matchers
 
 import java.util.NoSuchElementException
 
@@ -33,7 +32,7 @@ class PlantSelectorModelModuleTest
     if subscription.isDefined then subscription.get.cancel()
   }
 
-  test(s"$PS should show all the possibile plants that can be cultivated") {
+  test(s"$PS should show all the possible plants that can be cultivated") {
     plantsNameList = plantSelectorModel.getAllAvailablePlants
     plantsNameList.size should be > 0
   }

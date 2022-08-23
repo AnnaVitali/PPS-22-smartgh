@@ -32,18 +32,23 @@ object AreaTemperatureViewModule:
       private val tempRange = (10.0 + tempStep, 40.0 - tempStep)
       private val areaTemperatureController = parameterController.asInstanceOf[AreaTemperatureController]
 
+      //noinspection VarCouldBeVal
       @FXML
       var openStructureBtn: ToggleButton = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var closeStructureBtn: ToggleButton = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var regulateTempLabel: Label = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var minusTempBtn: Button = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var plusTempBtn: Button = _
 

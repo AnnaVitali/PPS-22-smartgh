@@ -3,14 +3,14 @@ package it.unibo.pps.smartgh.model.city
 import it.unibo.pps.smartgh.model.greenhouse.Environment
 import org.scalatest.BeforeAndAfter
 import org.scalatest.concurrent.Eventually.eventually
+import org.scalatest.concurrent.Futures.timeout
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.matchers.should.Matchers.shouldNot
 import org.scalatest.time.{Milliseconds, Span}
-import org.scalatest.concurrent.Futures.timeout
 
-import java.time.{LocalDateTime, ZonedDateTime}
 import java.time.format.DateTimeFormatter
+import java.time.{LocalDateTime, ZonedDateTime}
 import scala.collection.immutable.HashMap
 
 /** This class contains the tests to verify that the [[Environment]] works correctly. */

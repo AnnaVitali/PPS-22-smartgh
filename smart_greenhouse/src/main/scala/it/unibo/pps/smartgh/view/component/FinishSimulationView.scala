@@ -7,8 +7,8 @@ import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.application.Platform
 import javafx.fxml.FXML
 import javafx.geometry.Pos
-import javafx.scene.layout.BorderPane
 import javafx.scene.control.{Button, Label}
+import javafx.scene.layout.BorderPane
 import scalafx.application.JFXApp3.PrimaryStage
 
 /** A trait that represents the view of the last scene of the simulation. */
@@ -35,6 +35,7 @@ object FinishSimulationView:
 
     override val component: BorderPane = loader.load[BorderPane]
 
+    //noinspection VarCouldBeVal
     @FXML
     var simulationEndedLabel: Label = _
 

@@ -1,9 +1,9 @@
 package it.unibo.pps.smartgh.model.greenhouse
 
+import monix.execution.Scheduler.Implicits.global
 import monix.execution.{Ack, Cancelable}
 import monix.reactive.MulticastStrategy
 import monix.reactive.subjects.ConcurrentSubject
-import monix.execution.Scheduler.Implicits.global
 
 /** Object that encloses the model module to manage ambient environment values and simulation time. */
 object EnvironmentModelModule:

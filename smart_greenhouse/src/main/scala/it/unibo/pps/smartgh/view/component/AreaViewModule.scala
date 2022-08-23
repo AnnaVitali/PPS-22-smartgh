@@ -45,6 +45,7 @@ object AreaViewModule:
     class AreaViewImpl(simulationView: SimulationView) extends AbstractViewComponent[VBox]("area.fxml") with AreaView:
 
       override val component: VBox = loader.load[VBox]
+      //noinspection VarCouldBeVal
       override var baseView: BaseView = _
 
       @FXML
@@ -53,6 +54,7 @@ object AreaViewModule:
       var rect: VBox = _
       @FXML
       var areaBt: Button = _
+      //noinspection VarCouldBeVal
       @FXML
       var plant: Label = _
 

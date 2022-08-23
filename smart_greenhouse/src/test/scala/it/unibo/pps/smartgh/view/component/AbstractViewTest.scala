@@ -4,9 +4,9 @@ import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.view.SimulationViewModule
 import javafx.scene.Parent
 import javafx.stage.Stage
-import org.junit.jupiter.api.{BeforeAll, TestInstance}
 import org.junit.jupiter.api.TestInstance.Lifecycle
 import org.junit.jupiter.api.extension.ExtendWith
+import org.junit.jupiter.api.{BeforeAll, TestInstance}
 import org.testfx.framework.junit5.{ApplicationExtension, Start}
 import org.testfx.util.WaitForAsyncUtils
 import scalafx.scene.Scene
@@ -16,7 +16,7 @@ abstract class AbstractViewTest:
 
   protected var simulationMVC: SimulationMVCImpl = _
   protected val appTitle = "Smart Greenhouse"
-  protected val appSubtitle = "Simula la tua serra intelligente"
+  protected val appSubtitle = "Simulate your smart greenhouse"
 
   @BeforeAll
   def setup(): Unit =

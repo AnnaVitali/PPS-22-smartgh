@@ -1,23 +1,21 @@
 package it.unibo.pps.smartgh.view.component
 
-import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
-import it.unibo.pps.smartgh.view.component.EnvironmentViewModule.EnvironmentView
-import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
-import javafx.event.{ActionEvent, EventHandler}
-import javafx.fxml.FXML
-import javafx.scene.layout.{HBox, VBox}
-import javafx.scene.control.{CheckBox, Label}
-import javafx.scene.layout.BorderPane
 import cats.syntax.eq.catsSyntaxEq
 import it.unibo.pps.smartgh.controller.component.PlantSelectorControllerModule
 import it.unibo.pps.smartgh.model.greenhouse.Environment
-import it.unibo.pps.smartgh.model.plants.{PlantSelectorModelModule, UploadPlants}
-import javafx.application.Platform
+import it.unibo.pps.smartgh.model.plants.{Plant, PlantSelectorModelModule, UploadPlants}
 import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
-import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.mvc.component.EnvironmentMVC
+import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
+import it.unibo.pps.smartgh.view.component.EnvironmentViewModule.EnvironmentView
 import it.unibo.pps.smartgh.view.component.LoadingPlantViewModule.LoadingPlantView
+import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
+import javafx.application.Platform
+import javafx.event.{ActionEvent, EventHandler}
+import javafx.fxml.FXML
+import javafx.scene.control.{CheckBox, Label}
+import javafx.scene.layout.{BorderPane, HBox, VBox}
 
 import scala.jdk.javaapi.CollectionConverters.asJavaCollection
 import scala.language.postfixOps
@@ -78,21 +76,27 @@ object SelectPlantViewModule:
       @FXML
       var selectablePlantsBox: VBox = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var selectedPlantsBox: VBox = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var selectYourPlantLabel: Label = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var plantsSelectedLabel: Label = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var countLabel: Label = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var numberPlantsSelectedLabel: Label = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var errorLabel: Label = _
 
@@ -108,6 +112,7 @@ object SelectPlantViewModule:
 
       override def showSelectablePlants(selectablePlantList: List[String]): Unit =
         Platform.runLater(() =>
+          //noinspection ScalaUnnecessaryParentheses
           val selectablePlantsCheckBoxList = selectablePlantList.map(new CheckBox(_))
           addEventHandlerToCheckBoxes(selectablePlantsCheckBoxList)
           selectablePlantsBox.getChildren.addAll(asJavaCollection(selectablePlantsCheckBoxList))

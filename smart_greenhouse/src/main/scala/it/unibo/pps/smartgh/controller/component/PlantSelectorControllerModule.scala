@@ -1,17 +1,16 @@
 package it.unibo.pps.smartgh.controller.component
 
-import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule
+import it.unibo.pps.smartgh.model.plants
+import it.unibo.pps.smartgh.model.plants.{Plant, PlantSelectorModelModule}
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.mvc.component
-import it.unibo.pps.smartgh.view.component.{BaseView, SelectPlantViewModule}
-import it.unibo.pps.smartgh.model.plants
-import monix.execution.Ack.Continue
-import it.unibo.pps.smartgh.model.plants.Plant
-
-import concurrent.{Future, Promise}
-import monix.execution.{Ack, Cancelable}
 import it.unibo.pps.smartgh.mvc.component.EnvironmentMVC.EnvironmentMVCImpl
 import it.unibo.pps.smartgh.mvc.component.LoadingPlantMVC
+import it.unibo.pps.smartgh.view.component.{BaseView, SelectPlantViewModule}
+import monix.execution.Ack.Continue
+import monix.execution.{Ack, Cancelable}
+
+import scala.concurrent.{Future, Promise}
 
 /** Object that encloses the controller module for the plant selection. */
 object PlantSelectorControllerModule:

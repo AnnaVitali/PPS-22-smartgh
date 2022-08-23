@@ -5,6 +5,7 @@ import java.nio.file.{Files, Path}
 import scala.io.{BufferedSource, Codec, Source}
 import scala.language.postfixOps
 import scala.util.Using
+
 /** This trait exposes methods for managing the uploading of cities into a prolog file. */
 trait UploadCities:
 

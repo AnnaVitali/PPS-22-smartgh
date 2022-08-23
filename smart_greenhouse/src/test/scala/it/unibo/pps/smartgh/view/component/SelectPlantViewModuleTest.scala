@@ -91,6 +91,7 @@ class SelectPlantViewModuleTest extends AbstractViewTest:
     assert(robot.lookup(selectedPlantBoxId).queryAs(classOf[VBox]).getChildren.size == selectedPlantNumber)
     verifyThat(numberPlantsSelectedId, hasText(selectedPlantNumber.toString))
 
+  //noinspection DfaConstantConditions
   @Test def testPlantDeselection(robot: FxRobot): Unit =
     val plantIndex = 0
     val selectedPlantNumber = 0

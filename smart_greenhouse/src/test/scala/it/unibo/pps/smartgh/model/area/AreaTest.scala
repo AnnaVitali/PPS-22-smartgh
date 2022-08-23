@@ -111,8 +111,8 @@ class AreaTest extends AnyFunSuite with AreaModelModule.Interface with Matchers:
   }
 
   test("if a sensor has the current value out of the optimal values range its status must be ALARM") {
-    import monix.execution.Scheduler.Implicits.global
     import it.unibo.pps.smartgh.model.sensor.SensorStatus
+    import monix.execution.Scheduler.Implicits.global
     areaModel.updBrightnessOfLamp(0)
     val lumSensor = areaModel.sensors.find(ms => ms.name == "Brightness").orNull
     lumSensor.status mustEqual SensorStatus.NORMAL
@@ -122,5 +122,4 @@ class AreaTest extends AnyFunSuite with AreaModelModule.Interface with Matchers:
     subjectEnvironment.onNext(0)
     Thread.sleep(5000)
     lumSensor.status mustEqual SensorStatus.ALARM
-
   }

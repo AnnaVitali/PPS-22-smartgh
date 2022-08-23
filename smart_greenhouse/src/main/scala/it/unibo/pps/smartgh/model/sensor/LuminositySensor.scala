@@ -1,23 +1,20 @@
 package it.unibo.pps.smartgh.model.sensor
 
 import com.sun.javafx.webkit.theme.ContextMenuImpl
-import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsLuminosity
-import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
-import it.unibo.pps.smartgh.model.sensor.AbstractSensor
-import monix.execution.Ack
-import monix.reactive.Observable
-
-import scala.util.Random
-import monix.execution.Scheduler.Implicits.global
-import monix.reactive.subjects.ConcurrentSubject
-import monix.reactive.MulticastStrategy.Behavior
-import monix.reactive.MulticastStrategy
-import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaShieldState}
 import it.unibo.pps.smartgh.model.area.AreaComponentsState.*
+import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaShieldState}
+import it.unibo.pps.smartgh.model.sensor.AbstractSensor
+import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsLuminosity
 import monix.eval.Task
+import monix.execution.Ack
 import monix.execution.Ack.Continue
+import monix.execution.Scheduler.Implicits.global
+import monix.reactive.MulticastStrategy.Behavior
+import monix.reactive.{MulticastStrategy, Observable}
+import monix.reactive.subjects.ConcurrentSubject
 
 import scala.concurrent.Future
+import scala.util.Random
 
 /** Object that enclose the implementation of the luminosity sensor. */
 object LuminositySensor:

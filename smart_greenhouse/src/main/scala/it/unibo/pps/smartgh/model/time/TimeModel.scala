@@ -1,17 +1,16 @@
 package it.unibo.pps.smartgh.model.time
 
 import it.unibo.pps.smartgh.controller.SimulationControllerModule.SimulationController
+import it.unibo.pps.smartgh.model.time.Timer
+import monix.eval.Task
+import monix.execution.Scheduler.Implicits.global
 import org.apache.commons.lang3.time.DurationFormatUtils
 
 import java.lang.module.FindException
 import scala.concurrent.duration.*
+import scala.concurrent.{Await, Future}
 import scala.language.postfixOps
 import scala.math.{exp, log, pow}
-import it.unibo.pps.smartgh.model.time.Timer
-import monix.eval.Task
-import monix.execution.Scheduler.Implicits.global
-
-import scala.concurrent.{Await, Future}
 import scala.util.{Failure, Success}
 
 /** A trait that exposes methods to manage the time of the simulation, it represents its model. */
@@ -49,6 +48,7 @@ object TimeModel:
 
   private class TimeModelImpl() extends TimeModel:
 
+    //noinspection VarCouldBeVal
     override var controller: SimulationController = _
     private val endSimulation: FiniteDuration = 1 day
     override val timer: Timer = Timer(endSimulation)

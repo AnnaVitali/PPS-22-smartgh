@@ -4,7 +4,7 @@ import it.unibo.pps.smartgh.controller.SimulationControllerModule
 import it.unibo.pps.smartgh.view.SimulationViewModule
 import javafx.stage.Stage
 
-/** Object that incapsulate the model view and controller module for the simulation. */
+/** Object that incapsulates the model view and controller module for the simulation. */
 object SimulationMVC:
 
   /** Create a new [[SimulationMVCImpl]].

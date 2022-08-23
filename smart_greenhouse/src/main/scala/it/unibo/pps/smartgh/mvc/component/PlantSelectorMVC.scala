@@ -1,8 +1,8 @@
 package it.unibo.pps.smartgh.mvc.component
 
 import it.unibo.pps.smartgh.Config
-import it.unibo.pps.smartgh.controller.component.PlantSelectorControllerModule.PlantSelectorController
 import it.unibo.pps.smartgh.controller.component.PlantSelectorControllerModule
+import it.unibo.pps.smartgh.controller.component.PlantSelectorControllerModule.PlantSelectorController
 import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule
 import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.PlantSelectorModel
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl

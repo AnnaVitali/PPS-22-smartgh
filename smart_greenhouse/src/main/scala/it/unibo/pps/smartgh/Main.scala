@@ -1,13 +1,13 @@
 package it.unibo.pps.smartgh
 
+import it.unibo.pps.smartgh.Config
 import it.unibo.pps.smartgh.model.city.UploadCities
 import it.unibo.pps.smartgh.model.plants.UploadPlants
 import it.unibo.pps.smartgh.mvc.SimulationMVC
-import scalafx.application.JFXApp3
-import scalafx.application.JFXApp3.PrimaryStage
 import it.unibo.pps.smartgh.view.SimulationViewModule
 import scalafx.Includes.*
-import it.unibo.pps.smartgh.Config
+import scalafx.application.JFXApp3
+import scalafx.application.JFXApp3.PrimaryStage
 
 /** Main class of the application. */
 object Main extends JFXApp3:

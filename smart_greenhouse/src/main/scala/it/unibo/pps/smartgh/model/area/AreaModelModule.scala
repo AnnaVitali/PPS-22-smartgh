@@ -1,27 +1,17 @@
 package it.unibo.pps.smartgh.model.area
 
+import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
+import it.unibo.pps.smartgh.model.area.{AreaComponentsState, AreaGatesState}
 import it.unibo.pps.smartgh.model.area.ManageSensor.ManageSensorImpl
 import it.unibo.pps.smartgh.model.plants.Plant
-import it.unibo.pps.smartgh.model.sensor.{
-  AirHumiditySensor,
-  LuminositySensor,
-  Sensor,
-  SensorWithTimer,
-  SoilHumiditySensor,
-  TemperatureSensor
-}
-import it.unibo.pps.smartgh.model.area.AreaComponentsState
-import it.unibo.pps.smartgh.model.area.AreaGatesState
-import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
-import monix.reactive.subjects.ConcurrentSubject
-import monix.reactive.MulticastStrategy.Behavior
-import monix.reactive.Observable
-import monix.reactive.MulticastStrategy
-import monix.execution.Scheduler.Implicits.global
+import it.unibo.pps.smartgh.model.sensor.*
 import it.unibo.pps.smartgh.model.time.Timer
-import monix.execution.Ack.{Continue, Stop}
-import it.unibo.pps.smartgh.model.sensor.SensorStatus
 import monix.eval.Task
+import monix.execution.Ack.{Continue, Stop}
+import monix.execution.Scheduler.Implicits.global
+import monix.reactive.MulticastStrategy.Behavior
+import monix.reactive.{MulticastStrategy, Observable}
+import monix.reactive.subjects.ConcurrentSubject
 
 import scala.math.BigDecimal
 

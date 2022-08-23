@@ -1,19 +1,17 @@
 package it.unibo.pps.smartgh.model.plants
 
+import cats.syntax.eq.catsSyntaxEq
+import monix.eval.Task
+import monix.execution.Ack
+import monix.execution.Scheduler.Implicits.global
+import monix.reactive.MulticastStrategy.Behavior
+import monix.reactive.{MulticastStrategy, Observable}
+import monix.reactive.subjects.ConcurrentSubject
 import org.json4s.*
 import org.json4s.jackson.JsonMethods.*
 import requests.*
-import cats.syntax.eq.catsSyntaxEq
 
-import monix.eval.Task
-import monix.reactive.subjects.ConcurrentSubject
-import monix.reactive.MulticastStrategy.Behavior
-import monix.reactive.Observable
-import monix.reactive.MulticastStrategy
-import monix.execution.Scheduler.Implicits.global
-import monix.execution.Ack
-
-import concurrent.{Future, Promise}
+import scala.concurrent.{Future, Promise}
 
 /** This trait exposes methods for managing a selected plant, it represents its model. */
 trait Plant:
@@ -70,6 +68,7 @@ object Plant:
 
     private def getAccessToken: String =
       val clientID = "jQ2R0lkr7HHoOnK4woHxhHSwY3DO453BEoSe8tKZ"
+      //noinspection SpellCheckingInspection
       val clientSecret =
         "ZmhY9u1uNecGqnX5tmm8t0Tqj4h8OhQD52kp5fTxiyP3Q0DnF0LqVIxPjqvidYuTqeQ1YEZkDG4sgjSm4QHmLFkEbXA7wwizI00SS2BfoDc1WL3xDDiR6l6VtdCTvgT0"
       val url = "https://open.plantbook.io/api/v1/token/"

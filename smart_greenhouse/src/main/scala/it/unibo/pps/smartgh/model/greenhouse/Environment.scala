@@ -2,6 +2,7 @@ package it.unibo.pps.smartgh.model.greenhouse
 
 import monix.eval.Task
 import monix.execution.Ack.Continue
+import monix.execution.Scheduler.Implicits.global
 import monix.execution.{Ack, Cancelable}
 import monix.reactive.MulticastStrategy
 import monix.reactive.subjects.ConcurrentSubject
@@ -10,7 +11,6 @@ import org.json4s.jackson.JsonMethods.*
 import requests.Response
 
 import scala.concurrent.Future
-import monix.execution.Scheduler.Implicits.global
 
 /** This trait exposes methods for managing the environment, represents its model. */
 trait Environment:
@@ -87,7 +87,7 @@ object Environment:
           .fold("Not available")(res => res.toString)
       )
 
-    private def getEnvironmentValues(): Unit =
+    private def getEnvironmentValues() : Unit =
       Task{
         val apiKey = "b619d3592d8b426e8cc92336220107"
         val query =

@@ -5,9 +5,10 @@ import it.unibo.pps.smartgh.model.greenhouse.GHModelModule
 import it.unibo.pps.smartgh.view.component.GHViewModule
 import monix.execution.Ack.Continue
 import monix.execution.Cancelable
-import monix.reactive.Observable
-import concurrent.duration.DurationInt
 import monix.execution.Scheduler.Implicits.global
+import monix.reactive.Observable
+
+import scala.concurrent.duration.DurationInt
 
 /** Implementation of the [[GHControllerModule]]. */
 object GHControllerModule:

@@ -1,11 +1,11 @@
 package it.unibo.pps.smartgh.model.time
 
 import it.unibo.pps.smartgh.model.time.Timer
-import org.scalatest.{BeforeAndAfter, durations}
 import org.scalatest.concurrent.Eventually
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.time.{Milliseconds, Seconds, Span}
+import org.scalatest.{BeforeAndAfter, durations}
 
 import scala.concurrent.duration.*
 import scala.language.postfixOps

@@ -2,13 +2,13 @@ package it.unibo.pps.smartgh.view.component
 
 import it.unibo.pps.smartgh.model.greenhouse.Environment
 import it.unibo.pps.smartgh.model.plants.Plant
-import it.unibo.pps.smartgh.mvc.{SimulationMVC, component}
 import it.unibo.pps.smartgh.mvc.component.EnvironmentMVC
+import it.unibo.pps.smartgh.mvc.{SimulationMVC, component}
 import javafx.scene.control.Slider
 import javafx.stage.Stage
-import org.junit.jupiter.api.{Test, TestInstance}
 import org.junit.jupiter.api.TestInstance.Lifecycle
 import org.junit.jupiter.api.extension.ExtendWith
+import org.junit.jupiter.api.{Test, TestInstance}
 import org.testfx.api.FxAssert.verifyThat
 import org.testfx.api.FxRobot
 import org.testfx.framework.junit5.{ApplicationExtension, Start}

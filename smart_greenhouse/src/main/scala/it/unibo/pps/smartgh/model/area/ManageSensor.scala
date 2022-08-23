@@ -1,6 +1,5 @@
 package it.unibo.pps.smartgh.model.area
-import it.unibo.pps.smartgh.model.sensor.Sensor
-import it.unibo.pps.smartgh.model.sensor.SensorStatus
+import it.unibo.pps.smartgh.model.sensor.{Sensor, SensorStatus}
 
 /** Implementation of the [[ManageSensor]]. */
 object ManageSensor:

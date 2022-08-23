@@ -1,6 +1,6 @@
 package it.unibo.pps.smartgh.model.city
 
-import alice.tuprolog.{Prolog, SolveInfo, Struct, Term, Theory}
+import alice.tuprolog.*
 
 import scala.io.{Codec, Source}
 import scala.util.Using

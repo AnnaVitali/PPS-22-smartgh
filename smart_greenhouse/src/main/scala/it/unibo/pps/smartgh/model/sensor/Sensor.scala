@@ -1,13 +1,13 @@
 package it.unibo.pps.smartgh.model.sensor
 
-import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
-import monix.execution.Ack
-import monix.reactive.{MulticastStrategy, Observable}
 import it.unibo.pps.smartgh.model.area.AreaComponentsState
+import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
 import it.unibo.pps.smartgh.model.time.Timer
-import monix.execution.Scheduler.Implicits.global
+import monix.execution.Ack
 import monix.execution.Ack.Continue
+import monix.execution.Scheduler.Implicits.global
 import monix.reactive.subjects.ConcurrentSubject
+import monix.reactive.{MulticastStrategy, Observable}
 
 import scala.concurrent.Future
 import scala.concurrent.duration.FiniteDuration
@@ -43,7 +43,7 @@ trait Sensor:
   /** Method that specifies which operations need to be performed when the user takes a new action.
     *
     * @return
-    *   a function that takes the action performed by the user and returns an [[Ack]] whether or not it is possibile to
+    *   a function that takes the action performed by the user and returns an [[Ack]] whether or not it is possible to
     *   continue with the operations.
     */
   def onNextAction(): AreaComponentsStateImpl => Future[Ack]
@@ -51,7 +51,7 @@ trait Sensor:
   /** Method that specifies which operations need to be performed when a new value for the parameter detected by the
     * sensor is emitted by the environment.
     * @return
-    *   a function that takes the emitted environment parameter and returns an [[Ack]] whether or not it is possibile to
+    *   a function that takes the emitted environment parameter and returns an [[Ack]] whether or not it is possible to
     *   continue with operations.
     */
   def onNextEnvironmentValue(): Double => Future[Ack]

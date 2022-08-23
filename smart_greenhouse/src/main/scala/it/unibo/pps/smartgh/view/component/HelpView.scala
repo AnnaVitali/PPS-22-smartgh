@@ -5,8 +5,8 @@ import javafx.fxml.FXML
 import javafx.scene.control.TextArea
 import javafx.scene.layout.BorderPane
 import javafx.stage.Stage
-import scalafx.scene.Scene
 import scalafx.Includes.*
+import scalafx.scene.Scene
 
 import scala.io.{BufferedSource, Source}
 import scala.language.postfixOps
@@ -37,6 +37,7 @@ object HelpView:
         stage.scene = scene
         stage.show()
 
+        //noinspection VarCouldBeVal
         @FXML
         var helpTextArea : TextArea = _
 

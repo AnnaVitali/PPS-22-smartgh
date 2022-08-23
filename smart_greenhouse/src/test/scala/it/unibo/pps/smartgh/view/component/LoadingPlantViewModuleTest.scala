@@ -1,19 +1,19 @@
 package it.unibo.pps.smartgh.view.component
 
-import it.unibo.pps.smartgh.mvc.component.PlantSelectorMVC.PlantSelectorMVCImpl
-import it.unibo.pps.smartgh.mvc.component.LoadingPlantMVC.LoadingPlantMVCImpl
 import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.component.LoadingPlantMVC
+import it.unibo.pps.smartgh.mvc.component.LoadingPlantMVC.LoadingPlantMVCImpl
+import it.unibo.pps.smartgh.mvc.component.PlantSelectorMVC.PlantSelectorMVCImpl
 import javafx.stage.Stage
-import org.junit.jupiter.api.{Test, TestInstance}
 import org.junit.jupiter.api.TestInstance.Lifecycle
 import org.junit.jupiter.api.extension.ExtendWith
-import org.testfx.api.FxRobot
+import org.junit.jupiter.api.{Test, TestInstance}
 import org.testfx.api.FxAssert.verifyThat
+import org.testfx.api.FxRobot
+import org.testfx.framework.junit5.{ApplicationExtension, Start}
 import org.testfx.matcher.base.NodeMatchers.{hasChildren, isVisible}
 import org.testfx.matcher.control.LabeledMatchers
 import org.testfx.matcher.control.LabeledMatchers.hasText
-import org.testfx.framework.junit5.{ApplicationExtension, Start}
 
 @TestInstance(Lifecycle.PER_CLASS)
 @ExtendWith(Array(classOf[ApplicationExtension]))

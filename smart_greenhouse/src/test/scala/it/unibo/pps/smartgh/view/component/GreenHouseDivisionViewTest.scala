@@ -18,10 +18,9 @@ import monix.reactive.MulticastStrategy
 import monix.reactive.subjects.ConcurrentSubject
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Assertions.{assertFalse, assertTrue}
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.{BeforeAll, TestInstance}
 import org.junit.jupiter.api.TestInstance.Lifecycle
 import org.junit.jupiter.api.extension.ExtendWith
+import org.junit.jupiter.api.{BeforeAll, Test, TestInstance}
 import org.testfx.api.FxAssert.verifyThat
 import org.testfx.api.FxRobot
 import org.testfx.framework.junit5.{ApplicationExtension, ApplicationTest, Start}
@@ -90,9 +89,9 @@ class GreenHouseDivisionViewTest extends AbstractViewTest:
     assertFalse(robot.lookup(areaBt).queryButton.getStyleClass.contains(normalStateClassStyle))
 
   @Test def testAreaChangeStatusWithSensor(robot: FxRobot): Unit =
-    import monix.execution.Scheduler.Implicits.global
-    import it.unibo.pps.smartgh.model.sensor.SensorStatus
     import it.unibo.pps.smartgh.model.area.AreaGatesState
+    import it.unibo.pps.smartgh.model.sensor.SensorStatus
+    import monix.execution.Scheduler.Implicits.global
     val areaModel = ghMVC.ghDivisionModel.areas.head.areaModel
     areaModel.updBrightnessOfLamp(0)
     val subjectEnvironment: ConcurrentSubject[Double, Double] =

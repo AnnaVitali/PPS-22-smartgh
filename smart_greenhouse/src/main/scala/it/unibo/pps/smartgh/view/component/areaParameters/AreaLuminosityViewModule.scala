@@ -34,12 +34,15 @@ object AreaLuminosityViewModule:
       override val component: GridPane = loader.load[GridPane]
       private val areaLuminosityController = parameterController.asInstanceOf[AreaLuminosityController]
 
+      //noinspection VarCouldBeVal
       @FXML
       var upShieldingBtn: ToggleButton = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var downShieldingBtn: ToggleButton = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var lampBrightnessSlider: Slider = _
 

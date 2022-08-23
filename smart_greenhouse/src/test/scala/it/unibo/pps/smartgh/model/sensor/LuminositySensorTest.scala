@@ -1,17 +1,16 @@
 package it.unibo.pps.smartgh.model.sensor
 
-import it.unibo.pps.smartgh.model.sensor.LuminositySensor.LuminositySensorImpl
-import it.unibo.pps.smartgh.model.area.AreaComponentsState
 import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
-import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaShieldState}
-import org.scalatest.funsuite.AnyFunSuite
+import it.unibo.pps.smartgh.model.area.{AreaComponentsState, AreaGatesState, AreaShieldState}
+import it.unibo.pps.smartgh.model.sensor.LuminositySensor.LuminositySensorImpl
 import monix.execution.Scheduler.Implicits.global
-import org.scalatest.matchers.should.Matchers
-import monix.reactive.subjects.ConcurrentSubject
-import monix.reactive.MulticastStrategy.Behavior
 import monix.reactive.MulticastStrategy
+import monix.reactive.MulticastStrategy.Behavior
+import monix.reactive.subjects.ConcurrentSubject
 import org.scalatest.BeforeAndAfter
 import org.scalatest.concurrent.Eventually
+import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.matchers.should.Matchers
 import org.scalatest.time.{Milliseconds, Span}
 
 import scala.util.Random

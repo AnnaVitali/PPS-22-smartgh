@@ -35,7 +35,7 @@ object LoadingPlantViewModule:
 
   /** Trait that represents the provider of the view, for loading the plant data. */
   trait Provider:
-    /** The looading plant view. */
+    /** The loading plant view. */
     val loadingPlantView: LoadingPlantView
 
   /** Requirements for the [[LoadingPlantView]] */
@@ -57,9 +57,11 @@ object LoadingPlantViewModule:
 
       override val component: VBox = loader.load[VBox]
 
+      //noinspection VarCouldBeVal
       @FXML
       var textLabel: Label = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var progressIndicator: ProgressIndicator = _
 

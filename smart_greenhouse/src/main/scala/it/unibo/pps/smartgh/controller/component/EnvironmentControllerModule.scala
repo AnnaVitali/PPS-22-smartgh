@@ -8,16 +8,14 @@ import it.unibo.pps.smartgh.view.component.EnvironmentViewModule.EnvironmentView
 import it.unibo.pps.smartgh.view.component.{BaseView, EnvironmentViewModule, FinishSimulationView}
 import monix.eval.Task
 import monix.execution.Ack.Continue
+import monix.execution.Scheduler.Implicits.global
 import monix.reactive.MulticastStrategy
 import monix.reactive.subjects.ConcurrentSubject
-import monix.execution.Scheduler.Implicits.global
 
-/** Object that encloses the controller module to manage ambient environment values and to visualize of simulation time.
-  */
+/** Object that encloses the controller module to manage ambient environment values and to visualize of simulation time. */
 object EnvironmentControllerModule:
 
-  /** A trait that represents the controller to manage ambient environment values and to visualize of simulation time.
-    */
+  /** A trait that represents the controller to manage ambient environment values and to visualize of simulation time. */
   trait EnvironmentController extends SceneController:
 
     /** Method that notify the controller to start the simulation time and to display the division on areas. */
@@ -73,8 +71,7 @@ object EnvironmentControllerModule:
     with EnvironmentModelModule.Provider
     with SimulationControllerModule.Provider
 
-  /** Trait that represents the components of the controller for environment values management and time visualization.
-    */
+  /** Trait that represents the components of the controller for environment values management and time visualization. */
   trait Component:
     context: Requirements =>
 

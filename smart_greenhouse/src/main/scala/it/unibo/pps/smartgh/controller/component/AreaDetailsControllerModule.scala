@@ -3,13 +3,7 @@ package it.unibo.pps.smartgh.controller.component
 import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaStatus
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
-import it.unibo.pps.smartgh.mvc.component.areaParameters.{
-  AreaAirHumidityMVC,
-  AreaLuminosityMVC,
-  AreaParametersMVC,
-  AreaSoilMoistureMVC,
-  AreaTemperatureMVC
-}
+import it.unibo.pps.smartgh.mvc.component.areaParameters.*
 import it.unibo.pps.smartgh.view.component.{AreaDetailsViewModule, BaseView}
 import monix.execution.Ack.Continue
 import monix.execution.Scheduler.Implicits.global
