@@ -1,25 +1,25 @@
+alcea rosea;alcea rosea
 basil;ocimum basilicum
 beet;beta vulgaris
+blackberry;blackberry
 broccoli;broccoli atlantis f1
 bunching onion;bunching onion estafette f1
 cabbage;red cabbage pretino f1
-calla colorata;mixed color zantedeschia aethiopica
 carrot;carrot aurantina f1
+cyclamen;cyclamen hederifolium
 cucumber;cucumber bon odori f1
 eggplant;solanum melongena
-gardenia;gardenia jasminoides ellis
+gerbera;gerbera jamesonii
+lavandula;lavandula dentata
 lemon;citrus limon
-mint;mentha x gracilis
+narcissus tazetta;narcissus tazetta
 onion;onion reks f1
-orange;citrus sinensis
-papaver;papaver rhoeas
 parsley;petroselinum crispum
-pepper;piper nigrum
+peach;prunus persica
+pineapple;ananas comosus
 poinsettia;euphorbia pulcherrima
 rosemary;rosmarinus officinalis
 salvia;salvia officinalis
 spinach;spinacia oleracea
 tomato;tomato master no. 2 f1
-violet;viola cornuta
-wild strawberry;fragaria moschata
 yucca;yucca gloriosa
