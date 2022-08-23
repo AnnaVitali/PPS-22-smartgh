@@ -10,6 +10,8 @@ import org.testfx.api.FxAssert.verifyThat
 import org.testfx.api.FxRobot
 import org.testfx.framework.junit5.{ApplicationExtension, Start}
 import org.testfx.matcher.base.NodeMatchers.isVisible
+import org.testfx.matcher.control.LabeledMatchers.hasText
+import it.unibo.pps.smartgh.view.component.areaParameters.AreaAirHumidityViewModule.{VentilationText, AtomiserText}
 
 /** This class contains the tests to verify that the [[AreaAirHumidityViewModule]] work correctly. */
 @TestInstance(Lifecycle.PER_CLASS)
@@ -19,19 +21,39 @@ class AreaAirHumidityViewModuleTest extends AbstractAreaParametersViewTest("Air 
   private val ventilationBtnId = "#ventilationBtn"
   private val atomiserBtnId = "#atomiserBtn"
 
-  private def baseTestButton(robot: FxRobot, buttonId: String): Unit =
-    val button = robot.lookup(buttonId).queryAs(classOf[ToggleButton])
-    verifyThat(buttonId, isVisible)
-    assertFalse(button.isSelected)
-
-    robot.clickOn(buttonId)
-    assertTrue(button.isSelected)
-
   @Start
   override def start(stage: Stage): Unit = super.start(stage)
 
   @Test
-  def testVentilationBtn(robot: FxRobot): Unit = baseTestButton(robot, ventilationBtnId)
+  def testVentilationBtn(robot: FxRobot): Unit =
+    val button = getToggleButton(robot, ventilationBtnId)
+    basicToggleButtonTest(button, ventilationBtnId, VentilationText.ACTIVATE.text)
+
+    robot.clickOn(ventilationBtnId)
+
+    assertTrue(button.isSelected)
+    verifyThat(ventilationBtnId, hasText(VentilationText.DEACTIVATE.text))
 
   @Test
-  def testAtomiserBtn(robot: FxRobot): Unit = baseTestButton(robot, atomiserBtnId)
+  def testAtomiserBtn(robot: FxRobot): Unit =
+    val button = getToggleButton(robot, atomiserBtnId)
+    basicToggleButtonTest(button, atomiserBtnId, AtomiserText.ACTIVATE.text)
+
+    robot.clickOn(atomiserBtnId)
+
+    assertTrue(button.isSelected)
+    assertTrue(button.isSelected)
+    verifyThat(atomiserBtnId, hasText(AtomiserText.DEACTIVATE.text))
+
+  @Test
+  def testNotSelectableBothActions(robot: FxRobot): Unit =
+    val ventilationBtn = getToggleButton(robot, ventilationBtnId)
+    val atomiserBtn = getToggleButton(robot, atomiserBtnId)
+
+    robot.clickOn(atomiserBtnId)
+    robot.clickOn(ventilationBtnId)
+
+    assertTrue(ventilationBtn.isSelected)
+    verifyThat(ventilationBtnId, hasText(VentilationText.DEACTIVATE.text))
+    assertFalse(atomiserBtn.isSelected)
+    verifyThat(atomiserBtnId, hasText(AtomiserText.ACTIVATE.text))
