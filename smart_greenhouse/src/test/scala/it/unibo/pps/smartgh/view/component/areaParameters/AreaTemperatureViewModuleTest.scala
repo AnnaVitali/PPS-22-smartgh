@@ -55,6 +55,6 @@ class AreaTemperatureViewModuleTest extends AbstractAreaParametersViewTest("Temp
     val regulatedTemp = robot.lookup(regulateTempLabelId).queryLabeled()
     val defaultTempValue = regulatedTemp.getText.toDouble
     robot.clickOn(buttonId)
-    eventually(timeout(Span(1000, Milliseconds))) {
+    eventually(timeout(Span(3000, Milliseconds))) {
       assertTrue(condition(regulatedTemp.getText.toDouble, defaultTempValue))
     }
