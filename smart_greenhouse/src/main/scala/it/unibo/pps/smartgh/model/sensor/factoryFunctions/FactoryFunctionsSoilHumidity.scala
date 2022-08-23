@@ -6,7 +6,7 @@ package it.unibo.pps.smartgh.model.sensor.factoryFunctions
 object FactoryFunctionsSoilHumidity:
 
   private val valueRange = (0.0, 100.0)
-  private val evaporationFactor = 0.0001
+  private val evaporationFactor = 0.005
   private val rainFactor = 0.50
   private val wateringFactor = 0.05
   private val movingSoilFactor = 0.10

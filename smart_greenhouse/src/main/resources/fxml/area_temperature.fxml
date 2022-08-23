@@ -46,11 +46,11 @@
         <Label text="Isolate structure:" />
         <Label text="Regulate the zone temperature:" GridPane.rowIndex="1" />
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-            <ToggleButton fx:id="openStructureBtn" mnemonicParsing="false" text="Open">
+            <ToggleButton fx:id="openStructureBtn" mnemonicParsing="false" selected="true" text="Open">
             <toggleGroup>
                <ToggleGroup fx:id="isolateStructure" />
             </toggleGroup></ToggleButton>
-            <ToggleButton fx:id="closeStructureBtn" mnemonicParsing="false" selected="true" text="Close" toggleGroup="$isolateStructure" />
+            <ToggleButton fx:id="closeStructureBtn" mnemonicParsing="false" text="Close" toggleGroup="$isolateStructure" />
         </HBox>
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <Button fx:id="minusTempBtn" mnemonicParsing="false" styleClass="outlined-btn" text="-" />

@@ -1,7 +1,8 @@
 package it.unibo.pps.smartgh.model.sensor
 
 import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
-import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaHumidityState}
+import it.unibo.pps.smartgh.model.area.AreaGatesState
+import it.unibo.pps.smartgh.model.area.AreaHumidityState.{MovingSoil, None, Watering}
 import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsSoilHumidity
 import it.unibo.pps.smartgh.model.time.Timer
 import monix.eval.Task
@@ -9,11 +10,11 @@ import monix.execution.Ack
 import monix.execution.Ack.Continue
 import monix.execution.Scheduler.Implicits.global
 import monix.reactive.MulticastStrategy.Behavior
-import monix.reactive.{MulticastStrategy, Observable}
 import monix.reactive.subjects.ConcurrentSubject
+import monix.reactive.{MulticastStrategy, Observable}
 
-import scala.concurrent.duration.*
 import scala.concurrent.Future
+import scala.concurrent.duration.*
 
 /** Object that enclose the implementation of the soil humidity sensor. */
 object SoilHumiditySensor:
@@ -21,8 +22,8 @@ object SoilHumiditySensor:
   /** Apply method for the [[SoilHumiditySensorImpl]].
     * @param areaComponentsState
     *   the actual state of the area components.
-    * @param timer
-    *   the timer of the simulation.
+    * @param addTimerCallback
+    *   the callback for the timer.
     * @return
     *   a new sensor responsible for detecting the soil humidity of the area.
     */
@@ -43,25 +44,22 @@ object SoilHumiditySensor:
       addTimerCallback: (f: String => Unit) => Unit
   ) extends AbstractSensorWithTimer(areaComponentsState, addTimerCallback):
 
-    private val timeMustPass: Int = 3600
     currentValue = areaComponentsState.soilHumidity
     registerTimerCallback(_.takeRight(5).contentEquals("00:00"))
 
     override def computeNextSensorValue(): Unit =
+      import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsSoilHumidity.*
       Task {
-        areaComponentsState.humidityActions match
-          case AreaHumidityState.Watering =>
-            currentValue = FactoryFunctionsSoilHumidity.updateValueWithWatering(currentValue)
-            areaComponentsState.humidityActions = AreaHumidityState.None
-          case AreaHumidityState.MovingSoil =>
-            currentValue = FactoryFunctionsSoilHumidity.updateValueWithMovingSoil(currentValue)
-            areaComponentsState.humidityActions = AreaHumidityState.None
+        currentValue = areaComponentsState.humidityActions match
+          case Watering =>
+            areaComponentsState.humidityActions = None
+            updateValueWithWatering(currentValue)
+          case MovingSoil =>
+            areaComponentsState.humidityActions = None
+            updateValueWithMovingSoil(currentValue)
           case _ =>
-        areaComponentsState.gatesState match
-          case AreaGatesState.Close =>
-            currentValue = FactoryFunctionsSoilHumidity.updateValueWithEvaporation(currentValue)
-          case _ =>
-            currentValue =
-              FactoryFunctionsSoilHumidity.updateValueWithAreaGatesOpen(currentValue, currentEnvironmentValue)
+            areaComponentsState.gatesState match
+              case AreaGatesState.Close => updateValueWithEvaporation(currentValue)
+              case _ => updateValueWithAreaGatesOpen(currentValue, currentEnvironmentValue)
         subject.onNext(currentValue)
       }.executeAsync.runToFuture
