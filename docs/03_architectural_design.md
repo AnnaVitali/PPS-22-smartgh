@@ -9,10 +9,10 @@ Come si può osservare nella figura [3.1.1], il componente `Simulation` viene su
 - `Simulation View`, il quale invece è incaricato di mostrare i diversi elementi dell'interfaccia grafica e di gestire l'interazione con l'utente;
 - `Simulation Controller`, il quale ricopre il ruolo di intermediario fra View e Model e si occupa di gestire lo scambio di informazioni fra questi due elementi.
 
-<p align="center">
+<div align="center">
   <img src="img/architettura_alto_livello.png" />
-  Fig. 3.1.1 - Architettura ad alto livello
-</p>
+  <p> Fig. 3.1.1 - Architettura ad alto livello </p>
+</div>
 
 [3.1.1]:img/architettura_alto_livello.png
 
