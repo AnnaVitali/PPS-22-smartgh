@@ -1,17 +1,17 @@
 package it.unibo.pps.smartgh.view.component.areaParameters
 
+import it.unibo.pps.smartgh.view.component.areaParameters.AreaAirHumidityViewModule.{AtomiserText, VentilationText}
 import javafx.scene.control.ToggleButton
 import javafx.stage.Stage
 import org.junit.jupiter.api.Assertions.{assertFalse, assertTrue}
-import org.junit.jupiter.api.{Test, TestInstance}
 import org.junit.jupiter.api.TestInstance.Lifecycle
 import org.junit.jupiter.api.extension.ExtendWith
+import org.junit.jupiter.api.{Test, TestInstance}
 import org.testfx.api.FxAssert.verifyThat
 import org.testfx.api.FxRobot
 import org.testfx.framework.junit5.{ApplicationExtension, Start}
 import org.testfx.matcher.base.NodeMatchers.isVisible
 import org.testfx.matcher.control.LabeledMatchers.hasText
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaAirHumidityViewModule.{VentilationText, AtomiserText}
 
 /** This class contains the tests to verify that the [[AreaAirHumidityViewModule]] work correctly. */
 @TestInstance(Lifecycle.PER_CLASS)
@@ -57,3 +57,9 @@ class AreaAirHumidityViewModuleTest extends AbstractAreaParametersViewTest("Air 
     verifyThat(ventilationBtnId, hasText(VentilationText.DEACTIVATE.text))
     assertFalse(atomiserBtn.isSelected)
     verifyThat(atomiserBtnId, hasText(AtomiserText.ACTIVATE.text))
+
+  @Test
+  def testAtomiserAction(robot: FxRobot): Unit = testActions(robot, atomiserBtnId, _ != _)
+
+  @Test
+  def testVentilationAction(robot: FxRobot): Unit = testActions(robot, ventilationBtnId, _ != _)
