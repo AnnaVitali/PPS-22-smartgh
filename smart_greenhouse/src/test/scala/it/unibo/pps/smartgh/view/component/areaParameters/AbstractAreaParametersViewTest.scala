@@ -1,7 +1,7 @@
 package it.unibo.pps.smartgh.view.component.areaParameters
 
 import it.unibo.pps.smartgh.model.area.ManageSensor.ManageSensorImpl
-import it.unibo.pps.smartgh.view.component.AreaDetailsViewModuleTest
+import it.unibo.pps.smartgh.view.component.AbstractAreaDetailsViewTest
 import javafx.scene.control.Label
 import javafx.stage.Stage
 import org.junit.jupiter.api.Assertions.assertTrue
@@ -22,7 +22,7 @@ import scala.jdk.javaapi.CollectionConverters.asScala
 @TestInstance(Lifecycle.PER_CLASS)
 @ExtendWith(Array(classOf[ApplicationExtension]))
 abstract class AbstractAreaParametersViewTest(parameterName: String, sensorName: String)
-    extends AreaDetailsViewModuleTest:
+    extends AbstractAreaDetailsViewTest:
 
   protected var sensor: ManageSensorImpl = _
   private val descriptionId = "#descriptionLabel"

@@ -1,17 +1,9 @@
 package it.unibo.pps.smartgh.view.component
 
-import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaStatus
-import it.unibo.pps.smartgh.model.greenhouse.Environment
-import it.unibo.pps.smartgh.model.plants.Plant
-import it.unibo.pps.smartgh.model.time.Timer
-import it.unibo.pps.smartgh.mvc.SimulationMVC
-import it.unibo.pps.smartgh.mvc.component.AreaDetailsMVC.AreaDetailsMVCImpl
-import it.unibo.pps.smartgh.mvc.component.{AreaDetailsMVC, AreaMVC, EnvironmentMVC, GreenHouseDivisionMVC}
-import it.unibo.pps.smartgh.view.component.AreaDetailsViewModule.AreaDetailsView
+import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaStatus.NORMAL
 import javafx.scene.control.Label
 import javafx.scene.image.ImageView
 import javafx.stage.Stage
-import org.apache.commons.lang3.time.DurationFormatUtils
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.TestInstance.Lifecycle
 import org.junit.jupiter.api.extension.ExtendWith
@@ -25,18 +17,11 @@ import org.testfx.framework.junit5.{ApplicationExtension, Start}
 import org.testfx.matcher.base.NodeMatchers.isVisible
 import org.testfx.matcher.control.LabeledMatchers.hasText
 
-import java.time.ZonedDateTime
-import java.time.format.DateTimeFormatter
-import scala.concurrent.duration.DurationInt
-
 /** This class contains the tests to verify that the [[AreaDetailsViewModule]] work correctly. */
 @TestInstance(Lifecycle.PER_CLASS)
 @ExtendWith(Array(classOf[ApplicationExtension]))
-class AreaDetailsViewModuleTest extends AbstractViewTest:
+class AreaDetailsViewModuleTest extends AbstractAreaDetailsViewTest:
 
-  protected var areaDetailsMVC: AreaDetailsMVCImpl = _
-  private val environment = Environment("Rome")
-  private val plant = Plant("lemon", "citrus limon")
   private val plantNameId = "#plantNameLabel"
   private val plantDescriptionId = "#plantDescriptionLabel"
   private val plantImageUrlId = "#plantImage"
@@ -46,17 +31,7 @@ class AreaDetailsViewModuleTest extends AbstractViewTest:
   private val alarmMsg = "#alarmLabel"
 
   @Start
-  def start(stage: Stage): Unit =
-    val baseView = BaseView(appTitle, appSubtitle)
-    simulationMVC = SimulationMVC(stage)
-    simulationMVC.simulationController.startSimulationTimer()
-    simulationMVC.simulationController.plantsSelected = List(plant)
-    val environmentMVC = EnvironmentMVC(simulationMVC, baseView)
-    simulationMVC.simulationController.environment = environment
-    val greenHouseMVC = GreenHouseDivisionMVC(List(plant), simulationMVC)
-    val areaMCV = AreaMVC(plant, simulationMVC, greenHouseMVC)
-    areaDetailsMVC = AreaDetailsMVC(simulationMVC, baseView, areaMCV.areaModel)
-    startApplication(stage, baseView, areaDetailsMVC.areaDetailsView)
+  override def start(stage: Stage): Unit = super.start(stage)
 
   @Test
   def testPlantInformation(robot: FxRobot): Unit =
@@ -81,7 +56,7 @@ class AreaDetailsViewModuleTest extends AbstractViewTest:
     val alarmLabel = robot.lookup(alarmMsg).queryLabeled()
     assertFalse(stateLabel.getText.isBlank)
     areaDetailsMVC.areaModel.status match
-      case AreaStatus.NORMAL =>
+      case NORMAL =>
         eventually(timeout(Span(10000, Milliseconds))) {
           verifyThat(stateId, hasText("NORMAL"))
           assertFalse(alarmPane.isVisible)
