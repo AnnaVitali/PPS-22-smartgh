@@ -9,13 +9,12 @@ Come si può osservare nella figura [3.1.1], il componente `Simulation` viene su
 - `Simulation View`, il quale invece è incaricato di mostrare i diversi elementi dell'interfaccia grafica e di gestire l'interazione con l'utente;
 - `Simulation Controller`, il quale ricopre il ruolo di intermediario fra View e Model e si occupa di gestire lo scambio di informazioni fra questi due elementi.
 
-![architettura alto livello][3.1.1]
+<p align="center">
+  <img src="img/architettura_alto_livello.png" />
+  Fig. 3.1.1 - Architettura ad alto livello
+</p>
 
 [3.1.1]:img/architettura_alto_livello.png
-
-<p align = "center">
-Fig. 3.1.1 - Architettura ad alto livello
-</p>
 
 Il Model, nello specifico è costituito dai componenti:
 - `Time`, che rappresenta il tempo virtuale dell'applicazione;
