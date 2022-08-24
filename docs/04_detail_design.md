@@ -22,7 +22,7 @@ Per poter utilizzare `PlantSelectorModel`, `PlantSelectorController` o `PlantSel
 
 <div align="center">
   <img src="img/plant_selector_MVC.png" />
-  <p> Fig. 4.2.2.1 - PlantSelector MVC </p>
+  <p> Fig. 4.2.2.1 - MVC per la selezione delle piante </p>
 </div>
 
 [4.2.2.1]: img/plant_selector_MVC.png
