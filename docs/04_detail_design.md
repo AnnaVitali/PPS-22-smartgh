@@ -22,12 +22,14 @@ Per poter utilizzare `PlantSelectorModel`, `PlantSelectorController` o `PlantSel
 
 <div align="center">
   <img src="img/plant_selector_MVC.png" />
-  <p> Fig. 4.2.2.1 - Architettura PlantSelectorMVC </p>
+  <p> Fig. 4.2.2.1 - PlantSelector MVC </p>
 </div>
 
 [4.2.2.1]: img/plant_selector_MVC.png
 
-Il Model per la selezione delle piante (figura [4.2.2.2]) viene racchiuso all'interno di un modulo chiamato `PlantSelectorModelModule`, nello specifico all'interno del suddetto modulo torviamo:
+#### 4.2.2.1 Model per la selezione delle piante
+
+Il Model per la selezione delle piante (figura [4.2.2.1.1]) viene racchiuso all'interno di un modulo chiamato `PlantSelectorModelModule`, nello specifico all'interno del suddetto modulo torviamo:
 
 - il `trait PlantSelectorModel`, il quale espone i diversi metodi che potranno essere richiamati sul Model e che consentono la gestione del meccanismo di selezione delle piante;
 - la classe `PlantSelectorModelImpl`, la quale detiene l'implementazione dei metodi dell'interfaccia `PlantSelectorModel` e viene racchiusa all'interno del `trait Component`;
@@ -38,12 +40,14 @@ L'architettura realizzata tramite questi componenti e il loro _mix-in_ costituis
 
 <div align="center">
   <img src="img/plant_selector_model.png" />
-  <p> Fig. 4.2.2.2 - Model per la selezione delle piante </p>
+  <p> Fig. 4.2.2.1.1 - Model per la selezione delle piante </p>
 </div>
 
-[4.2.2.2]: img/plant_selector_model.png
+[4.2.2.1.1]: img/plant_selector_model.png
 
-La View per la selezione delle piante (figura [4.2.2.3]), viene racchiusa all'interno del modulo `SelectPlantViewModule` e al suo interno troviamo:
+#### 4.2.2.2 View per la selezione delle piante
+
+La View per la selezione delle piante (figura [4.2.2.2.1]), viene racchiusa all'interno del modulo `SelectPlantViewModule` e al suo interno troviamo:
 
 - il `trait SelectPlantView`, che detiene i diversi metodi che potranno essere richiamati sulla View e che si occupano di gestire l'interazione con l'utente. 
 
@@ -57,14 +61,33 @@ La View per la selezione delle piante (figura [4.2.2.3]), viene racchiusa all'in
 
 <div align="center">
   <img src="img/select_plant_view.png" />
-  <p> Fig. 4.2.2.3 - View per la selezione delle piante </p>
+  <p> Fig. 4.2.2.2.1 - View per la selezione delle piante </p>
 </div>
 
-[4.2.2.3]: img/select_plant_view.png
+[4.2.2.2.1]: img/select_plant_view.png
 
 Rispetto all'architettura del Model vista precedentemente, la View presenta l'elemento `Requirements` che viene utilizzato per specificare le dipendenze che vi sono e che devono essere risolte fra View e Controller. Per il _pattern MVC_ infatti, sappiamo che vi sono queste dipendenze: C->V, V->C e C->M e tramite il _Cake Pattern_, una volta realizzati tutti gli elementi di cui si compone, possiamo risolvere atomaticamente queste dipendenze ed è proprio questo il suo principale vantaggio.
 
-#### 4.2.2.1 Plant
+#### 4.2.2.3 Controller per la selezione delle piante
+
+
+Il Controller per la selezione delle piante (figura [4.2.2.3.1]), è stato racchiuso all'interno del modulo `PlantSelectorControllerModule`, al cui interno troviamo:
+
+- il `trait PlantSelectorController`, il quale estende l'interfaccia `SceneController` contenente i metodi comuni a tutti i controllers e detiene i diversi metodi che potranno essere richiamati sul Controller che si occuperà di fungere da intermediario fra View e Model;
+- la classe `PlantSelectorControllerImpl`, la quale contiene l'implementazione dei metodi del `trait PlantSelectorController` e viene racchiusa all'interno del `trait Component`;
+- il `trait Component`, che come già visto per la View, racchiude l'oggetto `context` di tipo `Requirements` che in questo caso contiene le dipendenze che legano il Controller alla View e il Model e pertanto è realizzato attraverso il `Provider` del Model e della View, in quanto il Controller per poter funzionare correttamente ha la necessità di comunicare con entrambi questi elementi;
+- il `trait Interface`, il quale estende sia il `trait Provider` che il `trait Component` ereditando tutte le loro proprietà consentendo a `PlantSelectorMVC`, che lo estende, di poter utilizzare l'elemento `plantSelectorController` racchiuso all'interno di `Provider` e di poter accedere ai suoi metodi.
+
+<div align="center">
+  <img src="img/plant_selector_controller.png" />
+  <p> Fig. 4.2.2.3.1 - Controller per la selezione delle piante </p>
+</div>
+
+[4.2.2.3.1]: img/plant_selector_controller.png
+
+Una volta, quindi, che tutti gli elementi che costituiscono il _pattern MVC_ sono stati realizzati, `PlantSelectorMVC`, semplicemente estendendo il `trait Interface` di ognuno di loro è in grado di ottenere tutte le loro proprietà e le dipendenze che li legano sono già state risolte al momento della loro creazione, quindi, `PlantSelectorMVC` non si deve preoccupare di questo aspetto, ma può passare direttamente al loro utilizzo.
+
+#### 4.2.2.4 Plant
 //TODO Vero
 
 ## 4.3 Avvio Simulazione
