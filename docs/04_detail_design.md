@@ -122,7 +122,7 @@ Per poter accedere agli elementi Model, View e Controller e alle loro proprietà
 
  Una volta creato l'elemento MVC inoltre, le dipendenze presente fra i diversi componenti del pattern vengono già risolte automaticamente e l'utilizzatore non si deve preoccupare di questo aspetto, ma può concentrarsi solamente sul loro utilizzo.
 
-Dato che il Model è già stato discusso nella precedente sezione [Sec. 4.2.2.1](####4221-Model-per-la-selezione-delle-piante), di seguito verranno discussi solamente i componenti View e Controller per il caricamento dei dati.
+Dato che il Model è già stato discusso nella precedente sezione [Sec. 4.2.2.1](####4221-model-per-la-selezione-delle-piante), di seguito verranno discussi solamente i componenti View e Controller per il caricamento dei dati.
 
 #### 4.3.1.1
 
