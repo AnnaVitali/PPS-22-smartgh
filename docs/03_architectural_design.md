@@ -4,14 +4,17 @@ Durante il primo meeting di avviamento del progetto, il team di sviluppo ha prov
 ## 3.1 Architettura complessiva
 Per l'architettura principale, si è deciso di adottare un componente `Simulation` il quale si occuperà di gestire i diversi elementi dell'applicazione.
 
-Come si può osservare nella figura [3.1], il componente `Simulation` viene suddiviso in tre elementi principali:
+Come si può osservare nella figura [3.1.1], il componente `Simulation` viene suddiviso in tre elementi principali:
 - `Simulation Model`, costituito dai diversi componenti dell'applicazione che si occupano di gestire la logica di funzionamento del programma;
 - `Simulation View`, il quale invece è incaricato di mostrare i diversi elementi dell'interfaccia grafica e di gestire l'interazione con l'utente;
 - `Simulation Controller`, il quale ricopre il ruolo di intermediario fra View e Model e si occupa di gestire lo scambio di informazioni fra questi due elementi.
 
-![architettura alto livello][3.1]
+<div align="center">
+  <img src="img/architettura_alto_livello.png" />
+  <p> Fig. 3.1.1 - Architettura ad alto livello </p>
+</div>
 
-[3.1]:img/architettura_alto_livello.png
+[3.1.1]:img/architettura_alto_livello.png
 
 Il Model, nello specifico è costituito dai componenti:
 - `Time`, che rappresenta il tempo virtuale dell'applicazione;

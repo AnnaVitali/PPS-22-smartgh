@@ -39,9 +39,6 @@ Lo _Sprint review_, è un meeting che ha luogo alla fine dello Sprint, avente l�
 3.	Valutazione di eventuali ritardi rispetto ai tempi definiti in precedenza;
 4.	Formalizzazione del risultato ottenuto, riportandolo nello _sprint result_ del relativo _product backlog_.
 
-
-//TODO Pensare se inserire anche Sprint Review (che dice sostanzialmente valutazione miglioramenti  per prossimo sprint)
-
 ### 1.1.3 Daily SCRUM
 
 Il _Daily SCRUM_, rappresenta un momento in cui il team si riunisce e ogni membro, mette al corrente i collaboratori del proprio operato. Il meeting è breve circa 15-20 minuti e durante questi incontri ogni membro del gruppo ha esposto i seguenti punti:
