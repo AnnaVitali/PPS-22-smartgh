@@ -16,22 +16,13 @@ import scala.language.postfixOps
 object LoadingPlantViewModule:
 
   /** A trait that represents the loading plant data scene of the application. */
-  trait LoadingPlantView extends ViewComponent[VBox]:
+  trait LoadingPlantView extends ViewComponent[VBox] with ContiguousSceneView[VBox]:
 
     /** Method that increments the progress indicator in the view.
       * @param increment
       *   the increment that you want to apply.
       */
     def incrementProgressIndicator(increment: Double): Unit
-
-    /** Method that requires to the view to set up the nex scene of the application. */
-    def setupNextScene(): Unit
-
-    /** Method that asks the view to move to the next Scene.
-      * @param environmentView
-      *   the next scene that needs to be shown.
-      */
-    def moveToNextScene(environmentView: EnvironmentView): Unit
 
   /** Trait that represents the provider of the view, for loading the plant data. */
   trait Provider:
