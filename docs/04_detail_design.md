@@ -143,7 +143,7 @@ La View per il caricamento dei dati delle piante ([Fig. 4.3.1.1.1]) si trova all
 
 [Fig. 4.3.1.1.1]: img/loading_plant_MVC.png
 
-La View per il caricamento dei dati delle piante, presenta un `ProgressIndicator`, che viene incrementato di volta in volta, a mano a mano che i diversi dati delle piante vengono caricati e i rispettivi oggetti `Plant` vengono istanziati.
+La View per il caricamento dei dati delle piante, presenta un `ProgressIndicator`, che viene incrementato di volta in volta, a mano a mano che i diversi dati delle piante vengono caricati e i rispettivi oggetti `Plant` vengono istanziati. Una volta che il caricamento dei dati è completato si può passare alla schermata successiva.
 
 ### 4.3.2 Ambiente
 //TODO Vero
