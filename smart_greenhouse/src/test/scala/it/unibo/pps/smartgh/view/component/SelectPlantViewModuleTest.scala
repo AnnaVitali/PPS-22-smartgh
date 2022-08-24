@@ -37,10 +37,9 @@ class SelectPlantViewModuleTest extends AbstractViewTest:
 
   @Start
   private def start(stage: Stage): Unit =
-    val baseView: BaseView = BaseView(appTitle, appSubtitle)
-    simulationMVC = SimulationMVC(stage)
-    mvc = PlantSelectorMVCImpl(simulationMVC, baseView)
-    startApplication(stage, baseView, mvc.selectPlantView)
+    val simulationMVC = SimulationMVC(stage)
+    mvc = PlantSelectorMVCImpl(simulationMVC)
+    simulationMVC.simulationView.start(mvc.selectPlantView)
 
   @Test def testLabelsSelectPlantAndPlantSelected(robot: FxRobot): Unit =
     val selectYourPlantsText = "Select your plants:"

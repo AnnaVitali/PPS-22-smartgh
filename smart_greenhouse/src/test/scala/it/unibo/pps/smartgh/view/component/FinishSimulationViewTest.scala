@@ -1,12 +1,16 @@
 package it.unibo.pps.smartgh.view.component
 
 import it.unibo.pps.smartgh.mvc.SimulationMVC
+import it.unibo.pps.smartgh.mvc.component.SelectCityMVC
 import it.unibo.pps.smartgh.view.component
 import javafx.scene.layout.{BorderPane, VBox}
 import javafx.stage.Stage
 import org.junit.jupiter.api.TestInstance.Lifecycle
 import org.junit.jupiter.api.extension.ExtendWith
 import org.junit.jupiter.api.{BeforeAll, Test, TestInstance}
+import org.scalatest.concurrent.Eventually.eventually
+import org.scalatest.concurrent.Futures.timeout
+import org.scalatest.time.{Milliseconds, Span}
 import org.testfx.api.FxAssert.verifyThat
 import org.testfx.api.FxRobot
 import org.testfx.framework.junit5.{ApplicationExtension, ApplicationTest, Start}
@@ -25,9 +29,8 @@ class FinishSimulationViewTest extends AbstractViewTest:
 
   @Start
   private def start(stage: Stage): Unit =
-    val baseView: BaseView = BaseView(appTitle, appSubtitle)
-    simulationMVC = SimulationMVC(stage)
-    startApplication(stage, baseView, FinishSimulationView(simulationMVC, baseView))
+    val simulationMVC = SimulationMVC(stage)
+    simulationMVC.simulationView.start(FinishSimulationView(simulationMVC))
 
   @Test def testLabel(robot: FxRobot): Unit =
     val simulationEndedText = "Simulation ended!"
@@ -36,6 +39,8 @@ class FinishSimulationViewTest extends AbstractViewTest:
 
   @Test def testButton(robot: FxRobot): Unit =
     val startNewSimulationText = "Start a new simulation"
-    verifyThat(startNewSimulationButtonId, isVisible)
-    verifyThat(startNewSimulationButtonId, hasText(startNewSimulationText))
+    eventually(timeout(Span(1000, Milliseconds))) {
+      verifyThat(startNewSimulationButtonId, isVisible)
+      verifyThat(startNewSimulationButtonId, hasText(startNewSimulationText))
+    }
 //TODO verify button click with robot

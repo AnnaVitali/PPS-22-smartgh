@@ -5,6 +5,7 @@ import it.unibo.pps.smartgh.controller.component.SelectCityControllerModule
 import it.unibo.pps.smartgh.controller.component.SelectCityControllerModule.SelectCityController
 import it.unibo.pps.smartgh.model.city.SelectCityModelModule
 import it.unibo.pps.smartgh.model.city.SelectCityModelModule.SelectCityModel
+import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.view.component.SelectCityViewModule.SelectCityView
 import it.unibo.pps.smartgh.view.component.{BaseView, SelectCityViewModule}
@@ -15,25 +16,22 @@ object SelectCityMVC:
   /** Create a new [[SelectCityMVCImpl]].
     * @param simulationMVC
     *   the [[SimulationMVCImpl]] of the application.
-    * @param baseView
-    *   the view in which the [[SelectCityView]] is enclosed.
     * @return
     *   a new instance of [[SelectCityMVCImpl]].
     */
-  def apply(simulationMVC: SimulationMVCImpl, baseView: BaseView): SelectCityMVCImpl =
-    SelectCityMVCImpl(simulationMVC, baseView)
+  def apply(simulationMVC: SimulationMVCImpl): SelectCityMVCImpl = SelectCityMVCImpl(simulationMVC)
 
   /** Implementation of the select city MVC.
-    * @param simulationMVC
-    *   the [[SimulationMVCImpl]] of the application.
-    * @param baseView
-    *   the view in which the [[SelectCityView]] is enclosed.
+    * @param simulation
+    *   the current [[SimulationMVCImpl]] of the application.ì
     */
-  class SelectCityMVCImpl(simulationMVC: SimulationMVCImpl, baseView: BaseView)
+  class SelectCityMVCImpl(simulation: SimulationMVCImpl)
       extends SelectCityModelModule.Interface
       with SelectCityViewModule.Interface
-      with SelectCityControllerModule.Interface:
+      with SelectCityControllerModule.Interface
+      with SimulationMVC.Interface:
 
+    override val simulationMVC: SimulationMVCImpl = simulation
     override val selectCityModel: SelectCityModel = SelectCityModelImpl(Config.path + Config.citiesOutputFile)
-    override val selectCityView: SelectCityView = SelectCityViewViewImpl(simulationMVC.simulationView, baseView)
-    override val selectCityController: SelectCityController = SelectCityControllerImpl(simulationMVC)
+    override val selectCityView: SelectCityView = SelectCityViewViewImpl()
+    override val selectCityController: SelectCityController = SelectCityControllerImpl()

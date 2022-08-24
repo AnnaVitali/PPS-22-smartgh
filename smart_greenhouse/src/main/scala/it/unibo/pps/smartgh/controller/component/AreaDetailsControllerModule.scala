@@ -2,6 +2,7 @@ package it.unibo.pps.smartgh.controller.component
 
 import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaStatus
+import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.mvc.component.areaParameters.*
 import it.unibo.pps.smartgh.view.component.{AreaDetailsViewModule, BaseView}
@@ -25,23 +26,20 @@ object AreaDetailsControllerModule:
     val areaDetailsController: AreaDetailsController
 
   /** The controller requirements. */
-  type Requirements = AreaDetailsViewModule.Provider with AreaModelModule.Provider
+  type Requirements = AreaDetailsViewModule.Provider with AreaModelModule.Provider with SimulationMVC.Provider
 
   /** Trait that represent the controller component for the area details. */
   trait Component:
     context: Requirements =>
 
-    /** Class that contains the [[AreaDetailsController]] implementation.
-      * @param simulationMVC
-      *   the simulationMVC of the application.
-      */
-    class AreaDetailsControllerImpl(simulationMVC: SimulationMVCImpl) extends AreaDetailsController:
+    /** Class that contains the [[AreaDetailsController]] implementation. */
+    class AreaDetailsControllerImpl() extends AreaDetailsController:
 
       private var messages: Seq[String] = Seq.empty
       private val parametersMVC: Seq[AreaParametersMVC] =
         areaModel.areaSensorHelper.parametersMVC(areaModel, updateStateMessage)
 
-      override def instantiateNextSceneMVC(baseView: BaseView): Unit =
+      override def beforeNextScene(): Unit =
         areaDetailsView.moveToNextScene(simulationMVC.simulationController.environmentController.envView())
         parametersMVC.foreach(_.parameterController.stopListening())
         simulationMVC.simulationController.environmentController.backToEnvironment()

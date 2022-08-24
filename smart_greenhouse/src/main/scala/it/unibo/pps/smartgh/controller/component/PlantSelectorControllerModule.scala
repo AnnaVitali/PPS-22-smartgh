@@ -3,7 +3,7 @@ package it.unibo.pps.smartgh.controller.component
 import it.unibo.pps.smartgh.model.plants
 import it.unibo.pps.smartgh.model.plants.{Plant, PlantSelectorModelModule}
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
-import it.unibo.pps.smartgh.mvc.component
+import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.component.EnvironmentMVC.EnvironmentMVCImpl
 import it.unibo.pps.smartgh.mvc.component.LoadingPlantMVC
 import it.unibo.pps.smartgh.view.component.{BaseView, SelectPlantViewModule}
@@ -39,17 +39,14 @@ object PlantSelectorControllerModule:
     val plantSelectorController: PlantSelectorController
 
   /** The requirements for the controller. */
-  type Requirements = PlantSelectorModelModule.Provider with SelectPlantViewModule.Provider
+  type Requirements = PlantSelectorModelModule.Provider with SelectPlantViewModule.Provider with SimulationMVC.Provider
 
   /** Trait that represents the components of the controller for the plant selection. */
   trait Component:
     context: Requirements =>
 
-    /** Class that contains the [[PlantSelectorController]] implementation.
-      * @param simulationMVC
-      *   the simulationMVC of the application.
-      */
-    class PlantSelectorControllerImpl(simulationMVC: SimulationMVCImpl) extends PlantSelectorController:
+    /** Class that contains the [[PlantSelectorController]] implementation. */
+    class PlantSelectorControllerImpl() extends PlantSelectorController:
 
       private val onNextSelection: List[String] => Future[Ack] = l => {
         selectPlantView.updateSelectedPlant(l)
@@ -68,9 +65,9 @@ object PlantSelectorControllerModule:
         try plantSelectorModel.deselectPlant(plantName)
         catch case e: NoSuchElementException => selectPlantView.showErrorMessage(e.getMessage)
 
-      override def instantiateNextSceneMVC(baseView: BaseView): Unit =
+      override def beforeNextScene(): Unit =
         if plantSelectorModel.getPlantsSelectedName.nonEmpty then
-          val loadingPlantMVC = LoadingPlantMVC(simulationMVC, plantSelectorModel, baseView)
+          val loadingPlantMVC = LoadingPlantMVC(simulationMVC, plantSelectorModel)
           selectPlantView.moveToNextScene(loadingPlantMVC.loadingPlantView)
           plantSelectorModel.startEmittingPlantsSelected()
         else selectPlantView.showErrorMessage("At least one plant must be selected")

@@ -2,6 +2,7 @@ package it.unibo.pps.smartgh.view.component
 
 import it.unibo.pps.smartgh.controller.component.AreaDetailsControllerModule
 import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaModel
+import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.component.areaParameters.{
   AreaAirHumidityMVC,
   AreaLuminosityMVC,
@@ -19,7 +20,6 @@ import javafx.scene.control.{Label, ProgressIndicator, ScrollPane, Separator}
 import javafx.scene.image.{Image, ImageView}
 import javafx.scene.layout.{BorderPane, GridPane, Pane, VBox}
 import monix.eval.Task
-
 import monix.execution.Scheduler.Implicits.global
 
 import java.net.URL
@@ -71,21 +71,14 @@ object AreaDetailsViewModule:
     val areaDetailsView: AreaDetailsView
 
   /** The view requirements. */
-  type Requirements = AreaDetailsControllerModule.Provider
+  type Requirements = AreaDetailsControllerModule.Provider with SimulationMVC.Provider
 
   /** Trait that represents the components of the view for the area details. */
   trait Component:
     context: Requirements =>
 
-    /** Class that contains the [[AreaDetailsView]] implementation.
-      * @param simulationView
-      *   the root view of the application.
-      * @param baseView
-      *   the view in which the [[AreaDetailsView]] is enclosed.
-      */
-    class AreaDetailsViewImpl(private val simulationView: SimulationView, private val baseView: BaseView)
-        extends AbstractViewComponent[ScrollPane]("area_details.fxml")
-        with AreaDetailsView:
+    /** Class that contains the [[AreaDetailsView]] implementation. */
+    class AreaDetailsViewImpl() extends AbstractViewComponent[ScrollPane]("area_details.fxml") with AreaDetailsView:
 
       override val component: ScrollPane = loader.load[ScrollPane]
 
@@ -116,9 +109,8 @@ object AreaDetailsViewModule:
       @FXML
       var loadingImg: ProgressIndicator = _
 
-      Platform.runLater(() => baseView.changeSceneButton.setText("Back"))
-      baseView.changeSceneButton.setOnMouseClicked(_ => setNewScene())
-      baseView.changeSceneButton.getStyleClass.set(2, "defaultButton")
+      simulationMVC.simulationView.changeSceneButtonBehaviour("Back", _ => setNewScene())
+      simulationMVC.simulationView.changeSceneButtonStyle("defaultButton")
       alarmPane.managedProperty().bind(alarmPane.visibleProperty())
       loadingImg.setVisible(true)
 
@@ -153,11 +145,11 @@ object AreaDetailsViewModule:
         }
 
       override def moveToNextScene(component: ViewComponent[BorderPane]): Unit =
-        simulationView.changeView(component)
+        simulationMVC.simulationView.changeView(component)
 
       override def setNewScene(): Unit =
-        simulationView.changeSceneButtonStyle("alarmButton")
-        areaDetailsController.instantiateNextSceneMVC(baseView)
+        simulationMVC.simulationView.changeSceneButtonStyle("alarmButton")
+        areaDetailsController.beforeNextScene()
 
   /** Trait that encloses the view for area details. */
   trait Interface extends Provider with Component:

@@ -1,6 +1,7 @@
 package it.unibo.pps.smartgh.view.component
 
 import it.unibo.pps.smartgh.controller.component.AreaControllerModule
+import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.application.Platform
@@ -24,29 +25,21 @@ object AreaViewModule:
       */
     def paintArea(plant: String, statusColor: String, par: Map[String, Double]): Unit
 
-    /** Set the [[BaseView]]. */
-    var baseView: BaseView
-
   /** A trait for defining the view instance. */
   trait Provider:
     /** The area's view. */
     val areaView: AreaView
 
   /** The requirements for the [[AreaView]]. */
-  type Requirements = AreaControllerModule.Provider
+  type Requirements = AreaControllerModule.Provider with SimulationMVC.Provider
 
   /** A trait that represents the greenhouse division view component. */
   trait Component:
     context: Requirements =>
-    /** Implementation of the greenhouse division view.
-      * @param simulationView
-      *   instance of the [[SimulationView]]
-      */
-    class AreaViewImpl(simulationView: SimulationView) extends AbstractViewComponent[VBox]("area.fxml") with AreaView:
+    /** Implementation of the greenhouse division view. */
+    class AreaViewImpl() extends AbstractViewComponent[VBox]("area.fxml") with AreaView:
 
       override val component: VBox = loader.load[VBox]
-      //noinspection VarCouldBeVal
-      override var baseView: BaseView = _
 
       @FXML
       var params: VBox = _
@@ -85,10 +78,10 @@ object AreaViewModule:
         )
 
       override def moveToNextScene(component: ViewComponent[ScrollPane]): Unit =
-        simulationView.changeView(component)
+        simulationMVC.simulationView.changeView(component)
 
       override def setNewScene(): Unit =
-        areaController.instantiateNextSceneMVC(baseView)
+        areaController.beforeNextScene()
 
   /** Trait that combine provider and component for area view. */
   trait Interface extends Provider with Component:

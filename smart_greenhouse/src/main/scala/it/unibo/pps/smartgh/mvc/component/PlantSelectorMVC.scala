@@ -5,6 +5,7 @@ import it.unibo.pps.smartgh.controller.component.PlantSelectorControllerModule
 import it.unibo.pps.smartgh.controller.component.PlantSelectorControllerModule.PlantSelectorController
 import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule
 import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.PlantSelectorModel
+import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.SelectPlantView
 import it.unibo.pps.smartgh.view.component.{BaseView, SelectPlantViewModule}
@@ -15,27 +16,24 @@ object PlantSelectorMVC:
   /** Apply method for the [[PlantSelectorMVC]].
     * @param simulationMVC
     *   the root MVC of the application.
-    * @param baseView
-    *   the view in which the [[SelectPlantView]] is enclosed.
     * @return
     *   the implementation of the plant selection MVC.
     */
-  def apply(simulationMVC: SimulationMVCImpl, baseView: BaseView): PlantSelectorMVCImpl =
-    PlantSelectorMVCImpl(simulationMVC, baseView)
+  def apply(simulationMVC: SimulationMVCImpl): PlantSelectorMVCImpl = PlantSelectorMVCImpl(simulationMVC)
 
   /** Implementation of the [[PlantSelectorMVCImpl]].
-    * @param simulationMVC
+    * @param simulation
     *   [[SimulationMVCImpl]] of the simulation
-    * @param baseView
-    *   [[BaseView]] of the simulation
     */
-  class PlantSelectorMVCImpl(simulationMVC: SimulationMVCImpl, baseView: BaseView)
+  class PlantSelectorMVCImpl(simulation: SimulationMVCImpl)
       extends PlantSelectorModelModule.Interface
       with PlantSelectorControllerModule.Interface
-      with SelectPlantViewModule.Interface:
+      with SelectPlantViewModule.Interface
+      with SimulationMVC.Interface:
 
+    override val simulationMVC: SimulationMVCImpl = simulation
     override val plantSelectorModel: PlantSelectorModel = PlantSelectorModelImpl(Config.path + Config.plantsOutputFile)
-    override val selectPlantView: SelectPlantView = SelectPlantViewImpl(simulationMVC.simulationView, baseView)
-    override val plantSelectorController: PlantSelectorController = PlantSelectorControllerImpl(simulationMVC)
+    override val selectPlantView: SelectPlantView = SelectPlantViewImpl()
+    override val plantSelectorController: PlantSelectorController = PlantSelectorControllerImpl()
 
     plantSelectorController.setupBehaviour()

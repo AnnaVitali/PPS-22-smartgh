@@ -55,18 +55,14 @@ class GreenHouseDivisionViewTest extends AbstractViewTest:
 
   @Start
   private def start(stage: Stage): Unit =
-    val baseView: BaseView = BaseView(appTitle, appSubtitle)
-    simulationMVC = SimulationMVC(stage)
+    val simulationMVC = SimulationMVC(stage)
     simulationMVC.simulationController.environment = Environment("Cesena")
     simulationMVC.simulationController.plantsSelected =
       List(Plant("lemon", "citrus limon"), Plant("mint", "mentha x gracilis"))
-    val environmentMVC = EnvironmentMVC(simulationMVC, baseView)
+    val environmentMVC = EnvironmentMVC(simulationMVC)
     simulationMVC.simulationController.startSimulationTimer()
-    ghMVC = GreenHouseDivisionMVC(
-      simulationMVC.simulationController.plantsSelected,
-      simulationMVC
-    )
-    startApplication(stage, baseView, ghMVC.ghDivisionView)
+    ghMVC = GreenHouseDivisionMVC(simulationMVC.simulationController.plantsSelected, simulationMVC)
+    simulationMVC.simulationView.start(ghMVC.ghDivisionView)
 
     ghMVC.setAreas(Map.empty)
     areaModel = ghMVC.ghDivisionModel.areas.head.areaModel

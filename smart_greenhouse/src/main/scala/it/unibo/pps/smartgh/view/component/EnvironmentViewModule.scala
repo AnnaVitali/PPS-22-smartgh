@@ -1,6 +1,7 @@
 package it.unibo.pps.smartgh.view.component
 
 import it.unibo.pps.smartgh.controller.component.EnvironmentControllerModule
+import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
 import it.unibo.pps.smartgh.view.component.GHViewModule.GHDivisionView
 import it.unibo.pps.smartgh.view.component.HelpView
@@ -18,7 +19,7 @@ import scala.language.postfixOps
 object EnvironmentViewModule:
 
   /** A trait that represents the environment's view of the application. */
-  trait EnvironmentView extends ViewComponent[BorderPane] with ContiguousSceneView[BorderPane]:
+  trait EnvironmentView extends ViewComponent[BorderPane]:
 
     /** Data structure that will contains environment values. */
     type EnvironmentValues = Map[String, Any]
@@ -60,21 +61,14 @@ object EnvironmentViewModule:
     val environmentView: EnvironmentView
 
   /** The view requirements. */
-  type Requirements = EnvironmentControllerModule.Provider
+  type Requirements = EnvironmentControllerModule.Provider with SimulationMVC.Provider
 
   /** Trait that represents the components of the view for environment values and simulation time visualization. */
   trait Component:
     context: Requirements =>
 
-    /** Class that contains the [[EnvironmentView]] implementation.
-      * @param simulationView
-      *   the root view of the application.
-      * @param baseView
-      *   the view in which the [[EnvironmentView]] is enclosed.
-      */
-    class EnvironmentViewImpl(simulationView: SimulationView, private val baseView: BaseView)
-        extends AbstractViewComponent[BorderPane]("environment.fxml")
-        with EnvironmentView:
+    /** Class that contains the [[EnvironmentView]] implementation. */
+    class EnvironmentViewImpl() extends AbstractViewComponent[BorderPane]("environment.fxml") with EnvironmentView:
 
       override val component: BorderPane = loader.load[BorderPane]
 
@@ -124,12 +118,14 @@ object EnvironmentViewModule:
       setBackButton()
 
       override def setBackButton(): Unit =
-        baseView.changeSceneButton.setText("Stop simulation")
-        simulationView.changeSceneButtonStyle("alarmButton")
-        baseView.changeSceneButton.setOnMouseClicked { _ =>
-          environmentController.stopSimulation()
-          environmentController.instantiateNextSceneMVC(baseView)
-        }
+        simulationMVC.simulationView.changeSceneButtonBehaviour(
+          "Stop simulation",
+          _ => {
+            environmentController.stopSimulation()
+            finishSimulation()
+          }
+        )
+        simulationMVC.simulationView.changeSceneButtonStyle("alarmButton")
 
       override def displayNameCity(cityName: String): Unit =
         Platform.runLater(() => setLocationLabel.setText(cityName))
@@ -154,19 +150,12 @@ object EnvironmentViewModule:
         Platform.runLater(() => timeElapsedLabel.setText(timerValue))
 
       override def displayGreenHouseDivisionView(ghDivisionView: GHDivisionView): Unit =
-        ghDivisionView.baseView = baseView
         component.setCenter(ghDivisionView)
 
       override def finishSimulation(): Unit =
-        setNewScene()
-
-      override def setNewScene(): Unit =
-        environmentController.instantiateNextSceneMVC(baseView)
-
-      override def moveToNextScene(component: ViewComponent[BorderPane]): Unit =
         Platform.runLater { () =>
-          simulationView.changeSceneButtonStyle("normalButton")
-          simulationView.changeView(component)
+          simulationMVC.simulationView.changeSceneButtonStyle("normalButton")
+          simulationMVC.simulationView.changeView(FinishSimulationView(simulationMVC))
         }
 
       private def notifySpeedChange(value: Double): Unit =

@@ -21,7 +21,7 @@ import scala.jdk.javaapi.CollectionConverters.*
 object SelectCityViewModule:
 
   /** A trait that represents the select city scene of the application. */
-  trait SelectCityView extends ViewComponent[BorderPane] with ContiguousSceneView[BorderPane]:
+  trait SelectCityView extends ViewComponent[BorderPane]:
 
     /** The [[AutoCompletionBinding]] component. */
     def autoCompletionBinding: AutoCompletionBinding[String]
@@ -33,7 +33,7 @@ object SelectCityViewModule:
     val selectCityView: SelectCityView
 
   /** The view requirements. */
-  type Requirements = SelectCityControllerModule.Provider
+  type Requirements = SelectCityControllerModule.Provider with SimulationMVC.Provider
 
   /** Trait that represents the components of the view for the city selection. */
   trait Component:
@@ -45,9 +45,7 @@ object SelectCityViewModule:
       * @param baseView
       *   the view in which the [[SelectPlantView]] is enclosed.
       */
-    class SelectCityViewViewImpl(simulationView: SimulationView, private val baseView: BaseView)
-        extends AbstractViewComponent[BorderPane]("select_city.fxml")
-        with SelectCityView:
+    class SelectCityViewViewImpl() extends AbstractViewComponent[BorderPane]("select_city.fxml") with SelectCityView:
 
       override val component: BorderPane = loader.load[BorderPane]
       var autoCompletionBinding: AutoCompletionBinding[String] = _
@@ -71,22 +69,20 @@ object SelectCityViewModule:
 
       autoCompletionBinding.setDelay(0)
 
-      Platform.runLater(() => baseView.changeSceneButton.setText("Next"))
-      baseView.changeSceneButton.setOnMouseClicked { _ =>
-        val selectedCity = selectCityTextField.getText.capitalize
-        if selectedCity.isBlank then setErrorText("Please select a city")
-        else if selectCityController.containCity(selectedCity) then
-          selectCityController.saveCity(selectedCity)
-          setNewScene()
-        else setErrorText("The selected city is not valid")
-      }
+      Platform.runLater(() =>
+        simulationMVC.simulationView.changeSceneButtonBehaviour(
+          "Next",
+          _ =>
+            val selectedCity = selectCityTextField.getText.capitalize
+            if selectedCity.isBlank then setErrorText("Please select a city")
+            else if selectCityController.containCity(selectedCity) then
+              selectCityController.saveCity(selectedCity)
+              simulationMVC.simulationView.changeView(PlantSelectorMVC(simulationMVC).selectPlantView)
+            else setErrorText("The selected city is not valid"),
+          true
+        )
+      )
 
-      override def setNewScene(): Unit =
-        selectCityController.instantiateNextSceneMVC(baseView)
-
-      override def moveToNextScene(component: ViewComponent[BorderPane]): Unit =
-        simulationView.changeView(component)
-        
       private def setErrorText(text: String): Unit =
         Platform.runLater(() => errorLabel.setText(text))
 

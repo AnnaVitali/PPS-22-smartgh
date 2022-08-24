@@ -3,6 +3,7 @@ package it.unibo.pps.smartgh.mvc.component
 import it.unibo.pps.smartgh.controller.SimulationControllerModule
 import it.unibo.pps.smartgh.controller.component.EnvironmentControllerModule
 import it.unibo.pps.smartgh.model.greenhouse.EnvironmentModelModule
+import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.view.component.{BaseView, EnvironmentViewModule}
 
@@ -17,36 +18,27 @@ object EnvironmentMVC:
     * @return
     *   the implementation of [[EnvironmentMVC]].
     */
-  def apply(
-      simulationMVC: SimulationMVCImpl,
-      baseView: BaseView
-  ): EnvironmentMVCImpl =
-    EnvironmentMVCImpl(simulationMVC, baseView)
+  def apply(simulationMVC: SimulationMVCImpl): EnvironmentMVCImpl =
+    EnvironmentMVCImpl(simulationMVC)
 
   /** Implementation of the environment MVC.
-    * @param simulationMVC
+    * @param simulation
     *   the [[SimulationMVCImpl]] of the application.
-    * @param baseView
-    *   the view in which the [[EnvironmentView]] is enclosed.
     */
-  class EnvironmentMVCImpl(
-      simulationMVC: SimulationMVCImpl,
-      baseView: BaseView
-  ) extends EnvironmentModelModule.Interface
+  class EnvironmentMVCImpl(simulation: SimulationMVCImpl)
+      extends EnvironmentModelModule.Interface
       with EnvironmentViewModule.Interface
       with EnvironmentControllerModule.Interface
-      with SimulationControllerModule.Interface:
+      with SimulationControllerModule.Interface
+      with SimulationMVC.Interface:
 
-    override val simulationController: SimulationControllerModule.SimulationController =
-      simulationMVC.simulationController
+    override val simulationMVC: SimulationMVCImpl = simulation
+    override val simulationController: SimulationControllerModule.SimulationController = simulation.simulationController
     override val environmentModel: EnvironmentModelModule.EnvironmentModel = EnvironmentModelImpl(
       simulationController.environment
-    )
-    override val environmentView: EnvironmentViewModule.EnvironmentView =
-      EnvironmentViewImpl(simulationMVC.simulationView, baseView)
-    override val environmentController: EnvironmentControllerModule.EnvironmentController = EnvironmentControllerImpl(
-      simulationMVC
-    )
+    ) //todo: enviroment?
+    override val environmentView: EnvironmentViewModule.EnvironmentView = EnvironmentViewImpl()
+    override val environmentController: EnvironmentControllerModule.EnvironmentController = EnvironmentControllerImpl()
 
-    simulationMVC.simulationController.environmentController = environmentController
+    simulation.simulationController.environmentController = environmentController
     environmentController.startSimulation()

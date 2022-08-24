@@ -1,8 +1,9 @@
 package it.unibo.pps.smartgh.view.component
 
 import it.unibo.pps.smartgh.model.greenhouse.Environment
+import it.unibo.pps.smartgh.mvc.SimulationMVC
+import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.mvc.component.SelectCityMVC
-import it.unibo.pps.smartgh.mvc.{SimulationMVC, component}
 import it.unibo.pps.smartgh.view.component.SelectCityViewModule
 import it.unibo.pps.smartgh.view.component.SelectCityViewModule.SelectCityView
 import javafx.scene.control.TextField
@@ -24,6 +25,7 @@ import scalafx.scene.Scene
 class SelectCityViewModuleTest extends AbstractViewTest:
 
   private var selectCityView: SelectCityView = _
+  private var simulationMVC: SimulationMVCImpl = _
   private val textFieldId = "#selectCityTextField"
   private val nextButtonId = "#changeSceneButton"
   private val errorLabel = "#errorLabel"
@@ -36,10 +38,9 @@ class SelectCityViewModuleTest extends AbstractViewTest:
 
   @Start
   private def start(stage: Stage): Unit =
-    val baseView: BaseView = BaseView(appTitle, appSubtitle)
     simulationMVC = SimulationMVC(stage)
-    selectCityView = component.SelectCityMVC(simulationMVC, baseView).selectCityView
-    startApplication(stage, baseView, selectCityView)
+    selectCityView = SelectCityMVC(simulationMVC).selectCityView
+    simulationMVC.simulationView.start(selectCityView)
 
   @Test
   def testTextField(robot: FxRobot): Unit =

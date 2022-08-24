@@ -45,8 +45,6 @@ object GHControllerModule:
       private val subscriptionAlarm: List[Cancelable] = List.empty
 
       override def updateView(): Unit =
-        ghDivisionView.setAreaBaseView(ghDivisionModel.areas.map(a => a.areaView))
-
         ghDivisionModel.areas.foreach(a =>
           a.areaModel
             .changeStatusObservable()

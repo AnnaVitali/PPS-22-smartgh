@@ -1,11 +1,17 @@
 package it.unibo.pps.smartgh.mvc
 
 import it.unibo.pps.smartgh.controller.SimulationControllerModule
+import it.unibo.pps.smartgh.controller.SimulationControllerModule.SimulationController
+import it.unibo.pps.smartgh.mvc.component.SelectCityMVC
 import it.unibo.pps.smartgh.view.SimulationViewModule
+import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
 import javafx.stage.Stage
 
 /** Object that incapsulates the model view and controller module for the simulation. */
 object SimulationMVC:
+
+  trait Provider:
+    val simulationMVC: SimulationMVCImpl
 
   /** Create a new [[SimulationMVCImpl]].
     * @param stage
@@ -23,8 +29,9 @@ object SimulationMVC:
       extends SimulationViewModule.Interface
       with SimulationControllerModule.Interface:
 
-    override val simulationController: SimulationControllerModule.SimulationController =
-      SimulationControllerImpl()
-    override val simulationView: SimulationViewModule.SimulationView = SimulationViewImpl(stage)
+    override val simulationController: SimulationController = SimulationControllerImpl()
+    override val simulationView: SimulationView = SimulationViewImpl(stage)
 
-    simulationView.start(this)
+//    simulationView.start(SelectCityMVC(this).selectCityView)
+
+  trait Interface extends Provider

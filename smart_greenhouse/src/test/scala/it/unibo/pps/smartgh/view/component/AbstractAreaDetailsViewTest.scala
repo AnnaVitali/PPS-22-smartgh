@@ -17,21 +17,18 @@ import org.testfx.framework.junit5.{ApplicationExtension, Start}
 @ExtendWith(Array(classOf[ApplicationExtension]))
 class AbstractAreaDetailsViewTest extends AbstractViewTest:
 
-  protected var environmentModel: EnvironmentModel = _
   protected var areaDetailsMVC: AreaDetailsMVCImpl = _
   protected val environment: Environment = Environment("Rome")
   protected val plant: Plant = Plant("lemon", "citrus limon")
 
   @Start
   def start(stage: Stage): Unit =
-    simulationMVC = SimulationMVC(stage)
-    simulationMVC.simulationController.startSimulationTimer()
+    val simulationMVC = SimulationMVC(stage)
     simulationMVC.simulationController.plantsSelected = List(plant)
-    val baseView = simulationMVC.simulationView.baseView
-    val environmentMVC = EnvironmentMVC(simulationMVC, baseView)
-    environmentModel = environmentMVC.environmentModel
+    val environmentMVC = EnvironmentMVC(simulationMVC)
     simulationMVC.simulationController.environment = environment
+    environmentMVC.environmentController.startSimulation()
     val greenHouseMVC = GreenHouseDivisionMVC(List(plant), simulationMVC)
     val areaMCV = AreaMVC(plant, simulationMVC, greenHouseMVC)
-    areaDetailsMVC = AreaDetailsMVC(simulationMVC, baseView, areaMCV.areaModel)
-    startApplication(stage, baseView, areaDetailsMVC.areaDetailsView)
+    areaDetailsMVC = AreaDetailsMVC(simulationMVC, areaMCV.areaModel)
+    simulationMVC.simulationView.start(areaDetailsMVC.areaDetailsView)

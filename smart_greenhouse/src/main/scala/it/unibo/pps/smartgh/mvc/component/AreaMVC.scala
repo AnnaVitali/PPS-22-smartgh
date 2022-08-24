@@ -4,6 +4,7 @@ import it.unibo.pps.smartgh.controller.component.AreaControllerModule
 import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.model.time.Timer
+import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.mvc.component.GreenHouseDivisionMVC.GreenHouseDivisionMVCImpl
 import it.unibo.pps.smartgh.view.component.AreaViewModule
@@ -31,23 +32,22 @@ object AreaMVC:
     *
     * @param plant
     *   of the Area
-    * @param simulationMVC
+    * @param simulation
     *   the simulation MVC instance
     * @param greenHouseDivisionMVC
     *   instance of the [[GreenHouseDivisionMVC]]
     */
-  class AreaMVCImpl(
-      plant: Plant,
-      simulationMVC: SimulationMVCImpl,
-      greenHouseDivisionMVC: GreenHouseDivisionMVCImpl
-  ) extends AreaModelModule.Interface
+  class AreaMVCImpl(plant: Plant, simulation: SimulationMVCImpl, greenHouseDivisionMVC: GreenHouseDivisionMVCImpl)
+      extends AreaModelModule.Interface
       with AreaViewModule.Interface
-      with AreaControllerModule.Interface:
+      with AreaControllerModule.Interface
+      with SimulationMVC.Interface:
+
+    override val simulationMVC: SimulationMVCImpl = simulation
     override val areaModel: AreaModelModule.AreaModel =
-      AreaImpl(plant, simulationMVC.simulationController.environmentController.subscribeTimerValue)
-    override val areaView: AreaViewModule.AreaView = AreaViewImpl(simulationMVC.simulationView)
-    override val areaController: AreaControllerModule.AreaController =
-      AreaControllerImpl(simulationMVC, greenHouseDivisionMVC)
+      AreaImpl(plant, simulation.simulationController.environmentController.subscribeTimerValue)
+    override val areaView: AreaViewModule.AreaView = AreaViewImpl()
+    override val areaController: AreaControllerModule.AreaController = AreaControllerImpl(greenHouseDivisionMVC)
 
     /** Paint the area. */
     def paintArea(): Unit = areaController.paintArea()

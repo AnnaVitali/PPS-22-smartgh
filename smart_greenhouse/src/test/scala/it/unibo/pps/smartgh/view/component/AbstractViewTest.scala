@@ -1,5 +1,6 @@
 package it.unibo.pps.smartgh.view.component
 
+import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.view.SimulationViewModule
 import javafx.scene.Parent
@@ -14,10 +15,6 @@ import scalafx.scene.Scene
 /** Abstract class for testing the view. */
 abstract class AbstractViewTest:
 
-  protected var simulationMVC: SimulationMVCImpl = _
-  protected val appTitle = "Smart Greenhouse"
-  protected val appSubtitle = "Simulate your smart greenhouse"
-
   @BeforeAll
   def setup(): Unit =
     System.setProperty("testfx.robot", "glass")
@@ -27,13 +24,3 @@ abstract class AbstractViewTest:
     System.setProperty("prism.text", "t2k")
     WaitForAsyncUtils.checkAllExceptions = false
     WaitForAsyncUtils.autoCheckException = false
-
-  def startApplication(stage: Stage, baseView: BaseView, viewComponent: ViewComponent[? <: Parent]): Unit =
-    simulationMVC.simulationView.changeView(viewComponent)
-//    val scene: Scene = Scene(stage.getWidth, stage.getHeight)
-//    stage.setResizable(true)
-//    stage.setMaximized(true)
-//    baseView.component.setCenter(viewComponent)
-//    scene.root.value = baseView
-//    stage.setScene(scene)
-//    stage.show()

@@ -25,11 +25,10 @@ class LoadingPlantViewModuleTest extends AbstractViewTest:
 
   @Start
   private def start(stage: Stage): Unit =
-    val baseView: BaseView = BaseView(appTitle, appSubtitle)
-    simulationMVC = SimulationMVC(stage)
-    val plantSelectorModel = PlantSelectorMVCImpl(simulationMVC, baseView).plantSelectorModel
-    mvc = LoadingPlantMVC(simulationMVC, plantSelectorModel, baseView)
-    startApplication(stage, baseView, mvc.loadingPlantView)
+    val simulationMVC = SimulationMVC(stage)
+    val plantSelectorModel = PlantSelectorMVCImpl(simulationMVC).plantSelectorModel
+    mvc = LoadingPlantMVC(simulationMVC, plantSelectorModel)
+    simulationMVC.simulationView.start(mvc.loadingPlantView)
 
   @Test def testLabel(robot: FxRobot): Unit =
     val text = "Loading of plant data in progress, wait a few moments"

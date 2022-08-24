@@ -4,9 +4,5 @@ import it.unibo.pps.smartgh.view.component.BaseView
 
 trait SceneController:
 
-  /** Method that asks the controller to instantiate the next MVC, for the next scene.
-    *
-    * @param baseView
-    *   the template view for the next scene.
-    */
-  def instantiateNextSceneMVC(baseView: BaseView): Unit
+  /** Method for the controller to doing something before next scene. */
+  def beforeNextScene(): Unit

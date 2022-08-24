@@ -5,7 +5,7 @@ import javafx.scene.Parent
 /** Trait useful to define a view component that has to set a new contiguous scene. */
 trait ContiguousSceneView[A <: Parent]:
 
-  /** Method to ask the controller to instantiate the new MVC for next scene, specifying the base view. */
+  /** Method to ask the controller to set the next scene. */
   def setNewScene(): Unit
 
   /** Method to specify the main view to display a new view component.

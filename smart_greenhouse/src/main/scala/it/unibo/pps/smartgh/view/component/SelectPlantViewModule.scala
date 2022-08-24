@@ -51,21 +51,14 @@ object SelectPlantViewModule:
     val selectPlantView: SelectPlantView
 
   /** Requirements for the [[SelectPlantView]] */
-  type Requirements = PlantSelectorControllerModule.Provider
+  type Requirements = PlantSelectorControllerModule.Provider with SimulationMVC.Provider
 
   /** Trait that represents the components of the view for the plant selection. */
   trait Component:
     context: Requirements =>
 
-    /** Class that contains the [[SelectPlantView]] implementation.
-      * @param simulationView
-      *   the root view of the application.
-      * @param baseView
-      *   the view in which the [[SelectPlantView]] is enclosed.
-      */
-    class SelectPlantViewImpl(simulationView: SimulationView, private val baseView: BaseView)
-        extends AbstractViewComponent[BorderPane]("select_plants.fxml")
-        with SelectPlantView:
+    /** Class that contains the [[SelectPlantView]] implementation. */
+    class SelectPlantViewImpl() extends AbstractViewComponent[BorderPane]("select_plants.fxml") with SelectPlantView:
 
       given Conversion[Int, String] = _.toString
 
@@ -106,10 +99,10 @@ object SelectPlantViewModule:
       countLabel.setText(countText)
       numberPlantsSelectedLabel.setText(0)
 
-      baseView.changeSceneButton.setText("Start simulation")
-      baseView.changeSceneButton.setOnMouseClicked { _ =>
-        plantSelectorController.instantiateNextSceneMVC(baseView)
-      }
+      simulationMVC.simulationView.changeSceneButtonBehaviour(
+        "Start simulation",
+        _ => plantSelectorController.beforeNextScene()
+      )
 
       override def showSelectablePlants(selectablePlantList: List[String]): Unit =
         Platform.runLater(() =>
@@ -136,10 +129,10 @@ object SelectPlantViewModule:
         })
 
       override def moveToNextScene(nextView: ViewComponent[VBox]): Unit =
-        Platform.runLater(() => simulationView.changeView(nextView))
+        Platform.runLater(() => simulationMVC.simulationView.changeView(nextView))
 
       override def setNewScene(): Unit =
-        plantSelectorController.instantiateNextSceneMVC(baseView)
+        plantSelectorController.beforeNextScene()
 
       override def showErrorMessage(message: String): Unit =
         Platform.runLater(() => errorLabel.setText(message))

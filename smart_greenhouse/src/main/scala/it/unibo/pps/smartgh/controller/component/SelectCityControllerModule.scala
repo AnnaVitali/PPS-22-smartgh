@@ -3,7 +3,7 @@ package it.unibo.pps.smartgh.controller.component
 import it.unibo.pps.smartgh.model.city.SelectCityModelModule
 import it.unibo.pps.smartgh.model.greenhouse.Environment
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
-import it.unibo.pps.smartgh.mvc.component
+import it.unibo.pps.smartgh.mvc.{SimulationMVC, component}
 import it.unibo.pps.smartgh.view.component.{BaseView, SelectCityViewModule}
 
 /** Object that encloses the controller module for the city selection. */
@@ -47,7 +47,7 @@ object SelectCityControllerModule:
     val selectCityController: SelectCityController
 
   /** The controller requirements. */
-  type Requirements = SelectCityViewModule.Provider with SelectCityModelModule.Provider
+  type Requirements = SelectCityViewModule.Provider with SelectCityModelModule.Provider with SimulationMVC.Provider
 
   /** Trait that represent the controller component for the city selection. */
   trait Component:
@@ -57,14 +57,14 @@ object SelectCityControllerModule:
       * @param simulationMVC
       *   the simulationMVC of the application.
       */
-    class SelectCityControllerImpl(simulationMVC: SimulationMVCImpl) extends SelectCityController:
+    class SelectCityControllerImpl() extends SelectCityController:
 
       override def saveCity(name: String): Unit =
         simulationMVC.simulationController.environment = Environment(name)
 
-      override def instantiateNextSceneMVC(baseView: BaseView): Unit =
-        val plantSelectorMVC = component.PlantSelectorMVC(simulationMVC, baseView)
-        selectCityView.moveToNextScene(plantSelectorMVC.selectPlantView)
+      override def beforeNextScene(): Unit = ??? //todo
+//        val plantSelectorMVC = component.PlantSelectorMVC(simulationMVC)
+//        selectCityView.moveToNextScene(plantSelectorMVC.selectPlantView)
 
       override def getAllCities: Seq[String] = selectCityModel.getAllCities
       override def searchCities(charSequence: Seq[Char]): Seq[String] = selectCityModel.searchCities(charSequence)

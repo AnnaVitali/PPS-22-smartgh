@@ -21,15 +21,13 @@ object FinishSimulationView:
     *
     * @param simulationMVC
     *   the root MVC of the application.
-    * @param baseView
-    *   the [[BaseView]] component.
     * @return
     *   a new instance of [[FinishSimulationView]].
     */
-  def apply(simulationMVC: SimulationMVCImpl, baseView: BaseView): FinishSimulationView =
-    FinishSimulationViewImpl(simulationMVC, baseView)
+  def apply(simulationMVC: SimulationMVCImpl): FinishSimulationView =
+    FinishSimulationViewImpl(simulationMVC)
 
-  private class FinishSimulationViewImpl(simulationMVC: SimulationMVCImpl, private val baseView: BaseView)
+  private class FinishSimulationViewImpl(simulationMVC: SimulationMVCImpl)
       extends AbstractViewComponent[BorderPane]("finish_simulation.fxml")
       with FinishSimulationView:
 
@@ -39,17 +37,11 @@ object FinishSimulationView:
     @FXML
     var simulationEndedLabel: Label = _
 
-    val startNewSimulationButton: Button = baseView.changeSceneButton
-
-//    startNewSimulationButton.setStyle("-fx-background-color: #33cc33")
-//    startNewSimulationButton.setOnMouseEntered(_ => startNewSimulationButton.setStyle("-fx-background-color: #5cd65c"))
-//    startNewSimulationButton.setOnMouseExited(_ => startNewSimulationButton.setStyle("-fx-background-color: #33cc33"))
-
-    Platform.runLater { () =>
-      simulationEndedLabel.setText("Simulation ended!")
-      baseView.changeSceneButton.setText("Start a new simulation")
-    }
-    baseView.changeSceneButton.setOnMouseClicked { _ =>
-      simulationMVC.simulationController.resetSimulation()
-      simulationMVC.simulationView.changeView(SelectCityMVC(simulationMVC, baseView).selectCityView)
-    }
+    Platform.runLater(() => simulationEndedLabel.setText("Simulation ended!"))
+    simulationMVC.simulationView.changeSceneButtonBehaviour(
+      "Start a new simulation",
+      _ =>
+        simulationMVC.simulationController.resetSimulation()
+        simulationMVC.simulationView.changeView(SelectCityMVC(simulationMVC).selectCityView),
+      true
+    )

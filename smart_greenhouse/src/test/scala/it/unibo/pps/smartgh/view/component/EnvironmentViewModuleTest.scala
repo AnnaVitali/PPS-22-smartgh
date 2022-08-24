@@ -24,12 +24,11 @@ class EnvironmentViewModuleTest extends AbstractViewTest:
 
   @Start
   private def start(stage: Stage): Unit =
-    val baseView: BaseView = BaseView(appTitle, appSubtitle)
-    simulationMVC = SimulationMVC(stage)
+    val simulationMVC = SimulationMVC(stage)
     simulationMVC.simulationController.environment = Environment("Cesena")
     simulationMVC.simulationController.plantsSelected =
       List(Plant("carrot", "carrot aurantina f1"), Plant("eggplant", "solanum melongena"))
-    startApplication(stage, baseView, component.EnvironmentMVC(simulationMVC, baseView).environmentView)
+    simulationMVC.simulationView.start(EnvironmentMVC(simulationMVC).environmentView)
 
   @Test def testEnvironmentLabels(robot: FxRobot): Unit =
     verifyThat("#locationLabel", isVisible)
