@@ -122,7 +122,7 @@ object EnvironmentControllerModule:
 
       override def backToEnvironment(): Unit =
         environmentView.setBackButton()
-        ghMVC.ghController.updateView()
+        ghMVC.ghDivisionController.updateView()
 
       override def subscribeTimerValue(callback: String => Unit): Unit =
         subject.subscribe(

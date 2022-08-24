@@ -72,7 +72,7 @@ class GreenHouseDivisionViewTest extends AbstractViewTest:
     eventually(timeout(Span(3000, Milliseconds))) {
       verifyThat(globalGH, isVisible)
       verifyThat(areaBt, isVisible)
-      verifyThat(globalGH, hasChildren(ghMVC.ghDivisionModel.plants.length, ""))
+      verifyThat(globalGH, hasChildren(ghMVC.ghDivisionModel.areas.length, ""))
     }
 
   @Test def testStartAreaColor(robot: FxRobot): Unit =
@@ -102,7 +102,7 @@ class GreenHouseDivisionViewTest extends AbstractViewTest:
   @Test def testStopListening(robot: FxRobot): Unit =
     ghMVC.ghDivisionModel.areas.foreach(_.areaModel.status = AreaModelModule.AreaStatus.ALARM)
     Thread.sleep(5000)
-    ghMVC.ghController.stopListening()
+    ghMVC.ghDivisionController.stopListening()
     Thread.sleep(5000)
     ghMVC.ghDivisionModel.areas.foreach(_.areaModel.status = AreaModelModule.AreaStatus.NORMAL)
     eventually(timeout(Span(3000, Milliseconds))) {

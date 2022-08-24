@@ -3,7 +3,7 @@ package it.unibo.pps.smartgh.view.component
 import it.unibo.pps.smartgh.controller.component.EnvironmentControllerModule
 import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
-import it.unibo.pps.smartgh.view.component.GHViewModule.GHDivisionView
+import it.unibo.pps.smartgh.view.component.GHViewModule.GreenHouseView
 import it.unibo.pps.smartgh.view.component.HelpView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.application.Platform
@@ -42,11 +42,12 @@ object EnvironmentViewModule:
       */
     def displayElapsedTime(timerValue: String): Unit
 
-    /** Method to display [[GHDivisionView]] in the [[EnvironmentView]].
+    /** Method to display [[GreenHouseView]] in the [[EnvironmentView]].
+      *
       * @param ghDivisionView
       *   view that represents the green house division in areas
       */
-    def displayGreenHouseDivisionView(ghDivisionView: GHDivisionView): Unit
+    def displayGreenHouseDivisionView(ghDivisionView: GreenHouseView): Unit
 
     /** Method to notify view that the simulation time has finished. */
     def finishSimulation(): Unit
@@ -149,7 +150,7 @@ object EnvironmentViewModule:
       override def displayElapsedTime(timerValue: String): Unit =
         Platform.runLater(() => timeElapsedLabel.setText(timerValue))
 
-      override def displayGreenHouseDivisionView(ghDivisionView: GHDivisionView): Unit =
+      override def displayGreenHouseDivisionView(ghDivisionView: GreenHouseView): Unit =
         component.setCenter(ghDivisionView)
 
       override def finishSimulation(): Unit =

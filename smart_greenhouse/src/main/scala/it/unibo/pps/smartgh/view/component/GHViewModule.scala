@@ -18,7 +18,7 @@ import scala.language.postfixOps
 /** Implementation of the [[GHViewModule]]. */
 object GHViewModule:
   /** A trait that represents the green house division view of the application. */
-  trait GHDivisionView extends ViewComponent[ScrollPane]:
+  trait GreenHouseView extends ViewComponent[ScrollPane]:
     /** Draws the greenhouse division according to the rows and cols.
       * @param areas
       *   list of areas composing the greenhouse
@@ -31,9 +31,9 @@ object GHViewModule:
   /** A trait for defining the view instance. */
   trait Provider:
     /** Greenhouse division view. */
-    val ghDivisionView: GHDivisionView
+    val ghDivisionView: GreenHouseView
 
-  /** Requirements for the [[GHDivisionView]]. */
+  /** Requirements for the [[GreenHouseView]]. */
   type Requirements = GHControllerModule.Provider
 
   /** A trait that represents the greenhouse division view component. */
@@ -43,7 +43,7 @@ object GHViewModule:
       * @return
       *   the implementation of the [[GreenHouseDivisionViewImpl]].
       */
-    class GreenHouseDivisionViewImpl() extends AbstractViewComponent[ScrollPane]("ghDivision.fxml") with GHDivisionView:
+    class GreenHouseDivisionViewImpl() extends AbstractViewComponent[ScrollPane]("ghDivision.fxml") with GreenHouseView:
       override val component: ScrollPane = loader.load[ScrollPane]
       //noinspection VarCouldBeVal
       override var baseView: BaseView = _

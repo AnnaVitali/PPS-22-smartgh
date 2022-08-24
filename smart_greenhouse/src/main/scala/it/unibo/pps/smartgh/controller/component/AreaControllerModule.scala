@@ -37,7 +37,7 @@ object AreaControllerModule:
         areaView.paintArea(areaModel.plant.name, color, areaModel.sensorValues())
 
       override def beforeNextScene(): Unit =
-        ghMVC.ghController.stopListening()
+        ghMVC.ghDivisionController.stopListening()
         areaView.moveToNextScene(AreaDetailsMVC(simulationMVC, areaModel).areaDetailsView)
 
   /** Trait that combine provider and component for area controller. */

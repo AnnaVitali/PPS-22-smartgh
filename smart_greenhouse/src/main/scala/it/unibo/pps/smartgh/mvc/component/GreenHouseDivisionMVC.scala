@@ -36,9 +36,9 @@ object GreenHouseDivisionMVC:
       with GHViewModule.Interface
       with GHControllerModule.Interface:
 
-    override val ghDivisionModel: GHModelModule.GreenHouseModel = GreenHouseImpl(plants)
-    override val ghController: GHControllerModule.GreenHouseController = GreenHouseDivisionControllerImpl()
-    override val ghDivisionView: GHViewModule.GHDivisionView = GreenHouseDivisionViewImpl()
+    override val ghDivisionModel: GHModelModule.GreenHouseModel = GreenHouseDivisionModelImpl()
+    override val ghDivisionController: GHControllerModule.GreenHouseController = GreenHouseDivisionControllerImpl()
+    override val ghDivisionView: GHViewModule.GreenHouseView = GreenHouseDivisionViewImpl()
 
     /** Create and set the greenhouse division areas.
       * @param subjects
@@ -52,4 +52,4 @@ object GreenHouseDivisionMVC:
       ghDivisionModel.areas.foreach(a => a.areaModel.setSensorSubjects(subjects))
 
     /** Show the greenhouse and its division. */
-    def show(): Unit = ghController.updateView()
+    def show(): Unit = ghDivisionController.updateView()

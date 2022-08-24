@@ -23,7 +23,7 @@ object GHControllerModule:
   /** A trait for defining the controller instance. */
   trait Provider:
     /** The controller of the Green House. */
-    val ghController: GreenHouseController
+    val ghDivisionController: GreenHouseController
 
   /** The controller requirements. */
   type Requirements = GHViewModule.Provider with GHModelModule.Provider

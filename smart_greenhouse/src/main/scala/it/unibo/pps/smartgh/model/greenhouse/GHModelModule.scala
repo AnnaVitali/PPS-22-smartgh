@@ -17,12 +17,6 @@ object GHModelModule:
       */
     var areas: List[AreaMVCImpl]
 
-    /** Plants of the greenhouse.
-      * @return
-      *   the list of plants
-      */
-    val plants: List[Plant]
-
   /** A trait for defining the model instance. */
   trait Provider:
     /** The green house division model. */
@@ -30,11 +24,8 @@ object GHModelModule:
 
   /** A trait that represents the greenhouse model component. */
   trait Component:
-    /** Implementation of the greenhouse model.
-      * @param plants
-      *   list of [[Plant]]
-      */
-    class GreenHouseImpl(override val plants: List[Plant]) extends GreenHouseModel:
+    /** Implementation of the greenhouse model. */
+    class GreenHouseDivisionModelImpl() extends GreenHouseModel:
 
       override var areas: List[AreaMVCImpl] = List.empty
 
