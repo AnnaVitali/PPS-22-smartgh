@@ -36,15 +36,17 @@ class AreaDetailsViewModuleTest extends AbstractAreaDetailsViewTest:
   @Test
   def testPlantInformation(robot: FxRobot): Unit =
     val image = robot.lookup(plantImageUrlId).queryAs(classOf[ImageView])
-    verifyThat(plantNameId, hasText(plant.name))
-    verifyThat(plantDescriptionId, hasText(plant.description))
-    assertEquals(plant.imageUrl, image.getImage.getUrl)
-    assertFalse(image.getImage.isError)
+    eventually(timeout(Span(5000, Milliseconds))) {
+      verifyThat(plantNameId, hasText(plant.name))
+      verifyThat(plantDescriptionId, hasText(plant.description))
+      assertEquals(plant.imageUrl, image.getImage.getUrl)
+      assertFalse(image.getImage.isError)
+    }
 
   @Test
   def testTimerStarted(robot: FxRobot): Unit =
     val timerLabel = robot.lookup(timerId).queryLabeled()
-    eventually(timeout(Span(3000, Milliseconds))) {
+    eventually(timeout(Span(5000, Milliseconds))) {
       assertFalse(timerLabel.getText.isBlank)
       assertTrue(timerLabel.getText.takeRight(2).toInt > 0)
     }
