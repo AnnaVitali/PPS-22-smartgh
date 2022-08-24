@@ -22,6 +22,8 @@ To execute the application:
 $ java -jar `path-to-downloaded-jar`
 ```
 
+You can find the user guide [here](https://github.com/AnnaVitali/PPS-22-smartgh/blob/0029d57b2bab503469fd5467b558cc682f361ce9/docs/08_user_guide.md).
+
 ## Test
 You can clone the repository and execute tests with the command:
 
