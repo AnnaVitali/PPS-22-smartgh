@@ -105,18 +105,24 @@ Dopodichè, il compito principale del Controller per la selezione delle piante, 
 
 ### 4.3.1 Caricamento dei dati
 
-Una volta che l'utente ha provveduto a selezionare le piante che intende coltivare all'interno della serra e ha richiesto l'avvio della simulazione, l'applicazione provvede a raccogliere tutti i dati relativi alle piante, ai loro parametri ottimali e alle condizioni ambientali della città di ubicazione della serra. Tuttavia, per poter raccogliere tutte queste infromazioni, specialmente quelle relative alle piante, l'applicazione impiega un certo tempo, di conseguenza, per mantenere l'interfaccia reattiva e fornire infromazioni all'utente relative alle operazioni che il sistema sta svolgendo in questo momento, si è deciso di inserire un componente intermedio, che mostri il caricamento dei dati.
+Una volta che l'utente ha provveduto a selezionare le piante che intende coltivare all'interno della serra e ha richiesto l'avvio della simulazione, l'applicazione provvede a raccogliere tutti i dati relativi alle piante, ai loro parametri ottimali e alle condizioni ambientali della città di ubicazione della serra. 
+
+Nelle successive sezioni quindi, verranno spiegati i meccanismi messi in atto per gestire il caricamento dei dati dell'ambiente e dei dati delle piante
+
+#### 4.3.1.1 Caricamento dei dati delle piante
+
+ Per poter raccogliere le informazioni relative alle piante, l'applicazione impiega un certo tempo, di conseguenza, per mantenere l'interfaccia reattiva e fornire infromazioni all'utente relative ai compiti che il sistema sta svolgendo in questo momento, si è deciso di inserire un componente intermedio, che mostri il caricamento dei dati.
 
 In particolare, si è deciso di realizzare l'elemento `LoadingPlantMVC`, il quale racchiude i comonenti del _pattern MVC_ dedicati al caricamento dei dati delle piante.
 
-Come si può vedere dalla figura [Fig. 4.3.1.1] anche `LoadingPlantMVC` sfrutta il _cake pattern_ ed estende: il `trait Interface` di `PlantSelectorModelModule`, il `trait Interface` di `LoadingPlantControllerModule` e il `trait Interface` di `LoadingPlantViewModule`. Di conseguenza, risulta che il Model del `LoadingPlantMVC` è lo stesso di `PlantSelectorMVC`, questo perchè è proprio questo Model che detiene le infromazioni relative alle piante selezionate dall'utente e che può essere utilizzato per poter istanziare l'oggetto `Plant`, contenente tutti i dati utili alla gestione delle piante all'interno della serra.
+Come si può vedere dalla figura [Fig. 4.3.1.1.1] anche `LoadingPlantMVC` sfrutta il _cake pattern_ ed estende: il `trait Interface` di `PlantSelectorModelModule`, il `trait Interface` di `LoadingPlantControllerModule` e il `trait Interface` di `LoadingPlantViewModule`. Di conseguenza, risulta che il Model del `LoadingPlantMVC` è lo stesso di `PlantSelectorMVC`, questo perchè è proprio questo Model che detiene le infromazioni relative alle piante selezionate dall'utente e che può essere utilizzato per poter istanziare l'oggetto `Plant`, contenente tutti i dati utili alla gestione delle piante all'interno della serra.
 
 <div align="center">
   <img src="img/loading_plant_MVC.png" />
-  <p> Fig. 4.3.1.1 - MVC per il caricamento dei dati delle piante </p>
+  <p> Fig. 4.3.1.1.1 - MVC per il caricamento dei dati delle piante </p>
 </div>
 
-[Fig. 4.3.1.1]: img/loading_plant_MVC.png
+[Fig. 4.3.1.1.1]: img/loading_plant_MVC.png
 
 Per poter accedere agli elementi Model, View e Controller e alle loro proprietà, chi ne avesse bisogno avrà solamente la necessita di istanziare il componente `LoadingPlantMVC` e accedere ai suoi elementi.
 
@@ -124,9 +130,9 @@ Per poter accedere agli elementi Model, View e Controller e alle loro proprietà
 
 Dato che il Model è già stato discusso nella precedente sezione [Sec. 4.2.2.1](#4221-model-per-la-selezione-delle-piante), di seguito verranno discussi solamente i componenti View e Controller per il caricamento dei dati.
 
-#### 4.3.1.1 View per il caricamento dei dati delle piante
+**View per il caricamento dei dati delle piante**
 
-La View per il caricamento dei dati delle piante ([Fig. 4.3.1.1.1]) si trova all'interno del modulo `LoadingPlantViewModule` al cui interno troviamo:
+La View per il caricamento dei dati delle piante ([Fig. 4.3.1.1.2]) si trova all'interno del modulo `LoadingPlantViewModule` al cui interno troviamo:
 
 - il `trait LoadingPlantView`, che contiene i metodi della View che possono essere richiamati per gestire l'interazione con l'utente. `LoadingPlantView` estende sia l'interfaccia `ViewComponent` che l'interfaccia `ContigusSceneView`, in quanto rappresenta una scena che viene inserita all'interno di quella madre e consente il proseguimento alla scena successiva;
 - la classe `LoadingPlantViewImpl`, la quale detiene l'implementazione dei metodi relativi alla View ed è racchiusa all'interno del `trait Component`;
@@ -138,14 +144,14 @@ La View per il caricamento dei dati delle piante ([Fig. 4.3.1.1.1]) si trova all
 
 <div align="center">
   <img src="img/loading_plant_View.png" />
-  <p> Fig. 4.3.1.1.1 - View per il caricamento dei dati delle piante </p>
+  <p> Fig. 4.3.1.1.2 - View per il caricamento dei dati delle piante </p>
 </div>
 
-[Fig. 4.3.1.1.1]: img/loading_plant_View.png
+[Fig. 4.3.1.1.2]: img/loading_plant_View.png
 
 La View per il caricamento dei dati delle piante, presenta un `ProgressIndicator`, che viene incrementato di volta in volta, a mano a mano che i diversi dati delle piante vengono caricati e i rispettivi oggetti `Plant` vengono istanziati. Una volta che il caricamento dei dati risulta essere completato, si può passare alla schermata successiva.
 
-#### 4.3.1.2 Controller per il caricamento dei dati delle piante
+**Controller per il caricamento dei dati delle piante**
 
 Il Controller per il caricamento dei dati delle piante si trova all'interno del modulo `LoadingPlantControllerModule`, nello specifico all'intenro del suddetto modulo troviamo:
 
@@ -163,14 +169,17 @@ Sia la View che il Controller che il Model, sono stati realizzati tramite il _ca
 
 <div align="center">
   <img src="img/loading_plant_Controller.png" />
-  <p> Fig. 4.3.1.2.1 - Controller per il caricamento dei dati delle piante </p>
+  <p> Fig. Fig. 4.3.1.1.3 - Controller per il caricamento dei dati delle piante </p>
 </div>
 
-[Fig. 4.3.1.1.1]: img/loading_plant_Controller.png
+[Fig. Fig. 4.3.1.1.3]: img/loading_plant_Controller.png
 
-Come possibile vedere dalla figura [Fig. 4.3.1.1.1], il `LoadingPlantController` presenta un unico metodo `setupBehaviour`, il quale si occupa di registrare la callback sul Model relativa al caricamento dei dati delle piante. Infatti, all'intenro di questo metodo, viene richiamata la funzione `registerCallbackPlantInfo` di `PlantSelectorModel`, specificando quali sono le azioni che devono essere intraprese quando: viene istanziata una nuova pianta con tutte le relative informazioni, viene prodotto un errore o tutte le piante siano state create e i relativi dati caricati. 
+Come possibile vedere dalla figura [Fig. 4.3.1.1.3], il `LoadingPlantController` presenta un unico metodo `setupBehaviour`, il quale si occupa di registrare la callback sul Model relativa al caricamento dei dati delle piante. Infatti, all'intenro di questo metodo, viene richiamata la funzione `registerCallbackPlantInfo` di `PlantSelectorModel`, specificando quali sono le azioni che devono essere intraprese quando: viene istanziata una nuova pianta con tutte le relative informazioni, viene prodotto un errore o tutte le piante siano state create e i relativi dati caricati. 
 
 Ne risulta, quindi, che quando verrà prodotta una nuova pianta il Controller richiamerà il metodo `IncrementProgressIndicator` della View e quando invece il caricamento dei dati delle piante risulterà essere completato, il Controller richiederà alla View di passare alla schermata successiva.
+
+#### 4.3.1.2 Caricamento dei dati ambientali
+//TODO Vero
 
 
 ### 4.3.2 Ambiente
