@@ -11,18 +11,26 @@ import javafx.fxml.FXML
 import javafx.scene.control.{Button, Label, ToggleButton}
 import javafx.scene.layout.GridPane
 
+/** Object that encloses the view module for the area temperature parameter. */
 object AreaTemperatureViewModule:
 
+  /** Trait that represents the area temperature parameter view. */
   trait AreaTemperatureView extends ViewComponent[GridPane] with AreaParametersView
 
+  /** Trait that represents the provider of the area provider parameter. */
   trait Provider:
+
+    /** The view of area temperature parameter. */
     val parameterView: AreaParametersView
 
+  /** The view requirements. */
   type Requirements = AreaTemperatureControllerModule.Provider
 
+  /** Trait that represents the components of the view for the area temperature parameter. */
   trait Component:
     context: Requirements =>
 
+    /** Class that contains the [[AreaTemperatureView]] implementation. */
     class AreaTemperatureViewImpl()
         extends AbstractAreaParametersView[GridPane]("area_temperature.fxml", "Temperature")
         with AreaTemperatureView:
@@ -56,15 +64,17 @@ object AreaTemperatureViewModule:
       initGatesBtn(areaTemperatureController.isGatesOpen)
 
       openStructureBtn.setOnMouseClicked { _ =>
-        closeStructureBtn.setSelected(false)
-        areaTemperatureController.openGates()
-        setRegulateTempAvailable(false)
+        if openStructureBtn.isSelected then
+          areaTemperatureController.openGates()
+          setRegulateTempAvailable(false)
+        else openStructureBtn.setSelected(true)
       }
 
       closeStructureBtn.setOnMouseClicked { _ =>
-        openStructureBtn.setSelected(false)
-        areaTemperatureController.closeGates()
-        setRegulateTempAvailable(true)
+        if closeStructureBtn.isSelected then
+          areaTemperatureController.closeGates()
+          setRegulateTempAvailable(true)
+        else closeStructureBtn.setSelected(true)
       }
 
       minusTempBtn.setOnMouseClicked(_ => updateTempValue(_ - tempStep))
@@ -90,5 +100,6 @@ object AreaTemperatureViewModule:
         minusTempBtn.setDisable(v < tempRange._1)
         plusTempBtn.setDisable(v > tempRange._2)
 
+  /** Trait that encloses the view for area temperature parameter. */
   trait Interface extends Provider with Component:
     self: Requirements =>

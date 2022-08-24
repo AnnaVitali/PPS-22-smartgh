@@ -13,8 +13,6 @@ object AreaMVC:
   /** Create a new [[AreaMVCImpl]].
     * @param plant
     *   of the Area
-    * @param timer
-    *   instance of the simulation [[Timer]]
     * @param simulationMVC
     *   the simulation MVC instance
     * @param greenHouseDivisionMVC
@@ -24,31 +22,29 @@ object AreaMVC:
     */
   def apply(
       plant: Plant,
-      timer: Timer,
       simulationMVC: SimulationMVCImpl,
       greenHouseDivisionMVC: GreenHouseDivisionMVCImpl
   ): AreaMVCImpl =
-    AreaMVCImpl(plant, timer, simulationMVC, greenHouseDivisionMVC)
+    AreaMVCImpl(plant, simulationMVC, greenHouseDivisionMVC)
 
   /** Implementation of the area MVC.
+    *
     * @param plant
     *   of the Area
     * @param simulationMVC
     *   the simulation MVC instance
-    * @param timer
-    *   instance of the simulation [[Timer]]
     * @param greenHouseDivisionMVC
     *   instance of the [[GreenHouseDivisionMVC]]
     */
   class AreaMVCImpl(
       plant: Plant,
-      timer: Timer,
       simulationMVC: SimulationMVCImpl,
       greenHouseDivisionMVC: GreenHouseDivisionMVCImpl
   ) extends AreaModelModule.Interface
       with AreaViewModule.Interface
       with AreaControllerModule.Interface:
-    override val areaModel: AreaModelModule.AreaModel = AreaImpl(plant, timer)
+    override val areaModel: AreaModelModule.AreaModel =
+      AreaImpl(plant, simulationMVC.simulationController.environmentController.subscribeTimerValue)
     override val areaView: AreaViewModule.AreaView = AreaViewImpl(simulationMVC.simulationView)
     override val areaController: AreaControllerModule.AreaController =
       AreaControllerImpl(simulationMVC, greenHouseDivisionMVC)

@@ -1,20 +1,20 @@
 package it.unibo.pps.smartgh.model.sensor
 
-import it.unibo.pps.smartgh.model.sensor.AirHumiditySensor.AirHumiditySensorImpl
-import it.unibo.pps.smartgh.model.area.{AreaAtomiseState, AreaComponentsState, AreaGatesState, AreaVentilationState}
 import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
+import it.unibo.pps.smartgh.model.area.{AreaAtomiseState, AreaComponentsState, AreaGatesState, AreaVentilationState}
+import it.unibo.pps.smartgh.model.sensor.AirHumiditySensor.AirHumiditySensorImpl
 import it.unibo.pps.smartgh.model.time.Timer
 import monix.execution.Ack.Continue
+import monix.execution.Scheduler.Implicits.global
 import monix.reactive.MulticastStrategy
 import monix.reactive.subjects.ConcurrentSubject
-import monix.execution.Scheduler.Implicits.global
+import org.apache.commons.lang3.time.DurationFormatUtils
 import org.scalatest.BeforeAndAfter
 import org.scalatest.concurrent.Eventually
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.time.{Milliseconds, Span}
 
-import scala.concurrent.duration.FiniteDuration
 import scala.concurrent.duration.*
 import scala.language.postfixOps
 
@@ -27,10 +27,10 @@ class AirHumiditySensorTest extends AnyFunSuite with Matchers with Eventually wi
   private var humiditySensor: AirHumiditySensorImpl = _
   private val subjectEnvironment = ConcurrentSubject[Double](MulticastStrategy.publish)
   private val subjectActions = ConcurrentSubject[AreaComponentsStateImpl](MulticastStrategy.publish)
+  private val subjectTimer = ConcurrentSubject[String](MulticastStrategy.publish)
 
   private def setupTimer(tickPeriod: FiniteDuration): Unit =
     timer.changeTickPeriod(tickPeriod)
-    humiditySensor.registerTimerCallback()
 
   private def initialValueTest(): Unit =
     subjectEnvironment.onNext(initialHumidity)
@@ -41,11 +41,25 @@ class AirHumiditySensorTest extends AnyFunSuite with Matchers with Eventually wi
   before {
     areaComponentsState = AreaComponentsState()
     areaComponentsState.gatesState = AreaGatesState.Close
-    humiditySensor = AirHumiditySensor(areaComponentsState, timer)
+    humiditySensor = AirHumiditySensor(
+      areaComponentsState,
+      (callback: String => Unit) =>
+        subjectTimer.subscribe(
+          (s: String) => {
+            callback(s)
+            Continue
+          },
+          (ex: Throwable) => ex.printStackTrace(),
+          () => {}
+        )
+    )
     humiditySensor.setObserverEnvironmentValue(subjectEnvironment)
     humiditySensor.setObserverActionsArea(subjectActions)
     subjectActions.onNext(areaComponentsState)
-    timer.start(println("time is up!"))
+    timer.start(
+      t => subjectTimer.onNext(DurationFormatUtils.formatDuration(t.toMillis, "HH:mm:ss", true)),
+      println("time is up!")
+    )
   }
 
   after {

@@ -5,13 +5,22 @@ import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateIm
 import it.unibo.pps.smartgh.model.area.ManageSensor.ManageSensorImpl
 import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.model.sensor.LuminositySensor.LuminositySensorImpl
+import it.unibo.pps.smartgh.model.sensor.SensorStatus
 import it.unibo.pps.smartgh.model.time.Timer
+import monix.eval.Task.timer
+import monix.execution.Ack.Continue
+import monix.execution.Scheduler.Implicits.global
 import monix.reactive.MulticastStrategy
 import monix.reactive.subjects.ConcurrentSubject
+import org.apache.commons.lang3.time.DurationFormatUtils
+import org.scalactic.TripleEquals.convertToEqualizer
 import org.scalatest.BeforeAndAfter
+import org.scalatest.concurrent.Eventually.eventually
+import org.scalatest.concurrent.Futures.timeout
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.must.Matchers
 import org.scalatest.matchers.must.Matchers.mustEqual
+import org.scalatest.time.{Milliseconds, Span}
 
 import scala.concurrent.duration.*
 import scala.language.postfixOps
@@ -19,16 +28,35 @@ import scala.language.postfixOps
 /** This class contains the tests to verify that the [[AreaModelModule]] works correctly. */
 class AreaTest extends AnyFunSuite with AreaModelModule.Interface with Matchers:
 
+  private val subject = ConcurrentSubject[String](MulticastStrategy.publish)
   private val timer = Timer(1 day)
-  timer.start(println("time is up!"))
-  override val areaModel: AreaModelModule.AreaModel = AreaImpl(Plant("lemon", "citrus limon"), timer)
+  timer.start(
+    t => subject.onNext(DurationFormatUtils.formatDuration(t.toMillis, "HH:mm:ss", true)),
+    println("time is up!")
+  )
+  override val areaModel: AreaModelModule.AreaModel = AreaImpl(
+    Plant("lemon", "citrus limon"),
+    (callback: String => Unit) =>
+      subject.subscribe(
+        (s: String) => {
+          callback(s)
+          Continue
+        },
+        (ex: Throwable) => ex.printStackTrace(),
+        () => {}
+      )
+  )
 
   test("After create an area in which there is a lemon plant, The area plant's name must be lemon") {
     areaModel.plant.name mustEqual "lemon"
   }
 
-  test("After create an area its state must be equal to Normal") {
-    areaModel.status mustEqual AreaModelModule.AreaStatus.NORMAL
+  test(
+    "After create an area its state must be equal to Normal if all sensors status is Normal else must be equal to alarm"
+  ) {
+    if areaModel.sensors.forall(_.status === SensorStatus.NORMAL) then
+      areaModel.status mustEqual AreaModelModule.AreaStatus.NORMAL
+    else areaModel.status mustEqual AreaModelModule.AreaStatus.ALARM
   }
 
   test("An area must have 4 sensors") {
@@ -82,29 +110,6 @@ class AreaTest extends AnyFunSuite with AreaModelModule.Interface with Matchers:
     areaModel.getAreaComponent.atomisingState mustEqual AreaAtomiseState.AtomisingInactive
   }
 
-  test(
-    "If a user watering the area, then its state must be watering"
-  ) {
-    areaModel.updHumidityAction(AreaHumidityState.Watering)
-    areaModel.getAreaComponent.humidityActions mustEqual AreaHumidityState.Watering
-  }
-
-  test(
-    "If a user moving the soil of the area, then its state must be MovingSoil"
-  ) {
-    areaModel.updHumidityAction(AreaHumidityState.MovingSoil)
-    areaModel.getAreaComponent.humidityActions mustEqual AreaHumidityState.MovingSoil
-  }
-
-  test(
-    "If a user before perform an action on humidity of the area and then stop it, the area state state must be None"
-  ) {
-    areaModel.updHumidityAction(AreaHumidityState.MovingSoil)
-    areaModel.getAreaComponent.humidityActions mustEqual AreaHumidityState.MovingSoil
-    areaModel.updHumidityAction(AreaHumidityState.None)
-    areaModel.getAreaComponent.humidityActions mustEqual AreaHumidityState.None
-  }
-
   test("If a user set the lamp brightness to 40000 then the area lamp brightness must be 40000") {
     areaModel.updBrightnessOfLamp(40000)
     areaModel.getAreaComponent.brightnessOfTheLamps mustEqual 40000
@@ -114,12 +119,12 @@ class AreaTest extends AnyFunSuite with AreaModelModule.Interface with Matchers:
     import it.unibo.pps.smartgh.model.sensor.SensorStatus
     import monix.execution.Scheduler.Implicits.global
     areaModel.updBrightnessOfLamp(0)
-    val lumSensor = areaModel.sensors.find(ms => ms.name === "Brightness").orNull
-    lumSensor.status mustEqual SensorStatus.NORMAL
+    val lumSensor = areaModel.sensors.find(_.name === "Brightness").orNull
     val subjectEnvironment: ConcurrentSubject[Double, Double] =
       ConcurrentSubject[Double](MulticastStrategy.publish)
     areaModel.setSensorSubjects(Map("lux" -> subjectEnvironment))
     subjectEnvironment.onNext(0)
-    Thread.sleep(5000)
-    lumSensor.status mustEqual SensorStatus.ALARM
+    eventually(timeout(Span(6000, Milliseconds))) {
+      lumSensor.status mustEqual SensorStatus.ALARM
+    }
   }

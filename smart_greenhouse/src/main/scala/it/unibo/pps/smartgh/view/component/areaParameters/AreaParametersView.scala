@@ -8,12 +8,34 @@ import javafx.scene.Parent
 import javafx.scene.control.Label
 import javafx.scene.layout.GridPane
 
+/** A object that represent the area parameters view. */
 object AreaParametersView:
 
+  /** A trait that represents the generic view component for area parameters. */
   trait AreaParametersView extends ViewComponent[GridPane]:
+
+    /** Update the parameter description with its min and max optimal values.
+      * @param optimalValue
+      *   the parameter optimal value
+      */
     def updateDescription(optimalValue: String): Unit
+
+    /** Update the current value of the parameter.
+      * @param value
+      *   the value detected
+      * @param status
+      *   the status of the parameter
+      */
     def updateCurrentValue(value: String, status: String): Unit
 
+  /** An abstract class that incapsulate the common methods for all parameters of the area.
+    * @param fxmlFileName
+    *   the name of the fxml file that is situated in /resources/fxml/ directory
+    * @param parameter
+    *   the parameter name
+    * @tparam A
+    *   the type of the FX component to wrap
+    */
   abstract class AbstractAreaParametersView[A <: Parent](fxmlFileName: String, parameter: String)
       extends AbstractViewComponent[A](fxmlFileName)
       with AreaParametersView:
@@ -27,7 +49,7 @@ object AreaParametersView:
     var currentValueLabel: Label = _
 
     override def updateDescription(optimalValue: String): Unit =
-      descriptionLabel.setText(parameter + " " + optimalValue)
+      Platform.runLater(() => descriptionLabel.setText(parameter + " " + optimalValue))
 
     override def updateCurrentValue(value: String, status: String): Unit =
       Platform.runLater { () =>

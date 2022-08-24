@@ -1,16 +1,17 @@
 package it.unibo.pps.smartgh.model.sensor
 
-import it.unibo.pps.smartgh.model.sensor.SoilHumiditySensor.SoilHumiditySensorImpl
-import it.unibo.pps.smartgh.model.area.AreaComponentsState
 import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
-import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaHumidityState}
+import it.unibo.pps.smartgh.model.area.{AreaComponentsState, AreaGatesState, AreaHumidityState}
+import it.unibo.pps.smartgh.model.sensor.SoilHumiditySensor.SoilHumiditySensorImpl
 import it.unibo.pps.smartgh.model.time.Timer
+import monix.execution.Ack.Continue
+import monix.execution.Scheduler.Implicits.global
 import monix.reactive.MulticastStrategy
 import monix.reactive.subjects.ConcurrentSubject
-import monix.execution.Scheduler.Implicits.global
-import org.scalatest.funsuite.AnyFunSuite
+import org.apache.commons.lang3.time.DurationFormatUtils
 import org.scalatest.BeforeAndAfter
 import org.scalatest.concurrent.Eventually
+import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.time.{Milliseconds, Span}
 
@@ -25,15 +26,29 @@ class SoilHumiditySensorTest extends AnyFunSuite with Matchers with Eventually w
   private var humiditySensor: SoilHumiditySensorImpl = _
   private val subjectEnvironment = ConcurrentSubject[Double](MulticastStrategy.publish)
   private val subjectActions = ConcurrentSubject[AreaComponentsStateImpl](MulticastStrategy.publish)
+  private val subjectTimer = ConcurrentSubject[String](MulticastStrategy.publish)
 
   private def setupTimer(tickPeriod: FiniteDuration): Unit =
-    timer.start(println("time is up!"))
+    timer.start(
+      t => subjectTimer.onNext(DurationFormatUtils.formatDuration(t.toMillis, "HH:mm:ss", true)),
+      println("time is up!")
+    )
     timer.changeTickPeriod(tickPeriod)
-    humiditySensor.registerTimerCallback()
 
   before {
     areaComponentsState = AreaComponentsState()
-    humiditySensor = SoilHumiditySensor(areaComponentsState, timer)
+    humiditySensor = SoilHumiditySensor(
+      areaComponentsState,
+      (callback: String => Unit) =>
+        subjectTimer.subscribe(
+          (s: String) => {
+            callback(s)
+            Continue
+          },
+          (ex: Throwable) => ex.printStackTrace(),
+          () => {}
+        )
+    )
     humiditySensor.setObserverEnvironmentValue(subjectEnvironment)
     humiditySensor.setObserverActionsArea(subjectActions)
   }
@@ -43,12 +58,13 @@ class SoilHumiditySensorTest extends AnyFunSuite with Matchers with Eventually w
   }
 
   test("Temperature sensor should be initialized with the initial humidity value") {
+    setupTimer(1 second)
     humiditySensor.getCurrentValue shouldEqual areaComponentsState.soilHumidity
   }
 
   test("The soil humidity value should decrease over time due to water evaporation") {
     setupTimer(50 microseconds)
-    eventually(timeout(Span(5000, Milliseconds))) {
+    eventually(timeout(Span(8000, Milliseconds))) {
       humiditySensor.getCurrentValue should be < areaComponentsState.soilHumidity
     }
   }

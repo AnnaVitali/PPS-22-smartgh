@@ -16,6 +16,7 @@ import javafx.event.{ActionEvent, EventHandler}
 import javafx.fxml.FXML
 import javafx.scene.control.{CheckBox, Label}
 import javafx.scene.layout.{BorderPane, HBox, VBox}
+import org.scalactic.TripleEquals.convertToEqualizer
 
 import scala.jdk.javaapi.CollectionConverters.asJavaCollection
 import scala.language.postfixOps
@@ -128,7 +129,7 @@ object SelectPlantViewModule:
         checkBoxList.foreach(_.setOnAction { e =>
           Platform.runLater(() =>
             val checkBox = e.getSource.asInstanceOf[CheckBox]
-            if errorLabel.getText != "" then errorLabel.setText("")
+            if errorLabel.getText !== "" then errorLabel.setText("")
             if checkBox.isSelected then plantSelectorController.notifySelectedPlant(checkBox.getText)
             else plantSelectorController.notifyDeselectedPlant(checkBox.getText)
           )

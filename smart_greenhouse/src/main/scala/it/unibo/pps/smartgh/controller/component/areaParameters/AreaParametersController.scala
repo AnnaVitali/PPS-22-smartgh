@@ -11,15 +11,37 @@ import org.scalactic.TripleEquals.convertToEqualizer
 
 import scala.concurrent.duration.DurationInt
 
+/** Object that encloses the generic controller module for the area parameters. */
 object AreaParametersController:
 
   private val updatePeriod = 2.seconds
 
+  /** A trait that represents the generic controller for area parameters. */
   trait AreaParametersController:
+
+    /** Get the optimal values of the parameter.
+      * @return
+      *   the optimal values
+      */
     def getOptimalValues: String
+
+    /** Initialize the view.
+      * @param areaParametersView
+      *   the view to initialize
+      */
     def initializeView(areaParametersView: AreaParametersView): Unit
+
+    /** Stop listening value updating. */
     def stopListening(): Unit
 
+  /** Abstract class that represents a generic area parameter controller.
+    * @param name
+    *   the name of the parameter
+    * @param areaModel
+    *   the parameter area model
+    * @param updateStateMessage
+    *   the function that is called for updating area state and messages
+    */
   abstract class AbstractAreaParametersController(
       name: String,
       areaModel: AreaModel,

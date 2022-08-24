@@ -91,7 +91,6 @@ object EnvironmentControllerModule:
       override def startSimulation(): Unit =
         simulationController.startSimulationTimer()
         ghMVC.setAreas(
-          simulationController.timer,
           Map(
             "temp" -> environmentModel.subjectTemperature,
             "lux" -> environmentModel.subjectLuminosity,

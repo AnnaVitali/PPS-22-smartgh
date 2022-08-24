@@ -40,15 +40,13 @@ object GreenHouseDivisionMVC:
     override val ghDivisionView: GHViewModule.GHDivisionView = GreenHouseDivisionViewImpl()
 
     /** Create and set the greenhouse division areas.
-      * @param timer
-      *   of the simulation
       * @param subjects
       *   for the sensors
       */
-    def setAreas(timer: Timer, subjects: Map[String, ConcurrentSubject[Double, Double]]): Unit =
+    def setAreas(subjects: Map[String, ConcurrentSubject[Double, Double]]): Unit =
       ghDivisionModel.areas =
         for p <- plants
-        yield AreaMVC(p, timer, simulationMVC, this)
+        yield AreaMVC(p, simulationMVC, this)
 
       ghDivisionModel.areas.foreach(a => a.areaModel.setSensorSubjects(subjects))
 

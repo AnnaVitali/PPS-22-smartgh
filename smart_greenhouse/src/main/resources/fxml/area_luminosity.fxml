@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -45,8 +46,11 @@
         <Label text="Shielding:" />
         <Label text="Lamp brightness:" GridPane.rowIndex="1" />
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-            <ToggleButton fx:id="upShieldingBtn" mnemonicParsing="false" text="Up" />
-            <ToggleButton fx:id="downShieldingBtn" mnemonicParsing="false" selected="true" text="Down" />
+            <ToggleButton fx:id="upShieldingBtn" mnemonicParsing="false" text="Up">
+            <toggleGroup>
+               <ToggleGroup fx:id="shielding" />
+            </toggleGroup></ToggleButton>
+            <ToggleButton fx:id="downShieldingBtn" mnemonicParsing="false" selected="true" text="Down" toggleGroup="$shielding" />
         </HBox>
         <Slider fx:id="lampBrightnessSlider" blockIncrement="0.0" majorTickUnit="0.5" max="6.5" minorTickCount="1" showTickLabels="true" showTickMarks="true" snapToTicks="true" styleClass="slider" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <padding>

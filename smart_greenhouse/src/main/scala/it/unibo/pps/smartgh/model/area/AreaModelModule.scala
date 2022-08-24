@@ -1,6 +1,7 @@
 package it.unibo.pps.smartgh.model.area
 
 import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
+import it.unibo.pps.smartgh.model.area.AreaSensorHelper.AreaSensorHelperImpl
 import it.unibo.pps.smartgh.model.area.ManageSensor.ManageSensorImpl
 import it.unibo.pps.smartgh.model.area.{AreaComponentsState, AreaGatesState}
 import it.unibo.pps.smartgh.model.plants.Plant
@@ -33,12 +34,13 @@ object AreaModelModule:
     def status: AreaStatus
     /** [[Plant]] grown in the area. */
     val plant: Plant
-    /** Simulation [[Timer]]. */
-    val timer: Timer
+    /** A helper for sensors */
+    val areaSensorHelper: AreaSensorHelperImpl
     /** Sensor of the area. */
     val sensors: List[ManageSensorImpl]
     /** @return the map of the actual sensors values */
     def sensorValues(): Map[String, Double]
+
     /** Method that can be called to obtain the [[Observable]] associated to the status of an area.
       * @return
       *   the [[Observable]] associated to the status of an area.
@@ -57,41 +59,17 @@ object AreaModelModule:
       */
     def updGateState(state: AreaGatesState): Unit
 
-    /** Get the [[AreaGatesState]].
-      * @return
-      *   the gates state
-      */
-    def gatesState: AreaGatesState
-
     /** Update the [[AreaShieldState]]due to a user action.
       * @param state
       *   new shield state
       */
     def updShieldState(state: AreaShieldState): Unit
 
-    /** Get the shielded information.
-      * @return
-      *   if the area is shielded or not
-      */
-    def isShielded: Boolean
-
-    /** Get the atomiser state.
-      * @return
-      *   the [[AreaAtomiseState]].
-      */
-    def atomiserState: AreaAtomiseState
-
     /** Update the [[AreaAtomiseState]] due to a user action.
       * @param state
       *   new atomize state
       */
     def updAtomizeState(state: AreaAtomiseState): Unit
-
-    /** Get the ventilation state.
-      * @return
-      *   the [[AreaVentilationState]].
-      */
-    def ventilationState: AreaVentilationState
 
     /** Update the [[AreaVentilationState]] due to a user action.
       * @param state
@@ -110,18 +88,6 @@ object AreaModelModule:
       *   new brightness value
       */
     def updBrightnessOfLamp(value: Double): Unit
-
-    /** Get the current lamps' brightness.
-      * @return
-      *   the lamp brightness value
-      */
-    def getBrightnessOfLamp: Double
-
-    /** Get the current temperature.
-      * @return
-      *   the temperature value
-      */
-    def temperature: Double
 
     /** Update the temperature value due to a user action.
       * @param value
@@ -145,98 +111,25 @@ object AreaModelModule:
     /** Implementation of the area model.
       * @param plant
       *   [[Plant]] grown in the area.
-      * @param timer
-      *   instance of the simulation [[Timer]].
+      * @param addTimerCallback
+      *   the callback for the timer.
       */
-    class AreaImpl(override val plant: Plant, override val timer: Timer) extends AreaModel:
+    class AreaImpl(override val plant: Plant, val addTimerCallback: (f: String => Unit) => Unit) extends AreaModel:
 
-      private var _status: AreaStatus = AreaStatus.NORMAL
+      private var _status: AreaStatus = NORMAL
       private val subject = ConcurrentSubject[AreaStatus](MulticastStrategy.publish)
       private val optimalValueToDouble: Map[String, Double] =
         plant.optimalValues.map((k, v) => (k, v.toString.toDouble))
       private val areaComponentState = AreaComponentsState()
       private val subjectComponentsState = ConcurrentSubject[AreaComponentsStateImpl](MulticastStrategy.publish)
-      private val TemperatureKey = "Temperature"
-      private val AirHumidityKey = "Humidity"
-      private val SoilHumidityKey = "Soil moisture"
-      private val BrightnessKey = "Brightness"
-      private val mapSensorNamesAndMessages: Map[String, Map[String, String]] = Map(
-        TemperatureKey -> Map(
-          ("name", "temp"),
-          ("um", "°"),
-          (
-            "message",
-            "Adjust the indoor temperature by also considering the outdoor temperature, to manage it better you could " +
-              "close the greenhouse (and screen it) and set the indoor temperature"
-          )
-        ),
-        AirHumidityKey -> Map(
-          ("name", "env_humid"),
-          ("um", "%"),
-          (
-            "message",
-            "Adjust the indoor humidity considering also the outdoor humidity, also you can ventilate the area to decrease " +
-              "it or vaporize to increase it"
-          )
-        ),
-        SoilHumidityKey -> Map(
-          "name" -> "soil_moist",
-          ("um", "%"),
-          (
-            "message",
-            "Adjust soil moisture considering weather conditions, also decrease it by loosening the soil or increase it by watering"
-          )
-        ),
-        BrightnessKey -> Map(
-          ("name", "light_lux"),
-          ("um", "Lux"),
-          (
-            "message",
-            "Adjust the indoor brightness considering the outdoor brightness, also you can shield the area " +
-              "and/or adjust the brightness of the lamps"
-          )
-        )
-      )
 
-      private val sensorsMap = constructSensorsMap()
+      override val areaSensorHelper: AreaSensorHelperImpl = AreaSensorHelperImpl(areaComponentState, addTimerCallback)
+      override val sensors: List[ManageSensorImpl] = areaSensorHelper.manageSensorList(optimalValueToDouble)
 
-      private def firstSensorStatus(actualVal: Double, min: Double, max: Double): SensorStatus =
-        if (actualVal compareTo min) < 0 || (actualVal compareTo max) > 0 then
-          SensorStatus.ALARM
-        else
-          SensorStatus.NORMAL
-
-      override val sensors: List[ManageSensorImpl] =
-        for
-          (key, m) <- mapSensorNamesAndMessages.toList
-          optK = m.getOrElse("name", "")
-          um = m.getOrElse("um", "")
-          msg = m.getOrElse("message", "")
-        yield ManageSensorImpl(
-          key,
-          optimalValueToDouble.getOrElse("min_" + optK, 0.0),
-          optimalValueToDouble.getOrElse("max_" + optK, 0.0),
-          um,
-          sensorsMap(key),
-          BigDecimal(sensorsMap(key).getCurrentValue).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble,
-          msg,
-          firstSensorStatus(
-            BigDecimal(sensorsMap(key).getCurrentValue).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble,
-            optimalValueToDouble.getOrElse("min_" + optK, 0.0),
-            optimalValueToDouble.getOrElse("max_" + optK, 0.0)
-          )
-        )
-
-      configSensors()
+      status = areaSensorHelper.configSensors(sensors, checkAlarm, subjectComponentsState)
 
       override def setSensorSubjects(subjects: Map[String, ConcurrentSubject[Double, Double]]): Unit =
-        subjects.foreach((k, v) =>
-          k match
-            case "temp" => sensorsMap(TemperatureKey).setObserverEnvironmentValue(v)
-            case "hum" => sensorsMap(AirHumidityKey).setObserverEnvironmentValue(v)
-            case "lux" => sensorsMap(BrightnessKey).setObserverEnvironmentValue(v)
-            case "soilMoist" => sensorsMap(SoilHumidityKey).setObserverEnvironmentValue(v)
-        )
+        areaSensorHelper.setSensorSubjects(subjects)
 
       override def status: AreaStatus = _status
 
@@ -251,8 +144,6 @@ object AreaModelModule:
 
       override def changeStatusObservable(): Observable[AreaStatus] = subject
 
-      override def temperature: Double = areaComponentState.temperature
-
       override def updTemperature(value: Double): Unit =
         areaComponentState.temperature = value
         notifySensorStatusChange()
@@ -261,19 +152,13 @@ object AreaModelModule:
         areaComponentState.brightnessOfTheLamps = value
         notifySensorStatusChange()
 
-      override def getBrightnessOfLamp: Double = areaComponentState.brightnessOfTheLamps
-
       override def updHumidityAction(state: AreaHumidityState): Unit =
         areaComponentState.humidityActions = state
         notifySensorStatusChange()
 
-      override def atomiserState: AreaAtomiseState = areaComponentState.atomisingState
-
       override def updAtomizeState(state: AreaAtomiseState): Unit =
         areaComponentState.atomisingState = state
         notifySensorStatusChange()
-
-      override def gatesState: AreaGatesState = areaComponentState.gatesState
 
       override def updGateState(state: AreaGatesState): Unit =
         areaComponentState.gatesState = state
@@ -282,10 +167,6 @@ object AreaModelModule:
       override def updShieldState(state: AreaShieldState): Unit =
         areaComponentState.shieldState = state
         notifySensorStatusChange()
-
-      override def isShielded: Boolean = areaComponentState.shieldState === AreaShieldState.Down
-
-      override def ventilationState: AreaVentilationState = areaComponentState.ventilationState
 
       override def updVentilationState(state: AreaVentilationState): Unit =
         areaComponentState.ventilationState = state
@@ -303,31 +184,6 @@ object AreaModelModule:
         else
           ms.status = SensorStatus.NORMAL
           if sensors.forall(ms => ms.status === SensorStatus.NORMAL) then status = NORMAL
-
-      private def configSensors(): Unit =
-        sensorsMap.foreach { (name, sensor) =>
-          sensor.registerValueCallback(
-            v => {
-              val ms = sensors.find(ms => ms.name === name).orNull
-              ms.actualVal = BigDecimal(v).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble
-              checkAlarm(ms)
-              Continue
-            },
-            (ex: Throwable) => ex.printStackTrace(),
-            () => {}
-          )
-          sensor.setObserverActionsArea(subjectComponentsState)
-          sensor match
-            case sensorWithTimer: SensorWithTimer => sensorWithTimer.registerTimerCallback()
-            case _ =>
-        }
-
-      private def constructSensorsMap[T >: Sensor](): Map[String, T] = Map(
-        TemperatureKey -> TemperatureSensor(areaComponentState, timer),
-        AirHumidityKey -> AirHumiditySensor(areaComponentState, timer),
-        SoilHumidityKey -> SoilHumiditySensor(areaComponentState, timer),
-        BrightnessKey -> LuminositySensor(10000.0, areaComponentState)
-      )
 
   /** Trait that combine provider and component for area model. */
   trait Interface extends Provider with Component
