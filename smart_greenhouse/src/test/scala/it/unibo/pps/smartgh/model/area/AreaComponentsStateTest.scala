@@ -27,7 +27,7 @@ class AreaComponentsStateTest extends AnyFunSuite with Matchers:
   }
 
   test("At the beginning the humidity should be between the maximum and minimum values") {
-    val maxInitialHumidity = 20.0
+    val maxInitialHumidity = 30.0
     val minInitialHumidity = 10.0
     areaComponentsState.soilHumidity should (be >= minInitialHumidity and be <= maxInitialHumidity)
   }
