@@ -59,7 +59,7 @@ La View per la selezione delle piante ([Fig. 4.2.2.2.1]), viene racchiusa all'in
 
   L'interfaccia `ContiguousSceneView`, invece, racchiude i metodi comuni a tutte le views che danno la possibilità all'utente di effettuare uno spostamento a     una schermata successiva;
 - la classe `SelectPlantViewImpl`, la quale detiene l'implementazione dei metodi del `trait SelectPlantView` e viene racchiusa all'interno del `trait Component`;
-- il `trait Component`, il quale rispetto al Model, contiente un campo `context` di tipo `Requirements`, nello specifico `Requirments` è un  _Abstract type_ e viene utilizzato per specificare le dipendenze che legano la View agli altri elementi del _pattern MVC_, infatti la View, per poter funzionare correttamente ha necessita di informare il Controller delle azioni che sono state compiute dall'utente, per fare questo, quindi, ha bisogno del componente Controller e di conseguenza il tipo `Requirements` sarà proprio rappresentato dal `Provider` del Controller;
+- il `trait Component`, il quale rispetto al Model, contiente un campo `context` di tipo `Requirements`, nello specifico `Requirments` è un  _abstract type_ e viene utilizzato per specificare le dipendenze che legano la View agli altri elementi del _pattern MVC_, infatti la View, per poter funzionare correttamente ha necessita di informare il Controller delle azioni che sono state compiute dall'utente, per fare questo, quindi, ha bisogno del componente Controller e di conseguenza il tipo `Requirements` sarà proprio rappresentato dal `Provider` del Controller;
 - il `trait Provider`, che detiene l'oggetto `SelectPlantView` che potrà essere utilizzato dall MVC;
 - il `trait Interface`, il quale come per il Model, estende sia il `trait Provider` che il `trait Component`, riuscendo ad ereditare tutte le loro proprietà dando quindi la possibilità a `PlantSelectorMVC`, che lo estende, di poter utilizzare l'elemento `selectPlantView` e accedere alle proprietà della View.
 
@@ -124,7 +124,26 @@ Per poter accedere agli elementi Model, View e Controller e alle loro proprietà
 
 Dato che il Model è già stato discusso nella precedente sezione [Sec. 4.2.2.1](####4221-model-per-la-selezione-delle-piante), di seguito verranno discussi solamente i componenti View e Controller per il caricamento dei dati.
 
-#### 4.3.1.1
+#### 4.3.1.1 View per il caricamento dei dati delle piante
+
+La View per il caricamento dei dati delle piante ([Fig. 4.3.1.1.1]) si trova all'interno del modulo `LoadingPlantViewModule` al cui interno troviamo:
+
+- il `trait LoadingPlantView`, che contiene i metodi della View che possono essere richiamati per gestire l'interazione con l'utente. `LoadingPlantView` estende sia l'interfaccia `ViewComponent` che l'interfaccia `ContigusSceneView`, in quanto rappresenta una scena che viene inserita all'interno della scena madre e consente il proseguimento alla scena successiva;
+- la classe `LoadingPlantViewImpl`, la quale detiene l'implementazione dei metodi relativi alla View ed è racchiusa all'interno del `trait Component`;
+- il `trait Component`, che contiene l'oggetto `context` di tipo `Requirements` che specifica quali sono le dipendenze che devono essere soddisfatte affinchè la View possa lavorare correttamente, in particolare la View per poter funzionare correttamente ha bisogno del Controller, quindi l'elemento `Requirements` sara proprio costituito dal `Provider` del controller, situato all'interno del modulo `LoadingPlantControllerModule`;
+- il `trait Provider`, il quale detiene l'oggetto View che potrà essere utilizzato dall'MVC;
+- il `trait Interface`, che estende sia l'interfaccia `Provder` che l'interfaccia `Component` e che a sua volta può essere esteso dall'elemento MVC, consentendoli di ereditare le proprietà della View.
+
+`Requirments` è un'_abstract type_e viene utilizzato per poter definire quali sono i "requisiti" o meglio gli elementi che devono essere realizzati per far si che la View possa essere implementata e funzionare correttamente.
+
+<div align="center">
+  <img src="img/loading_plant_View.png" />
+  <p> Fig. 4.3.1.1.1 - View per il caricamento dei dati delle piante </p>
+</div>
+
+[Fig. 4.3.1.1.1]: img/loading_plant_MVC.png
+
+La View per il caricamento dei dati delle piante, presenta un `ProgressIndicator`, che viene incrementato di volta in volta, a mano a mano che i diversi dati delle piante vengono caricati e i rispettivi oggetti `Plant` vengono istanziati.
 
 ### 4.3.2 Ambiente
 //TODO Vero
