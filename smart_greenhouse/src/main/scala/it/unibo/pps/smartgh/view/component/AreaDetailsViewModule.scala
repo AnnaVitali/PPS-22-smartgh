@@ -122,7 +122,7 @@ object AreaDetailsViewModule:
 
       override def updatePlantInformation(name: String, description: String, imageUrl: String): Unit =
         Platform.runLater { () =>
-          plantNameLabel.setText(name.capitalize)
+          plantNameLabel.setText(name)
           plantDescriptionLabel.setText(description)
           Task {
             plantImage.setImage(Image(imageUrl))

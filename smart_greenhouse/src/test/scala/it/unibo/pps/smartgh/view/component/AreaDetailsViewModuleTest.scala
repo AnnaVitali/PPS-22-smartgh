@@ -36,7 +36,7 @@ class AreaDetailsViewModuleTest extends AbstractAreaDetailsViewTest:
   @Test
   def testPlantInformation(robot: FxRobot): Unit =
     val image = robot.lookup(plantImageUrlId).queryAs(classOf[ImageView])
-    verifyThat(plantNameId, hasText(plant.name.capitalize))
+    verifyThat(plantNameId, hasText(plant.name))
     verifyThat(plantDescriptionId, hasText(plant.description))
     assertEquals(plant.imageUrl, image.getImage.getUrl)
     assertFalse(image.getImage.isError)

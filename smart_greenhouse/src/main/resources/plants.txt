@@ -1,25 +1,25 @@
-alcea rosea;alcea rosea
-basil;ocimum basilicum
-beet;beta vulgaris
-blackberry;blackberry
-broccoli;broccoli atlantis f1
-bunching onion;bunching onion estafette f1
-cabbage;red cabbage pretino f1
-carrot;carrot aurantina f1
-cyclamen;cyclamen hederifolium
-cucumber;cucumber bon odori f1
-eggplant;solanum melongena
-gerbera;gerbera jamesonii
-lavandula;lavandula dentata
-lemon;citrus limon
-narcissus tazetta;narcissus tazetta
-onion;onion reks f1
-parsley;petroselinum crispum
-peach;prunus persica
-pineapple;ananas comosus
-poinsettia;euphorbia pulcherrima
-rosemary;rosmarinus officinalis
-salvia;salvia officinalis
-spinach;spinacia oleracea
-tomato;tomato master no. 2 f1
-yucca;yucca gloriosa
+Alcea rosea;alcea rosea
+Basil;ocimum basilicum
+Beet;beta vulgaris
+Blackberry;blackberry
+Broccoli;broccoli atlantis f1
+Bunching onion;bunching onion estafette f1
+Cabbage;red cabbage pretino f1
+Carrot;carrot aurantina f1
+Cyclamen;cyclamen hederifolium
+Cucumber;cucumber bon odori f1
+Eggplant;solanum melongena
+Gerbera;gerbera jamesonii
+Lavandula;lavandula dentata
+Lemon;citrus limon
+Narcissus tazetta;narcissus tazetta
+Onion;onion reks f1
+Parsley;petroselinum crispum
+Peach;prunus persica
+Pineapple;ananas comosus
+Poinsettia;euphorbia pulcherrima
+Rosemary;rosmarinus officinalis
+Salvia;salvia officinalis
+Spinach;spinacia oleracea
+Tomato;tomato master no. 2 f1
+Yucca;yucca gloriosa
