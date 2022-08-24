@@ -144,8 +144,8 @@ object AreaDetailsViewModule:
           alarmLabel.setText(messages)
         }
 
-      override def moveToNextScene(component: ViewComponent[BorderPane]): Unit =
-        simulationMVC.simulationView.changeView(component)
+      override def moveToNextScene(nextView: ViewComponent[BorderPane]): Unit =
+        simulationMVC.simulationView.changeView(nextView)
 
       override def setNewScene(): Unit =
         simulationMVC.simulationView.changeSceneButtonStyle("alarmButton")

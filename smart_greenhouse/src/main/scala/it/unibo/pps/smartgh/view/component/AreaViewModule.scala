@@ -77,8 +77,8 @@ object AreaViewModule:
           rect.setStyle("-fx-border-color: #000000")
         )
 
-      override def moveToNextScene(component: ViewComponent[ScrollPane]): Unit =
-        simulationMVC.simulationView.changeView(component)
+      override def moveToNextScene(nextView: ViewComponent[ScrollPane]): Unit =
+        simulationMVC.simulationView.changeView(nextView)
 
       override def setNewScene(): Unit =
         areaController.beforeNextScene()

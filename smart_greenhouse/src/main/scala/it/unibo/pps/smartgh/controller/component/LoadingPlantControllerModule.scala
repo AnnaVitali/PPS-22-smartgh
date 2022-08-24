@@ -42,7 +42,7 @@ object LoadingPlantControllerModule:
         )
         Continue
       }
-      private val onCompletePlantsEmission: () => Unit = () => loadingPlantView.setupNextScene()
+      private val onCompletePlantsEmission: () => Unit = () => loadingPlantView.setNewScene()
 
       override def setupBehaviour(): Unit =
         plantSelectorModel.registerCallbackPlantInfo(

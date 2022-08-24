@@ -9,7 +9,7 @@ trait ContiguousSceneView[A <: Parent]:
   def setNewScene(): Unit
 
   /** Method to specify the main view to display a new view component.
-    * @param component
+    * @param nextView
     *   view component to display in the next scene
     */
-  def moveToNextScene(component: ViewComponent[A]): Unit
+  def moveToNextScene(nextView: ViewComponent[A]): Unit

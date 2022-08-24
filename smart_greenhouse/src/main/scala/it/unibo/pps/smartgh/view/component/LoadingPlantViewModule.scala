@@ -8,7 +8,7 @@ import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.application.Platform
 import javafx.fxml.FXML
 import javafx.scene.control.{Label, ProgressIndicator}
-import javafx.scene.layout.VBox
+import javafx.scene.layout.{BorderPane, VBox}
 
 import scala.language.postfixOps
 
@@ -16,7 +16,7 @@ import scala.language.postfixOps
 object LoadingPlantViewModule:
 
   /** A trait that represents the loading plant data scene of the application. */
-  trait LoadingPlantView extends ViewComponent[VBox] with ContiguousSceneView[VBox]:
+  trait LoadingPlantView extends ViewComponent[VBox] with ContiguousSceneView[BorderPane]:
 
     /** Method that increments the progress indicator in the view.
       * @param increment
@@ -55,11 +55,11 @@ object LoadingPlantViewModule:
       override def incrementProgressIndicator(increment: Double): Unit =
         Platform.runLater(() => progressIndicator.setProgress(increment))
 
-      override def setupNextScene(): Unit =
+      override def setNewScene(): Unit =
         Platform.runLater(() => loadingPlantController.beforeNextScene())
 
-      override def moveToNextScene(environmentView: EnvironmentView): Unit =
-        Platform.runLater(() => simulationMVC.simulationView.changeView(environmentView))
+      override def moveToNextScene(nextView: ViewComponent[BorderPane]): Unit =
+        Platform.runLater(() => simulationMVC.simulationView.changeView(nextView))
 
   /** Trait that encloses the view for loading the plant data. */
   trait Interface extends Provider with Component:
