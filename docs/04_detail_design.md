@@ -143,11 +143,11 @@ La View per il caricamento dei dati delle piante ([Fig. 4.3.1.1.2]) si trova all
 `Requirments` è un'_abstract type_ e viene utilizzato per poter definire quali siano i "requisiti" o meglio gli elementi che devono essere realizzati per far si che la View possa essere implementata e funzionare correttamente.
 
 <div align="center">
-  <img src="img/loading_plant_View.png" />
+  <img src="img/loading_plant_view.png" />
   <p> Fig. 4.3.1.1.2 - View per il caricamento dei dati delle piante </p>
 </div>
 
-[Fig. 4.3.1.1.2]: img/loading_plant_View.png
+[Fig. 4.3.1.1.2]: img/loading_plant_view.png
 
 La View per il caricamento dei dati delle piante, presenta un `ProgressIndicator`, che viene incrementato di volta in volta, a mano a mano che i diversi dati delle piante vengono caricati e i rispettivi oggetti `Plant` vengono istanziati. Una volta che il caricamento dei dati risulta essere completato, si può passare alla schermata successiva.
 
@@ -168,11 +168,11 @@ In questo caso, rispetto alla View e al Model, il Controller presenta l'_abstrac
 Sia la View che il Controller che il Model, sono stati realizzati tramite il _cake pattern_, dando la possibilità, in questo modo, di definire l'oggetto `LoadingPlantMVC`, in modo tale che contenga tutti gli elementi del _pattern MVC_ e che consenta il loro utilizzo diretto senza doversi preoccupare di risolvere le dipendenze che legano questi componenti, in quanto gia soddisfatte alla creazione degli elementi.
 
 <div align="center">
-  <img src="img/loading_plant_Controller.png" />
+  <img src="img/loading_plant_controller.png" />
   <p> Fig. Fig. 4.3.1.1.3 - Controller per il caricamento dei dati delle piante </p>
 </div>
 
-[Fig. Fig. 4.3.1.1.3]: img/loading_plant_Controller.png
+[Fig. Fig. 4.3.1.1.3]: img/loading_plant_controller.png
 
 Come possibile vedere dalla figura [Fig. 4.3.1.1.3], il `LoadingPlantController` presenta un unico metodo `setupBehaviour`, il quale si occupa di registrare la callback sul Model relativa al caricamento dei dati delle piante. Infatti, all'intenro di questo metodo, viene richiamata la funzione `registerCallbackPlantInfo` di `PlantSelectorModel`, specificando quali sono le azioni che devono essere intraprese quando: viene istanziata una nuova pianta con tutte le relative informazioni, viene prodotto un errore o tutte le piante siano state create e i relativi dati caricati. 
 
