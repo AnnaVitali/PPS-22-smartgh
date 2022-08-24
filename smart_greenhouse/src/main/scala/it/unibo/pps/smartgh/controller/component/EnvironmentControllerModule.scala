@@ -1,11 +1,10 @@
 package it.unibo.pps.smartgh.controller.component
 
-import it.unibo.pps.smartgh.controller.SimulationControllerModule
 import it.unibo.pps.smartgh.model.greenhouse.EnvironmentModelModule
 import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.component.GreenHouseDivisionMVC
 import it.unibo.pps.smartgh.view.component.EnvironmentViewModule.EnvironmentView
-import it.unibo.pps.smartgh.view.component.{BaseView, EnvironmentViewModule, FinishSimulationView}
+import it.unibo.pps.smartgh.view.component.EnvironmentViewModule
 import monix.eval.Task
 import monix.execution.Ack.Continue
 import monix.execution.Scheduler.Implicits.global

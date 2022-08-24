@@ -6,10 +6,8 @@ import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.application.Platform
 import javafx.fxml.FXML
-import javafx.geometry.Pos
 import javafx.scene.control.{Button, Label}
 import javafx.scene.layout.BorderPane
-import scalafx.application.JFXApp3.PrimaryStage
 
 /** A trait that represents the view of the last scene of the simulation. */
 trait FinishSimulationView extends ViewComponent[BorderPane]
@@ -40,8 +38,8 @@ object FinishSimulationView:
     Platform.runLater(() => simulationEndedLabel.setText("Simulation ended!"))
     simulationMVC.simulationView.changeSceneButtonBehaviour(
       "Start a new simulation",
-      _ =>
+      _ => {
         simulationMVC.simulationController.resetSimulation()
-        simulationMVC.simulationView.changeView(SelectCityMVC(simulationMVC).selectCityView),
-      true
+        simulationMVC.simulationView.changeView(SelectCityMVC(simulationMVC).selectCityView)
+      }
     )

@@ -7,7 +7,7 @@ import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaModel
 import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.view.component.AreaDetailsViewModule.AreaDetailsView
-import it.unibo.pps.smartgh.view.component.{AreaDetailsViewModule, BaseView}
+import it.unibo.pps.smartgh.view.component.AreaDetailsViewModule
 
 /** Object that incapsulate the model view and controller module for the area details. */
 object AreaDetailsMVC:

@@ -1,28 +1,16 @@
 package it.unibo.pps.smartgh.view.component
 
 import it.unibo.pps.smartgh.controller.component.AreaDetailsControllerModule
-import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaModel
 import it.unibo.pps.smartgh.mvc.SimulationMVC
-import it.unibo.pps.smartgh.mvc.component.areaParameters.{
-  AreaAirHumidityMVC,
-  AreaLuminosityMVC,
-  AreaSoilMoistureMVC,
-  AreaTemperatureMVC
-}
-import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
-import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.SelectPlantView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.AreaParametersView
 import javafx.application.Platform
 import javafx.fxml.FXML
-import javafx.scene.Parent
 import javafx.scene.control.{Label, ProgressIndicator, ScrollPane, Separator}
 import javafx.scene.image.{Image, ImageView}
-import javafx.scene.layout.{BorderPane, GridPane, Pane, VBox}
+import javafx.scene.layout.{BorderPane, Pane, VBox}
 import monix.eval.Task
 import monix.execution.Scheduler.Implicits.global
-
-import java.net.URL
 
 /** Object that encloses the view module for the area details. */
 object AreaDetailsViewModule:

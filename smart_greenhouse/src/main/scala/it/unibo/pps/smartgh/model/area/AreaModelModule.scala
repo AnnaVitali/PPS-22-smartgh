@@ -8,9 +8,7 @@ import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.model.sensor.*
 import it.unibo.pps.smartgh.model.time.Timer
 import monix.eval.Task
-import monix.execution.Ack.{Continue, Stop}
 import monix.execution.Scheduler.Implicits.global
-import monix.reactive.MulticastStrategy.Behavior
 import monix.reactive.subjects.ConcurrentSubject
 import monix.reactive.{MulticastStrategy, Observable}
 import org.scalactic.TripleEquals.convertToEqualizer

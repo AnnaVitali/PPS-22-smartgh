@@ -8,7 +8,7 @@ import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.{
   AreaParametersView
 }
 import javafx.fxml.FXML
-import javafx.scene.control.{Button, Label}
+import javafx.scene.control.Button
 import javafx.scene.layout.GridPane
 
 /** Object that encloses the view module for the area soil humidity parameter. */

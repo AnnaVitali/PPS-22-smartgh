@@ -1,16 +1,13 @@
 package it.unibo.pps.smartgh.model.sensor
 
 import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
-import it.unibo.pps.smartgh.model.area.{AreaComponentsState, AreaGatesState, AreaShieldState}
+import it.unibo.pps.smartgh.model.area.{AreaComponentsState, AreaGatesState}
 import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsTemperature
 import it.unibo.pps.smartgh.model.time.Timer
 import monix.eval.Task
 import monix.execution.Ack
-import monix.execution.Ack.{Continue, Stop}
+import monix.execution.Ack.Continue
 import monix.execution.Scheduler.Implicits.global
-import monix.reactive.MulticastStrategy.Behavior
-import monix.reactive.{MulticastStrategy, Observable}
-import monix.reactive.subjects.ConcurrentSubject
 
 import scala.concurrent.Future
 import scala.util.Random

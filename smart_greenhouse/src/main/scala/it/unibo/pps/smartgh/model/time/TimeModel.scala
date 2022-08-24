@@ -6,12 +6,10 @@ import monix.eval.Task
 import monix.execution.Scheduler.Implicits.global
 import org.apache.commons.lang3.time.DurationFormatUtils
 
-import java.lang.module.FindException
 import scala.concurrent.duration.*
 import scala.concurrent.{Await, Future}
 import scala.language.postfixOps
 import scala.math.{exp, log, pow}
-import scala.util.{Failure, Success}
 
 /** A trait that exposes methods to manage the time of the simulation, it represents its model. */
 trait TimeModel:

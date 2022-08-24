@@ -8,9 +8,9 @@ import it.unibo.pps.smartgh.model.city.SelectCityModelModule.SelectCityModel
 import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.view.component.SelectCityViewModule.SelectCityView
-import it.unibo.pps.smartgh.view.component.{BaseView, SelectCityViewModule}
+import it.unibo.pps.smartgh.view.component.SelectCityViewModule
 
-/** Object that incapsulates the model view and controller module for the plant selection. */
+/** Object that encapsulates the model view and controller module for the plant selection. */
 object SelectCityMVC:
 
   /** Create a new [[SelectCityMVCImpl]].

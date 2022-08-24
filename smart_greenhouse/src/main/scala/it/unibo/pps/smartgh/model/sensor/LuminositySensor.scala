@@ -1,17 +1,13 @@
 package it.unibo.pps.smartgh.model.sensor
 
-import com.sun.javafx.webkit.theme.ContextMenuImpl
 import it.unibo.pps.smartgh.model.area.AreaComponentsState.*
 import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaShieldState}
 import it.unibo.pps.smartgh.model.sensor.AbstractSensor
 import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsLuminosity
 import monix.eval.Task
 import monix.execution.Ack
-import monix.execution.Ack.Continue
 import monix.execution.Scheduler.Implicits.global
-import monix.reactive.MulticastStrategy.Behavior
-import monix.reactive.{MulticastStrategy, Observable}
-import monix.reactive.subjects.ConcurrentSubject
+import monix.reactive.MulticastStrategy
 
 import scala.concurrent.Future
 import scala.util.Random
@@ -42,7 +38,7 @@ object LuminositySensor:
     private val maxPercentage = 0.05
     currentValue = initialLuminosity - (Random
       .nextDouble() * (maxPercentage - minPercentage) + minPercentage) * initialLuminosity
-    
+
     override def computeNextSensorValue(): Unit =
       Task {
         areaComponentsState.gatesState match

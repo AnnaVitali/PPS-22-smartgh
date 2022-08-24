@@ -8,10 +8,7 @@ import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsAirHum
 import it.unibo.pps.smartgh.model.time.Timer
 import monix.eval.Task
 import monix.execution.Ack
-import monix.execution.Ack.Continue
 import monix.execution.Scheduler.Implicits.global
-import monix.reactive.MulticastStrategy
-import monix.reactive.subjects.ConcurrentSubject
 
 import scala.concurrent.Future
 import scala.util.Random

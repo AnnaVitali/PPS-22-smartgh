@@ -5,7 +5,6 @@ import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersCo
   AreaParametersController
 }
 import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaHumidityState, AreaModelModule}
-import it.unibo.pps.smartgh.model.sensor.SensorStatus
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaSoilMoistureViewModule
 
 /** Object that encloses the controller module for the area soil moisture parameter. */

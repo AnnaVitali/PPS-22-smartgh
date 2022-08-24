@@ -5,14 +5,9 @@ import it.unibo.pps.smartgh.controller.component.GHControllerModule
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.application.Platform
 import javafx.fxml.FXML
-import javafx.scene.control.{Label, ScrollPane}
-import javafx.scene.layout.{GridPane, StackPane, VBox}
-import scalafx.geometry.Pos
-import scalafx.scene.Cursor.Text
-import scalafx.scene.control.Button
+import javafx.scene.control.ScrollPane
+import javafx.scene.layout.GridPane
 import scalafx.scene.layout.Pane
-import scalafx.scene.paint.Color.*
-import scalafx.scene.shape.Rectangle
 
 import scala.language.postfixOps
 /** Implementation of the [[GHViewModule]]. */
@@ -24,9 +19,6 @@ object GHViewModule:
       *   list of areas composing the greenhouse
       */
     def paintDivision(areas: List[AreaViewModule.AreaView]): Unit
-
-    /** Set the base view */
-    var baseView: BaseView
 
   /** A trait for defining the view instance. */
   trait Provider:
@@ -45,8 +37,6 @@ object GHViewModule:
       */
     class GreenHouseDivisionViewImpl() extends AbstractViewComponent[ScrollPane]("ghDivision.fxml") with GreenHouseView:
       override val component: ScrollPane = loader.load[ScrollPane]
-      //noinspection VarCouldBeVal
-      override var baseView: BaseView = _
 
       //noinspection VarCouldBeVal
       @FXML

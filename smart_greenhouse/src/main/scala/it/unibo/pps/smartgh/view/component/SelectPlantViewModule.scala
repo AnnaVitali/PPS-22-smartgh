@@ -2,20 +2,14 @@ package it.unibo.pps.smartgh.view.component
 
 import cats.syntax.eq.catsSyntaxEq
 import it.unibo.pps.smartgh.controller.component.PlantSelectorControllerModule
-import it.unibo.pps.smartgh.model.greenhouse.Environment
-import it.unibo.pps.smartgh.model.plants.{Plant, PlantSelectorModelModule, UploadPlants}
+import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.mvc.SimulationMVC
-import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
-import it.unibo.pps.smartgh.mvc.component.EnvironmentMVC
-import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
-import it.unibo.pps.smartgh.view.component.EnvironmentViewModule.EnvironmentView
-import it.unibo.pps.smartgh.view.component.LoadingPlantViewModule.LoadingPlantView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.application.Platform
-import javafx.event.{ActionEvent, EventHandler}
+import javafx.event.EventHandler
 import javafx.fxml.FXML
 import javafx.scene.control.{CheckBox, Label}
-import javafx.scene.layout.{BorderPane, HBox, VBox}
+import javafx.scene.layout.{BorderPane, VBox}
 import org.scalactic.TripleEquals.convertToEqualizer
 
 import scala.jdk.javaapi.CollectionConverters.asJavaCollection

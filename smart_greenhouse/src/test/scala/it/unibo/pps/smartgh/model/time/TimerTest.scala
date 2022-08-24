@@ -4,8 +4,8 @@ import it.unibo.pps.smartgh.model.time.Timer
 import org.scalatest.concurrent.Eventually
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
-import org.scalatest.time.{Milliseconds, Seconds, Span}
-import org.scalatest.{BeforeAndAfter, durations}
+import org.scalatest.time.{Seconds, Span}
+import org.scalatest.BeforeAndAfter
 
 import scala.concurrent.duration.*
 import scala.language.postfixOps

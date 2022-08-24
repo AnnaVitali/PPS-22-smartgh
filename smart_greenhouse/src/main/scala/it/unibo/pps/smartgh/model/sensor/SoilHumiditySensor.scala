@@ -4,14 +4,9 @@ import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateIm
 import it.unibo.pps.smartgh.model.area.AreaGatesState
 import it.unibo.pps.smartgh.model.area.AreaHumidityState.{MovingSoil, None, Watering}
 import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsSoilHumidity
-import it.unibo.pps.smartgh.model.time.Timer
 import monix.eval.Task
 import monix.execution.Ack
-import monix.execution.Ack.Continue
 import monix.execution.Scheduler.Implicits.global
-import monix.reactive.MulticastStrategy.Behavior
-import monix.reactive.subjects.ConcurrentSubject
-import monix.reactive.{MulticastStrategy, Observable}
 
 import scala.concurrent.Future
 import scala.concurrent.duration.*

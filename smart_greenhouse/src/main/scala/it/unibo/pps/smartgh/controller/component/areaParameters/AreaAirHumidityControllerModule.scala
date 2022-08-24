@@ -5,7 +5,6 @@ import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersCo
   AreaParametersController
 }
 import it.unibo.pps.smartgh.model.area.{AreaAtomiseState, AreaModelModule, AreaVentilationState}
-import it.unibo.pps.smartgh.model.sensor.SensorStatus
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaAirHumidityViewModule
 import org.scalactic.TripleEquals.convertToEqualizer
 

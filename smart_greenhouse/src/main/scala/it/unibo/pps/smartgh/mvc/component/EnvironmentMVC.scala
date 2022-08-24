@@ -5,7 +5,7 @@ import it.unibo.pps.smartgh.controller.component.EnvironmentControllerModule
 import it.unibo.pps.smartgh.model.greenhouse.EnvironmentModelModule
 import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
-import it.unibo.pps.smartgh.view.component.{BaseView, EnvironmentViewModule}
+import it.unibo.pps.smartgh.view.component.EnvironmentViewModule
 
 /** Object that encloses the MVC structure for environment values management and time visualization. */
 object EnvironmentMVC:
@@ -13,8 +13,6 @@ object EnvironmentMVC:
   /** Apply method for the [[EnvironmentMVC]]
     * @param simulationMVC
     *   the root MVC of the application.
-    * @param baseView
-    *   the view in which the [[EnvironmentView]] is enclosed.
     * @return
     *   the implementation of [[EnvironmentMVC]].
     */
@@ -36,7 +34,7 @@ object EnvironmentMVC:
     override val simulationController: SimulationControllerModule.SimulationController = simulation.simulationController
     override val environmentModel: EnvironmentModelModule.EnvironmentModel = EnvironmentModelImpl(
       simulationController.environment
-    ) //todo: enviroment?
+    )
     override val environmentView: EnvironmentViewModule.EnvironmentView = EnvironmentViewImpl()
     override val environmentController: EnvironmentControllerModule.EnvironmentController = EnvironmentControllerImpl()
 

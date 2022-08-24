@@ -2,7 +2,7 @@ package it.unibo.pps.smartgh.model.city
 
 import alice.tuprolog.*
 
-import scala.io.{Codec, Source}
+import scala.io.Source
 import scala.util.Using
 
 /** Object that encloses the model module for the city selection. */

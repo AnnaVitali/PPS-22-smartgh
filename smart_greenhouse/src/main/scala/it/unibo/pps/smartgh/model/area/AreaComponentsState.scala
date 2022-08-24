@@ -46,7 +46,7 @@ object AreaComponentsState:
     var ventilationState: AreaVentilationState = AreaVentilationState.VentilationInactive
     var brightnessOfTheLamps: Double = 3000.0
     var temperature: Double = 27.0
-    val soilHumidity: Double = Random.nextDouble() * (20.0 - 10.0) + 10.0
+    val soilHumidity: Double = Random.nextDouble() * (30.0 - 10.0) + 10.0
     var humidityActions: AreaHumidityState = AreaHumidityState.None
 
     def copy(): AreaComponentsStateImpl =

@@ -1,12 +1,7 @@
 package it.unibo.pps.smartgh.model.plants
 
 import cats.syntax.eq.catsSyntaxEq
-import monix.eval.Task
-import monix.execution.Ack
 import monix.execution.Scheduler.Implicits.global
-import monix.reactive.MulticastStrategy.Behavior
-import monix.reactive.{MulticastStrategy, Observable}
-import monix.reactive.subjects.ConcurrentSubject
 import org.json4s.*
 import org.json4s.jackson.JsonMethods.*
 import requests.*

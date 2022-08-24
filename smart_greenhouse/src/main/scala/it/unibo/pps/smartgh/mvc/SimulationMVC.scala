@@ -7,7 +7,7 @@ import it.unibo.pps.smartgh.view.SimulationViewModule
 import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
 import javafx.stage.Stage
 
-/** Object that incapsulates the model view and controller module for the simulation. */
+/** Object that encapsulates the model view and controller module for the simulation. */
 object SimulationMVC:
 
   trait Provider:
@@ -31,7 +31,5 @@ object SimulationMVC:
 
     override val simulationController: SimulationController = SimulationControllerImpl()
     override val simulationView: SimulationView = SimulationViewImpl(stage)
-
-//    simulationView.start(SelectCityMVC(this).selectCityView)
 
   trait Interface extends Provider

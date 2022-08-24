@@ -7,7 +7,7 @@ import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.PlantSelectorM
 import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.view.component.LoadingPlantViewModule.LoadingPlantView
-import it.unibo.pps.smartgh.view.component.{BaseView, LoadingPlantViewModule}
+import it.unibo.pps.smartgh.view.component.LoadingPlantViewModule
 
 /** Object that encloses the MVC structure for loading the plants data. */
 object LoadingPlantMVC:

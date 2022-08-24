@@ -5,12 +5,11 @@ import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaStatus.{ALARM, NORMAL
 import it.unibo.pps.smartgh.model.area.AreaModelModule.{AreaModel, AreaStatus}
 import it.unibo.pps.smartgh.model.area.ManageSensor.ManageSensorImpl
 import it.unibo.pps.smartgh.model.sensor.*
-import it.unibo.pps.smartgh.model.time.Timer
 import it.unibo.pps.smartgh.mvc.component.areaParameters.*
-import monix.eval.Task.timer
 import monix.execution.Ack.Continue
 import monix.reactive.subjects.ConcurrentSubject
 import org.scalactic.TripleEquals.convertToEqualizer
+
 /** Implementation of the [[AreaSensorHelper]]. */
 object AreaSensorHelper:
   /** Apply method for [[AreaSensorHelper]]

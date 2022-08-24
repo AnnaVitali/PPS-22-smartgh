@@ -4,7 +4,7 @@ import it.unibo.pps.smartgh.model.area.ManageSensor.ManageSensorImpl
 import it.unibo.pps.smartgh.view.component.AbstractAreaDetailsViewTest
 import javafx.scene.control.{ButtonBase, Label, ToggleButton}
 import javafx.stage.Stage
-import org.junit.jupiter.api.Assertions.{assertFalse, assertTrue}
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.TestInstance.Lifecycle
 import org.junit.jupiter.api.extension.ExtendWith
 import org.junit.jupiter.api.{Test, TestInstance}

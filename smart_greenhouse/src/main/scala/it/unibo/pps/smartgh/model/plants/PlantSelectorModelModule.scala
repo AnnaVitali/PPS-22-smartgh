@@ -1,22 +1,19 @@
 package it.unibo.pps.smartgh.model.plants
 
 import alice.tuprolog.{Prolog, SolveInfo, Struct, Term, TermVisitor, Theory, Var}
-
-import java.util
-import scala.io.Source
-import scala.util.Using
+import it.unibo.pps.smartgh.model.plants.Plant
 import monix.eval.Task
-import monix.reactive.subjects.ConcurrentSubject
-import monix.reactive.MulticastStrategy.Behavior
-import monix.reactive.Observable
-import monix.reactive.MulticastStrategy
 import monix.execution.Scheduler.Implicits.global
 import monix.execution.{Ack, Cancelable}
-import it.unibo.pps.smartgh.model.plants.Plant
-
-import concurrent.{Future, Promise}
-import scala.language.postfixOps
+import monix.reactive.subjects.ConcurrentSubject
+import monix.reactive.{MulticastStrategy, Observable}
 import org.scalactic.TripleEquals.convertToEqualizer
+
+import java.util
+import scala.concurrent.Future
+import scala.io.Source
+import scala.language.postfixOps
+import scala.util.Using
 
 /** Object that encloses the model module for the plant selection. */
 object PlantSelectorModelModule:
@@ -106,7 +103,7 @@ object PlantSelectorModelModule:
       *   the name of the prolog file from which the plants will be taken.
       */
     class PlantSelectorModelImpl(fileName: String) extends PlantSelectorModel:
-      import it.unibo.pps.smartgh.prolog.Scala2P.{prologEngine, extractTermToString, given}
+      import it.unibo.pps.smartgh.prolog.Scala2P.{extractTermToString, prologEngine, given}
       private val prologFile = Using(Source.fromFile(fileName, enc = "UTF8")) {
         _.mkString
       }.getOrElse("")
@@ -145,7 +142,7 @@ object PlantSelectorModelModule:
       override def deselectPlant(plantName: String): Unit =
         Task {
           if selectedPlants.contains(plantName) then
-            selectedPlants = selectedPlants.filter(_  !== plantName)
+            selectedPlants = selectedPlants.filter(_ !== plantName)
             subjectPlantSelection
               .onNext(selectedPlants.toList)
           else

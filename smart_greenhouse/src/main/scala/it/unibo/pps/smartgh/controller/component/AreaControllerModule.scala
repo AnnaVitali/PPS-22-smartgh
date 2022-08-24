@@ -2,10 +2,9 @@ package it.unibo.pps.smartgh.controller.component
 
 import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.mvc.SimulationMVC
-import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.mvc.component.AreaDetailsMVC
 import it.unibo.pps.smartgh.mvc.component.GreenHouseDivisionMVC.GreenHouseDivisionMVCImpl
-import it.unibo.pps.smartgh.view.component.{AreaViewModule, BaseView}
+import it.unibo.pps.smartgh.view.component.AreaViewModule
 
 /** Implementation of the [[AreaControllerModule]]. */
 object AreaControllerModule:

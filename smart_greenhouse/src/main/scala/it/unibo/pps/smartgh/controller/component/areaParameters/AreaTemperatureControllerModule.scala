@@ -5,7 +5,6 @@ import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersCo
   AreaParametersController
 }
 import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaModelModule}
-import it.unibo.pps.smartgh.model.sensor.SensorStatus
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaTemperatureViewModule
 import org.scalactic.TripleEquals.convertToEqualizer
 

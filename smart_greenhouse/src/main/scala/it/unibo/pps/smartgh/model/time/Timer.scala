@@ -3,16 +3,13 @@ package it.unibo.pps.smartgh.model.time
 import monix.eval.Task
 import monix.execution.Cancelable
 import monix.execution.Scheduler.Implicits.global
-import monix.execution.schedulers.TestScheduler
 import monix.reactive.Observable
-import org.apache.commons.lang3.time.DurationFormatUtils
 
 import java.util.concurrent.TimeUnit
 import scala.concurrent.Future
 import scala.concurrent.duration.*
 import scala.concurrent.duration.Duration.Inf.toSeconds
 import scala.language.postfixOps
-import scala.math.Integral.Implicits.infixIntegralOps
 
 /** A trait that exposing methods for a timer. */
 trait Timer:

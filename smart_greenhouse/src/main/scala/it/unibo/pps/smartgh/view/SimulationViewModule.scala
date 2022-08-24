@@ -1,11 +1,8 @@
 package it.unibo.pps.smartgh.view
 
 import it.unibo.pps.smartgh.mvc.SimulationMVC
-import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
-import it.unibo.pps.smartgh.mvc.component.SelectCityMVC
 import it.unibo.pps.smartgh.view.component.{BaseView, ViewComponent}
 import javafx.application.Platform
-import javafx.collections.ObservableList
 import javafx.event.EventHandler
 import javafx.scene.Parent
 import javafx.scene.image.Image
@@ -23,14 +20,9 @@ object SimulationViewModule:
   /** A trait that represents the simulation view. */
   trait SimulationView:
 
-    /** The application's base view. */
-    val baseView: BaseView
-
     /** Change the current view to the specified one.
       * @param viewComponent
       *   the [[ViewComponent]] to displayed.
-      * @tparam A
-      *   the type of the root of the component.
       */
     def changeView(viewComponent: ViewComponent[_ <: Parent]): Unit
 
@@ -70,9 +62,9 @@ object SimulationViewModule:
   trait Component:
 
     /** Implementation of [[SimulationViewModule]]. */
-    class SimulationViewImpl(stage: Stage) extends SimulationView:
+    class SimulationViewImpl(private val stage: Stage) extends SimulationView:
       private val scene: Scene = Scene(stage.width.value, stage.height.value)
-      override val baseView: BaseView = BaseView(appTitle, appSubtitle)
+      private val baseView: BaseView = BaseView(appTitle, appSubtitle)
 
       stage.resizable = true
       stage.maximized = true

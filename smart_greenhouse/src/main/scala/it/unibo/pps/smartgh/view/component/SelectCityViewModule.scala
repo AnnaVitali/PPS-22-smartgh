@@ -3,10 +3,7 @@ package it.unibo.pps.smartgh.view.component
 import it.unibo.pps.smartgh.controller.component.SelectCityControllerModule
 import it.unibo.pps.smartgh.controller.component.SelectCityControllerModule.SelectCityController
 import it.unibo.pps.smartgh.mvc.SimulationMVC
-import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.mvc.component.PlantSelectorMVC
-import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
-import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.SelectPlantView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
 import javafx.application.Platform
 import javafx.fxml.FXML
@@ -39,12 +36,7 @@ object SelectCityViewModule:
   trait Component:
     context: Requirements =>
 
-    /** Class that contains the [[SelectCityView]] implementation.
-      * @param simulationView
-      *   the root view of the application.
-      * @param baseView
-      *   the view in which the [[SelectPlantView]] is enclosed.
-      */
+    /** Class that contains the [[SelectCityView]] implementation. */
     class SelectCityViewViewImpl() extends AbstractViewComponent[BorderPane]("select_city.fxml") with SelectCityView:
 
       override val component: BorderPane = loader.load[BorderPane]
@@ -72,14 +64,14 @@ object SelectCityViewModule:
       Platform.runLater(() =>
         simulationMVC.simulationView.changeSceneButtonBehaviour(
           "Next",
-          _ =>
+          _ => {
             val selectedCity = selectCityTextField.getText.capitalize
             if selectedCity.isBlank then setErrorText("Please select a city")
             else if selectCityController.containCity(selectedCity) then
               selectCityController.saveCity(selectedCity)
               simulationMVC.simulationView.changeView(PlantSelectorMVC(simulationMVC).selectPlantView)
-            else setErrorText("The selected city is not valid"),
-          true
+            else setErrorText("The selected city is not valid")
+          }
         )
       )
 

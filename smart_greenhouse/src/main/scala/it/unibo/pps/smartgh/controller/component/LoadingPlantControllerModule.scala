@@ -1,13 +1,12 @@
 package it.unibo.pps.smartgh.controller.component
 
 import it.unibo.pps.smartgh.model.plants.{Plant, PlantSelectorModelModule}
-import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.mvc.{SimulationMVC, component}
-import it.unibo.pps.smartgh.view.component.{BaseView, LoadingPlantViewModule}
+import it.unibo.pps.smartgh.view.component.LoadingPlantViewModule
 import monix.execution.Ack.Continue
-import monix.execution.{Ack, Cancelable}
+import monix.execution.Ack
 
-import scala.concurrent.{Future, Promise}
+import scala.concurrent.Future
 
 /** Object that enclose the controller module for loading the plants data. */
 object LoadingPlantControllerModule:

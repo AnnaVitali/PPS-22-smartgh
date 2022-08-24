@@ -3,7 +3,7 @@ package it.unibo.pps.smartgh.model.greenhouse
 import monix.eval.Task
 import monix.execution.Ack.Continue
 import monix.execution.Scheduler.Implicits.global
-import monix.execution.{Ack, Cancelable}
+import monix.execution.Ack
 import monix.reactive.MulticastStrategy
 import monix.reactive.subjects.ConcurrentSubject
 import org.json4s.*
@@ -61,7 +61,11 @@ object Environment:
         environmentValues = v
         Continue
       }
-    subjectEnvironmentValues.subscribe(onNextEnvironmentValuesEmitted, (ex: Throwable) => ex.printStackTrace(), () => {})
+    subjectEnvironmentValues.subscribe(
+      onNextEnvironmentValuesEmitted,
+      (ex: Throwable) => ex.printStackTrace(),
+      () => {}
+    )
     getEnvironmentValues
 
     override var currentEnvironmentValues: EnvironmentValues = _
@@ -88,7 +92,7 @@ object Environment:
       )
 
     private def getEnvironmentValues =
-      Task{
+      Task {
         val apiKey = "b619d3592d8b426e8cc92336220107"
         val query =
           "http://api.weatherapi.com/v1/forecast.json?key=" + apiKey + "&q=" + nameCity.replace(

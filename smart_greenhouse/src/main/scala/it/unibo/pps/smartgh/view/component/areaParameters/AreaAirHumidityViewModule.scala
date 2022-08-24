@@ -9,8 +9,8 @@ import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.{
   AreaParametersView
 }
 import javafx.fxml.FXML
-import javafx.scene.control.{Label, ToggleButton}
-import javafx.scene.layout.{Border, GridPane}
+import javafx.scene.control.ToggleButton
+import javafx.scene.layout.GridPane
 
 /** Object that encloses the view module for the area air humidity parameter. */
 object AreaAirHumidityViewModule:

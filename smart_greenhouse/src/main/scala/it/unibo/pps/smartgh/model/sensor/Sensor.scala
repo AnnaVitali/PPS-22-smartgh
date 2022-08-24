@@ -10,7 +10,6 @@ import monix.reactive.subjects.ConcurrentSubject
 import monix.reactive.{MulticastStrategy, Observable}
 
 import scala.concurrent.Future
-import scala.concurrent.duration.FiniteDuration
 
 /** This trait represents a sensor capable of detecting a specific environmental parameter within the greenhouse area.
   */
