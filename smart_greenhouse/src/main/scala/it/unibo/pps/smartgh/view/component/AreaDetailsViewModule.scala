@@ -118,6 +118,7 @@ object AreaDetailsViewModule:
 
       Platform.runLater(() => baseView.changeSceneButton.setText("Back"))
       baseView.changeSceneButton.setOnMouseClicked(_ => setNewScene())
+      baseView.changeSceneButton.getStyleClass.set(2, "defaultButton")
       alarmPane.managedProperty().bind(alarmPane.visibleProperty())
       loadingImg.setVisible(true)
 
@@ -155,6 +156,7 @@ object AreaDetailsViewModule:
         simulationView.changeView(component)
 
       override def setNewScene(): Unit =
+        simulationView.changeSceneButtonStyle("alarmButton")
         areaDetailsController.instantiateNextSceneMVC(baseView)
 
   /** Trait that encloses the view for area details. */

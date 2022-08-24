@@ -63,10 +63,13 @@
                </font></Label>
                 <Label fx:id="setConditionLabel" styleClass="normalText" text="default" />
             </HBox>
-         <Button fx:id="helpButton" alignment="TOP_LEFT" mnemonicParsing="false" text="?">
+         <Button fx:id="helpButton" alignment="TOP_LEFT" mnemonicParsing="false" styleClass="infoButton" text="?">
             <HBox.margin>
                <Insets left="100.0" />
             </HBox.margin>
+            <font>
+               <Font size="10.0" />
+            </font>
          </Button>
             <BorderPane.margin>
                 <Insets bottom="30.0" />

@@ -120,6 +120,7 @@ object EnvironmentViewModule:
 
       override def setBackButton(): Unit =
         baseView.changeSceneButton.setText("Stop simulation")
+        simulationView.changeSceneButtonStyle("alarmButton")
         baseView.changeSceneButton.setOnMouseClicked { _ =>
           environmentController.stopSimulation()
           environmentController.instantiateNextSceneMVC(baseView)
@@ -158,7 +159,10 @@ object EnvironmentViewModule:
         environmentController.instantiateNextSceneMVC(baseView)
 
       override def moveToNextScene(component: ViewComponent[BorderPane]): Unit =
-        Platform.runLater(() => simulationView.changeView(component))
+        Platform.runLater { () =>
+          simulationView.changeSceneButtonStyle("normalButton")
+          simulationView.changeView(component)
+        }
 
       private def notifySpeedChange(value: Double): Unit =
         environmentController.updateVelocityTimer(value)

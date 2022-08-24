@@ -22,9 +22,8 @@
                 <Insets />
             </VBox.margin>
             <StackPane HBox.hgrow="NEVER">
-                <ProgressIndicator fx:id="loadingImg"/>
-                <ImageView fx:id="plantImage" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true"
-                           preserveRatio="true"/>
+                <ProgressIndicator fx:id="loadingImg" />
+                <ImageView fx:id="plantImage" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
             </StackPane>
             <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
                 <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
@@ -92,4 +91,7 @@
             </GridPane>
         </VBox>
     </VBox>
+   <padding>
+      <Insets bottom="5.0" />
+   </padding>
 </ScrollPane>

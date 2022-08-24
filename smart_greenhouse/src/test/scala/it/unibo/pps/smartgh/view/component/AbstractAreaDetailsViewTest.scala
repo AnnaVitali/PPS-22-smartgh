@@ -24,10 +24,10 @@ class AbstractAreaDetailsViewTest extends AbstractViewTest:
 
   @Start
   def start(stage: Stage): Unit =
-    val baseView = BaseView(appTitle, appSubtitle)
     simulationMVC = SimulationMVC(stage)
     simulationMVC.simulationController.startSimulationTimer()
     simulationMVC.simulationController.plantsSelected = List(plant)
+    val baseView = simulationMVC.simulationView.baseView
     val environmentMVC = EnvironmentMVC(simulationMVC, baseView)
     environmentModel = environmentMVC.environmentModel
     simulationMVC.simulationController.environment = environment

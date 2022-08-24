@@ -12,7 +12,6 @@
 }
 
 .errorText, .ALARM {
-    /*-fx-font-size: 14px;*/
     -fx-text-fill: #842029;
 }
 
@@ -30,8 +29,6 @@
 
 .alarmPane {
     -fx-background-color: #F8D7DA;
-    /*-fx-stroke: #F1AEB5;*/
-    /*-fx-stroke-width: 2;*/
     -fx-border-color: #F1AEB5;
     -fx-border-width: 1;
     -fx-border-style: solid;
@@ -42,19 +39,68 @@
     -fx-background-color: transparent;
 }
 
-.toggle-button, .outlined-btn {
+.button, .toggle-button, .outlined-btn  {
+    -fx-font-size: 14px;
+    -fx-border-color: black;
+    -fx-text-fill: black;
     -fx-background-color: white;
-    -fx-border-color: #17A2B8;
     -fx-border-width: 1;
     -fx-border-style: solid;
     -fx-border-radius: 5;
     -fx-cursor: pointer;
+    -fx-padding: 6px 10px;
+}
+
+.button:hover, .toggle-button:selected, .toggle-button:hover, .outlined-btn:hover {
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
+}
+
+.normalButton {
+    -fx-border-color: #04B700;
+    -fx-text-fill: #04B700;
+}
+
+.normalButton:hover {
+    -fx-background-color: #04B700;
+}
+
+.alarmButton {
+    -fx-border-color: #842029;
+    -fx-text-fill: #842029;
+}
+
+.alarmButton:hover {
+    -fx-background-color: #842029;
+}
+
+.defaultButton {
+    -fx-border-color: black;
+    -fx-text-fill: black;
+}
+
+.defaultButton:hover {
+    -fx-text-fill: black;
+    -fx-background-color: white;
+}
+
+.infoButton {
+    -fx-border-radius: 50%;
+    -fx-background-color: transparent;
+}
+
+.infoButton:hover {
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+}
+
+.toggle-button, .outlined-btn {
+    -fx-border-color: #17A2B8;
     -fx-text-fill: #17A2B8;
 }
 
 .toggle-button:selected, .toggle-button:hover, .outlined-btn:hover, .slider .thumb {
     -fx-background-color: #17A2B8;
-    -fx-text-fill: #FFFFFF;
 }
 
 .outlined-btn:pressed {

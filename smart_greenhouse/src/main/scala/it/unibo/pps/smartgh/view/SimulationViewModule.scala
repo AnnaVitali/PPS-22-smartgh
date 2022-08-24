@@ -5,7 +5,9 @@ import it.unibo.pps.smartgh.mvc.component.SelectCityMVC
 import it.unibo.pps.smartgh.mvc.{SimulationMVC, component}
 import it.unibo.pps.smartgh.view.component.{BaseView, ViewComponent}
 import javafx.application.Platform
+import javafx.collections.ObservableList
 import javafx.scene.Parent
+import javafx.scene.image.Image
 import javafx.stage.Stage
 import scalafx.Includes.*
 import scalafx.scene.Scene
@@ -18,6 +20,9 @@ object SimulationViewModule:
 
   /** A trait that represents the simulation view. */
   trait SimulationView:
+
+    /** The application's base view. */
+    val baseView: BaseView
 
     /** Change the current view to the specified one.
       * @param viewComponent
@@ -33,6 +38,11 @@ object SimulationViewModule:
       */
     def start(simulationMVC: SimulationMVCImpl): Unit
 
+    /** Set the text and style of the scene change button.
+      * @param styleClass
+      *   the style to set
+      */
+    def changeSceneButtonStyle(styleClass: String): Unit
   /** Trait that represents the provider of the view for the simulation. */
   trait Provider:
 
@@ -45,15 +55,17 @@ object SimulationViewModule:
     /** Implementation of [[SimulationViewModule]]. */
     class SimulationViewImpl(stage: Stage) extends SimulationView:
       private val scene: Scene = Scene(stage.width.value, stage.height.value)
-      private val baseView: BaseView = BaseView(appTitle, appSubtitle)
+      override val baseView: BaseView = BaseView(appTitle, appSubtitle)
 
       stage.resizable = true
       stage.maximized = true
+      stage.icons.add(Image("images/smartgh.png"))
       stage.title = appTitle
 
       override def start(simulationMVC: SimulationMVCImpl): Unit =
         val selectCityMVC = component.SelectCityMVC(simulationMVC, baseView)
-        baseView.component.setCenter(selectCityMVC.selectCityView) //init view
+        baseView.component.setCenter(selectCityMVC.selectCityView)
+        baseView.changeSceneButton.getStyleClass.add("normalButton")
         scene.root.value = baseView
         stage.scene = scene
         stage.show()
@@ -61,5 +73,10 @@ object SimulationViewModule:
       override def changeView[A <: Parent](viewComponent: ViewComponent[A]): Unit =
         Platform.runLater(() => baseView.component.setCenter(viewComponent))
 
+      override def changeSceneButtonStyle(styleClass: String): Unit =
+        Platform.runLater { () =>
+          val styleClasses = baseView.changeSceneButton.getStyleClass
+          styleClasses.set(styleClasses.size() - 1, styleClass)
+        }
   /** Trait that combine provider and component for the simulation. */
   trait Interface extends Provider with Component

@@ -29,10 +29,11 @@ abstract class AbstractViewTest:
     WaitForAsyncUtils.autoCheckException = false
 
   def startApplication(stage: Stage, baseView: BaseView, viewComponent: ViewComponent[? <: Parent]): Unit =
-    val scene: Scene = Scene(stage.getWidth, stage.getHeight)
-    stage.setResizable(true)
-    stage.setMaximized(true)
-    baseView.component.setCenter(viewComponent)
-    scene.root.value = baseView
-    stage.setScene(scene)
-    stage.show()
+    simulationMVC.simulationView.changeView(viewComponent)
+//    val scene: Scene = Scene(stage.getWidth, stage.getHeight)
+//    stage.setResizable(true)
+//    stage.setMaximized(true)
+//    baseView.component.setCenter(viewComponent)
+//    scene.root.value = baseView
+//    stage.setScene(scene)
+//    stage.show()
