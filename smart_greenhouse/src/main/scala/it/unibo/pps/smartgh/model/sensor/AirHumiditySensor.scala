@@ -45,8 +45,8 @@ object AirHumiditySensor:
   ) extends AbstractSensorWithTimer(areaComponentsState, addTimerCallback):
 
     private val valueRange = (0.0, 100.0)
-    private val minPercentage = 0.01
-    private val maxPercentage = 0.02
+    private val minPercentage = 0.10
+    private val maxPercentage = 0.20
     private val initialHumidity = 80.0
     private var maxAtomizeValue: Double = _
     private var minVentilateValue: Double = _
@@ -57,8 +57,7 @@ object AirHumiditySensor:
     currentValue = initialHumidity
     registerTimerCallback(_.takeRight(4).contentEquals("0:00"))
 
-    private def calculateRandomValue: Double => Double = value =>
-      value * Random().nextDouble() * maxPercentage + minPercentage
+    private def calculateRandomValue: Double => Double = _ * Random().nextDouble() * maxPercentage + minPercentage
 
     override def computeNextSensorValue(): Unit =
       import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsAirHumidity.*

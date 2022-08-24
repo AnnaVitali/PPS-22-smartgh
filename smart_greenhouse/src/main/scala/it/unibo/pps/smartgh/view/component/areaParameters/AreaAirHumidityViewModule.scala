@@ -19,19 +19,19 @@ object AreaAirHumidityViewModule:
   enum VentilationText(val text: String):
 
     /** The activation status of the ventilation. */
-    case ACTIVATE extends VentilationText("Activate the ventilation")
+    case ACTIVATE extends VentilationText("Activate ventilation")
 
     /** The deactivation status of the ventilation. */
-    case DEACTIVATE extends VentilationText("Deactivate the ventilation")
+    case DEACTIVATE extends VentilationText("Deactivate ventilation")
 
   /** An enum to represent the text to be displayed of the state of the atomiser. */
   enum AtomiserText(val text: String):
 
     /** The activation status of the atomiser. */
-    case ACTIVATE extends AtomiserText("Atomise area")
+    case ACTIVATE extends AtomiserText("Activate atomisation")
 
     /** The deactivation status of the atomiser. */
-    case DEACTIVATE extends AtomiserText("Disable atomise area")
+    case DEACTIVATE extends AtomiserText("Deactivate atomisation")
 
   /** Trait that represents the area air humidity parameter view. */
   trait AreaAirHumidityView extends ViewComponent[GridPane] with AreaParametersView
