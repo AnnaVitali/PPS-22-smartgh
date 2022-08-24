@@ -106,7 +106,7 @@ object PlantSelectorModelModule:
       *   the name of the prolog file from which the plants will be taken.
       */
     class PlantSelectorModelImpl(fileName: String) extends PlantSelectorModel:
-      import it.unibo.pps.smartgh.prolog.Scala2P.{*, given}
+      import it.unibo.pps.smartgh.prolog.Scala2P.{prologEngine, extractTermToString, given}
       private val prologFile = Using(Source.fromFile(fileName, enc = "UTF8")) {
         _.mkString
       }.getOrElse("")

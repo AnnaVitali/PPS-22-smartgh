@@ -44,16 +44,14 @@ class GreenHouseDivisionViewTest extends AbstractViewTest:
   val alarmStateClassStyle = "ALARMState"
   private val timer = Timer(1 day)
   timer.start(println("time is up!"))
+  val plants = List(Plant("lemon", "citrus limon"), Plant("mint", "mentha x gracilis"))
 
   @Start
   private def start(stage: Stage): Unit =
     val baseView: BaseView = BaseView(appTitle, appSubtitle)
     simulationMVC = SimulationMVC(stage)
     simulationMVC.simulationController.environment = Environment("Cesena")
-    ghMVC = GreenHouseDivisionMVC(
-      List(Plant("lemon", "citrus limon"), Plant("mint", "mentha x gracilis")),
-      simulationMVC
-    )
+    ghMVC = GreenHouseDivisionMVC(plants, simulationMVC)
     startApplication(stage, baseView, ghMVC.ghDivisionView)
     ghMVC.setAreas(timer, Map.empty)
     ghMVC.show()

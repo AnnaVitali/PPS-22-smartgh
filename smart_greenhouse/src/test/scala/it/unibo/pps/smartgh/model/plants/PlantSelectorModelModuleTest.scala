@@ -67,7 +67,7 @@ class PlantSelectorModelModuleTest
   test(s"$PS should maintain the selected plants") {
     val plantIndex = 0
     val selectedPlant = plantsNameList(plantIndex)
-    var plantList: List[Plant] = List()
+    var plantList: Vector[Plant] = Vector()
     val onNextPlant = (p: Plant) => {
       plantList = plantList :+ p
       Continue
