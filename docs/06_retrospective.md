@@ -50,7 +50,20 @@ I _product backlog_ che sono stati individuati per questo sprint sono i seguenti
 - miglioramento dell'esperienza utente;
 - guida utente per l'applicazione.
 
-//TODO Completare
+Al termine dello sprint, l'utente è in grado di visualizzare il dettaglio di un area potendo gestire situazioni di allarme, accedere a una guida utente per poter meglio comprendere il funzionamento dell'applicazione e interagire con un'interfaccia grafica maggiormante reattiva e stilisticamente migliorata rispetto alla precedente.
+
+Infine, alla conclusione dello sprint, sommando i diversi costi per i lavori che sono stati svolti, si ottiene che il costo totale, per il lavoro richiesto nel realizzare i diversi _product backlog_, è di 46.
+
+### 6.2.4 Sprint 4 - 21/08/2022
+L'obiettivo di questo sprint, consiste nella revisione di quanto prodotto fino ad ora e nella consegna dell'applicazione ultimata all'utente.
+
+Pertanto, i _product backlog_ che sono stati individuati sono i seguenti:
+
+- miglioramento dell'esperienza utente;
+- documentazione;
+- applicazione finale.
+
+//TODO completare
 
 ## 6.3 Commenti finali
 //TODO considerazioni finali sul lavoro che è stato svolto, i risultati che sono stati ottenuti e la procedura seguita
