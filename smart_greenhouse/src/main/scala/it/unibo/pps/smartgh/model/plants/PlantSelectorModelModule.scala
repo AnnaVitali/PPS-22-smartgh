@@ -117,7 +117,7 @@ object PlantSelectorModelModule:
         ConcurrentSubject[Plant](MulticastStrategy.publish)
 
       override def getAllAvailablePlants: List[String] =
-        engine("plant(X, Y)").map(extractTermToString(_, "X").replace("'", "")).toList
+        engine("plant(X, Y).").map(extractTermToString(_, "X").replace("'", "")).toList
 
       override def registerCallbackPlantSelection(
           onNext: List[String] => Future[Ack],
@@ -155,8 +155,8 @@ object PlantSelectorModelModule:
 
       override def getPlantsSelectedIdentifier: List[String] =
         selectedPlants
-          .map(getCorrectPlantName)
-          .flatMap(s => engine("plant(" + s + ", Y)").map(extractTermToString(_, "Y")))
+          .map(s => "\'" + s + "\'")
+          .flatMap(s => engine("plant(" + s + ", Y).").map(extractTermToString(_, "Y")))
           .toList
 
       override def startEmittingPlantsSelected(): Unit =
@@ -168,9 +168,6 @@ object PlantSelectorModelModule:
         }.executeAsync.runToFuture
 
       override def getPlantSelectedCount: Int = selectedPlants.size
-
-      private def getCorrectPlantName(plantName: String): String =
-        if plantName.contains(" ") then "\'" + plantName + "\'" else plantName
 
   /** Trait that encloses the model for the plant selection. */
   trait Interface extends Provider with Component
