@@ -27,18 +27,17 @@ object AreaTemperatureMVC:
     AreaTemperatureMVCImpl(areaModel, updateStateMessage)
 
   /** Implementation of the area temperature MVC.
-    * @param model
+    * @param areaModel
     *   the model of the area
     * @param updateStateMessage
     *   a function for update the area status and messages
     */
-  class AreaTemperatureMVCImpl(model: AreaModel, updateStateMessage: (String, Boolean) => Unit)
+  class AreaTemperatureMVCImpl(override val areaModel: AreaModel, updateStateMessage: (String, Boolean) => Unit)
       extends AreaModelModule.Interface
       with AreaTemperatureViewModule.Interface
       with AreaTemperatureControllerModule.Interface
       with AreaParametersMVC:
 
-    override val areaModel: AreaModel = model
     override val parameterController: AreaParametersController = AreaTemperatureControllerImpl(updateStateMessage)
     override val parameterView: AreaParametersView = AreaTemperatureViewImpl()
 

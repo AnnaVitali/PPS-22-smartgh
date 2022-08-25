@@ -35,8 +35,8 @@ object SoilHumiditySensor:
     *   the callback for the timer.
     */
   class SoilHumiditySensorImpl(
-      areaComponentsState: AreaComponentsStateImpl,
-      addTimerCallback: (f: String => Unit) => Unit
+      override val areaComponentsState: AreaComponentsStateImpl,
+      private val addTimerCallback: (f: String => Unit) => Unit
   ) extends AbstractSensorWithTimer(areaComponentsState, addTimerCallback):
 
     currentValue = areaComponentsState.soilHumidity

@@ -24,7 +24,7 @@ object BaseView:
     */
   def apply(title: String, subtitle: String): BaseView = BaseViewImpl(title, subtitle)
 
-  private class BaseViewImpl(title: String, subtitle: String)
+  private class BaseViewImpl(private val title: String, private val subtitle: String)
       extends AbstractViewComponent[BorderPane]("base.fxml")
       with BaseView:
 

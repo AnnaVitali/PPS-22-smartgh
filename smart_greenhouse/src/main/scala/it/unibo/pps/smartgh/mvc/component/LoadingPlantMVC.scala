@@ -24,18 +24,17 @@ object LoadingPlantMVC:
     LoadingPlantMVCImpl(simulationMVC, model)
 
   /** Implementation of the [[LoadingPlantMVC]].
-    * @param simulation
+    * @param simulationMVC
     *   the root MVC of the application.
     * @param model
     *   the view in which the [[LoadingPlantView]] is enclosed.
     */
-  class LoadingPlantMVCImpl(simulation: SimulationMVCImpl, model: PlantSelectorModel)
+  class LoadingPlantMVCImpl(override val simulationMVC: SimulationMVCImpl, model: PlantSelectorModel)
       extends PlantSelectorModelModule.Interface
       with LoadingPlantControllerModule.Interface
       with LoadingPlantViewModule.Interface
       with SimulationMVC.Interface:
 
-    override val simulationMVC: SimulationMVCImpl = simulation
     override val plantSelectorModel: PlantSelectorModel = model
     override val loadingPlantView: LoadingPlantView = LoadingPlantViewImpl()
     override val loadingPlantController: LoadingPlantController = LoadingPlantControllerImpl()

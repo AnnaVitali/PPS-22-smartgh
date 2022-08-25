@@ -54,7 +54,7 @@ object AreaTemperatureControllerModule:
       * @param updateStateMessage
       *   a function for update states message.
       */
-    class AreaTemperatureControllerImpl(updateStateMessage: (String, Boolean) => Unit)
+    class AreaTemperatureControllerImpl(private val updateStateMessage: (String, Boolean) => Unit)
         extends AbstractAreaParametersController("Temperature", areaModel, updateStateMessage)
         with AreaTemperatureController:
 

@@ -32,20 +32,22 @@ object AreaMVC:
     *
     * @param plant
     *   of the Area
-    * @param simulation
+    * @param simulationMVC
     *   the simulation MVC instance
     * @param greenHouseDivisionMVC
     *   instance of the [[GreenHouseDivisionMVC]]
     */
-  class AreaMVCImpl(plant: Plant, simulation: SimulationMVCImpl, greenHouseDivisionMVC: GreenHouseDivisionMVCImpl)
-      extends AreaModelModule.Interface
+  class AreaMVCImpl(
+      plant: Plant,
+      override val simulationMVC: SimulationMVCImpl,
+      greenHouseDivisionMVC: GreenHouseDivisionMVCImpl
+  ) extends AreaModelModule.Interface
       with AreaViewModule.Interface
       with AreaControllerModule.Interface
       with SimulationMVC.Interface:
 
-    override val simulationMVC: SimulationMVCImpl = simulation
     override val areaModel: AreaModelModule.AreaModel =
-      AreaImpl(plant, simulation.simulationController.environmentController.subscribeTimerValue)
+      AreaImpl(plant, simulationMVC.simulationController.environmentController.subscribeTimerValue)
     override val areaView: AreaViewModule.AreaView = AreaViewImpl()
     override val areaController: AreaControllerModule.AreaController = AreaControllerImpl(greenHouseDivisionMVC)
 

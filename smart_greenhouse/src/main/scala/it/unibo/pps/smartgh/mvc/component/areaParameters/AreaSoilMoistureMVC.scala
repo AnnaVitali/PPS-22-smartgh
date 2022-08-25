@@ -27,18 +27,17 @@ object AreaSoilMoistureMVC:
     AreaSoilMoistureMVCImpl(areaModel, updateStateMessage)
 
   /** Implementation of the area soil moisture MVC.
-    * @param model
+    * @param areaModel
     *   the model of the area
     * @param updateStateMessage
     *   a function for update the area status and messages
     */
-  class AreaSoilMoistureMVCImpl(model: AreaModel, updateStateMessage: (String, Boolean) => Unit)
+  class AreaSoilMoistureMVCImpl(override val areaModel: AreaModel, updateStateMessage: (String, Boolean) => Unit)
       extends AreaModelModule.Interface
       with AreaSoilMoistureViewModule.Interface
       with AreaSoilMoistureControllerModule.Interface
       with AreaParametersMVC:
 
-    override val areaModel: AreaModel = model
     override val parameterController: AreaParametersController = AreaSoilMoistureControllerImpl(updateStateMessage)
     override val parameterView: AreaParametersView = AreaSoilMoistureViewImpl()
 

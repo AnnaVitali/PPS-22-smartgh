@@ -55,7 +55,7 @@ object AreaAirHumidityControllerModule:
       * @param updateStateMessage
       *   a function for update states message.
       */
-    class AreaAirHumidityControllerImpl(updateStateMessage: (String, Boolean) => Unit)
+    class AreaAirHumidityControllerImpl(private val updateStateMessage: (String, Boolean) => Unit)
         extends AbstractAreaParametersController("Humidity", areaModel, updateStateMessage)
         with AreaAirHumidityController:
 

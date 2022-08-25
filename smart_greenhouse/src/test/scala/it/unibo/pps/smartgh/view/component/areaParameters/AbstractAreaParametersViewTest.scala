@@ -28,7 +28,7 @@ import scala.reflect.{ClassTag, classTag}
   */
 @TestInstance(Lifecycle.PER_CLASS)
 @ExtendWith(Array(classOf[ApplicationExtension]))
-abstract class AbstractAreaParametersViewTest(parameterName: String, sensorName: String)
+abstract class AbstractAreaParametersViewTest(private val parameterName: String, private val sensorName: String)
     extends AbstractAreaDetailsViewTest:
 
   protected var sensor: ManageSensorImpl = _

@@ -46,7 +46,7 @@ object Timer:
     */
   def apply(duration: FiniteDuration): Timer = TimerImpl(duration)
 
-  private class TimerImpl(duration: FiniteDuration) extends Timer:
+  private class TimerImpl(private val duration: FiniteDuration) extends Timer:
     var value: FiniteDuration = 1 second
     private var cancelable: Cancelable = _
     private var consumer: FiniteDuration => Unit = _

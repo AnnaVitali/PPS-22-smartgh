@@ -36,8 +36,10 @@ object AreaParametersView:
     * @tparam A
     *   the type of the FX component to wrap
     */
-  abstract class AbstractAreaParametersView[A <: Parent](fxmlFileName: String, parameter: String)
-      extends AbstractViewComponent[A](fxmlFileName)
+  abstract class AbstractAreaParametersView[A <: Parent](
+      private val fxmlFileName: String,
+      private val parameter: String
+  ) extends AbstractViewComponent[A](fxmlFileName)
       with AreaParametersView:
 
     //noinspection VarCouldBeVal

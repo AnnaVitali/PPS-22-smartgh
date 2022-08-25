@@ -45,7 +45,7 @@ class SoilHumiditySensorTest extends AnyFunSuite with Matchers with Eventually w
             callback(s)
             Continue
           },
-          (ex: Throwable) => ex.printStackTrace(),
+          _.printStackTrace(),
           () => {}
         )
     )

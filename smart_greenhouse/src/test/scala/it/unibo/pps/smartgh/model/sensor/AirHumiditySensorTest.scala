@@ -49,7 +49,7 @@ class AirHumiditySensorTest extends AnyFunSuite with Matchers with Eventually wi
             callback(s)
             Continue
           },
-          (ex: Throwable) => ex.printStackTrace(),
+          _.printStackTrace(),
           () => {}
         )
     )

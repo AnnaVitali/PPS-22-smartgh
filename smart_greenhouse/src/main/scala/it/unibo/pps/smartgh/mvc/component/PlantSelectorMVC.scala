@@ -22,16 +22,15 @@ object PlantSelectorMVC:
   def apply(simulationMVC: SimulationMVCImpl): PlantSelectorMVCImpl = PlantSelectorMVCImpl(simulationMVC)
 
   /** Implementation of the [[PlantSelectorMVCImpl]].
-    * @param simulation
+    * @param simulationMVC
     *   [[SimulationMVCImpl]] of the simulation
     */
-  class PlantSelectorMVCImpl(simulation: SimulationMVCImpl)
+  class PlantSelectorMVCImpl(override val simulationMVC: SimulationMVCImpl)
       extends PlantSelectorModelModule.Interface
       with PlantSelectorControllerModule.Interface
       with SelectPlantViewModule.Interface
       with SimulationMVC.Interface:
 
-    override val simulationMVC: SimulationMVCImpl = simulation
     override val plantSelectorModel: PlantSelectorModel = PlantSelectorModelImpl(Config.path + Config.plantsOutputFile)
     override val selectPlantView: SelectPlantView = SelectPlantViewImpl()
     override val plantSelectorController: PlantSelectorController = PlantSelectorControllerImpl()

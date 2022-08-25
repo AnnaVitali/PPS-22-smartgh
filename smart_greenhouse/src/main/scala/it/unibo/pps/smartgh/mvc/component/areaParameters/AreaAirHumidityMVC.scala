@@ -27,18 +27,19 @@ object AreaAirHumidityMVC:
     AreaAirHumidityMVCImpl(areaModel, updateStateMessage)
 
   /** Implementation of the area air humidity MVC.
-    * @param model
+    * @param areaModel
     *   the model of the area
     * @param updateStateMessage
     *   a function for update the area status and messages
     */
-  class AreaAirHumidityMVCImpl(model: AreaModel, updateStateMessage: (String, Boolean) => Unit)
-      extends AreaModelModule.Interface
+  class AreaAirHumidityMVCImpl(
+      override val areaModel: AreaModel,
+      private val updateStateMessage: (String, Boolean) => Unit
+  ) extends AreaModelModule.Interface
       with AreaAirHumidityViewModule.Interface
       with AreaAirHumidityControllerModule.Interface
       with AreaParametersMVC:
 
-    override val areaModel: AreaModel = model
     override val parameterController: AreaParametersController = AreaAirHumidityControllerImpl(updateStateMessage)
     override val parameterView: AreaParametersView = AreaAirHumidityViewImpl()
 

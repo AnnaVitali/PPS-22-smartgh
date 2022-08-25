@@ -55,9 +55,7 @@ object SelectCityControllerModule:
     /** Class that contains the [[SelectCityController]] implementation. */
     class SelectCityControllerImpl() extends SelectCityController:
 
-      override def saveCity(name: String): Unit =
-        simulationMVC.simulationController.environment = Environment(name)
-
+      override def saveCity(name: String): Unit = simulationMVC.simulationController.environment = Environment(name)
       override def getAllCities: Seq[String] = selectCityModel.getAllCities
       override def searchCities(charSequence: Seq[Char]): Seq[String] = selectCityModel.searchCities(charSequence)
       override def containCity(city: String): Boolean = selectCityModel.containCity(city)

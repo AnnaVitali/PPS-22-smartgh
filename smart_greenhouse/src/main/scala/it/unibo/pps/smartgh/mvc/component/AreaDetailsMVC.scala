@@ -24,20 +24,17 @@ object AreaDetailsMVC:
     AreaDetailsMVCImpl(simulationMVC, areaModel)
 
   /** Implementation of the area details MVC.
-    *
-    * @param simulation
+    * @param simulationMVC
     *   the [[SimulationMVCImpl]] of the application.
-    * @param model
+    * @param areaModel
     *   the model of area.
     */
-  class AreaDetailsMVCImpl(simulation: SimulationMVCImpl, model: AreaModel)
+  class AreaDetailsMVCImpl(override val simulationMVC: SimulationMVCImpl, override val areaModel: AreaModel)
       extends AreaModelModule.Interface
       with AreaDetailsViewModule.Interface
       with AreaDetailsControllerModule.Interface
       with SimulationMVC.Interface:
 
-    override val simulationMVC: SimulationMVCImpl = simulation
-    override val areaModel: AreaModel = model
     override val areaDetailsView: AreaDetailsView = AreaDetailsViewImpl()
     override val areaDetailsController: AreaDetailsController = AreaDetailsControllerImpl()
 

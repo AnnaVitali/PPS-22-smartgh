@@ -43,9 +43,9 @@ object AreaParametersController:
     *   the function that is called for updating area state and messages
     */
   abstract class AbstractAreaParametersController(
-      name: String,
-      areaModel: AreaModel,
-      updateStateMessage: (String, Boolean) => Unit
+      private val name: String,
+      private val areaModel: AreaModel,
+      private val updateStateMessage: (String, Boolean) => Unit
   ) extends AreaParametersController:
     protected val sensor: ManageSensorImpl = areaModel.sensors.find(_.name.contentEquals(name)).orNull
     protected var timeoutUpd: Observable[Unit] = _

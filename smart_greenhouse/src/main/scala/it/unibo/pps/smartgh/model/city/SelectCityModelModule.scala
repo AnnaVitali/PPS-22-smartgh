@@ -45,7 +45,7 @@ object SelectCityModelModule:
       * @param citiesFilePath
       *   the cities file path.
       */
-    class SelectCityModelImpl(citiesFilePath: String) extends SelectCityModel:
+    class SelectCityModelImpl(private val citiesFilePath: String) extends SelectCityModel:
       import it.unibo.pps.smartgh.prolog.Scala2P.{prologEngine, extractTermToString, given}
       private val prologFile = Using(Source.fromFile(citiesFilePath, enc = "UTF8"))(_.mkString).getOrElse("")
       private val engine = prologEngine(Theory.parseLazilyWithStandardOperators(prologFile))

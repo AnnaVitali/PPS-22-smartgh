@@ -20,23 +20,23 @@ object EnvironmentMVC:
     EnvironmentMVCImpl(simulationMVC)
 
   /** Implementation of the environment MVC.
-    * @param simulation
+    * @param simulationMVC
     *   the [[SimulationMVCImpl]] of the application.
     */
-  class EnvironmentMVCImpl(simulation: SimulationMVCImpl)
+  class EnvironmentMVCImpl(override val simulationMVC: SimulationMVCImpl)
       extends EnvironmentModelModule.Interface
       with EnvironmentViewModule.Interface
       with EnvironmentControllerModule.Interface
       with SimulationControllerModule.Interface
       with SimulationMVC.Interface:
 
-    override val simulationMVC: SimulationMVCImpl = simulation
-    override val simulationController: SimulationControllerModule.SimulationController = simulation.simulationController
+    override val simulationController: SimulationControllerModule.SimulationController =
+      simulationMVC.simulationController
     override val environmentModel: EnvironmentModelModule.EnvironmentModel = EnvironmentModelImpl(
       simulationController.environment
     )
     override val environmentView: EnvironmentViewModule.EnvironmentView = EnvironmentViewImpl()
     override val environmentController: EnvironmentControllerModule.EnvironmentController = EnvironmentControllerImpl()
 
-    simulation.simulationController.environmentController = environmentController
+    simulationMVC.simulationController.environmentController = environmentController
     environmentController.startSimulation()

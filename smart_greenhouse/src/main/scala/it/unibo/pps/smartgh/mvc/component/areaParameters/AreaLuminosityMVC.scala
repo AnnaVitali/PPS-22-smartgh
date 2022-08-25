@@ -27,18 +27,19 @@ object AreaLuminosityMVC:
     AreaLuminosityMVCImpl(areaModel, updateStateMessage)
 
   /** Implementation of the area luminosity MVC.
-    * @param model
+    * @param areaModel
     *   the model of the area
     * @param updateStateMessage
     *   a function for update the area status and messages
     */
-  class AreaLuminosityMVCImpl(model: AreaModel, updateStateMessage: (String, Boolean) => Unit)
-      extends AreaModelModule.Interface
+  class AreaLuminosityMVCImpl(
+      override val areaModel: AreaModel,
+      private val updateStateMessage: (String, Boolean) => Unit
+  ) extends AreaModelModule.Interface
       with AreaLuminosityViewModule.Interface
       with AreaLuminosityControllerModule.Interface
       with AreaParametersMVC:
 
-    override val areaModel: AreaModel = model
     override val parameterController: AreaParametersController = AreaLuminosityControllerImpl(updateStateMessage)
     override val parameterView: AreaParametersView = AreaLuminosityViewImpl()
 

@@ -37,8 +37,8 @@ object AirHumiditySensor:
     *   the callback for the timer.
     */
   class AirHumiditySensorImpl(
-      areaComponentsState: AreaComponentsStateImpl,
-      addTimerCallback: (f: String => Unit) => Unit
+      override val areaComponentsState: AreaComponentsStateImpl,
+      private val addTimerCallback: (f: String => Unit) => Unit
   ) extends AbstractSensorWithTimer(areaComponentsState, addTimerCallback):
 
     private val valueRange = (0.0, 100.0)

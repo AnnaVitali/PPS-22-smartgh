@@ -45,7 +45,7 @@ object AreaSoilMoistureControllerModule:
       * @param updateStateMessage
       *   a function for update states message.
       */
-    class AreaSoilMoistureControllerImpl(updateStateMessage: (String, Boolean) => Unit)
+    class AreaSoilMoistureControllerImpl(private val updateStateMessage: (String, Boolean) => Unit)
         extends AbstractAreaParametersController("Soil moisture", areaModel, updateStateMessage)
         with AreaSoilMoistureController:
 

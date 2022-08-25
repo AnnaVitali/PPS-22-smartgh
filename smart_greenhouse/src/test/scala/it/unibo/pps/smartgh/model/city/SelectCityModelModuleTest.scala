@@ -31,5 +31,5 @@ class SelectCityModelModuleTest extends AnyFunSuite with SelectCityModelModule.I
   test("Cities Searcher should correctly return searched cities starting with the specific chars") {
     import MustMatchers.*
     val startWithChars = "F"
-    selectCityModel.searchCities(startWithChars).foreach(c => c must startWith(startWithChars))
+    selectCityModel.searchCities(startWithChars).foreach(_ must startWith(startWithChars))
   }

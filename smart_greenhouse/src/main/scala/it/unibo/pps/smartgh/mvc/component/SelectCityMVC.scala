@@ -22,16 +22,15 @@ object SelectCityMVC:
   def apply(simulationMVC: SimulationMVCImpl): SelectCityMVCImpl = SelectCityMVCImpl(simulationMVC)
 
   /** Implementation of the select city MVC.
-    * @param simulation
-    *   the current [[SimulationMVCImpl]] of the application.ì
+    * @param simulationMVC
+    *   the current [[SimulationMVCImpl]] of the application.
     */
-  class SelectCityMVCImpl(simulation: SimulationMVCImpl)
+  class SelectCityMVCImpl(override val simulationMVC: SimulationMVCImpl)
       extends SelectCityModelModule.Interface
       with SelectCityViewModule.Interface
       with SelectCityControllerModule.Interface
       with SimulationMVC.Interface:
 
-    override val simulationMVC: SimulationMVCImpl = simulation
     override val selectCityModel: SelectCityModel = SelectCityModelImpl(Config.path + Config.citiesOutputFile)
     override val selectCityView: SelectCityView = SelectCityViewViewImpl()
     override val selectCityController: SelectCityController = SelectCityControllerImpl()
