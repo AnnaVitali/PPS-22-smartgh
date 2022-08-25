@@ -1,5 +1,15 @@
 # 4. Design dettagliato
-//TODO introduzione capitolo, che cosa verrà inserito, cosa prevede, parlare di Cake Pattern e MVC
+In questo capitolo verrà descritta nel dettaglio l'architettura del sistema, analizzandone i diversi componenti principali e le loro caratteristiche.
+
+L'applicazione è costituita da diverse scene, ciascuna delle quali racchiude una propria logica applicativa ed effettua delle elaborazioni sulle azioni compiute dall'utente. Per riuscire a rispettare i requisiti e realizzare un'sistema che fosse modulare, facilmente estendibile, quanto più possibile riutilizzabile e facilmente manutenibile, si è deciso di utilizzare principalmente il _pattern MVC_ assieme al _cake pattern_.
+
+Tramite il _pattern MVC_, come già descritto nella sezione [Sec. 3.2](#32-pattern-architetturali-utilizzati), abbiamo la possibilità di separare la logica di presentazione dei dati da quella di buisness, ottenendo la capacità di realizzare una View del tutto indipendente dal modello, in questo modo se in un futuro si decidesse di non adottare più _ScalaFX_ come tecnologia per l'implementazione della View, si potrebbe tranquillamente intraprendere questo cambiamento, senza dover modificare il Model associato alle diverse schermate.
+
+Il _cake pattern_, invece, ci da la possibilità di risolvere in modo agevole, le dipendenze che legano gli elementi dell'_MVC_, tramite l'utilizzo di elementi della programmazione funzionale come: _mix-in_, _self-type_, _abstract type_ ecc.
+
+Questa strategia, sostanzialmente, prevede di vedere il _pattern MVC_, come una composizione di tre elementi: Model (M), View (V) e Controller (C), i quali presentano le seguenti dipendenze: C->V, V->C e C->M. Tramite il _cake pattern_, possiamo realizzare questi tre elementi incapsulando già al loro interno la risoluzione di qusete dipendenze e istnziando alla fine un oggetto `MVC` che li detiene tutti e tre e che è in grado di utilizzarli direttamente e di accedere alle loro proprietà, senza doversi più preoccupare dei loro collegamenti.
+
+Tutti gli elementi principali dell'applicazione, che richiedono di eseguire operazioni o di elaborare informazioni e fornire risultati, a seguito delle azioni compiute dall'utente, sono state realizzate seguendo questa strategia e nelle seguenti sezioni, verranno descritti con maggiore dettaglio.
 
 ## 4.1 Simulazione
 //TODO Simulation View Ele, Simulation Controller Vero
