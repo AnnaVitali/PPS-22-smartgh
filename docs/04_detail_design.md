@@ -229,16 +229,16 @@ Il model viene racchiuso nel suo rispettivo modulo `GHModelModule` [Fig. 4.4.1.1
 
 Il model ha come obiettivo quello di memorizzare la lista dei singoli MVC di ogni area di cui è composta la serra.
 <div align="center">
-  <img src="img/greenhouseDivision_view.png" />
-  <p>  Fig. 4.4.1.1.1 - Controller per il caricamento dei dati delle piante </p>
+  <img src="img/greenhouseDivision_model.png" />
+  <p>  Fig. 4.4.1.1.1 - Model per la suddivisione in aree </p>
 </div>
 
 
-[Fig. 4.4.1.1.1]: img/greenhouseDivision_view.png
+[Fig. 4.4.1.1.1]: img/greenhouseDivision_model.png
 
 #### 4.4.1.2 View per la suddivisione in aree
 
-La view viene racchiusa nel modulo `GHViewodule` (fig view), al cui interno troviamo:
+La view viene racchiusa nel modulo `GHViewodule` [Fig. 4.4.1.2.1], al cui interno troviamo:
 
 - `trait GHDivisionView`, che definisce i metodi che possono essere richiamati sulla view. Questa interfaccia rappresenta inoltre il controller dell'FXML per la relativa sezione, infatti bisogna ricordare che la ghDivisionView è racchiusa all'interno della più ampia view che è `EnvironmentView`.
   Questo trait, come gli altri, per poter essere inseriti all'interno della scena principale, implementa `ViewComponent `.
@@ -249,11 +249,19 @@ La view viene racchiusa nel modulo `GHViewodule` (fig view), al cui interno trov
 
 La view ha come ruolo principale quello di mostrare e mantenere aggiornata la suddivisione della serra in aree. Questo obiettivo viene raggiunto mediante il metodo `printDivision`. Tale metodo verrà richiamato sia all'avvio della schermata dell'environment, quindi quella principale dell'applicazione, che ogni intervallo di tempo per aggiornare i valori rilevati all'interno delle aree e quando lo stato di un'area cambia e passa da NORMALE ad ALLARME.
 
-//FIGURA VIEW
+Il model ha come obiettivo quello di memorizzare la lista dei singoli MVC di ogni area di cui è composta la serra.
+
+<div align="center">
+  <img src="img/greenhouseDivision_view.png" />
+  <p>  Fig. 4.4.1.2.1 - View per la suddivisione in aree </p>
+</div>
+
+
+[Fig. 4.4.1.2.1]: img/greenhouseDivision_view.png
 
 #### 4.4.1.3 Controller per la suddivisione in aree
 
-Il controller viene racchiuso all'interno del modulo `GHControllerModule` (fig controller), il quale include:
+Il controller viene racchiuso all'interno del modulo `GHControllerModule` [Fig. 4.4.1.3.1], il quale include:
 
 - `trait GreenHouseController`, che definisce i metodi che possono essere richiamati sul controller.
 - la classe `GreenhouseDivisionControllerImpl`, che implementa i metodi dell'interfaccia appena descritta e viene racchiusa all'interno del `trait Component`.
@@ -261,19 +269,15 @@ Il controller viene racchiuso all'interno del modulo `GHControllerModule` (fig c
 - `trait Provider` che si occupa di detenere l'oggetto `ghDivisionController`.
 - `trait Interface` che si occupa di completare e connettere tutti i componenti del modulo per renderli utilizzabili nell'oggetto che istanzierà l'MVC.
 
-Il compito principale del controller è quello di richiamare  l'aggiornamento della view affinchè questa mostri lo stato delle aree e i rispettivi valori rilevati al loro interno. 
+Il compito principale del controller è quello di richiamare l'aggiornamento della view affinchè questa mostri lo stato delle aree e i rispettivi valori rilevati al loro interno.
 
-//FIGURA CONTROLLER
+<div align="center">
+  <img src="img/greenhouseDivision_controller.png" />
+  <p>  Fig. 4.4.1.3.1 - Controller per la suddivisione in aree </p>
+</div>
 
-/// - in dettagli implementativi- 
 
-Il compito principale del controller è quello di richiamare  l'aggiornamento della view affinchè questa mostri lo stato delle aree e i rispettivi valori rilevati al loro interno. 
-
-Tale aggiornamento viene forzato qualora un'area cambi di stato mediante la subscription all'Observable contenuto nell'area.
-
-Il compito principale del controller è rappresentato dal metodo `updateView` il quale si occupa di effettuare la subscription agli observer delle singole aree. In questo modo sarà sempre informato di quando una di esse cambia il proprio stato da NORMALE ad ALLARME e ne forza l'aggiornamento della view, infatti di default questo viene effettuato ogni 3 secondi. 
-
-La scelta di effettuare l'aggiornamento ogni intervallo di tempo e al solo cambiamento di stato dell'area è stata fatta per non appesantire l'EDT con le richieste di aggiornamento della view, inoltre si è basata sulla frequenza di aggiornamento dei valori rilevati e le possibili velocità della simulazione.
+[Fig. 4.4.1.3.1]: img/greenhouseDivision_controller.png
 
 #### 4.4.1.4 Aree
 
