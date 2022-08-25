@@ -8,9 +8,9 @@ import java.io.FileNotFoundException
 
 /** This class contains tests to verify that the [[UploadPlants]] works correctly. */
 class UploadPlantsTest extends AnyFunSuite with Matchers:
-  private val path = Config.path
-  private val file = Config.plantsInputFile
-  private val prologFile = Config.plantsOutputFile
+  private val path = Config.Path
+  private val file = Config.PlantsInputFile
+  private val prologFile = Config.PlantsOutputFile
   private val uploader = UploadPlants
 
   test(s"$file file lines number should equal to 25") {

@@ -16,8 +16,7 @@ object Scala2P:
     * @return
     *   the extracted term
     */
-  def extractTerm(t: Term, i: Int): Term =
-    t.asInstanceOf[Struct].getArg(i).getTerm
+  def extractTerm(t: Term, i: Int): Term = t.asInstanceOf[Struct].getArg(i).getTerm
 
   /** Extract a term and convert to a string.
     * @param solveInfo
@@ -27,8 +26,7 @@ object Scala2P:
     * @return
     *   the extracted term
     */
-  def extractTermToString(solveInfo: SolveInfo, s: String): String =
-    solveInfo.getTerm(s).toString
+  def extractTermToString(solveInfo: SolveInfo, s: String): String = solveInfo.getTerm(s).toString
 
   /** The prolog engine for solving goals from the given theory.
     * @param theory

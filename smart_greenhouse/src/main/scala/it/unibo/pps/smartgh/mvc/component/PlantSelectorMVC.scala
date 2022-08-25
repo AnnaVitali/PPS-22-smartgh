@@ -31,7 +31,7 @@ object PlantSelectorMVC:
       with SelectPlantViewModule.Interface
       with SimulationMVC.Interface:
 
-    override val plantSelectorModel: PlantSelectorModel = PlantSelectorModelImpl(Config.path + Config.plantsOutputFile)
+    override val plantSelectorModel: PlantSelectorModel = PlantSelectorModelImpl(Config.Path + Config.PlantsOutputFile)
     override val selectPlantView: SelectPlantView = SelectPlantViewImpl()
     override val plantSelectorController: PlantSelectorController = PlantSelectorControllerImpl()
 

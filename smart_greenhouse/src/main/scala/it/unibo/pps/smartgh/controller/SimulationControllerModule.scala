@@ -50,9 +50,6 @@ object SimulationControllerModule:
     /** The selected plants of the simulation. */
     var plantsSelected: List[Plant]
 
-    /** The timer of the simulation. */
-    var timer: Timer
-
   /** Trait that represents the provider of the controller for the simulation. */
   trait Provider:
 
@@ -71,7 +68,6 @@ object SimulationControllerModule:
       override var plantsSelected: List[Plant] = _
 
       private var timeModel = TimeModel()
-      override var timer: Timer = timeModel.timer
       timeModel.controller = this
 
       override def startSimulationTimer(): Unit =
@@ -94,7 +90,6 @@ object SimulationControllerModule:
 
       override def resetSimulation(): Unit =
         timeModel = TimeModel()
-        timer = timeModel.timer
         timeModel.controller = this
         environment = null
         plantsSelected = List.empty

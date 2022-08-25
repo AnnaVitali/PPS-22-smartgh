@@ -57,9 +57,11 @@ object AreaAirHumidityViewModule:
       override val component: GridPane = loader.load[GridPane]
       private val areaAirHumidityController = parameterController.asInstanceOf[AreaAirHumidityController]
 
+      //noinspection VarCouldBeVal
       @FXML
       var ventilationBtn: ToggleButton = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var atomiserBtn: ToggleButton = _
 

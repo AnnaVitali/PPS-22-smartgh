@@ -38,6 +38,8 @@ trait Timer:
 /** Object that can used to create a new instances of [[Timer]]. */
 object Timer:
 
+  private val InitialValue = 1 second
+
   /** Creates a new [[Timer]] object. The timer starts from 0 until the specified duration.
     * @param duration
     *   the duration of the timer
@@ -47,7 +49,7 @@ object Timer:
   def apply(duration: FiniteDuration): Timer = TimerImpl(duration)
 
   private class TimerImpl(private val duration: FiniteDuration) extends Timer:
-    var value: FiniteDuration = 1 second
+    var value: FiniteDuration = InitialValue
     private var cancelable: Cancelable = _
     private var consumer: FiniteDuration => Unit = _
     private var onFinishTask: Option[Throwable] => Task[Unit] = _
@@ -57,19 +59,19 @@ object Timer:
         value = t
         tickTask(t)
       onFinishTask = _ => Task(finishTask)
-      cancelable = timer(value, 1 second).runToFuture
+      timer(value, 1 second)
 
     override def changeTickPeriod(period: FiniteDuration): Unit =
       stop()
-      cancelable = timer(value + 1.second, period).runToFuture
+      timer(value + 1.second, period)
 
-    override def stop(): Unit =
-      cancelable.cancel()
+    override def stop(): Unit = cancelable.cancel()
 
-    private def timer(from: FiniteDuration, period: FiniteDuration): Task[Unit] =
-      Observable
+    private def timer(from: FiniteDuration, period: FiniteDuration): Unit =
+      cancelable = Observable
         .fromIterable(from.toSeconds to duration.toSeconds)
         .throttle(period, 1)
         .map(Duration(_, TimeUnit.SECONDS))
         .foreachL(consumer)
         .doOnFinish(onFinishTask)
+        .runToFuture

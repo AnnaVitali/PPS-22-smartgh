@@ -14,8 +14,8 @@ import scalafx.scene.Scene
 /** Object that encloses the view module for the simulation. */
 object SimulationViewModule:
 
-  private val appTitle = "Smart Greenhouse"
-  private val appSubtitle = "Simulate your smart greenhouse"
+  private val AppTitle = "Smart Greenhouse"
+  private val AppSubtitle = "Simulate your smart greenhouse"
 
   /** A trait that represents the simulation view. */
   trait SimulationView:
@@ -64,12 +64,12 @@ object SimulationViewModule:
     /** Implementation of [[SimulationViewModule]]. */
     class SimulationViewImpl(private val stage: Stage) extends SimulationView:
       private val scene: Scene = Scene(stage.width.value, stage.height.value)
-      private val baseView: BaseView = BaseView(appTitle, appSubtitle)
+      private val baseView: BaseView = BaseView(AppTitle, AppSubtitle)
 
       stage.resizable = true
       stage.maximized = true
       stage.icons.add(Image("images/smartgh.png"))
-      stage.title = appTitle
+      stage.title = AppTitle
 
       override def start(viewComponent: ViewComponent[_ <: Parent]): Unit =
         baseView.component.setCenter(viewComponent)

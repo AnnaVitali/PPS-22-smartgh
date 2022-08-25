@@ -31,6 +31,6 @@ object SelectCityMVC:
       with SelectCityControllerModule.Interface
       with SimulationMVC.Interface:
 
-    override val selectCityModel: SelectCityModel = SelectCityModelImpl(Config.path + Config.citiesOutputFile)
+    override val selectCityModel: SelectCityModel = SelectCityModelImpl(Config.Path + Config.CitiesOutputFile)
     override val selectCityView: SelectCityView = SelectCityViewViewImpl()
     override val selectCityController: SelectCityController = SelectCityControllerImpl()

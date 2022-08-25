@@ -10,9 +10,9 @@ import scala.io.Source
 
 /** This class contains the tests to verify that the [[UploadCities]] works correctly. */
 class UploadCitiesTest extends AnyFunSuite with Matchers:
-  private val path = Config.path
-  private val file = Config.citiesInputFile
-  private val prologFile = Config.citiesOutputFile
+  private val path = Config.Path
+  private val file = Config.CitiesInputFile
+  private val prologFile = Config.CitiesOutputFile
   private val uploader = UploadCities
 
   test(s"$file file lines number should equal to 7978") {

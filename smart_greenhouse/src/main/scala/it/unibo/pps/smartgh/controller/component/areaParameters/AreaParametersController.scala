@@ -55,14 +55,11 @@ object AreaParametersController:
     override def getOptimalValues: String = "(%.2f%s, %.2f%s)".format(sensor.min, sensor.um, sensor.max, sensor.um)
 
     override def initializeView(view: AreaParametersView): Unit =
-      timeoutUpd = Observable
-        .interval(updatePeriod)
-        .map(_ => updateValues(view))
+      timeoutUpd = Observable.interval(updatePeriod).map(_ => updateValues(view))
       subscriptionTimeout = timeoutUpd.subscribe()
       view.updateDescription(getOptimalValues)
 
-    override def stopListening(): Unit =
-      subscriptionTimeout.cancel()
+    override def stopListening(): Unit = subscriptionTimeout.cancel()
 
     protected def updateValues(view: AreaParametersView): Unit =
       updateStateMessage(sensor.message, sensor.status === SensorStatus.ALARM)

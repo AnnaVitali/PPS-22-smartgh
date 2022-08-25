@@ -12,6 +12,12 @@ import org.scalactic.TripleEquals.convertToEqualizer
 
 /** Implementation of the [[AreaSensorHelper]]. */
 object AreaSensorHelper:
+
+  private val TemperatureKey = "Temperature"
+  private val AirHumidityKey = "Humidity"
+  private val SoilHumidityKey = "Soil moisture"
+  private val BrightnessKey = "Brightness"
+
   /** Apply method for [[AreaSensorHelper]]
     * @param areaComponentState
     *   component state of the area
@@ -36,10 +42,6 @@ object AreaSensorHelper:
       areaComponentState: AreaComponentsStateImpl,
       addTimerCallback: (f: String => Unit) => Unit
   ):
-    private val TemperatureKey = "Temperature"
-    private val AirHumidityKey = "Humidity"
-    private val SoilHumidityKey = "Soil moisture"
-    private val BrightnessKey = "Brightness"
     private val mapSensorNamesAndMessages: Map[String, Map[String, String]] = Map(
       TemperatureKey -> Map(
         ("name", "temp"),

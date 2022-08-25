@@ -10,9 +10,9 @@ import org.scalatest.matchers.should.Matchers as ShouldMatchers
 /** This class contains the tests to verify that the [[SelectCityModelModule]] work correctly. */
 class SelectCityModelModuleTest extends AnyFunSuite with SelectCityModelModule.Interface:
 
-  private val path = Config.path
-  private val file = Config.citiesInputFile
-  private val prologFile = Config.citiesOutputFile
+  private val path = Config.Path
+  private val file = Config.CitiesInputFile
+  private val prologFile = Config.CitiesOutputFile
   UploadCities.writePrologFile(path, file, prologFile)
 
   override val selectCityModel: SelectCityModel = SelectCityModelImpl(path + prologFile)

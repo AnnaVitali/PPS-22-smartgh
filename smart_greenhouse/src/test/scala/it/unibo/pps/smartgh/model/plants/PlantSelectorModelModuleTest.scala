@@ -19,9 +19,9 @@ class PlantSelectorModelModuleTest
     with PlantSelectorModelModule.Interface:
 
   private val PS = "Plant Selector"
-  private val path = Config.path
-  private val file = Config.plantsInputFile
-  private val prologFile = Config.plantsOutputFile
+  private val path = Config.Path
+  private val file = Config.PlantsInputFile
+  private val prologFile = Config.PlantsOutputFile
   private val uploader = UploadPlants
   uploader.writePrologFile(path, file, prologFile)
   override val plantSelectorModel = new PlantSelectorModelImpl(path + prologFile)

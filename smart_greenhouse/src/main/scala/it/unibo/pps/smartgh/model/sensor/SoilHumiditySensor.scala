@@ -14,6 +14,8 @@ import scala.concurrent.duration.*
 /** Object that enclose the implementation of the soil humidity sensor. */
 object SoilHumiditySensor:
 
+  private val TimeMustPass = "00:00"
+
   /** Apply method for the [[SoilHumiditySensorImpl]].
     * @param areaComponentsState
     *   the actual state of the area components.
@@ -40,7 +42,7 @@ object SoilHumiditySensor:
   ) extends AbstractSensorWithTimer(areaComponentsState, addTimerCallback):
 
     currentValue = areaComponentsState.soilHumidity
-    registerTimerCallback(_.takeRight(5).contentEquals("00:00"))
+    registerTimerCallback(_.takeRight(5).contentEquals(TimeMustPass))
 
     override def computeNextSensorValue(): Unit =
       import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsSoilHumidity.*

@@ -58,16 +58,15 @@ object AreaAirHumidityControllerModule:
     class AreaAirHumidityControllerImpl(private val updateStateMessage: (String, Boolean) => Unit)
         extends AbstractAreaParametersController("Humidity", areaModel, updateStateMessage)
         with AreaAirHumidityController:
+      import it.unibo.pps.smartgh.model.area.AreaAtomiseState.{AtomisingActive, AtomisingInactive}
+      import it.unibo.pps.smartgh.model.area.AreaVentilationState.{VentilationInactive, VentilationActive}
 
-      override def activateVentilation(): Unit = areaModel.updVentilationState(AreaVentilationState.VentilationActive)
-      override def deactivateVentilation(): Unit =
-        areaModel.updVentilationState(AreaVentilationState.VentilationInactive)
-      override def isVentilationActivated: Boolean =
-        areaModel.getAreaComponent.ventilationState === AreaVentilationState.VentilationActive
-      override def atomiseArea(): Unit = areaModel.updAtomizeState(AreaAtomiseState.AtomisingActive)
-      override def disableAtomiseArea(): Unit = areaModel.updAtomizeState(AreaAtomiseState.AtomisingInactive)
-      override def isAtomiserActivated: Boolean =
-        areaModel.getAreaComponent.atomisingState === AreaAtomiseState.AtomisingActive
+      override def activateVentilation(): Unit = areaModel.updVentilationState(VentilationActive)
+      override def deactivateVentilation(): Unit = areaModel.updVentilationState(VentilationInactive)
+      override def isVentilationActivated: Boolean = areaModel.getAreaComponent.ventilationState === VentilationActive
+      override def atomiseArea(): Unit = areaModel.updAtomizeState(AtomisingActive)
+      override def disableAtomiseArea(): Unit = areaModel.updAtomizeState(AtomisingInactive)
+      override def isAtomiserActivated: Boolean = areaModel.getAreaComponent.atomisingState === AtomisingActive
 
   /** Trait that combine provider and component for area air humidity parameter. */
   trait Interface extends Provider with Component:

@@ -32,6 +32,11 @@ export AreaHumidityState.*
   */
 object AreaComponentsState:
 
+  private val InitialLampBrightness = 3000.0
+  private val InitialTemperature = 27.0
+  private val MaxInitialHumidity = 30.0
+  private val MinInitialHumidity = 10.0
+
   /** Apply method for the [[AreaComponentsStateImpl]].
     * @return
     *   the [[AreaComponentsStateImpl]] representing the area components state.
@@ -44,9 +49,9 @@ object AreaComponentsState:
     var shieldState: AreaShieldState = AreaShieldState.Up
     var atomisingState: AreaAtomiseState = AreaAtomiseState.AtomisingInactive
     var ventilationState: AreaVentilationState = AreaVentilationState.VentilationInactive
-    var brightnessOfTheLamps: Double = 3000.0
-    var temperature: Double = 27.0
-    val soilHumidity: Double = Random.nextDouble() * (30.0 - 10.0) + 10.0
+    var brightnessOfTheLamps: Double = InitialLampBrightness
+    var temperature: Double = InitialTemperature
+    val soilHumidity: Double = Random.nextDouble() * (MaxInitialHumidity - MinInitialHumidity) + MinInitialHumidity
     var humidityActions: AreaHumidityState = AreaHumidityState.None
 
     def copy(): AreaComponentsStateImpl =

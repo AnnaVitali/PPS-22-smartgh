@@ -5,26 +5,21 @@ package it.unibo.pps.smartgh.model.sensor.factoryFunctions
   */
 object FactoryFunctionsSoilHumidity:
 
-  private val valueRange = (0.0, 100.0)
-  private val evaporationFactor = 0.005
-  private val rainFactor = 0.50
-  private val wateringFactor = 0.05
-  private val movingSoilFactor = 0.10
+  private val ValueRange = (0.0, 100.0)
+  private val EvaporationFactor = 0.005
+  private val RainFactor = 0.50
+  private val WateringFactor = 0.05
+  private val MovingSoilFactor = 0.10
 
   /** Update the soil moisture value without user's action. */
-  val updateValueWithEvaporation: Double => Double = currentAreaValue =>
-    (currentAreaValue - currentAreaValue * evaporationFactor).max(valueRange._1)
+  val updateValueWithEvaporation: Double => Double = value => (value - value * EvaporationFactor).max(ValueRange._1)
 
   /** Update the soil moisture value when area gates are open. */
-  val updateValueWithAreaGatesOpen: (Double, Double) => Double = (currentAreaValue, precipitation) =>
-    (currentAreaValue - currentAreaValue * evaporationFactor + precipitation * rainFactor)
-      .max(valueRange._1)
-      .min(valueRange._2)
+  val updateValueWithAreaGatesOpen: (Double, Double) => Double = (value, precipitation) =>
+    (value - value * EvaporationFactor + precipitation * RainFactor).max(ValueRange._1).min(ValueRange._2)
 
   /** Update the soil moisture value with watering. */
-  val updateValueWithWatering: Double => Double = currentAreaValue =>
-    (currentAreaValue + currentAreaValue * wateringFactor).min(valueRange._2)
+  val updateValueWithWatering: Double => Double = value => (value + value * WateringFactor).min(ValueRange._2)
 
   /** Update the soil moisture value when moving soil. */
-  val updateValueWithMovingSoil: Double => Double = currentAreaValue =>
-    (currentAreaValue - currentAreaValue * movingSoilFactor).max(valueRange._1)
+  val updateValueWithMovingSoil: Double => Double = value => (value - value * MovingSoilFactor).max(ValueRange._1)

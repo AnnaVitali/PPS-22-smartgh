@@ -38,9 +38,11 @@ object AreaSoilMoistureViewModule:
       override val component: GridPane = loader.load[GridPane]
       private val areaSoilMoistureController = parameterController.asInstanceOf[AreaSoilMoistureController]
 
+      //noinspection VarCouldBeVal
       @FXML
       var movingSoilBtn: Button = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var wateringBtn: Button = _
 

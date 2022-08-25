@@ -15,6 +15,9 @@ import scala.util.Random
 /** Object that enclose the implementation of the luminosity sensor. */
 object LuminositySensor:
 
+  private val MinPercentage = 0.01
+  private val MaxPercentage = 0.05
+
   /** Apply method for the [[LuminositySensorImpl]]
     * @param initialLuminosity
     *   the initial value detected by the environment for the brightness.
@@ -34,10 +37,9 @@ object LuminositySensor:
     */
   class LuminositySensorImpl(initialLuminosity: Double, areaComponentsState: AreaComponentsStateImpl)
       extends AbstractSensor(areaComponentsState):
-    private val minPercentage = 0.01
-    private val maxPercentage = 0.05
+
     currentValue = initialLuminosity - (Random
-      .nextDouble() * (maxPercentage - minPercentage) + minPercentage) * initialLuminosity
+      .nextDouble() * (MaxPercentage - MinPercentage) + MinPercentage) * initialLuminosity
 
     override def computeNextSensorValue(): Unit =
       Task {

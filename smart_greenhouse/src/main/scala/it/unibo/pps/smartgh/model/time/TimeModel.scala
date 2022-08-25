@@ -56,7 +56,7 @@ object TimeModel:
       val x0 = 1
       val x1 = 10
       val y0 = pow(10, 6)
-      val y1 = 50
+      val y1 = 100
       exp(((x - x0) / (x1 - x0)) * (log(y1) - log(y0)) + log(y0)) microseconds
 
     override def start(): Unit =

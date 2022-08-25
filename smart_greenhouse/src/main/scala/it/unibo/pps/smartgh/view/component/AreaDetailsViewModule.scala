@@ -70,30 +70,39 @@ object AreaDetailsViewModule:
 
       override val component: ScrollPane = loader.load[ScrollPane]
 
+      //noinspection VarCouldBeVal
       @FXML
       var plantNameLabel: Label = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var plantDescriptionLabel: Label = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var plantImage: ImageView = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var timerLabel: Label = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var statusLabel: Label = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var parametersVbox: VBox = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var alarmPane: Pane = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var alarmLabel: Label = _
 
+      //noinspection VarCouldBeVal
       @FXML
       var loadingImg: ProgressIndicator = _
 

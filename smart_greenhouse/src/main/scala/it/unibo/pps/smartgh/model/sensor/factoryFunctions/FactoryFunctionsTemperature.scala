@@ -4,9 +4,10 @@ package it.unibo.pps.smartgh.model.sensor.factoryFunctions
   * temperature [[TemperatureSensor]].
   */
 object FactoryFunctionsTemperature:
-  private val areaFactor = 0.90
-  private val environmentFactor = 0.10
+
+  private val AreaFactor = 0.90
+  private val EnvironmentFactor = 0.10
 
   /** Update temperature value. */
   val updateTemperatureApproachingTemperatureToReach: (Double, Double) => Double =
-    (currentAreaVal, temperatureToReach) => (currentAreaVal * areaFactor) + (temperatureToReach * environmentFactor)
+    (currentAreaVal, temperatureToReach) => (currentAreaVal * AreaFactor) + (temperatureToReach * EnvironmentFactor)

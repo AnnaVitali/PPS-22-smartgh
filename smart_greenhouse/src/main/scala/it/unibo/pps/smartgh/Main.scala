@@ -13,7 +13,7 @@ import scalafx.application.JFXApp3.PrimaryStage
 object Main extends JFXApp3:
 
   override def start(): Unit =
-    UploadCities.writePrologFile(Config.path, Config.citiesInputFile, Config.citiesOutputFile)
-    UploadPlants.writePrologFile(Config.path, Config.plantsInputFile, Config.plantsOutputFile)
+    UploadCities.writePrologFile(Config.Path, Config.CitiesInputFile, Config.CitiesOutputFile)
+    UploadPlants.writePrologFile(Config.Path, Config.PlantsInputFile, Config.PlantsOutputFile)
     val simulationMVC = SimulationMVC(PrimaryStage())
     simulationMVC.simulationView.start(SelectCityMVC(simulationMVC).selectCityView)

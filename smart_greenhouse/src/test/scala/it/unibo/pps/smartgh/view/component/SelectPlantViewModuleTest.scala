@@ -1,28 +1,24 @@
 package it.unibo.pps.smartgh.view.component
 
+import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.component.PlantSelectorMVC.PlantSelectorMVCImpl
-import it.unibo.pps.smartgh.view.SimulationViewModule.{appSubtitle, appTitle}
 import it.unibo.pps.smartgh.view.component
-import javafx.scene.control.{Button, CheckBox, Label}
-import javafx.scene.layout.{BorderPane, VBox}
+import javafx.scene.control.{Button, Label}
+import javafx.scene.layout.VBox
 import javafx.stage.Stage
 import org.junit.jupiter.api.TestInstance.Lifecycle
 import org.junit.jupiter.api.extension.ExtendWith
-import org.junit.jupiter.api.{Assertions, BeforeAll, BeforeEach, Test, TestInstance}
-import org.testfx.api.{FxRobot, FxToolkit}
-import org.testfx.util.WaitForAsyncUtils
-import org.testfx.assertions.api.Assertions as FXAssertions
-import org.testfx.framework.junit5.{ApplicationExtension, ApplicationTest, Start}
-import org.testfx.api.FxAssert.verifyThat
-import org.hamcrest.MatcherAssert.assertThat
-import org.testfx.matcher.base.NodeMatchers.{hasChildren, isVisible}
-import org.testfx.matcher.control.LabeledMatchers
-import org.testfx.matcher.control.LabeledMatchers.hasText
-import scalafx.scene.Scene
-import it.unibo.pps.smartgh.mvc.SimulationMVC
+import org.junit.jupiter.api.{Assertions, Test, TestInstance}
 import org.scalatest.concurrent.Eventually.eventually
 import org.scalatest.concurrent.Futures.timeout
 import org.scalatest.time.{Milliseconds, Span}
+import org.testfx.api.FxAssert.verifyThat
+import org.testfx.api.FxRobot
+import org.testfx.framework.junit5.{ApplicationExtension, Start}
+import org.testfx.matcher.base.NodeMatchers.isVisible
+import org.testfx.matcher.control.LabeledMatchers
+import org.testfx.matcher.control.LabeledMatchers.hasText
+import scalafx.scene.Scene
 /** This class contains the tests to verify that the [[SelectPlantViewModule]] work correctly. */
 @TestInstance(Lifecycle.PER_CLASS)
 @ExtendWith(Array(classOf[ApplicationExtension]))

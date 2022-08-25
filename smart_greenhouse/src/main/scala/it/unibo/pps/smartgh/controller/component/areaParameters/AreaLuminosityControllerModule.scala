@@ -6,6 +6,7 @@ import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersCo
 }
 import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaModelModule, AreaShieldState}
 import it.unibo.pps.smartgh.view.component.areaParameters.AreaLuminosityViewModule.AreaLuminosityView
+import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.AreaParametersView
 import it.unibo.pps.smartgh.view.component.areaParameters.{AreaLuminosityViewModule, AreaParametersView}
 import org.scalactic.TripleEquals.convertToEqualizer
 
@@ -65,7 +66,7 @@ object AreaLuminosityControllerModule:
       override def shieldsDown(): Unit = areaModel.updShieldState(AreaShieldState.Down)
       override def shieldsUp(): Unit = areaModel.updShieldState(AreaShieldState.Up)
       override def isShielded: Boolean = areaModel.getAreaComponent.shieldState === AreaShieldState.Down
-      override protected def updateValues(view: AreaParametersView.AreaParametersView): Unit =
+      override protected def updateValues(view: AreaParametersView): Unit =
         super.updateValues(view)
         view
           .asInstanceOf[AreaLuminosityView]

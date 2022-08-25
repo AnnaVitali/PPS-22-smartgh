@@ -15,6 +15,8 @@ import scala.util.Random
 /** Object that enclose the implementation of the temperature sensor. */
 object TemperatureSensor:
 
+  private val TimeMustPass: Int = 5
+
   /** Apply method for the [[TemperatureSensorImpl]]
     * @param areaComponentsStateImpl
     *   the actual state of the are components.
@@ -39,10 +41,9 @@ object TemperatureSensor:
       areaComponentsState: AreaComponentsStateImpl,
       addTimerCallback: (f: String => Unit) => Unit
   ) extends AbstractSensorWithTimer(areaComponentsState, addTimerCallback):
-    private val timeMustPass: Int = 5
 
     currentValue = areaComponentsState.temperature
-    registerTimerCallback(_.takeRight(2).toInt % timeMustPass == 0)
+    registerTimerCallback(_.takeRight(2).toInt % TimeMustPass == 0)
 
     override def computeNextSensorValue(): Unit =
       Task {

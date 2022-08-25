@@ -16,6 +16,12 @@ import scala.util.Random
 /** Object that enclose the implementation of the air humidity sensor. */
 object AirHumiditySensor:
 
+  private val ValueRange = (0.0, 100.0)
+  private val MinPercentage = 0.10
+  private val MaxPercentage = 0.20
+  private val InitialHumidity = 80.0
+  private val TimeMustPass = "0:00"
+
   /** Apply method for the [[AirHumiditySensorImpl]]
     * @param areaComponentsState
     *   the actual state of the area components.
@@ -41,20 +47,16 @@ object AirHumiditySensor:
       private val addTimerCallback: (f: String => Unit) => Unit
   ) extends AbstractSensorWithTimer(areaComponentsState, addTimerCallback):
 
-    private val valueRange = (0.0, 100.0)
-    private val minPercentage = 0.10
-    private val maxPercentage = 0.20
-    private val initialHumidity = 80.0
     private var maxAtomizeValue: Double = _
     private var minVentilateValue: Double = _
     private val noActionRandomVal: Double = areaComponentsState.gatesState match
       case AreaGatesState.Close => calculateRandomValue(currentValue)
       case _ => 0.0
 
-    currentValue = initialHumidity
-    registerTimerCallback(_.takeRight(4).contentEquals("0:00"))
+    currentValue = InitialHumidity
+    registerTimerCallback(_.takeRight(4).contentEquals(TimeMustPass))
 
-    private def calculateRandomValue: Double => Double = _ * Random().nextDouble() * maxPercentage + minPercentage
+    private def calculateRandomValue: Double => Double = _ * Random().nextDouble() * MaxPercentage + MinPercentage
 
     override def computeNextSensorValue(): Unit =
       import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsAirHumidity.*
@@ -67,11 +69,11 @@ object AirHumiditySensor:
           case _ =>
             areaComponentsState.gatesState match
               case AreaGatesState.Open => currentEnvironmentValue
-              case _ => (currentEnvironmentValue - calculateRandomValue(currentValue)).max(valueRange._1)
+              case _ => (currentEnvironmentValue - calculateRandomValue(currentValue)).max(ValueRange._1)
         subject.onNext(currentValue)
       }.executeAsync.runToFuture
 
     override def onNextAction(): AreaComponentsStateImpl => Future[Ack] =
-      maxAtomizeValue = (currentValue + calculateRandomValue(currentValue)).min(valueRange._2)
-      minVentilateValue = (currentValue - calculateRandomValue(currentValue)).max(valueRange._1)
+      maxAtomizeValue = (currentValue + calculateRandomValue(currentValue)).min(ValueRange._2)
+      minVentilateValue = (currentValue - calculateRandomValue(currentValue)).max(ValueRange._1)
       super.onNextAction()

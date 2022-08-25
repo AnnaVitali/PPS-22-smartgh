@@ -14,6 +14,9 @@ import javafx.scene.layout.GridPane
 /** Object that encloses the view module for the area temperature parameter. */
 object AreaTemperatureViewModule:
 
+  private val TempStep = 0.5
+  private val TempRange = (10.0 + TempStep, 40.0 - TempStep)
+
   /** Trait that represents the area temperature parameter view. */
   trait AreaTemperatureView extends ViewComponent[GridPane] with AreaParametersView
 
@@ -36,8 +39,6 @@ object AreaTemperatureViewModule:
         with AreaTemperatureView:
 
       override val component: GridPane = loader.load[GridPane]
-      private val tempStep = 0.5
-      private val tempRange = (10.0 + tempStep, 40.0 - tempStep)
       private val areaTemperatureController = parameterController.asInstanceOf[AreaTemperatureController]
 
       //noinspection VarCouldBeVal
@@ -77,8 +78,8 @@ object AreaTemperatureViewModule:
         else closeStructureBtn.setSelected(true)
       }
 
-      minusTempBtn.setOnMouseClicked(_ => updateTempValue(_ - tempStep))
-      plusTempBtn.setOnMouseClicked(_ => updateTempValue(_ + tempStep))
+      minusTempBtn.setOnMouseClicked(_ => updateTempValue(_ - TempStep))
+      plusTempBtn.setOnMouseClicked(_ => updateTempValue(_ + TempStep))
 
       private def initGatesBtn(isOpen: Boolean): Unit =
         openStructureBtn.setSelected(isOpen)
@@ -97,8 +98,8 @@ object AreaTemperatureViewModule:
         checkRange(value)
 
       private def checkRange(v: Double): Unit =
-        minusTempBtn.setDisable(v < tempRange._1)
-        plusTempBtn.setDisable(v > tempRange._2)
+        minusTempBtn.setDisable(v < TempRange._1)
+        plusTempBtn.setDisable(v > TempRange._2)
 
   /** Trait that encloses the view for area temperature parameter. */
   trait Interface extends Provider with Component:
