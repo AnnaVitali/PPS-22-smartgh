@@ -55,8 +55,13 @@ class AreaTest extends AnyFunSuite with AreaModelModule.Interface with Matchers:
     "After create an area its state must be equal to Normal if all sensors status is Normal else must be equal to alarm"
   ) {
     if areaModel.sensors.forall(_.status === SensorStatus.NORMAL) then
-      areaModel.status mustEqual AreaModelModule.AreaStatus.NORMAL
-    else areaModel.status mustEqual AreaModelModule.AreaStatus.ALARM
+      eventually(timeout(Span(8000, Milliseconds))) {
+        areaModel.status mustEqual AreaModelModule.AreaStatus.NORMAL
+      }
+    else
+      eventually(timeout(Span(8000, Milliseconds))) {
+        areaModel.status mustEqual AreaModelModule.AreaStatus.ALARM
+      }
   }
 
   test("An area must have 4 sensors") {
