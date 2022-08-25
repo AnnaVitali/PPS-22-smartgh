@@ -216,13 +216,13 @@ In particolare come si può vedere nella figura [Fig. 4.4.1.1], la classe `Green
 </div>
 
 
-[Fig. 4.3.1.1.3]: img/greenhouseDivisionMVC.png
+[Fig. 4.4.1.1]: img/greenhouseDivisionMVC.png
 
 #### 4.4.1.1 Model per la suddivisione in aree
 
 Il model viene racchiuso nel suo rispettivo modulo `GHModelModule` [Fig. 4.4.1.1.1],  al cui interno troviamo: 
 
-- il `trait GreenHouseModel` che espone i diversi metodi che potranno essere richiamati sul model, nello specifico quello per ottenere la lista dei componenti MVC delle singole aree che compongono la serra (`areas` [sezione successiva in cui parli delle AREE]).tod
+- il `trait GreenHouseModel` che espone i diversi metodi che potranno essere richiamati sul model, nello specifico quello per ottenere la lista dei componenti MVC delle singole aree che compongono la serra (`areas` [Sec. 4.4.1.4](#4414-Aree)).
 - la classe `GreenHouseDivisionModelImpl`, la quale si occupa di implementare l'interfaccia appena descritta e viene racchiusa all'interno del `trait Component`;
 - `trait Provider` che si occupa di detenere l'oggetto `ghDivisionModel`
 - `trait Interface` che si occupa di completare e connettere tutti i componenti del modulo per renderli utilizzabili nell'oggetto che istanzierà l'MVC.
@@ -283,28 +283,41 @@ Il compito principale del controller è quello di richiamare l'aggiornamento del
 
 Per realizzare le singole aree che compongono la serra si è deciso di implementare ancora una volta il pattern _MVC_ e il _Cake pattern_
 
-In particolare come si può vedere nella figura ???, la classe `AreaMVC` racchiude i  componenti: `AreaModel`, `AreaController` e `AreaView` derivanti dai rispettivi moduli. 
+In particolare come si può vedere nella [Fig. 4.4.1.4.1] , la classe `AreaMVC` racchiude i  componenti: `AreaModel`, `AreaController` e `AreaView` derivanti dai rispettivi moduli.
 
 Tale classe verrà istanziata durante il setup della divisione della serra e memorizzata all'interno del `greenHouseDivisionModel`. Alla sua istanziazione essa creerà, a seguito dell'implementazione del cake pattern, tutti gli elementi e i loro collegamenti, rendendoli così accedibili liberamente.
 
+<div align="center">
+  <img src="img/areaMVC.png" />
+  <p>  Fig. Fig. 4.4.1.4.1 - Rappresentazione MVC di un'area </p>
+</div>
+
+
+[Fig. 4.4.1.4.1]: img/areaMVC.png
+
 ##### 4.4.1.4.1 Model della singola area
 
-Il model viene racchiuso nel rispettivo modulo `areaModelModule`, al cui interno troviamo:
+Il model viene racchiuso nel rispettivo modulo `areaModelModule` [Fig. 4.4.1.4.1.1], al cui interno troviamo:
 
 - il `trait AreaModel` che espone i diversi metodi che potranno essere richiamati sul model, nello specifico quelli per aggiornare e ottenere lo stato dell'area, quelli per ottenere le informazioni della pianta contenuta nell'area e tutti i metodi necessari memorizzare le azioni effettuate dagli utenti sui sensori.
 - la classe `AreaModelImpl`, la quale si occupa di implementare l'interfaccia appena descritta e viene racchiusa all'interno del `trait Component`;
 - `trait Provider` che si occupa di detenere l'oggetto `AreaModel`
 - `trait Interface` che si occupa di completare e connettere tutti i componenti del modulo per renderli utilizzabili nell'oggetto che istanzierà l'MVC.
 
-//TODO immagine Model
-
 Il model dell'area ha come principale obiettivo quello di memorizzare lo stato dell'area e le operazioni effettuate dagli utenti sui singoli sensori. per raggiungere questo obiettivo si appoggia sulle classi `ManageSensor` e  `AreaSensorHelper`che si occuperanno di memorizzare e gestire i singoli sensori e sull'oggetto `AreaComponentState` il quale memorizza le operazioni effettuate dall'utente.
 
 Il model come si può intuire risulta essere quindi condiviso con l'MVC del dettaglio dell'area, questo in quanto è necessario poter ricondurre le operazioni dell'utente all'area su cui le effettua.
 
+<div align="center">
+  <img src="img/area_model.png" />
+  <p>  Fig. 4.4.1.4.1.1 - Model dell'area </p>
+</div>
+
+[Fig. 4.4.1.4.1.1]: img/area_model.png
+
 ##### 4.4.1.4.2 View della singola area
 
-La view viene racchiusa nel modulo `AreaViewModule` (fig view), al cui interno troviamo:
+La view viene racchiusa nel modulo `AreaViewModule` [Fig. 4.4.1.4.2.1], al cui interno troviamo:
 
 - `trait AreaView`, che definisce i metodi che possono essere richiamati sulla view. Questa interfaccia rappresenta inoltre il controller dell'FXML per la relativa sezione, infatti bisogna ricordare che la AreaView è racchiusa all'interno della più ampia view che è `GHDivisionView`.
   Questo trait, come gli altri, per poter essere inseriti all'interno della scena principale, implementa `ViewComponent `, oltre a ciò implementa anche `ContiguousSceneView` necessario per accedere alla scena incaricata di mostrare del dettaglio dell'area.
@@ -315,9 +328,16 @@ La view viene racchiusa nel modulo `AreaViewModule` (fig view), al cui interno t
 
 La view ha come ruolo principale quello di mostrare lo stato di un'area, il nome della pianta e i valori dei parametri rilevati all'interno di essa e dare la possibiltà all'utente di accedere al dettaglio dell'area selezionata.
 
+<div align="center">
+  <img src="img/area_view.png" />
+  <p>  Fig. 4.4.1.4.2.1 - View dell'area </p>
+</div>
+
+[Fig. 4.4.1.4.2.1]: img/area_model.png
+
 ##### 4.4.1.4.3 Controller della singola area
 
-Il controller viene racchiuso all'interno del modulo `AreaControllerModule` (fig controller), il quale include:
+Il controller viene racchiuso all'interno del modulo `AreaControllerModule` [Fig. 4.4.1.4.3.1], il quale include:
 
 - `trait AreaController`, che definisce i metodi che possono essere richiamati sul controller. Il trait estende un ulteriore trait rappresentato da `SceneController` necessario per poter accedere alla scena che si occupa del dettaglio dell'area.
 - la classe `AreaControllerImpl`, che implementa i metodi dell'interfaccia appena descritta e viene racchiusa all'interno del `trait Component`.
@@ -326,6 +346,13 @@ Il controller viene racchiuso all'interno del modulo `AreaControllerModule` (fig
 - `trait Interface` che si occupa di completare e connettere tutti i componenti del modulo per renderli utilizzabili nell'oggetto che istanzierà l'MVC.
 
 Il compito principale del controller è quello di richiamare  la creazione dell'interfaccia grafica delegata alla view affinchè questa mostri lo stato delle aree e i rispettivi valori rilevati al loro interno e di gestire il cambio di scena da quella generale in cui è possibile visualizzare tutte le aree a quello specifico di dettaglio della singola area.
+
+<div align="center">
+  <img src="img/area_controller.png" />
+  <p>  Fig. 4.4.1.4.3.1 - Controller dell'area </p>
+</div>
+
+[Fig. 4.4.1.4.3.1]: img/area_controller.png
 
 ### 4.4.2 Visualizzazione dettaglio aree
 //TODO Model Maria, View Ele Controller Maria e Ele
