@@ -8,8 +8,11 @@ import org.junit.jupiter.api.extension.ExtendWith
 import org.scalatest.concurrent.Eventually.eventually
 import org.scalatest.concurrent.Futures.timeout
 import org.scalatest.time.{Milliseconds, Span}
+import org.testfx.api.FxAssert.verifyThat
 import org.testfx.api.FxRobot
 import org.testfx.framework.junit5.{ApplicationExtension, Start}
+import org.testfx.matcher.base.NodeMatchers.isVisible
+import org.testfx.matcher.control.LabeledMatchers.hasText
 
 /** This class contains the tests to verify that the [[AreaSoilMoistureViewModule]] work correctly. */
 @TestInstance(Lifecycle.PER_CLASS)
@@ -21,6 +24,7 @@ class AreaTemperatureViewModuleTest extends AbstractAreaParametersViewTest("Temp
   private val minusTempBtnId = "#minusTempBtn"
   private val plusTempBtnId = "#plusTempBtn"
   private val regulateTempLabelId = "#regulateTempLabel"
+  private val initialTemperature = 27.0
 
   @Start
   override def start(stage: Stage): Unit = super.start(stage)
@@ -53,8 +57,12 @@ class AreaTemperatureViewModuleTest extends AbstractAreaParametersViewTest("Temp
   private def testRegulateTemperature(robot: FxRobot, buttonId: String, condition: (Double, Double) => Boolean): Unit =
     closeStructure(robot)
     val regulatedTemp = robot.lookup(regulateTempLabelId).queryLabeled()
-    val defaultTempValue = regulatedTemp.getText.toDouble
+    eventually(timeout(Span(10000, Milliseconds))) {
+      verifyThat(buttonId, isVisible)
+      verifyThat(regulateTempLabelId, isVisible)
+      verifyThat(regulateTempLabelId, hasText(initialTemperature.toString))
+    }
     robot.clickOn(buttonId)
-    eventually(timeout(Span(8000, Milliseconds))) {
-      assertTrue(condition(regulatedTemp.getText.toDouble, defaultTempValue))
+    eventually(timeout(Span(10000, Milliseconds))) {
+      assertTrue(condition(regulatedTemp.getText.toDouble, initialTemperature))
     }
