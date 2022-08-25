@@ -20,6 +20,9 @@ import org.testfx.matcher.control.LabeledMatchers
 import org.testfx.matcher.control.LabeledMatchers.hasText
 import scalafx.scene.Scene
 import it.unibo.pps.smartgh.mvc.SimulationMVC
+import org.scalatest.concurrent.Eventually.eventually
+import org.scalatest.concurrent.Futures.timeout
+import org.scalatest.time.{Milliseconds, Span}
 /** This class contains the tests to verify that the [[SelectPlantViewModule]] work correctly. */
 @TestInstance(Lifecycle.PER_CLASS)
 @ExtendWith(Array(classOf[ApplicationExtension]))
@@ -87,8 +90,10 @@ class SelectPlantViewModuleTest extends AbstractViewTest:
     robot.clickOn(checkBox)
 
     //then:
-    assert(robot.lookup(selectedPlantBoxId).queryAs(classOf[VBox]).getChildren.size == selectedPlantNumber)
-    verifyThat(numberPlantsSelectedId, hasText(selectedPlantNumber.toString))
+    eventually(timeout(Span(8000, Milliseconds))) {
+      assert(robot.lookup(selectedPlantBoxId).queryAs(classOf[VBox]).getChildren.size == selectedPlantNumber)
+      verifyThat(numberPlantsSelectedId, hasText(selectedPlantNumber.toString))
+    }
 
   //noinspection DfaConstantConditions
   @Test def testPlantDeselection(robot: FxRobot): Unit =

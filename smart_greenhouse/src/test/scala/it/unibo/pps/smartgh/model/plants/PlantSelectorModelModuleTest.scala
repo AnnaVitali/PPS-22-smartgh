@@ -6,11 +6,8 @@ import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.{Component, Pl
 import monix.execution.Ack.{Continue, Stop}
 import monix.execution.Cancelable
 import org.scalatest.BeforeAndAfter
-import org.scalatest.concurrent.Eventually.eventually
-import org.scalatest.concurrent.Futures.timeout
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
-import org.scalatest.time.{Milliseconds, Span}
 
 import java.util.NoSuchElementException
 
@@ -92,10 +89,8 @@ class PlantSelectorModelModuleTest
     var operationNumber = 1
     val onNext = (plantList: List[String]) => {
       if operationNumber == 1 then
-        eventually(timeout(Span(8000, Milliseconds))) {
-          plantList.size shouldEqual plantSelectorModel.getPlantsSelectedName.size
-          plantList.size shouldEqual plantSelectorModel.getPlantsSelectedIdentifier.size
-        }
+        plantList.size shouldEqual plantSelectorModel.getPlantsSelectedName.size
+        plantList.size shouldEqual plantSelectorModel.getPlantsSelectedIdentifier.size
         operationNumber = operationNumber + 1
       else assert(plantList.isEmpty)
       Continue
