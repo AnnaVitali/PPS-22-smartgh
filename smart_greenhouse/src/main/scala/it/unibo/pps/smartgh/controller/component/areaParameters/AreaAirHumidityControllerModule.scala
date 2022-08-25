@@ -59,21 +59,13 @@ object AreaAirHumidityControllerModule:
         extends AbstractAreaParametersController("Humidity", areaModel, updateStateMessage)
         with AreaAirHumidityController:
 
-      override def activateVentilation(): Unit =
-        areaModel.updVentilationState(AreaVentilationState.VentilationActive)
-
+      override def activateVentilation(): Unit = areaModel.updVentilationState(AreaVentilationState.VentilationActive)
       override def deactivateVentilation(): Unit =
         areaModel.updVentilationState(AreaVentilationState.VentilationInactive)
-
       override def isVentilationActivated: Boolean =
         areaModel.getAreaComponent.ventilationState === AreaVentilationState.VentilationActive
-
-      override def atomiseArea(): Unit =
-        areaModel.updAtomizeState(AreaAtomiseState.AtomisingActive)
-
-      override def disableAtomiseArea(): Unit =
-        areaModel.updAtomizeState(AreaAtomiseState.AtomisingInactive)
-
+      override def atomiseArea(): Unit = areaModel.updAtomizeState(AreaAtomiseState.AtomisingActive)
+      override def disableAtomiseArea(): Unit = areaModel.updAtomizeState(AreaAtomiseState.AtomisingInactive)
       override def isAtomiserActivated: Boolean =
         areaModel.getAreaComponent.atomisingState === AreaAtomiseState.AtomisingActive
 

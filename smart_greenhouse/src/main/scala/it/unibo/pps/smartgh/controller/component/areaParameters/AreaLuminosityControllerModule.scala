@@ -60,17 +60,11 @@ object AreaLuminosityControllerModule:
         extends AbstractAreaParametersController("Brightness", areaModel, updateStateMessage)
         with AreaLuminosityController:
 
-      override def updLampValue(value: Double): Unit =
-        areaModel.updBrightnessOfLamp(value)
-
+      override def updLampValue(value: Double): Unit = areaModel.updBrightnessOfLamp(value)
       override def getLampValue: Double = areaModel.getAreaComponent.brightnessOfTheLamps
-
       override def shieldsDown(): Unit = areaModel.updShieldState(AreaShieldState.Down)
-
       override def shieldsUp(): Unit = areaModel.updShieldState(AreaShieldState.Up)
-
       override def isShielded: Boolean = areaModel.getAreaComponent.shieldState === AreaShieldState.Down
-
       override protected def updateValues(view: AreaParametersView.AreaParametersView): Unit =
         super.updateValues(view)
         view
