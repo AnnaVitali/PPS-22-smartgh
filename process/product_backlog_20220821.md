@@ -32,7 +32,7 @@ L'obiettivo di questo sprint, consiste nel revisionare quanto prodotto fino ad o
             <td></td>
         </tr>
         <tr>
-            <td rowspan="6">Miglioramento dell'esperienza utente</td>
+            <td rowspan="9">Miglioramento dell'esperienza utente</td>
             <td>*Sistemare stile pulsanti delle diverse schermate</td>
             <td>Elena</td>
             <td>1</td>
@@ -45,9 +45,45 @@ L'obiettivo di questo sprint, consiste nel revisionare quanto prodotto fino ad o
             <td></td>
         </tr>
         <tr>
+            <td>Aggiunta icona applicazione</td>
+            <td>Elena, Maria</td>
+            <td>1</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Miglioramento stile aree nella schermata principale</td>
+            <td>Maria</td>
+            <td>2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Miglioramento stile schermata selezione delle piante</td>
+            <td>Anna</td>
+            <td>1</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
             <td>Verifica del coretto funzionamento dell'applicazione tramite test manuali</td>
             <td>Anna, Elena, Maria, Veronika</td>
-            <td>?</td>
+            <td>3</td>
             <td></td>
             <td></td>
             <td></td>
@@ -142,7 +178,19 @@ L'obiettivo di questo sprint, consiste nel revisionare quanto prodotto fino ad o
             <td></td>
         </tr>
         <tr>
-            <td rowspan="3">Applicazione finale</td>
+            <td rowspan="4">Applicazione finale</td>
+             <td>Operazioni finali di refactoring del codice e ottimizzazione degli imports</td>
+            <td>Anna, Elena, Maria, Veronika</td>
+            <td>?</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
             <td>Realizzare file .jar</td>
             <td>Anna, Elena, Maria, Veronika</td>
             <td>1</td>
