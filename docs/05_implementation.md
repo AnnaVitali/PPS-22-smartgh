@@ -63,7 +63,32 @@ Infine, per testare il verificarsi di determinati risultati o condizioni, che pe
     }
 
 ### 5.6.2 Utilizzo di Unit test e TestFx
-//TODO parlare dell'utilizzo di testfx per testare gli elmenti dell'interfaccia grafica
+Per poter testare gli aspetti relativi alla visualizzazione dei dati e all'interfaccia utente, si è deciso di utilizzare le librerie TestFx e JUnit.
+
+TestFx, richiede che per poter scrivere dei tests, che vadano a verificare degli elementi di JavaFX, la classe di testing estenda la classe `ApplicationExtension`, dopodiché è necessario definire un metodo contrassegnato dalla notazione `@Start`, per impostare la schermata che si vuole testare, una volta fatto questo si ha la possibilità di definire i tests per la GUI.
+
+Nello specifico, i diversi _Unit tests_ che si vuole realizzare, devono prendere tutti come argomenti `FxRobot`, il quale rappresenta un oggetto, che può essere utilizzato per poter simulare i comportamenti dell'utente sull'interfaccia grafica, come mostrato nel seguente esempio.
+
+    @Test def testAfterPlantSelection(robot: FxRobot): Unit =
+        //...
+        val checkBox = robot.lookup(selectablePlantsBoxId)
+                            .queryAs(classOf[VBox])
+                            .getChildren
+                            .get(plantIndex)
+        //when:
+        robot.clickOn(checkBox)
+
+        //then:
+        assert(robot.lookup(selectedPlantBoxId)
+                    .queryAs(classOf[VBox])
+                    .getChildren.size == selectedPlantNumber)
+        verifyThat(numberPlantsSelectedId, hasText(selectedPlantNumber.toString))
+
+Come si può vedere sempre dall'esempio, per verificare le proprietà degli elementi dell'interfaccia, è stata utilizzata la clase `FxAssert` e il metodo `verifyThat`, il quale consente una volta passato l'id del componente FXML, di verificare una determinata proprietà su di esso. Le proprietà possono essere definite tramite i `matchers` di TestFX.
+
+In questo modo, quindi, è stato possible per il team di sviluppo effettuare dei tests automatici sull'interfaccia grafica che si intende mostrare all'utente. 
+
+Va comunque sottolineato che per testare gli aspetti di View, sono stati svolti anche numerosi tests manuali, anche perchè molto spesso, risultava essere complicato tramite tests automatici, verificare determinate condizioni, questi di fatti non possono essere considerati completamente esaustivi nella verifica degli aspetti di interazione con l'utente.
 
 ### 5.6.3 Coverage
 //TODO illustrtare la coverage ottenuta e i meccanismi di misurazione
