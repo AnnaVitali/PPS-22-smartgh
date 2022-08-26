@@ -10,7 +10,9 @@ import javafx.stage.Stage
 /** Object that encapsulates the model view and controller module for the simulation. */
 object SimulationMVC:
 
+  /** Trait that represents the provider of the [[SimulationMVC]]. */
   trait Provider:
+    /** Return the implementation of the simulation MVC. **/
     val simulationMVC: SimulationMVCImpl
 
   /** Create a new [[SimulationMVCImpl]].
@@ -32,4 +34,5 @@ object SimulationMVC:
     override val simulationController: SimulationController = SimulationControllerImpl()
     override val simulationView: SimulationView = SimulationViewImpl(stage)
 
+  /** Trait that encloses the MVC of the simulation. */
   trait Interface extends Provider
