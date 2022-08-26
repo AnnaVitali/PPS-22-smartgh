@@ -77,7 +77,7 @@ object EnvironmentControllerModule:
 
     /** Class that contains the [[EnvironmentController]] implementation. */
     class EnvironmentControllerImpl() extends EnvironmentController:
-      private val subject = ConcurrentSubject[String](MulticastStrategy.publish)
+      private val subjectTimerValue = ConcurrentSubject[String](MulticastStrategy.publish)
 
       private val ghMVC: GreenHouseDivisionMVC.GreenHouseDivisionMVCImpl = GreenHouseDivisionMVC(
         simulationMVC.simulationController.plantsSelected,
@@ -110,7 +110,7 @@ object EnvironmentControllerModule:
 
       override def notifyTimeValueChange(timeValue: String): Unit =
         Task {
-          subject.onNext(timeValue)
+          subjectTimerValue.onNext(timeValue)
           environmentView.displayElapsedTime(timeValue)
         }.executeAsync.runToFuture
 
@@ -124,7 +124,7 @@ object EnvironmentControllerModule:
         ghMVC.ghDivisionController.updateView()
 
       override def subscribeTimerValue(callback: String => Unit): Unit =
-        subject.subscribe(
+        subjectTimerValue.subscribe(
           s => {
             Task {
               callback(s)
