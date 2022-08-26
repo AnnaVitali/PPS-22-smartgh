@@ -1,9 +1,9 @@
 package it.unibo.pps.smartgh.model.greenhouse
 
 import monix.eval.Task
+import monix.execution.Ack
 import monix.execution.Ack.Continue
 import monix.execution.Scheduler.Implicits.global
-import monix.execution.Ack
 import monix.reactive.MulticastStrategy
 import monix.reactive.subjects.ConcurrentSubject
 import org.json4s.*
@@ -12,7 +12,7 @@ import requests.Response
 
 import scala.concurrent.Future
 
-/** This trait exposes methods for managing the environment, represents its model. */
+/** This trait represents the city's environment. */
 trait Environment:
 
   /** Data structure that will contains the city's environment values. */
@@ -24,19 +24,7 @@ trait Environment:
   /** @return environment values that refer to the whole day. */
   var environmentValues: EnvironmentValues
 
-  /** @return
-    *   environment values updated in the last hour, according to the simulation time value. Output example: HashMap(uv
-    * -> 1.0, temp_c -> 25.1, lux -> 0, time -> 2022-08-06 00:00, condition -> Clear, humidity -> 69)
-    */
-  var currentEnvironmentValues: EnvironmentValues
-
-  /** Method to notify the model to update main current environment values.
-    * @param hour
-    *   current simulation time value, expressed in hours.
-    */
-  def updateCurrentEnvironmentValues(hour: Int): Unit
-
-/** Object that can be use for managing the environment, represents its model. */
+/** Object that represents the city's environment. */
 object Environment:
 
   /** Apply method for the [[Environment]].
@@ -68,29 +56,6 @@ object Environment:
     )
     getEnvironmentValues
 
-    override var currentEnvironmentValues: EnvironmentValues = _
-
-    override def updateCurrentEnvironmentValues(hour: Int): Unit =
-      val h = if hour < 10 then "0" + hour + ":00" else hour.toString + ":00"
-      val forecast: Map[String, Any] = environmentValues("forecast").asInstanceOf[Map[String, Any]]
-      val hours: List[Map[String, Any]] = forecast("forecastday")
-        .asInstanceOf[List[Map[String, Any]]]
-        .foldLeft(forecast("forecastday").asInstanceOf[List[Map[String, Any]]])((_, acc) =>
-          acc("hour").asInstanceOf[List[Map[String, Any]]]
-        )
-      val ch = hours.find(m => m("time").asInstanceOf[String].contains(h)).getOrElse(Map.empty)
-      currentEnvironmentValues = Map(
-        "time" -> ch("time"),
-        "temp_c" -> ch("temp_c"),
-        "uv" -> ch("uv"),
-        "lux" -> getLuxFromUVIndex(ch("uv").toString, ch("is_day").toString.toInt, ch("cloud").toString.toInt),
-        "humidity" -> ch("humidity"),
-        "condition" -> ch("condition")
-          .asInstanceOf[Map[String, Any]]
-          .get("text")
-          .fold("Not available")(res => res.toString)
-      )
-
     private def getEnvironmentValues =
       Task {
         val apiKey = "b619d3592d8b426e8cc92336220107"
@@ -106,13 +71,3 @@ object Environment:
         else subjectEnvironmentValues.onNext(Map())
         subjectEnvironmentValues.onComplete()
       }.executeAsync.runToFuture
-
-    private val uvIndexToLux: Map[String, Double] =
-      (1 to 12).map(i => (i.toDouble.toString, (i * 10000).toDouble)).toMap
-
-    private def getLuxFromUVIndex(uvIndex: String, isDay: Int, cloudValue: Int): Int =
-      var lux: Double = uvIndexToLux(uvIndex)
-      if isDay.==(0) then lux = 0
-      val cloudFactor: Double = 0.05
-      lux = lux - (lux * (cloudFactor * cloudValue))
-      lux.max(0).toInt

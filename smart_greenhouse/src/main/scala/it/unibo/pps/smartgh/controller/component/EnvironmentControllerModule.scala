@@ -100,10 +100,10 @@ object EnvironmentControllerModule:
       override def stopSimulation(): Unit = simulationMVC.simulationController.stopSimulationTimer()
 
       override def notifyEnvironmentValuesChange(hour: Int): Unit =
-        environmentView.displayNameCity(environmentModel.environment.nameCity)
-        environmentModel.environment.updateCurrentEnvironmentValues(hour)
-        environmentView.displayEnvironmentValues(environmentModel.environment.currentEnvironmentValues)
-        notifySensors(environmentModel.environment.currentEnvironmentValues)
+        environmentView.displayNameCity(simulationMVC.simulationController.environment.nameCity)
+        environmentModel.updateCurrentEnvironmentValues(hour)
+        environmentView.displayEnvironmentValues(environmentModel.currentEnvironmentValues)
+        notifySensors(environmentModel.currentEnvironmentValues)
 
       override def updateVelocityTimer(value: Double): Unit =
         simulationMVC.simulationController.updateVelocityTimer(value)
@@ -135,7 +135,7 @@ object EnvironmentControllerModule:
           () => {}
         )
 
-      private def notifySensors(values: environmentModel.environment.EnvironmentValues): Unit =
+      private def notifySensors(values: environmentModel.EnvironmentValues): Unit =
         environmentModel.subjectTemperature.onNext(values("temp_c").asInstanceOf[Double])
         environmentModel.subjectHumidity.onNext(values("humidity").asInstanceOf[BigInt].doubleValue)
         environmentModel.subjectLuminosity.onNext(values("lux").asInstanceOf[Int].toDouble)

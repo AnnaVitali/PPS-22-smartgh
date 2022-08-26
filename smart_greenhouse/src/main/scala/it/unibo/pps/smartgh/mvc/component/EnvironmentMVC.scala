@@ -29,9 +29,7 @@ object EnvironmentMVC:
       with EnvironmentControllerModule.Interface
       with SimulationMVC.Interface:
     
-    override val environmentModel: EnvironmentModelModule.EnvironmentModel = EnvironmentModelImpl(
-      simulationMVC.simulationController.environment
-    )
+    override val environmentModel: EnvironmentModelModule.EnvironmentModel = EnvironmentModelImpl()
     override val environmentView: EnvironmentViewModule.EnvironmentView = EnvironmentViewImpl()
     override val environmentController: EnvironmentControllerModule.EnvironmentController = EnvironmentControllerImpl()
 

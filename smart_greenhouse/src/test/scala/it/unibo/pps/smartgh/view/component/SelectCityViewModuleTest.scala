@@ -77,4 +77,4 @@ class SelectCityViewModuleTest extends AbstractViewTest:
     robot.clickOn(nextButtonId)
     verifyThat(errorLabel, LabeledMatchers.hasText(""))
     assertEquals(city.nameCity, simulationMVC.simulationController.environment.nameCity)
-    assertEquals(city.currentEnvironmentValues, simulationMVC.simulationController.environment.currentEnvironmentValues)
+    assertEquals(city.environmentValues, simulationMVC.simulationController.environment.environmentValues)
