@@ -89,8 +89,6 @@ Rispetto all'architettura del Model vista precedentemente, la View presenta l'el
 La View inizialmente si occuperà di mostrare le piante selezionabili all'utente, ottenendole dal Controller, dopodichè si occuperà di notificare il Controller ogni qual volta l'utente compirà un'azione di selezione o di deselezione e nel caso in cui il Controller li notifichi, il verificarsi di una situazione di errore, si occuperà di mostrare un messaggio di errore all'utente.
 
 #### 4.2.2.3 Controller per la selezione delle piante
-
-
 Il Controller per la selezione delle piante ([Fig. 4.2.2.3.1]), è stato racchiuso all'interno del modulo `PlantSelectorControllerModule`, al cui interno troviamo:
 
 - il `trait PlantSelectorController`, il quale estende l'interfaccia `SceneController` contenente i metodi comuni a tutti i controllers e detiene i diversi metodi che potranno essere richiamati sul Controller che si occuperà di fungere da intermediario fra View e Model;
@@ -117,7 +115,7 @@ Dopodichè, il compito principale del Controller per la selezione delle piante, 
 ## 4.3 Avvio Simulazione
 //TODO Ele e Vero
 
-### 4.3.1 Caricamento dei dati
+### 4.3.1 Caricamento dei dati delle piante
 
 Una volta che l'utente ha provveduto a selezionare le piante che intende coltivare all'interno della serra e ha richiesto l'avvio della simulazione, l'applicazione provvede a raccogliere tutti i dati relativi alle piante, ai loro parametri ottimali e alle condizioni ambientali della città di ubicazione della serra. 
 
