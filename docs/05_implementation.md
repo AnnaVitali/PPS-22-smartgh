@@ -91,7 +91,22 @@ In questo modo, quindi, è stato possible per il team di sviluppo effettuare dei
 Va comunque sottolineato che per testare gli aspetti di View, sono stati svolti anche numerosi tests manuali, anche perchè molto spesso, risultava essere complicato tramite tests automatici, verificare determinate condizioni, questi di fatti non possono essere considerati completamente esaustivi nella verifica degli aspetti di interazione con l'utente.
 
 ### 5.6.3 Coverage
-//TODO illustrtare la coverage ottenuta e i meccanismi di misurazione
+Come detto in precedenza, il team di sviluppo ha realizzato anche un flusso di lavoro dedicato alla _coverage_, in modo tale da poter analizzare la copertura ottenuta, ogni qual volta vengono inseriti dei nuovi tests o modificati quelli precedenti.
+
+La _code coverage_ fa riferimento, sostanzialmente, alla quantità di istruzioni di codice che vengono eseguite durante l'esecuzione dei tests, tuttavia ottenere una coverage del 100% non significa che il testing effettuato riesce a ricoprire tutti gli scenari, infatti l'obiettivo che ci si è dati, non è stato quello di raggiungere il 100% della copertura ma di testare le cose giuste.
+
+In particolare, per poter ottenere i risultati relativi alla _coverage_ si è fatto utilizzo del tool `JaCoCo`, ottenendo alla fine il risultato illustrato in figura [Fig. 5.6.3.1].
+
+<div align="center">
+  <img src="img/coverage.png" />
+  <p> Fig. 5.6.3.1 - Coverage finale ottenuta </p>
+</div>
+
+[Fig. 5.6.3.1]: img/coverage.png
+
+Come si può vedere dalla [Fig. 5.6.3.1], la coverage finale ottenuta è del 79% su un totale di 129 test effettuati.
+
+Gli elementi per cui si ha una coverge più elevata sono quelli che fanno riferimento al Model dell'applicazione, mentre quelli per cui si ha una coverage più bassa fanno riferimento agli elementi della View, che come spiegato nella precedente sezione [Sec. 5.6.2](#562-utilizzo-di-unit-test-e-testfx), sono stati testati sia tramite test automatici che tramite test manuali.
 
 ## 5.7 Suddivisione del lavoro
 //TODO descrivere modalità di assegnazzione e svolgimento dei task
