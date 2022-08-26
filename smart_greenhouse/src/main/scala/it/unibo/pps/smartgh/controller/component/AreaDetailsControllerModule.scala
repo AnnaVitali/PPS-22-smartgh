@@ -55,7 +55,7 @@ object AreaDetailsControllerModule:
         areaDetailsView.initializeParameters(parametersMVC.map(_.parameterView))
         val plant = areaModel.plant
         areaDetailsView.updatePlantInformation(plant.name, plant.description, plant.imageUrl)
-        simulationMVC.simulationController.environmentController.subscribeTimerValue(areaDetailsView.updateTime)
+        simulationMVC.simulationController.subscribeTimerValue(areaDetailsView.updateTime)
 
       private def updateStateMessage(message: String, show: Boolean): Unit =
         if show && (!messages.contains(message)) then messages = messages.prepended(message)

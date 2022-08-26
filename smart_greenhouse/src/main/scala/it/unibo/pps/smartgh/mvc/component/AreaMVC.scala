@@ -47,7 +47,7 @@ object AreaMVC:
       with SimulationMVC.Interface:
 
     override val areaModel: AreaModelModule.AreaModel =
-      AreaImpl(plant, simulationMVC.simulationController.environmentController.subscribeTimerValue)
+      AreaImpl(plant, simulationMVC.simulationController.subscribeTimerValue)
     override val areaView: AreaViewModule.AreaView = AreaViewImpl()
     override val areaController: AreaControllerModule.AreaController = AreaControllerImpl(greenHouseDivisionMVC)
 

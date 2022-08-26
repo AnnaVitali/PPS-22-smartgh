@@ -4,6 +4,11 @@ import it.unibo.pps.smartgh.controller.component.EnvironmentControllerModule.Env
 import it.unibo.pps.smartgh.model.greenhouse.Environment
 import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.model.time.{TimeModel, Timer}
+import monix.eval.Task
+import monix.execution.Ack.Continue
+import monix.reactive.MulticastStrategy
+import monix.reactive.subjects.ConcurrentSubject
+import monix.execution.Scheduler.Implicits.global
 
 /** Object that encloses the controller module for the simulation. */
 object SimulationControllerModule:
@@ -50,6 +55,12 @@ object SimulationControllerModule:
     /** The selected plants of the simulation. */
     var plantsSelected: List[Plant]
 
+    /** Subscription to the timer value change
+      * @param callback
+      *   subscribe callback
+      */
+    def subscribeTimerValue(callback: String => Unit): Unit
+
   /** Trait that represents the provider of the controller for the simulation. */
   trait Provider:
 
@@ -67,6 +78,7 @@ object SimulationControllerModule:
       override var environment: Environment = _
       override var plantsSelected: List[Plant] = _
 
+      private val subjectTimerValue = ConcurrentSubject[String](MulticastStrategy.publish)
       private var timeModel = TimeModel()
       timeModel.controller = this
 
@@ -81,6 +93,9 @@ object SimulationControllerModule:
 
       override def notifyTimeValueChange(timeValue: String): Unit =
         environmentController.notifyTimeValueChange(timeValue)
+        Task {
+          subjectTimerValue.onNext(timeValue)
+        }.executeAsync.runToFuture
 
       override def notifyNewHourPassed(hour: Int): Unit =
         environmentController.notifyEnvironmentValuesChange(hour)
@@ -93,6 +108,18 @@ object SimulationControllerModule:
         timeModel.controller = this
         environment = null
         plantsSelected = List.empty
+
+      override def subscribeTimerValue(callback: String => Unit): Unit =
+        subjectTimerValue.subscribe(
+          s => {
+            Task {
+              callback(s)
+            }.executeAsync.runToFuture
+            Continue
+          },
+          _.printStackTrace(),
+          () => {}
+        )
 
   /** Trait that combine provider and component for the simulation. */
   trait Interface extends Provider with Component

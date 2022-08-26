@@ -3,8 +3,8 @@ package it.unibo.pps.smartgh.controller.component
 import it.unibo.pps.smartgh.model.greenhouse.EnvironmentModelModule
 import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.component.GreenHouseDivisionMVC
-import it.unibo.pps.smartgh.view.component.EnvironmentViewModule.EnvironmentView
 import it.unibo.pps.smartgh.view.component.EnvironmentViewModule
+import it.unibo.pps.smartgh.view.component.EnvironmentViewModule.EnvironmentView
 import monix.eval.Task
 import monix.execution.Ack.Continue
 import monix.execution.Scheduler.Implicits.global
@@ -53,12 +53,6 @@ object EnvironmentControllerModule:
       */
     def envView(): EnvironmentView
 
-    /** Subscription to the timer value change
-      * @param callback
-      *   subscribe callback
-      */
-    def subscribeTimerValue(callback: String => Unit): Unit
-
     /** Restore environment after back button. */
     def backToEnvironment(): Unit
 
@@ -77,7 +71,6 @@ object EnvironmentControllerModule:
 
     /** Class that contains the [[EnvironmentController]] implementation. */
     class EnvironmentControllerImpl() extends EnvironmentController:
-      private val subjectTimerValue = ConcurrentSubject[String](MulticastStrategy.publish)
 
       private val ghMVC: GreenHouseDivisionMVC.GreenHouseDivisionMVCImpl = GreenHouseDivisionMVC(
         simulationMVC.simulationController.plantsSelected,
@@ -109,10 +102,7 @@ object EnvironmentControllerModule:
         simulationMVC.simulationController.updateVelocityTimer(value)
 
       override def notifyTimeValueChange(timeValue: String): Unit =
-        Task {
-          subjectTimerValue.onNext(timeValue)
           environmentView.displayElapsedTime(timeValue)
-        }.executeAsync.runToFuture
 
       override def finishSimulation(): Unit =
         environmentView.finishSimulation()
@@ -122,18 +112,6 @@ object EnvironmentControllerModule:
       override def backToEnvironment(): Unit =
         environmentView.setBackButton()
         ghMVC.ghDivisionController.updateView()
-
-      override def subscribeTimerValue(callback: String => Unit): Unit =
-        subjectTimerValue.subscribe(
-          s => {
-            Task {
-              callback(s)
-            }.executeAsync.runToFuture
-            Continue
-          },
-          _.printStackTrace(),
-          () => {}
-        )
 
       private def notifySensors(values: environmentModel.EnvironmentValues): Unit =
         environmentModel.subjectTemperature.onNext(values("temp_c").asInstanceOf[Double])
