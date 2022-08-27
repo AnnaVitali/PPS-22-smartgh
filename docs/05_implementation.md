@@ -29,7 +29,7 @@
 //TODO parlare dell'utilizzo di ScalaFX e javafx all'interno del progetto
 
 ## 5.6 Testing
-Per testare le funzinalità principali del porgramma, si è deciso di utilizzare la modalità _Test Driven Development (TDD)_. Questa strategia, prevede di scrivere per prima cosa il codice di _testing_, indicando il compoertamento corretto della funzionalità che si vuole testare e successivamente scrivere il codice di produzione, affinchè il tests individuati passino correttamente. Una volta scritto il codice di produzione e aver passato i tests si può procedere al refactoring e al miglioramento della soluzione ottenuta. 
+Per testare le funzinalità principali del porgramma, si è deciso di utilizzare la modalità _Test Driven Development (TDD)_. Questa strategia, prevede di scrivere per prima cosa il codice di _testing_, indicando il compoertamento corretto della funzionalità che si vuole testare e successivamente scrivere il codice di produzione, affinchè i tests individuati passino correttamente. Una volta scritto il codice di produzione e aver passato i tests si può procedere al refactoring e al miglioramento della soluzione ottenuta. 
 
 Il TDD, quindi, si compone di tre diverse fasi che si susseguono: red, green e refactor. Nella fase red si ha solo il codice di testing e i tests che sono stati scritti, pertanto non passerano, in quanto il codice di produzione risulta essere mancante, nella fase green, invece, si procede alla scrittura del codice di produzione in modo da poter superare i tests precedentemente definiti e infine nella fase di refactor, il codice di produzione scritto viene migliorato.
 
@@ -43,48 +43,50 @@ Nelle seguenti sezioni, è possibile trovare una descrizione maggiormente dettag
 Per testare le funzionalità legate alla logica di buisness dell'applicazione, si è deciso di utilizzare la libreria ScalaTest, realizzando diverse _Suits_ di testing.
 
 In particolare, tutte le diverse classi di testing realizzate che utilizzano ScalaTest, estendono la classe `AnyFunSuite` e i tests sono stati scritti seguendo il seguente stile:
+```scala
+test("At the beginning the temperature should be initialized with the default value") {
+    val defaultTemperatureValue = 27
+    areaComponentsState.temperature shouldEqual defaultTemperatureValue
+}
+```
 
-    test("At the beginning the temperature should be initialized with the default value") {
-        val defaultTemperatureValue = 27
-        areaComponentsState.temperature shouldEqual defaultTemperatureValue
+Per verificare determinate condizioni, come ad esempio di uguaglianza, minoranza o maggioranza, si è fatto utilizzo dei `matchers` di ScalaTest. Nello specifico, se la classe di testing estende il `trait Matchers`, ha la possibilità di utilizzare all'interno dei tests, delle _keywords_ come: `should be`, `equal`, `shouldEqual` ecc. che consentono di verificare le condizioni espresse. 
+
+Infine, per testare il verificarsi di determinati risultati o condizioni, che però possono impiegare un certo tempo per avvenire, da quando è stato generato l'evento che ne è la causa, si è fatto uso di `eventually`. In particolare, se la classe di test estende il `trait Eventually`, ha la possibilità di definire dei tests, che presentano una condizione che prima o poi si deve verificare entro un lasso di tempo predefinito.
+```scala
+test("The air humidity value should decrease because the ventilation and the humidity are inactive") {
+    setupTimer(500 microseconds)
+    initialValueTest()
+
+    eventually(timeout(Span(1000, Milliseconds))) {
+        humiditySensor.getCurrentValue should be < initialHumidity
     }
-
-Per verificare determinate condizioni, come ad esempio di uguaglianza, minoranza o maggioranza, si è fatto utilizzo dei `matchers` di ScalaTest. Nello specifico, se la classe di testing estende il `trait Matchers`, ha la possibilità di utilizzare all'interno dei tests, delle _keywords_ come: `should be`, `equal`, `shouldEqual` ecc. che li consentono di verificare le condizioni espresse. 
-
-Infine, per testare il verificarsi di determinati risultati o condizioni, che però possono impiegare un certo tempo per avvenire, da quando è stato generato l'evento che ne è la causa, si è fatto uso di `eventually`. In particolare, se la classe di test estende il `trait Eventually`, ha la possibilità di definire dei tests, che presentano una condizione che prima o poi si deve verificare, per cui è possibile anche specificare un lasso di tempo massimo, entro cui deve essersi verificata.
-
-    test("The air humidity value should decrease because the ventilation and the humidity are inactive") {
-        setupTimer(500 microseconds)
-        initialValueTest()
-
-        eventually(timeout(Span(1000, Milliseconds))) {
-            humiditySensor.getCurrentValue should be < initialHumidity
-        }
-    }
+}
+```
 
 ### 5.6.2 Utilizzo di Unit test e TestFx
 Per poter testare gli aspetti relativi alla visualizzazione dei dati e all'interfaccia utente, si è deciso di utilizzare le librerie TestFx e JUnit.
 
-TestFx, richiede che per poter scrivere dei tests, che vadano a verificare degli elementi di JavaFX, la classe di testing estenda la classe `ApplicationExtension`, dopodiché è necessario definire un metodo contrassegnato dalla notazione `@Start`, per impostare la schermata che si vuole testare, una volta fatto questo si ha la possibilità di definire i tests per la GUI.
+TestFx, richiede che per poter scrivere dei tests, che vadano a verificare degli elementi di JavaFX, la classe di testing estenda la classe `ApplicationExtension`, dopodiché è necessario definire un metodo contrassegnato dalla notazione `@Start`, per impostare la schermata che si vuole testare; una volta fatto questo si ha la possibilità di definire i tests per la GUI.
 
-Nello specifico, i diversi _Unit tests_ che si vuole realizzare, devono prendere tutti come argomenti `FxRobot`, il quale rappresenta un oggetto, che può essere utilizzato per poter simulare i comportamenti dell'utente sull'interfaccia grafica, come mostrato nel seguente esempio.
+Nello specifico, i diversi _Unit tests_ che si vogliono realizzare devono prendere tutti come argomenti `FxRobot`, il quale rappresenta un oggetto che può essere utilizzato per poter simulare i comportamenti dell'utente sull'interfaccia grafica, come mostrato nel seguente esempio.
+```scala
+@Test def testAfterPlantSelection(robot: FxRobot): Unit =
+    //...
+    val checkBox = robot.lookup(selectablePlantsBoxId)
+                        .queryAs(classOf[VBox])
+                        .getChildren
+                        .get(plantIndex)
+    //when:
+    robot.clickOn(checkBox)
 
-    @Test def testAfterPlantSelection(robot: FxRobot): Unit =
-        //...
-        val checkBox = robot.lookup(selectablePlantsBoxId)
-                            .queryAs(classOf[VBox])
-                            .getChildren
-                            .get(plantIndex)
-        //when:
-        robot.clickOn(checkBox)
-
-        //then:
-        assert(robot.lookup(selectedPlantBoxId)
-                    .queryAs(classOf[VBox])
-                    .getChildren.size == selectedPlantNumber)
-        verifyThat(numberPlantsSelectedId, hasText(selectedPlantNumber.toString))
-
-Come si può vedere sempre dall'esempio, per verificare le proprietà degli elementi dell'interfaccia, è stata utilizzata la clase `FxAssert` e il metodo `verifyThat`, il quale consente una volta passato l'id del componente FXML, di verificare una determinata proprietà su di esso. Le proprietà possono essere definite tramite i `matchers` di TestFX.
+    //then:
+    assert(robot.lookup(selectedPlantBoxId)
+                .queryAs(classOf[VBox])
+                .getChildren.size == selectedPlantNumber)
+    verifyThat(numberPlantsSelectedId, hasText(selectedPlantNumber.toString))
+```
+Come si può vedere sempre dall'esempio, per verificare le proprietà degli elementi dell'interfaccia, è stata utilizzata la clase `FxAssert` e il metodo `verifyThat`, il quale consente, una volta passato l'id del componente FXML, di verificare una determinata proprietà su di esso. Le proprietà possono essere definite tramite i `matchers` di TestFX.
 
 In questo modo, quindi, è stato possible per il team di sviluppo effettuare dei tests automatici sull'interfaccia grafica che si intende mostrare all'utente. 
 
@@ -116,6 +118,23 @@ Gli elementi per cui si ha una coverge più elevata sono quelli che fanno riferi
 
 ### 5.7.2 Mengozzi Maria
 //TODO illustrare lavoro svolto
+#### 5.7.2.1 Caricamento delle città in un file Prolog
+
+#### 5.7.2.2 Meccanismo di salvataggio della città e dei dati ambientali
+
+#### 5.7.2.3 Realizzazione della suddivisione in aree
+
+#### 5.7.2.4 Realizzazione dell'area
+
+#### 5.7.2.5 Testing
+Per la parte di testing mi sono occupata della realizzazione delle seguenti classi di test:
+- AreaTest.scala
+- UploadCitiesTest.scala
+- EnvironmentTest.scala
+- GreenHouseTest.scala
+- GreenHouseDivisionViewTest.scala
+
+Inoltre alcune delle funzionalità da me implementate sono presenti anche nelle altre classi di test, come ad esempio in 
 
 ### 5.7.3 Vitali Anna 
 //TODO illustrare lavoro svolto
