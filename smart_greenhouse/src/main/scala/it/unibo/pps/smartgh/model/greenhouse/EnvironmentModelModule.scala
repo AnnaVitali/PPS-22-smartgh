@@ -51,10 +51,7 @@ object EnvironmentModelModule:
   trait Component:
     context: Requirements =>
 
-    /** Class that contains the [[EnvironmentModel]] implementation.
-      * @param environment
-      *   object of the city selected by the user
-      */
+    /** Class that contains the [[EnvironmentModel]] implementation.*/
     class EnvironmentModelImpl() extends EnvironmentModel:
       
       private val environment = simulationMVC.simulationController.environment
