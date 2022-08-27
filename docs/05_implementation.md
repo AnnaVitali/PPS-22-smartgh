@@ -1,20 +1,27 @@
 # 5. Implementazione
-//TODO introduzione capitolo
+Il seguente capitolo motiva e dettaglia, aspetti implementativi ritenuti rilevanti
+per una corretta comprensione del progetto. 
+
+Va inoltre sottolineato, che il codice realizzato, è stato opportunamente documentato mediante la `Scaladoc`, la quale può essere utilizzata come un ulteriore riferimento per meglio comprendere l'implementazione del programma e il suo comportamento.
 
 ## 5.1 Utilizzo del paradigma funzionale
-//TODO parlare dell'utilizzo di scala per il progetto
+Durante lo sviluppo del progetto, si è cercato di utilizzare il più possibile il paradigma funzionale, cercando di raffinare sempre di più la soluzione adottata per poter sfruttare al meglio i vantaggi che questo pardigma offre. 
+
+Se infatti durante la realizzazione di una detemrinata funzionalità, ci si rendeva conto di aver utilizzato un'approcio più legato all'object-oriented che a al paradigma funzionale, dopo aver valutato i diversi aspetti, della soluzione, che potevano essere migliorati e modificati adottando, invece, elementi del paradigma funzinoale, si procedeva con il refactoring del codice ed ad effettuare queste modifiche.
+
+Nelle seguenti sezioni, verranno descritti con maggiore dettaglio alcuni elmenti della programmazione funzionale, che sono stati utilizzati all'interno del progetto e alcuni esempi del loro utilizzo.
 
 ### 5.1.1 Higher-order functions
-//TODO descrivere utilizzo di higher-order functions all'interno del codice
+//TODO descrivere utilizzo di higher-order functions all'interno del codice, inserire esempi di utilizzo nel codice, spiegando anche tali esempi
 
 ### 5.1.2 Abstract type
-//TODO descrivere utilizzo di abstract-types all'interno del codice
+//TODO descrivere utilizzo di abstract-types all'interno del codice, inserire esempi di utilizzo nel codice, spiegando anche tali esempi
 
 ### 5.1.3 For-comphrension
-//TODO descrivere utilizzo di for-comphrension all'interno del codice
+//TODO descrivere utilizzo di for-comphrension all'interno del codice, inserire esempi di utilizzo nel codice, spiegando anche tali esempi
 
 ### 5.1.4 Trait e mixins
-//TODO descrivere utilizzo di traits e mixin nel codice (CAKE PATTERN)
+//TODO descrivere utilizzo di traits e mixin nel codice (CAKE PATTERN), inserire esempi di utilizzo nel codice, spiegando anche tali esempi
 
 ## 5.2 Utilizzo del paradigma logico
 //TODO parlare dell'utilizzo di prolog all'interno del Programmazione
