@@ -14,10 +14,43 @@ Tutti gli elementi principali dell'applicazione, che richiedono di eseguire oper
 ## 4.1 View e Controller: elementi comuni
 
 #### ViewComponent
+`ViewComponent` è un’interfaccia generica che rappresenta un componente della View, come si può vedere nella figura [Fig. 4.1.1] richiede un tipo `A` generico che sia sottotipo di `Parent`, la classe base dei nodi con figli di `JavaFX`. 
+
+Per l’implementazione di `ViewComponent` si è rispettato il pattern **Template Method**, definendo una classe astratta `AbstractViewComponent`, dove contiene il _template_ dei componenti. In tale classe viene incapsulato tutta la logica necessaria per il caricamento dei layout e per la loro inizializzazione lasciando alle sottoclassi la definizione del loro componente interno associato al file `FXML`.
+
+Tutte le view estendono da tale classe, in modo da creare componenti modulari ed evitando ripetizioni del codice per l’inizializzazione del layout.
+
+<div align="center">
+  <img src="img/view_component.png" />
+  <p> Fig. 4.1.1 - View Component </p>
+</div>
+
+[Fig. 4.1.1]: img/view_component.png
+
+
 #### ContiguousSceneView
 #### SceneController
 
 ## 4.2 Gestione della simulazione
+//TODO: SimulationMVC
+
+### 4.2.2 View della simulatione
+La `SimulationViewModule` rappresenta la view principale dell'applicazione e si occupa di gestire: la scena, le _sotto-view_ e gli elementi generali delle parti in comune delle interfacce. Al suo interno troviamo:
+-	il `trait SimulationView`, il quale include i metodi utili per l’avvio dell’applicazione, per gestire gli elementi comuni delle schermate e per passare da una _sotto-view_ all’altra;
+-	la classe `SimulationViewImpl`, la quale implementa l’interfaccia `SimulationView` ed è racchiusa all’interno del `trait Component`. All’avvio dell’applicazione, viene creata prima di tutto l’interfaccia base dell’applicazione, rappresentata dal componente `BaseView` e poi successivamente viene impostata la prima schermata da mostrare nell’applicazione. `BaseView` è il componente che racchiude gli elementi che sono comuni a tutte le pagine ed offre metodi per la gestione di tali;
+-	il `trait Component`, il quale racchiude la classe `SimulationViewImpl`, seguendo il _Cake Pattern_;
+-	il `trait Provider`, il quale contiene l’oggetto `simulationView` che potrà essere utilizzato dall’MVC;
+-	il `trait Interface`, il quale estendendo sia da `Provider` e sia da `Component`, offre la possibilità ai componenti che lo estendono di accedere alla `simulationView`. 
+
+<div align="center">
+  <img src="img/simulation_view.png" />
+  <p> Fig. 4.2.2.1 - SimulationViewModule </p>
+</div>
+
+[Fig. 4.2.2.1]: img/simulation_view.png
+
+### 4.2.3 SimulationController
+// TODO
 
 ## 4.3 Impostazione dei parametri della simulazione
 
