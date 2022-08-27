@@ -7,6 +7,7 @@ import org.json4s.jackson.JsonMethods.*
 import requests.*
 
 import scala.concurrent.{Future, Promise}
+import scala.util.{Failure, Success, Try}
 
 /** This trait exposes methods for managing a selected plant, it represents its model. */
 trait Plant:
@@ -68,12 +69,11 @@ object Plant:
         "ZmhY9u1uNecGqnX5tmm8t0Tqj4h8OhQD52kp5fTxiyP3Q0DnF0LqVIxPjqvidYuTqeQ1YEZkDG4sgjSm4QHmLFkEbXA7wwizI00SS2BfoDc1WL3xDDiR6l6VtdCTvgT0"
       val url = "https://open.plantbook.io/api/v1/token/"
       val data = Map("grant_type" -> "client_credentials", "client_id" -> clientID, "client_secret" -> clientSecret)
-      try {
-        val r: Response = requests.post(url = url, data = data)
-        implicit val formats: DefaultFormats.type = org.json4s.DefaultFormats
-        parse(r.text()).extract[RequestResult].get("access_token").fold[String]("")(res => res.toString)
-      } catch {
-        case e: RequestFailedException => ""
+      Try(requests.post(url = url, data = data)) match {
+        case Success(r: Response) =>
+          implicit val formats: DefaultFormats.type = org.json4s.DefaultFormats
+          parse(r.text()).extract[RequestResult].get("access_token").fold[String]("")(res => res.toString)
+        case Failure(_) => ""
       }
 
     private def getInfo: RequestResult =
@@ -81,12 +81,11 @@ object Plant:
       val authorizationHeader = ("Authorization", "Bearer " + accessToken)
       val url =
         "https://open.plantbook.io/api/v1/plant/detail/" + id.replace(" ", "%20").replace("\'", "") + "/?format=json"
-      try {
-        val r: Response = requests.get(url = url, headers = Iterable(authorizationHeader))
-        implicit val formats: DefaultFormats.type = org.json4s.DefaultFormats
-        parse(r.text()).extract[RequestResult]
-      } catch {
-        case e: RequestFailedException => Map.empty
+      Try(requests.get(url = url, headers = Iterable(authorizationHeader))) match {
+        case Success(r: Response) =>
+          implicit val formats: DefaultFormats.type = org.json4s.DefaultFormats
+          parse(r.text()).extract[RequestResult]
+        case Failure(_) => Map.empty
       }
 
     private def getImageUrl(info: RequestResult): String =
