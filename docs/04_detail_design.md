@@ -379,10 +379,10 @@ Il controller viene racchiuso all'interno del modulo `AreaDetailsControllerModul
 - `trait Interface` che si occupa di completare e connettere tutti i componenti del modulo per renderli utilizzabili nell'oggetto che istanzierà l'MVC.
 
 Il compito principale del controller è quello di richiamare la creazione dell'interfaccia grafica rappresentante il dettaglio dell'area. Per assoolvere a tale compito il controller provvede, mediante la classe di utility `AreaSensorHelper`, alla creazione degli MVC dei incaricati della gestione dei sensori presenti all'interno dell'area, specificatamente:
-- `AreaAirHumidityMVC`, che gestisce le azioni riguardo al sensore che rileva l'umidità dell'aria all'interno dell'area
-- `AreaLuminosityMVC`,che gestisce le azioni riguardo al sensore che rileva la luminosità dell'area
-- `AreaTemperatureMVC`, che gestisce le azioni riguardo al sensore che rileva la temperatura dell'area
-- `AreaSoilMoistureMVC`, che gestisce le azioni riguardo al sensore che rileva l'umidità del suolo dell'area
+- `AreaAirHumidityMVC`, che gestisce le azioni riguardo al sensore che rileva l'umidità dell'aria all'interno dell'area;
+- `AreaLuminosityMVC`,che gestisce le azioni riguardo al sensore che rileva la luminosità dell'area;
+- `AreaTemperatureMVC`, che gestisce le azioni riguardo al sensore che rileva la temperatura dell'area;
+- `AreaSoilMoistureMVC`, che gestisce le azioni riguardo al sensore che rileva l'umidità del suolo dell'area.
 //TODO IMMAGINE
 
 #### 4.4.2.4 Area parameter
@@ -396,8 +396,7 @@ I controller vengono ciascuno racchiuso nel proprio modulo, il quale all'interno
 - la classe `AreaXXXImpl`, che implementa i metodi dell'interfaccia appena descritta e viene racchiusa all'interno del `trait Component`.
 - `trait Component`il quale contiene il campo `context`di tipo `Requirements`, il quale viene utilizzato per specificare le dipendenze che legano il controller alla view e al model. Questo è necessario affinchè il controller possa elaborare le operazioni effettuate dall'utente aggiornando di conseguenza il model.
 - `trait Provider` che si occupa di detenere l'oggetto `AreaXXXController`.
-- `trait Interface` che si occupa di completare e connettere tutti i componenti del modulo per renderli utilizzabili nell'oggetto che istanzierà l'MVC.
-- 
+- `trait Interface` che si occupa di completare e connettere tutti i componenti del modulo per renderli utilizzabili nell'oggetto che istanzierà l'MVC. 
 
 
 ### 4.4.3 Sensori
