@@ -12,7 +12,7 @@ object SimulationMVC:
 
   /** Trait that represents the provider of the [[SimulationMVC]]. */
   trait Provider:
-    /** Return the implementation of the simulation MVC. **/
+    /** Return the implementation of the simulation MVC. */
     val simulationMVC: SimulationMVCImpl
 
   /** Create a new [[SimulationMVCImpl]].
