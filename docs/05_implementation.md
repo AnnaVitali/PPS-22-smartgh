@@ -12,27 +12,35 @@ Se infatti durante la realizzazione di una detemrinata funzionalità, ci si rend
 Nelle seguenti sezioni, verranno descritti con maggiore dettaglio alcuni elmenti della programmazione funzionale, che sono stati utilizzati all'interno del progetto e alcuni esempi del loro utilizzo.
 
 ### 5.1.1 Higher-order functions
+//Ele
 //TODO descrivere utilizzo di higher-order functions all'interno del codice, inserire esempi di utilizzo nel codice, spiegando anche tali esempi
 
 ### 5.1.2 Abstract type
+// Vero
 //TODO descrivere utilizzo di abstract-types all'interno del codice, inserire esempi di utilizzo nel codice, spiegando anche tali esempi
 
 ### 5.1.3 For-comphrension
+//Maria
 //TODO descrivere utilizzo di for-comphrension all'interno del codice, inserire esempi di utilizzo nel codice, spiegando anche tali esempi
 
 ### 5.1.4 Trait e mixins
+//Anna
 //TODO descrivere utilizzo di traits e mixin nel codice (CAKE PATTERN), inserire esempi di utilizzo nel codice, spiegando anche tali esempi
 
 ## 5.2 Utilizzo del paradigma logico
+//Anna
 //TODO parlare dell'utilizzo di prolog all'interno del Programmazione
 
 ## 5.3 Programmazione reattiva e asincrona
+//Vero
 //TODO parlare dell'utilizzo della porgrammazione reattiva e asincrona all'interno del programma eventualmente inserire sottosezioni con esempi di utilizzo nel codice
 
 ## 5.4 Richieste dei dati
+//Maria
 //TODO descrivere come sono state fatte le richieste per ottenre i dati
 
 ## 5.5 Utilizzo di ScalaFX e SceneBuilder
+//Ele
 //TODO parlare dell'utilizzo di ScalaFX e javafx all'interno del progetto
 
 ## 5.6 Testing
