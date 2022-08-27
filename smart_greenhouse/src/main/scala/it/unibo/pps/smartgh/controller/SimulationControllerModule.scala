@@ -46,6 +46,12 @@ object SimulationControllerModule:
     /** Method for reset the simulation. */
     def resetSimulation(): Unit
 
+    /** Subscription to the timer value change.
+      * @param callback
+      *   subscribe callback
+      */
+    def subscribeTimerValue(callback: String => Unit): Unit
+
     /** The environment controller of the application. */
     var environmentController: EnvironmentController
 
@@ -54,12 +60,6 @@ object SimulationControllerModule:
 
     /** The selected plants of the simulation. */
     var plantsSelected: List[Plant]
-
-    /** Subscription to the timer value change
-      * @param callback
-      *   subscribe callback
-      */
-    def subscribeTimerValue(callback: String => Unit): Unit
 
   /** Trait that represents the provider of the controller for the simulation. */
   trait Provider:

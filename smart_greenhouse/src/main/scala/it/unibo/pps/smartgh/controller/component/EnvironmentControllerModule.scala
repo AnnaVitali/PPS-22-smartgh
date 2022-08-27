@@ -5,11 +5,6 @@ import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.component.GreenHouseDivisionMVC
 import it.unibo.pps.smartgh.view.component.EnvironmentViewModule
 import it.unibo.pps.smartgh.view.component.EnvironmentViewModule.EnvironmentView
-import monix.eval.Task
-import monix.execution.Ack.Continue
-import monix.execution.Scheduler.Implicits.global
-import monix.reactive.MulticastStrategy
-import monix.reactive.subjects.ConcurrentSubject
 
 /** Object that encloses the controller module to manage ambient environment values and to visualize of simulation time.
   */
