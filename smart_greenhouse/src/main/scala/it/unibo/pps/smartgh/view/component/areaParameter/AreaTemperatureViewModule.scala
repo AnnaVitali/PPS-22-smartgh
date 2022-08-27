@@ -1,11 +1,11 @@
-package it.unibo.pps.smartgh.view.component.areaParameters
+package it.unibo.pps.smartgh.view.component.areaParameter
 
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaTemperatureControllerModule
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaTemperatureControllerModule.AreaTemperatureController
+import it.unibo.pps.smartgh.controller.component.areaParameter.AreaTemperatureControllerModule
+import it.unibo.pps.smartgh.controller.component.areaParameter.AreaTemperatureControllerModule.AreaTemperatureController
 import it.unibo.pps.smartgh.view.component.ViewComponent
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.{
-  AbstractAreaParametersView,
-  AreaParametersView
+import it.unibo.pps.smartgh.view.component.areaParameter.AreaParameterView.{
+  AbstractAreaParameterView,
+  AreaParameterView
 }
 import javafx.fxml.FXML
 import javafx.scene.control.{Button, Label, ToggleButton}
@@ -18,13 +18,13 @@ object AreaTemperatureViewModule:
   private val TempRange = (10.0 + TempStep, 40.0 - TempStep)
 
   /** Trait that represents the area temperature parameter view. */
-  trait AreaTemperatureView extends ViewComponent[GridPane] with AreaParametersView
+  trait AreaTemperatureView extends AreaParameterView
 
   /** Trait that represents the provider of the area provider parameter. */
   trait Provider:
 
     /** The view of area temperature parameter. */
-    val parameterView: AreaParametersView
+    val parameterView: AreaParameterView
 
   /** The view requirements. */
   type Requirements = AreaTemperatureControllerModule.Provider
@@ -35,7 +35,7 @@ object AreaTemperatureViewModule:
 
     /** Class that contains the [[AreaTemperatureView]] implementation. */
     class AreaTemperatureViewImpl()
-        extends AbstractAreaParametersView[GridPane]("area_temperature.fxml", "Temperature")
+        extends AbstractAreaParameterView("area_temperature.fxml", "Temperature")
         with AreaTemperatureView:
 
       override val component: GridPane = loader.load[GridPane]

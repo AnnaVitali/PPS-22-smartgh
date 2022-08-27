@@ -1,4 +1,4 @@
-package it.unibo.pps.smartgh.view.component.areaParameters
+package it.unibo.pps.smartgh.view.component.areaParameter
 
 import javafx.stage.Stage
 import org.junit.jupiter.api.Assertions.{assertFalse, assertTrue}
@@ -17,7 +17,7 @@ import org.testfx.matcher.control.LabeledMatchers.hasText
 /** This class contains the tests to verify that the [[AreaSoilMoistureViewModule]] work correctly. */
 @TestInstance(Lifecycle.PER_CLASS)
 @ExtendWith(Array(classOf[ApplicationExtension]))
-class AreaTemperatureViewModuleTest extends AbstractAreaParametersViewTest("Temperature", "Temperature"):
+class AreaTemperatureViewModuleTest extends AbstractAreaParameterViewTest("Temperature", "Temperature"):
 
   private val openStructureBtnId = "#openStructureBtn"
   private val closeStructureBtnId = "#closeStructureBtn"
@@ -56,9 +56,11 @@ class AreaTemperatureViewModuleTest extends AbstractAreaParametersViewTest("Temp
 
   private def testRegulateTemperature(robot: FxRobot, buttonId: String, condition: (Double, Double) => Boolean): Unit =
     closeStructure(robot)
+    val button = robot.lookup(buttonId).queryButton()
     val regulatedTemp = robot.lookup(regulateTempLabelId).queryLabeled()
     eventually(timeout(Span(10000, Milliseconds))) {
       verifyThat(buttonId, isVisible)
+      assertFalse(button.isDisabled)
       verifyThat(regulateTempLabelId, isVisible)
       verifyThat(regulateTempLabelId, hasText(initialTemperature.toString))
     }

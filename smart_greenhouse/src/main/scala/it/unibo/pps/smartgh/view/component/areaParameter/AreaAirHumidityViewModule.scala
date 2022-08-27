@@ -1,12 +1,12 @@
-package it.unibo.pps.smartgh.view.component.areaParameters
+package it.unibo.pps.smartgh.view.component.areaParameter
 
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaAirHumidityControllerModule
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaAirHumidityControllerModule.AreaAirHumidityController
+import it.unibo.pps.smartgh.controller.component.areaParameter.AreaAirHumidityControllerModule
+import it.unibo.pps.smartgh.controller.component.areaParameter.AreaAirHumidityControllerModule.AreaAirHumidityController
 import it.unibo.pps.smartgh.view.component.ViewComponent
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaAirHumidityViewModule.VentilationText
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.{
-  AbstractAreaParametersView,
-  AreaParametersView
+import it.unibo.pps.smartgh.view.component.areaParameter.AreaAirHumidityViewModule.VentilationText
+import it.unibo.pps.smartgh.view.component.areaParameter.AreaParameterView.{
+  AbstractAreaParameterView,
+  AreaParameterView
 }
 import javafx.fxml.FXML
 import javafx.scene.control.ToggleButton
@@ -34,13 +34,13 @@ object AreaAirHumidityViewModule:
     case DEACTIVATE extends AtomiserText("Deactivate atomisation")
 
   /** Trait that represents the area air humidity parameter view. */
-  trait AreaAirHumidityView extends ViewComponent[GridPane] with AreaParametersView
+  trait AreaAirHumidityView extends AreaParameterView
 
   /** Trait that represents the provider of the area air humidity parameter. */
   trait Provider:
 
     /** The view of area air humidity parameter. */
-    val parameterView: AreaParametersView
+    val parameterView: AreaParameterView
 
   /** The view requirements. */
   type Requirements = AreaAirHumidityControllerModule.Provider
@@ -51,7 +51,7 @@ object AreaAirHumidityViewModule:
 
     /** Class that contains the [[AreaAirHumidityView]] implementation. */
     class AreaAirHumidityViewImpl()
-        extends AbstractAreaParametersView[GridPane]("area_air_humidity.fxml", "Air humidity")
+        extends AbstractAreaParameterView("area_air_humidity.fxml", "Air humidity")
         with AreaAirHumidityView:
 
       override val component: GridPane = loader.load[GridPane]

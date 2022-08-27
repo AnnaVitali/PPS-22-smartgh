@@ -1,6 +1,6 @@
-package it.unibo.pps.smartgh.view.component.areaParameters
+package it.unibo.pps.smartgh.view.component.areaParameter
 
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaAirHumidityViewModule.{AtomiserText, VentilationText}
+import it.unibo.pps.smartgh.view.component.areaParameter.AreaAirHumidityViewModule.{AtomiserText, VentilationText}
 import javafx.scene.control.ToggleButton
 import javafx.stage.Stage
 import org.junit.jupiter.api.Assertions.{assertFalse, assertTrue}
@@ -19,7 +19,7 @@ import org.testfx.matcher.control.LabeledMatchers.hasText
 /** This class contains the tests to verify that the [[AreaAirHumidityViewModule]] work correctly. */
 @TestInstance(Lifecycle.PER_CLASS)
 @ExtendWith(Array(classOf[ApplicationExtension]))
-class AreaAirHumidityViewModuleTest extends AbstractAreaParametersViewTest("Air humidity", "Humidity"):
+class AreaAirHumidityViewModuleTest extends AbstractAreaParameterViewTest("Air humidity", "Humidity"):
 
   private val ventilationBtnId = "#ventilationBtn"
   private val atomiserBtnId = "#atomiserBtn"

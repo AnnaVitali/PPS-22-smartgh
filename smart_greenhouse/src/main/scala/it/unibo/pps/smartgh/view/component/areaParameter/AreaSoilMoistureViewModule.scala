@@ -1,11 +1,11 @@
-package it.unibo.pps.smartgh.view.component.areaParameters
+package it.unibo.pps.smartgh.view.component.areaParameter
 
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaSoilMoistureControllerModule
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaSoilMoistureControllerModule.AreaSoilMoistureController
+import it.unibo.pps.smartgh.controller.component.areaParameter.AreaSoilMoistureControllerModule
+import it.unibo.pps.smartgh.controller.component.areaParameter.AreaSoilMoistureControllerModule.AreaSoilMoistureController
 import it.unibo.pps.smartgh.view.component.ViewComponent
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.{
-  AbstractAreaParametersView,
-  AreaParametersView
+import it.unibo.pps.smartgh.view.component.areaParameter.AreaParameterView.{
+  AbstractAreaParameterView,
+  AreaParameterView
 }
 import javafx.fxml.FXML
 import javafx.scene.control.Button
@@ -15,13 +15,13 @@ import javafx.scene.layout.GridPane
 object AreaSoilMoistureViewModule:
 
   /** Trait that represents the area soil moisture parameter view. */
-  trait AreaSoilMoistureView extends ViewComponent[GridPane] with AreaParametersView
+  trait AreaSoilMoistureView extends AreaParameterView
 
   /** Trait that represents the provider of the area soil moisture parameter. */
   trait Provider:
 
     /** The view of area soil moisture parameter. */
-    val parameterView: AreaParametersView
+    val parameterView: AreaParameterView
 
   /** The view requirements. */
   type Requirements = AreaSoilMoistureControllerModule.Provider
@@ -32,7 +32,7 @@ object AreaSoilMoistureViewModule:
 
     /** Class that contains the [[AreaSoilMoistureView]] implementation. */
     class AreaSoilMoistureViewImpl()
-        extends AbstractAreaParametersView[GridPane]("area_soil_moisture.fxml", "Soil moisture")
+        extends AbstractAreaParameterView("area_soil_moisture.fxml", "Soil moisture")
         with AreaSoilMoistureView:
 
       override val component: GridPane = loader.load[GridPane]

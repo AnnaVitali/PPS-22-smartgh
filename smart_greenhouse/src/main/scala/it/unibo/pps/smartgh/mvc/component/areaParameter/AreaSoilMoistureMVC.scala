@@ -1,16 +1,16 @@
-package it.unibo.pps.smartgh.mvc.component.areaParameters
+package it.unibo.pps.smartgh.mvc.component.areaParameter
 
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersController.AreaParametersController
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaSoilMoistureControllerModule.AreaSoilMoistureController
-import it.unibo.pps.smartgh.controller.component.areaParameters.{
-  AreaParametersController,
+import it.unibo.pps.smartgh.controller.component.areaParameter.AreaParameterController.AreaParameterController
+import it.unibo.pps.smartgh.controller.component.areaParameter.AreaSoilMoistureControllerModule.AreaSoilMoistureController
+import it.unibo.pps.smartgh.controller.component.areaParameter.{
+  AreaParameterController,
   AreaSoilMoistureControllerModule
 }
 import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaModel
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.AreaParametersView
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaSoilMoistureViewModule.AreaSoilMoistureView
-import it.unibo.pps.smartgh.view.component.areaParameters.{AreaParametersView, AreaSoilMoistureViewModule}
+import it.unibo.pps.smartgh.view.component.areaParameter.AreaParameterView.AreaParameterView
+import it.unibo.pps.smartgh.view.component.areaParameter.AreaSoilMoistureViewModule.AreaSoilMoistureView
+import it.unibo.pps.smartgh.view.component.areaParameter.{AreaParameterView, AreaSoilMoistureViewModule}
 
 /** Object that incapsulate the model view and controller module for area soil humidity. */
 object AreaSoilMoistureMVC:
@@ -36,9 +36,9 @@ object AreaSoilMoistureMVC:
       extends AreaModelModule.Interface
       with AreaSoilMoistureViewModule.Interface
       with AreaSoilMoistureControllerModule.Interface
-      with AreaParametersMVC:
+      with AreaParameterMVC:
 
-    override val parameterController: AreaParametersController = AreaSoilMoistureControllerImpl(updateStateMessage)
-    override val parameterView: AreaParametersView = AreaSoilMoistureViewImpl()
+    override val parameterController: AreaParameterController = AreaSoilMoistureControllerImpl(updateStateMessage)
+    override val parameterView: AreaParameterView = AreaSoilMoistureViewImpl()
 
     parameterController.initializeView(parameterView)

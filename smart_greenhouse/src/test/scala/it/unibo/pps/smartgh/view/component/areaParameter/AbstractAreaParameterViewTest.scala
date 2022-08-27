@@ -1,4 +1,4 @@
-package it.unibo.pps.smartgh.view.component.areaParameters
+package it.unibo.pps.smartgh.view.component.areaParameter
 
 import it.unibo.pps.smartgh.model.area.ManageSensor.ManageSensorImpl
 import it.unibo.pps.smartgh.view.component.AbstractAreaDetailsViewTest
@@ -28,7 +28,7 @@ import scala.reflect.{ClassTag, classTag}
   */
 @TestInstance(Lifecycle.PER_CLASS)
 @ExtendWith(Array(classOf[ApplicationExtension]))
-abstract class AbstractAreaParametersViewTest(private val parameterName: String, private val sensorName: String)
+abstract class AbstractAreaParameterViewTest(private val parameterName: String, private val sensorName: String)
     extends AbstractAreaDetailsViewTest:
 
   protected var sensor: ManageSensorImpl = _

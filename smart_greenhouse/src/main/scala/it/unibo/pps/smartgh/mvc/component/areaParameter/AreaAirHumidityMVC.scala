@@ -1,16 +1,16 @@
-package it.unibo.pps.smartgh.mvc.component.areaParameters
+package it.unibo.pps.smartgh.mvc.component.areaParameter
 
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaAirHumidityControllerModule.AreaAirHumidityController
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersController.AreaParametersController
-import it.unibo.pps.smartgh.controller.component.areaParameters.{
+import it.unibo.pps.smartgh.controller.component.areaParameter.AreaAirHumidityControllerModule.AreaAirHumidityController
+import it.unibo.pps.smartgh.controller.component.areaParameter.AreaParameterController.AreaParameterController
+import it.unibo.pps.smartgh.controller.component.areaParameter.{
   AreaAirHumidityControllerModule,
-  AreaParametersController
+  AreaParameterController
 }
 import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaModel
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaAirHumidityViewModule.AreaAirHumidityView
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.AreaParametersView
-import it.unibo.pps.smartgh.view.component.areaParameters.{AreaAirHumidityViewModule, AreaParametersView}
+import it.unibo.pps.smartgh.view.component.areaParameter.AreaAirHumidityViewModule.AreaAirHumidityView
+import it.unibo.pps.smartgh.view.component.areaParameter.AreaParameterView.AreaParameterView
+import it.unibo.pps.smartgh.view.component.areaParameter.{AreaAirHumidityViewModule, AreaParameterView}
 
 /** Object that incapsulate the model view and controller module for area air humidity. */
 object AreaAirHumidityMVC:
@@ -38,9 +38,9 @@ object AreaAirHumidityMVC:
   ) extends AreaModelModule.Interface
       with AreaAirHumidityViewModule.Interface
       with AreaAirHumidityControllerModule.Interface
-      with AreaParametersMVC:
+      with AreaParameterMVC:
 
-    override val parameterController: AreaParametersController = AreaAirHumidityControllerImpl(updateStateMessage)
-    override val parameterView: AreaParametersView = AreaAirHumidityViewImpl()
+    override val parameterController: AreaParameterController = AreaAirHumidityControllerImpl(updateStateMessage)
+    override val parameterView: AreaParameterView = AreaAirHumidityViewImpl()
 
     parameterController.initializeView(parameterView)

@@ -1,4 +1,4 @@
-package it.unibo.pps.smartgh.view.component.areaParameters
+package it.unibo.pps.smartgh.view.component.areaParameter
 
 import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaModel
 import javafx.scene.control.Slider
@@ -14,7 +14,7 @@ import org.testfx.matcher.control.ButtonMatchers
 /** This class contains the tests to verify that the [[AreaLuminosityViewModule]] work correctly. */
 @TestInstance(Lifecycle.PER_CLASS)
 @ExtendWith(Array(classOf[ApplicationExtension]))
-class AreaLuminosityViewModuleTest extends AbstractAreaParametersViewTest("Luminosity", "Brightness"):
+class AreaLuminosityViewModuleTest extends AbstractAreaParameterViewTest("Luminosity", "Brightness"):
 
   private val upShieldingBtnId = "#upShieldingBtn"
   private val downShieldingBtnId = "#downShieldingBtn"

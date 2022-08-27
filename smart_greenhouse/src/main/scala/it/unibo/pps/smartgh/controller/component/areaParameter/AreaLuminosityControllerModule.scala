@@ -1,20 +1,20 @@
-package it.unibo.pps.smartgh.controller.component.areaParameters
+package it.unibo.pps.smartgh.controller.component.areaParameter
 
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersController.{
-  AbstractAreaParametersController,
-  AreaParametersController
+import it.unibo.pps.smartgh.controller.component.areaParameter.AreaParameterController.{
+  AbstractAreaParameterController,
+  AreaParameterController
 }
 import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaModelModule, AreaShieldState}
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaLuminosityViewModule.AreaLuminosityView
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.AreaParametersView
-import it.unibo.pps.smartgh.view.component.areaParameters.{AreaLuminosityViewModule, AreaParametersView}
+import it.unibo.pps.smartgh.view.component.areaParameter.AreaLuminosityViewModule.AreaLuminosityView
+import it.unibo.pps.smartgh.view.component.areaParameter.AreaParameterView.AreaParameterView
+import it.unibo.pps.smartgh.view.component.areaParameter.{AreaLuminosityViewModule, AreaParameterView}
 import org.scalactic.TripleEquals.convertToEqualizer
 
 /** Object that encloses the controller module for the area luminosity parameter. */
 object AreaLuminosityControllerModule:
 
   /** A trait that represents the area air luminosity controller parameter. */
-  trait AreaLuminosityController extends AreaParametersController:
+  trait AreaLuminosityController extends AreaParameterController:
 
     /** Update the lamp brightness value.
       * @param value
@@ -44,7 +44,7 @@ object AreaLuminosityControllerModule:
   trait Provider:
 
     /** The controller of area luminosity parameter. */
-    val parameterController: AreaParametersController
+    val parameterController: AreaParameterController
 
   /** The controller requirements. */
   type Requirements = AreaLuminosityViewModule.Provider with AreaModelModule.Provider
@@ -58,7 +58,7 @@ object AreaLuminosityControllerModule:
       *   a function for update states message.
       */
     class AreaLuminosityControllerImpl(updateStateMessage: (String, Boolean) => Unit)
-        extends AbstractAreaParametersController("Brightness", areaModel, updateStateMessage)
+        extends AbstractAreaParameterController("Brightness", areaModel, updateStateMessage)
         with AreaLuminosityController:
 
       override def updLampValue(value: Double): Unit = areaModel.updBrightnessOfLamp(value)
@@ -66,7 +66,7 @@ object AreaLuminosityControllerModule:
       override def shieldsDown(): Unit = areaModel.updShieldState(AreaShieldState.Down)
       override def shieldsUp(): Unit = areaModel.updShieldState(AreaShieldState.Up)
       override def isShielded: Boolean = areaModel.getAreaComponent.shieldState === AreaShieldState.Down
-      override protected def updateValues(view: AreaParametersView): Unit =
+      override protected def updateValues(view: AreaParameterView): Unit =
         super.updateValues(view)
         view
           .asInstanceOf[AreaLuminosityView]
