@@ -124,16 +124,21 @@ Gli elementi per cui si ha una coverge più elevata sono quelli che fanno riferi
 //TODO illustrare lavoro svolto
 
 ### 5.7.2 Mengozzi Maria
-//TODO illustrare lavoro svolto
-#### 5.7.2.1 Caricamento delle città in un file Prolog
+Nello sviluppo del progetto mi sono occupata insieme ad _Elena_ della selezione della città in cui è ubicata la serra. Specificatamente ho realizzato:
+- l'oggetto di utility `UploadCities`, esso incapsula il meccanismo utile a convertire il file testuale contenente il nome dei comuni italiani nel file prolog utilizzato nell'applicazione per la visualizzazione e la scelta della città;
+- il modulo `Environment`, che racchiude l'interfaccia e l'implementazione del meccanismo di salvataggio della città scelta;
+- il meccanismo per reperire, mediante una richiesta http, le previsioni meteorologiche previste per la giornata in cui si svolge la simulazione e per ottenere, a partire da questi, i dati ambientali rispettivi ad uno specifico orario (`updateCurrentEnvironmentValues` nel modulo `EnvironmentModelModule`).
 
-#### 5.7.2.2 Meccanismo di salvataggio della città e dei dati ambientali
+Sempre insieme ad _Elena_ mi sono occupata della realizzazione dei controller (`AreaDetailsController` e `AreaXXXController`) per la schermata del dettaglio di un area e lateralmente alla gestione del suo MVC. Nel caso del controller ho gestito i metodi relativi all'interfacciamento con model, da me realizzato.
 
-#### 5.7.2.3 Realizzazione della suddivisione in aree
+Ho collaborato inoltre con _Anna_ per quanto riguarda il collegamento tra i sensori e le aree e i parametri ambientali, e insieme al resto del gruppo per la definizione della struttura del progetto e il collegamento tra le varie parti realizzate.
 
-#### 5.7.2.4 Realizzazione dell'area
+Per quanto riguarda l’identificazione di una sezione di progetto pienamente riconducibile alla sottoscritta, si possono le aree. Nello specifico, le parti da me singolarmente implementate comprendono:
+- il modulo `GreenHouseDivisionMVC` e i rispettivi sottomoduli `GHModelModule`, `GHControllerModule` e `GHViewModule`. Tale modulo si occupa di gestire la parte di suddivisione della serra in aree e il suo continuo aggiornamento durante tutto lo svolgimento della simulazione mediante la sottoscrizione di un evento di tipo `interval` e all'evento di cambio di stato di un'area. La sottoscrizione questi due eventi è stata scelta al fine di non sovraccaricare l'_EDT_ (Event Dispatch Thread) con richieste di aggiornamento della view, le quali avrebbero reso meno reattiva l'interfaccia.
+- il modulo `AreaMVC` e i rispettivi sottomoduli `AreaModelModule`, `AreaControllerModule` e `AreaViewModule`. Il seguente modulo si occupa di implementare le singole aree che compongono le serra, per farlo interagisce con i sensori presenti al suo interno affinchè possa mantenere aggiornati e mostrare all'utente i valori rilevati da questi ultimi. In particolare il model oltre a tenere traccia dei valori rilevati dai parametri si occupa anche di memorizzare le operazioni effettuate dall'utente per riportare e mantenere i parametri nei range ottimali e notificare il cambio di stato dell'area. 
+- le classi `ManageSensor`e `AreaSensorHelper`. Queste vengno utilizzate dal modulo `AreaModelModule` per assolvere al suo compito e in particolare per tutte quelle operazioni che coinvolgono i sensori
 
-#### 5.7.2.5 Testing
+
 Per la parte di testing mi sono occupata della realizzazione delle seguenti classi di test:
 - AreaTest.scala
 - UploadCitiesTest.scala
@@ -141,7 +146,7 @@ Per la parte di testing mi sono occupata della realizzazione delle seguenti clas
 - GreenHouseTest.scala
 - GreenHouseDivisionViewTest.scala
 
-Inoltre alcune delle funzionalità da me implementate sono presenti anche nelle altre classi di test, come ad esempio in 
+Inoltre alcune delle funzionalità da me implementate sono presenti anche nelle altre classi di test, come ad esempio in //TODO
 
 ### 5.7.3 Vitali Anna 
 //TODO illustrare lavoro svolto

@@ -198,7 +198,7 @@ Ne risulta, quindi, che quando verrà prodotta una nuova pianta il Controller ri
 ### 4.4.1 Suddivisione in aree
 Per poter realizzare la suddivisione in aree si è deciso di adottare, come detto precedentemente, il pattern _MVC_ e il _Cake pattern_
 
-In particolare come si può vedere nella figura [Fig. 4.4.1.1], la classe `GreenHouseMVC` racchiude i  componenti: `GreenHouseModel`, `GreenHouseDivisionController` e `GreenHouseDivisionView` derivanti dai rispettivi moduli. Tale classe, verrà istanziata all'interno dell' environment creando automaticamente tutti gli elementi e i loro collegamenti e rendendoli accessibili liberamente. Inoltre si occuperà anche di creare gli MVC delle singole aree, assegnando ad ognuno una pianta tra quelle selezionate dall'utente.
+In particolare come si può vedere nella figura [Fig. 4.4.1.1], la classe `GreenHouseMVC` racchiude i  componenti: `GreenHouseModel`, `GreenHouseController` e `GreenHouseView` derivanti dai rispettivi moduli. Tale classe, verrà istanziata all'interno dell' environment creando automaticamente tutti gli elementi e i loro collegamenti e rendendoli accessibili liberamente. Inoltre si occuperà anche di creare gli MVC delle singole aree, assegnando ad ognuno una pianta tra quelle selezionate dall'utente.
 
 <div align="center">
   <img src="img/greenhouseDivisionMVC.png" />
@@ -232,7 +232,7 @@ La view viene racchiusa nel modulo `GHViewodule` [Fig. 4.4.1.2.1], al cui intern
 
 - `trait GHDivisionView`, che definisce i metodi che possono essere richiamati sulla view. Questa interfaccia rappresenta inoltre il controller dell'FXML per la relativa sezione, infatti bisogna ricordare che la ghDivisionView è racchiusa all'interno della più ampia view che è `EnvironmentView`.
   Questo trait, come gli altri, per poter essere inseriti all'interno della scena principale, implementa `ViewComponent `.
-- la classe `GHDivisionViewImpl` la quale si occupa di implementare i metodi dell'interfaccia appena descritta e viene racchiusa all'interno del `trait Component`.
+- la classe `GreenHouseDivisionViewImpl` la quale si occupa di implementare i metodi dell'interfaccia appena descritta e viene racchiusa all'interno del `trait Component`.
 - `trait Component` contene il campo `context` di tipo `Requirements` , il quale viene utilizzato per specificare le dipendenze che legano la view al controller. Questo è necessario affinchè la view possa notificare il controller delle operazioni fatte dall'utente su di essa.
 - `trait Provider` che si occupa di detenere l'oggetto `ghDivisionView`.
 - `trait Interface` che si occupa di completare e connettere tutti i componenti del modulo per renderli utilizzabili nell'oggetto che istanzierà l'MVC.
