@@ -52,8 +52,52 @@ Nell'esempio si itera sulla mappa contenete le costanti riguardanti i sensori, c
 //TODO descrivere utilizzo di traits e mixin nel codice (CAKE PATTERN), inserire esempi di utilizzo nel codice, spiegando anche tali esempi
 
 ## 5.2 Utilizzo del paradigma logico
-//Anna
-//TODO parlare dell'utilizzo di prolog all'interno del Programmazione
+Il team di sviluppo, inizialmente, si è posto come obiettivo per la realizzazione del progetto, l'utilizzo del paradigma logico. In fase di progettazione, quindi, ci si è interrogati su come poter utilizzare la programmazione logica all'interno del progetto, giungendo alla conclusione che il modo migliore per poterlo fare, nel caso della nostra applicazione, consisteva nell'utilizzo di _Prolog_, come database, sul quale effettuare delle interrogazioni per poter ottene informazioni relative alle piante e alle città.
+
+Nello specifico, sono stati realizzati due file `.txt`, uno contenente l'elenco delle città in cui può essere ubicata la serra e l'altro contenente l'elenco dei nomi delle piante assieme ai loro identificativi.
+
+### 5.3.1 Utilizzo di Prolog per la selezione della città
+All'inizio, quando l'utente si trova nella schermata iniziale dell'applicazione, deve effettuare l'inserimento del nome della città nella quale verrà ubicata la serra.
+
+Per consentire quest'operazione, la classe `UploadCities`, si occupa di convertire il file `cities.txt`, in un file _Prolog_: `cities.pl`, che verrà inserito all'interno della _home directory_ dell'utente, all'interno della cartella `pps`.
+
+Questo file, `cities.pl`, contiene le regole sulle città, scritte in questo modo:
+
+```prolog
+citta("Bologna").
+citta("Cesena").
+``` 
+
+Infine, `SelectCityModelModule`, utilizza questo file e la libreria TuProlog, per poter visualizzare i diversi nomi delle città e implementare il _live search_. Infatti, ogni qual volta l'utente inserisce dei caratteri nel `TextField`, della schermata, questi caratteri vengono utilizatti, per definire il _goal_ che si intende risolvere e determinare la città che l'utente vuole selezionare.
+
+```scala
+override def searchCities(charSequence: Seq[Char]): Seq[String] =
+    engine("ricerca_citta(" + charSequence.mkString("['", "','", "'|_]") + ", X)")
+        .map(extractTerm)
+        .toSeq
+``` 
+
+### 5.3.2 Utilizzo di Prolog per la selezione delle piante
+Per consentire all'utente la selezione delle piante, che si intende coltivare all'interno della serra, la classe `UploadPlants`, prima che venga mostrata la schermata di selezione delle piante all'utente, si occupa di convertire il file `plants.txt`, in un file _Prolog_: `plants.pl`, contenente i records che detengono le infromazioni sulle piante, i quali risultano essere scritti nel seguente modo:
+
+```prolog
+plant('Alcea rosea', 'alcea rosea').
+plant('Basil', 'ocimum basilicum').
+```
+
+Una volta che il file `plants.pl` è stato scritto e inserito all'interno della _home directory_ dell'utente, `PlantSelectorModelModule`, si occupa di utilizzare questo file tramite la libreria TuProlog, per poter mostrare le piante selezionabili all'utente e in seguito, una volta selezionate le piante, per poter prendere il loro identificativo e istanziare gli oggetti `Plant`.
+
+```scala
+override def getAllAvailablePlants: List[String] =
+    engine("plant(X, Y).").map(extractTermToString(_, "X").replace("'", "")).toList
+
+override def getPlantsSelectedIdentifier: List[String] =
+    selectedPlants
+        .map(s => "\'" + s + "\'")
+        .flatMap(s => engine("plant(" + s + ", Y).").map(extractTermToString(_, "Y")))
+        .toList
+
+``` 
 
 ## 5.3 Programmazione reattiva e asincrona
 //Vero
