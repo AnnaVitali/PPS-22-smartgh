@@ -20,6 +20,15 @@ object SelectCityViewModule:
   /** A trait that represents the select city scene of the application. */
   trait SelectCityView extends ViewComponent[BorderPane]:
 
+    /** Set and show the error message.
+      * @param text
+      *   the error message
+      */
+    def setErrorText(text: String): Unit
+
+    /** Show the next scene */
+    def showNextScene(): Unit
+
     /** The [[AutoCompletionBinding]] component. */
     def autoCompletionBinding: AutoCompletionBinding[String]
 
@@ -64,19 +73,14 @@ object SelectCityViewModule:
       Platform.runLater(() =>
         simulationMVC.simulationView.changeSceneButtonBehaviour(
           "Next",
-          _ => {
-            val selectedCity = selectCityTextField.getText.capitalize
-            if selectedCity.isBlank then setErrorText("Please select a city")
-            else if selectCityController.containCity(selectedCity) then
-              selectCityController.saveCity(selectedCity)
-              simulationMVC.simulationView.changeView(PlantSelectorMVC(simulationMVC).selectPlantView)
-            else setErrorText("The selected city is not valid")
-          }
+          _ => selectCityController.checkCity(selectCityTextField.getText.capitalize)
         )
       )
 
-      private def setErrorText(text: String): Unit =
-        Platform.runLater(() => errorLabel.setText(text))
+      override def setErrorText(text: String): Unit = Platform.runLater(() => errorLabel.setText(text))
+
+      override def showNextScene(): Unit =
+        simulationMVC.simulationView.changeView(PlantSelectorMVC(simulationMVC).selectPlantView)
 
   /** Trait that encloses the view for the city selection. */
   trait Interface extends Provider with Component:
