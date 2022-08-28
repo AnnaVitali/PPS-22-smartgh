@@ -35,19 +35,19 @@ Tutte le view estendono da tale classe, in modo da creare componenti modulari ed
 //TODO: SimulationMVC
 
 ### 4.2.2 View della simulatione
-La `SimulationViewModule` rappresenta la view principale dell'applicazione e si occupa di gestire: la scena, le _sotto-view_ e gli elementi generali delle parti in comune delle interfacce. Al suo interno troviamo:
+La `SimulationViewModule` [Fig. 4.2.2.1] rappresenta la view principale dell'applicazione e si occupa di gestire: la scena, le _sotto-view_ e gli elementi generali delle parti in comune delle interfacce. Al suo interno troviamo:
 -	il `trait SimulationView`, il quale include i metodi utili per l’avvio dell’applicazione, per gestire gli elementi comuni delle schermate e per passare da una _sotto-view_ all’altra;
--	la classe `SimulationViewImpl`, la quale implementa l’interfaccia `SimulationView` ed è racchiusa all’interno del `trait Component`. All’avvio dell’applicazione, viene creata prima di tutto l’interfaccia base dell’applicazione, rappresentata dal componente `BaseView` e poi successivamente viene impostata la prima schermata da mostrare nell’applicazione. `BaseView` è il componente che racchiude gli elementi che sono comuni a tutte le pagine ed offre metodi per la gestione di tali;
+-	la classe `SimulationViewImpl`, la quale implementa l’interfaccia `SimulationView` ed è racchiusa all’interno del `trait Component`. Quando l'applicazione viene lanciata, viene creata prima di tutto il componente base dell’applicazione, rappresentata dall'elemento `BaseView`. Nello specifico, `BaseView` è il componente che funge da contenitore delle _sotto-view_, racchiude gli elementi comuni a tutte le pagine e fornisce dei metodi per gestirli;
 -	il `trait Component`, il quale racchiude la classe `SimulationViewImpl`, seguendo il _Cake Pattern_;
 -	il `trait Provider`, il quale contiene l’oggetto `simulationView` che potrà essere utilizzato dall’MVC;
 -	il `trait Interface`, il quale estendendo sia da `Provider` e sia da `Component`, offre la possibilità ai componenti che lo estendono di accedere alla `simulationView`. 
 
 <div align="center">
   <img src="img/simulation_view.png" />
-  <p> Fig. 4.3.2.1 - SimulationViewModule </p>
+  <p> Fig. 4.2.2.1 - SimulationViewModule </p>
 </div>
 
-[Fig. 4.3.2.1]: img/simulation_view.png
+[Fig. 4.2.2.1]: img/simulation_view.png
 
 ### 4.2.3 SimulationController
 // TODO
@@ -61,7 +61,65 @@ Uno dei requisiti dell'applicazione è quello di permettere all'utente di person
 Al fine di soddisfare queste funzionalità sono stati sviluppati i seguenti elementi dell'architettura.
 
 ### 4.3.1 Selezione della città
-//TODO Elena
+La prima schermata che viene presentata all’utente è quella di selezione della città: verrà mostrata all’utente una serie di città selezionabili, permettendo di effettuare una ricerca con un'auto completamento del testo.
+
+Considerando che per la realizzazione di questa parte richiede sia una _view_ e sia un _model_ con cui ottenere i dati delle città, si è deciso di seguire il _pattern MVC_ e il _Cake pattern_, realizzando l’elemento `SelectCityMVC` con i rispettivi sotto moduli.
+
+In particolare, come illustrato nella figura [Fig. 4.3.1.1], la classe `SelectCityMVCImpl` comprende i seguenti componenti: `SelectCityModel`, `SelectCityController`, `SelectCityView` e `SimulationMVC`.
+Tale classe verrà istanziata all’avvio dell’applicazione e grazie al _cake pattern_, i suoi componenti riceveranno automaticamente tutte le dipendenze di cui hanno bisogno.
+
+<div align="center">
+  <img src="img/select_city_MVC.png" />
+  <p> Fig. 4.3.1.1 - MVC per la selezione della città </p>
+</div>
+
+[Fig. 4.3.1.1]: img/select_city_MVC.png
+
+### Model per la selezione della città
+
+Il model per la selezione della città viene racchiuso all'interno del modulo `SelectCityModelModule` ed è costituito dai seguenti elementi:
+-	il `trait SelectCityModel`, il quale espone i diversi metodi utili per effettuare la ricerca delle città;
+-	la classe `SelectCityModelImpl`, la quale implementa l’interfaccia `SelectCityModel` ed è racchiusa all’interno del `trait Component`;
+-	il `trait Provider`, il quale contiene l’oggetto `selectCityModel` che potrà essere utilizzato dall’MVC;
+-	il `trait Interface`, il quale estendendo sia da `Provider` e sia da `Component`, offre la possibilità ai componenti che lo estendono di accedere al model. 
+
+<div align="center">
+  <img src="img/select_city_model.png" />
+  <p> Fig. 4.3.1.2 - Model per la selezione della città </p>
+</div>
+
+[Fig. 4.3.1.2]: img/select_city_model.png
+
+### Controller per la selezione della città
+Il controller per la selezione della città è racchiuso all’interno del modulo `SelectCityControllerModule` [Fig. 4.3.1.3], comprende:
+-	il `trait SelectCityController`, il quale rappresenta l’interfaccia del controller ed espone diversi metodi per rispondere alle esigenze della _view_, interagendo con il _model_
+-	la classe `SelectCityControllerImpl`, la quale contiene l'implementazione dell’interfaccia `SelectCityController`. Una volta che l'utente avrà selezionato una città, il controller procederà alla creazione dell'oggetto Environment, che verrà poi salvato nel componente superiore SimulationMVC.
+-	il `trait Component`, il quale contiene un campo `context` di tipo `Requirements` che viene utilizzato per specificare le dipendenze che legano alla _View_, al _Model_ e anche all’oggetto superiore `simulationMVC`.
+-	il `trait Provider`, il quale contiene l’oggetto `selectCityController` che potrà essere utilizzato dall’MVC;
+-	il `trait Interface`, il quale estendendo sia da `Provider` e sia da `Component`, offre la possibilità ai componenti che lo estendono di accedere al controller.
+
+<div align="center">
+  <img src="img/select_city_controller.png" />
+  <p> Fig. 4.3.1.3 - Controller per la selezione della città </p>
+</div>
+
+[Fig. 4.3.1.3]: img/select_city_controller.png
+
+### View per la selezione delle città
+La view per la selezione delle città viene racchiusa nel modulo `SelectCityViewModule` [Fig. 4.3.1.4]. Al suo interno troviamo:
+-	il `trait SelectCityView`, il quale rappresenta l’interfaccia della _view_ e che detiene metodi che possono essere richiamati sulla _view_. Tale interfaccia, come tutti gli altri, estende da `ViewComponent`;
+-	la classe `SelectCityViewImpl`, è l'implementazione dell’interfaccia, racchiusa all’interno del trait `Component`. Tale classe rappresenta anche il _controller_ dell’FXML associato, infatti estendendo da `AbstractViewComponent`, contiene già la logica necessaria al caricamento del file;
+-	il `trait Component`, il quale presenta il campo context di tipo `Requirements`, dove cattura le dipendenze necessarie alla view.
+-	il `trait Provider`, il quale offre l’istanza del l’oggetto `selectCityView` che potrà poi essere utilizzato nell’MVC;
+-	il `trait Interface`, è l’interfaccia che potrà essere utilizzata dall’MVC per avere la view.
+
+<div align="center">
+  <img src="img/select_city_view.png" />
+  <p> Fig. 4.3.1.4 - View per la selezione della città </p>
+</div>
+
+[Fig. 4.3.1.4]: img/select_city_view.png
+
 
 #### Environment
  `Environment` è la componente del sistema che rappresenta l'ubicazione della serra.  Il suo scopo è quello di, una volta selezionata la città, reperire le previsioni meteorologiche previste per la giornata in cui si svolge la simulazione. Le informazioni così ottenute vengono poi messe a disposizione dell'applicazione al fine di aggiornare i parametri ambientali durante tutto lo svolgimento della stessa. I parametri ambientali influenzeranno i parametri rilevati all'interno di ogni area, secondo le formule implementate in ogni sensore.
