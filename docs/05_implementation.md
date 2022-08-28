@@ -60,8 +60,16 @@ Nell'esempio si itera sulla mappa contenete le costanti riguardanti i sensori, c
 //TODO parlare dell'utilizzo della porgrammazione reattiva e asincrona all'interno del programma eventualmente inserire sottosezioni con esempi di utilizzo nel codice
 
 ## 5.4 Richieste dei dati
-//Maria
-//TODO descrivere come sono state fatte le richieste per ottenre i dati
+
+Per reperire i dati relativi alle previsioni metereologiche della città in cui è ubicata la serra e quelli relativi alle piante si è fatto uso di richieste http. A tal fine si è fatto uso della libreria requests per permettere di effettuare la richiesta al rispettivo url: [weatherapi](https://www.weatherapi.com/api-explorer.aspx), per le previsioni meteorologiche, e [open.plantbook](https://open.plantbook.io/), per le piante. 
+
+Ottenuta la risposta dal web server, qualora questa abbia dato esito positivo, si è proceduto con il parsing per ottenere il _JSON_, mediante la libreria _json4s_. Qualora, invece, l'esito della risposta fosse negativo, si è deciso di impostare un valore di default.
+
+Il JSON è stato ricavato in caso di successo è stato poi utilizzato come implementazione del `type` definito nell'interfaccia della classe `Environment`, nel caso della città, e `Plant`, nel caso appunto delle informazioni relative alla pianta.
+
+Per entrambe le implementazioni si è deciso di assengare al `type` tipo `Map[String, Any]` in quanto il JSON ottenuto come risposta conteneva valori anche complessi, ad esempio sub-json.
+
+A partire dall'oggetto contenente l'implementazione del `type` sono state estrapolate le informazioni utili alla simulazione. Nel caso delle città questo è rappresentato dalle previsioni meteorologiche orarie, successivamente filtrate in base all'orario richiesto, mentre nel caso delle piante è rappresentato da: nome della pianta, valori ottimali dei sensori (temperatura, luminosità ed umidità del suolo e dell'aria), l'url per reperire l'immagine. A partire dal nome è stata effettuata inoltre la richiesta al sito [wikipedia](https://it.wikipedia.org/wiki/Pagina_principale) per ottenere la descrizione della pianta.
 
 ## 5.5 Utilizzo di ScalaFX e SceneBuilder
 //Ele
