@@ -635,7 +635,12 @@ Il sistema è stato organizzato in 5 package principali:
 - model, contiene gli elementi model che racchiudono la logica di business dell'applicazione;
 - view, contiene gli elementi view che detengono le componenti delle diverse interfacce grafiche e gestiscono le interazioni con l'utente.
 
-// vero: generale (prolog) + MVC 
+<div align="center">
+  <img src="img/packageGenerale.png" />
+  <p>Fig. 4.9.1 - Organizzazione generale dei package del progetto</p>
+</div>
+
+[Fig. 4.9.1]: img/packageGenerale.png
 
 <div align="center">
   <img src="img/package_model.png" />
