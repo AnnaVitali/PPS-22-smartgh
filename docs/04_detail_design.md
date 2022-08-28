@@ -13,6 +13,8 @@ Tutti gli elementi principali dell'applicazione, che richiedono di eseguire oper
 
 ## 4.1 View e Controller: elementi comuni
 
+I componenti, descritti nelle successive sottosezioni, fattorizzano elementi comuni del codice e permettono di evitarne la ripetizione.
+
 #### ViewComponent
 `ViewComponent` è un’interfaccia generica che rappresenta un componente della View, come si può vedere nella figura [Fig. 4.1.1] richiede un tipo `A` generico che sia sottotipo di `Parent`, la classe base dei nodi con figli di `JavaFX`. 
 
@@ -29,10 +31,42 @@ Tutte le view estendono da tale classe, in modo da creare componenti modulari ed
 
 
 #### ContiguousSceneView
+
+`ContiguousSceneView` (vedi [Fig. 4.1.2]) è un’interfaccia generica utile per definire un componente della view che ha la necessità di richiedere al proprio controller di effettuare operazioni particolari prima di notificare la view principale di visualizzare la nuova scena.
+
+L’interfaccia richiede che il nuovo elemento view da impostare sia di un tipo generico `A`, sottotipo di `Parent` ossia una classe di `JavaFX` che rappresenta nodi con figli.
+
+<div align="center">
+  <img src="img/contiguousSceneView.png" />
+  <p> Fig. 4.1.2 - Architettura di ContiguousSceneView </p>
+</div>
+
+[Fig. 4.1.2]: img/contiguousSceneView.png
+
 #### SceneController
 
 ## 4.2 Gestione della simulazione
-//TODO: SimulationMVC
+
+//todo: introduzione 
+
+### 4.2.1 SimulationMVC
+
+`SimulationMVC` (vedi figura [Fig. 4.2.1.1]) rappresenta l’elemento MVC principale della simulazione: ad alto livello, questo componente si colloca al di sopra di tutti gli altri in quanto permette di:
+-	mantenere aggiornati i vari componenti della simulazione in base allo scorrere del tempo;
+-	detenere i riferimenti ad istanze inizializzate da altri componenti che possono essere accedute da coloro che ne necessitano;
+-	inizializzare e modificare la schermata visualizzata in ogni momento dell’esecuzione dell’applicazione.
+
+In particolare, la classe `SimulationMVC` racchiude i sottocomponenti `SimulationView` e `SimulationController`, derivanti dai rispettivi moduli. Come si può vedere dalla rappresentazione, `SimulationMVC` non racchiude un componente di tipo model in quanto questo aspetto viene gestito dai componenti MVC descritti in seguito.
+
+L’adozione del pattern architetturale Cake Pattern non rende necessaria l’istanziazione dei sottocomponenti (`SimulationView` e `SimulationController`) e la risoluzione delle dipendenze tra questi: per poterli utilizzare basterà istanziare `SimulationMVC` e accedere ai suoi elementi.
+
+<div align="center">
+  <img src="img/simulationMVC.png" />
+  <p> Fig. 4.2.1.1 - Architettura di SimulationMVC </p>
+</div>
+
+[Fig. 4.2.1.1]: img/simulationMVC.png
+
 
 ### 4.2.2 View della simulatione
 La `SimulationViewModule` [Fig. 4.2.2.1] rappresenta la view principale dell'applicazione e si occupa di gestire: la scena, le _sotto-view_ e gli elementi generali delle parti in comune delle interfacce. Al suo interno troviamo:
@@ -50,7 +84,22 @@ La `SimulationViewModule` [Fig. 4.2.2.1] rappresenta la view principale dell'app
 [Fig. 4.2.2.1]: img/simulation_view.png
 
 ### 4.2.3 SimulationController
-// TODO
+
+Il controller per la simulazione (vedi [Fig. 4.2.3.1]) è stato racchiuso nel `SimulationControllerModule` che si compone di:
+-	trait `SimulationController`, che espone:
+  - campi dove verranno salvate l’istanza `Environment` della città e le istanze `Plant` delle piante selezionate dall’utente
+  - metodi per gestire il tempo virtuale della simulazione richiamando il `TimeModel`
+  - metodi per notificare l’`EnvironmentController`, di cui detiene il riferimento, di un cambiamento del timeValue e dello scoccare di una nuova ora, al fine di aggiornare la rispettiva view
+  - metodo per sottoscrive callback da eseguire quando vi è un nuovo valore del `Timer` disponibile (es: `AreaDetailsController` richiede l’aggiornamento del timer visualizzato all’interno delle aree) 
+-	classe `SimulationControllerImpl`, che implementa il trait `SimulationController` e viene racchiusa dal trait `Component`
+-	trait `Interface` che estende sia il trait `Provider` che il trait `Component`, i quali permettono di accedere alle proprietà dell’elemento `SimulationController`
+
+<div align="center">
+  <img src="img/simulationController.png" />
+  <p> Fig. 4.2.3.1 - Architettura di SimulationController </p>
+</div>
+
+[Fig. 4.2.3.1]: img/simulationController.png
 
 ## 4.3 Impostazione dei parametri della simulazione
 
