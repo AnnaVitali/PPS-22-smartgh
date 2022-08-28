@@ -56,7 +56,7 @@ Il team di sviluppo, inizialmente, si è posto come obiettivo per la realizzazio
 
 Nello specifico, sono stati realizzati due file `.txt`, uno contenente l'elenco delle città in cui può essere ubicata la serra e l'altro contenente l'elenco dei nomi delle piante assieme ai loro identificativi.
 
-### 5.3.1 Utilizzo di Prolog per la selezione della città
+### 5.2.1 Utilizzo di Prolog per la selezione della città
 All'inizio, quando l'utente si trova nella schermata iniziale dell'applicazione, deve effettuare l'inserimento del nome della città nella quale verrà ubicata la serra.
 
 Per consentire quest'operazione, la classe `UploadCities`, si occupa di convertire il file `cities.txt`, in un file _Prolog_: `cities.pl`, che verrà inserito all'interno della _home directory_ dell'utente, all'interno della cartella `pps`.
@@ -77,7 +77,7 @@ override def searchCities(charSequence: Seq[Char]): Seq[String] =
         .toSeq
 ``` 
 
-### 5.3.2 Utilizzo di Prolog per la selezione delle piante
+### 5.2.2 Utilizzo di Prolog per la selezione delle piante
 Per consentire all'utente la selezione delle piante, che si intende coltivare all'interno della serra, la classe `UploadPlants`, prima che venga mostrata la schermata di selezione delle piante all'utente, si occupa di convertire il file `plants.txt`, in un file _Prolog_: `plants.pl`, contenente i records che detengono le infromazioni sulle piante, i quali risultano essere scritti nel seguente modo:
 
 ```prolog
@@ -105,9 +105,27 @@ override def getPlantsSelectedIdentifier: List[String] =
 
 ## 5.4 Richieste dei dati
 
-Per reperire i dati relativi alle previsioni metereologiche della città in cui è ubicata la serra e quelli relativi alle piante si è fatto uso di richieste http. A tal fine si è fatto uso della libreria requests per permettere di effettuare la richiesta al rispettivo url: [weatherapi](https://www.weatherapi.com/api-explorer.aspx), per le previsioni meteorologiche, e [open.plantbook](https://open.plantbook.io/), per le piante. 
+Per reperire i dati relativi alle previsioni metereologiche della città in cui è ubicata la serra e quelli relativi alle piante si è fatto uso di richieste http. A tal fine si è fatto uso della libreria _requests_ per permettere di effettuare la richiesta al rispettivo url: [weatherapi](https://www.weatherapi.com/api-explorer.aspx), per le previsioni meteorologiche, e [open.plantbook](https://open.plantbook.io/), per le piante. 
 
-Ottenuta la risposta dal web server, qualora questa abbia dato esito positivo, si è proceduto con il parsing per ottenere il _JSON_, mediante la libreria _json4s_. Qualora, invece, l'esito della risposta fosse negativo, si è deciso di impostare un valore di default.
+```scala
+val query =
+          "http://api.weatherapi.com/v1/forecast.json?key=" + apiKey + "&q=" + nameCity.replace(
+            " ",
+            "%20"
+          ) + "&days=1&aqi=no&alerts=no"
+val r: Response = requests.get(query)
+```
+Ottenuta la risposta dal web server, qualora questa abbia dato esito positivo, si è proceduto con il parsing per ottenere il JSON, mediante la libreria _json4s_. Qualora, invece, l'esito della risposta fosse negativo, si è deciso di impostare un valore di default. 
+
+Al fine di valutare l'esito della risposta, nel caso delle città si è fatto uso di un controllo relativo allo _status code_, quindi valutato positivo in caso di codice pari a 200, negativo altrimenti. Nel caso delle piante invece si è fatto uso del _Try match_ per identificare se la richiesta andava a buon fine, caso di _Success_, o meno, caso _Failure_.
+```scala
+Try(requests.post(url = url, data = data)) match {
+    case Success(r: Response) =>
+        implicit val formats: DefaultFormats.type = org.json4s.DefaultFormats
+        parse(r.text()).extract[RequestResult].get("access_token").fold[String]("")(res => res.toString)
+    case Failure(_) => ""
+    }
+```
 
 Il JSON è stato ricavato in caso di successo è stato poi utilizzato come implementazione del `type` definito nell'interfaccia della classe `Environment`, nel caso della città, e `Plant`, nel caso appunto delle informazioni relative alla pianta.
 
