@@ -560,7 +560,7 @@ Per la realizzazione di questo progetto sono stati adoperati i pattern di proget
 // Anna
 
 ### Strategy
-// Maria
+All'interno del progetto è stato ampiamente utilizzato il pattern _Strategy_, ossia l'incapapsulamento di un algoritmo all'interno di una classe, mantenendo un'interfaccia generica, in quanto direttamente supportato nel linguaggio come passaggio di funzioni higher-order e per fare si che le classi che lo utilizzano rendano dinamico il proprio comportamento utilizzando in modo intercambiabile le diverse implementazioni degli algoritmi definiti nell'interfaccia generica.
 
 ### Template method
 // Ele
@@ -586,6 +586,12 @@ Il sistema è stato organizzato in 5 package principali:
 
 [Fig. 4.9.2]: img/package_model.png
 
-// maria : controller
+
+<div align="center">
+  <img src="img/package_controller.png" />
+  <p>Fig. 4.9.3 - Package del controller</p>
+</div>
+
+[Fig. 4.9.3]: img/package_controller.png
 
 // ele: view
