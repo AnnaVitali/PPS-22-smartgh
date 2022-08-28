@@ -154,6 +154,12 @@ Il controller per la selezione della città è racchiuso all’interno del modul
 
 [Fig. 4.3.1.3]: img/select_city_controller.png
 
+#### Environment
+
+ `Environment` è la componente del sistema che rappresenta l'ubicazione della serra.  Il suo scopo è quello di, una volta selezionata la città, reperire le previsioni meteorologiche previste per la giornata in cui si svolge la simulazione. Le informazioni così ottenute vengono poi messe a disposizione dell'applicazione al fine di aggiornare i parametri ambientali durante tutto lo svolgimento della stessa. I parametri ambientali influenzeranno i parametri rilevati all'interno di ogni area, secondo le formule implementate in ogni sensore.
+
+//todo: immagine
+
 ### View per la selezione delle città
 La view per la selezione delle città viene racchiusa nel modulo `SelectCityViewModule` [Fig. 4.3.1.4]. Al suo interno troviamo:
 -	il `trait SelectCityView`, il quale rappresenta l’interfaccia della _view_ e che detiene metodi che possono essere richiamati sulla _view_. Tale interfaccia, come tutti gli altri, estende da `ViewComponent`;
@@ -168,12 +174,6 @@ La view per la selezione delle città viene racchiusa nel modulo `SelectCityView
 </div>
 
 [Fig. 4.3.1.4]: img/select_city_view.png
-
-
-#### Environment
- `Environment` è la componente del sistema che rappresenta l'ubicazione della serra.  Il suo scopo è quello di, una volta selezionata la città, reperire le previsioni meteorologiche previste per la giornata in cui si svolge la simulazione. Le informazioni così ottenute vengono poi messe a disposizione dell'applicazione al fine di aggiornare i parametri ambientali durante tutto lo svolgimento della stessa. I parametri ambientali influenzeranno i parametri rilevati all'interno di ogni area, secondo le formule implementate in ogni sensore.
-
-### 
 
 ### 4.3.2 Selezione delle piante
 Per poter realizzare il meccanismo di selezione delle piante si è deciso di adottare, come già detto precedentemente, il _pattern MVC_ e il _Cake pattern_.
