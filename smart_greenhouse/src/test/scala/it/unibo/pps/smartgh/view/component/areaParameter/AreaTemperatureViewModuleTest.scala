@@ -58,13 +58,13 @@ class AreaTemperatureViewModuleTest extends AbstractAreaParameterViewTest("Tempe
     closeStructure(robot)
     val button = robot.lookup(buttonId).queryButton()
     val regulatedTemp = robot.lookup(regulateTempLabelId).queryLabeled()
-    eventually(timeout(Span(10000, Milliseconds))) {
+    eventually(timeout(Span(20000, Milliseconds))) {
       verifyThat(buttonId, isVisible)
       assertFalse(button.isDisabled)
       verifyThat(regulateTempLabelId, isVisible)
       verifyThat(regulateTempLabelId, hasText(initialTemperature.toString))
     }
-    robot.clickOn(buttonId)
-    eventually(timeout(Span(10000, Milliseconds))) {
+    robot.doubleClickOn(buttonId)
+    eventually(timeout(Span(20000, Milliseconds))) {
       assertTrue(condition(regulatedTemp.getText.toDouble, initialTemperature))
     }

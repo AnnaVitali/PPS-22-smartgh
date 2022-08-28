@@ -34,7 +34,7 @@ class AreaAirHumidityViewModuleTest extends AbstractAreaParameterViewTest("Air h
 
     robot.clickOn(ventilationBtnId)
 
-    eventually(timeout(Span(8000, Milliseconds))) {
+    eventually(timeout(Span(20000, Milliseconds))) {
       assertTrue(button.isSelected)
       verifyThat(ventilationBtnId, hasText(VentilationText.DEACTIVATE.text))
     }
@@ -46,7 +46,7 @@ class AreaAirHumidityViewModuleTest extends AbstractAreaParameterViewTest("Air h
 
     robot.clickOn(atomiserBtnId)
 
-    eventually(timeout(Span(8000, Milliseconds))) {
+    eventually(timeout(Span(20000, Milliseconds))) {
       assertTrue(button.isSelected)
       assertTrue(button.isSelected)
       verifyThat(atomiserBtnId, hasText(AtomiserText.DEACTIVATE.text))
@@ -60,7 +60,7 @@ class AreaAirHumidityViewModuleTest extends AbstractAreaParameterViewTest("Air h
     robot.clickOn(atomiserBtnId)
     robot.clickOn(ventilationBtnId)
 
-    eventually(timeout(Span(8000, Milliseconds))) {
+    eventually(timeout(Span(20000, Milliseconds))) {
       assertTrue(ventilationBtn.isSelected)
       verifyThat(ventilationBtnId, hasText(VentilationText.DEACTIVATE.text))
       assertFalse(atomiserBtn.isSelected)
