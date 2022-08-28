@@ -141,7 +141,10 @@ Nel momento successivo alla suddivisione dei tasks fra i diversi membri del grup
   </tr>
   
   <tr>
-    <td rowspan="3">Applicazione finale</td>
+    <td rowspan="4">Applicazione finale</td>
+    <td>Operazioni finali di refactoring del codice e ottimizzazione degli imports*</td>
+  </tr>
+  <tr> 
     <td>Realizzare file .jar*</td>
   </tr>
   <tr>
@@ -243,7 +246,10 @@ Nel momento successivo alla suddivisione dei tasks fra i diversi membri del grup
   </tr>
   
   <tr>
-    <td rowspan="3">Applicazione finale</td>
+    <td rowspan="4">Applicazione finale</td>
+    <td>Operazioni finali di refactoring del codice e ottimizzazione degli imports*</td>
+  </tr>
+  <tr> 
     <td>Realizzare file .jar*</td>
   </tr>
   <tr>
@@ -348,7 +354,10 @@ Nel momento successivo alla suddivisione dei tasks fra i diversi membri del grup
   </tr>
   
   <tr>
-    <td rowspan="3">Applicazione finale</td>
+    <td rowspan="4">Applicazione finale</td>
+    <td>Operazioni finali di refactoring del codice e ottimizzazione degli imports*</td>
+  </tr>
+  <tr> 
     <td>Realizzare file .jar*</td>
   </tr>
   <tr>
@@ -452,7 +461,10 @@ Nel momento successivo alla suddivisione dei tasks fra i diversi membri del grup
   </tr>
   
   <tr>
-    <td rowspan="3">Applicazione finale</td>
+    <td rowspan="4">Applicazione finale</td>
+    <td>Operazioni finali di refactoring del codice e ottimizzazione degli imports*</td>
+  </tr>
+  <tr> 
     <td>Realizzare file .jar*</td>
   </tr>
   <tr>
