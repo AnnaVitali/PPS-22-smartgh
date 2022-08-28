@@ -87,10 +87,10 @@ La `SimulationViewModule` [Fig. 4.2.2.1] rappresenta la view principale dell'app
 
 Il controller per la simulazione (vedi [Fig. 4.2.3.1]) è stato racchiuso nel `SimulationControllerModule` che si compone di:
 -	trait `SimulationController`, che espone:
-  - campi dove verranno salvate l’istanza `Environment` della città e le istanze `Plant` delle piante selezionate dall’utente
-  - metodi per gestire il tempo virtuale della simulazione richiamando il `TimeModel`
-  - metodi per notificare l’`EnvironmentController`, di cui detiene il riferimento, di un cambiamento del timeValue e dello scoccare di una nuova ora, al fine di aggiornare la rispettiva view
-  - metodo per sottoscrive callback da eseguire quando vi è un nuovo valore del `Timer` disponibile (es: `AreaDetailsController` richiede l’aggiornamento del timer visualizzato all’interno delle aree) 
+    - campi dove verranno salvate l’istanza `Environment` della città e le istanze `Plant` delle piante selezionate dall’utente
+    - metodi per gestire il tempo virtuale della simulazione richiamando il `TimeModel`
+    - metodi per notificare l’`EnvironmentController`, di cui detiene il riferimento, di un cambiamento del timeValue e dello scoccare di una nuova ora, al fine di aggiornare la rispettiva view
+    - metodo per sottoscrive callback da eseguire quando vi è un nuovo valore del `Timer` disponibile (es: `AreaDetailsController` richiede l’aggiornamento del timer visualizzato all’interno delle aree) 
 -	classe `SimulationControllerImpl`, che implementa il trait `SimulationController` e viene racchiusa dal trait `Component`
 -	trait `Interface` che estende sia il trait `Provider` che il trait `Component`, i quali permettono di accedere alle proprietà dell’elemento `SimulationController`
 
