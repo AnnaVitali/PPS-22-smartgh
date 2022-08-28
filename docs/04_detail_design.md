@@ -594,4 +594,10 @@ Il sistema è stato organizzato in 5 package principali:
 
 [Fig. 4.9.3]: img/package_controller.png
 
-// ele: view
+
+<div align="center">
+  <img src="img/package_view.png" />
+  <p>Fig. 4.9.4 - Package della view</p>
+</div>
+
+[Fig. 4.9.4]: img/package_view.png
