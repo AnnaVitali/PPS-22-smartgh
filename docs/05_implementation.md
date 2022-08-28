@@ -20,7 +20,31 @@ Nelle seguenti sezioni, verranno descritti con maggiore dettaglio alcuni elmenti
 //TODO descrivere utilizzo di abstract-types all'interno del codice, inserire esempi di utilizzo nel codice, spiegando anche tali esempi
 
 ### 5.1.3 For-comphrension
-//Maria
+Al fine di rendere il codice meno imperativo si è fatto uso della _for-comphrension_, un costrutto funzionale basato sulle monadi per operare sulle collezioni. Oltre a rendere il codice più funzionale, la scelta dell'utilizzo della _for-comphrension_ è supportato dall'incremento della leggibilità del codice, come si può vedere nel seguente estratto di codice, utilizzato per la creazione degli oggetti `ManageSensor` il cui compito è racchiudere tutte le informazioni utili riguardati un sensore.
+
+```scala
+    for
+        (key, m) <- mapSensorNamesAndMessages.toList
+        optK = m.getOrElse("name", "")
+        um = m.getOrElse("um", "")
+        msg = m.getOrElse("message", "")
+    yield ManageSensorImpl(
+        key,
+        optimalValueToDouble.getOrElse("min_" + optK, 0.0),
+        optimalValueToDouble.getOrElse("max_" + optK, 0.0),
+        um,
+        sensorsMap(key),
+        BigDecimal(sensorsMap(key).getCurrentValue).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble,
+        msg,
+        firstSensorStatus(
+            BigDecimal(sensorsMap(key).getCurrentValue).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble,
+            optimalValueToDouble.getOrElse("min_" + optK, 0.0),
+            optimalValueToDouble.getOrElse("max_" + optK, 0.0)
+        )
+    )
+```
+Nell'esempio si itera sulla mappa contenete le costanti riguardanti i sensori, come il nome del sensore, l'unità di misura ed il messaggio di errore associato ad esso. Questi valori vengono poi impiegati nella costruzione dell'oggetto `ManageSensor` per reperire le informazioni relative ad un sensore per una specifica pianta, creare e memorizzare l'istanza del relativo sensore, inizializzare il suo stato e tenere traccia del valore corrente rilevato da esso. 
+
 //TODO descrivere utilizzo di for-comphrension all'interno del codice, inserire esempi di utilizzo nel codice, spiegando anche tali esempi
 
 ### 5.1.4 Trait e mixins
