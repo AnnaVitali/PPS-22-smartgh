@@ -254,17 +254,17 @@ Inoltre alcune delle funzionalità da me implementate sono presenti anche nelle 
 //TODO illustrare lavoro svolto
 
 ### 5.7.4 Yan Elena
-Durante il primo _sprint_ mi sono occupata soprattutto sulle classi di _view_ per fornire un’applicazione concreta con cui l’utente potesse interagire. In particolare, usando le librerie `ScalaFX` e `JavaFX`, ho realizzato le classi:
--	`SimulationView`, la _view_ principale dell’applicazione che offre i servizi di cui necessitano le _sotto-view_;
--	`ViewComponent` e `AbstractViewComponent`, dove tutte le _view_ possono estendere dalla classe astratta per creare componenti modulari;
--	`BaseView`, il componente base dell’applicazione che racchiude tutti gli elementi comuni delle interfacce.
+Durante il primo _sprint_ mi sono occupata soprattutto delle classi di _view_ per fornire un’applicazione concreta con cui l’utente potesse interagire. In particolare, usando le librerie `ScalaFX` e `JavaFX`, ho realizzato le classi:
+- `SimulationView`, la _view_ principale dell’applicazione che fornisce i servizi di cui necessitano le _sotto-view_;
+- `ViewComponent` e `AbstractViewComponent`, dove tutte le _view_ possono estendere dalla classe astratta la creazione di componenti modulari;
+- `BaseView`, il componente base dell’applicazione che contiene tutti gli elementi comuni delle interfacce.
 
 Successivamente ho lavorato sul componente di selezione della città, in particolare, le parti realizzate riguardano il modulo `SelectCityMVC` con i rispettivi sottomoduli:
--	`SelectCityModelModule`, il modulo _model_ che si occupa di ricercare le città che sono presenti nel file prolog, generato dalla classe utility sviluppata da _Maria_. Dopo aver sviluppato questa parte, insieme ad _Anna_, abbiamo rifattorizzato le parti in comune relative all’integrazione di Scala e Prolog.
--	`SelectCityControllerModule`, il modulo _controller_ che si occupa di gestire il comportamento in base alle azioni dell’utente sulla _view_ richiedendo al _model_ le informazioni necessarie. Una volta che l’utente avrà selezionato la città, il controller si occuperà di salvare la città attraverso il componente `Environment` realizzato da _Maria_.
--	`SelectCityViewModule`, il modulo _view_ per la selezione della città.
+- `SelectCityModelModule`, il modulo _model_ che si occupa di ricercare le città che sono presenti nel file prolog, generato dalla classe utility sviluppata da _Maria_. Dopo aver sviluppato questa parte, insieme ad _Anna_, abbiamo rifattorizzato le parti in comune relative all’integrazione di Scala e Prolog.
+- `SelectCityControllerModule`, il modulo _controller_ che si occupa di gestire il comportamento in base alle azioni dell’utente sulla _view_ richiedendo al _model_ le informazioni necessarie. Una volta che l’utente avrà selezionato la città, il controller si occuperà di salvare la città attraverso il componente `Environment` realizzato da _Maria_.
+- `SelectCityViewModule`, il modulo _view_ per la selezione della città.
 
-Di seguito ho sviluppato il componente `Timer` utilizzando la programmazione asincrona con gli `Observer` forniti dalla libreria `io.monix`. Dopodiché insieme a Veronika abbiamo collegato il `Timer` con il `TimerModel`.
+Di seguito ho sviluppato il componente `Timer` utilizzando la programmazione asincrona con gli `Observer` forniti dalla libreria `io.monix`. Dopodiché insieme a _Veronika_ abbiamo collegato il `Timer` con il `TimerModel`.
 
 Nel secondo _sprint_ abbiamo poi raffinato la struttura del progetto ed effettuato il  collegamento tra le varie parti realizzate coinvolgendo tutti i membri del gruppo.
 
