@@ -64,7 +64,7 @@ class AreaTemperatureViewModuleTest extends AbstractAreaParameterViewTest("Tempe
       verifyThat(regulateTempLabelId, isVisible)
       verifyThat(regulateTempLabelId, hasText(initialTemperature.toString))
     }
-    robot.doubleClickOn(buttonId)
     eventually(timeout(Span(20000, Milliseconds))) {
+      robot.clickOn(buttonId)
       assertTrue(condition(regulatedTemp.getText.toDouble, initialTemperature))
     }
