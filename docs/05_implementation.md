@@ -254,4 +254,42 @@ Inoltre alcune delle funzionalità da me implementate sono presenti anche nelle 
 //TODO illustrare lavoro svolto
 
 ### 5.7.4 Yan Elena
-//TODO illustrare lavoro svolto
+Durante il primo _sprint_ mi sono occupata soprattutto sulle classi di _view_ per fornire un’applicazione concreta con cui l’utente potesse interagire. In particolare, usando le librerie `ScalaFX` e `JavaFX`, ho realizzato le classi:
+-	`SimulationView`, la _view_ principale dell’applicazione che offre i servizi di cui necessitano le _sotto-view_;
+-	`ViewComponent` e `AbstractViewComponent`, dove tutte le _view_ possono estendere dalla classe astratta per creare componenti modulari;
+-	`BaseView`, il componente base dell’applicazione che racchiude tutti gli elementi comuni delle interfacce.
+
+Successivamente ho lavorato sul componente di selezione della città, in particolare, le parti realizzate riguardano il modulo `SelectCityMVC` con i rispettivi sottomoduli:
+-	`SelectCityModelModule`, il modulo _model_ che si occupa di ricercare le città che sono presenti nel file prolog, generato dalla classe utility sviluppata da _Maria_. Dopo aver sviluppato questa parte, insieme ad _Anna_, abbiamo rifattorizzato le parti in comune relative all’integrazione di Scala e Prolog.
+-	`SelectCityControllerModule`, il modulo _controller_ che si occupa di gestire il comportamento in base alle azioni dell’utente sulla _view_ richiedendo al _model_ le informazioni necessarie. Una volta che l’utente avrà selezionato la città, il controller si occuperà di salvare la città attraverso il componente `Environment` realizzato da _Maria_.
+-	`SelectCityViewModule`, il modulo _view_ per la selezione della città.
+
+Di seguito ho sviluppato il componente `Timer` utilizzando la programmazione asincrona con gli `Observer` forniti dalla libreria `io.monix`. Dopodiché insieme a Veronika abbiamo collegato il `Timer` con il `TimerModel`.
+
+Nel secondo _sprint_ abbiamo poi raffinato la struttura del progetto ed effettuato il  collegamento tra le varie parti realizzate coinvolgendo tutti i membri del gruppo.
+
+Assieme ad _Anna_, abbiamo progettato l’interfaccia `Sensor` e `SensorWithTimer` con le rispettive classi astratte. In seguito ho realizzato l’implementazione dei sensori `AirHumiditySensor` e `SoilHumiditySensor` e i relativi oggetti _factory_ (`FactoryFunctionsAirHumidity` e `FactoryFunctionsSoilHumidity`).
+
+Durante gli ultimi _sprint_, ho dedicato allo sviluppo dei componenti del dettaglio area e ai suoi quattro parametri. Nello specifico ho realizzato:
+- i moduli _view_ e _mvc_ del dettaglio area e dei parametri;
+- le interfacce generali per i parametri (`AreaParameterMVC`, `AreaParameterController` e `AreaParameterView`) e le classi astratte per il _controller_ e la _view_, rispettivamente `AbstractAreaParameterController` e `AbstractAreaParameterView`
+
+Poi ho collaborato con _Maria_ alla realizzazione dei moduli _controller_ associati.
+
+Per quanto riguarda la parte di testing, ho realizzato i seguenti test:
+- `SelectCityModelModuleTest.scala`
+- `SelectCityViewModuleTest.scala`
+- `FactoryFunctionsAirHumidityTest.scala`
+- `FactoryFunctionsSoilHumidityTest.scala`
+- `AirHumiditySensorTest.scala`
+- `SoilHumiditySensorTest.scala`
+- `TimerTest.scala`
+- `AbstractViewTest.scala` (classe astratta che si occupa del setup delle proprietà necessarie per il testing dell'interfaccia con `TestFX`)
+- `AbstractAreaDetailsViewTest.scala` (classe astratta che si occupa di istanziare la pagina dell’area dettaglio)
+- `AreaDetailsViewModuleTest.scala`
+- `AbstractAreaParameterViewTest.scala` (classe astratta che contiene test basilari sui parametri presenti nell’area dettaglio)
+- `AreaAirHumidityViewModuleTest.scala`
+- `AreaLuminosityViewModuleTest.scala`
+- `AreaSoilMoistureViewModuleTest.scala`
+- `AreaTemperatureViewModuleTest.scala`
+
