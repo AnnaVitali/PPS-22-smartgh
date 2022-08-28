@@ -15,7 +15,7 @@ Tutti gli elementi principali dell'applicazione, che richiedono di eseguire oper
 
 I componenti, descritti nelle successive sottosezioni, fattorizzano elementi comuni del codice e permettono di evitarne la ripetizione.
 
-#### ViewComponent
+### ViewComponent
 `ViewComponent` è un’interfaccia generica che rappresenta un componente della View, come si può vedere nella figura [Fig. 4.1.1] richiede un tipo `A` generico che sia sottotipo di `Parent`, la classe base dei nodi con figli di `JavaFX`. 
 
 Per l’implementazione di `ViewComponent` si è rispettato il pattern **Template Method**, definendo una classe astratta `AbstractViewComponent`, dove contiene il _template_ dei componenti. In tale classe viene incapsulato tutta la logica necessaria per il caricamento dei layout e per la loro inizializzazione lasciando alle sottoclassi la definizione del loro componente interno associato al file `FXML`.
@@ -30,7 +30,7 @@ Tutte le view estendono da tale classe, in modo da creare componenti modulari ed
 [Fig. 4.1.1]: img/view_component.png
 
 
-#### ContiguousSceneView
+### ContiguousSceneView
 
 `ContiguousSceneView` (vedi [Fig. 4.1.2]) è un’interfaccia generica utile per definire un componente della view che ha la necessità di richiedere al proprio controller di effettuare operazioni particolari prima di notificare la view principale di visualizzare la nuova scena.
 
@@ -43,7 +43,7 @@ L’interfaccia richiede che il nuovo elemento view da impostare sia di un tipo 
 
 [Fig. 4.1.2]: img/contiguousSceneView.png
 
-#### SceneController
+### SceneController
 
 ## 4.2 Gestione della simulazione
 
@@ -51,7 +51,7 @@ L’interfaccia richiede che il nuovo elemento view da impostare sia di un tipo 
 
 ### 4.2.1 SimulationMVC
 
-`SimulationMVC` (vedi figura [Fig. 4.2.1.1]) rappresenta l’elemento MVC principale della simulazione: ad alto livello, questo componente si colloca al di sopra di tutti gli altri in quanto permette di:
+`SimulationMVC` (vedi [Fig. 4.2.1.1]) rappresenta l’elemento MVC principale della simulazione: ad alto livello, questo componente si colloca al di sopra di tutti gli altri in quanto permette di:
 -	mantenere aggiornati i vari componenti della simulazione in base allo scorrere del tempo;
 -	detenere i riferimenti ad istanze inizializzate da altri componenti che possono essere accedute da coloro che ne necessitano;
 -	inizializzare e modificare la schermata visualizzata in ogni momento dell’esecuzione dell’applicazione.
@@ -234,7 +234,7 @@ Rispetto all'architettura del Model vista precedentemente, la View presenta l'el
   <p> Fig. 4.3.2.3 - View per la selezione delle piante </p>
 </div>
 
-[[Fig. 4.3.2.3]]: img/select_plant_view.png
+[Fig. 4.3.2.3]: img/select_plant_view.png
 
 La View inizialmente si occuperà di mostrare le piante selezionabili all'utente, ottenendole dal Controller, dopodichè si occuperà di notificare il Controller ogni qual volta l'utente compirà un'azione di selezione o di deselezione e nel caso in cui il Controller li notifichi, il verificarsi di una situazione di errore, si occuperà di mostrare un messaggio di errore all'utente.
 
@@ -249,7 +249,7 @@ Il Controller per la selezione delle piante ([Fig. 4.3.2.4]), è stato racchiuso
 Una volta, quindi, che tutti gli elementi che costituiscono il _pattern MVC_ sono stati realizzati, `PlantSelectorMVC`, semplicemente estendendo il `trait Interface` di ognuno di loro è in grado di ottenere tutte le loro proprietà e le dipendenze che li legano sono già state risolte al momento della loro creazione, quindi, `PlantSelectorMVC` non si deve preoccupare di questo aspetto, ma può passare direttamente al loro utilizzo.
 
 <div align="center">
-  <img src="img/plant_selector_controller.png" />
+  <img src="img/plant.png" />
   <p> Fig. 4.3.2.4 - Controller per la selezione delle piante </p>
 </div>
 
@@ -260,7 +260,17 @@ Inizialmente il Controller si occupa di impostare la schermata di selezione dell
 Dopodichè, il compito principale del Controller per la selezione delle piante, consiste nel notificare il Model ogni qual volta l'utente compie un'azione di selezione o deselzione per una specifica pianta e nel caso in cui si verifichi una situazione di errore notificatagli dal Model, richiederà alla View di mostrare all'utente un'apposito messaggio, che lo informi dell'errore rilevato. 
 
 #### Plant
-//TODO Vero
+
+Il trait `Plant` (vedi [Fig. 4.3.2.5]) espone dei metodi per ottenere le informazioni principali rispetto alle piante selezionate dall’utente, queste verranno visualizzate all’interno delle aree e verranno utilizzate per monitorare i parametri vitali delle stesse. 
+
+Il companion object `Plant` permette di creare l’istanza della pianta che verrà salvata all’interno del `SimulationController` col fine di renderla accessibile agli altri componenti del sistema che necessitano delle informazioni relative alle piante scelte.
+
+<div align="center">
+  <img src="img/plant.png" />
+  <p> Fig. 4.3.2.5 - Architettura del componente Plant </p>
+</div>
+
+[Fig. 4.3.2.5]: img/plant.png
 
 ## 4.4 Caricamento dei dati delle piante
 
@@ -335,13 +345,110 @@ Ne risulta, quindi, che quando verrà prodotta una nuova pianta il Controller ri
 
 ## 4.5 Avvio Simulazione
 
-Al fine di visualizzare le variazioni ambientali nell'arco della giornata (vedi requisito utente n°2 in sezione [Sec. 2.2](#22-requisiti-utente)) è stato necessario introdurre i seguenti elementi architetturali.
+Una volta che l’utente ha personalizzato i parametri della simulazione e sono state caricate le informazioni relative alle piante, viene avviata la simulazione e, in particolare, vengono inizializzati gli elementi utili alla visualizzazione dello stato globale della serra, delle variazioni ambientali esterne e dello scorrere del tempo.
+
+In particolare, in questa sezione verranno discussi gli elementi architetturali che soddisfano il requisito utente n°2 (vedi [Sec. 2.2](#22-requisiti-utente)).
 
 ### 4.5.1 Variazioni ambientali
-//TODO Vero
+
+Per poter realizzare la visualizzazione delle variazioni ambientali esterne nell’arco della giornata si è introdotto l’elemento `EnvironmentMVC` (vedi [Fig. 4.5.1.1]), sviluppato mediante il Cake Pattern, che racchiude i componenti model, view e controller responsabili dell’aggiornamento dei valori ambientali.
+
+Questo tipo di design permette di:
+-	risolvere automaticamente le dipendenze fra i sottocomponenti model, view e controller;
+-	l’istanza di `EnvironmentMVC` funge da punto di accesso ai suoi sottocomponenti, rendendo non necessaria la loro inizializzazione.
+
+<div align="center">
+  <img src="img/environmentMVC.png" />
+  <p> Fig. 4.5.1.1 - Architettura di EnvironmentMVC </p>
+</div>
+
+[Fig. 4.5.1.1]: img/environmentMVC.png
+
+Di seguito verranno descritte nel particolare le singole componenti.
+
+#### Model per l'aggiornamento dei valori ambientali
+
+Il model viene racchiuso nel `EnvironmentModelModule` (vedi figura), al cui interno troviamo:
+-	il trait `EnvironmentModel`, che espone metodi per:
+    - ottenere tutti i valori ambientali aggiornati, da mostrare nell’interfaccia utente
+    - ottenere i singoli valori ambientali aggiornati per ogni tipologia di sensore che verrà installato all’interno delle aree
+    - notificare il model di aggiornare i valori ambientali correnti, secondo l’ora segnalata dal `SimulationController` che gestisce l’interazione con il `TimeModel`
+-	la classe `EnvironmentModelImpl` che racchiude l’implementazione dell’interfaccia appena descritta
+-	il trait `Component` che racchiude la classe di implementazione sopracitata e contiene il campo `context` di tipo `Requirements`, il quale viene utilizzato per specificare la dipendenza necessaria affinchè l’`EnvironmentModel` possa ottenere dal `SimulationController` l’istanza `Environment` salvata in essa. In quest’ultima sono salvate le previsioni metereologiche per tutta la giornata.
+-	il trait `Provider` che si occupa di detenere l’oggetto `EnvironmentModel`
+-	il trait `Interface` che si occupa di connettere tutti i componenti del modulo e di rendere utilizzabili le proprietà dell’elemento `EnvironmentModel`
+
+<div align="center">
+  <img src="img/environmentModelModule.png" />
+  <p> Fig. 4.5.1.2 - Architettura di EnvironmentModel </p>
+</div>
+
+[Fig. 4.5.1.2]: img/environmentModelModule.png
+
+#### View per l'aggiornamento dei valori ambientali
+
+La view viene racchiusa nel `EnvironmentViewModule` (vedi [Fig. 4.5.1.3]), al cui interno troviamo:
+-	trait `EnvironmentView`, che espone i metodi per:
+    - visualizzare il nome della città selezionata
+    - visualizzare i valori ambientali aggiornati
+    - visualizzare il tempo virtuale aggiornato
+    - visualizzare lo stato globale della serra, quindi la sua suddivisione in aree 
+    - richiedere alla view principale di cambiare scena al concludersi della simulazione
+    - settare lo stile e la behaviour del pulsante comune a tutte le view, rispettando il layout stabilito nei mockup dell’applicazione
+  Tale trait estende `ViewComponent` in quanto rappresenta una scena inserita all’interno di quella madre.
+-	la classe `EnvironmentViewImpl`, la quale detiene l’implementazione dei metodi relativi all’interfaccia appena descritta
+-	il trait `Component`, che si compone della classe implementativa sopracitata e dell’oggetto `context` di tipo `Requirements`, il quale specifica quali siano le dipendenze che devono essere soddisfatte affinchè la view possa lavorare correttamente. Nello specifico ha bisogno dell’`EnvironmentController` per notificarlo delle interazioni dell’utente (es: modifica della velocità della simulazione), e del `SimulationMVC` per accedere al suo elemento view e notificarlo di passare ad una nuova scena (es: scena di fine simulazione) oppure di modificare lo stile di un elemento grafico comune (es: pulsante comune a tutte le view).
+-	il trait `Provider`, il quale detiene l’oggetto `EnvironmentView` che potrà essere acceduto tramite l’istanza del componente MVC
+-	il trait `Interface`, che estende sia l’interfaccia `Provide`r che l’interfaccia `Component`, consentendo di ereditare le proprietà dell’elemento `EnvironmentView`
+
+<div align="center">
+  <img src="img/environmentViewModule.png" />
+  <p> Fig. 4.5.1.3 - Architettura di EnvironmentView </p>
+</div>
+
+[Fig. 4.5.1.3]: img/environmentViewModule.png
+
+#### Controller per l'aggiornamento dei valori ambientali
+
+Il controller è racchiuso all’interno del modulo `EnvironmentControllerModule` (vedi [Fig. 4.5.1.4]), al cui interno troviamo:
+-	il trait `EnvironmentController`, che espone i metodi per:
+    - richiedere al SimulationController di inizializzare il componente che gestisce il tempo virtuale
+    - richiedere al SimulationController di stoppare il tempo virtuale
+    - richiedere al model di aggiornare i valori ambientali e alla view di visualizzarli; inoltre, si occupa di notificare i sensori della modifica avvenuta
+    - notificare il `SimulationController` della modifica, da parte dell’utente, della velocità della simulazione 
+    - notificare la view della conclusione della simulazione, allo scadere del tempo
+    - recuperare l’elemento view associato ad esso
+    - ripristinare la visualizzazione dello stato globale della simulazione quando si esce dalla visualizzazione del dettaglio di un’area
+-	la classe `EnvironmentControllerImpl`, che implementa l’interfaccia appena descritta. Si compone, inoltre, del `GreenHouseDivisionMVC` in quanto si occupa di inizializzarlo.
+-	il trait `Component`, che si compone della classe implementativa sopracitata e dell’oggetto `context` di tipo `Requirements`, il quale specifica quali siano le dipendenze che devono essere soddisfatte affinchè il controller possa lavorare correttamente (es: `EnvironmentView` per richiedere la visualizzazione del tempo trascorso, `EnvironmentModel` per richiedere l’aggiornamento dei valori ambientali, `SimulationMVC` per controllare la componente tempo)
+-	il trait `Provider`, il quale detiene l’oggetto `EnvironmentController` che potrà essere acceduto tramite l’istanza del componente MVC
+-	il trait `Interface`, che estende sia l’interfaccia `Provider` che l’interfaccia `Component`, consentendo di ereditare le proprietà dell’elemento `EnvironmentController`
+
+<div align="center">
+  <img src="img/environmentControllerModule.png" />
+  <p> Fig. 4.5.1.4 - Architettura di EnvironmentController </p>
+</div>
+
+[Fig. 4.5.1.4]: img/environmentControllerModule.png
+
 
 ### 4.5.2 Tempo virtuale
-//TODO Model Ele, View Vero, Controller Ele e Vero
+
+`TimeModel` (vedi [Fig. 4.5.2.1]) è un trait che espone metodi per gestire il tempo virtuale della simulazione, il quale è modellato, a sua volta, dal trait `Timer`. 
+
+`TimeModel` e `Timer` rappresentano anche due companion object che racchiudono l’implementazione delle rispettive interfacce e possono essere utilizzati per inizializzarne un’istanza.
+
+In particolare, il model si occupa di avviare e stoppare il `Timer`, oltre che di modificarne la velocità: queste operazioni vengono richiamate dal `SimulationController`, a seguito di feedback ricevuti dall’`EnvironmentMVC`.
+
+All’avvio del `Timer`, il `TimeModel` ha il compito di specificare i task da eseguire ad ogni tick e al concludersi del tempo stabilito per la simulazione. A questo scopo, il model detiene un riferimento al `SimulationController` che utilizzerà per notificarlo del valore `timeValue` aggiornato, dello scoccare di una nuova ora (al fine di aggiornare i `currentEnvironmentValues`) e dell’esaurimento del tempo della simulazione.
+
+<div align="center">
+  <img src="img/time.png" />
+  <p> Fig. 4.5.2.1 - Architettura per la gestione del tempo virtuale </p>
+</div>
+
+[Fig. 4.5.2.1]: img/time.png
+
 
 ## 4.6 Serra
 
@@ -360,7 +467,6 @@ In particolare come si può vedere nella figura [Fig. 4.4.1.1], la classe `Green
   <img src="img/greenhouseDivisionMVC.png" />
   <p> Fig. 4.4.1.1 - Rappresentazione MVC della suddivisione in aree </p>
 </div>
-
 
 [Fig. 4.4.1.1]: img/greenhouseDivisionMVC.png
 
@@ -673,7 +779,11 @@ All'interno del progetto è stato ampiamente utilizzato il pattern _Strategy_, o
 // Ele
 
 ### Singleton
-// Vero
+
+Per lo sviluppo del progetto si è fatto largo uso di questo design pattern creazionale, il quale garantisce che di una determinata classe venga creata una e una sola istanza e fornisce un punto di accesso globale ad essa.
+
+In Scala è particolarmente semplice implementare tale pattern in quanto gli object sono classi con esattamente una istanza che viene inizializzata in modo lazy (su richiesta) quando ci riferiamo ad essa: prima di ciò nessuna istanza dell’object sarà presente nello heap.
+
 
 ## 4.9 Organizzazione del codice
 
