@@ -13,7 +13,7 @@ import org.scalatest.time.{Milliseconds, Span}
 import org.testfx.api.FxAssert.verifyThat
 import org.testfx.api.FxRobot
 import org.testfx.framework.junit5.{ApplicationExtension, Start}
-import org.testfx.matcher.base.NodeMatchers.isVisible
+import org.testfx.matcher.base.NodeMatchers.{isEnabled, isVisible}
 import org.testfx.matcher.control.LabeledMatchers.hasText
 
 /** This class contains the tests to verify that the [[AreaAirHumidityViewModule]] work correctly. */
@@ -56,6 +56,11 @@ class AreaAirHumidityViewModuleTest extends AbstractAreaParameterViewTest("Air h
   def testNotSelectableBothActions(robot: FxRobot): Unit =
     val ventilationBtn = getToggleButton(robot, ventilationBtnId)
     val atomiserBtn = getToggleButton(robot, atomiserBtnId)
+
+    eventually(timeout(Span(20000, Milliseconds))) {
+      verifyThat(ventilationBtnId, isEnabled)
+      verifyThat(atomiserBtnId, isEnabled)
+    }
 
     robot.clickOn(atomiserBtnId)
     robot.clickOn(ventilationBtnId)
