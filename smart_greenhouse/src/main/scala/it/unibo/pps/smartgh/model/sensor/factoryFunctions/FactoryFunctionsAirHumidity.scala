@@ -21,5 +21,5 @@ object FactoryFunctionsAirHumidity:
     (value, max) => (value + value * ActionFactor).min(max).min(ValueRange._2)
 
   /** Update the action value when system actions are disabled. */
-  val updateDisableActionValue: (Double, Double, Double) => Double = (value, envValue, randomVal) =>
+  val updateNoActionValue: (Double, Double, Double) => Double = (value, envValue, randomVal) =>
     (value * AreaFactor + envValue * EnvFactor - randomVal).max(ValueRange._1).min(ValueRange._2)

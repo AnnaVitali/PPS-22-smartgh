@@ -50,7 +50,7 @@ class FactoryFunctionsAirHumidityTest extends AnyFunSuite with Matchers with Bef
     val randomVal = 0.0
 
     (1 to 50).foreach { _ =>
-      currentValue = basicValueTest((initialValue, envValue, randomVal), factory.updateDisableActionValue.tupled)
+      currentValue = basicValueTest((initialValue, envValue, randomVal), factory.updateNoActionValue.tupled)
       currentValue should (be < initialValue and be >= envValue - randomVal)
       initialValue = currentValue
     }

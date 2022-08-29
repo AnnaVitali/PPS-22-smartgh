@@ -112,8 +112,8 @@ object AreaDetailsViewModule:
       loadingImg.setVisible(true)
 
       override def initializeParameters(parameters: Seq[AreaParameterView]): Unit =
-        parameters.foreach { v =>
-          parametersVbox.getChildren.add(v)
+        parameters.foreach { p =>
+          parametersVbox.getChildren.add(p)
           parametersVbox.getChildren.add(Separator())
         }
 

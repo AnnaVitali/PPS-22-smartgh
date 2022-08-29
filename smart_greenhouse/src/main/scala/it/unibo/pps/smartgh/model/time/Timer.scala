@@ -59,11 +59,11 @@ object Timer:
         value = t
         tickTask(t)
       onFinishTask = _ => Task(finishTask)
-      timer(value, 1 second)
+      timer(value, InitialValue)
 
     override def changeTickPeriod(period: FiniteDuration): Unit =
       stop()
-      timer(value + 1.second, period)
+      timer(value + InitialValue, period)
 
     override def stop(): Unit = cancelable.cancel()
 

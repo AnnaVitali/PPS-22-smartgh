@@ -1,7 +1,7 @@
 package it.unibo.pps.smartgh.model.sensor
 
 import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
-import it.unibo.pps.smartgh.model.area.AreaGatesState
+import it.unibo.pps.smartgh.model.area.AreaGatesState.Close
 import it.unibo.pps.smartgh.model.area.AreaHumidityState.{MovingSoil, None, Watering}
 import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsSoilHumidity
 import monix.eval.Task
@@ -48,15 +48,12 @@ object SoilHumiditySensor:
       import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsSoilHumidity.*
       Task {
         currentValue = areaComponentsState.humidityActions match
-          case Watering =>
-            areaComponentsState.humidityActions = None
-            updateValueWithWatering(currentValue)
-          case MovingSoil =>
-            areaComponentsState.humidityActions = None
-            updateValueWithMovingSoil(currentValue)
+          case Watering => updateWateringValue(currentValue)
+          case MovingSoil => updateMovingSoilValue(currentValue)
           case _ =>
             areaComponentsState.gatesState match
-              case AreaGatesState.Close => updateValueWithEvaporation(currentValue)
-              case _ => updateValueWithAreaGatesOpen(currentValue, currentEnvironmentValue)
+              case Close => updateEvaporationValue(currentValue)
+              case _ => updateGatesOpenValue(currentValue, currentEnvironmentValue)
+        areaComponentsState.humidityActions = None
         subject.onNext(currentValue)
       }.executeAsync.runToFuture

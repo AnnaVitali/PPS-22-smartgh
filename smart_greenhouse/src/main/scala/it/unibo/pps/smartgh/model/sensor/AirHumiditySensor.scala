@@ -65,7 +65,7 @@ object AirHumiditySensor:
           case (AtomisingActive, _) => updateAtomizeValue(currentValue, maxAtomizeValue)
           case (_, VentilationActive) => updateVentilationValue(currentValue, minVentilateValue)
           case (AtomisingInactive, VentilationInactive) =>
-            updateDisableActionValue(currentValue, currentEnvironmentValue, noActionRandomVal)
+            updateNoActionValue(currentValue, currentEnvironmentValue, noActionRandomVal)
           case _ =>
             areaComponentsState.gatesState match
               case AreaGatesState.Open => currentEnvironmentValue
