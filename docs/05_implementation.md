@@ -47,9 +47,20 @@ Nell'esempio si itera sulla mappa contenete le costanti riguardanti i sensori, c
 
 //TODO descrivere utilizzo di for-comphrension all'interno del codice, inserire esempi di utilizzo nel codice, spiegando anche tali esempi
 
-### 5.1.4 Trait e mixins
-//Anna
-//TODO descrivere utilizzo di traits e mixin nel codice (CAKE PATTERN), inserire esempi di utilizzo nel codice, spiegando anche tali esempi
+### 5.1.4 Trait mixins
+In Scala, le classi possono avere un unica superclasse ma molti _mixins_, attraverso l'utilizzo delle _keywords_ `extends` e `with`.
+
+Un _mixin_ è una classe o un interfaccia in cui alcuni o tutti i suoi metodi e/o proprietà non sono implementati, richiedendo che un'altra classe o interfaccia fornisca le implementazioni mancanti. Gli elementi _mixins_, sono spesso descritti come "inclusi" o "impilati in", piuttosto che "ereditati".
+
+Il _mixins_, utilizzato con le interfaccie, consente ai `traits`, di poter essere concatenati utilizzando la composizione piuttosto che l'ereditarietà.
+
+Per il progetto, in particolare nella realizzazione dei diversi _Cake pattern_, si è fatto utilizzo dei _mixins_, infatti ad esempio, al termine di ogni modulo: Model, View o Controller, troviamo il `trait Interface` dichiarato nel seguente modo:
+
+```scala
+trait Interface extends Provider with Component
+```
+
+Tale dichiarazione, siginifica che l'elemento `Interface`, ha come supertipo `Provider` e un _mixin_ con `Compoenent`, che li consente di utilizzare le sue proprietà.
 
 ## 5.2 Utilizzo del paradigma logico
 Il team di sviluppo, inizialmente, si è posto come obiettivo per la realizzazione del progetto, l'utilizzo del paradigma logico. In fase di progettazione, quindi, ci si è interrogati su come poter utilizzare la programmazione logica all'interno del progetto, giungendo alla conclusione che il modo migliore per poterlo fare, nel caso della nostra applicazione, consisteva nell'utilizzo di _Prolog_, come database, sul quale effettuare delle interrogazioni per poter ottene informazioni relative alle piante e alle città.
