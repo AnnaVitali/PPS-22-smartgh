@@ -42,11 +42,14 @@ object AreaViewModule:
       override val component: VBox = loader.load[VBox]
 
       @FXML
-      private var params: VBox = _
+      protected var params: VBox = _
+      
       @FXML
-      private var rect: VBox = _
+      protected var rect: VBox = _
+      
       @FXML
-      private var areaBt: Button = _
+      protected var areaBt: Button = _
+      
       //noinspection VarCouldBeVal
       @FXML
       private var plant: Label = _

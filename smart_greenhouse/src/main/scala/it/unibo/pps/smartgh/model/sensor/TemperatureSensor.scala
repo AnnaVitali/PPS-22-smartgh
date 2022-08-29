@@ -58,6 +58,6 @@ object TemperatureSensor:
               currentValue,
               areaComponentsState.temperature
             )
-          case _ =>
+          case _ => currentValue
         subject.onNext(currentValue)
       }.executeAsync.runToFuture

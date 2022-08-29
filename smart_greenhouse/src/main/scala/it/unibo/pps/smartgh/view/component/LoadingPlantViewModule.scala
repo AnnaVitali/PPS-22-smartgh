@@ -41,11 +41,11 @@ object LoadingPlantViewModule:
 
       //noinspection VarCouldBeVal
       @FXML
-      private var textLabel: Label = _
+      protected var textLabel: Label = _
 
       //noinspection VarCouldBeVal
       @FXML
-      private var progressIndicator: ProgressIndicator = _
+      protected var progressIndicator: ProgressIndicator = _
 
       textLabel.setText("Loading of plant data in progress, wait a few moments")
       simulationMVC.simulationView.changeSceneButtonBehaviour(visibility = false)

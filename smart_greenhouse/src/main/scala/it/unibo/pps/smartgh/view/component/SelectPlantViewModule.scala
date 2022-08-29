@@ -62,31 +62,31 @@ object SelectPlantViewModule:
       private val countText = "Count: "
 
       @FXML
-      private var selectablePlantsBox: VBox = _
+      protected var selectablePlantsBox: VBox = _
 
       //noinspection VarCouldBeVal
       @FXML
-      private var selectedPlantsBox: VBox = _
+      protected var selectedPlantsBox: VBox = _
 
       //noinspection VarCouldBeVal
       @FXML
-      private var selectYourPlantLabel: Label = _
+      protected var selectYourPlantLabel: Label = _
 
       //noinspection VarCouldBeVal
       @FXML
-      private var plantsSelectedLabel: Label = _
+      protected var plantsSelectedLabel: Label = _
 
       //noinspection VarCouldBeVal
       @FXML
-      private var countLabel: Label = _
+      protected var countLabel: Label = _
 
       //noinspection VarCouldBeVal
       @FXML
-      private var numberPlantsSelectedLabel: Label = _
+      protected var numberPlantsSelectedLabel: Label = _
 
       //noinspection VarCouldBeVal
       @FXML
-      private var errorLabel: Label = _
+      protected var errorLabel: Label = _
 
       selectYourPlantLabel.setText(selectYourPlantText)
       plantsSelectedLabel.setText(plantsSelectedText)

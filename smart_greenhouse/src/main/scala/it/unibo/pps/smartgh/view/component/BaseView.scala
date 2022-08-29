@@ -32,11 +32,11 @@ object BaseView:
 
     //noinspection VarCouldBeVal
     @FXML
-    private var titleLabel: Label = _
+    protected var titleLabel: Label = _
 
     //noinspection VarCouldBeVal
     @FXML
-    private var subtitleLabel: Label = _
+    protected var subtitleLabel: Label = _
 
     @FXML
     override var changeSceneButton: Button = _

@@ -75,37 +75,37 @@ object EnvironmentViewModule:
 
       //noinspection VarCouldBeVal
       @FXML
-      private var timeSpeedSlider: Slider = _
+      protected var timeSpeedSlider: Slider = _
 
       @FXML
-      private var setDayLabel: Label = _
-
-      //noinspection VarCouldBeVal
-      @FXML
-      private var setLocationLabel: Label = _
-
-      @FXML
-      private var setTemperatureLabel: Label = _
-
-      @FXML
-      private var setHumidityLabel: Label = _
-
-      @FXML
-      private var setUvIndexLabel: Label = _
-
-      @FXML
-      private var setLuxLabel: Label = _
-
-      @FXML
-      private var setConditionLabel: Label = _
+      protected var setDayLabel: Label = _
 
       //noinspection VarCouldBeVal
       @FXML
-      private var timeElapsedLabel: Label = _
+      protected var setLocationLabel: Label = _
+
+      @FXML
+      protected var setTemperatureLabel: Label = _
+
+      @FXML
+      protected var setHumidityLabel: Label = _
+
+      @FXML
+      protected var setUvIndexLabel: Label = _
+
+      @FXML
+      protected var setLuxLabel: Label = _
+
+      @FXML
+      protected var setConditionLabel: Label = _
 
       //noinspection VarCouldBeVal
       @FXML
-      private var helpButton: Button = _
+      protected var timeElapsedLabel: Label = _
+
+      //noinspection VarCouldBeVal
+      @FXML
+      protected var helpButton: Button = _
 
       helpButton.setOnMouseClicked { _ =>
         val helpView = HelpView(new Stage())
