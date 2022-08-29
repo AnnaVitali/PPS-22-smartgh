@@ -368,7 +368,7 @@ Di seguito verranno descritte nel particolare le singole componenti.
 
 #### Model per l'aggiornamento dei valori ambientali
 
-Il model viene racchiuso nel `EnvironmentModelModule` (vedi figura), al cui interno troviamo:
+Il model viene racchiuso nel `EnvironmentModelModule` (vedi [Fig. 4.5.1.2]), al cui interno troviamo:
 -	il trait `EnvironmentModel`, che espone metodi per:
     - ottenere tutti i valori ambientali aggiornati, da mostrare nell’interfaccia utente
     - ottenere i singoli valori ambientali aggiornati per ogni tipologia di sensore che verrà installato all’interno delle aree
