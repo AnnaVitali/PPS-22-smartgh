@@ -1,4 +1,4 @@
-# 8. Guida utente
+# Guida utente
 
 All’avvio dell’applicazione, l’utente dovrà selezionare il comune di ubicazione della serra ([Fig. 8.1]). Successivamente, dovrà  scegliere una o più piante da coltivare all’interno di essa, tra le 25 specie che verranno mostrate nell’apposita schermata ([Fig. 8.2]).
 
