@@ -620,40 +620,60 @@ Il compito principale del controller è quello di richiamare  la creazione dell'
 Per realizzare il dettaglio delle aree si è deciso di implementare ancora una volta il pattern _MVC_ e il _Cake pattern_
 
 
-In particolare come si può vedere nella [Fig. 4.4.2.1], la classe `AreaDetailsMVC` racchiude i  componenti: `AreasModel`, `AreaDetailsController` e `AreaDetailsView` derivanti dai rispettivi moduli.
+In particolare come si può vedere nella [Fig. 4.6.2.1], la classe `AreaDetailsMVC` racchiude i  componenti: `AreasModel`, `AreaDetailsController` e `AreaDetailsView` derivanti dai rispettivi moduli.
 
 Tale classe verrà istanziata nel momento in cui un utente decide di visionare il dettaglio di un'area, scelta tra le disponibili che compongono la serra. Alla sua istanziazione essa creerà, a seguito dell'implementazione del cake pattern, tutti gli elementi e i loro collegamenti, rendendoli così accedibili liberamente.
 
 <div align="center">
   <img src="img/areaDetailsMVC.png" />
-  <p>  Fig. 4.4.2.1 - Rappresentazione MVC del dettaglio di un'area </p>
+  <p>  Fig. 4.6.2.1 - Rappresentazione MVC del dettaglio di un'area </p>
 </div>
 
-[Fig. 4.4.2.1]: img/areaDetailsMVC.png
+[Fig. 4.6.2.1]: img/areaDetailsMVC.png
 
 #### Model del dettaglio area
 Come si può vedere nella [Fig. 4.4.2.1] il model è lo stesso implementato per le singole aree, questo poichè risulta necessario affinchè vengano memorizzate le operazioni effettuate dull'utente in modo da poter aggiornare, con una determinata frequenza il valore rilevato dai sensori. Per questo motivo si rimanda alla [Sec. 4.4.1.4.1](#44141-Model-della-singola-area) per i dettagli.
 
 Il model in questione risulterà anche condiviso con gli MVC che gestiscono i sensori presenti all'interno dell'area //TODO riferimento alla sezione area parameter
 
-#### View del dettaglio area
-//TODO
+#### View del dettaglio di un'area
+La view del dettaglio di un'area viene racchiusa nell’`AreaDetailsViewModule`, come raffigurato nella figura [Fig. 4.6.2.2]. Oltre agli elementi necessari al _cake pattern_, all’interno troviamo:
+  -	il `trait AreaDetailsView`, il quale estende da `ViewComponent` e anche da `ContiguousSceneView` perché richiede delle operazioni specifiche prima di passare alla scena successiva, come verrà descritto nel paragrafo successivo sul modulo del controller. Espone metodi per consentire l’aggiornamento delle informazioni della view relative:
+    - alle piante (nome della pianta, descrizione e immagine), 
+    - al tempo virtuale,
+    - allo stato dell’area,
+    - ai messaggi di aiuto all’utente in caso di allarme;
+  -	la classe `AreaDetailsViewImpl`, la quale detiene l’implementazione dell’interfaccia `AreaDetailsView`.
+
+<div align="center">
+  <img src="img/area_details_view.png" />
+  <p>  Fig. 4.6.2.2 - View del dettaglio di un'area </p>
+</div>
+
+[Fig. 4.6.2.2]: img/area_details_view.png
+
 
 #### Controller del dettaglio area
-Il controller viene racchiuso all'interno del modulo `AreaDetailsControllerModule` [Fig. 4.4.2.1], il quale include:
+Il controller viene racchiuso all'interno del modulo `AreaDetailsControllerModule` [Fig. 4.6.2.3], il quale include:
 
-- `trait AreaDetailsController`, che definisce i metodi che possono essere richiamati sul controller, in particolare quello per inizializzare la view. Il trait estende un ulteriore trait rappresentato da `SceneController` necessario per poter ritornare alla schermata principale dell'applicazione.
+- `trait AreaDetailsController`, che definisce i metodi che possono essere richiamati sul controller, in particolare quello per inizializzare la view. Il trait estende un ulteriore trait rappresentato da `SceneController` necessario per poter ritornare alla schermata principale dell'applicazione e per terminare l'aggiornamento delle informazioni alla view.
 - la classe `AreaDetailsControllerImpl`, che implementa i metodi dell'interfaccia appena descritta e viene racchiusa all'interno del `trait Component`.
 - `trait Component`il quale contiene il campo `context`di tipo `Requirements`, il quale viene utilizzato per specificare le dipendenze che legano il controller alla view e al model. Questo è necessario affinchè il controller possa elaborare le operazioni effettuate dall'utente aggiornando di conseguenza il model.
 - `trait Provider` che si occupa di detenere l'oggetto `AreaController`.
 - `trait Interface` che si occupa di completare e connettere tutti i componenti del modulo per renderli utilizzabili nell'oggetto che istanzierà l'MVC.
 
-Il compito principale del controller è quello di richiamare la creazione dell'interfaccia grafica rappresentante il dettaglio dell'area. Per assoolvere a tale compito il controller provvede, mediante la classe di utility `AreaSensorHelper`, alla creazione degli MVC dei incaricati della gestione dei sensori presenti all'interno dell'area, specificatamente:
+Il compito principale del controller è quello di richiamare la creazione dell'interfaccia grafica rappresentante il dettaglio dell'area. Per assolvere a tale compito il controller provvede, mediante la classe di utility `AreaSensorHelper` dove si trova nel model, alla creazione degli MVC dei incaricati della gestione dei sensori presenti all'interno dell'area, specificatamente:
 - `AreaAirHumidityMVC`, che gestisce le azioni riguardo al sensore che rileva l'umidità dell'aria all'interno dell'area;
-- `AreaLuminosityMVC`,che gestisce le azioni riguardo al sensore che rileva la luminosità dell'area;
+- `AreaLuminosityMVC`, che gestisce le azioni riguardo al sensore che rileva la luminosità dell'area;
 - `AreaTemperatureMVC`, che gestisce le azioni riguardo al sensore che rileva la temperatura dell'area;
 - `AreaSoilMoistureMVC`, che gestisce le azioni riguardo al sensore che rileva l'umidità del suolo dell'area.
-//TODO IMMAGINE
+
+<div align="center">
+  <img src="img/area_details_controller.png" />
+  <p>  Fig. 4.6.2.3 - Controller del dettaglio di un'area </p>
+</div>
+
+[Fig. 4.6.2.3]: img/area_details_controller.png
 
 #### Area parameter
 //TODO
