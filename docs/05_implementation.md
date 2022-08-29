@@ -223,7 +223,32 @@ Gli elementi per cui si ha una coverge più elevata sono quelli che fanno riferi
 //TODO descrivere modalità di assegnazzione e svolgimento dei task
 
 ### 5.7.1 Folin Veronika
-//TODO illustrare lavoro svolto
+
+Inizialmente mi sono occupata della selezione delle piante da coltivare all’interno della serra e, in particolare, ho sviluppato:
+-	l’oggetto di utility `UploadPlants`, che si occupa di convertire un file testuale (contenente i nomi e gli id delle piante selezionabili) in un file prolog che verrà utilizzato dal modulo `PlantSelectorModelModule` per visualizzare le tipologie di coltivazioni disponibili;
+-	la classe `Plant` che si compone dell’interfaccia che rappresenta la pianta selezionata dall’utente e che racchiude, oltre al nome e all’identificatore, le informazioni ottenute mediante una richiesta http come l’immagine, la descrizione e i valori ambientali ottimali per la crescita della stessa.
+
+All’interno del modulo `Environment`, ho gestito tramite reactive programming (sfruttando la libreria `monix`) la richiesta per reperire le previsioni metereologiche in quanto questa operazione può richiedere diverso tempo e può influire sulla reattività dell’applicazione.
+
+Dopodiché mi sono occupata della realizzazione dei componenti per la visualizzazione dello stato aggiornato della simulazione, ovvero dei dati relativi all’ambiente in cui è immersa la serra e dello scorrere del tempo. Nello specifico mi sono occupata dell’implementazione:
+-	del modulo `EnvironmentMVC` e dei rispettivi sottomoduli `EnvironmentModelModule`, `EnvironmentViewModule` ed `EnvironmentControllerModule`;
+-	di `TimeModel`, la cui interfaccia espone metodi per controllare il `Timer` sviluppato da Elena. La realizzazione di questo componente ha richiesto l’utilizzo di elementi della programmazione asincrona, forniti dalla libreria `monix`.
+
+L’introduzione di `EnvironmentMVC` ha richiesto la collaborazione con gli altri membri del gruppo per collegare l’elemento ai seguenti componenti:
+-	`Sensor`, al fine di notificarli quando è disponibile un aggiornamento dei valori ambientali. A tale scopo si sono sfruttati elementi della programmazione reattiva;
+-	`GreenHouseDivisionMVC`, al fine di inizializzare la visualizzazione delle aree.
+
+Successivamente, insieme al resto del gruppo, mi sono dedicata allo sviluppo del componente MVC principale dell’applicazione. In particolare, ho realizzato:
+-	`SimulationMVC`;
+-	`SimulationController`, che si occupa di detenere i riferimenti ad istanze inizializzate da altri componenti e di mantenere aggiornati i vari componenti della simulazione (es: `EnvironmentMVC`, `AreaDetailsMVC`) in base allo scorrere del tempo, anche attraverso l’utilizzo della programmazione reattiva. 
+
+Infine, ho creato e gestito il componente `HelpView` che si occupa di visualizzare la guida utente all’interno dell’applicazione.
+
+Per quanto riguarda la parte di testing, ho realizzato le seguenti classi di test:
+-	`PlantTest`
+-	`UploadPlantTest`
+-	`EnvironmentViewModuleTest`
+
 
 ### 5.7.2 Mengozzi Maria
 Nello sviluppo del progetto mi sono occupata insieme ad _Elena_ della selezione della città in cui è ubicata la serra. Specificatamente ho realizzato:
