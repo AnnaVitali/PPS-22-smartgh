@@ -67,6 +67,11 @@ Questo file, `cities.pl`, contiene le regole sulle città, scritte in questo mod
 citta("Bologna").
 citta("Cesena").
 ``` 
+Il file `cities.pl` contiene, inoltre, una regola `ricerca_citta` che consente di convertire i nomi delle città in array di caratteri, in modo da facilitare il meccanismo dei ricerca.
+
+```prolog
+ricerca_citta([H|T], X) :- citta(X), atom_chars(X, [H|T]).
+```
 
 Infine, `SelectCityModelModule`, utilizza questo file e la libreria TuProlog, per poter visualizzare i diversi nomi delle città e implementare il _live search_. Infatti, ogni qual volta l'utente inserisce dei caratteri nel `TextField`, della schermata, questi caratteri vengono utilizatti, per definire il _goal_ che si intende risolvere e determinare la città che l'utente vuole selezionare.
 
@@ -307,7 +312,7 @@ Una volta che tutti gli MVC sono stati implementati, assieme alle altre compagne
 
 Nell' ultimo sprint, mi sono dedicata assieme agli altri membri del gruppo, ad operazioni di refactoring e di ottimizzazione del codice, per poter raffinare e migliorare ulteriormente la soluzione proposta.
 
-Per quanto concerne l'attività di testing, invece, ho provveduto alla realizzazione dei seguenti tests:
+Per quanto concerne l'attività di testing, invece, ho effettuato la realizzazione dei seguenti tests:
 
 - `PlantSelectorModelModuleTest`;
 - `AreaComponentsStateTest`;
