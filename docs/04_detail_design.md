@@ -812,8 +812,12 @@ In Scala è particolarmente semplice implementare tale pattern in quanto gli obj
 All'interno del progetto è stato ampiamente utilizzato il _pattern Strategy_, ossia l'incapapsulamento di un algoritmo all'interno di una classe, mantenendo un'interfaccia generica, in quanto direttamente supportato nel linguaggio come passaggio di funzioni _higher-order_ e per fare si che le classi che lo utilizzano rendano dinamico il proprio comportamento utilizzando in modo intercambiabile le diverse implementazioni degli algoritmi definiti nell'interfaccia generica.
 
 ### Template method
-// Ele
+Il pattern _Template Method_ è un pattern comportamentale basato sulle classi. Permette di catturare il _template_ dell’algoritmo attraverso dei metodi astratti che verranno poi implementati nelle sottoclassi. Grazie a questo pattern è possibile fattorizzare in una classe la parte invariante di un algoritmo e di lasciare alle sottoclassi di implementare il comportamento che può variare, favorendo un maggiore riuso del codice.
 
+Questo pattern è utilizzato all’interno del progetto definendo le seguenti classi astratte:
+- `AbstractViewComponent`, pe rappresentare i componenti della view
+- `AbstractSensor`, utilizzato per la definizione dei sensori
+- `AbstractParameterView` e AbstractParameterController per i componenti view e controller dei parametri nel dettaglio dell’area.
 
 ## 4.9 Organizzazione del codice
 
