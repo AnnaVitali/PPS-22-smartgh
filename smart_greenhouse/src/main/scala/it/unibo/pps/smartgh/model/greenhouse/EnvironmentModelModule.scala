@@ -73,6 +73,7 @@ object EnvironmentModelModule:
           "uv" -> ch("uv"),
           "lux" -> getLuxFromUVIndex(ch("uv").toString, ch("is_day").toString.toInt, ch("cloud").toString.toInt),
           "humidity" -> ch("humidity"),
+          "precipitation" -> ch("precip_mm"),
           "condition" -> ch("condition")
             .asInstanceOf[Map[String, Any]]
             .get("text")

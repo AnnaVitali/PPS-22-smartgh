@@ -112,6 +112,7 @@ object EnvironmentControllerModule:
         environmentModel.subjectTemperature.onNext(values("temp_c").asInstanceOf[Double])
         environmentModel.subjectHumidity.onNext(values("humidity").asInstanceOf[BigInt].doubleValue)
         environmentModel.subjectLuminosity.onNext(values("lux").asInstanceOf[Int].toDouble)
+        environmentModel.subjectSoilMoisture.onNext(values("precipitation").asInstanceOf[Double])
 
   /** Trait that encloses the controller for environment values management and time visualization. */
   trait Interface extends Provider with Component:
