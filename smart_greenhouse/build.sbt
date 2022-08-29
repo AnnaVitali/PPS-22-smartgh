@@ -63,5 +63,8 @@ wartremoverWarnings ++= Warts.allBut(
   Wart.ThreadSleep,
   Wart.Nothing,
   Wart.Throw,
-  Wart.ToString
+  Wart.ToString,
+  Wart.DefaultArguments,
+  Wart.AutoUnboxing,
+  Wart.IsInstanceOf
 )
