@@ -257,7 +257,7 @@ Il Controller per la selezione delle piante ([Fig. 4.3.2.4]), è stato racchiuso
 Una volta, quindi, che tutti gli elementi che costituiscono il _pattern MVC_ sono stati realizzati, `PlantSelectorMVC`, semplicemente estendendo il `trait Interface` di ognuno di loro è in grado di ottenere tutte le loro proprietà e le dipendenze che li legano sono già state risolte al momento della loro creazione, quindi, `PlantSelectorMVC` non si deve preoccupare di questo aspetto, ma può passare direttamente al loro utilizzo.
 
 <div align="center">
-  <img src="img/plant.png" />
+  <img src="img/plant_selector_controller.png" />
   <p> Fig. 4.3.2.4 - Controller per la selezione delle piante </p>
 </div>
 
