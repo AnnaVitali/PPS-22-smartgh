@@ -182,6 +182,17 @@ simulationMVC.simulationController.subscribeTimerValue(areaDetailsView.updateTim
 
 -	mantenere reattiva l’applicazione a seguito di richieste http che possono inficiare sulla user experience (es: caricamento dati nei componenti `Plant` ed `Environment`)
 
+Per quanto riguarda gli aggiornamenti degli elementi della GUI, che sono stati implementati mediante l'utilizzo della libreria [JavaFX](https://openjfx.io/), si è disposto del metodo `runLater()` della classe `Platform` presente all'interno della stessa libreria.
+Tale metodo prende in input un oggetto di tipo `Runnable` che verrà eseguito dal _JavaFX Application Thread_ quando questo avrà il tempo per eseguirlo. Ciò permette, quindi, di utilizzare un meccanismo asincrono diverso dal `Task`: quest'ultimo, infatti, non avrebbe funzionato in quanto non può modificare lui stesso il _JavaFX scene graph_.
+
+```scala
+override def updateState(state: String): Unit =
+        Platform.runLater { () =>
+          statusLabel.setText(state)
+          statusLabel.getStyleClass.setAll(state)
+        }
+```
+
 ## 5.4 Richieste dei dati
 
 Per reperire i dati relativi alle previsioni metereologiche della città in cui è ubicata la serra e quelli relativi alle piante si è fatto uso di richieste http. A tal fine si è fatto uso della libreria _requests_ per permettere di effettuare la richiesta al rispettivo url: [weatherapi](https://www.weatherapi.com/api-explorer.aspx), per le previsioni meteorologiche, e [open.plantbook](https://open.plantbook.io/), per le piante. 
