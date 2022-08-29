@@ -701,6 +701,7 @@ L'interfaccia `SensorWithTimer` estende l'interfaccia `Sensor`, di conseguenza `
 
 Ogni qual volta il sensore riceve l'evento del timer, che lo informa del fatto che il tempo specificato è trascorso, egli si occuperà a rilevare il nuovo valore e di emettere tale valore sul flusso dell'`observable` dedicato, in modo tale da infromare l'area del nuovo parametro rilevato.
 
+Le classi `Sensor` e `SensorWithTimer`, vengono inizialmente implementate dalle classi astratte `AbstractSensor` e `AbstractSensorWithTimer`, di fatto tramite queste classi astratte, viene lasciato alle classi dei sensori solamente il metodo ` protected computeNextSensorValue`, in questi caso quindi possiamo dire di aver utilizzato il _pattern template method_ dove le classi astratte rappresentano il template dei sensori e il metodo `computeNextSensorValue`, contiene proprio il comportamento che le sottoclassi devono implementare.
 
 #### Sensore per la luminosità
 
