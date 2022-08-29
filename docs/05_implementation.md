@@ -276,7 +276,47 @@ Per la parte di testing mi sono occupata della realizzazione delle seguenti clas
 Inoltre alcune delle funzionalità da me implementate sono presenti anche nelle altre classi di test, come ad esempio in //TODO
 
 ### 5.7.3 Vitali Anna 
-//TODO illustrare lavoro svolto
+Nelle fasi iniziali di implementazione del progetto, mi sono impegnata nella realizzazione del meccanismo di selezione delle piante, realizzando gli elementi del _pattern MVC_ che si occupano di implementare questa funzionalità, che sono:
+
+- `PlantSelectorModelModule`, il quale rappresenta il modulo che detiene il Model per la selezione delle piante, presenti nel file _Prolog_ generato dalla classe _utility_, sviluppata da _Veronika_. 
+
+    Dopo aver sviluppato questa parte, insieme alla collega _Elena_, abbiamo provveduto ad effettuare il refactoring delle parti in comune relative dell'utilizzo di _Prolog_, sia per la seslezione delle piante, che per la selezione delle città;
+- `SelectPlantViewModule`, rappresentante il modulo che detiene la View per la selezione delle piante, che si occupa di gestire i componenti dell'interfaccia grafica e dell'interazione con l'utente;
+- `PlantSelectorControllerModule`, il quale rappresenta il modulo che detiene il Controller per il meccanismo di selezione delle piante, che svolge la funzione di intermediario fra View e Model;
+- `PlantSelectorMVC`, che rappresenta il compoenente che detiene tutti gli elementi del _pattern MVC_, per la selezione delle piante.
+
+Dopodichè, mi sono dedicata alla realizzazione della View di fine simulazione, realizzando la classe `FinishSimulationView`.
+
+Nel secondo Sprint, invece, mi sono concentrata maggiromente sulla realizzazione dei sensori, dei loro meccanismi di aggiornamento e notifica definendo, inizialmente assieme ad _Elena_, l'architettura generale dei sensori, in particolare abbiamo realizzato: le'interfacce `Sensor` e `SensorWithTimer`, le classi astratte `AbstractSensor` e `AbstractSensorWithTimer` e la classe `AreaComponentsState`. 
+
+Successivamente, mi sono dedicata all'implementazione dei sensori relativi alla luminosità e alla temperatura, realizzando le classi:
+
+- `LuminositySensor`, rappresentante il sensore dedicato alla luminosità;
+- `FactoryFunctionsLuminosity`, la quale contiene le funzioni che possono essere applicate per calcolare la luminosità attuale, all'interno dell'area della serra, in base a specifiche condizioni;
+- `TemperatureSensor`, rappresentante il sensore dedicato alla temperatura;
+- `FactoryFunctionsTemperature`, che contiene le funzioni che possono essere applicate, per poter determinare il valore attuale della temperatura, all'interno dell'area in base a specifiche condizioni.
+
+Quando tutti i sensori sono stati completati, assieme alle colleghe _Veronika_ ed _Elena_, abbiamo provveduto a collegare questi ultimi all'`EnvironmentModelModule` e successivamente asieme a _Maria_, all'`AreaModelModule`.
+
+Infine, siccome durante l'utilizzo dell'applicazione, si è visto che i dati delle piante impiegavano un discreto tempo per venire caricati completamente, per mantenere l'applicazione reattiva e fornire informazioni all'utente, ho provveduto a realizzare il compoenente `LoadingPlantMVC` e i suoi elementi:
+
+- `loadingPlantControllerModule`, il quale si occupa di gestire l'interazione fra la View e il Model, che in questo caso è rappresentato sempre da `PlantSelectorModelModule`;
+- `loadingPlantViewModule`, che si occupa di gestire gli elementi dell'interfaccia grafica che occorre mostrare all'utente, per il caricamento dei dati.
+
+Una volta che tutti gli MVC sono stati implementati, assieme alle altre compagne di progetto, abbiamo provveduto alla rifattorizzazione di `SimulatioinView` e alla definizione di `SimulationController`, nonchè alla realizzazione di `SimulationMVC`. Infine, mi sono occupata di raccogliere gli elementi comuni relativi ai diversi Controller dell'applicazione, realizzando l'interfaccia `SceneController`.
+
+Nell' ultimo sprint, mi sono dedicata assieme agli altri membri del gruppo, ad operazioni di refactoring e di ottimizzazione del codice, per poter raffinare e migliorare ulteriormente la soluzione proposta.
+
+Per quanto concerne l'attività di testing, invece, ho provveduto alla realizzazione dei seguenti tests:
+
+- `PlantSelectorModelModuleTest`;
+- `AreaComponentsStateTest`;
+- `FactoryFunctionsLuminosityTest`;
+- `FactoryFunctionsTemperaturetest`;
+- `LuminositySensorTest`;
+- `TemperatureSensortest`;
+- `FinishSimulationViewTest`;
+- `SelectPlantViewModuleTest`.
 
 ### 5.7.4 Yan Elena
 Durante il primo _sprint_ mi sono occupata soprattutto delle classi di _view_ per fornire un’applicazione concreta con cui l’utente potesse interagire. In particolare, usando le librerie `ScalaFX` e `JavaFX`, ho realizzato le classi:
