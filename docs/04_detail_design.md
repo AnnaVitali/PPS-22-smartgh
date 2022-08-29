@@ -31,7 +31,6 @@ Tutte le view estendono da tale classe, in modo da creare componenti modulari ed
 
 
 ### ContiguousSceneView
-
 `ContiguousSceneView` (vedi [Fig. 4.1.2]) è un’interfaccia generica utile per definire un componente della view che ha la necessità di richiedere al proprio controller di effettuare operazioni particolari prima di notificare la view principale di visualizzare la nuova scena.
 
 L’interfaccia richiede che il nuovo elemento view da impostare sia di un tipo generico `A`, sottotipo di `Parent` ossia una classe di `JavaFX` che rappresenta nodi con figli.
@@ -44,14 +43,20 @@ L’interfaccia richiede che il nuovo elemento view da impostare sia di un tipo 
 [Fig. 4.1.2]: img/contiguousSceneView.png
 
 ### SceneController
-\\TODO Anna
+Gli elementi comuni dei diversi Controller sono stati racchiusi all'interno dell'interfaccia `SceneController`, contenente il metodo `beforeNextScene`, il quale si occupa di eseguire le operazioni che devono essere effettuate, prima di poter cambiare scena.
+
+<div align="center">
+  <img src="img/contiguousSceneView.png" />
+  <p> Fig. 4.1.3 - Architettura di SceneController</p>
+</div>
+
+[Fig. 4.1.3]: img/scene_controller.png
 
 ## 4.2 Gestione della simulazione
 
 La struttura articolata dell'applicazione ha introdotto la necessità di sviluppare un elemento che coordinasse i vari componenti model, view e controller, collocandosi ad un livello superiore. Nella sezione seguente si discuterà il design di tale elemento.
 
 ### 4.2.1 SimulationMVC
-
 `SimulationMVC` (vedi [Fig. 4.2.1.1]) rappresenta l’elemento MVC principale della simulazione. Ad alto livello, questo componente si colloca al di sopra di tutti gli altri in quanto permette di:
 -	mantenere aggiornati i vari componenti della simulazione in base allo scorrere del tempo;
 -	detenere i riferimenti ad istanze inizializzate da altri componenti che possono essere accedute da coloro che ne necessitano;
