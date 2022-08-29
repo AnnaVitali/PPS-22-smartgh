@@ -40,10 +40,10 @@ object GHViewModule:
 
       //noinspection VarCouldBeVal
       @FXML
-      var env: GridPane = _
+      private var env: GridPane = _
 
       @FXML
-      var scroll: ScrollPane = _
+      private var scroll: ScrollPane = _
 
       env.setHgap(5)
       env.setVgap(5)

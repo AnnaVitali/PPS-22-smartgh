@@ -42,14 +42,14 @@ object AreaViewModule:
       override val component: VBox = loader.load[VBox]
 
       @FXML
-      var params: VBox = _
+      private var params: VBox = _
       @FXML
-      var rect: VBox = _
+      private var rect: VBox = _
       @FXML
-      var areaBt: Button = _
+      private var areaBt: Button = _
       //noinspection VarCouldBeVal
       @FXML
-      var plant: Label = _
+      private var plant: Label = _
 
       override def paintArea(plantName: String, statusColor: String, par: Map[String, Double]): Unit =
         Platform.runLater(() =>

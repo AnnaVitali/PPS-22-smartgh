@@ -33,7 +33,7 @@ object FinishSimulationView:
 
     //noinspection VarCouldBeVal
     @FXML
-    var simulationEndedLabel: Label = _
+    private var simulationEndedLabel: Label = _
 
     Platform.runLater(() => simulationEndedLabel.setText("Simulation ended!"))
     simulationMVC.simulationView.changeSceneButtonBehaviour(

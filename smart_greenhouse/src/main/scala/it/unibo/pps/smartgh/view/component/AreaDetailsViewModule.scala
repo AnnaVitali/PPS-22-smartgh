@@ -72,39 +72,39 @@ object AreaDetailsViewModule:
 
       //noinspection VarCouldBeVal
       @FXML
-      var plantNameLabel: Label = _
+      private var plantNameLabel: Label = _
 
       //noinspection VarCouldBeVal
       @FXML
-      var plantDescriptionLabel: Label = _
+      private var plantDescriptionLabel: Label = _
 
       //noinspection VarCouldBeVal
       @FXML
-      var plantImage: ImageView = _
+      private var plantImage: ImageView = _
 
       //noinspection VarCouldBeVal
       @FXML
-      var timerLabel: Label = _
+      private var timerLabel: Label = _
 
       //noinspection VarCouldBeVal
       @FXML
-      var statusLabel: Label = _
+      private var statusLabel: Label = _
 
       //noinspection VarCouldBeVal
       @FXML
-      var parametersVbox: VBox = _
+      private var parametersVbox: VBox = _
 
       //noinspection VarCouldBeVal
       @FXML
-      var alarmPane: Pane = _
+      private var alarmPane: Pane = _
 
       //noinspection VarCouldBeVal
       @FXML
-      var alarmLabel: Label = _
+      private var alarmLabel: Label = _
 
       //noinspection VarCouldBeVal
       @FXML
-      var loadingImg: ProgressIndicator = _
+      private var loadingImg: ProgressIndicator = _
 
       simulationMVC.simulationView.changeSceneButtonBehaviour("Back", _ => setNewScene())
       simulationMVC.simulationView.changeSceneButtonStyle("defaultButton")

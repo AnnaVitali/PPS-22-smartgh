@@ -44,11 +44,11 @@ object SelectCityViewModule:
 
       //noinspection VarCouldBeVal
       @FXML
-      var selectCityTextField: TextField = _
+      private var selectCityTextField: TextField = _
 
       //noinspection VarCouldBeVal
       @FXML
-      var errorLabel: Label = _
+      private var errorLabel: Label = _
 
       autoCompletionBinding = TextFields
         .bindAutoCompletion(
