@@ -116,8 +116,71 @@ override def getPlantsSelectedIdentifier: List[String] =
 ``` 
 
 ## 5.3 Programmazione reattiva e asincrona
-//Vero
-//TODO parlare dell'utilizzo della porgrammazione reattiva e asincrona all'interno del programma eventualmente inserire sottosezioni con esempi di utilizzo nel codice
+
+Per lo sviluppo del progetto si è fatto uso sia della programmazione reattiva (di tipo event-based) che di quella asincrona, scegliendo di sfruttare i metodi forniti dalla libreria [monix.io](https://monix.io/).
+
+I meccanismi di programmazione asincrona, come `Task`, sono stati utilizzati per effettuare quelle operazioni che richiedono un periodo di tempo considerevole e possono risultare bloccanti per il flusso di controllo dell'applicazione. Ad esempio:
+
+```scala
+    override def setSpeed(speed: Double): Unit =
+      Task {
+        timer.changeTickPeriod(timeSpeed(speed))
+      }.executeAsync.runToFuture
+```
+
+Per quanto riguarda la programmazione reattiva, sono stati sfruttati meccanismi come il data type `Observable` e la classe astratta `ConcurrentSubject` che sono stati impiegati in diversi aspetti. Ad esempio, per: 
+
+-	la gestione della logica del `Timer`
+
+```scala
+    private def timer(from: FiniteDuration, period: FiniteDuration): Unit =
+      cancelable = Observable
+        .fromIterable(from.toSeconds to duration.toSeconds)
+        .throttle(period, 1)
+        .map(Duration(_, TimeUnit.SECONDS))
+        .foreachL(consumer)
+        .doOnFinish(onFinishTask)
+        .runToFuture
+```
+
+- aggiornare periodicamente la visualizzazione dello scorrere del tempo nelle varie schermate
+
+```scala
+private val subjectTimerValue = ConcurrentSubject[String](MulticastStrategy.publish)
+``` 
+
+```scala
+override def notifyTimeValueChange(timeValue: String): Unit =
+        Task {
+          subjectTimerValue.onNext(timeValue)
+        }.executeAsync.runToFuture
+```
+
+```scala
+override def subscribeTimerValue(callback: String => Unit): Unit =
+        subjectTimerValue.subscribe(
+          s => {
+            Task {
+              callback(s)
+            }.executeAsync.runToFuture
+            Continue
+          },
+          _.printStackTrace(),
+          () => {}
+        )
+```
+
+```scala
+simulationMVC.simulationController.subscribeTimerValue(areaDetailsView.updateTime)
+```
+
+-	notificare i sensori della disponibilità di un nuovo valore ambientale tra temperatura, umidità e luminosità  
+
+-	notificare i sensori dello scorrere del tempo col fine di ricalcolare periodicamente i valori rilevati all’interno delle aree
+
+-   aggiornare periodicamente la view relativa alla suddivisione in aree
+
+-	mantenere reattiva l’applicazione a seguito di richieste http che possono inficiare sulla user experience (es: caricamento dati nei componenti `Plant` ed `Environment`)
 
 ## 5.4 Richieste dei dati
 
