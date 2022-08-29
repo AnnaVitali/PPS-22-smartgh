@@ -15,9 +15,30 @@ Nelle seguenti sezioni, verranno descritti con maggiore dettaglio alcuni elmenti
 //Ele
 //TODO descrivere utilizzo di higher-order functions all'interno del codice, inserire esempi di utilizzo nel codice, spiegando anche tali esempi
 
-### 5.1.2 Abstract type
-// Vero
-//TODO descrivere utilizzo di abstract-types all'interno del codice, inserire esempi di utilizzo nel codice, spiegando anche tali esempi
+### 5.1.2 Type members
+
+La keyword `type` in Scala introduce il concetto di _type members_ all'interno di una classe, oltre ai _field_ e _method members_ che, solitamente, già troviamo.
+Viene impiegata principalmente per creare l'alias di un tipo più complicato: il _type system_ sostituirà l'alias con l'_actual type_ quando effettuerà il _type checking_.
+
+I _type members_, analogamente agli altri membri delle classi, possono essere _abstract_ ed è, dunque, possibile specificare il tipo concreto nell'implementazione.
+
+In merito al progetto, i _type members_ sono stati utilizzati per:
+
+-  definire il tipo di dato restituito dalle richieste _http_ in quanto risultava complesso e poco esplicativo (non rilevava l'intento).
+
+```scala
+/** Data structure that will contains the city's environment values. */
+type EnvironmentValues = Map[String, Any]
+
+/** Data structure that will contains plant's optimal values. */
+type OptimalValues = Map[String, Any]
+```
+- definire le dipendenze tra i componenti model, view e controller nell'utilizzo del _Cake Pattern_
+
+```scala
+/** The controller requirements. */
+  type Requirements = EnvironmentViewModule.Provider with EnvironmentModelModule.Provider with SimulationMVC.Provider
+```
 
 ### 5.1.3 For-comphrension
 Al fine di rendere il codice meno imperativo si è fatto uso della _for-comphrension_, un costrutto funzionale basato sulle monadi per operare sulle collezioni. Oltre a rendere il codice più funzionale, la scelta dell'utilizzo della _for-comphrension_ è supportato dall'incremento della leggibilità del codice, come si può vedere nel seguente estratto di codice, utilizzato per la creazione degli oggetti `ManageSensor` il cui compito è racchiudere tutte le informazioni utili riguardati un sensore.
