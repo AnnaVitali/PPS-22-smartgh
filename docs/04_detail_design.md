@@ -44,6 +44,7 @@ L’interfaccia richiede che il nuovo elemento view da impostare sia di un tipo 
 [Fig. 4.1.2]: img/contiguousSceneView.png
 
 ### SceneController
+\\TODO Anna
 
 ## 4.2 Gestione della simulazione
 
@@ -767,34 +768,37 @@ La scena di fine simulazione, quindi, verrà mostrata all'interno della scena ma
 In particolare, Se l'utente decida di premere il pulsante presente sulla scena, che li consente di iniziare una nuova simulazione, verrà istanziato l'elemento `SelectCityMVC` e l'applicazione riprenderà dalla schermata si selezione della città.
 
 
-## 4.8 Pattern di progettazione
+## 4.8 Pattern creazionali e di progettazione utilizzati
 
-Per la realizzazione di questo progetto sono stati adoperati i pattern di progettazione descritti nelle seguenti sottosezioni.
+Per la realizzazione di questo progetto sono stati adoperati i pattern creazionali e di progettazione descritti nelle seguenti sottosezioni.
 
 ### Factory
-// Anna
+Il _pattern Factory_ è un pattern creazionale e ci da la possibilità di poter creare degli oggetti senza dover specificare la loro classe, consentendoci di poter cambiare in modo abbastanza aegvole l'oggetto creato. Le _factories_, quindi, come dice il nome, ci rappresentano delle vere e proprie "fabbirche di oggetti", che possiamo utilizzare per istanziare gli oggetti di cui abbiamo bisogno e con determinate caratteristiche.
 
-### Strategy
-All'interno del progetto è stato ampiamente utilizzato il pattern _Strategy_, ossia l'incapapsulamento di un algoritmo all'interno di una classe, mantenendo un'interfaccia generica, in quanto direttamente supportato nel linguaggio come passaggio di funzioni higher-order e per fare si che le classi che lo utilizzano rendano dinamico il proprio comportamento utilizzando in modo intercambiabile le diverse implementazioni degli algoritmi definiti nell'interfaccia generica.
+Per il progetto si è fatto utilizzo del _pattern Factory_, in particolare di _StaticFactory_, per produrre le funzioni necessarie ai sensori, per poter calcolare l'aggiornamento del loro parametro di riferimento. 
 
-### Template method
-// Ele
+Nella programmazione funzionale, infatti, è possibile specificare dei metodi che abbiano come tipo di ritorno delle funzioni, si è sfruttata quindi questa possibilità, per poter realizzare delle _factories_, che restituissero la funzione da applicare, per poter determinare l'aggiornamento del valore rilevato.
 
 ### Singleton
-
 Per lo sviluppo del progetto si è fatto largo uso di questo design pattern creazionale, il quale garantisce che di una determinata classe venga creata una e una sola istanza e fornisce un punto di accesso globale ad essa.
 
 In Scala è particolarmente semplice implementare tale pattern in quanto gli object sono classi con esattamente una istanza che viene inizializzata in modo lazy (su richiesta) quando ci riferiamo ad essa: prima di ciò nessuna istanza dell’object sarà presente nello heap.
+
+### Strategy
+All'interno del progetto è stato ampiamente utilizzato il _pattern Strategy_, ossia l'incapapsulamento di un algoritmo all'interno di una classe, mantenendo un'interfaccia generica, in quanto direttamente supportato nel linguaggio come passaggio di funzioni _higher-order_ e per fare si che le classi che lo utilizzano rendano dinamico il proprio comportamento utilizzando in modo intercambiabile le diverse implementazioni degli algoritmi definiti nell'interfaccia generica.
+
+### Template method
+// Ele
 
 
 ## 4.9 Organizzazione del codice
 
 Il sistema è stato organizzato in 5 package principali: 
-- mvc, contiene gli oggetti MVC relativi ai componenti principali della simulazione precedentemente descritti;
-- prolog, contiene un oggetto necessario all'interazione fra il linguaggio Scala e Prolog;
-- controller, contiene gli elementi controller necessari a gestire le interazioni fra i componenti view e model;
-- model, contiene gli elementi model che racchiudono la logica di business dell'applicazione;
-- view, contiene gli elementi view che detengono le componenti delle diverse interfacce grafiche e gestiscono le interazioni con l'utente.
+- **mvc**, contiene gli oggetti MVC relativi ai componenti principali della simulazione precedentemente descritti;
+- **prolog**, contiene un oggetto necessario all'interazione fra il linguaggio Scala e Prolog;
+- **controller**, contiene gli elementi controller necessari a gestire le interazioni fra i componenti view e model;
+- **model**, contiene gli elementi model che racchiudono la logica di business dell'applicazione;
+- **view**, contiene gli elementi view che detengono le componenti delle diverse interfacce grafiche e gestiscono le interazioni con l'utente.
 
 <div align="center">
   <img src="img/packageGenerale.png" />
