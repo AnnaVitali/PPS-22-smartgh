@@ -25,11 +25,8 @@ lazy val root = (project in file("."))
       "net.aichler" % "jupiter-interface" % JupiterKeys.jupiterVersion.value % Test,
       "org.scalatest" %% "scalatest" % "3.2.11" % Test,
       "org.scalatestplus" %% "selenium-4-1" % "3.2.11.0" % Test,
-      "io.cucumber" %% "cucumber-scala" % "8.2.6" % Test,
       "org.scalatestplus" %% "scalacheck-1-15" % "3.2.10.0" % Test,
       "org.scalatestplus" %% "mockito-3-12" % "3.2.10.0" % Test,
-      "com.tngtech.archunit" % "archunit" % "0.18.0" % Test,
-      "org.slf4j" % "slf4j-log4j12" % "1.7.26" % Test,
       "com.lihaoyi" %% "requests" % "0.6.9",
       "org.json4s" %% "json4s-jackson" % "4.0.3",
       "org.scalafx" %% "scalafx" % "16.0.0-R24",
@@ -47,13 +44,6 @@ lazy val root = (project in file("."))
     crossPaths := false, // https://github.com/sbt/junit-interface/issues/35
     Test / parallelExecution := false
   )
-
-// Cucumber configuration
-// Run by:  sbt> cucumber
-enablePlugins(CucumberPlugin)
-CucumberPlugin.glues := List(
-  "testLecture/code/e4bdd/steps"
-) //testlecture isn't correct for greenhouse project fullpath is test/scala/testLecture/code/e4bdd/steps
 
 wartremoverWarnings ++= Warts.allBut(
   Wart.Any,
