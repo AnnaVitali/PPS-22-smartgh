@@ -63,7 +63,9 @@ Pertanto, i _product backlog_ che sono stati individuati sono i seguenti:
 - documentazione;
 - applicazione finale.
 
-//TODO completare
+Al termine di questo sprint, il team di svilippo consegna l'applicazione finale ottimizzata rispetto all'esperienza utente e alla qualità del codice. Inoltre, viene consegnato il report che documenta le fasi di sviluppo del progetto.
+
+Infine, alla conclusione dello sprint, sommando i diversi costi per i lavori che sono stati svolti, si ottiene che il costo totale, per il lavoro richiesto nel realizzare i diversi _product backlog_, è di 41.
 
 ## 6.3 Commenti finali
 
