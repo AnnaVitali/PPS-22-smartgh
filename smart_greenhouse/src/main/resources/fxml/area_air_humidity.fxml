@@ -43,10 +43,10 @@
         </padding>
         <Label text="Decrease humidity:" />
         <Label text="Increase humidity:" GridPane.rowIndex="1" />
-         <ToggleButton fx:id="ventilationBtn" mnemonicParsing="false" text="Activate ventilation" GridPane.columnIndex="1">
+         <ToggleButton fx:id="ventilationBtn" mnemonicParsing="false" GridPane.columnIndex="1">
          <toggleGroup>
             <ToggleGroup fx:id="humidityAction" />
          </toggleGroup></ToggleButton>
-      <ToggleButton fx:id="atomiserBtn" mnemonicParsing="false" text="Activate atomisation" toggleGroup="$humidityAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <ToggleButton fx:id="atomiserBtn" mnemonicParsing="false" toggleGroup="$humidityAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
     </GridPane>
 </GridPane>

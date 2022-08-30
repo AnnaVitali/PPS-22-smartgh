@@ -71,9 +71,3 @@ class AreaAirHumidityViewModuleTest extends AbstractAreaParameterViewTest("Air h
       assertFalse(atomiserBtn.isSelected)
       verifyThat(atomiserBtnId, hasText(AtomiserText.ACTIVATE.text))
     }
-
-  @Test
-  def testAtomiserAction(robot: FxRobot): Unit = testActions(robot, atomiserBtnId, _ != _)
-
-  @Test
-  def testVentilationAction(robot: FxRobot): Unit = testActions(robot, ventilationBtnId, _ != _)

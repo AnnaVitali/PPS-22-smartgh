@@ -50,7 +50,7 @@ abstract class AbstractAreaParameterViewTest(private val parameterName: String, 
   @Test
   def testValue(robot: FxRobot): Unit =
     val values = asScala(robot.lookup(currentValueId).queryAllAs(classOf[Label])).toSeq
-    eventually(timeout(Span(8000, Milliseconds))) {
+    eventually(timeout(Span(10000, Milliseconds))) {
       assertTrue(values.exists(_.getText.contentEquals("%.2f %s".format(sensor.actualVal, sensor.um))))
     }
 
@@ -69,7 +69,7 @@ abstract class AbstractAreaParameterViewTest(private val parameterName: String, 
     val value = sensor.actualVal
     robot.clickOn(buttonId)
 
-    eventually(timeout(Span(8000, Milliseconds))) {
+    eventually(timeout(Span(10000, Milliseconds))) {
       assertTrue(condition(sensor.actualVal, value))
     }
 

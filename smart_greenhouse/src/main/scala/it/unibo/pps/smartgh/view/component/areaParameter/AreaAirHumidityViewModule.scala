@@ -11,27 +11,28 @@ import it.unibo.pps.smartgh.view.component.areaParameter.AreaParameterView.{
 import javafx.fxml.FXML
 import javafx.scene.control.ToggleButton
 import javafx.scene.layout.GridPane
+import org.scalactic.TripleEquals.convertToEqualizer
 
 /** Object that encloses the view module for the area air humidity parameter. */
 object AreaAirHumidityViewModule:
 
   /** An enum to represent the text to be displayed of the state of the ventilation. */
-  enum VentilationText(val text: String):
+  enum VentilationText(val text: String, val status: Boolean):
 
     /** The activation status of the ventilation. */
-    case ACTIVATE extends VentilationText("Activate ventilation")
+    case ACTIVATE extends VentilationText("Activate ventilation", false)
 
     /** The deactivation status of the ventilation. */
-    case DEACTIVATE extends VentilationText("Deactivate ventilation")
+    case DEACTIVATE extends VentilationText("Deactivate ventilation", true)
 
   /** An enum to represent the text to be displayed of the state of the atomiser. */
-  enum AtomiserText(val text: String):
+  enum AtomiserText(val text: String, val status: Boolean):
 
     /** The activation status of the atomiser. */
-    case ACTIVATE extends AtomiserText("Activate atomisation")
+    case ACTIVATE extends AtomiserText("Activate atomisation", false)
 
     /** The deactivation status of the atomiser. */
-    case DEACTIVATE extends AtomiserText("Deactivate atomisation")
+    case DEACTIVATE extends AtomiserText("Deactivate atomisation", true)
 
   /** Trait that represents the area air humidity parameter view. */
   trait AreaAirHumidityView extends AreaParameterView
@@ -66,31 +67,38 @@ object AreaAirHumidityViewModule:
       var atomiserBtn: ToggleButton = _
 
       ventilationBtn.setSelected(areaAirHumidityController.isVentilationActivated)
+      setVentilationText(areaAirHumidityController.isVentilationActivated)
       atomiserBtn.setSelected(areaAirHumidityController.isAtomiserActivated)
+      setAtomiserText(areaAirHumidityController.isAtomiserActivated)
 
       ventilationBtn.setOnMouseClicked { _ =>
-        if ventilationBtn.isSelected then
-          if areaAirHumidityController.isAtomiserActivated then deactivateAtomiser()
-          ventilationBtn.setText(VentilationText.DEACTIVATE.text)
-          areaAirHumidityController.activateVentilation()
-        else deactivateVentilation()
+        if ventilationBtn.isSelected && areaAirHumidityController.isAtomiserActivated then handleAtomiserStatus(false)
+        handleVentilationStatus(ventilationBtn.isSelected)
       }
 
       atomiserBtn.setOnMouseClicked { _ =>
-        if atomiserBtn.isSelected then
-          if areaAirHumidityController.isVentilationActivated then deactivateVentilation()
-          atomiserBtn.setText(AtomiserText.DEACTIVATE.text)
-          areaAirHumidityController.atomiseArea()
-        else deactivateAtomiser()
+        if atomiserBtn.isSelected && areaAirHumidityController.isVentilationActivated then
+          handleVentilationStatus(false)
+        handleAtomiserStatus(atomiserBtn.isSelected)
       }
 
-      private def deactivateVentilation(): Unit =
-        ventilationBtn.setText(VentilationText.ACTIVATE.text)
-        areaAirHumidityController.deactivateVentilation()
+      private def setVentilationText(active: Boolean): Unit =
+        ventilationBtn.setText(VentilationText.values.find(_.status === active).fold("")(_.text))
 
-      private def deactivateAtomiser(): Unit =
-        atomiserBtn.setText(AtomiserText.ACTIVATE.text)
-        areaAirHumidityController.disableAtomiseArea()
+      private def setAtomiserText(active: Boolean): Unit =
+        atomiserBtn.setText(AtomiserText.values.find(_.status === active).fold("")(_.text))
+
+      private def handleVentilationStatus(active: Boolean): Unit =
+        if active then areaAirHumidityController.activateVentilation()
+        else areaAirHumidityController.deactivateVentilation()
+        setVentilationText(active)
+
+      private def handleAtomiserStatus(active: Boolean): Unit =
+        if active then areaAirHumidityController.atomiseArea() else areaAirHumidityController.disableAtomiseArea()
+        setAtomiserText(active)
+
+      private def notifyStatus(active: Boolean)(thenFunc: () => Unit)(elseFunc: () => Unit) =
+        if active then thenFunc else elseFunc
 
   /** Trait that encloses the view for area air humidity parameter. */
   trait Interface extends Provider with Component:

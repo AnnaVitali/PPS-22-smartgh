@@ -23,7 +23,7 @@ class AirHumiditySensorTest extends AnyFunSuite with Matchers with Eventually wi
 
   private var areaComponentsState: AreaComponentsStateImpl = _
   private val timer = Timer(1 day)
-  private val initialHumidity: Double = 80.0
+  private val initialHumidity: Double = 90.0
   private var humiditySensor: AirHumiditySensorImpl = _
   private val subjectEnvironment = ConcurrentSubject[Double](MulticastStrategy.publish)
   private val subjectActions = ConcurrentSubject[AreaComponentsStateImpl](MulticastStrategy.publish)
@@ -45,7 +45,7 @@ class AirHumiditySensorTest extends AnyFunSuite with Matchers with Eventually wi
       areaComponentsState,
       (callback: String => Unit) =>
         subjectTimer.subscribe(
-          (s: String) => {
+          s => {
             callback(s)
             Continue
           },
@@ -71,7 +71,7 @@ class AirHumiditySensorTest extends AnyFunSuite with Matchers with Eventually wi
   }
 
   test("The air humidity value should decrease because the ventilation and the humidity are inactive") {
-    setupTimer(500 microseconds)
+    setupTimer(500 milliseconds)
     initialValueTest()
 
     eventually(timeout(Span(1000, Milliseconds))) {
@@ -92,6 +92,7 @@ class AirHumiditySensorTest extends AnyFunSuite with Matchers with Eventually wi
 
   test("The air humidity value should increase if the atomiser is active") {
     initialValueTest()
+    setupTimer(500 milliseconds)
 
     val humidityValue = humiditySensor.getCurrentValue
     areaComponentsState.atomisingState = AreaAtomiseState.AtomisingActive

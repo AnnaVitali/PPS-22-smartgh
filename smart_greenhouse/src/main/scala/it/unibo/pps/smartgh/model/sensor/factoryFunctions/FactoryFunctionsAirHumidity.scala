@@ -8,17 +8,16 @@ import scala.util.Random
   */
 object FactoryFunctionsAirHumidity:
 
-  private val ActionFactor = 0.05
-  private val AreaFactor = 0.90
-  private val EnvFactor = 0.10
+  private val AreaFactor = 0.9
+  private val EnvFactor = 0.1
 
-  private def randActionFactor: Double = Random.nextDouble() * ActionFactor
+  private def randActionFactor: Double => Double = Random.nextDouble() * _
 
-  /** Update the ventilation value if it has not reached to the minimum value. */
-  val updateVentilationValue: (Double, Double) => Double = (v, mn) => (v - randActionFactor).max(mn)
+  /** Update the ventilation value if it has not reached to the maximum value. */
+  val updateVentilationValue: (Double, Double, Double) => Double = (v, act, mx) => (v - randActionFactor(act)).max(mx)
 
   /** Update the atomize value if it has not reached the maximum value */
-  val updateAtomizeValue: (Double, Double) => Double = (v, mx) => (v + randActionFactor).min(mx)
+  val updateAtomizeValue: (Double, Double, Double) => Double = (v, act, mx) => (v + randActionFactor(act)).min(mx)
 
   /** Update the action value when system actions are disabled. */
   val updateNoActionValue: (Double, Double, Double) => Double = _ * AreaFactor + _ * EnvFactor - _
