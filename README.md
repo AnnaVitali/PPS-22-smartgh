@@ -12,20 +12,30 @@ The user will be able to view the evolution of the state of the greenhouse durin
 The following dependencies are required to play the application:
 - sbt version 1.6.1
 - scala version 3.1.2
-- JVM 
+- JDK version 11
+
+## Documentation and development process
+
+You can find the project's report in the `docs` folder into the `doc` branch or at this [link](https://annavitali.github.io/PPS-22-smartgh/).
+
+Futhermore, you can find the detailed description of the development process in the `process` folder into the `doc` branch.
 
 ## Usage
 You can find the latest `jar` of the application inside the [Releases section](https://github.com/AnnaVitali/PPS-22-smartgh/releases).
 
 To execute the application:
-```
+```powershell
 $ java -jar `path-to-downloaded-jar`
 ```
 
 You can find the user guide [here](https://github.com/AnnaVitali/PPS-22-smartgh/blob/0029d57b2bab503469fd5467b558cc682f361ce9/docs/08_user_guide.md) (IT version) or within the application, when you start the simulation (EN version).
 
 ## Test
-You can clone the repository and execute tests with the command:
+You can clone the repository, moved to the `smart_greenhouse` folder and execute tests with the command:
+```powershell
+$ sbt test
+```
+
 
 ## Authors
 - [Veronika Folin](https://github.com/veronikafolin)
