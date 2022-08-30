@@ -924,31 +924,9 @@ Il sistema è stato organizzato in 5 package principali:
 - **view**, contiene gli elementi view che detengono le componenti delle diverse interfacce grafiche e gestiscono le interazioni con l'utente.
 
 <div align="center">
-  <img src="img/packageGenerale.png" />
-  <p>Fig. 4.9.1 - Organizzazione generale dei package del progetto</p>
+  <img src="img/package.png" />
+  <p>Fig. 4.9.1 - Organizzazione dei package del progetto</p>
 </div>
 
-[Fig. 4.9.1]: img/packageGenerale.png
+[Fig. 4.9.1]: img/package.png
 
-<div align="center">
-  <img src="img/package_model.png" />
-  <p>Fig. 4.9.2 - Package del model</p>
-</div>
-
-[Fig. 4.9.2]: img/package_model.png
-
-
-<div align="center">
-  <img src="img/package_controller.png" />
-  <p>Fig. 4.9.3 - Package del controller</p>
-</div>
-
-[Fig. 4.9.3]: img/package_controller.png
-
-
-<div align="center">
-  <img src="img/package_view.png" />
-  <p>Fig. 4.9.4 - Package della view</p>
-</div>
-
-[Fig. 4.9.4]: img/package_view.png
