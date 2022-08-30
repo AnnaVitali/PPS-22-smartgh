@@ -797,11 +797,11 @@ Le classi `Sensor` e `SensorWithTimer`, vengono inizialmente implementate dalle 
 #### Sensore per la luminosità
 
 <div align="center">
-  <img src="img/luminosity_sensor.png" />
+  <img src="img/sensor_luminosity.png" />
   <p>Fig. 4.4.3.1.1 - Sensore della luminosità</p>
 </div>
 
-[Fig. 4.4.3.1.1]: img/luminosity_sensor.png
+[Fig. 4.4.3.1.1]: img/sensor_luminosity.png
 
 Il sensore della luminosità ([Fig. 4.4.3.1.1]) non è un sensore periodico, di fatti egli implementa solamente l'interfaccia `Sensor` estendendo la classe astratta `AbstractSensor`, la quale racchiude già l'implementazione comune di alcuni metodi dell'interfaccia.
 
@@ -824,11 +824,11 @@ Il sensore della temperatura, è un sensore dotato di timer, pertanto ha la poss
 Come si può vedere dalla figura [Fig. 4.4.3.2.1], il sensore, implementa l'interfaccia `SensorWithTimer` tramite la classe astratta `AbstractSensorWithTimer`. 
 
 <div align="center">
-  <img src="img/temperature_sensor.png" />
+  <img src="img/sensor_temperature.png" />
   <p>Fig. 4.4.3.2.1 - Sensore della temperatura</p>
 </div>
 
-[Fig. 4.4.3.2.1]: img/temperature_sensor.png
+[Fig. 4.4.3.2.1]: img/sensor_temperature.png
 
 L'utente all'intenro dell'area monitorata dal sensore, ha la possibilità di regolare la temperatura, questa operazione chiaramente influisce sulle rilevazioni del parametro, inoltre, anche l'apertura o la chiusura delle porte dell'area possono influenzare il valore della temperatura.
 
