@@ -4,7 +4,6 @@ import it.unibo.pps.smartgh.model.area.AreaAtomiseState.{AtomisingActive, Atomis
 import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
 import it.unibo.pps.smartgh.model.area.AreaGatesState.{Close, Open}
 import it.unibo.pps.smartgh.model.area.AreaVentilationState.{VentilationActive, VentilationInactive}
-import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsAirHumidity
 import it.unibo.pps.smartgh.model.time.Timer
 import monix.eval.Task
 import monix.execution.Ack
@@ -70,9 +69,8 @@ object AirHumiditySensor:
           case (AtomisingInactive, VentilationInactive) =>
             actionValueRange = (calcPercentValue(_ - _), calcPercentValue(_ + _))
             areaComponentsState.gatesState match
-              case Open =>
-                updateNoActionValue(currentValue, currentEnvironmentValue, calcPercentValue(_ - _) * MinPercent)
-              case _ => updateNoActionValue(currentValue, currentEnvironmentValue, 0.0)
+              case Open => updateNoActionValue(currentValue, currentEnvironmentValue, 0.0)
+              case _ => updateNoActionValue(currentValue, currentEnvironmentValue, calcPercentValue(_ - _) * MinPercent)
         )
         subject.onNext(currentValue)
       }.executeAsync.runToFuture

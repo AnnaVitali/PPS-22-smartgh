@@ -11,7 +11,7 @@ object FactoryFunctionsAirHumidity:
   private val AreaFactor = 0.9
   private val EnvFactor = 0.1
 
-  private def randActionFactor: Double => Double = Random.nextDouble() * _
+  private def randActionFactor: Double => Double = Random.nextDouble() * _ + EnvFactor
 
   /** Update the ventilation value if it has not reached to the maximum value. */
   val updateVentilationValue: (Double, Double, Double) => Double = (v, act, mx) => (v - randActionFactor(act)).max(mx)
