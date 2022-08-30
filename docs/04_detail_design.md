@@ -615,7 +615,6 @@ Il compito principale del controller è quello di richiamare  la creazione dell'
 [Fig. 4.4.1.4.3.1]: img/area_controller.png
 
 ### 4.6.2 Visualizzazione dettaglio aree
-//TODO Model Maria, View Ele Controller Maria e Ele
 
 Per realizzare il dettaglio delle aree si è deciso di implementare ancora una volta il pattern _MVC_ e il _Cake pattern_
 
@@ -652,7 +651,6 @@ La view del dettaglio di un'area viene racchiusa nell’`AreaDetailsViewModule`,
 
 [Fig. 4.6.2.2]: img/area_details_view.png
 
-
 #### Controller del dettaglio area
 Il controller viene racchiuso all'interno del modulo `AreaDetailsControllerModule` [Fig. 4.6.2.3], il quale include:
 
@@ -676,9 +674,66 @@ Il compito principale del controller è quello di richiamare la creazione dell'i
 [Fig. 4.6.2.3]: img/area_details_controller.png
 
 #### Area parameter
-//TODO
 
-**Controller**
+Con l’obiettivo di rendere l’applicazione modulare e scalabile nell’aggiunta di nuovi sensori, si è deciso di separare il componente per la gestione del dettaglio di un’area con la visualizzazione dei valori ottenuti dai sensori e le loro azioni che possono essere compiute.
+
+Ciascun componente è rappresentato con un modulo MVC separato, con una propria view e un proprio controller. Il model rimane sempre lo stesso implementato per le singole aree e per il dettaglio dell’area descritto nella [Sec. 4.4.1.4.1](#44141-Model-della-singola-area).
+
+I comportamenti dei vari parametri sono stati raccolti in delle interfacce comuni: 
+-	`AreaParameterMVC`, per i componenti mvc
+-	`AreaParameterView`, per i componenti view
+-	`AreaParameterController`, per i componenti controller
+
+**MVC dei parametri**
+
+Il trait `AreaParameterMVC`, come mostrato in figura [Fig. 4.6.2.4] rappresenta l’interfaccia generale dei componenti mvc dei parametri. In particolare contiene tre campi che sono necessari alla composizione dell’elemento mvc: 
+-	`areaModel`, il model associato alla singola area 
+-	`areaParameterView`, la view associata al parametro
+-	`areaParameterController`, il controller associato al parametro
+
+<div align="center">
+  <img src="img/area_parameter_mvc.png" />
+  <p>  Fig. 4.6.2.4 - Trait MVC dei parametri </p>
+</div>
+
+[Fig. 4.6.2.4]: img/area_parameter_mvc.png
+
+**View dei parametri**
+
+Il `trait AreaParameterView` (figura [Fig. 4.6.2.5]) espone i metodi che consentono l’aggiornamento del valore corrente e la descrizione del parametro. 
+
+Di tale interfaccia è stata poi definita una classe astratta `AbstractAreaParameterView` che implementa i metodi comuni dei parametri. Sfruttando il _template method_, lascia la definizione delle variabili `descriptionLabel` e `currentValueLabel`, ovvero le `Label` dedicate alla descrizione e al valore corrente, alle sottoclassi che la estendono. La classe astratta poi si occuperà di aggiornare queste informazioni, incapsulandone la logica.
+
+<div align="center">
+  <img src="img/area_parameter_view.png" />
+  <p>  Fig. 4.6.2.5 - Trait view dei parametri </p>
+</div>
+
+[Fig. 4.6.2.5]: img/area_parameter_view.png
+
+**Controller dei parametri**
+
+Il `trait AreaParameterController` fornisce metodi per l’inizializzazione dell’aggiornamento dei parametri della view e per l’interruzione di tali quando la scena viene cambiata.
+
+Anche per questa interfaccia è presente una classe astratta `AbstractAreaParameterController` per fattorizzare le parti in comune dei parametri. Seguendo anche qui, il _template method_, abbiamo che i metodi da implementare nelle sotto-classi sono:
+-	`updateCurrentValue`: una funzione che si occupa di aggiornare il valore corrente e il suo stato;
+-	`updateDescription`: una funzione che si occupa di aggiornare la descrizione del parametro.
+
+**Parametri**
+
+Come formulato nei requisiti, l'applicazione prevede di avere quattro sensori che permettono di rilevare i seguenti parametri: luminosità, temperatura, umidità del suolo e dell'aria. 
+
+Ognuno di questi è realizzato seguendo il _cake pattern_ implementando le interfacce comuni ed estendendo le relative classi astratte descritte precedentemente.
+
+Il compito principale di questi componenti è quello di definire le azioni che possono essere svolte sull'area che andranno ad influenzare il valore del parametro riferito. In particolare, la view si occuperà di gestire gli elementi grafici delle azioni, mentre il controller di gestire il loro comportamento e il cambiamento dello stato del model.
+
+Nello specifico abbiamo i seguenti componenti:
+- `AreaLuminosityView` e `AreaLuminosityController` che si occupano di gestire le azioni per la schermatura dell'area e per la regolazione dell'intensità della luce;
+- `AreaTemperatureView` e `AreaTemperatureController` che si occupano di gestire le azioni per l'isolare l'area e regolare la temperatura;
+- `AreaAirHumidityView` e `AreaAirHumidityController` che si occupano di gestire l'attivazione e la disattivazione del nebulizzatore e dell'ventilatore;
+- `AreaLuminosityView` e `AreaLuminosityController` che si occupano di gestire le azioni per innaffiare e per smuovere il terreno.
+
+<!-- **Controller**
 
 **Controller dei singoli sensori**
 
@@ -687,7 +742,7 @@ I controller vengono ciascuno racchiuso nel proprio modulo, il quale all'interno
 - la classe `AreaXXXImpl`, che implementa i metodi dell'interfaccia appena descritta e viene racchiusa all'interno del `trait Component`.
 - `trait Component`il quale contiene il campo `context`di tipo `Requirements`, il quale viene utilizzato per specificare le dipendenze che legano il controller alla view e al model. Questo è necessario affinchè il controller possa elaborare le operazioni effettuate dall'utente aggiornando di conseguenza il model.
 - `trait Provider` che si occupa di detenere l'oggetto `AreaXXXController`.
-- `trait Interface` che si occupa di completare e connettere tutti i componenti del modulo per renderli utilizzabili nell'oggetto che istanzierà l'MVC. 
+- `trait Interface` che si occupa di completare e connettere tutti i componenti del modulo per renderli utilizzabili nell'oggetto che istanzierà l'MVC.  -->
 
 
 ### 4.6.3 Sensori
@@ -817,7 +872,7 @@ Il pattern _Template Method_ è un pattern comportamentale basato sulle classi. 
 Questo pattern è utilizzato all’interno del progetto definendo le seguenti classi astratte:
 - `AbstractViewComponent`, pe rappresentare i componenti della view
 - `AbstractSensor`, utilizzato per la definizione dei sensori
-- `AbstractParameterView` e AbstractParameterController per i componenti view e controller dei parametri nel dettaglio dell’area.
+- `AbstractParameterView` e `AbstractParameterController` per i componenti view e controller dei parametri nel dettaglio dell’area.
 
 ## 4.9 Organizzazione del codice
 
