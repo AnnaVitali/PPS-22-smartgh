@@ -9,7 +9,7 @@ Once the application is started, it will be possible to set the location of the 
 The user will be able to view the evolution of the state of the greenhouse during the day and will be able to interact with the individual areas, carrying out routine maintenance actions or guided corrective actions if the sensors detect an alarm situation.
 
 ## Requirements
-The following dependencies are required to play the application:
+The following dependencies are required to run the application:
 - sbt version 1.6.1
 - scala version 3.1.2
 - JDK version 11
