@@ -16,6 +16,8 @@ Successivamente, i diversi membri del gruppo una volta definiti i requisiti, han
 
 Va inoltre sottolineato, che per la gestione del _repository_ è stata utilizzata la metodologia _Git flow_, pertanto, in questa fase, sono anche stati creati il branch principale `master` e il branch di sviluppo `develop`.
 
+## 6.2 Sprint
+
 ### 6.2.1 Sprint 1 - 25/07/2022
 L'obiettivo di questo sprint, consiste nel realizzare le funzionalità di base per poter impostare l'ambiente della simulazione, pertanto i _product backlog_ che sono stati individuati sono i seguenti:
 
