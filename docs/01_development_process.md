@@ -117,11 +117,14 @@ Nel momento successivo alla suddivisione dei tasks fra i diversi membri del grup
   </tr>
   
   <tr>
-    <td rowspan="2">Miglioramento dell'esperienza utente</td>
+    <td rowspan="3">Miglioramento dell'esperienza utente</td>
     <td>Sistemare elementi dell'interfaccia grafica*</td>
   </tr>
   <tr>
-    <td>Verifica del coretto funzionamento dell'applicazione*</td>
+    <td>Verifica del coretto funzionamento dell'applicazione tramite test manuali*</td>
+  </tr>
+  <tr>
+    <td>Sostituzione piante prive di descrizione o con descrizione non esaustiva</td>
   </tr>
   
   <tr>
@@ -137,12 +140,12 @@ Nel momento successivo alla suddivisione dei tasks fra i diversi membri del grup
     <td>Terminare report*</td>
   </tr>
   <tr>
-    <td>Scrivere file README*</td>
+    <td>Scrivere file README</td>
   </tr>
   
   <tr>
     <td rowspan="4">Applicazione finale</td>
-    <td>Operazioni finali di refactoring del codice e ottimizzazione degli imports*</td>
+    <td>Operazioni finali di refactoring del codice, miglioramento dei test e ottimizzazione degli imports*</td>
   </tr>
   <tr> 
     <td>Realizzare file .jar*</td>
@@ -219,14 +222,20 @@ Nel momento successivo alla suddivisione dei tasks fra i diversi membri del grup
   </tr>
   
   <tr>
-    <td rowspan="3">Miglioramento dell'esperienza utente</td>
+    <td rowspan="5">Miglioramento dell'esperienza utente</td>
     <td>Sistemare elementi dell'interfaccia grafica*</td>
   </tr>
   <tr>
     <td>Verificare adattabilità dei diversi componenti alla dimensione dello schermo e al resizing</td>
   </tr>
   <tr>
-    <td>Verifica del coretto funzionamento dell'applicazione*</td>
+    <td>Verifica del coretto funzionamento dell'applicazione tramite test manuali*</td>
+  </tr>
+  <tr>
+    <td>Miglioramento stile aree nella schermata principale</td>
+  </tr>
+  <tr>
+    <td>Refactor gestione stati aree e sensori</td>
   </tr>
   
   <tr>
@@ -235,19 +244,16 @@ Nel momento successivo alla suddivisione dei tasks fra i diversi membri del grup
   </tr>
   
   <tr>
-    <td rowspan="3">Documentazione</td>
+    <td rowspan="2">Documentazione</td>
     <td>Raffinare diagrammi UML*</td>
   </tr>
   <tr>
     <td>Terminare report*</td>
   </tr>
-  <tr>
-    <td>Scrivere file README*</td>
-  </tr>
   
   <tr>
     <td rowspan="4">Applicazione finale</td>
-    <td>Operazioni finali di refactoring del codice e ottimizzazione degli imports*</td>
+    <td>Operazioni finali di refactoring del codice, miglioramento dei test e ottimizzazione degli imports*</td>
   </tr>
   <tr> 
     <td>Realizzare file .jar*</td>
@@ -330,11 +336,17 @@ Nel momento successivo alla suddivisione dei tasks fra i diversi membri del grup
   </tr>
   
   <tr>
-    <td rowspan="2">Miglioramento dell'esperienza utente</td>
+    <td rowspan="4">Miglioramento dell'esperienza utente</td>
     <td>Sistemare elementi dell'interfaccia grafica*</td>
   </tr>
   <tr>
-    <td>Verifica del coretto funzionamento dell'applicazione*</td>
+    <td>Verifica del coretto funzionamento dell'applicazione tramite test manuali*</td>
+  </tr>
+  <tr>
+    <td>Miglioramento stile schermata selezione delle piante</td>
+  </tr>
+  <tr>
+    <td>Refactor registrazione callbacks timer*</td>
   </tr>
   
   <tr>
@@ -343,19 +355,16 @@ Nel momento successivo alla suddivisione dei tasks fra i diversi membri del grup
   </tr>
   
   <tr>
-    <td rowspan="3">Documentazione</td>
+    <td rowspan="2">Documentazione</td>
     <td>Raffinare diagrammi UML*</td>
   </tr>
   <tr>
     <td>Terminare report*</td>
   </tr>
-  <tr>
-    <td>Scrivere file README*</td>
-  </tr>
   
   <tr>
     <td rowspan="4">Applicazione finale</td>
-    <td>Operazioni finali di refactoring del codice e ottimizzazione degli imports*</td>
+    <td>Operazioni finali di refactoring del codice, miglioramento dei test e ottimizzazione degli imports*</td>
   </tr>
   <tr> 
     <td>Realizzare file .jar*</td>
@@ -439,30 +448,36 @@ Nel momento successivo alla suddivisione dei tasks fra i diversi membri del grup
   </tr>
   
   <tr>
-    <td rowspan="3">Miglioramento dell'esperienza utente</td>
+    <td rowspan="6">Miglioramento dell'esperienza utente</td>
     <td>Sistemare stile pulsanti delle diverse schermate</td>
   </tr>
   <tr>
     <td>Sistemare elementi dell'interfaccia grafica*</td>
   </tr>
   <tr>
-    <td>Verifica del coretto funzionamento dell'applicazione*</td>
+    <td>Verifica del coretto funzionamento dell'applicazione tramite test manuali*</td>
+  </tr>
+  <tr>
+    <td>Aggiunta icona applicazione</td>
+  </tr>
+  <tr>
+    <td>Refactor registrazione callbacks timer*</td>
+  </tr>
+  <tr>
+    <td>Refactor gestione stati pulsanti della schermata dettaglio area</td>
   </tr>
   
   <tr>
-    <td rowspan="3">Documentazione</td>
+    <td rowspan="2">Documentazione</td>
     <td>Raffinare diagrammi UML*</td>
   </tr>
   <tr>
     <td>Terminare report*</td>
   </tr>
-  <tr>
-    <td>Scrivere file README*</td>
-  </tr>
   
   <tr>
     <td rowspan="4">Applicazione finale</td>
-    <td>Operazioni finali di refactoring del codice e ottimizzazione degli imports*</td>
+    <td>Operazioni finali di refactoring del codice, miglioramento dei test e ottimizzazione degli imports*</td>
   </tr>
   <tr> 
     <td>Realizzare file .jar*</td>
