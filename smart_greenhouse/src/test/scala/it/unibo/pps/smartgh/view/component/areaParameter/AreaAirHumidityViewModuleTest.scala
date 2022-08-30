@@ -48,7 +48,6 @@ class AreaAirHumidityViewModuleTest extends AbstractAreaParameterViewTest("Air h
 
     eventually(timeout(Span(20000, Milliseconds))) {
       assertTrue(button.isSelected)
-      assertTrue(button.isSelected)
       verifyThat(atomiserBtnId, hasText(AtomiserText.DEACTIVATE.text))
     }
 

@@ -34,7 +34,7 @@ class AirHumiditySensorTest extends AnyFunSuite with Matchers with Eventually wi
 
   private def initialValueTest(): Unit =
     subjectEnvironment.onNext(initialHumidity)
-    eventually(timeout(Span(3000, Milliseconds))) {
+    eventually(timeout(Span(8000, Milliseconds))) {
       humiditySensor.getCurrentValue should be < initialHumidity
     }
 
@@ -71,34 +71,35 @@ class AirHumiditySensorTest extends AnyFunSuite with Matchers with Eventually wi
   }
 
   test("The air humidity value should decrease because the ventilation and the humidity are inactive") {
-    setupTimer(50 milliseconds)
+    setupTimer(500 microseconds)
     initialValueTest()
 
-    eventually(timeout(Span(3000, Milliseconds))) {
+    eventually(timeout(Span(8000, Milliseconds))) {
       humiditySensor.getCurrentValue should be < initialHumidity
     }
   }
 
   test("The air humidity value should decrease if the ventilation is active") {
     initialValueTest()
+    Thread.sleep(2000)
 
     areaComponentsState.ventilationState = AreaVentilationState.VentilationActive
     subjectActions.onNext(areaComponentsState)
 
-    eventually(timeout(Span(3000, Milliseconds))) {
+    eventually(timeout(Span(8000, Milliseconds))) {
       humiditySensor.getCurrentValue should be < initialHumidity
     }
   }
 
   test("The air humidity value should increase if the atomiser is active") {
     initialValueTest()
-    setupTimer(50 milliseconds)
+    Thread.sleep(2000)
 
     val humidityValue = humiditySensor.getCurrentValue
     areaComponentsState.atomisingState = AreaAtomiseState.AtomisingActive
     subjectActions.onNext(areaComponentsState)
 
-    eventually(timeout(Span(3000, Milliseconds))) {
+    eventually(timeout(Span(8000, Milliseconds))) {
       humiditySensor.getCurrentValue should be > humidityValue
     }
   }

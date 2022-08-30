@@ -14,7 +14,7 @@ import org.scalatest.time.{Milliseconds, Span}
 import org.testfx.api.FxAssert.verifyThat
 import org.testfx.api.FxRobot
 import org.testfx.framework.junit5.{ApplicationExtension, Start}
-import org.testfx.matcher.base.NodeMatchers.isVisible
+import org.testfx.matcher.base.NodeMatchers.{isEnabled, isVisible}
 import org.testfx.matcher.control.LabeledMatchers.hasText
 
 import scala.jdk.javaapi.CollectionConverters.asScala
@@ -63,6 +63,7 @@ abstract class AbstractAreaParameterViewTest(private val parameterName: String, 
 
   protected def basicButtonTest(button: ButtonBase, buttonId: String, text: String): Unit =
     verifyThat(buttonId, isVisible)
+    verifyThat(buttonId, isEnabled)
     verifyThat(buttonId, hasText(text))
 
   protected def testActions(robot: FxRobot, buttonId: String, condition: (Double, Double) => Boolean): Unit =
