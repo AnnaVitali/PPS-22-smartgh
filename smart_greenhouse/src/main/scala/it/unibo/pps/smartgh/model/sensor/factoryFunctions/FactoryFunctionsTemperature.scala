@@ -10,4 +10,4 @@ object FactoryFunctionsTemperature:
 
   /** Update temperature value. */
   val updateTemperatureApproachingTemperatureToReach: (Double, Double) => Double =
-    (currentAreaVal, temperatureToReach) => (currentAreaVal * AreaFactor) + (temperatureToReach * EnvironmentFactor)
+    _ * AreaFactor + _ * EnvironmentFactor

@@ -10,8 +10,7 @@ object FactoryFunctionsLuminosity:
   private val MaxPercentage = 0.05
 
   /** Update the luminosity value when gates are open. */
-  val updateLuminosityWithAreaGatesOpen: (Double, Double) => Double =
-    (currentValEnvironment, currentLampBrightness) => currentValEnvironment + currentLampBrightness
+  val updateLuminosityWithAreaGatesOpen: (Double, Double) => Double = _ + _
 
   /** Update the luminosity value when gates are open and shields are up. */
   val updateLuminosityWithAreaGatesCloseAndUnshielded: (Double, Double) => Double =
@@ -20,5 +19,4 @@ object FactoryFunctionsLuminosity:
         .nextDouble() * (MaxPercentage - MinPercentage) + MinPercentage) * currentValEnvironment + currentLampBrightness
 
   /** Update the luminosity value when area gates are closed and shields are down. */
-  val updateLuminosityWithAreaGatesCloseAndShielded: Double => Double = concurrentLampBrightness =>
-    concurrentLampBrightness
+  val updateLuminosityWithAreaGatesCloseAndShielded: Double => Double = _
