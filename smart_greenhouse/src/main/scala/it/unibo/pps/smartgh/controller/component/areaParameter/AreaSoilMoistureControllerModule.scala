@@ -49,6 +49,8 @@ object AreaSoilMoistureControllerModule:
         extends AbstractAreaParameterController("Soil moisture", areaModel, updateStateMessage)
         with AreaSoilMoistureController:
 
+      override protected val updateCurrentValue: (String, String) => Unit = parameterView.updateCurrentValue
+      override protected val updateDescription: String => Unit = parameterView.updateDescription
       override def openGates(): Unit = areaModel.updGateState(AreaGatesState.Open)
       override def closeGates(): Unit = areaModel.updGateState(AreaGatesState.Close)
       override def movingSoil(): Unit = areaModel.updHumidityAction(AreaHumidityState.MovingSoil)

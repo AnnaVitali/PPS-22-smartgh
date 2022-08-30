@@ -43,4 +43,4 @@ object AreaAirHumidityMVC:
     override val parameterController: AreaParameterController = AreaAirHumidityControllerImpl(updateStateMessage)
     override val parameterView: AreaParameterView = AreaAirHumidityViewImpl()
 
-    parameterController.initializeView(parameterView)
+    parameterController.initialize()

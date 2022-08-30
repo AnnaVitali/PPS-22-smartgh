@@ -47,6 +47,7 @@ object AirHumiditySensor:
       private val addTimerCallback: (f: String => Unit) => Unit
   ) extends AbstractSensorWithTimer(areaComponentsState, addTimerCallback):
 
+    private val checkInRange: Double => Double = _.max(ValueRange._1).min(ValueRange._2)
     private var maxAtomizeValue: Double = _
     private var minVentilateValue: Double = _
     private val noActionRandomVal: Double = areaComponentsState.gatesState match
@@ -61,15 +62,14 @@ object AirHumiditySensor:
     override def computeNextSensorValue(): Unit =
       import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsAirHumidity.*
       Task {
-        currentValue = (areaComponentsState.atomisingState, areaComponentsState.ventilationState) match
+        currentValue = checkInRange((areaComponentsState.atomisingState, areaComponentsState.ventilationState) match
           case (AtomisingActive, _) => updateAtomizeValue(currentValue, maxAtomizeValue)
           case (_, VentilationActive) => updateVentilationValue(currentValue, minVentilateValue)
           case (AtomisingInactive, VentilationInactive) =>
-            updateNoActionValue(currentValue, currentEnvironmentValue, noActionRandomVal)
-          case _ =>
             areaComponentsState.gatesState match
-              case AreaGatesState.Open => currentEnvironmentValue
-              case _ => (currentEnvironmentValue - calculateRandomValue(currentValue)).max(ValueRange._1)
+              case AreaGatesState.Open => updateNoActionValue(currentValue, currentEnvironmentValue, noActionRandomVal)
+              case _ => updateNoActionValue(currentEnvironmentValue, currentEnvironmentValue, noActionRandomVal)
+        )
         subject.onNext(currentValue)
       }.executeAsync.runToFuture
 

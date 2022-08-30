@@ -20,17 +20,8 @@ object AreaParameterController:
   /** A trait that represents the generic controller for area parameters. */
   trait AreaParameterController:
 
-    /** Get the optimal values of the parameter.
-      * @return
-      *   the optimal values
-      */
-    def getOptimalValues: String
-
-    /** Initialize the view.
-      * @param areaParametersView
-      *   the view to initialize
-      */
-    def initializeView(areaParametersView: AreaParameterView): Unit
+    /** Initialize operations. */
+    def initialize(): Unit
 
     /** Stop listening value updating. */
     def stopListening(): Unit
@@ -48,20 +39,22 @@ object AreaParameterController:
       private val areaModel: AreaModel,
       private val updateStateMessage: (String, Boolean) => Unit
   ) extends AreaParameterController:
-    protected val sensor: ManageSensorImpl = areaModel.sensors.find(_.name.contentEquals(name)).orNull
-    protected var timeoutUpd: Observable[Unit] = _
+    private val sensor: ManageSensorImpl = areaModel.sensors.find(_.name.contentEquals(name)).orNull
+    private var timeoutUpd: Observable[Unit] = _
+    private var subscriptionTimeout: Cancelable = _
 
-    protected var subscriptionTimeout: Cancelable = _
+    private def getOptimalValues: String = "(%.2f%s, %.2f%s)".format(sensor.min, sensor.um, sensor.max, sensor.um)
 
-    override def getOptimalValues: String = "(%.2f%s, %.2f%s)".format(sensor.min, sensor.um, sensor.max, sensor.um)
+    protected val updateCurrentValue: (String, String) => Unit
+    protected val updateDescription: String => Unit
 
-    override def initializeView(view: AreaParameterView): Unit =
-      timeoutUpd = Observable.interval(UpdatePeriod).map(_ => updateValues(view))
+    protected def updateValues(): Unit =
+      updateStateMessage(sensor.message, sensor.status === SensorStatus.ALARM)
+      updateCurrentValue("%.2f %s".format(sensor.actualVal, sensor.um), sensor.status.toString)
+
+    override def initialize(): Unit =
+      timeoutUpd = Observable.interval(UpdatePeriod).map(_ => updateValues())
       subscriptionTimeout = timeoutUpd.subscribe()
-      view.updateDescription(getOptimalValues)
+      updateDescription(getOptimalValues)
 
     override def stopListening(): Unit = subscriptionTimeout.cancel()
-
-    protected def updateValues(view: AreaParameterView): Unit =
-      updateStateMessage(sensor.message, sensor.status === SensorStatus.ALARM)
-      view.updateCurrentValue("%.2f %s".format(sensor.actualVal, sensor.um), sensor.status.toString)

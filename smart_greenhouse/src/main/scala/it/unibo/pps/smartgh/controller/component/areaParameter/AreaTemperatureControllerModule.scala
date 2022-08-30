@@ -58,6 +58,8 @@ object AreaTemperatureControllerModule:
         extends AbstractAreaParameterController("Temperature", areaModel, updateStateMessage)
         with AreaTemperatureController:
 
+      override protected val updateCurrentValue: (String, String) => Unit = parameterView.updateCurrentValue
+      override protected val updateDescription: String => Unit = parameterView.updateDescription
       override def temperature: Double = areaModel.getAreaComponent.temperature
       override def updTempValue(value: Double): Unit = areaModel.updTemperature(value)
       override def isGatesOpen: Boolean = areaModel.getAreaComponent.gatesState === AreaGatesState.Open

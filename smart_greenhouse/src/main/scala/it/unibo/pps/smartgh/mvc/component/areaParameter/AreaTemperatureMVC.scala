@@ -41,4 +41,4 @@ object AreaTemperatureMVC:
     override val parameterController: AreaParameterController = AreaTemperatureControllerImpl(updateStateMessage)
     override val parameterView: AreaParameterView = AreaTemperatureViewImpl()
 
-    parameterController.initializeView(parameterView)
+    parameterController.initialize()

@@ -21,8 +21,7 @@ trait ViewComponent[A <: Parent]:
 object ViewComponent:
 
   /** Convert the object to its wrapped component */
-  given toComponent[A <: Parent]: Conversion[ViewComponent[A], A] with
-    override def apply(component: ViewComponent[A]): A = component.component
+  given toComponent[A <: Parent]: Conversion[ViewComponent[A], A] = _.component
 
   /** An abstract class that can instantiated the FX components from FXML files.
     *

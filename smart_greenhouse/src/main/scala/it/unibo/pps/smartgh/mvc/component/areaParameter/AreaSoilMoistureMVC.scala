@@ -41,4 +41,4 @@ object AreaSoilMoistureMVC:
     override val parameterController: AreaParameterController = AreaSoilMoistureControllerImpl(updateStateMessage)
     override val parameterView: AreaParameterView = AreaSoilMoistureViewImpl()
 
-    parameterController.initializeView(parameterView)
+    parameterController.initialize()

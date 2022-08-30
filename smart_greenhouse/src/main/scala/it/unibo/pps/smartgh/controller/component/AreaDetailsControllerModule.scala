@@ -58,9 +58,9 @@ object AreaDetailsControllerModule:
         simulationMVC.simulationController.environmentController.subscribeTimerValue(areaDetailsView.updateTime)
 
       private def updateStateMessage(message: String, show: Boolean): Unit =
-        if show && (!messages.contains(message)) then messages = messages.prepended(message)
-        else if !show && messages.contains(message) then messages = messages.filter(!_.contentEquals(message))
-        areaDetailsView.updateStateMessages(messages.mkString("", "\n", ""))
+        if show && (!messages.contains(message)) then messages = messages prepended message
+        else if !show && messages.contains(message) then messages = messages diff Seq(message)
+        areaDetailsView.updateStateMessages(messages mkString ("", "\n", ""))
 
   /** Trait that combine provider and component for area details. */
   trait Interface extends Provider with Component:

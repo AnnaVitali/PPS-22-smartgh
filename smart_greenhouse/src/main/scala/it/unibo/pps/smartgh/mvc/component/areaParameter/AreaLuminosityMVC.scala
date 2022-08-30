@@ -40,4 +40,4 @@ object AreaLuminosityMVC:
     override val parameterController: AreaParameterController = AreaLuminosityControllerImpl(updateStateMessage)
     override val parameterView: AreaParameterView = AreaLuminosityViewImpl()
 
-    parameterController.initializeView(parameterView)
+    parameterController.initialize()
