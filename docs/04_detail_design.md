@@ -5,9 +5,41 @@ L'applicazione è costituita da diverse scene, ciascuna delle quali racchiude un
 
 Tramite il _pattern MVC_, come già descritto nella sezione [Sec. 3.2](#32-pattern-architetturali-utilizzati), abbiamo la possibilità di separare la logica di presentazione dei dati da quella di buisness, ottenendo la capacità di realizzare una View del tutto indipendente dal modello, in questo modo se in un futuro si decidesse di non adottare più _ScalaFX_ come tecnologia per l'implementazione della View, si potrebbe tranquillamente intraprendere questo cambiamento, senza dover modificare il Model associato alle diverse schermate.
 
-Il _cake pattern_, invece, ci da la possibilità di risolvere in modo agevole, le dipendenze che legano gli elementi dell'_MVC_, tramite l'utilizzo di elementi della programmazione funzionale come: _mix-in_, _self-type_, _abstract type_ ecc.
+Il _cake pattern_, invece, ci dá la possibilità di risolvere in modo agevole le dipendenze che legano gli elementi dell'_MVC_, tramite l'utilizzo di elementi della programmazione funzionale come: _mix-in_, _self-type_, _abstract type_ ecc.
 
-Questa strategia, sostanzialmente, prevede di vedere il _pattern MVC_, come una composizione di tre elementi: Model (M), View (V) e Controller (C), i quali presentano le seguenti dipendenze: C->V, V->C e C->M. Tramite il _cake pattern_, possiamo realizzare questi tre elementi incapsulando già al loro interno la risoluzione di qusete dipendenze e istnziando alla fine un oggetto `MVC` che li detiene tutti e tre e che è in grado di utilizzarli direttamente e di accedere alle loro proprietà, senza doversi più preoccupare dei loro collegamenti.
+Questa strategia, sostanzialmente, prevede di implementare il _pattern MVC_, come una composizione di tre elementi: Model (M), View (V) e Controller (C), i quali presentano le seguenti dipendenze: C->V, V->C e C->M. Tramite il _cake pattern_, possiamo realizzare questi tre elementi incapsulando già al loro interno la risoluzione di qusete dipendenze e istanziando alla fine un oggetto `MVC` che li detiene tutti e tre e che è in grado di utilizzarli direttamente e di accedere alle loro proprietà, senza doversi più preoccupare dei loro collegamenti.
+
+Gli elementi sopra citati vengono racchiusi in moduli, così composti:
+- un `trait` (`Model`, `View` o `Controller`), il quale definisce l'interfaccia del rispettivo modulo ;
+-	una classe `ModelImpl`, `ViewImpl` o `ControllerImpl`, che rappresenta l'implementazione dell’interfaccia appena descritta ed è racchiusa all’interno del trait `Component`;
+- un `trait Component`, il quale racchiude la classe implementativa. Tale trait assume forme differenti in base al modulo nel quale è racchiuso:
+  - nel caso del `model` si compone esclusivamente della classe implementativa [Fig. 4.1];
+  - nel caso della `view` contene il campo `context` di tipo `Requirements`, il quale viene utilizzato per specificare le dipendenze che legano la View al Controller [Fig. 4.2];
+  - nel caso del `controller` contiene sempre il capo `context` di tipo `Requirements`, il quale viene però utilizzato per specificare le dipendenze che legano il Controller al Model e alla View [Fig. 4.3];
+- `trait Provider` che si occupa di detenere il rispettivo oggetto `view`, `model` o `controller`;
+- `trait Interface` che si occupa di completare e connettere tutti i componenti del modulo per renderli utilizzabili nell'oggetto che istanzierà l'MVC.
+
+<div align="center">
+  <img src="img/cake_model.png" />
+  <p> Fig. 4.1 - Model module </p>
+</div>
+
+[Fig. 4.1]: img/cake_model.png
+
+<div align="center">
+  <img src="img/cake_view.png" />
+  <p> Fig. 4.2 - View module </p>
+</div>
+
+[Fig. 4.2]: img/cake_view.png
+
+<div align="center">
+  <img src="img/cake_controller.png" />
+  <p> Fig. 4.3 - Controller module </p>
+</div>
+
+[Fig. 4.3]: img/cake_controller.png
+
 
 Tutti gli elementi principali dell'applicazione, che richiedono di eseguire operazioni o di elaborare informazioni e fornire risultati, a seguito delle azioni compiute dall'utente, sono state realizzate seguendo questa strategia e nelle seguenti sezioni, verranno descritti con maggiore dettaglio.
 
@@ -164,9 +196,14 @@ Il controller per la selezione della città è racchiuso all’interno del modul
 
 #### Environment
 
- `Environment` è la componente del sistema che rappresenta l'ubicazione della serra.  Il suo scopo è quello di, una volta selezionata la città, reperire le previsioni meteorologiche previste per la giornata in cui si svolge la simulazione. Le informazioni così ottenute vengono poi messe a disposizione dell'applicazione al fine di aggiornare i parametri ambientali durante tutto lo svolgimento della stessa. I parametri ambientali influenzeranno i parametri rilevati all'interno di ogni area, secondo le formule implementate in ogni sensore.
+ `Environment` [Fig. 4.3.1.4] è la componente del sistema che rappresenta l'ubicazione della serra.  Il suo scopo è quello di, una volta selezionata la città, reperire le previsioni meteorologiche previste per la giornata in cui si svolge la simulazione. Le informazioni così ottenute vengono poi messe a disposizione dell'applicazione al fine di aggiornare i parametri ambientali durante tutto lo svolgimento della stessa. I parametri ambientali influenzeranno i parametri rilevati all'interno di ogni area, secondo le formule implementate in ogni sensore.
 
-//todo: immagine
+<div align="center">
+  <img src="img/environment.png" />
+  <p> Fig. 4.3.1.4 - Architettura del componente Environment </p>
+</div>
+
+[Fig. 4.3.1.4]: img/environment.png
 
 ### View per la selezione delle città
 La view per la selezione delle città viene racchiusa nel modulo `SelectCityViewModule` [Fig. 4.3.1.4]. Al suo interno troviamo:
@@ -483,7 +520,7 @@ In particolare come si può vedere nella figura [Fig. 4.4.1.1], la classe `Green
 Il model viene racchiuso nel suo rispettivo modulo `GHModelModule` [Fig. 4.4.1.1.1],  al cui interno troviamo: 
 
 - il `trait GreenHouseModel` che espone i diversi metodi che potranno essere richiamati sul model, nello specifico quello per ottenere la lista dei componenti MVC delle singole aree che compongono la serra (`areas` [Sec. 4.4.1.4](#4414-Aree)).
-- la classe `GreenHouseDivisionModelImpl`, la quale si occupa di implementare l'interfaccia appena descritta e viene racchiusa all'interno del `trait Component`;
+- la classe `GreenHouseDivisionModelImpl`, la quale si occupa di implementare l'interfaccia appena descritta e viene racchiusa all'interno del rispettivo trait `trait Component`;
 - `trait Provider` che si occupa di detenere l'oggetto `ghDivisionModel`
 - `trait Interface` che si occupa di completare e connettere tutti i componenti del modulo per renderli utilizzabili nell'oggetto che istanzierà l'MVC.
 
@@ -500,7 +537,10 @@ Il model ha come obiettivo quello di memorizzare la lista dei singoli MVC di ogn
 
 La view viene racchiusa nel modulo `GHViewodule` [Fig. 4.4.1.2.1], al cui interno troviamo:
 
-- `trait GHDivisionView`, che definisce i metodi che possono essere richiamati sulla view. Questa interfaccia rappresenta inoltre il controller dell'FXML per la relativa sezione, infatti bisogna ricordare che la ghDivisionView è racchiusa all'interno della più ampia view che è `EnvironmentView`.
+- `trait GHDivisionView`, che definisce i metodi che possono essere richiamati sulla view:
+  - il metodo `paintDivision` il quale si occupa di ripulire lo spazio di interfaccia relativa  //TODO. 
+  
+  Questa interfaccia rappresenta inoltre il controller dell'FXML per la relativa sezione, infatti bisogna ricordare che la `ghDivisionView` è racchiusa all'interno della più ampia view che è `EnvironmentView`.
   Questo trait, come gli altri, per poter essere inseriti all'interno della scena principale, implementa `ViewComponent `.
 - la classe `GreenHouseDivisionViewImpl` la quale si occupa di implementare i metodi dell'interfaccia appena descritta e viene racchiusa all'interno del `trait Component`.
 - `trait Component` contene il campo `context` di tipo `Requirements` , il quale viene utilizzato per specificare le dipendenze che legano la view al controller. Questo è necessario affinchè la view possa notificare il controller delle operazioni fatte dall'utente su di essa.
