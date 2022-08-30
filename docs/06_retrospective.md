@@ -1,20 +1,20 @@
 # 6. Retrospettiva
-Come descritto nel precedente capitolo [1. Processo di sviluppo](# 1. Processo di sviluppo), per realizzare il progetto è stato utilizzato un approcio _SCRUM-inspired_, pertanto il team ha provveduto ad effettuare degli Sprint settimanali, con l'obiettivo di realizzare diversi _product backlog_ che potessero fornire un risultato tangibile per l'utente finale.
+Come descritto nel precedente capitolo [Ch. 1](#1-processo-di-sviluppo), per realizzare il progetto è stato utilizzato un approcio _SCRUM-inspired_, pertanto il team ha provveduto ad effettuare degli Sprint settimanali, con l'obiettivo di realizzare diversi _product backlog_ che potessero fornire un risultato tangibile per l'utente finale.
 
-Prima di definire i diversi _product backlog_ ed effettuare gli sprint, il team di lavoro ha concordato sulla "definition of done" per svolgere i diversi tasks; sostanzialmente i membri del gruppo hanno stabilito il criterio che deve essere rispettato, secondo il quale un prodotto realizzato possa effettivamente definirsi concluso. In particolare, un prodotto si ritiene completato quando tutti i tasks individuati per poterlo realizzare, sono stati portati a termine e il codice di implementazione è stato adeguatamente testato, con esito positivo ed opportunamente documentato tramite la _Scala doc_.
+Prima di definire i diversi _product backlog_ ed effettuare gli sprint, il team di lavoro ha concordato sulla _"definition of done"_ per svolgere i diversi tasks; sostanzialmente i membri del gruppo hanno stabilito il criterio che deve essere rispettato, secondo il quale un prodotto realizzato possa effettivamente definirsi concluso. In particolare, un prodotto si ritiene completato quando tutti i tasks individuati per poterlo realizzare sono stati portati a termine e il codice di implementazione è stato adeguatamente testato con esito positivo ed opportunamente documentato tramite la _Scala doc_.
 
 Nelle seguenti sezioni verranno riassunte le diverse iterazioni svolte dal team di sviluppo, considerando una fase iniziale di avviamento, in cui si è provveduto a definire i requisiti del progetto e ad impostare l'ambiente di lavoro e le successive fasi, corrispondenti ai diversi sprint effettuati.
 
-Molte delle informazioni che varranno riportate, è possibile ritrovarle anche all'interno dei files relativi al porcesso di sviluppo del progetto. Infatti, gli Sprint che sono stati effettuati, i _prduct backlog_ e i tasks eseguiti per essi, sono stati appositamente documentati ed i files ad essi relativi si torvano all'interno della directory `/process` del progetto.
+Molte delle informazioni che varranno riportate, è possibile ritrovarle anche all'interno dei files relativi al porcesso di sviluppo del progetto. Infatti, gli Sprint che sono stati effettuati, i _prduct backlog_ e i tasks eseguiti per essi, sono stati opportunamente documentati ed i files ad essi relativi si trovano all'interno della directory `/process` del progetto.
 
 ## 6.1 Avviamento
 In questa prima fase del processo di sviluppo del progetto, i membri del gruppo hanno provveduto a definire i requisiti dell'applicativo che si vuole realizzare e che dovranno essere rispettati.
 
-In particolare, sono stati definiti i diversi requisiti: di buisness, utente, funzionali, non funzionali e implementativi che l'applicaizone deve avere. Tali requisiti, sono stati appositamente numerati, in modo tale che all'interno della documentazione si potesse avere un chiaro riferimento ad essi.
+In particolare, sono stati definiti i diversi requisiti: di business, utente, funzionali, non funzionali e implementativi che l'applicazione deve avere. Tali requisiti sono stati appositamente numerati, in modo tale che all'interno della documentazione si potesse avere un chiaro riferimento ad essi.
 
-Successivamente, i diversi membri del gruppo una volta definiti i requisiti, hanno impostato l'ambiente di lavoro per il progetto, creando le diverse directories per contenere i diversi files e i _mockup_ delle diverse schermate, in modo da avere un riferimento, seppur minimale, del risultato che si vuole ottenere e infine hanno impostato i diversi flussi di lavoro per il processo di _continus integration_.
+Successivamente, i diversi membri del gruppo una volta definiti i requisiti, hanno impostato l'ambiente di lavoro per il progetto, creando le diverse directories per contenere i diversi files e i _mockup_ delle diverse schermate, in modo da avere un riferimento, seppur minimale, del risultato che si vuole ottenere e infine hanno impostato i diversi flussi di lavoro per il processo di _Continuous Integration_.
 
-Va inoltre sottolineato, che per la gestione del _repository_ è stata utilizzata la metodologia _Git flow_, pertanto, in questa fase, sono anche stati creati il branch principale master e il branch di sviluppo develop.
+Va inoltre sottolineato, che per la gestione del _repository_ è stata utilizzata la metodologia _Git flow_, pertanto, in questa fase, sono anche stati creati il branch principale `master` e il branch di sviluppo `develop`.
 
 ### 6.2.1 Sprint 1 - 25/07/2022
 L'obiettivo di questo sprint, consiste nel realizzare le funzionalità di base per poter impostare l'ambiente della simulazione, pertanto i _product backlog_ che sono stati individuati sono i seguenti:
@@ -23,7 +23,7 @@ L'obiettivo di questo sprint, consiste nel realizzare le funzionalità di base p
 - selezionare le piante da coltivare all'interno della serra;
 - avvio della simulazione.
 
-Al termine di questo sprint, l'utente ha la possibilita di visualizzare e interagire con le diverse schermate dell'applicazione singolarmente ed ha inoltre la possibilità, di lanciare l'avvio della simulazion tramite dei parametri di default, potendo osservare lo scorrere del tempo e modificarne la velocità d'esecuzione.
+Al termine di questo sprint, l'utente ha la possibilita di visualizzare e interagire con le diverse schermate dell'applicazione singolarmente ed ha inoltre la possibilità, di lanciare l'avvio della simulazione tramite dei parametri di default, potendo osservare lo scorrere del tempo e modificarne la velocità d'esecuzione.
 
 Infine, alla conclusione dello sprint, sommando i diversi costi per i lavori che sono stati svolti, si ottiene che il costo totale, per il lavoro richiesto nel realizzare i diversi _product backlog_, è di 52.
 
@@ -66,4 +66,15 @@ Pertanto, i _product backlog_ che sono stati individuati sono i seguenti:
 //TODO completare
 
 ## 6.3 Commenti finali
-//TODO considerazioni finali sul lavoro che è stato svolto, i risultati che sono stati ottenuti e la procedura seguita
+
+Il gruppo, sin dall'inizio, ha valutato positivamente l'adozione della metodologia _Scrum_ in quanto ha permesso di suddividere il carico di lavoro in maniera equa, valutando preventivamente l'_effort_ dei singoli _task_.
+
+Inoltre, sin dal termine del primo sprint, è stato possibile consegnare all'utente un prototipo dell'applicazione funzionante ed opportunamente testato.
+
+Il primo sprint ha permesso di ottenere una prima versione dell'applicazione attraverso cui è già possibile impostare i parametri della simulazione e visualizzare lo scorrere del tempo.
+
+A posteriori, si è evidenziato che il secondo sprint è stato quello più consistente in quanto ha introdotto le funzionalità core dell'applicazione: la visualizzazione dello stato globale e delle singole aree, periodicamente aggiornata.
+
+Il terzo sprint si è rilevato meno impegnativo dei precedenti, pur introducendo la seconda parte di funzionalità core dell'applicazione ossia la gestione delle azioni compiute dall'utente all'interno delle aree.
+
+Infine, nel quarto sprint il gruppo non ha sviluppato nuove funzionalità ma si è concentrato sulle migliorie rispetto all'esperienza utente e alla qualità del codice, al fine di rilasciare l'applicazione finale.
