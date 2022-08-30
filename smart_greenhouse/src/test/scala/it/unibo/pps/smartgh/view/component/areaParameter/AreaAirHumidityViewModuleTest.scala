@@ -43,6 +43,9 @@ class AreaAirHumidityViewModuleTest extends AbstractAreaParameterViewTest("Air h
   def testAtomiserBtn(robot: FxRobot): Unit =
     val button = getToggleButton(robot, atomiserBtnId)
     basicToggleButtonTest(button, atomiserBtnId, AtomiserText.ACTIVATE.text, false)
+    eventually(timeout(Span(20000, Milliseconds))) {
+      verifyThat(atomiserBtnId, isEnabled)
+    }
 
     robot.clickOn(atomiserBtnId)
 

@@ -63,7 +63,6 @@ abstract class AbstractAreaParameterViewTest(private val parameterName: String, 
 
   protected def basicButtonTest(button: ButtonBase, buttonId: String, text: String): Unit =
     verifyThat(buttonId, isVisible)
-    verifyThat(buttonId, isEnabled)
     verifyThat(buttonId, hasText(text))
 
   protected def testActions(robot: FxRobot, buttonId: String, condition: (Double, Double) => Boolean): Unit =
