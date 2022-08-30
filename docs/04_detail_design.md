@@ -420,12 +420,12 @@ Inoltre,il trait `Component` contiene il campo `context` di tipo `Requirements`,
 #### View per l'aggiornamento dei valori ambientali
 
 La view viene racchiusa nel `EnvironmentViewModule` (vedi [Fig. 4.5.1.3]), al cui interno troviamo il trait `EnvironmentView`, che espone i metodi per:
-    - visualizzare il nome della città selezionata
-    - visualizzare i valori ambientali aggiornati
-    - visualizzare il tempo virtuale aggiornato
-    - visualizzare lo stato globale della serra, quindi la sua suddivisione in aree 
-    - richiedere alla view principale di cambiare scena al concludersi della simulazione
-    - settare lo stile e la behaviour del pulsante comune a tutte le view, rispettando il layout stabilito nei mockup dell’applicazione
+  - visualizzare il nome della città selezionata
+  - visualizzare i valori ambientali aggiornati
+  - visualizzare il tempo virtuale aggiornato
+  - visualizzare lo stato globale della serra, quindi la sua suddivisione in aree 
+  - richiedere alla view principale di cambiare scena al concludersi della simulazione
+  - settare lo stile e la behaviour del pulsante comune a tutte le view, rispettando il layout stabilito nei mockup dell’applicazione
 
 Tale trait estende `ViewComponent` in quanto rappresenta una scena inserita all’interno di quella madre.
 
