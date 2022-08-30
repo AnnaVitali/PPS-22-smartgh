@@ -888,7 +888,7 @@ La scena di fine simulazione, quindi, verrà mostrata all'interno della scena ma
 In particolare, Se l'utente decida di premere il pulsante presente sulla scena, che li consente di iniziare una nuova simulazione, verrà istanziato l'elemento `SelectCityMVC` e l'applicazione riprenderà dalla schermata si selezione della città.
 
 
-## 4.8 Pattern utilizzati per l'implementazione
+## 4.8 Pattern utilizzati
 
 Per la realizzazione di questo progetto sono stati adoperati i pattern creazionali e comportamentali descritti nelle seguenti sottosezioni.
 
