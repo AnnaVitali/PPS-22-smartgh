@@ -7,8 +7,6 @@ In tutti i diversi sprint effettuati, è stato adottata la stessa definition of 
 ## Product backlog Reference
 L'ordine di priorità dei diversi product backlog è dato dall'ordine con cui essi sono inseriti nella tabella di riferimento, quindi il primo elemento avrà priorità maggiore, mentre l'ultimo priorità minore.
 
-//TODO (Completare tabella)
-
 <table>
   <thead>
     <td><b>Sprint</b></td>
@@ -66,23 +64,23 @@ L'ordine di priorità dei diversi product backlog è dato dall'ordine con cui es
     <td colspan="3"><b>Costo totale sprint:</b> 46</td>
   </tr>
   </tr>
-  <td rowspan="5"><a href="product_backlog_20220821.md">Sprint 4</a></td>
+  <td rowspan="4"><a href="product_backlog_20220821.md">Sprint 4</a></td>
     <td>Consentire la gestione di un'area</td>
-    <td>1</td>
+    <td>2</td>
   </tr>
   <tr>
     <td>Miglioramento dell'esperienza utente</td>
-    <td>?</td>
+    <td>18</td>
   </tr>
   <tr>
     <td>Documentazione</td>
-    <td>?</td>
+    <td>14</td>
   </tr>
    <tr>
     <td>Applicazione finale</td>
-    <td>3</td>
+    <td>7</td>
   </tr>
   <tr>
-    <td colspan="3"><b>Costo totale sprint:</b> ??</td>
+    <td colspan="3"><b>Costo totale sprint:</b> 41</td>
   </tr>
 </table>
