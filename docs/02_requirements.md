@@ -118,11 +118,11 @@ Sono stati identificati i seguenti requisiti non funzionali:
 - l'applicazione deve essere _cross-platform_, cioè eseguibile sia su Windows che su MacOS e Linux, o comunque su qualsiasi sistema operativo capace di supportare _Java Runtime Environment_ versione 16 e successive;
 - l'interfaccia deve essere reattiva alle azioni dell'utente;
 - l'applicazione non deve mai interrompersi qualora si verifichi un errore ma deve, invece, mostrare un messaggio di errore all'utente;
-- l'applicazione deve essere sufficientemente modulare in modo tale che sia possibile riutilizzare i suoi componenti in contesti diversi. Non ci devono essere dipendenze tra le classi dei componenti, ma solo verso interfacce liberamente re-implementabili.
+- l'applicazione deve essere sufficientemente modulare in modo tale che sia possibile riutilizzare i suoi componenti in contesti diversi.
 - il sistema deve essere capace di scalare a seguito dell'aggiunta di nuovi componenti (es: aggiunta di nuovi sensori).
 
 ## 2.5 Requisiti implementativi
 Di seguito vengono riportati i requisiti relativi all'implementazione del sistema:
 - il sistema sarà sviluppato in _Scala 3_ e per eventuali feature sarà possibile integrare delle teorie _Prolog_;
 - il sistema farà riferimento a _JDK 11_ ed eventuali librerie esterne utilizzate dovranno supportare, almeno, tale versione;
-- il testing del sistema sarà effettuato utilizzando _ScalaTest_ e _JUnit_.
+- il testing del sistema sarà effettuato utilizzando _ScalaTest_ e, per i componenti che rappresentano la View, _JUnit_.
