@@ -89,8 +89,8 @@ Gli elementi comuni ai diversi Controller sono stati racchiusi all'interno dell'
 
 La struttura articolata dell'applicazione ha introdotto la necessità di sviluppare un elemento che coordinasse i vari componenti Model, View e Controller, collocandosi ad un livello superiore. Nella sezione seguente si discuterà il design di tale elemento.
 
-### 4.2.1 SimulationMVC
-`SimulationMVC` (vedi [Fig. 4.2.1.1]) rappresenta l’elemento _MVC_ principale della simulazione. Ad alto livello, questo componente si colloca al di sopra di tutti gli altri in quanto permette di:
+### SimulationMVC
+`SimulationMVC` (vedi [Fig. 4.2.1]) rappresenta l’elemento _MVC_ principale della simulazione. Ad alto livello, questo componente si colloca al di sopra di tutti gli altri in quanto permette di:
 -	mantenere aggiornati i vari componenti della simulazione in base allo scorrere del tempo;
 -	detenere i riferimenti ad istanze inizializzate da altri componenti, al fine di poter essere accedute da coloro che ne necessitano;
 -	inizializzare e modificare la schermata visualizzata in ogni momento dell’esecuzione dell’applicazione.
@@ -101,15 +101,15 @@ In particolare, la classe `SimulationMVC` racchiude i sottocomponenti `Simulatio
 
 <div align="center">
   <img src="img/simulationMVC.png" />
-  <p> Fig. 4.2.1.1 - SimulationMVC </p>
+  <p> Fig. 4.2.1 - SimulationMVC </p>
 </div>
 
-[Fig. 4.2.1.1]: img/simulationMVC.png
+[Fig. 4.2.1]: img/simulationMVC.png
 
 
-### 4.2.2 View della simulazione
+### View della simulazione
 
-Il `SimulationViewModule` [Fig. 4.2.2.1] rappresenta la View principale dell'applicazione e si occupa di gestire: la scena, le _sotto-view_ e gli elementi comuni alle interfacce. 
+Il `SimulationViewModule` [Fig. 4.2.2] rappresenta la View principale dell'applicazione e si occupa di gestire: la scena, le _sotto-view_ e gli elementi comuni alle interfacce. 
 
 Al suo interno troviamo il `trait SimulationView`, il quale include i metodi utili per l’avvio dell’applicazione, per gestire gli elementi comuni delle schermate e per passare da una _sotto-view_ all’altra.
 
@@ -118,14 +118,14 @@ Quest'ultimo è il componente che funge da contenitore delle _sotto-view_, che r
 
 <div align="center">
   <img src="img/simulation_view.png" />
-  <p> Fig. 4.2.2.1 - SimulationViewModule </p>
+  <p> Fig. 4.2.2 - SimulationViewModule </p>
 </div>
 
-[Fig. 4.2.2.1]: img/simulation_view.png
+[Fig. 4.2.2]: img/simulation_view.png
 
-### 4.2.3 Controller della simulazione
+### Controller della simulazione
 
-Il controller della simulazione (vedi [Fig. 4.2.3.1]) è stato racchiuso nel `SimulationControllerModule` che si compone, in particolare, del trait `SimulationController`, il quale espone:
+Il controller della simulazione (vedi [Fig. 4.2.3]) è stato racchiuso nel `SimulationControllerModule` che si compone, in particolare, del trait `SimulationController`, il quale espone:
   - campi dove verranno salvate l’istanza `Environment` della località e le istanze `Plant` delle piante selezionate dall’utente;
   - metodi per gestire il tempo virtuale della simulazione, che richiamano il `TimeModel`;
   - metodi per notificare l’`EnvironmentController`, di cui detiene il riferimento, di un cambiamento del `timeValue` e dello scoccare di una nuova ora, al fine di aggiornare la rispettiva View;
@@ -133,10 +133,10 @@ Il controller della simulazione (vedi [Fig. 4.2.3.1]) è stato racchiuso nel `Si
 
 <div align="center">
   <img src="img/simulationController.png" />
-  <p> Fig. 4.2.3.1 - SimulationController </p>
+  <p> Fig. 4.2.3 - SimulationController </p>
 </div>
 
-[Fig. 4.2.3.1]: img/simulationController.png
+[Fig. 4.2.3]: img/simulationController.png
 
 ## 4.3 Impostazione dei parametri della simulazione
 
@@ -158,7 +158,7 @@ Considerando che la realizzazione di questa funzionalità richiede sia una View 
 
 [Fig. 4.3.1.1]: img/select_city_MVC.png
 
-### Model per la selezione della città
+#### Model per la selezione della città
 
 Il Model per la selezione della città viene racchiuso all'interno del modulo `SelectCityModelModule`, costituito, in particolare, dal `trait SelectCityModel` che espone i diversi metodi utili per effettuare la ricerca delle città e per la verifica.
 
@@ -169,7 +169,7 @@ Il Model per la selezione della città viene racchiuso all'interno del modulo `S
 
 [Fig. 4.3.1.2]: img/select_city_model.png
 
-### Controller per la selezione della città
+#### Controller per la selezione della città
 
 Il Controller per la selezione della città è racchiuso all’interno del modulo `SelectCityControllerModule` [Fig. 4.3.1.3] e comprende il `trait SelectCityController`, il quale rappresenta l’interfaccia del Controller ed espone dei metodi per rispondere alle esigenze della View per interagire con il Model.
 
@@ -195,7 +195,7 @@ Nello specifico, il Controller presenta metodi per:
 
 [Fig. 4.3.1.4]: img/environment.png
 
-### View per la selezione delle città
+#### View per la selezione delle città
 
 La View per la selezione delle città viene racchiusa nel modulo `SelectCityViewModule` [Fig. 4.3.1.4]. 
 
