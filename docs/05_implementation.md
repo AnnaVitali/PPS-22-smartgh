@@ -368,7 +368,7 @@ Durante lo _sprint preview_, una volta determinati i dviersi prodotti che si vuo
 
 Il completamento di uno o più tasks, individuati nel _product backlog_, può dare luogo alla stesura di diversi elementi del codice di produzione. 
 
-Nelle seguenti sezioni, ogni membro del gruppo si è impegnato nel descrivere le parti di codice da lui stesso implementate o in collaborazione con altri membri del gruppo.
+Nelle seguenti sezioni, ogni membro del gruppo si è impegnato nel descrivere le parti di codice da lui stesso implementate o effettuate in collaborazione con altri membri del gruppo.
 
 ### 5.7.1 Folin Veronika
 
