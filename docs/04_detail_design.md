@@ -174,7 +174,7 @@ Il Model per la selezione della città viene racchiuso all'interno del modulo `S
 Il Controller per la selezione della città è racchiuso all’interno del modulo `SelectCityControllerModule` [Fig. 4.3.1.3] e comprende il `trait SelectCityController`, il quale rappresenta l’interfaccia del Controller ed espone dei metodi per rispondere alle esigenze della View per interagire con il Model.
 
 Nello specifico, il Controller presenta metodi per:
-- effettuare la ricerca della città  
+- effettuare la ricerca della città,
 - controllare se la città selezionata dall'utente è corretta o meno. Se la città non è valida allora richiamerà la View per gestire il caso, se invece è corretta allora si procederà alla creazione dell'oggetto `Environment`, che verrà poi salvato nel componente superiore `SimulationMVC`.
 
 <div align="center">
