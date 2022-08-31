@@ -591,7 +591,7 @@ Come si può vedere nella [Fig. 4.7.1.1], il Model è lo stesso implementato per
 
 Per questo motivo si rimanda alla [Sec. Aree](#aree) per i dettagli.
 
-Il Model in questione risulterà essere condiviso anche con gli _MVC_ che gestiscono la parte visuale dei sensori presenti all'interno delle aree ([Sec. Area parameter](#Area-parameter)).
+Il Model in questione risulterà essere condiviso anche con gli _MVC_ che gestiscono la parte visuale dei sensori presenti all'interno delle aree ([Sec. Area parameter](#472-parametri-dellarea)).
 
 #### View del dettaglio di un'area
 
@@ -753,7 +753,7 @@ Per poter determinare il valore del parametro rilevato rispetto allo stato dell'
 
 Ogni qual volta l'utente compie una nuova azione o viene rilevato un nuovo parametro ambientale, a seconda dello stato in cui si trovano i comonenti della serra, si richiama la funzione della _factory_ corrispondente, in modo da determinare il nuovo valore rilevato.
 
-Nello specifico, abbiamo detto nella precedente sezione [Sec. 4.8](##Sensori), che ogni sensore presenta due `observer`, uno che viene notificato ogni qual volta un nuovo valore ambientale viene rilevato e l'altro che viene invece notificato, ogni qual volta l'utente compie una nuova aizone sull'area. Quando uno di questi due eventi si verifica, in ogni caso, il sensore controlla lo stato attuale dei componenti dell'area e poi sceglie la funzione da applicare per calcolare il nuovo valore, infine, emette questo nuovo valore sul flusso dell'`observable`, dedicato alle rilevazioni.
+Nello specifico, abbiamo detto nella precedente sezione [Sec. 4.8](#48-sensori), che ogni sensore presenta due `observer`, uno che viene notificato ogni qual volta un nuovo valore ambientale viene rilevato e l'altro che viene invece notificato, ogni qual volta l'utente compie una nuova aizone sull'area. Quando uno di questi due eventi si verifica, in ogni caso, il sensore controlla lo stato attuale dei componenti dell'area e poi sceglie la funzione da applicare per calcolare il nuovo valore, infine, emette questo nuovo valore sul flusso dell'`observable`, dedicato alle rilevazioni.
 
 ### 4.8.2 Sensore per la temperatura
 Il sensore della temperatura, è un sensore dotato di timer, pertanto ha la possibilità di fornire periodicamente l'infomrazione del valore rilevato. 
