@@ -83,7 +83,7 @@ object UploadCities extends UploadCities:
     val printWriter = new PrintWriter(writer)
     try {
       Using(getBufferedSource(inputFile)) {
-        _.getLines() foreach (c => printWriter.println(s"city(\"$c\")."))
+        _.getLines() foreach (l => printWriter.println(l.split(",").mkString("city(\'", "\', \'", "\').")))
       }
-      printWriter.println(s"search_city([H|T], X) :- city(X), atom_chars(X, [H|T]).")
+      printWriter.println(s"search_city([H|T], X, Y, Z) :- city(X, Y, Z), atom_chars(X, [H|T]).")
     } finally printWriter.close()

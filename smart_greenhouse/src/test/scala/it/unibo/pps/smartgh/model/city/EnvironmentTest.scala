@@ -32,3 +32,19 @@ class EnvironmentTest extends AnyFunSuite with Matchers with BeforeAndAfter:
       location.get("region") shouldEqual Some("Lazio")
     }
   }
+
+  test("For all cities we are able to get their environmental values"){
+    import it.unibo.pps.smartgh.model.greenhouse.Environment
+    import scala.io.{Codec, Source}
+    import requests.Response
+    import scala.util.{Failure, Success, Try}
+    import java.text.Normalizer
+    import scala.language.postfixOps
+
+    val l: List[String] = List()
+    Source.fromResource("cities.txt")(Codec.UTF8).getLines() foreach (c =>
+      val e = Environment(c)
+      eventually(timeout(Span(1000, Milliseconds))) {
+        e.environmentValues should not equal Map()
+      })
+  }

@@ -29,9 +29,9 @@ object SelectCityModelModule:
       * @param city
       *   the city to test
       * @return
-      *   true if this sequence has the given city, false otherwise
+      *   true if this sequence has the given city, false otherwise //TODO
       */
-    def containCity(city: String): Boolean
+    def containCity(city: String): Option[(String, String, String)]
 
   /** Trait that represents the provider of the model for the city selection. */
   trait Provider:
@@ -49,16 +49,24 @@ object SelectCityModelModule:
       import it.unibo.pps.smartgh.prolog.Scala2P.{prologEngine, extractTermToString, given}
       private val prologFile = Using(Source.fromFile(citiesFilePath, enc = "UTF8"))(_.mkString).getOrElse("")
       private val engine = prologEngine(Theory.parseLazilyWithStandardOperators(prologFile))
-      private val cities = engine("city(X)").map(extractTerm).toSeq
+      private val cities = engine("city(X, _, _)").map(s => extractTerm(s, "X")).toSeq
 
       override def getAllCities: Seq[String] = cities
 
       override def searchCities(charSequence: Seq[Char]): Seq[String] =
-        engine("search_city(" + charSequence.mkString("['", "','", "'|_]") + ", X)").map(extractTerm).toSeq
+        engine("search_city(" + charSequence.mkString("['", "','", "'|_]") + ", X, Y, Z)").map(s => extractTerm(s, "X")).toSeq
 
-      override def containCity(city: String): Boolean = cities.contains(city)
+      override def containCity(city: String): Option[(String, String, String)] =
+        if cities.contains(city) then
+          val i = engine("search_city(" + city.mkString("['", "','", "']") + ", X, Y, Z)")
+          val x = i.map(s => extractTerm(s, "X")).head
+          val y = i.map(s => extractTerm(s, "Y")).head
+          val z = i.map(s => extractTerm(s, "Z")).head
+          Some((x,y,z))
+        else 
+          None
 
-      private def extractTerm(solveInfo: SolveInfo) = extractTermToString(solveInfo, "X").replace("'", "")
+      private def extractTerm(solveInfo: SolveInfo, variable: String) = extractTermToString(solveInfo, variable).replace("'", "")
 
   /** Trait that encloses the model for the city selection. */
   trait Interface extends Provider with Component

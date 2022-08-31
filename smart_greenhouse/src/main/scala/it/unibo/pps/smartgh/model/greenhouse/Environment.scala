@@ -1,5 +1,6 @@
 package it.unibo.pps.smartgh.model.greenhouse
 
+import com.sun.net.httpserver.Authenticator.Success
 import monix.eval.Task
 import monix.execution.Ack
 import monix.execution.Ack.Continue
@@ -57,17 +58,20 @@ object Environment:
     getEnvironmentValues
 
     private def getEnvironmentValues =
+      import scala.util.{Failure, Success, Try}
+      import java.text.Normalizer
+      val name = Normalizer.normalize(nameCity, Normalizer.Form.NFD).replaceAll("\\p{M}", "");
       Task {
         val apiKey = "b619d3592d8b426e8cc92336220107"
         val query =
-          "http://api.weatherapi.com/v1/forecast.json?key=" + apiKey + "&q=" + nameCity.replace(
+          "http://api.weatherapi.com/v1/forecast.json?key=" + apiKey + "&q=" + name.replace(
             " ",
             "%20"
           ) + "&days=1&aqi=no&alerts=no"
-        val r: Response = requests.get(query)
-        if r.statusCode == 200 then
-          implicit val formats: DefaultFormats.type = org.json4s.DefaultFormats
-          subjectEnvironmentValues.onNext(parse(r.text()).extract[EnvironmentValues])
-        else subjectEnvironmentValues.onNext(Map())
+        Try (requests.get(query)) match
+          case Success (r: Response) =>
+            implicit val formats: DefaultFormats.type = org.json4s.DefaultFormats
+            subjectEnvironmentValues.onNext(parse(r.text()).extract[EnvironmentValues])
+          case Failure(_) => subjectEnvironmentValues.onNext(Map())
         subjectEnvironmentValues.onComplete()
       }.executeAsync.runToFuture
