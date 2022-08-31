@@ -507,7 +507,7 @@ Per realizzare le singole aree che compongono la serra si è deciso di implement
 
 In particolare, come si può vedere nella [Fig. 4.4.1.4.1] , la classe `AreaMVC` racchiude i  componenti: `AreaModel`, `AreaController` e `AreaView` derivanti dai rispettivi moduli; inoltre, racchiude all'interno del proprio contesto l'istanza corrente del `SimulationMVC` in modo tale che questa sia accessibile sia dalla View che dal Controller.
 
-Tale classe verrà istanziata durante il setup della divisione della serra e memorizzata all'interno del `greenHouseDivisionModel`.
+Tale classe verrà istanziata durante il setup della divisione della serra e memorizzata all'interno del `greenHouseModel`.
 
 <div align="center">
   <img src="img/areaMVC.png" />
