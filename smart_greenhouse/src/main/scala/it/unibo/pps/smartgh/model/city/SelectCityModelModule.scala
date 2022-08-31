@@ -49,12 +49,12 @@ object SelectCityModelModule:
       import it.unibo.pps.smartgh.prolog.Scala2P.{prologEngine, extractTermToString, given}
       private val prologFile = Using(Source.fromFile(citiesFilePath, enc = "UTF8"))(_.mkString).getOrElse("")
       private val engine = prologEngine(Theory.parseLazilyWithStandardOperators(prologFile))
-      private val cities = engine("citta(X)").map(extractTerm).toSeq
+      private val cities = engine("city(X)").map(extractTerm).toSeq
 
       override def getAllCities: Seq[String] = cities
 
       override def searchCities(charSequence: Seq[Char]): Seq[String] =
-        engine("ricerca_citta(" + charSequence.mkString("['", "','", "'|_]") + ", X)").map(extractTerm).toSeq
+        engine("search_city(" + charSequence.mkString("['", "','", "'|_]") + ", X)").map(extractTerm).toSeq
 
       override def containCity(city: String): Boolean = cities.contains(city)
 
