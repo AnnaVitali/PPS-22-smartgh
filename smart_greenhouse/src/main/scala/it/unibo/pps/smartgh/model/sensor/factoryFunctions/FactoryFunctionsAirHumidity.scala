@@ -1,5 +1,6 @@
 package it.unibo.pps.smartgh.model.sensor.factoryFunctions
 
+import java.time.temporal.ValueRange
 import scala.util.Random
 
 /** Object that represents a factory for the different functions that can be applied to calculate the new air humidity
@@ -7,19 +8,16 @@ import scala.util.Random
   */
 object FactoryFunctionsAirHumidity:
 
-  private val ValueRange = (0.0, 100.0)
-  private val ActionFactor = 0.05
-  private val AreaFactor = 0.90
-  private val EnvFactor = 0.10
+  private val AreaFactor = 0.9
+  private val EnvFactor = 0.1
 
-  /** Update the ventilation value. */
-  val updateVentilationValue: (Double, Double) => Double = (value, min) =>
-    (value - value * ActionFactor).max(min).max(ValueRange._1)
+  private def randActionFactor: Double => Double = Random.nextDouble() * _ + EnvFactor
 
-  /** Update the atomize value. */
-  val updateAtomizeValue: (Double, Double) => Double =
-    (value, max) => (value + value * ActionFactor).min(max).min(ValueRange._2)
+  /** Update the ventilation value if it has not reached to the maximum value. */
+  val updateVentilationValue: (Double, Double, Double) => Double = (v, act, mx) => (v - randActionFactor(act)).max(mx)
+
+  /** Update the atomize value if it has not reached the maximum value */
+  val updateAtomizeValue: (Double, Double, Double) => Double = (v, act, mx) => (v + randActionFactor(act)).min(mx)
 
   /** Update the action value when system actions are disabled. */
-  val updateDisableActionValue: (Double, Double, Double) => Double = (value, envValue, randomVal) =>
-    (value * AreaFactor + envValue * EnvFactor - randomVal).max(ValueRange._1).min(ValueRange._2)
+  val updateNoActionValue: (Double, Double, Double) => Double = _ * AreaFactor + _ * EnvFactor - _

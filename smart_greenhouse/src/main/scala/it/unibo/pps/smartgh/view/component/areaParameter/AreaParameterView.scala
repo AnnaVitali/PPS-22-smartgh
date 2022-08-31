@@ -1,4 +1,4 @@
-package it.unibo.pps.smartgh.view.component.areaParameters
+package it.unibo.pps.smartgh.view.component.areaParameter
 
 import it.unibo.pps.smartgh.view.component.ViewComponent
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
@@ -9,10 +9,10 @@ import javafx.scene.control.Label
 import javafx.scene.layout.GridPane
 
 /** A object that represent the area parameters view. */
-object AreaParametersView:
+object AreaParameterView:
 
   /** A trait that represents the generic view component for area parameters. */
-  trait AreaParametersView extends ViewComponent[GridPane]:
+  trait AreaParameterView extends ViewComponent[GridPane]:
 
     /** Update the parameter description with its min and max optimal values.
       * @param optimalValue
@@ -33,14 +33,12 @@ object AreaParametersView:
     *   the name of the fxml file that is situated in /resources/fxml/ directory
     * @param parameter
     *   the parameter name
-    * @tparam A
-    *   the type of the FX component to wrap
     */
-  abstract class AbstractAreaParametersView[A <: Parent](
+  abstract class AbstractAreaParameterView(
       private val fxmlFileName: String,
       private val parameter: String
-  ) extends AbstractViewComponent[A](fxmlFileName)
-      with AreaParametersView:
+  ) extends AbstractViewComponent[GridPane](fxmlFileName)
+      with AreaParameterView:
 
     //noinspection VarCouldBeVal
     @FXML

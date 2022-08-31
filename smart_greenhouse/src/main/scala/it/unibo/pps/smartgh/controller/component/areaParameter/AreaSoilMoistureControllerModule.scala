@@ -1,17 +1,17 @@
-package it.unibo.pps.smartgh.controller.component.areaParameters
+package it.unibo.pps.smartgh.controller.component.areaParameter
 
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersController.{
-  AbstractAreaParametersController,
-  AreaParametersController
+import it.unibo.pps.smartgh.controller.component.areaParameter.AreaParameterController.{
+  AbstractAreaParameterController,
+  AreaParameterController
 }
 import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaHumidityState, AreaModelModule}
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaSoilMoistureViewModule
+import it.unibo.pps.smartgh.view.component.areaParameter.AreaSoilMoistureViewModule
 
 /** Object that encloses the controller module for the area soil moisture parameter. */
 object AreaSoilMoistureControllerModule:
 
   /** A trait that represents the area soil humidity controller parameter. */
-  trait AreaSoilMoistureController extends AreaParametersController:
+  trait AreaSoilMoistureController extends AreaParameterController:
 
     /** Open the area gates. */
     def openGates(): Unit
@@ -32,7 +32,7 @@ object AreaSoilMoistureControllerModule:
   trait Provider:
 
     /** The controller of area soil moisture parameter. */
-    val parameterController: AreaParametersController
+    val parameterController: AreaParameterController
 
   /** The controller requirements. */
   type Requirements = AreaSoilMoistureViewModule.Provider with AreaModelModule.Provider
@@ -46,9 +46,11 @@ object AreaSoilMoistureControllerModule:
       *   a function for update states message.
       */
     class AreaSoilMoistureControllerImpl(private val updateStateMessage: (String, Boolean) => Unit)
-        extends AbstractAreaParametersController("Soil moisture", areaModel, updateStateMessage)
+        extends AbstractAreaParameterController("Soil moisture", areaModel, updateStateMessage)
         with AreaSoilMoistureController:
 
+      override protected val updateCurrentValue: (String, String) => Unit = parameterView.updateCurrentValue
+      override protected val updateDescription: String => Unit = parameterView.updateDescription
       override def openGates(): Unit = areaModel.updGateState(AreaGatesState.Open)
       override def closeGates(): Unit = areaModel.updGateState(AreaGatesState.Close)
       override def movingSoil(): Unit = areaModel.updHumidityAction(AreaHumidityState.MovingSoil)

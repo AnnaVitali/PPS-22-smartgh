@@ -1,16 +1,13 @@
-package it.unibo.pps.smartgh.mvc.component.areaParameters
+package it.unibo.pps.smartgh.mvc.component.areaParameter
 
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaLuminosityControllerModule.AreaLuminosityController
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersController.AreaParametersController
-import it.unibo.pps.smartgh.controller.component.areaParameters.{
-  AreaLuminosityControllerModule,
-  AreaParametersController
-}
+import it.unibo.pps.smartgh.controller.component.areaParameter.AreaLuminosityControllerModule.AreaLuminosityController
+import it.unibo.pps.smartgh.controller.component.areaParameter.AreaParameterController.AreaParameterController
+import it.unibo.pps.smartgh.controller.component.areaParameter.{AreaLuminosityControllerModule, AreaParameterController}
 import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaModel
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaLuminosityViewModule.AreaLuminosityView
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.AreaParametersView
-import it.unibo.pps.smartgh.view.component.areaParameters.{AreaLuminosityViewModule, AreaParametersView}
+import it.unibo.pps.smartgh.view.component.areaParameter.AreaLuminosityViewModule.AreaLuminosityView
+import it.unibo.pps.smartgh.view.component.areaParameter.AreaParameterView.AreaParameterView
+import it.unibo.pps.smartgh.view.component.areaParameter.{AreaLuminosityViewModule, AreaParameterView}
 
 /** Object that incapsulate the model view and controller module for area luminosity. */
 object AreaLuminosityMVC:
@@ -38,9 +35,9 @@ object AreaLuminosityMVC:
   ) extends AreaModelModule.Interface
       with AreaLuminosityViewModule.Interface
       with AreaLuminosityControllerModule.Interface
-      with AreaParametersMVC:
+      with AreaParameterMVC:
 
-    override val parameterController: AreaParametersController = AreaLuminosityControllerImpl(updateStateMessage)
-    override val parameterView: AreaParametersView = AreaLuminosityViewImpl()
+    override val parameterController: AreaParameterController = AreaLuminosityControllerImpl(updateStateMessage)
+    override val parameterView: AreaParameterView = AreaLuminosityViewImpl()
 
-    parameterController.initializeView(parameterView)
+    parameterController.initialize()

@@ -26,7 +26,7 @@ class FactoryFunctionsSoilHumidityTest extends AnyFunSuite with Matchers with Be
 
   test("updateValueWithEvaporation should modify the value correctly") {
     nUpdates.foreach { _ =>
-      currentValue = basicValueTest(initialValue, factory.updateValueWithEvaporation)
+      currentValue = basicValueTest(initialValue, factory.updateEvaporationValue)
       currentValue should be < initialValue
       initialValue = currentValue
     }
@@ -35,7 +35,7 @@ class FactoryFunctionsSoilHumidityTest extends AnyFunSuite with Matchers with Be
   test("updateValueWithAreaGatesOpen should modify the value correctly") {
     val precipitation = 1.0
     nUpdates.foreach { _ =>
-      currentValue = basicValueTest((initialValue, precipitation), factory.updateValueWithAreaGatesOpen.tupled)
+      currentValue = basicValueTest((initialValue, precipitation), factory.updateGatesOpenValue.tupled)
       currentValue should be > initialValue
       initialValue = currentValue
     }
@@ -43,7 +43,7 @@ class FactoryFunctionsSoilHumidityTest extends AnyFunSuite with Matchers with Be
 
   test("updateValueWithWatering should modify the value correctly") {
     nUpdates.foreach { _ =>
-      currentValue = basicValueTest(initialValue, factory.updateValueWithWatering)
+      currentValue = basicValueTest(initialValue, factory.updateWateringValue)
       currentValue should be > initialValue
       initialValue = currentValue
     }
@@ -51,7 +51,7 @@ class FactoryFunctionsSoilHumidityTest extends AnyFunSuite with Matchers with Be
 
   test("updateValueWithMovingSoil should modify the value") {
     nUpdates.foreach { _ =>
-      currentValue = basicValueTest(initialValue, factory.updateValueWithMovingSoil)
+      currentValue = basicValueTest(initialValue, factory.updateMovingSoilValue)
       currentValue should be < initialValue
       initialValue = currentValue
     }

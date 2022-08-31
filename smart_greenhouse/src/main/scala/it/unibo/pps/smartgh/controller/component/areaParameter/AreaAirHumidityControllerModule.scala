@@ -1,18 +1,18 @@
-package it.unibo.pps.smartgh.controller.component.areaParameters
+package it.unibo.pps.smartgh.controller.component.areaParameter
 
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersController.{
-  AbstractAreaParametersController,
-  AreaParametersController
+import it.unibo.pps.smartgh.controller.component.areaParameter.AreaParameterController.{
+  AbstractAreaParameterController,
+  AreaParameterController
 }
 import it.unibo.pps.smartgh.model.area.{AreaAtomiseState, AreaModelModule, AreaVentilationState}
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaAirHumidityViewModule
+import it.unibo.pps.smartgh.view.component.areaParameter.AreaAirHumidityViewModule
 import org.scalactic.TripleEquals.convertToEqualizer
 
 /** Object that encloses the controller module for the area air humidity parameter. */
 object AreaAirHumidityControllerModule:
 
   /** A trait that represents the area air humidity controller parameter. */
-  trait AreaAirHumidityController extends AreaParametersController:
+  trait AreaAirHumidityController extends AreaParameterController:
 
     /** Activate the area ventilation. */
     def activateVentilation(): Unit
@@ -42,7 +42,7 @@ object AreaAirHumidityControllerModule:
   trait Provider:
 
     /** The controller of area air humidity parameter. */
-    val parameterController: AreaParametersController
+    val parameterController: AreaParameterController
 
   /** The controller requirements. */
   type Requirements = AreaAirHumidityViewModule.Provider with AreaModelModule.Provider
@@ -56,11 +56,13 @@ object AreaAirHumidityControllerModule:
       *   a function for update states message.
       */
     class AreaAirHumidityControllerImpl(private val updateStateMessage: (String, Boolean) => Unit)
-        extends AbstractAreaParametersController("Humidity", areaModel, updateStateMessage)
+        extends AbstractAreaParameterController("Humidity", areaModel, updateStateMessage)
         with AreaAirHumidityController:
       import it.unibo.pps.smartgh.model.area.AreaAtomiseState.{AtomisingActive, AtomisingInactive}
       import it.unibo.pps.smartgh.model.area.AreaVentilationState.{VentilationInactive, VentilationActive}
 
+      override protected val updateCurrentValue: (String, String) => Unit = parameterView.updateCurrentValue
+      override protected val updateDescription: String => Unit = parameterView.updateDescription
       override def activateVentilation(): Unit = areaModel.updVentilationState(VentilationActive)
       override def deactivateVentilation(): Unit = areaModel.updVentilationState(VentilationInactive)
       override def isVentilationActivated: Boolean = areaModel.getAreaComponent.ventilationState === VentilationActive

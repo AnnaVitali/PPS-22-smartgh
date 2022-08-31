@@ -1,18 +1,18 @@
-package it.unibo.pps.smartgh.controller.component.areaParameters
+package it.unibo.pps.smartgh.controller.component.areaParameter
 
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersController.{
-  AbstractAreaParametersController,
-  AreaParametersController
+import it.unibo.pps.smartgh.controller.component.areaParameter.AreaParameterController.{
+  AbstractAreaParameterController,
+  AreaParameterController
 }
 import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaModelModule}
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaTemperatureViewModule
+import it.unibo.pps.smartgh.view.component.areaParameter.AreaTemperatureViewModule
 import org.scalactic.TripleEquals.convertToEqualizer
 
 /** Object that encloses the controller module for the area temperature parameter. */
 object AreaTemperatureControllerModule:
 
   /** A trait that represents the area temperature controller parameter. */
-  trait AreaTemperatureController extends AreaParametersController:
+  trait AreaTemperatureController extends AreaParameterController:
 
     /** Get the current temperature.
       * @return
@@ -41,7 +41,7 @@ object AreaTemperatureControllerModule:
   /** Trait that represents the provider of the controller for the area temperature parameter. */
   trait Provider:
     /** The controller of area temperature parameter. */
-    val parameterController: AreaParametersController
+    val parameterController: AreaParameterController
 
   /** The controller requirements. */
   type Requirements = AreaTemperatureViewModule.Provider with AreaModelModule.Provider
@@ -55,9 +55,11 @@ object AreaTemperatureControllerModule:
       *   a function for update states message.
       */
     class AreaTemperatureControllerImpl(private val updateStateMessage: (String, Boolean) => Unit)
-        extends AbstractAreaParametersController("Temperature", areaModel, updateStateMessage)
+        extends AbstractAreaParameterController("Temperature", areaModel, updateStateMessage)
         with AreaTemperatureController:
 
+      override protected val updateCurrentValue: (String, String) => Unit = parameterView.updateCurrentValue
+      override protected val updateDescription: String => Unit = parameterView.updateDescription
       override def temperature: Double = areaModel.getAreaComponent.temperature
       override def updTempValue(value: Double): Unit = areaModel.updTemperature(value)
       override def isGatesOpen: Boolean = areaModel.getAreaComponent.gatesState === AreaGatesState.Open

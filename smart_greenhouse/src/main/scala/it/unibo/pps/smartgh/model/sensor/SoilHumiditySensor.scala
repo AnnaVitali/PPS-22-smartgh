@@ -1,7 +1,7 @@
 package it.unibo.pps.smartgh.model.sensor
 
 import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
-import it.unibo.pps.smartgh.model.area.AreaGatesState
+import it.unibo.pps.smartgh.model.area.AreaGatesState.{Close, Open}
 import it.unibo.pps.smartgh.model.area.AreaHumidityState.{MovingSoil, None, Watering}
 import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsSoilHumidity
 import monix.eval.Task
@@ -15,6 +15,7 @@ import scala.concurrent.duration.*
 object SoilHumiditySensor:
 
   private val TimeMustPass = "00:00"
+  private val ValueRange = (0.0, 100.0)
 
   /** Apply method for the [[SoilHumiditySensorImpl]].
     * @param areaComponentsState
@@ -41,22 +42,22 @@ object SoilHumiditySensor:
       private val addTimerCallback: (f: String => Unit) => Unit
   ) extends AbstractSensorWithTimer(areaComponentsState, addTimerCallback):
 
+    private val checkInRange: Double => Double = _.max(ValueRange._1).min(ValueRange._2)
+
     currentValue = areaComponentsState.soilHumidity
     registerTimerCallback(_.takeRight(5).contentEquals(TimeMustPass))
 
     override def computeNextSensorValue(): Unit =
       import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsSoilHumidity.*
       Task {
-        currentValue = areaComponentsState.humidityActions match
-          case Watering =>
-            areaComponentsState.humidityActions = None
-            updateValueWithWatering(currentValue)
-          case MovingSoil =>
-            areaComponentsState.humidityActions = None
-            updateValueWithMovingSoil(currentValue)
+        currentValue = checkInRange(areaComponentsState.humidityActions match
+          case Watering => updateWateringValue(currentValue)
+          case MovingSoil => updateMovingSoilValue(currentValue)
           case _ =>
             areaComponentsState.gatesState match
-              case AreaGatesState.Close => updateValueWithEvaporation(currentValue)
-              case _ => updateValueWithAreaGatesOpen(currentValue, currentEnvironmentValue)
+              case Open if currentEnvironmentValue > 0.0 => updateGatesOpenValue(currentValue, currentEnvironmentValue)
+              case _ => updateEvaporationValue(currentValue)
+        )
+        areaComponentsState.humidityActions = None
         subject.onNext(currentValue)
       }.executeAsync.runToFuture

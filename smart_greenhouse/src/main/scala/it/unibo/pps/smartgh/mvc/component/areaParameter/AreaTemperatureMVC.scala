@@ -1,16 +1,16 @@
-package it.unibo.pps.smartgh.mvc.component.areaParameters
+package it.unibo.pps.smartgh.mvc.component.areaParameter
 
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaParametersController.AreaParametersController
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaTemperatureControllerModule.AreaTemperatureController
-import it.unibo.pps.smartgh.controller.component.areaParameters.{
-  AreaParametersController,
+import it.unibo.pps.smartgh.controller.component.areaParameter.AreaParameterController.AreaParameterController
+import it.unibo.pps.smartgh.controller.component.areaParameter.AreaTemperatureControllerModule.AreaTemperatureController
+import it.unibo.pps.smartgh.controller.component.areaParameter.{
+  AreaParameterController,
   AreaTemperatureControllerModule
 }
 import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaModel
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.AreaParametersView
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaTemperatureViewModule.AreaTemperatureView
-import it.unibo.pps.smartgh.view.component.areaParameters.{AreaParametersView, AreaTemperatureViewModule}
+import it.unibo.pps.smartgh.view.component.areaParameter.AreaParameterView.AreaParameterView
+import it.unibo.pps.smartgh.view.component.areaParameter.AreaTemperatureViewModule.AreaTemperatureView
+import it.unibo.pps.smartgh.view.component.areaParameter.{AreaParameterView, AreaTemperatureViewModule}
 
 /** Object that incapsulate the model view and controller module for area temperature. */
 object AreaTemperatureMVC:
@@ -36,9 +36,9 @@ object AreaTemperatureMVC:
       extends AreaModelModule.Interface
       with AreaTemperatureViewModule.Interface
       with AreaTemperatureControllerModule.Interface
-      with AreaParametersMVC:
+      with AreaParameterMVC:
 
-    override val parameterController: AreaParametersController = AreaTemperatureControllerImpl(updateStateMessage)
-    override val parameterView: AreaParametersView = AreaTemperatureViewImpl()
+    override val parameterController: AreaParameterController = AreaTemperatureControllerImpl(updateStateMessage)
+    override val parameterView: AreaParameterView = AreaTemperatureViewImpl()
 
-    parameterController.initializeView(parameterView)
+    parameterController.initialize()

@@ -2,7 +2,7 @@ package it.unibo.pps.smartgh.controller.component
 
 import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.mvc.SimulationMVC
-import it.unibo.pps.smartgh.mvc.component.areaParameters.*
+import it.unibo.pps.smartgh.mvc.component.areaParameter.*
 import it.unibo.pps.smartgh.view.component.AreaDetailsViewModule
 import monix.execution.Ack.Continue
 import monix.execution.Scheduler.Implicits.global
@@ -33,7 +33,7 @@ object AreaDetailsControllerModule:
     class AreaDetailsControllerImpl() extends AreaDetailsController:
 
       private var messages: Seq[String] = Seq.empty
-      private val parametersMVC: Seq[AreaParametersMVC] =
+      private val parametersMVC: Seq[AreaParameterMVC] =
         areaModel.areaSensorHelper.parametersMVC(areaModel, updateStateMessage)
 
       override def beforeNextScene(): Unit =
@@ -58,9 +58,9 @@ object AreaDetailsControllerModule:
         simulationMVC.simulationController.subscribeTimerValue(areaDetailsView.updateTime)
 
       private def updateStateMessage(message: String, show: Boolean): Unit =
-        if show && (!messages.contains(message)) then messages = messages.prepended(message)
-        else if !show && messages.contains(message) then messages = messages.filter(!_.contentEquals(message))
-        areaDetailsView.updateStateMessages(messages.mkString("", "\n", ""))
+        if show && (!messages.contains(message)) then messages = messages prepended message
+        else if !show && messages.contains(message) then messages = messages diff Seq(message)
+        areaDetailsView.updateStateMessages(messages mkString ("", "\n", ""))
 
   /** Trait that combine provider and component for area details. */
   trait Interface extends Provider with Component:

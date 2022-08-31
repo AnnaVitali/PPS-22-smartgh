@@ -11,12 +11,6 @@ object SelectCityControllerModule:
   /** A trait that represents the controller for the scene of city selection. */
   trait SelectCityController:
 
-    /** Save the selected city and change.
-      * @param name
-      *   name of the selected city.
-      */
-    def saveCity(name: String): Unit
-
     /** Retrieves all cities.
       * @return
       *   a sequences of city names.
@@ -37,7 +31,7 @@ object SelectCityControllerModule:
       * @return
       *   true if contain the city, false otherwise.
       */
-    def containCity(city: String): Boolean
+    def checkCity(city: String): Unit
 
   /** Trait that represents the provider of the controller for the city selection. */
   trait Provider:
@@ -55,10 +49,16 @@ object SelectCityControllerModule:
     /** Class that contains the [[SelectCityController]] implementation. */
     class SelectCityControllerImpl() extends SelectCityController:
 
-      override def saveCity(name: String): Unit = simulationMVC.simulationController.environment = Environment(name)
+      private def saveCity(city: String): Unit =
+        simulationMVC.simulationController.environment = Environment(city)
+        selectCityView.showNextScene()
+
       override def getAllCities: Seq[String] = selectCityModel.getAllCities
       override def searchCities(charSequence: Seq[Char]): Seq[String] = selectCityModel.searchCities(charSequence)
-      override def containCity(city: String): Boolean = selectCityModel.containCity(city)
+      override def checkCity(city: String): Unit = city match
+        case c if c.isBlank => selectCityView.setErrorText("Please select a city")
+        case c if selectCityModel.containCity(c) => saveCity(c)
+        case _ => selectCityView.setErrorText("The selected city is not valid")
 
   /** Trait that combine provider and component for city selection. */
   trait Interface extends Provider with Component:

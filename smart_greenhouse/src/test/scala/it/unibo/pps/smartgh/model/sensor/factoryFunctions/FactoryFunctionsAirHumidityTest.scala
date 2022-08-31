@@ -13,6 +13,7 @@ class FactoryFunctionsAirHumidityTest extends AnyFunSuite with Matchers with Bef
   private val factory = FactoryFunctionsAirHumidity
   private val nUpdates = 1 to 10
   private val valueRange = (0.0, 100.0)
+  private val actionFactory = 2.0
   private var initialValue: Double = _
   private var currentValue: Double = _
 
@@ -31,7 +32,7 @@ class FactoryFunctionsAirHumidityTest extends AnyFunSuite with Matchers with Bef
     val minValue = initialValue - 2.0
 
     nUpdates.foreach { _ =>
-      currentValue = basicValueTest((initialValue, minValue), factory.updateVentilationValue.tupled)
+      currentValue = basicValueTest((initialValue, actionFactory, minValue), factory.updateVentilationValue.tupled)
       if currentValue > minValue then initialValue = currentValue
     }
   }
@@ -40,7 +41,7 @@ class FactoryFunctionsAirHumidityTest extends AnyFunSuite with Matchers with Bef
     val maxValue = initialValue + 2.0
 
     nUpdates.foreach { _ =>
-      currentValue = basicValueTest((initialValue, maxValue), factory.updateAtomizeValue.tupled)
+      currentValue = basicValueTest((initialValue, actionFactory, maxValue), factory.updateAtomizeValue.tupled)
       if currentValue < maxValue then initialValue = currentValue
     }
   }
@@ -50,7 +51,7 @@ class FactoryFunctionsAirHumidityTest extends AnyFunSuite with Matchers with Bef
     val randomVal = 0.0
 
     (1 to 50).foreach { _ =>
-      currentValue = basicValueTest((initialValue, envValue, randomVal), factory.updateDisableActionValue.tupled)
+      currentValue = basicValueTest((initialValue, envValue, randomVal), factory.updateNoActionValue.tupled)
       currentValue should (be < initialValue and be >= envValue - randomVal)
       initialValue = currentValue
     }

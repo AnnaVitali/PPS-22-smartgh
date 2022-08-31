@@ -3,7 +3,7 @@ package it.unibo.pps.smartgh.view.component
 import it.unibo.pps.smartgh.controller.component.AreaDetailsControllerModule
 import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.AreaParametersView
+import it.unibo.pps.smartgh.view.component.areaParameter.AreaParameterView.AreaParameterView
 import javafx.application.Platform
 import javafx.fxml.FXML
 import javafx.scene.control.{Label, ProgressIndicator, ScrollPane, Separator}
@@ -24,7 +24,7 @@ object AreaDetailsViewModule:
       * @param parameters
       *   a sequence of parameters to show.
       */
-    def initializeParameters(parameters: Seq[AreaParametersView]): Unit
+    def initializeParameters(parameters: Seq[AreaParameterView]): Unit
 
     /** Updating the plant information.
       * @param name
@@ -113,9 +113,9 @@ object AreaDetailsViewModule:
       alarmPane.managedProperty().bind(alarmPane.visibleProperty())
       loadingImg.setVisible(true)
 
-      override def initializeParameters(parameters: Seq[AreaParametersView]): Unit =
-        parameters.foreach { v =>
-          parametersVbox.getChildren.add(v)
+      override def initializeParameters(parameters: Seq[AreaParameterView]): Unit =
+        parameters.foreach { p =>
+          parametersVbox.getChildren.add(p)
           parametersVbox.getChildren.add(Separator())
         }
 

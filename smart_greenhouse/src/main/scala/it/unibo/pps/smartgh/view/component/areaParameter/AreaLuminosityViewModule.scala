@@ -1,11 +1,11 @@
-package it.unibo.pps.smartgh.view.component.areaParameters
+package it.unibo.pps.smartgh.view.component.areaParameter
 
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaLuminosityControllerModule
-import it.unibo.pps.smartgh.controller.component.areaParameters.AreaLuminosityControllerModule.AreaLuminosityController
+import it.unibo.pps.smartgh.controller.component.areaParameter.AreaLuminosityControllerModule
+import it.unibo.pps.smartgh.controller.component.areaParameter.AreaLuminosityControllerModule.AreaLuminosityController
 import it.unibo.pps.smartgh.view.component.ViewComponent
-import it.unibo.pps.smartgh.view.component.areaParameters.AreaParametersView.{
-  AbstractAreaParametersView,
-  AreaParametersView
+import it.unibo.pps.smartgh.view.component.areaParameter.AreaParameterView.{
+  AbstractAreaParameterView,
+  AreaParameterView
 }
 import javafx.fxml.FXML
 import javafx.scene.control.{Label, Slider, ToggleButton}
@@ -19,7 +19,7 @@ object AreaLuminosityViewModule:
   private val LampFactor: Double = 1000.0
 
   /** Trait that represents the area luminosity parameter view. */
-  trait AreaLuminosityView extends ViewComponent[GridPane] with AreaParametersView:
+  trait AreaLuminosityView extends AreaParameterView:
 
     /** Set up actions based on the opening of the area gates.
       * @param isGatesOpen
@@ -31,7 +31,7 @@ object AreaLuminosityViewModule:
   trait Provider:
 
     /** The view of area luminosity parameter. */
-    val parameterView: AreaParametersView
+    val parameterView: AreaParameterView
 
   /** The view requirements. */
   type Requirements = AreaLuminosityControllerModule.Provider
@@ -42,7 +42,7 @@ object AreaLuminosityViewModule:
 
     /** Class that contains the [[AreaLuminosityView]] implementation. */
     class AreaLuminosityViewImpl()
-        extends AbstractAreaParametersView[GridPane]("area_luminosity.fxml", "Luminosity")
+        extends AbstractAreaParameterView("area_luminosity.fxml", "Luminosity")
         with AreaLuminosityView:
 
       override val component: GridPane = loader.load[GridPane]

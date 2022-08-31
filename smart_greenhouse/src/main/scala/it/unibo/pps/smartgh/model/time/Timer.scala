@@ -28,7 +28,7 @@ trait Timer:
   /** Change the period in which the timer emits a tick. For example, with a period of 2 seconds, the timer emits a
     * value every two seconds.
     * @param newPeriod
-    *   time that has to pass before emitting new items
+    *   time that has to pass before emitting new values
     */
   def changeTickPeriod(newPeriod: FiniteDuration): Unit
 
@@ -40,7 +40,7 @@ object Timer:
 
   private val InitialValue = 1 second
 
-  /** Creates a new [[Timer]] object. The timer starts from 0 until the specified duration.
+  /** Creates a new [[Timer]] object. The timer starts from 1 second until the specified duration.
     * @param duration
     *   the duration of the timer
     * @return
@@ -59,11 +59,11 @@ object Timer:
         value = t
         tickTask(t)
       onFinishTask = _ => Task(finishTask)
-      timer(value, 1 second)
+      timer(value, InitialValue)
 
     override def changeTickPeriod(period: FiniteDuration): Unit =
       stop()
-      timer(value + 1.second, period)
+      timer(value + InitialValue, period)
 
     override def stop(): Unit = cancelable.cancel()
 

@@ -1,4 +1,4 @@
-package it.unibo.pps.smartgh.view.component.areaParameters
+package it.unibo.pps.smartgh.view.component.areaParameter
 
 import javafx.stage.Stage
 import org.junit.jupiter.api.{Test, TestInstance}
@@ -13,7 +13,7 @@ import org.testfx.framework.junit5.{ApplicationExtension, Start}
 /** This class contains the tests to verify that the [[AreaSoilMoistureViewModule]] work correctly. */
 @TestInstance(Lifecycle.PER_CLASS)
 @ExtendWith(Array(classOf[ApplicationExtension]))
-class AreaSoilMoistureViewModuleTest extends AbstractAreaParametersViewTest("Soil moisture", "Soil moisture"):
+class AreaSoilMoistureViewModuleTest extends AbstractAreaParameterViewTest("Soil moisture", "Soil moisture"):
 
   private val movingSoilBtnId = "#movingSoilBtn"
   private val wateringBtnId = "#wateringBtn"

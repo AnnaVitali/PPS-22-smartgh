@@ -1,4 +1,4 @@
-package it.unibo.pps.smartgh.view.component.areaParameters
+package it.unibo.pps.smartgh.view.component.areaParameter
 
 import it.unibo.pps.smartgh.model.area.ManageSensor.ManageSensorImpl
 import it.unibo.pps.smartgh.view.component.AbstractAreaDetailsViewTest
@@ -14,7 +14,7 @@ import org.scalatest.time.{Milliseconds, Span}
 import org.testfx.api.FxAssert.verifyThat
 import org.testfx.api.FxRobot
 import org.testfx.framework.junit5.{ApplicationExtension, Start}
-import org.testfx.matcher.base.NodeMatchers.isVisible
+import org.testfx.matcher.base.NodeMatchers.{isEnabled, isVisible}
 import org.testfx.matcher.control.LabeledMatchers.hasText
 
 import scala.jdk.javaapi.CollectionConverters.asScala
@@ -28,7 +28,7 @@ import scala.reflect.{ClassTag, classTag}
   */
 @TestInstance(Lifecycle.PER_CLASS)
 @ExtendWith(Array(classOf[ApplicationExtension]))
-abstract class AbstractAreaParametersViewTest(private val parameterName: String, private val sensorName: String)
+abstract class AbstractAreaParameterViewTest(private val parameterName: String, private val sensorName: String)
     extends AbstractAreaDetailsViewTest:
 
   protected var sensor: ManageSensorImpl = _
@@ -50,7 +50,7 @@ abstract class AbstractAreaParametersViewTest(private val parameterName: String,
   @Test
   def testValue(robot: FxRobot): Unit =
     val values = asScala(robot.lookup(currentValueId).queryAllAs(classOf[Label])).toSeq
-    eventually(timeout(Span(8000, Milliseconds))) {
+    eventually(timeout(Span(10000, Milliseconds))) {
       assertTrue(values.exists(_.getText.contentEquals("%.2f %s".format(sensor.actualVal, sensor.um))))
     }
 
@@ -69,7 +69,7 @@ abstract class AbstractAreaParametersViewTest(private val parameterName: String,
     val value = sensor.actualVal
     robot.clickOn(buttonId)
 
-    eventually(timeout(Span(8000, Milliseconds))) {
+    eventually(timeout(Span(10000, Milliseconds))) {
       assertTrue(condition(sensor.actualVal, value))
     }
 

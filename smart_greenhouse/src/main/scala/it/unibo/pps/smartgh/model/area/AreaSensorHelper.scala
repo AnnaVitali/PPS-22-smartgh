@@ -5,7 +5,7 @@ import it.unibo.pps.smartgh.model.area.AreaModelModule.AreaStatus.{ALARM, NORMAL
 import it.unibo.pps.smartgh.model.area.AreaModelModule.{AreaModel, AreaStatus}
 import it.unibo.pps.smartgh.model.area.ManageSensor.ManageSensorImpl
 import it.unibo.pps.smartgh.model.sensor.*
-import it.unibo.pps.smartgh.mvc.component.areaParameters.*
+import it.unibo.pps.smartgh.mvc.component.areaParameter.*
 import monix.execution.Ack.Continue
 import monix.reactive.subjects.ConcurrentSubject
 import org.scalactic.TripleEquals.convertToEqualizer
@@ -143,7 +143,7 @@ object AreaSensorHelper:
       if sensors.forall(_.status === SensorStatus.NORMAL) then NORMAL
       else ALARM
 
-    def parametersMVC(areaModel: AreaModel, updateStateMessage: (String, Boolean) => Unit): Seq[AreaParametersMVC] =
+    def parametersMVC(areaModel: AreaModel, updateStateMessage: (String, Boolean) => Unit): Seq[AreaParameterMVC] =
       Seq(
         AreaLuminosityMVC(areaModel, updateStateMessage),
         AreaTemperatureMVC(areaModel, updateStateMessage),
