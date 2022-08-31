@@ -12,6 +12,8 @@ import javafx.scene.layout.{BorderPane, Pane, VBox}
 import monix.eval.Task
 import monix.execution.Scheduler.Implicits.global
 
+import scala.util.Try
+
 /** Object that encloses the view module for the area details. */
 object AreaDetailsViewModule:
 
@@ -122,7 +124,8 @@ object AreaDetailsViewModule:
           plantNameLabel.setText(name)
           plantDescriptionLabel.setText(description)
           Task {
-            plantImage.setImage(Image(imageUrl))
+            val img = Image(imageUrl)
+            plantImage.setImage(if img.isError then Image("images/plantIcon.png") else img)
             loadingImg.setVisible(false)
           }.executeAsync.runToFuture
         }
