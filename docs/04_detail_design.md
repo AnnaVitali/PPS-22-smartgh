@@ -598,10 +598,10 @@ Il Model in questione risulterà essere condiviso anche con gli _MVC_ che gestis
 La View del dettaglio di un'area viene racchiusa nell’`AreaDetailsViewModule`, come raffigurato nella figura [Fig. 4.7.1.2].
 
 Oltre agli elementi necessari al _Cake pattern_, all’interno troviamo il `trait AreaDetailsView`, il quale estende da `ViewComponent` e anche da `ContiguousSceneView` in quanto richiede delle operazioni specifiche prima di passare alla scena successiva, come verrà descritto nel paragrafo successivo sul modulo del controller. Inoltre, espone metodi per consentire l’aggiornamento delle informazioni della View relative:
-    - alle piante (nome della pianta, descrizione e immagine); 
-    - al tempo virtuale;
-    - allo stato dell’area;
-    - ai messaggi di aiuto all’utente in caso di allarme.
+  - alle piante (nome della pianta, descrizione e immagine); 
+  - al tempo virtuale;
+  - allo stato dell’area;
+  - ai messaggi di aiuto all’utente in caso di allarme.
 
 <div align="center">
   <img src="img/area_details_view.png" />
