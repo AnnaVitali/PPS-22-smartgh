@@ -2,8 +2,8 @@ package it.unibo.pps.smartgh.view.component
 
 import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.component.LoadingPlantMVC
-import it.unibo.pps.smartgh.mvc.component.LoadingPlantMVC.LoadingPlantMVCImpl
-import it.unibo.pps.smartgh.mvc.component.PlantSelectorMVC.PlantSelectorMVCImpl
+import it.unibo.pps.smartgh.mvc.component.LoadingPlantMVC
+import it.unibo.pps.smartgh.mvc.component.PlantSelectorMVC
 import javafx.stage.Stage
 import org.junit.jupiter.api.TestInstance.Lifecycle
 import org.junit.jupiter.api.extension.ExtendWith
@@ -21,12 +21,12 @@ class LoadingPlantViewModuleTest extends AbstractViewTest:
 
   private val progressIndicatorId = "#progressIndicator"
   private val textLabelID = "#textLabel"
-  private var mvc: LoadingPlantMVCImpl = _
+  private var mvc: LoadingPlantMVC = _
 
   @Start
   private def start(stage: Stage): Unit =
     val simulationMVC = SimulationMVC(stage)
-    val plantSelectorModel = PlantSelectorMVCImpl(simulationMVC).plantSelectorModel
+    val plantSelectorModel = PlantSelectorMVC(simulationMVC).plantSelectorModel
     mvc = LoadingPlantMVC(simulationMVC, plantSelectorModel)
     simulationMVC.simulationView.start(mvc.loadingPlantView)
 

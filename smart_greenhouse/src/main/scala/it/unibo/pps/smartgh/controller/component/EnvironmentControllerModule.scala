@@ -67,7 +67,7 @@ object EnvironmentControllerModule:
     /** Class that contains the [[EnvironmentController]] implementation. */
     class EnvironmentControllerImpl() extends EnvironmentController:
 
-      private val ghMVC: GreenHouseDivisionMVC.GreenHouseDivisionMVCImpl = GreenHouseDivisionMVC(
+      private val ghMVC: GreenHouseDivisionMVC = GreenHouseDivisionMVC(
         simulationMVC.simulationController.plantsSelected,
         simulationMVC
       )

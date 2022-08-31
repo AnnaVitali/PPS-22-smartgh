@@ -3,7 +3,7 @@ package it.unibo.pps.smartgh.controller.component
 import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.component.AreaDetailsMVC
-import it.unibo.pps.smartgh.mvc.component.GreenHouseDivisionMVC.GreenHouseDivisionMVCImpl
+import it.unibo.pps.smartgh.mvc.component.GreenHouseDivisionMVC
 import it.unibo.pps.smartgh.view.component.AreaViewModule
 
 /** Implementation of the [[AreaControllerModule]]. */
@@ -29,7 +29,7 @@ object AreaControllerModule:
       * @param ghMVC
       *   implementation of the greenhouse division MVC
       */
-    class AreaControllerImpl(ghMVC: GreenHouseDivisionMVCImpl) extends AreaController:
+    class AreaControllerImpl(ghMVC: GreenHouseDivisionMVC) extends AreaController:
       override def paintArea(): Unit =
         val color = areaModel.status.toString
 

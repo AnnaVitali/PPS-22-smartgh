@@ -9,6 +9,12 @@ import it.unibo.pps.smartgh.view.component.areaParameter.AreaLuminosityViewModul
 import it.unibo.pps.smartgh.view.component.areaParameter.AreaParameterView.AreaParameterView
 import it.unibo.pps.smartgh.view.component.areaParameter.{AreaLuminosityViewModule, AreaParameterView}
 
+/** A trait that represents the MVC component for the area luminosity section. */
+trait AreaLuminosityMVC extends AreaModelModule.Interface
+  with AreaLuminosityViewModule.Interface
+  with AreaLuminosityControllerModule.Interface
+  with AreaParameterMVC
+
 /** Object that incapsulate the model view and controller module for area luminosity. */
 object AreaLuminosityMVC:
 
@@ -18,24 +24,15 @@ object AreaLuminosityMVC:
     * @param updateStateMessage
     *   a function for update the area status and messages
     * @return
-    *   a new instance of [[AreaLuminosityMVCImpl]].
+    *   a new instance of [[AreaLuminosityMVCI]].
     */
-  def apply(areaModel: AreaModel, updateStateMessage: (String, Boolean) => Unit): AreaLuminosityMVCImpl =
+  def apply(areaModel: AreaModel, updateStateMessage: (String, Boolean) => Unit): AreaLuminosityMVC =
     AreaLuminosityMVCImpl(areaModel, updateStateMessage)
 
-  /** Implementation of the area luminosity MVC.
-    * @param areaModel
-    *   the model of the area
-    * @param updateStateMessage
-    *   a function for update the area status and messages
-    */
-  class AreaLuminosityMVCImpl(
+  private class AreaLuminosityMVCImpl(
       override val areaModel: AreaModel,
       private val updateStateMessage: (String, Boolean) => Unit
-  ) extends AreaModelModule.Interface
-      with AreaLuminosityViewModule.Interface
-      with AreaLuminosityControllerModule.Interface
-      with AreaParameterMVC:
+  ) extends AreaLuminosityMVC:
 
     override val parameterController: AreaParameterController = AreaLuminosityControllerImpl(updateStateMessage)
     override val parameterView: AreaParameterView = AreaLuminosityViewImpl()

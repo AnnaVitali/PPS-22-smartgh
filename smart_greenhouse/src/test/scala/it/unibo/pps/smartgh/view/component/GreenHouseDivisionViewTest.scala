@@ -45,7 +45,7 @@ import scala.language.postfixOps
 @ExtendWith(Array(classOf[ApplicationExtension]))
 class GreenHouseDivisionViewTest extends AbstractViewTest:
 
-  var ghMVC: GreenHouseDivisionMVC.GreenHouseDivisionMVCImpl = _
+  var ghMVC: GreenHouseDivisionMVC = _
   var areaModel: AreaModel = _
   val globalGH = "#env"
   val areaBt = "#areaBt"

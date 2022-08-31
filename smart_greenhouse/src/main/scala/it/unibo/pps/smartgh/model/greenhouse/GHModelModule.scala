@@ -1,6 +1,6 @@
 package it.unibo.pps.smartgh.model.greenhouse
 
-import it.unibo.pps.smartgh.mvc.component.AreaMVC.AreaMVCImpl
+import it.unibo.pps.smartgh.mvc.component.AreaMVC
 
 /** Implementation of the [[GHModelModule]]. */
 object GHModelModule:
@@ -11,7 +11,7 @@ object GHModelModule:
       * @return
       *   the list of areas
       */
-    var areas: List[AreaMVCImpl]
+    var areas: List[AreaMVC]
 
   /** A trait for defining the model instance. */
   trait Provider:
@@ -23,7 +23,7 @@ object GHModelModule:
     /** Implementation of the greenhouse model. */
     class GreenHouseDivisionModelImpl() extends GreenHouseModel:
 
-      override var areas: List[AreaMVCImpl] = List.empty
+      override var areas: List[AreaMVC] = List.empty
 
   /** Trait that combine provider and component for greenhouse model. */
   trait Interface extends Provider with Component
