@@ -1,6 +1,6 @@
 # 1. Processo di sviluppo
 
-Per il porcesso di sviluppo, il team di lavoro, ha deciso di utilizzare un apporcio _SCRUM-inspired_. In particolare,  [_SCRUM_](https://www.scrum.org/) è un _framework_ di sviluppo software: agile, iterativo e incrementale, che consente la gestione dello sviluppo del prodotto.
+Per il processo di sviluppo, il team di lavoro, ha deciso di utilizzare un apporcio _SCRUM-inspired_. In particolare,  [_SCRUM_](https://www.scrum.org/) è un _framework_ di sviluppo software: agile, iterativo e incrementale, che consente la gestione dello sviluppo del prodotto.
 
 Specificatamente, il porcesso _SCRUM-inspired_ seguito, prevede di:
 1. nominare uno studente (ad esempio, chi ha l'idea del progetto), il quale fungerà da sorta di committente o esperto del dominio, il quale cercherà di garantire l'usabilità/qualità del risultato;
