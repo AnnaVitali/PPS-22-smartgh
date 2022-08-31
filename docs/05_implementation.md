@@ -40,7 +40,7 @@ type OptimalValues = Map[String, Any]
   type Requirements = EnvironmentViewModule.Provider with EnvironmentModelModule.Provider with SimulationMVC.Provider
 ```
 
-### 5.1.3 For-comphrension
+### 5.1.3 For-comprehension
 Al fine di rendere il codice meno imperativo si è fatto uso della _for-comphrension_, un costrutto funzionale basato sulle monadi per operare sulle collezioni. Oltre a rendere il codice più funzionale, la scelta dell'utilizzo della _for-comphrension_ è supportato dall'incremento della leggibilità del codice, come si può vedere nel seguente estratto di codice, utilizzato per la creazione degli oggetti `ManageSensor` il cui compito è racchiudere tutte le informazioni utili riguardati un sensore.
 
 ```scala
@@ -352,6 +352,10 @@ L’introduzione di `EnvironmentMVC` ha richiesto la collaborazione con gli altr
 Successivamente, insieme al resto del gruppo, mi sono dedicata allo sviluppo del componente MVC principale dell’applicazione. In particolare, ho realizzato:
 -	`SimulationMVC`;
 -	`SimulationController`, che si occupa di detenere i riferimenti ad istanze inizializzate da altri componenti e di mantenere aggiornati i vari componenti della simulazione (es: `EnvironmentMVC`, `AreaDetailsMVC`) in base allo scorrere del tempo, anche attraverso l’utilizzo della programmazione reattiva. 
+
+Nel terzo sprint mi sono occupata di raccogliere gli elementi comuni relativi alle diverse view dell'applicazione, realizzando l'interfaccia `ContiguousSceneView`.
+
+Come gli altri membri del gruppo, nell'ultimo sprint ho compiuto operazioni di refactoring e di ottimizzazione del codice per poter migliorare ulteriormente la soluzione proposta.
 
 Infine, ho creato e gestito il componente `HelpView` che si occupa di visualizzare la guida utente all’interno dell’applicazione.
 
