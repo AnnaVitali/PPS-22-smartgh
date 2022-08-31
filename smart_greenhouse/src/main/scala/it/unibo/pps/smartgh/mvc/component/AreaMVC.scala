@@ -5,7 +5,6 @@ import it.unibo.pps.smartgh.model.area.AreaModelModule
 import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.model.time.Timer
 import it.unibo.pps.smartgh.mvc.SimulationMVC
-import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.mvc.component.GreenHouseDivisionMVC.GreenHouseDivisionMVCImpl
 import it.unibo.pps.smartgh.view.component.AreaViewModule
 
@@ -23,7 +22,7 @@ object AreaMVC:
     */
   def apply(
       plant: Plant,
-      simulationMVC: SimulationMVCImpl,
+      simulationMVC: SimulationMVC,
       greenHouseDivisionMVC: GreenHouseDivisionMVCImpl
   ): AreaMVCImpl =
     AreaMVCImpl(plant, simulationMVC, greenHouseDivisionMVC)
@@ -39,7 +38,7 @@ object AreaMVC:
     */
   class AreaMVCImpl(
       plant: Plant,
-      override val simulationMVC: SimulationMVCImpl,
+      override val simulationMVC: SimulationMVC,
       greenHouseDivisionMVC: GreenHouseDivisionMVCImpl
   ) extends AreaModelModule.Interface
       with AreaViewModule.Interface

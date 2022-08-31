@@ -1,6 +1,6 @@
 package it.unibo.pps.smartgh.view.component
 
-import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
+import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.mvc.component.SelectCityMVC
 import it.unibo.pps.smartgh.view.SimulationViewModule.SimulationView
 import it.unibo.pps.smartgh.view.component.ViewComponent.AbstractViewComponent
@@ -22,10 +22,10 @@ object FinishSimulationView:
     * @return
     *   a new instance of [[FinishSimulationView]].
     */
-  def apply(simulationMVC: SimulationMVCImpl): FinishSimulationView =
+  def apply(simulationMVC: SimulationMVC): FinishSimulationView =
     FinishSimulationViewImpl(simulationMVC)
 
-  private class FinishSimulationViewImpl(simulationMVC: SimulationMVCImpl)
+  private class FinishSimulationViewImpl(simulationMVC: SimulationMVC)
       extends AbstractViewComponent[BorderPane]("finish_simulation.fxml")
       with FinishSimulationView:
 

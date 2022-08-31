@@ -5,7 +5,6 @@ import it.unibo.pps.smartgh.model.greenhouse.GHModelModule
 import it.unibo.pps.smartgh.model.plants.Plant
 import it.unibo.pps.smartgh.model.time.Timer
 import it.unibo.pps.smartgh.mvc.SimulationMVC
-import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.mvc.component.AreaMVC
 import it.unibo.pps.smartgh.view.component.GHViewModule
 import monix.reactive.subjects.ConcurrentSubject
@@ -20,7 +19,7 @@ object GreenHouseDivisionMVC:
     * @return
     *   a new instance of [[GreenHouseDivisionMVCImpl]].
     */
-  def apply(plants: List[Plant], simulationMVC: SimulationMVCImpl): GreenHouseDivisionMVCImpl =
+  def apply(plants: List[Plant], simulationMVC: SimulationMVC): GreenHouseDivisionMVCImpl =
     GreenHouseDivisionMVCImpl(plants, simulationMVC)
 
   /** Create a new [[GreenHouseDivisionMVCImpl]].
@@ -31,7 +30,7 @@ object GreenHouseDivisionMVC:
     * @return
     *   a new instance of [[GreenHouseDivisionMVCImpl]].
     */
-  class GreenHouseDivisionMVCImpl(plants: List[Plant], simulationMVC: SimulationMVCImpl)
+  class GreenHouseDivisionMVCImpl(plants: List[Plant], simulationMVC: SimulationMVC)
       extends GHModelModule.Interface
       with GHViewModule.Interface
       with GHControllerModule.Interface:
