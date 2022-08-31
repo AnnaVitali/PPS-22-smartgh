@@ -22,6 +22,12 @@ trait Environment:
   /** @return city's name. */
   def nameCity: String
 
+  /** @return city's latitude. */
+  def latitude: String
+
+  /** @return city's longitude. */
+  def longitude: String
+
   /** @return environment values that refer to the whole day. */
   var environmentValues: EnvironmentValues
 
@@ -31,16 +37,26 @@ object Environment:
   /** Apply method for the [[Environment]].
     * @param name
     *   city's name
+    * @param latitude
+    *   city's latitude
+    * @param longitude
+    *   city's longitude
     * @return
     *   the [[Environment]] object.
     */
-  def apply(name: String): Environment = EnvironmentImpl(name)
+  def apply(name: String, latitude: String, longitude: String): Environment = EnvironmentImpl(name, latitude, longitude)
 
   /** Class that contains the [[Environment]] implementation.
     * @param nameCity
     *   city's name.
+    * @param latitude
+    *   city's latitude
+    * @param longitude
+    *   city's longitude
     */
-  private class EnvironmentImpl(override val nameCity: String) extends Environment:
+  private class EnvironmentImpl(override val nameCity: String,
+                                override val latitude: String,
+                                override val longitude: String) extends Environment:
 
     override var environmentValues: EnvironmentValues = _
     private val subjectEnvironmentValues: ConcurrentSubject[EnvironmentValues, EnvironmentValues] =
@@ -60,14 +76,10 @@ object Environment:
     private def getEnvironmentValues =
       import scala.util.{Failure, Success, Try}
       import java.text.Normalizer
-      val name = Normalizer.normalize(nameCity, Normalizer.Form.NFD).replaceAll("\\p{M}", "");
       Task {
         val apiKey = "b619d3592d8b426e8cc92336220107"
         val query =
-          "http://api.weatherapi.com/v1/forecast.json?key=" + apiKey + "&q=" + name.replace(
-            " ",
-            "%20"
-          ) + "&days=1&aqi=no&alerts=no"
+          s"http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${latitude},${longitude}&days=1&aqi=no&alerts=no"
         Try (requests.get(query)) match
           case Success (r: Response) =>
             implicit val formats: DefaultFormats.type = org.json4s.DefaultFormats

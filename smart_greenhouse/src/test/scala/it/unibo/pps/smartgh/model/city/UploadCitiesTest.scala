@@ -15,8 +15,8 @@ class UploadCitiesTest extends AnyFunSuite with Matchers:
   private val prologFile = Config.CitiesOutputFile
   private val uploader = UploadCities
 
-  test(s"$file file lines number should equal to 7978") {
-    uploader.countResourcesFileLines(file) shouldEqual 7978
+  test(s"$file file lines number should equal to 3374") {
+    uploader.countResourcesFileLines(file) shouldEqual 3374
   }
 
   test(s"$prologFile should have the same number of lines of $file + 1") {

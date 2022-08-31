@@ -16,7 +16,7 @@ import scala.collection.immutable.HashMap
 
 /** This class contains the tests to verify that the [[Environment]] works correctly. */
 class EnvironmentTest extends AnyFunSuite with Matchers with BeforeAndAfter:
-  val environment: Environment = Environment("Rome")
+  val environment: Environment = Environment("Rome", "41.8931", "12.4828")
 
   test("after creating Rome city when we ask its name must it should be equal to Rome") {
     environment.nameCity shouldEqual "Rome"
@@ -42,8 +42,9 @@ class EnvironmentTest extends AnyFunSuite with Matchers with BeforeAndAfter:
     import scala.language.postfixOps
 
     val l: List[String] = List()
-    Source.fromResource("cities.txt")(Codec.UTF8).getLines() foreach (c =>
-      val e = Environment(c)
+    Source.fromResource("cities.txt")(Codec.UTF8).getLines() foreach (l =>
+      val splitted: Array[String] = l.split(",")
+      val e = Environment(splitted(0), splitted(1), splitted(2))
       eventually(timeout(Span(1000, Milliseconds))) {
         e.environmentValues should not equal Map()
       })

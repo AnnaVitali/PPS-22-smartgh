@@ -25,7 +25,7 @@ class EnvironmentViewModuleTest extends AbstractViewTest:
   @Start
   private def start(stage: Stage): Unit =
     val simulationMVC = SimulationMVC(stage)
-    simulationMVC.simulationController.environment = Environment("Cesena")
+    simulationMVC.simulationController.environment = Environment("Rome", "41.8931", "12.4828")
     simulationMVC.simulationController.plantsSelected =
       List(Plant("carrot", "carrot aurantina f1"), Plant("eggplant", "solanum melongena"))
     simulationMVC.simulationView.start(EnvironmentMVC(simulationMVC).environmentView)

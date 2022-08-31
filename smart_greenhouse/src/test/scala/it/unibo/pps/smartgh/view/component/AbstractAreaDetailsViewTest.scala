@@ -18,7 +18,7 @@ import org.testfx.framework.junit5.{ApplicationExtension, Start}
 class AbstractAreaDetailsViewTest extends AbstractViewTest:
 
   protected var areaDetailsMVC: AreaDetailsMVCImpl = _
-  protected val environment: Environment = Environment("Rome")
+  protected val environment: Environment = Environment("Rome", "41.8931", "12.4828")
   protected val plant: Plant = Plant("lemon", "citrus limon")
 
   @Start

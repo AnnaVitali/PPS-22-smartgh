@@ -29,7 +29,7 @@ object SelectCityModelModule:
       * @param city
       *   the city to test
       * @return
-      *   true if this sequence has the given city, false otherwise //TODO
+      *   An option containing the sequence containing the term's values or none
       */
     def containCity(city: String): Option[(String, String, String)]
 
@@ -63,7 +63,7 @@ object SelectCityModelModule:
           val y = i.map(s => extractTerm(s, "Y")).head
           val z = i.map(s => extractTerm(s, "Z")).head
           Some((x,y,z))
-        else 
+        else
           None
 
       private def extractTerm(solveInfo: SolveInfo, variable: String) = extractTermToString(solveInfo, variable).replace("'", "")
