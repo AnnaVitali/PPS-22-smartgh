@@ -76,7 +76,7 @@ Tale interfaccia richiede che il nuovo elemento View da impostare sia di un tipo
 [Fig. 4.1.2]: img/contiguousSceneView.png
 
 ### SceneController
-Gli elementi comuni ai diversi Controller sono stati racchiusi all'interno dell'interfaccia `SceneController`, contenente il metodo `beforeNextScene` e la quale si occupa di eseguire le operazioni che devono essere effettuate prima di poter cambiare scena.
+Gli elementi comuni ai diversi Controller sono stati racchiusi all'interno dell'interfaccia `SceneController`, contenente il metodo `beforeNextScene` che si occupa di eseguire le operazioni che devono essere effettuate prima di poter cambiare scena.
 
 <div align="center">
   <img src="img/contiguousSceneView.png" />
