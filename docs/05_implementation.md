@@ -495,11 +495,13 @@ Nel secondo sprint abbiamo poi raffinato la struttura del progetto ed effettuato
 
 Assieme ad _Anna_, abbiamo progettato l’interfaccia `Sensor` e `SensorWithTimer` con le rispettive classi astratte. In seguito ho realizzato l’implementazione dei sensori `AirHumiditySensor` e `SoilHumiditySensor` e i relativi oggetti factory (`FactoryFunctionsAirHumidity` e `FactoryFunctionsSoilHumidity`).
 
-Durante gli ultimi sprint, mi sono dedicata allo sviluppo dei componenti del dettaglio area e ai suoi quattro parametri. Nello specifico ho realizzato:
+Durante il terzo sprint, mi sono dedicata allo sviluppo dei componenti del dettaglio area e ai suoi quattro parametri. Nello specifico ho realizzato:
 - i moduli View e MVC del dettaglio area e dei parametri;
 - le interfacce generali per i parametri (`AreaParameterMVC`, `AreaParameterController` e `AreaParameterView`) e le classi astratte per il Controller e la View, rispettivamente `AbstractAreaParameterController` e `AbstractAreaParameterView`
 
-Infine, ho collaborato con _Maria_ alla realizzazione dei moduli controller associati.
+Mentre i moduli del _controller_ sono stati realizzati collaborando con _Maria_.
+
+L'ultimo sprint è stato lasciato per raffinare lo stile grafico dell'applicazione e alle operazioni di refactoring e di ottimizzazione del codice.
 
 Per quanto riguarda la parte di testing, ho realizzato i seguenti test:
 - `SelectCityModelModuleTest.scala`
