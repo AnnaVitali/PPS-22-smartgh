@@ -401,8 +401,6 @@ Il model viene racchiuso nel `EnvironmentModelModule` (vedi [Fig. 4.5.1.2]), al 
   - ottenere i singoli valori ambientali aggiornati per ogni tipologia di sensore che verrà installato all’interno delle aree;
   - notificare il model di aggiornare i valori ambientali correnti, secondo l’ora segnalata dal `SimulationController` che gestisce l’interazione con il `TimeModel`.
 
-Inoltre,il trait `Component` contiene il campo `context` di tipo `Requirements`, il quale viene utilizzato per specificare la dipendenza necessaria affinchè l’`EnvironmentModel` possa ottenere dal `SimulationController` l’istanza `Environment` salvata in essa. In quest’ultima sono salvate le previsioni per le condizioni metereologiche che si verificheranno nella giornata odierna nella città selezionata dall'utente.
-
 <div align="center">
   <img src="img/environmentModelModule.png" />
   <p> Fig. 4.5.1.2 - Architettura di EnvironmentModel </p>
