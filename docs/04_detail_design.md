@@ -1,23 +1,24 @@
 # 4. Design dettagliato
 In questo capitolo verrà descritta nel dettaglio l'architettura del sistema, analizzandone i diversi componenti principali e le loro caratteristiche.
 
-L'applicazione è costituita da diverse scene, ciascuna delle quali racchiude una propria logica applicativa ed effettua delle elaborazioni sulle azioni compiute dall'utente. Per riuscire a rispettare i requisiti e realizzare un'sistema che fosse modulare, facilmente estendibile, quanto più possibile riutilizzabile e facilmente manutenibile, si è deciso di utilizzare principalmente il _pattern MVC_ assieme al _cake pattern_.
+L'applicazione è costituita da diverse scene, ciascuna delle quali racchiude una propria logica applicativa ed effettua delle elaborazioni a seguito delle azioni compiute dall'utente. Per riuscire a rispettare i requisiti e realizzare un sistema che fosse sufficientemente modulare, facilmente estendibile e quanto più possibile riutilizzabile e manutenibile, si è deciso di utilizzare il _pattern MVC_ in combinazione al _cake pattern_.
 
-Tramite il _pattern MVC_, come già descritto nella sezione [Sec. 3.2](#32-pattern-architetturali-utilizzati), abbiamo la possibilità di separare la logica di presentazione dei dati da quella di buisness, ottenendo la capacità di realizzare una View del tutto indipendente dal modello, in questo modo se in un futuro si decidesse di non adottare più _ScalaFX_ come tecnologia per l'implementazione della View, si potrebbe tranquillamente intraprendere questo cambiamento, senza dover modificare il Model associato alle diverse schermate.
+Tramite il _pattern MVC_, come già descritto nella sezione [Sec. 3.2](#32-pattern-architetturali-utilizzati), abbiamo la possibilità di separare la logica di presentazione dei dati da quella di business, realizzando una View del tutto indipendente dal modello. In questo modo, se in un futuro si decidesse di adottare una tecnologia diversa da _ScalaFX_ per l'implementazione della View, si potrebbe tranquillamente intraprendere questo cambiamento, senza dover modificare il Model associato alle diverse schermate.
 
-Il _cake pattern_, invece, ci dá la possibilità di risolvere in modo agevole le dipendenze che legano gli elementi dell'_MVC_, tramite l'utilizzo di elementi della programmazione funzionale come: _mix-in_, _self-type_, _abstract type_ ecc.
+Il _cake pattern_, invece, ci dá la possibilità di risolvere in modo agevole le dipendenze che legano gli elementi dell'_MVC_ tramite l'utilizzo di meccanismi della programmazione funzionale come: _mix-in_, _self-type_, _type members_, ecc... 
 
-Questa strategia, sostanzialmente, prevede di implementare il _pattern MVC_, come una composizione di tre elementi: Model (M), View (V) e Controller (C), i quali presentano le seguenti dipendenze: C->V, V->C e C->M. Tramite il _cake pattern_, possiamo realizzare questi tre elementi incapsulando già al loro interno la risoluzione di qusete dipendenze e istanziando alla fine un oggetto `MVC` che li detiene tutti e tre e che è in grado di utilizzarli direttamente e di accedere alle loro proprietà, senza doversi più preoccupare dei loro collegamenti.
+Questa strategia, sostanzialmente, prevede di implementare il _pattern MVC_ come una composizione di tre elementi: Model (M), View (V) e Controller (C), i quali presentano le seguenti dipendenze: C->V, V->C e C->M. 
+Più precisamente, possiamo realizzare questi tre elementi incapsulando già al loro interno la risoluzione delle dipendenze precedentemente citate: alla fine, potremo istanziare un oggetto _MVC_ che li detiene tutti e tre e che è in grado di di accedere alle rispettive proprietà, senza doversi preoccupare del loro collegamento.
 
-Gli elementi sopra citati vengono racchiusi in moduli, così composti:
-- un `trait` (`Model`, `View` o `Controller`), il quale definisce l'interfaccia del rispettivo modulo ;
--	una classe `ModelImpl`, `ViewImpl` o `ControllerImpl`, che rappresenta l'implementazione dell’interfaccia appena descritta ed è racchiusa all’interno del trait `Component`;
+Gli elementi Model, View e Controller vengono racchiusi in moduli, composti da:
+- un `trait` (`Model`, `View` o `Controller`), il quale definisce l'interfaccia del rispettivo elemento;
+-	una classe `ModelImpl`, `ViewImpl` o `ControllerImpl`, che rappresenta l'implementazione dell’interfaccia;
 - un `trait Component`, il quale racchiude la classe implementativa. Tale trait assume forme differenti in base al modulo nel quale è racchiuso:
-  - nel caso del `model` si compone esclusivamente della classe implementativa [Fig. 4.1];
-  - nel caso della `view` contene il campo `context` di tipo `Requirements`, il quale viene utilizzato per specificare le dipendenze che legano la View al Controller [Fig. 4.2];
-  - nel caso del `controller` contiene sempre il capo `context` di tipo `Requirements`, il quale viene però utilizzato per specificare le dipendenze che legano il Controller al Model e alla View [Fig. 4.3];
-- `trait Provider` che si occupa di detenere il rispettivo oggetto `view`, `model` o `controller`;
-- `trait Interface` che si occupa di completare e connettere tutti i componenti del modulo per renderli utilizzabili nell'oggetto che istanzierà l'MVC.
+  - nel caso del Model si compone esclusivamente della classe implementativa [Fig. 4.1];
+  - nel caso della View contiene il campo `context` di tipo `Requirements`, il quale viene utilizzato per specificare le dipendenze che legano la View al Controller [Fig. 4.2];
+  - nel caso del Controller contiene sempre il capo `context` di tipo `Requirements` che viene, però, utilizzato per specificare le dipendenze che legano il Controller al Model e alla View [Fig. 4.3];
+- un `trait Provider` che si occupa di detenere il rispettivo oggetto  di tipo `View`, `Model` o `Controller`;
+- un `trait Interface` che si occupa di completare e connettere tutti i componenti del modulo per renderli utilizzabili nell'oggetto _MVC_.
 
 <div align="center">
   <img src="img/cake_model.png" />
