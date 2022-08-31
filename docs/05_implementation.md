@@ -41,7 +41,7 @@ type OptimalValues = Map[String, Any]
 ```
 
 ### 5.1.3 For-comprehension
-Al fine di rendere il codice meno imperativo si è fatto uso della _for-comphrension_, un costrutto funzionale basato sulle monadi per operare sulle collezioni. Oltre a rendere il codice più funzionale, la scelta dell'utilizzo della _for-comphrension_ è supportato dall'incremento della leggibilità del codice, come si può vedere nel seguente estratto di codice, utilizzato per la creazione degli oggetti `ManageSensor` il cui compito è racchiudere tutte le informazioni utili riguardati un sensore.
+Al fine di rendere il codice meno imperativo si è fatto uso della _for-comprehension_, un costrutto funzionale basato sulle monadi per operare sulle collezioni. Oltre a rendere il codice più funzionale, la scelta dell'utilizzo della _for-comprehension_ è supportato dall'incremento della leggibilità del codice, come si può vedere nel seguente estratto di codice, utilizzato per la creazione degli oggetti `ManageSensor` il cui compito è racchiudere tutte le informazioni utili riguardati un sensore.
 
 ```scala
     for
@@ -65,8 +65,6 @@ Al fine di rendere il codice meno imperativo si è fatto uso della _for-comphren
     )
 ```
 Nell'esempio si itera sulla mappa contenete le costanti riguardanti i sensori, come il nome del sensore, l'unità di misura ed il messaggio di errore associato ad esso. Questi valori vengono poi impiegati nella costruzione dell'oggetto `ManageSensor` per reperire le informazioni relative ad un sensore per una specifica pianta, creare e memorizzare l'istanza del relativo sensore, inizializzare il suo stato e tenere traccia del valore corrente rilevato da esso. 
-
-//TODO descrivere utilizzo di for-comphrension all'interno del codice, inserire esempi di utilizzo nel codice, spiegando anche tali esempi
 
 ### 5.1.4 Trait mixins
 In Scala, le classi possono avere un unica superclasse ma molti _mixins_, attraverso l'utilizzo delle _keywords_ `extends` e `with`.
@@ -96,20 +94,20 @@ Per consentire quest'operazione, la classe `UploadCities`, si occupa di converti
 Questo file, `cities.pl`, contiene le regole sulle città, scritte in questo modo:
 
 ```prolog
-citta("Bologna").
-citta("Cesena").
+city("Bologna").
+city("Cesena").
 ``` 
-Il file `cities.pl` contiene, inoltre, una regola `ricerca_citta` che consente di convertire i nomi delle città in array di caratteri, in modo da facilitare il meccanismo dei ricerca.
+Il file `cities.pl` contiene, inoltre, una regola `search_city` che consente di convertire i nomi delle città in array di caratteri, in modo da facilitare il meccanismo dei ricerca.
 
 ```prolog
-ricerca_citta([H|T], X) :- citta(X), atom_chars(X, [H|T]).
+search_city([H|T], X) :- city(X), atom_chars(X, [H|T]).
 ```
 
 Infine, `SelectCityModelModule`, utilizza questo file e la libreria TuProlog, per poter visualizzare i diversi nomi delle città e implementare il _live search_. Infatti, ogni qual volta l'utente inserisce dei caratteri nel `TextField`, della schermata, questi caratteri vengono utilizatti, per definire il _goal_ che si intende risolvere e determinare la città che l'utente vuole selezionare.
 
 ```scala
 override def searchCities(charSequence: Seq[Char]): Seq[String] =
-    engine("ricerca_citta(" + charSequence.mkString("['", "','", "'|_]") + ", X)")
+    engine("search_city(" + charSequence.mkString("['", "','", "'|_]") + ", X)")
         .map(extractTerm)
         .toSeq
 ``` 
