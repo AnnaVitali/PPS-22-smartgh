@@ -268,7 +268,7 @@ val r: Response = requests.get(query)
 ```
 Ottenuta la risposta dal web Server, qualora questa abbia dato esito positivo, si è proceduto ad effettuare il _parsing_ per poter ottenere il _JSON_, mediante la libreria [_json4s_](https://github.com/json4s/json4s). Qualora, invece, l'esito della risposta fosse negativo, si è deciso di impostare un valore di default. 
 
-Al fine di valutare l'esito della risposta, nel caso delle città, si è fatto uso di un controllo relativo allo _status code_, quindi si ottiene un esito positivo in caso di codice pari a 200, negativo altrimenti. Nel caso delle piante invece si è fatto uso del `Try match` per identificare se la richiesta va a buon fine: caso di `Success`, o meno, caso `Failure`.
+Al fine di valutare l'esito della risposta, si è fatto uso del `Try match` per identificare se la richiesta va a buon fine: caso di `Success`, o meno, caso `Failure`.
 
 ```scala
 Try(requests.post(url = url, data = data)) match {
@@ -447,7 +447,7 @@ Per la parte di testing mi sono occupata della realizzazione delle seguenti clas
 - `GreenHouseTest`
 - `GreenHouseDivisionViewTest`
 
-Inoltre alcune delle funzionalità da me implementate sono presenti anche nelle altre classi di test, come ad esempio in //TODO
+Inoltre, alcune delle funzionalità da me implementate sono presenti anche nelle altre classi di test.
 
 ### 5.7.3 Vitali Anna 
 Nelle fasi iniziali di implementazione del progetto, mi sono impegnata nella realizzazione del meccanismo di selezione delle piante, realizzando gli elementi del _pattern MVC_ che si occupano di implementare questa funzionalità, che sono:
