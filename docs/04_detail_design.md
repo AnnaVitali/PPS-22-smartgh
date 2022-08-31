@@ -175,7 +175,7 @@ Il Controller per la selezione della città è racchiuso all’interno del modul
 
 Nello specifico, il Controller presenta metodi per:
 - effettuare la ricerca della città,
-- controllare se la città selezionata dall'utente è corretta o meno. Se la città non è valida allora richiamerà la View per gestire il caso, se invece è corretta allora si procederà alla creazione dell'oggetto `Environment`, che verrà poi salvato nel componente superiore `SimulationMVC`.
+- controllare se la città selezionata dall'utente è corretta o meno. Nel caso non fosse valida, verrà richiamata la View per gestire il caso; altrimenti si procederà alla creazione dell’oggetto `Environment`, che verrà poi salvato nel componente superiore `SimulationMVC`.
 
 <div align="center">
   <img src="img/select_city_controller.png" />
@@ -199,7 +199,7 @@ Nello specifico, il Controller presenta metodi per:
 
 La View per la selezione delle città viene racchiusa nel modulo `SelectCityViewModule` [Fig. 4.3.1.4]. 
 
-Al suo interno troviamo il `trait SelectCityView`, il quale rappresenta l’interfaccia della View e detiene metodi che possono essere richiamati sulla stessa. Tale interfaccia, comprende un metodo per settare il messaggio di errore per notificare all'utente e un metodo per passare alla scena successiva. 
+Al suo interno troviamo il `trait SelectCityView`, il quale rappresenta l’interfaccia della View e detiene metodi che possono essere richiamati sulla stessa. Tale interfaccia espone un metodo per settare il messaggio di errore da mostrare all’utente e un metodo per passare alla scena successiva. 
 
 La classe `SelectCityViewImpl`, invece, è l'implementazione dell’interfaccia, e rappresenta anche il Controller dell’_FXML_ associato. Infatti, estendendo da `AbstractViewComponent`, contiene già la logica necessaria al caricamento del file.
 
