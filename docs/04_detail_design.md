@@ -1,11 +1,11 @@
 # 4. Design dettagliato
 In questo capitolo verrà descritta nel dettaglio l'architettura del sistema, analizzandone i diversi componenti principali e le loro caratteristiche.
 
-L'applicazione è costituita da diverse scene, ciascuna delle quali racchiude una propria logica applicativa ed effettua delle elaborazioni a seguito delle azioni compiute dall'utente. Per riuscire a rispettare i requisiti e realizzare un sistema che fosse sufficientemente modulare, facilmente estendibile e quanto più possibile riutilizzabile e manutenibile, si è deciso di utilizzare il _pattern MVC_ in combinazione al _cake pattern_.
+L'applicazione è costituita da diverse scene, ciascuna delle quali racchiude una propria logica applicativa ed effettua delle elaborazioni a seguito delle azioni compiute dall'utente. Per riuscire a rispettare i requisiti e realizzare un sistema che fosse sufficientemente modulare, facilmente estendibile e quanto più possibile riutilizzabile e manutenibile, si è deciso di utilizzare il _Pattern MVC_ in combinazione al _Cake pattern_.
 
-Tramite il _pattern MVC_, come già descritto nella sezione [Sec. 3.2](#32-pattern-architetturali-utilizzati), abbiamo la possibilità di separare la logica di presentazione dei dati da quella di business, realizzando una View del tutto indipendente dal modello. In questo modo, se in un futuro si decidesse di adottare una tecnologia diversa da _ScalaFX_ per l'implementazione della View, si potrebbe tranquillamente intraprendere questo cambiamento, senza dover modificare il Model associato alle diverse schermate.
+Tramite il _Pattern MVC_, come già descritto nella sezione [Sec. 3.2](#32-pattern-architetturali-utilizzati), abbiamo la possibilità di separare la logica di presentazione dei dati da quella di business, realizzando una View del tutto indipendente dal modello. In questo modo, se in un futuro si decidesse di adottare una tecnologia diversa da _ScalaFX_ per l'implementazione della View, si potrebbe tranquillamente intraprendere questo cambiamento, senza dover modificare il Model associato alle diverse schermate.
 
-Il _cake pattern_, invece, ci dá la possibilità di risolvere in modo agevole le dipendenze che legano gli elementi dell'_MVC_ tramite l'utilizzo di meccanismi della programmazione funzionale come: _mix-in_, _self-type_, _type members_, ecc... 
+Il _Cake pattern_, invece, ci dá la possibilità di risolvere in modo agevole le dipendenze che legano gli elementi dell'_MVC_ tramite l'utilizzo di meccanismi della programmazione funzionale come: _mix-in_, _self-type_, _type members_, ecc... 
 
 Questa strategia, sostanzialmente, prevede di implementare il _pattern MVC_ come una composizione di tre elementi: Model (M), View (V) e Controller (C), i quali presentano le seguenti dipendenze: C->V, V->C e C->M. 
 Più precisamente, possiamo realizzare questi tre elementi incapsulando già al loro interno la risoluzione delle dipendenze precedentemente citate: alla fine, potremo istanziare un oggetto _MVC_ che li detiene tutti e tre e che è in grado di di accedere alle rispettive proprietà, senza doversi preoccupare del loro collegamento.
@@ -49,11 +49,11 @@ Tutti gli elementi principali dell'applicazione, che richiedono di eseguire oper
 I componenti, descritti nelle successive sottosezioni, fattorizzano elementi comuni del codice e permettono di evitarne la ripetizione.
 
 ### ViewComponent
-`ViewComponent` è un’interfaccia generica che rappresenta un componente della View, come si può vedere nella figura [Fig. 4.1.1] richiede un tipo `A` generico che sia sottotipo di `Parent`, la classe base dei nodi con figli di `JavaFX`. 
+`ViewComponent` è un’interfaccia generica che rappresenta un componente della View e, come si può vedere dalla figura [Fig. 4.1.1], richiede che il tipo generico `A` sia sottotipo di `Parent`, ossia la classe base dei nodi con figli di _JavaFX_. 
 
-Per l’implementazione di `ViewComponent` si è rispettato il pattern **Template Method**, definendo una classe astratta `AbstractViewComponent`, dove contiene il _template_ dei componenti. In tale classe viene incapsulato tutta la logica necessaria per il caricamento dei layout e per la loro inizializzazione lasciando alle sottoclassi la definizione del loro componente interno associato al file `FXML`.
+Per l’implementazione di `ViewComponent` si è rispettato il pattern _Template Method_, definendo una classe astratta `AbstractViewComponent` dove è contenuto il template dei componenti. In tale classe viene incapsulata la logica necessaria per il caricamento dei layout e per la loro inizializzazione, lasciando alle sottoclassi la definizione del rispettivo componente interno associato al file _FXML_.
 
-Tutte le view estendono da tale classe, in modo da creare componenti modulari ed evitando ripetizioni del codice per l’inizializzazione del layout.
+Tutte le View estenderanno da tale classe, in modo da creare componenti modulari ed evitare ripetizioni del codice nell’inizializzazione dei layout.
 
 <div align="center">
   <img src="img/view_component.png" />
@@ -64,56 +64,57 @@ Tutte le view estendono da tale classe, in modo da creare componenti modulari ed
 
 
 ### ContiguousSceneView
-`ContiguousSceneView` (vedi [Fig. 4.1.2]) è un’interfaccia generica utile per definire un componente della view che ha la necessità di richiedere al proprio controller di effettuare operazioni particolari prima di notificare la view principale di visualizzare la nuova scena.
+`ContiguousSceneView` (vedi [Fig. 4.1.2]) è un’interfaccia generica che risulta utile per definire un componente della View che ha la necessità di richiedere al proprio Controller di effettuare operazioni particolari prima di notificare la View principale di visualizzare la nuova scena.
 
-L’interfaccia richiede che il nuovo elemento view da impostare sia di un tipo generico `A`, sottotipo di `Parent` ossia una classe di `JavaFX` che rappresenta nodi con figli.
+Tale interfaccia richiede che il nuovo elemento View da impostare sia di un tipo generico `A` sottotipo di `Parent`, ossia la classe base dei nodi con figli di _JavaFX_. 
 
 <div align="center">
   <img src="img/contiguousSceneView.png" />
-  <p> Fig. 4.1.2 - Architettura di ContiguousSceneView </p>
+  <p> Fig. 4.1.2 - ContiguousSceneView </p>
 </div>
 
 [Fig. 4.1.2]: img/contiguousSceneView.png
 
 ### SceneController
-Gli elementi comuni dei diversi Controller sono stati racchiusi all'interno dell'interfaccia `SceneController`, contenente il metodo `beforeNextScene`, il quale si occupa di eseguire le operazioni che devono essere effettuate, prima di poter cambiare scena.
+Gli elementi comuni ai diversi Controller sono stati racchiusi all'interno dell'interfaccia `SceneController`, contenente il metodo `beforeNextScene` e la quale si occupa di eseguire le operazioni che devono essere effettuate prima di poter cambiare scena.
 
 <div align="center">
   <img src="img/contiguousSceneView.png" />
-  <p> Fig. 4.1.3 - Architettura di SceneController</p>
+  <p> Fig. 4.1.3 - SceneController</p>
 </div>
 
 [Fig. 4.1.3]: img/scene_controller.png
 
 ## 4.2 Gestione della simulazione
 
-La struttura articolata dell'applicazione ha introdotto la necessità di sviluppare un elemento che coordinasse i vari componenti model, view e controller, collocandosi ad un livello superiore. Nella sezione seguente si discuterà il design di tale elemento.
+La struttura articolata dell'applicazione ha introdotto la necessità di sviluppare un elemento che coordinasse i vari componenti Model, View e Controller, collocandosi ad un livello superiore. Nella sezione seguente si discuterà il design di tale elemento.
 
 ### 4.2.1 SimulationMVC
-`SimulationMVC` (vedi [Fig. 4.2.1.1]) rappresenta l’elemento MVC principale della simulazione. Ad alto livello, questo componente si colloca al di sopra di tutti gli altri in quanto permette di:
+`SimulationMVC` (vedi [Fig. 4.2.1.1]) rappresenta l’elemento _MVC_ principale della simulazione. Ad alto livello, questo componente si colloca al di sopra di tutti gli altri in quanto permette di:
 -	mantenere aggiornati i vari componenti della simulazione in base allo scorrere del tempo;
--	detenere i riferimenti ad istanze inizializzate da altri componenti che possono essere accedute da coloro che ne necessitano;
+-	detenere i riferimenti ad istanze inizializzate da altri componenti, al fine di poter essere accedute da coloro che ne necessitano;
 -	inizializzare e modificare la schermata visualizzata in ogni momento dell’esecuzione dell’applicazione.
 
 L'`Interface` di  `SimulationMVC` sarà estesa dalla maggiorparte dei componenti MVC del progetto.
 
-In particolare, la classe `SimulationMVC` racchiude i sottocomponenti `SimulationView` e `SimulationController`, derivanti dai rispettivi moduli. Come si può vedere dalla rappresentazione, `SimulationMVC` non racchiude un componente di tipo model in quanto questo aspetto viene gestito dai componenti MVC descritti in seguito.
+In particolare, la classe `SimulationMVC` racchiude i sottocomponenti `SimulationView` e `SimulationController`, derivanti dai rispettivi moduli. Come si può vedere dalla rappresentazione, `SimulationMVC` non racchiude un componente di tipo Model in quanto questo aspetto viene gestito da altri componenti _MVC_.
 
 <div align="center">
   <img src="img/simulationMVC.png" />
-  <p> Fig. 4.2.1.1 - Architettura di SimulationMVC </p>
+  <p> Fig. 4.2.1.1 - SimulationMVC </p>
 </div>
 
 [Fig. 4.2.1.1]: img/simulationMVC.png
 
 
-### 4.2.2 View della simulatione
-Il `SimulationViewModule` [Fig. 4.2.2.1] rappresenta la view principale dell'applicazione e si occupa di gestire: la scena, le _sotto-view_ e gli elementi generali delle parti in comune delle interfacce. Al suo interno troviamo:
--	il `trait SimulationView`, il quale include i metodi utili per l’avvio dell’applicazione, per gestire gli elementi comuni delle schermate e per passare da una _sotto-view_ all’altra;
--	la classe `SimulationViewImpl`, la quale implementa l’interfaccia `SimulationView` ed è racchiusa all’interno del `trait Component`. Quando l'applicazione viene lanciata, viene creata prima di tutto il componente base dell’applicazione, rappresentata dall'elemento `BaseView`. Nello specifico, `BaseView` è il componente che funge da contenitore delle _sotto-view_, racchiude gli elementi comuni a tutte le pagine e fornisce dei metodi per gestirli;
--	il `trait Component`, il quale racchiude la classe `SimulationViewImpl`, seguendo il _Cake Pattern_;
--	il `trait Provider`, il quale contiene l’oggetto `simulationView` che potrà essere utilizzato dall’MVC;
--	il `trait Interface`, il quale estendendo sia da `Provider` e sia da `Component`, offre la possibilità ai componenti che lo estendono di accedere alla `simulationView`. 
+### 4.2.2 View della simulazione
+
+Il `SimulationViewModule` [Fig. 4.2.2.1] rappresenta la View principale dell'applicazione e si occupa di gestire: la scena, le _sotto-view_ e gli elementi comuni alle interfacce. 
+
+Al suo interno troviamo il `trait SimulationView`, il quale include i metodi utili per l’avvio dell’applicazione, per gestire gli elementi comuni delle schermate e per passare da una _sotto-view_ all’altra.
+
+Quando l'applicazione viene lanciata, viene creato prima di tutto il componente base dell’applicazione, rappresentato dall'elemento `BaseView`. 
+Quest'ultimo è il componente che funge da contenitore delle _sotto-view_, che racchiude gli elementi comuni a tutte le pagine e che fornisce i metodi per gestirli.
 
 <div align="center">
   <img src="img/simulation_view.png" />
@@ -122,36 +123,33 @@ Il `SimulationViewModule` [Fig. 4.2.2.1] rappresenta la view principale dell'app
 
 [Fig. 4.2.2.1]: img/simulation_view.png
 
-### 4.2.3 SimulationController
+### 4.2.3 Controller della simulazione
 
-Il controller per la simulazione (vedi [Fig. 4.2.3.1]) è stato racchiuso nel `SimulationControllerModule` che si compone, in particolare, del trait `SimulationController`, il quale espone:
-  - campi dove verranno salvate l’istanza `Environment` della città e le istanze `Plant` delle piante selezionate dall’utente
-  - metodi per gestire il tempo virtuale della simulazione richiamando il `TimeModel`
-  - metodi per notificare l’`EnvironmentController`, di cui detiene il riferimento, di un cambiamento del timeValue e dello scoccare di una nuova ora, al fine di aggiornare la rispettiva view
-  - metodo per sottoscrive callback da eseguire quando vi è un nuovo valore del `Timer` disponibile (es: `AreaDetailsController` richiede l’aggiornamento del timer visualizzato all’interno delle aree) 
+Il controller della simulazione (vedi [Fig. 4.2.3.1]) è stato racchiuso nel `SimulationControllerModule` che si compone, in particolare, del trait `SimulationController`, il quale espone:
+  - campi dove verranno salvate l’istanza `Environment` della località e le istanze `Plant` delle piante selezionate dall’utente;
+  - metodi per gestire il tempo virtuale della simulazione, che richiamano il `TimeModel`;
+  - metodi per notificare l’`EnvironmentController`, di cui detiene il riferimento, di un cambiamento del `timeValue` e dello scoccare di una nuova ora, al fine di aggiornare la rispettiva View;
+  - metodo per sottoscrive _callback_ da eseguire quando vi è un nuovo valore del `Timer` disponibile (es: `AreaDetailsController` richiede l’aggiornamento del timer visualizzato all’interno delle aree).
 
 <div align="center">
   <img src="img/simulationController.png" />
-  <p> Fig. 4.2.3.1 - Architettura di SimulationController </p>
+  <p> Fig. 4.2.3.1 - SimulationController </p>
 </div>
 
 [Fig. 4.2.3.1]: img/simulationController.png
 
 ## 4.3 Impostazione dei parametri della simulazione
 
-Uno dei requisiti dell'applicazione è quello di permettere all'utente di personalizzare la simulazione (vedi requisito n°1 in sezione [Sec. 2.2](#22-requisiti-utente)), impostando i seguenti parametri:
+Uno dei requisiti dell'applicazione è quello di permettere all'utente di personalizzare la simulazione (vedi requisito n°1 in sezione [Sec. 2.2](#22-requisiti-utente)), impostando:
 - la località di ubicazione della serra;
 - le tipologie di piante da coltivare all'interno di essa.
 
-Al fine di soddisfare queste funzionalità sono stati sviluppati i seguenti elementi dell'architettura.
+Al fine di soddisfare queste funzionalità, sono stati sviluppati i seguenti elementi dell'architettura.
 
 ### 4.3.1 Selezione della città
-La prima schermata che viene presentata all’utente è quella di selezione della città: verrà mostrata all’utente una serie di città selezionabili, permettendo di effettuare una ricerca con un'auto completamento del testo.
+La prima schermata che viene presentata all’utente è quella per la selezione della città, nella quale verranno mostrate una serie di località selezionabili, permettendo di effettuare una ricerca con auto-completamento del testo.
 
-Considerando che per la realizzazione di questa parte richiede sia una _view_ e sia un _model_ con cui ottenere i dati delle città, si è deciso di seguire il _pattern MVC_ e il _Cake pattern_, realizzando l’elemento `SelectCityMVC` con i rispettivi sotto moduli.
-
-In particolare, come illustrato nella figura [Fig. 4.3.1.1], la classe `SelectCityMVCImpl` comprende i seguenti componenti: `SelectCityModel`, `SelectCityController`, `SelectCityView` e `SimulationMVC`.
-Tale classe verrà istanziata all’avvio dell’applicazione e grazie al _cake pattern_, i suoi componenti riceveranno automaticamente tutte le dipendenze di cui hanno bisogno.
+Considerando che la realizzazione di questa funzionalità richiede sia una View che un Model con cui ottenere i dati delle città, si è deciso di seguire il _Pattern MVC_ e il _Cake pattern_, realizzando l’elemento `SelectCityMVC` con i rispettivi sotto moduli `SelectCityModelModule`, `SelectCityControllerModule`, `SelectCityViewModule`.
 
 <div align="center">
   <img src="img/select_city_MVC.png" />
@@ -162,11 +160,7 @@ Tale classe verrà istanziata all’avvio dell’applicazione e grazie al _cake 
 
 ### Model per la selezione della città
 
-Il model per la selezione della città viene racchiuso all'interno del modulo `SelectCityModelModule` ed è costituito dai seguenti elementi:
--	il `trait SelectCityModel`, il quale espone i diversi metodi utili per effettuare la ricerca delle città;
--	la classe `SelectCityModelImpl`, la quale implementa l’interfaccia `SelectCityModel` ed è racchiusa all’interno del `trait Component`;
--	il `trait Provider`, il quale contiene l’oggetto `selectCityModel` che potrà essere utilizzato dall’MVC;
--	il `trait Interface`, il quale estendendo sia da `Provider` e sia da `Component`, offre la possibilità ai componenti che lo estendono di accedere al model. 
+Il Model per la selezione della città viene racchiuso all'interno del modulo `SelectCityModelModule`, costituito, in particolare, dal `trait SelectCityModel` che espone i diversi metodi utili per effettuare la ricerca delle città.
 
 <div align="center">
   <img src="img/select_city_model.png" />
@@ -176,12 +170,10 @@ Il model per la selezione della città viene racchiuso all'interno del modulo `S
 [Fig. 4.3.1.2]: img/select_city_model.png
 
 ### Controller per la selezione della città
-Il controller per la selezione della città è racchiuso all’interno del modulo `SelectCityControllerModule` [Fig. 4.3.1.3], comprende:
--	il `trait SelectCityController`, il quale rappresenta l’interfaccia del controller ed espone diversi metodi per rispondere alle esigenze della _view_, interagendo con il _model_
--	la classe `SelectCityControllerImpl`, la quale contiene l'implementazione dell’interfaccia `SelectCityController`. Una volta che l'utente avrà selezionato una città, il controller procederà alla creazione dell'oggetto Environment, che verrà poi salvato nel componente superiore SimulationMVC.
--	il `trait Component`, il quale contiene un campo `context` di tipo `Requirements` che viene utilizzato per specificare le dipendenze che legano alla _View_, al _Model_ e anche all’oggetto superiore `simulationMVC`.
--	il `trait Provider`, il quale contiene l’oggetto `selectCityController` che potrà essere utilizzato dall’MVC;
--	il `trait Interface`, il quale estendendo sia da `Provider` e sia da `Component`, offre la possibilità ai componenti che lo estendono di accedere al controller.
+
+Il Controller per la selezione della città è racchiuso all’interno del modulo `SelectCityControllerModule` [Fig. 4.3.1.3] e comprende il `trait SelectCityController`, il quale rappresenta l’interfaccia del Controller ed espone diversi metodi per rispondere alle esigenze della View per interagire con il Model.
+
+Una volta che l'utente ha selezionato una città, il Controller procederà alla creazione dell'oggetto `Environment`, che verrà poi salvato nel componente superiore `SimulationMVC` specificato nei suoi `Requirements`.
 
 <div align="center">
   <img src="img/select_city_controller.png" />
