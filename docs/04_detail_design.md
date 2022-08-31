@@ -610,13 +610,9 @@ Oltre agli elementi necessari al _Cake pattern_, all’interno troviamo il `trai
 
 Il Controller viene racchiuso all'interno del modulo `AreaDetailsControllerModule` ([Fig. 4.6.2.3]), il quale include il `trait AreaDetailsController` che definisce i metodi che possono essere richiamati sul Controller ed, in particolare, quello per inizializzare la View. 
 
-Il trait estende un ulteriore trait rappresentato da `SceneController` necessario per poter ritornare alla schermata principale dell'applicazione e per terminare l'aggiornamento delle informazioni alla view.
-- la classe `AreaDetailsControllerImpl`, che implementa i metodi dell'interfaccia appena descritta e viene racchiusa all'interno del `trait Component`;
-- `trait Component`il quale contiene il campo `context`di tipo `Requirements`, il quale viene utilizzato per specificare le dipendenze che legano il controller alla view e al model. Questo è necessario affinchè il controller possa elaborare le operazioni effettuate dall'utente aggiornando di conseguenza il model;
-- `trait Provider` che si occupa di detenere l'oggetto `AreaController`;
-- `trait Interface` che si occupa di completare e connettere tutti i componenti del modulo per renderli utilizzabili nell'oggetto che istanzierà l'MVC.
+Il trait estende `SceneController`, necessario per poter ritornare alla schermata principale dell'applicazione e per terminare l'aggiornamento delle informazioni alla View.
 
-Il compito principale del controller è quello di richiamare la creazione dell'interfaccia grafica rappresentante il dettaglio dell'area. Per assolvere a tale compito il controller provvede, mediante la classe di utility `AreaSensorHelper` dove si trova nel model, alla creazione degli MVC dei incaricati della gestione dei sensori presenti all'interno dell'area, specificatamente:
+Il compito principale del Controller è quello di richiamare la creazione dell'interfaccia grafica rappresentante il dettaglio dell'area. Per assolvere a tale compito il Controller provvede, mediante la classe di utility `AreaSensorHelper`, alla creazione degli _MVC_ incaricati della gestione dei sensori presenti all'interno dell'area e specificatamente:
 - `AreaAirHumidityMVC`, che gestisce le azioni riguardo al sensore che rileva l'umidità dell'aria all'interno dell'area;
 - `AreaLuminosityMVC`, che gestisce le azioni riguardo al sensore che rileva la luminosità dell'area;
 - `AreaTemperatureMVC`, che gestisce le azioni riguardo al sensore che rileva la temperatura dell'area;
@@ -631,21 +627,21 @@ Il compito principale del controller è quello di richiamare la creazione dell'i
 
 #### Parametri dell'area
 
-Con l’obiettivo di rendere l’applicazione modulare e scalabile nell’aggiunta di nuovi sensori, si è deciso di separare il componente per la gestione del dettaglio di un’area con la visualizzazione dei valori ottenuti dai sensori e le loro azioni che possono essere compiute.
+Con l’obiettivo di rendere l’applicazione modulare e scalabile all'aggiunta di nuovi sensori, si è deciso di separare il componente per la gestione del dettaglio di un’area dalla visualizzazione dei valori ottenuti dai sensori e le rispettive azioni che possono essere compiute.
 
-Ciascun componente è rappresentato con un modulo MVC separato, con una propria view e un proprio controller. Il model rimane sempre lo stesso implementato per le singole aree e per il dettaglio dell’area descritto nella [Sec. Aree](#aree).
+Ciascun componente è rappresentato da un modulo _MVC_ separato, composto da una propria View e un proprio Controller. Il Model rimane quello implementato per le singole aree e per il dettaglio dell’area descritto nella [Sec. Aree](#aree).
 
-I comportamenti dei vari parametri sono stati raccolti in delle interfacce comuni: 
--	`AreaParameterMVC`, per i componenti mvc;
--	`AreaParameterView`, per i componenti view;
--	`AreaParameterController`, per i componenti controller.
+I comportamenti dei vari parametri sono stati raccolti in interfacce comuni: 
+-	`AreaParameterMVC`, per i componenti _MVC_;
+-	`AreaParameterView`, per i componenti View;
+-	`AreaParameterController`, per i componenti Controller.
 
 **MVC dei parametri**
 
-Il trait `AreaParameterMVC`, come mostrato in figura [Fig. 4.6.2.4] rappresenta l’interfaccia generale dei componenti mvc dei parametri. In particolare contiene tre campi che sono necessari alla composizione dell’elemento mvc: 
--	`areaModel`, il model associato alla singola area 
--	`areaParameterView`, la view associata al parametro
--	`areaParameterController`, il controller associato al parametro
+Il trait `AreaParameterMVC`, come mostrato in figura [Fig. 4.6.2.4], rappresenta l’interfaccia generale dei componenti _MVC_ dei parametri. In particolare, contiene tre campi che sono necessari alla composizione dell’elemento: 
+-	`areaModel`, ossia il model associato alla singola area;
+-	`areaParameterView`, ossia la view associata al parametro;
+-	`areaParameterController`, ossia il controller associato al parametro.
 
 <div align="center">
   <img src="img/area_parameter_mvc.png" />
@@ -656,9 +652,9 @@ Il trait `AreaParameterMVC`, come mostrato in figura [Fig. 4.6.2.4] rappresenta 
 
 **View dei parametri**
 
-Il `trait AreaParameterView` (figura [Fig. 4.6.2.5]) espone i metodi che consentono l’aggiornamento del valore corrente e la descrizione del parametro. 
+Il `trait AreaParameterView` ([Fig. 4.6.2.5]) espone i metodi che consentono l’aggiornamento del valore corrente e la descrizione del parametro. 
 
-Di tale interfaccia è stata poi definita una classe astratta `AbstractAreaParameterView` che implementa i metodi comuni dei parametri. Sfruttando il _template method_, lascia la definizione delle variabili `descriptionLabel` e `currentValueLabel`, ovvero le `Label` dedicate alla descrizione e al valore corrente, alle sottoclassi che la estendono. La classe astratta poi si occuperà di aggiornare queste informazioni, incapsulandone la logica.
+Di tale interfaccia è stata poi definita una classe astratta `AbstractAreaParameterView` che implementa i metodi comuni dei parametri. Dato l'utilizzo del _template method_, lascia la definizione delle variabili `descriptionLabel` e `currentValueLabel`, ovvero le _label_ dedicate alla descrizione e al valore corrente, alle sottoclassi che la estendono. La classe astratta si occuperà di aggiornare queste informazioni, incapsulandone la logica.
 
 <div align="center">
   <img src="img/area_parameter_view.png" />
@@ -669,11 +665,12 @@ Di tale interfaccia è stata poi definita una classe astratta `AbstractAreaParam
 
 **Controller dei parametri**
 
-Il `trait AreaParameterController` fornisce metodi per l’inizializzazione dell’aggiornamento dei parametri della view e per l’interruzione di tali quando la scena viene cambiata.
+Il `trait AreaParameterController` fornisce metodi per l’inizializzazione 
+e l'interruzione dell’aggiornamento dei parametri della View.
 
-Come è possibile vedere nella figura [Fig. 4.6.2.6], anche per questa interfaccia è presente una classe astratta `AbstractAreaParameterController` per fattorizzare le parti in comune dei parametri. Seguendo anche qui, il _template method_, abbiamo che i metodi da implementare nelle sotto-classi sono:
--	`updateCurrentValue`: la funzione che si occupa di aggiornare il valore corrente e il suo stato;
--	`updateDescription`: la funzione che si occupa di aggiornare la descrizione del parametro.
+Come è possibile vedere nella figura [Fig. 4.6.2.6], anche per questa interfaccia è presente una classe astratta `AbstractAreaParameterController`, utile a  fattorizzare le parti in comune ai parametri. Seguendo anche qui il _template method_, abbiamo che i metodi da implementare nelle sotto-classi sono:
+-	`updateCurrentValue`, ossia la funzione che si occupa di aggiornare il valore corrente e il suo stato;
+-	`updateDescription`, ossia la funzione che si occupa di aggiornare la descrizione del parametro.
 
 <div align="center">
   <img src="img/area_parameter_controller.png" />
@@ -684,16 +681,18 @@ Come è possibile vedere nella figura [Fig. 4.6.2.6], anche per questa interfacc
 
 **Singoli parametri**
 
-Come formulato nei requisiti, l'applicazione prevede di avere quattro sensori che permettono di rilevare i seguenti parametri: luminosità, temperatura, umidità del suolo e dell'aria. 
+Come formulato nei requisiti, l'applicazione prevede di avere quattro sensori che permettono di rilevare in ogni area i seguenti parametri: luminosità, temperatura, umidità del suolo e dell'aria. 
 
-Ognuno di questi è realizzato seguendo il _cake pattern_ implementando le interfacce comuni ed estendendo le relative classi astratte descritte precedentemente.
+Ognuno di questi è realizzato seguendo il _Cake pattern_, implementando le interfacce comuni ed estendendo le relative classi astratte descritte precedentemente.
 
-Il compito principale di questi componenti è quello di definire le azioni che possono essere svolte sull'area che andranno ad influenzare il valore del parametro riferito. In particolare, la view si occuperà di gestire gli elementi grafici delle azioni, mentre il controller di gestire il loro comportamento e il cambiamento dello stato del model.
+Il compito principale di questi componenti è quello di definire le azioni che possono essere svolte all'interno dell'area e che andranno ad influenzare il valore del rispettivo parametro. 
 
-Nello specifico abbiamo i seguenti componenti:
+In particolare, la View si occuperà di gestire gli elementi grafici delle azioni mentre, il Controller, di gestire il loro comportamento e il cambiamento dello stato del Model.
+
+Nello specifico, abbiamo i seguenti componenti:
 - `AreaLuminosityView` e `AreaLuminosityController` che si occupano di gestire le azioni per la schermatura dell'area e per la regolazione dell'intensità della luce;
-- `AreaTemperatureView` e `AreaTemperatureController` che si occupano di gestire le azioni per l'isolare l'area e regolare la temperatura;
-- `AreaAirHumidityView` e `AreaAirHumidityController` che si occupano di gestire l'attivazione e la disattivazione del nebulizzatore e dell'ventilatore;
+- `AreaTemperatureView` e `AreaTemperatureController` che si occupano di gestire le azioni per isolare l'area e regolare la temperatura;
+- `AreaAirHumidityView` e `AreaAirHumidityController` che si occupano di gestire l'attivazione e la disattivazione del nebulizzatore e del ventilatore;
 - `AreaLuminosityView` e `AreaLuminosityController` che si occupano di gestire le azioni per innaffiare e per smuovere il terreno.
 
 <!-- **Controller**
@@ -709,11 +708,10 @@ I controller vengono ciascuno racchiuso nel proprio modulo, il quale all'interno
 
 
 ### 4.6.3 Sensori
-Ogni area è monitorata da quattro sensori principali, i quali si occupano di rilevare i seguenti parametri: luminosità, temperatura, umidità dell'aria e del terreno.
 
-Per il progetto non sono stati utilizzati dei sensori veri e propri ma bensì simulati, quindi, i sensori che si occupano di monitorare le diverse aree della serra sono stati emulati tramite software.
+Come detto precedentemente, ogni area è monitorata da dei sensori. Per il progetto non ne sono stati utilizzati dei veri e propri ma bensì simulati ed emulati tramite software.
 
-In particolare, il codice dei sensori rientra nel package `model` del progetto, in quanto essi possono essere sfruttati dai diversi componenti Model dell'applicazione e racchiudono la logica di aggiornamento e notifica dei nuovi valori rilevati.
+In particolare, il codice dei sensori rientra nel package `model` del progetto in quanto essi possono essere sfruttati dai diversi componenti Model dell'applicazione, racchiudendo la logica di aggiornamento e notifica dei nuovi valori rilevati.
 
 <div align="center">
   <img src="img/sensor.png" />
@@ -722,24 +720,24 @@ In particolare, il codice dei sensori rientra nel package `model` del progetto, 
 
 [Fig. 4.4.3.1]: img/sensor.png
 
-Per poter realizzare i sensori, prima di tutto si è deciso di analizzare quali sono gli aspetti comuni che questi presentano e di raccogliere questi aspetti all'interno di un interfaccia comune per tutte le successive implementazioni. Il `trait Sensor` realizzato ([Fig. 4.4.3.1]), rappresenta proprio l'interfaccia che assolve questo scopo e al suo intenro troviamo la dichiarazione dei metodi:
+Prima di tutto, per poter realizzare i sensori si è deciso di analizzare quali siano gli aspetti comuni che questi presentano e di raccogliere questi all'interno di un interfaccia comune. 
 
-- `setObserverEnvironmentValue`, il quale si occupa di registrare l'`observable` del sensore interessato a ricevere aggiornamenti sul parametro ambientale di riferimento rispetto ai dati dell'ambiente, quindi ad esempio, al sensore della l'uminosità interesserà sapere ogni qual volta viene emesso un nuovo dato dall'ambiente relativo ai _lux_, in modo tale da poter aggiornare il proprio valore. 
+Il `trait Sensor` ([Fig. 4.4.3.1]) rappresenta proprio l'interfaccia che assolve a questo scopo e al suo interno troviamo la dichiarazione dei metodi:
+- `setObserverEnvironmentValue`, il quale si occupa di registrare l'`Observer` del sensore interessato a ricevere aggiornamenti rispetto al parametro ambientale di riferimento. Ad esempio, al sensore della luminosità interesserà sapere ogni qual volta viene emesso un nuovo dato relativo al parametro _lux_, al fine di aggiornare il proprio valore. 
+- `setObserverActionArea`. Difatti, il valore rilevato da un sensore non dipende solamente dal parametro ambientale di riferimento, ma può essere influenzato anche dalle azioni correttive che vengono compiute dall'utente. Di conseguenza, per poter ricevere notifica di ogni nuova azione, il sensore registra un `observer` sul relativo `observable` dello stato dell'area. Il sensore si occuperà di analizzare l'azione che è stata compiuta e, nel caso in cui questa influenzi il parametro monitorato, aggiusterà il valore rilevato e lo emetterà.
+- `onNextAction`, ossia il metodo che racchiude i compiti che devono essere svolti ogni qual volta l'utente compie una nuova azione nell'area monitorata.
+- `onNextEnvironmentValue`, ossia il metodo al cui interno vengono specificate le azioni che devono essere intraprese ogni qual volta viene emesso un nuovo valore per il parametro ambientale di riferimento.
 
-  Per poter rilevare il nuovo valore, ogni sensore tiene conto del parametro ambientale di riferimento e tramite questo metodo, ha la possibilità di registrare l'`observer` per poter ricevere notifica, di ogni nuovo valore rilevato;
-- `setObserverActionArea`, il valore rilevato da un sensore, non dipende solamente dal parametro ambientale di riferimento, ma può anche essere influenzato dalle azioni correttive che vengono compiute dall'utente, di conseguenza, per poter ricevere notifica di ogni nuova azione che viene computa dall'utente, il sensore registra un `observer` al relativo `observable` dello stato dell'area.
+Una volta racchiusi gli aspetti comuni dei sensori all'interno dell'interfaccia `Sensor`, ci si è interrogati su come l'aggiornamento e l'emissione dei valori rilevati dai sensori dovesse avvenire.
+Si è giunti alla conclusione che esistono due tipologie di sensori: quelli che effettuano un'aggiornamento periodico del valore rilevato, rappresentati dall'interfaccia `SensorWithTimer`, e quelli che cambiano il valore rilevato istantaneamente, al verificarsi di determinate condizioni.
 
-  Ogni qual volta viene compiuta una nuova azione, nell'area monitorata dal sensore, egli viene notificato e si occuperà di analizzare l'azione che è stata compiuta e nel caso in cui questa  influenzi il parametro monitorato, potrà decidere di aggiustare il valore rilevato e sucessivamente di emettere questo nuovo valore;
-- `onNextAction`, è il metodo che racchiude i compiti che devono essere svolti ogni qual volta l'utente compie una nuova azione per l'area monitorata;
-- `onNextEnvironmentValue`, è il metodo al cui interno vengono specificate le azioni che devono essere intraprese ogni qual volta viene emesso un nuovo valore, per il parametro ambientale di riferimento.
+L'interfaccia `SensorWithTimer` estende l'interfaccia `Sensor` e, di conseguenza è un suo sottotipo. Rispetto al sensore normale, effettua l'aggiornamento del parametro rilevato periodicamente, emettendo di volta in volta un nuovo valore. 
 
-Una volta racchiusi gli aspetti comuni dei sensori all'interno dell'interfaccia `Sensor`, ci si è interrogati su come l'aggiornamento e l'emissione dei valori rilevati dai sensori doveva avvenire, giungendo alla conclusione che esistono due tipologie di sensori: i sensori che effettuano un'aggiornamento periodico del valore rilevato, rappresentati dall'interfaccia `SensorWithTimer` e i sensori che invece cambiano il valore rilevato istantaneamente, al verificarsi di determinate condizioni.
+A tal fine, `SensorWithTimer` richiede l'implementazione di un unico metodo `registerTimerCallback`, il quale consente al sensore di specificare al timer della simulazione il tempo virtuale che deve trascorrere tra un aggiornamento e l'altro.
 
-L'interfaccia `SensorWithTimer` estende l'interfaccia `Sensor`, di conseguenza `SensorWithTimer` è un sottotipo di `Sensor` e rispetto al sensore normale, effettua l'aggiornamento del parametro riilevato periodicamente, emettendo di volta in volta un nuovo valore; per fare questo `SensorWithTimer` richiede l'implementazione di un unico metodo `registerTimerCallback`, il quale consente il collegamento del sensore al timer della simulazione, consentendoli di specificare un tempo che deve trascorrere rispetto a quello virtuale della simulazione.
+Ogni qual volta il sensore riceve l'evento dal timer, che lo informa del fatto che il tempo specificato è trascorso, esso si occuperà di rilevare il nuovo valore e di emetterlo sul flusso dell'`Observable` dedicato, in modo tale da informare l'area del nuovo parametro rilevato.
 
-Ogni qual volta il sensore riceve l'evento del timer, che lo informa del fatto che il tempo specificato è trascorso, egli si occuperà a rilevare il nuovo valore e di emettere tale valore sul flusso dell'`observable` dedicato, in modo tale da infromare l'area del nuovo parametro rilevato.
-
-Le classi `Sensor` e `SensorWithTimer`, vengono inizialmente implementate dalle classi astratte `AbstractSensor` e `AbstractSensorWithTimer`, di fatto tramite queste classi astratte, viene lasciato alle classi dei sensori solamente l'implemendatione del metodo ` protected computeNextSensorValue`, in questi caso quindi, possiamo dire di aver utilizzato il _pattern template method_ in quanto le classi astratte rappresentano il template dei sensori e il metodo `computeNextSensorValue`, contiene proprio il comportamento che le sottoclassi devono implementare.
+Le classi `Sensor` e `SensorWithTimer` vengono inizialmente implementate dalle classi astratte `AbstractSensor` e `AbstractSensorWithTimer`. Conseguentemente, viene lasciato alle classi dei sensori solamente l'implemendatione del metodo ` protected computeNextSensorValue`. Questa implementazione utilizza, quindi, il pattern _template method_ in quanto le classi astratte rappresentano il template dei sensori e il metodo `computeNextSensorValue` contiene il comportamento che le sottoclassi devono implementare.
 
 #### Sensore per la luminosità
 
