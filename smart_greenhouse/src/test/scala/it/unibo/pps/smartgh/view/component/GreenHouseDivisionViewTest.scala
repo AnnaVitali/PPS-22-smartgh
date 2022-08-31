@@ -51,7 +51,6 @@ class GreenHouseDivisionViewTest extends AbstractViewTest:
   val areaBt = "#areaBt"
   val normalStateClassStyle = "NORMALState"
   val alarmStateClassStyle = "ALARMState"
-  private val subjectTimer = ConcurrentSubject[String](MulticastStrategy.publish)
 
   @Start
   private def start(stage: Stage): Unit =
@@ -59,17 +58,16 @@ class GreenHouseDivisionViewTest extends AbstractViewTest:
     simulationMVC.simulationController.environment = Environment("Cesena")
     simulationMVC.simulationController.plantsSelected =
       List(Plant("lemon", "citrus limon"), Plant("mint", "mentha x gracilis"))
-    val environmentMVC = EnvironmentMVC(simulationMVC)
     simulationMVC.simulationController.startSimulationTimer()
     ghMVC = GreenHouseDivisionMVC(simulationMVC.simulationController.plantsSelected, simulationMVC)
     simulationMVC.simulationView.start(ghMVC.ghDivisionView)
 
     ghMVC.setAreas(Map.empty)
-    areaModel = ghMVC.ghDivisionModel.areas.head.areaModel
+    areaModel = ghMVC.ghDivisionModel.areas.headOption.orNull.areaModel
     ghMVC.show()
 
   @Test def testLabels(robot: FxRobot): Unit =
-    eventually(timeout(Span(3000, Milliseconds))) {
+    eventually(timeout(Span(5000, Milliseconds))) {
       verifyThat(globalGH, isVisible)
       verifyThat(areaBt, isVisible)
       verifyThat(globalGH, hasChildren(ghMVC.ghDivisionModel.areas.length, ""))
@@ -79,23 +77,23 @@ class GreenHouseDivisionViewTest extends AbstractViewTest:
     val initial =
       if areaModel.sensors.forall(_.status === SensorStatus.NORMAL) then normalStateClassStyle
       else alarmStateClassStyle
-    eventually(timeout(Span(3000, Milliseconds))) {
+    eventually(timeout(Span(5000, Milliseconds))) {
       assertTrue(robot.lookup(areaBt).queryButton.getStyleClass.contains(initial))
     }
 
   @Test def testChangeAreaColor(robot: FxRobot): Unit =
     ghMVC.ghDivisionModel.areas.foreach(_.areaModel.status = AreaModelModule.AreaStatus.ALARM)
-    eventually(timeout(Span(3000, Milliseconds))) {
+    eventually(timeout(Span(5000, Milliseconds))) {
       assertFalse(robot.lookup(areaBt).queryButton.getStyleClass.contains(normalStateClassStyle))
     }
 
   @Test def testChangeAreaColorMultiple(robot: FxRobot): Unit =
     ghMVC.ghDivisionModel.areas.foreach(_.areaModel.status = AreaModelModule.AreaStatus.ALARM)
-    eventually(timeout(Span(3000, Milliseconds))) {
+    eventually(timeout(Span(5000, Milliseconds))) {
       assertTrue(robot.lookup(areaBt).queryButton.getStyleClass.contains(alarmStateClassStyle))
     }
     ghMVC.ghDivisionModel.areas.foreach(_.areaModel.status = AreaModelModule.AreaStatus.NORMAL)
-    eventually(timeout(Span(3000, Milliseconds))) {
+    eventually(timeout(Span(5000, Milliseconds))) {
       assertTrue(robot.lookup(areaBt).queryButton.getStyleClass.contains(normalStateClassStyle))
     }
 
@@ -105,7 +103,7 @@ class GreenHouseDivisionViewTest extends AbstractViewTest:
     ghMVC.ghDivisionController.stopListening()
     Thread.sleep(5000)
     ghMVC.ghDivisionModel.areas.foreach(_.areaModel.status = AreaModelModule.AreaStatus.NORMAL)
-    eventually(timeout(Span(3000, Milliseconds))) {
+    eventually(timeout(Span(5000, Milliseconds))) {
       assertFalse(robot.lookup(areaBt).queryButton.getStyleClass.contains(normalStateClassStyle))
     }
 
