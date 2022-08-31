@@ -847,6 +847,11 @@ Specificatamente, il sensore della temperatura effettua un aggiornamento del val
 
 #### Sensore per l'umiditià dell'aria
 
+Il sensore della l’umidità dell’aria, è un sensore in grado di aggiornare periodicamente fornendo, ai componenti interessati, il valore corrente rilevato.
+
+Come rappresentato nella figura [Fig. 4.5.1], il sensore implementa l’interfaccia `SensorWithTimer` estendendo la classe astratto `AbstractSensorWithTimer`.
+
+
 <div align="center">
   <img src="img/sensor_air_humidity.png" />
   <p>Fig. 4.5.1 - Sensore per l'umidità dell'aria</p>
@@ -854,7 +859,15 @@ Specificatamente, il sensore della temperatura effettua un aggiornamento del val
 
 [Fig. 4.5.1]: img/sensor_air_humidity.png
 
+I valori rilevati dal sensore dipendono dall’umidità dell’aria dell’ambiente, in particolare, se le porte dell’area sono aperte, allora il valore si avvicinerà periodicamente a quello ambientale, se invece, le porte dell’area sono chiuse, allora il valore dell’umidità sarà inferiore a quello ambientale.
+
+Le azioni che possono fare l’utente per regolare i parametri sono: l’attivazione della ventilazione dell’aria per diminuire il valore, oppure l’attivazione del sistema di nebulizzatore, il quale aumenterà il valore.
+
+Anche qui, è stato realizzato un oggetto _factory_ per calcolare le funzioni da applicare ai valori in base allo stato, chiamato `FactoryFunctionsAirHumidity`. Ogni volta che: l’utente compie una nuova azione o nel caso in cui venga aggiornato l'umidità ambientale oppure quando il timer abbia emesso un evento, allora il sensore dell’umidità dell’aria procederà al calcolo del nuovo valore.
+
 #### Sensore per l'umidità del suolo
+
+Il sensore dell’umidità del suolo estende da `AbstractSensorWithTimer`, con già i metodi necessari all’aggiornamento periodico dei valori [Fig. 4.5.1].
 
 <div align="center">
   <img src="img/sensor_soil_humidity.png" />
@@ -862,6 +875,13 @@ Specificatamente, il sensore della temperatura effettua un aggiornamento del val
 </div>
 
 [Fig. 4.5.1]: img/sensor_soil_humidity.png
+
+Se nella località di ubicazione della serra sta piovendo e se le porte dell'area sono aperte, allora il valore del sensore è influenzato dalla quantità di precipitazione della pioggia, se invece non sta piovendo, oppure se le porte dell'area sono chiuse, allora il valore diminuisce a mano a mano che passa il tempo, perché l’acqua tende ad evaporare.
+
+L’utente, per regolare l'umidità del suolo, potrà innaffiare, aumentando il valore del parametro, oppure smuovere il terreno per diminuire il valore. Queste azioni sono istantanee, ovvero il valore dell’umidità viene aggiornato immediatamente in base all’azione intrapresa.
+
+Per quanto riguarda le funzioni da applicare al calcolo del nuovo valore, è stato utilizzato l’oggetto _factory_ `FactoryFunctionsSoilHumidity`. Il valore viene aggiornato ogni volta che venga emesso un valore dell’ambiente o del timer, oppure un evento dall’utente.
+
 
 ## 4.7 Fine simulazione
 Nel caso in cui l'utente, una volta nella schermata principale della simulazione decida di fermarla in anticipo, o nel caso in cui il tempo virtuale sia interamente trascorso, egli verrà reinderizzatto alla schermata di fine simulazione, in cui li verrà data la possibilità di iniziarne una nuova.
