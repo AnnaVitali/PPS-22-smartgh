@@ -16,14 +16,14 @@ Un meccanismo efficace spesso utilizzato nella programmazione funzionale è quel
 
 L’utilizzo di queste funzioni ha permesso di rendere il codice riusabile e di permettere una facile ed immediata realizzazione del pattern _Strategy_, in quanto consente di passare alle funzioni delle strategie esterne.
 
-Sono stati utilizzati in molti parti del progetto, un esempio di utilizzo si può trovare negli oggetti factory delle funzioni per il calcolo di nuovi valori dei sensori. 
+Sono stati utilizzati in molti parti del progetto, un esempio di utilizzo si può trovare negli oggetti factory delle funzioni per il calcolo di nuovi valori dei sensori. Di seguito è possibile visualizzare un estratto del codice:
 
 ```scala
 /** Updates the current soil moisture value according to the precipitation value when gates are open. */
 val updateGatesOpenValue: (Double, Double) => Double = _ - _ * RainFactor
 ```
 
-In particolare, nel codice illustrato presenta la funzione da calcolare per l’umidità del suolo, nel caso in cui la porta dell’area è aperta. La funzione prende in ingresso due valori: il valore corrente dell’umidità e il valore della precipitazione. Nell’esempio, l’implementazione della funzione è stata specificata attraverso l’utilizzo delle funzioni _literal_ (funzioni _lambda_ in Java) e grazie alla sintassi di Scala e all’inferenza del tipo, è possibile semplificare la funzione utilizzando il placeholder _underscore_ rendendo il codice più idiomatico possibile.
+In particolare, si tratta di una funzione utilizzato per calcolare il valore dell’umidità del suolo nel caso in cui la porta dell’area è aperta. La funzione prende in ingresso due valori: il valore corrente dell’umidità e il valore della precipitazione. Nell’esempio, l’implementazione della funzione è stata specificata attraverso l’utilizzo delle funzioni _literal_ (funzioni _lambda_ in Java) e grazie alla sintassi di Scala e all’inferenza del tipo, è possibile semplificare la funzione utilizzando il placeholder _underscore_ rendendo il codice più idiomatico possibile.
 
 
 ### 5.1.2 Type members
