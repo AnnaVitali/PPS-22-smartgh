@@ -671,9 +671,9 @@ La view del dettaglio di un'area viene racchiusa nell’`AreaDetailsViewModule`,
 Il controller viene racchiuso all'interno del modulo `AreaDetailsControllerModule` [Fig. 4.6.2.3], il quale include:
 
 - `trait AreaDetailsController`, che definisce i metodi che possono essere richiamati sul controller, in particolare quello per inizializzare la view. Il trait estende un ulteriore trait rappresentato da `SceneController` necessario per poter ritornare alla schermata principale dell'applicazione e per terminare l'aggiornamento delle informazioni alla view.
-- la classe `AreaDetailsControllerImpl`, che implementa i metodi dell'interfaccia appena descritta e viene racchiusa all'interno del `trait Component`.
-- `trait Component`il quale contiene il campo `context`di tipo `Requirements`, il quale viene utilizzato per specificare le dipendenze che legano il controller alla view e al model. Questo è necessario affinchè il controller possa elaborare le operazioni effettuate dall'utente aggiornando di conseguenza il model.
-- `trait Provider` che si occupa di detenere l'oggetto `AreaController`.
+- la classe `AreaDetailsControllerImpl`, che implementa i metodi dell'interfaccia appena descritta e viene racchiusa all'interno del `trait Component`;
+- `trait Component`il quale contiene il campo `context`di tipo `Requirements`, il quale viene utilizzato per specificare le dipendenze che legano il controller alla view e al model. Questo è necessario affinchè il controller possa elaborare le operazioni effettuate dall'utente aggiornando di conseguenza il model;
+- `trait Provider` che si occupa di detenere l'oggetto `AreaController`;
 - `trait Interface` che si occupa di completare e connettere tutti i componenti del modulo per renderli utilizzabili nell'oggetto che istanzierà l'MVC.
 
 Il compito principale del controller è quello di richiamare la creazione dell'interfaccia grafica rappresentante il dettaglio dell'area. Per assolvere a tale compito il controller provvede, mediante la classe di utility `AreaSensorHelper` dove si trova nel model, alla creazione degli MVC dei incaricati della gestione dei sensori presenti all'interno dell'area, specificatamente:
@@ -689,16 +689,16 @@ Il compito principale del controller è quello di richiamare la creazione dell'i
 
 [Fig. 4.6.2.3]: img/area_details_controller.png
 
-#### Area parameter
+#### Parametri dell'area
 
 Con l’obiettivo di rendere l’applicazione modulare e scalabile nell’aggiunta di nuovi sensori, si è deciso di separare il componente per la gestione del dettaglio di un’area con la visualizzazione dei valori ottenuti dai sensori e le loro azioni che possono essere compiute.
 
 Ciascun componente è rappresentato con un modulo MVC separato, con una propria view e un proprio controller. Il model rimane sempre lo stesso implementato per le singole aree e per il dettaglio dell’area descritto nella [Sec. Aree](#aree).
 
 I comportamenti dei vari parametri sono stati raccolti in delle interfacce comuni: 
--	`AreaParameterMVC`, per i componenti mvc
--	`AreaParameterView`, per i componenti view
--	`AreaParameterController`, per i componenti controller
+-	`AreaParameterMVC`, per i componenti mvc;
+-	`AreaParameterView`, per i componenti view;
+-	`AreaParameterController`, per i componenti controller.
 
 **MVC dei parametri**
 
@@ -731,11 +731,18 @@ Di tale interfaccia è stata poi definita una classe astratta `AbstractAreaParam
 
 Il `trait AreaParameterController` fornisce metodi per l’inizializzazione dell’aggiornamento dei parametri della view e per l’interruzione di tali quando la scena viene cambiata.
 
-Anche per questa interfaccia è presente una classe astratta `AbstractAreaParameterController` per fattorizzare le parti in comune dei parametri. Seguendo anche qui, il _template method_, abbiamo che i metodi da implementare nelle sotto-classi sono:
--	`updateCurrentValue`: una funzione che si occupa di aggiornare il valore corrente e il suo stato;
--	`updateDescription`: una funzione che si occupa di aggiornare la descrizione del parametro.
+Come è possibile vedere nella figura [Fig. 4.6.2.6], anche per questa interfaccia è presente una classe astratta `AbstractAreaParameterController` per fattorizzare le parti in comune dei parametri. Seguendo anche qui, il _template method_, abbiamo che i metodi da implementare nelle sotto-classi sono:
+-	`updateCurrentValue`: la funzione che si occupa di aggiornare il valore corrente e il suo stato;
+-	`updateDescription`: la funzione che si occupa di aggiornare la descrizione del parametro.
 
-**Parametri**
+<div align="center">
+  <img src="img/area_parameter_controller.png" />
+  <p>  Fig. 4.6.2.6 - Trait controller dei parametri </p>
+</div>
+
+[Fig. 4.6.2.6]: img/area_parameter_controller.png
+
+**Singoli parametri**
 
 Come formulato nei requisiti, l'applicazione prevede di avere quattro sensori che permettono di rilevare i seguenti parametri: luminosità, temperatura, umidità del suolo e dell'aria. 
 
@@ -839,10 +846,22 @@ Per poter calcolare le rilevazioni del sensore della temperatura, è stato reali
 Specificatamente, il sensore della temperatura effettua un aggiornamento del valore rilevato: ogni qual volta l'utente compie una nuova azione che influenzi il parametro, nel caso in cui venga rilevato un nuovo valore della temperatura esterna o nel caso in cui il timer, abbia emesso l'evento indicante lo scadere del tempo per le rilevazioni periodiche. Quindi, ogni qual volta si verifica una di queste condizioni, il sensore della temperatura utilizza la _factory_, per poter calcolare il nuovo valore della rilevazione. 
 
 #### Sensore per l'umiditià dell'aria
-//TODO Ele
+
+<div align="center">
+  <img src="img/sensor_air_humidity.png" />
+  <p>Fig. 4.5.1 - Sensore per l'umidità dell'aria</p>
+</div>
+
+[Fig. 4.5.1]: img/sensor_air_humidity.png
 
 #### Sensore per l'umidità del suolo
-//TODO Ele
+
+<div align="center">
+  <img src="img/sensor_soil_humidity.png" />
+  <p>Fig. 4.5.1 - Sensore per l'umidità del suolo</p>
+</div>
+
+[Fig. 4.5.1]: img/sensor_soil_humidity.png
 
 ## 4.7 Fine simulazione
 Nel caso in cui l'utente, una volta nella schermata principale della simulazione decida di fermarla in anticipo, o nel caso in cui il tempo virtuale sia interamente trascorso, egli verrà reinderizzatto alla schermata di fine simulazione, in cui li verrà data la possibilità di iniziarne una nuova.
