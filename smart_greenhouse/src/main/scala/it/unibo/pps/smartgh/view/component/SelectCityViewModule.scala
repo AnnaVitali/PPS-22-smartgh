@@ -48,7 +48,6 @@ object SelectCityViewModule:
     /** Class that contains the [[SelectCityView]] implementation. */
     class SelectCityViewViewImpl() extends AbstractViewComponent[BorderPane]("select_city.fxml") with SelectCityView:
 
-      override val component: BorderPane = loader.load[BorderPane]
       var autoCompletionBinding: AutoCompletionBinding[String] = _
 
       //noinspection VarCouldBeVal

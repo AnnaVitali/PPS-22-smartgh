@@ -29,8 +29,6 @@ object FinishSimulationView:
       extends AbstractViewComponent[BorderPane]("finish_simulation.fxml")
       with FinishSimulationView:
 
-    override val component: BorderPane = loader.load[BorderPane]
-
     //noinspection VarCouldBeVal
     @FXML
     protected var simulationEndedLabel: Label = _

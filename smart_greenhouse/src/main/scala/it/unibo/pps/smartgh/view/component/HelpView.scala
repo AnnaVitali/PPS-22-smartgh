@@ -28,8 +28,6 @@ object HelpView:
 
   private class HelpViewImpl(stage: Stage) extends AbstractViewComponent[BorderPane]("help.fxml") with HelpView:
 
-    override val component: BorderPane = loader.load[BorderPane]
-
     stage.resizable = true
     private val scene: Scene = Scene(stage.width.value, stage.height.value)
     scene.root.value = this

@@ -38,7 +38,6 @@ object AreaTemperatureViewModule:
         extends AbstractAreaParameterView("area_temperature.fxml", "Temperature")
         with AreaTemperatureView:
 
-      override val component: GridPane = loader.load[GridPane]
       private val areaTemperatureController = parameterController.asInstanceOf[AreaTemperatureController]
 
       //noinspection VarCouldBeVal

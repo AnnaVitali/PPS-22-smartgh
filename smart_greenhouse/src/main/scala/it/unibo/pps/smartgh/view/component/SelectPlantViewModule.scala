@@ -56,7 +56,6 @@ object SelectPlantViewModule:
 
       given Conversion[Int, String] = _.toString
 
-      override val component: BorderPane = loader.load[BorderPane]
       private val selectYourPlantText = "Select your plants:"
       private val plantsSelectedText = "Plants selected:"
       private val countText = "Count: "

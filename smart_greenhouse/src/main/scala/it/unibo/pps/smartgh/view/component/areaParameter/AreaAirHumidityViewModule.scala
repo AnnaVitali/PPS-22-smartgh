@@ -55,7 +55,6 @@ object AreaAirHumidityViewModule:
         extends AbstractAreaParameterView("area_air_humidity.fxml", "Air humidity")
         with AreaAirHumidityView:
 
-      override val component: GridPane = loader.load[GridPane]
       private val areaAirHumidityController = parameterController.asInstanceOf[AreaAirHumidityController]
 
       //noinspection VarCouldBeVal

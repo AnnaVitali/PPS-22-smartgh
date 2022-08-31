@@ -45,7 +45,6 @@ object AreaLuminosityViewModule:
         extends AbstractAreaParameterView("area_luminosity.fxml", "Luminosity")
         with AreaLuminosityView:
 
-      override val component: GridPane = loader.load[GridPane]
       private val areaLuminosityController = parameterController.asInstanceOf[AreaLuminosityController]
 
       //noinspection VarCouldBeVal

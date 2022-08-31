@@ -70,8 +70,6 @@ object AreaDetailsViewModule:
     /** Class that contains the [[AreaDetailsView]] implementation. */
     class AreaDetailsViewImpl() extends AbstractViewComponent[ScrollPane]("area_details.fxml") with AreaDetailsView:
 
-      override val component: ScrollPane = loader.load[ScrollPane]
-
       //noinspection VarCouldBeVal
       @FXML
       protected var plantNameLabel: Label = _
