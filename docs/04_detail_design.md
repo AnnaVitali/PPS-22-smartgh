@@ -194,12 +194,12 @@ Una volta che l'utente ha selezionato una città, il Controller procederà alla 
 [Fig. 4.3.1.4]: img/environment.png
 
 ### View per la selezione delle città
-La view per la selezione delle città viene racchiusa nel modulo `SelectCityViewModule` [Fig. 4.3.1.4]. Al suo interno troviamo:
--	il `trait SelectCityView`, il quale rappresenta l’interfaccia della _view_ e che detiene metodi che possono essere richiamati sulla _view_. Tale interfaccia, come tutti gli altri, estende da `ViewComponent`;
--	la classe `SelectCityViewImpl`, è l'implementazione dell’interfaccia, racchiusa all’interno del trait `Component`. Tale classe rappresenta anche il _controller_ dell’FXML associato, infatti estendendo da `AbstractViewComponent`, contiene già la logica necessaria al caricamento del file;
--	il `trait Component`, il quale presenta il campo context di tipo `Requirements`, dove cattura le dipendenze necessarie alla view.
--	il `trait Provider`, il quale offre l’istanza del l’oggetto `selectCityView` che potrà poi essere utilizzato nell’MVC;
--	il `trait Interface`, è l’interfaccia che potrà essere utilizzata dall’MVC per avere la view.
+
+La View per la selezione delle città viene racchiusa nel modulo `SelectCityViewModule` [Fig. 4.3.1.4]. 
+
+Al suo interno troviamo il `trait SelectCityView`, il quale rappresenta l’interfaccia della View e detiene metodi che possono essere richiamati sulla stessa. Tale interfaccia, come tutte le altre, estende da `ViewComponent`. 
+
+La classe `SelectCityViewImpl`, invece, è l'implementazione dell’interfaccia, e rappresenta anche il Controller dell’_FXML_ associato. Infatti, estendendo da `AbstractViewComponent`, contiene già la logica necessaria al caricamento del file.
 
 <div align="center">
   <img src="img/select_city_view.png" />
@@ -209,13 +209,10 @@ La view per la selezione delle città viene racchiusa nel modulo `SelectCityView
 [Fig. 4.3.1.4]: img/select_city_view.png
 
 ### 4.3.2 Selezione delle piante
-Per poter realizzare il meccanismo di selezione delle piante si è deciso di adottare, come già detto precedentemente, il _pattern MVC_ e il _Cake pattern_.
 
-In particolare, come si può vedere dalla figura [Fig. 4.3.2.1], la classe `PlantSelectorMVC`, racchiude i componenti: `plantSelectorModel`, `plantSelectorController` e `selectPlantView` derivanti dai rispettivi moduli. L’adozione di quest’architettura, quindi, non rende più necessaria l’istanziazione di ogni componente e il loro successivo collegamento per risolvere le diverse dipendenze, ma gli elementi del _pattern MVC_ vengono racchiusi all’interno di `PlantSelectorMVC` e possono essere acceduti liberamente.
+Per poter realizzare il meccanismo di selezione delle piante si è deciso di adottare, come già detto precedentemente, il _Pattern MVC_ e il _Cake pattern_.
 
-Una volta, quindi, che tutti gli elementi che costituiscono il _pattern MVC_ sono stati realizzati, `PlantSelectorMVC`, semplicemente estendendo il `trait Interface` di ognuno di loro è in grado di ottenere tutte le loro proprietà e le dipendenze che li legano sono già state risolte al momento della loro creazione, quindi, `PlantSelectorMVC` non si deve più preoccupare di questo aspetto, ma può passare direttamente al loro utilizzo.
-
-Per poter utilizzare `plantSelectorModel`, `plantSelectorController` o `selectPlantView`, basterà semplicemente istanziare `PlantSelectorMVC` e accedere ai suoi elementi. 
+In particolare, come si può vedere dalla figura [Fig. 4.3.2.1], `PlantSelectorMVC` racchiude i componenti `plantSelectorModel`, `plantSelectorController` e `selectPlantView`, derivanti dai rispettivi moduli. 
 
 <div align="center">
   <img src="img/plant_selector_MVC.png" />
@@ -226,14 +223,7 @@ Per poter utilizzare `plantSelectorModel`, `plantSelectorController` o `selectPl
 
 #### Model per la selezione delle piante
 
-Il Model per la selezione delle piante ([Fig. 4.3.2.2]) viene racchiuso all'interno di un modulo chiamato `PlantSelectorModelModule`, nello specifico all'interno del suddetto modulo torviamo:
-
-- il `trait PlantSelectorModel`, il quale espone i diversi metodi che potranno essere richiamati sul Model e che consentono la gestione del meccanismo di selezione delle piante;
-- la classe `PlantSelectorModelImpl`, la quale detiene l'implementazione dei metodi dell'interfaccia `PlantSelectorModel` e viene racchiusa all'interno del `trait Component`;
-- il `trait Provider`, che detiene l'oggetto `plantSelectorModel` che potrà essere utilizzato dall'MVC;
-- il `trait interface`, il quale verrà poi esteso da `PlantSelectorMVC` che in questo modo potrà utilizzare l'elemento `plantSelectorModel` e accedere alle proprieta del modello.
-
-L'architettura realizzata tramite questi componenti e il loro _mix-in_ costituisce, quindi, il _Cake Pattern_ del Model.
+Il Model per la selezione delle piante ([Fig. 4.3.2.2]) viene racchiuso all'interno di un modulo chiamato `PlantSelectorModelModule`, nello specifico all'interno del suddetto modulo troviamo il `trait PlantSelectorModel`, il quale espone i diversi metodi che potranno essere richiamati sul Model e che consentono la gestione del meccanismo di selezione delle piante.
 
 <div align="center">
   <img src="img/plant_selector_model.png" />
@@ -242,11 +232,14 @@ L'architettura realizzata tramite questi componenti e il loro _mix-in_ costituis
 
 [Fig. 4.3.2.2]: img/plant_selector_model.png
 
-Il Model ha come obiettivo principale quello di mantenre sempre aggiornata la lista delle piante selezionate dall'utente, per fare questo è necessario che il Controller lo informi ogni qual volta l'utente compie un'azione relativa alla selezione delle piante. 
+Il Model ha come obiettivo principale quello di mantenere sempre aggiornata la lista delle piante selezionate dall'utente. Per fare questo, è necessario che il Controller lo informi ogni qual volta l'utente compia un'azione relativa alla selezione delle piante. 
 
-La lista di piante rappresenta un elemento osservabile dal Controller, infatti, ogni qual volta viene aggiunto o rimosso un elemento a questa lista, il Controller viene notificato e si occupa di propagare tale informazione alla View. Il Controller, quindi, richiamando il metodo `registerCallbackPlantSelection` si registra all'`Observable` della lista delle piante e specifica quali sono le azioni che devono essere intraprese quando: una nuova pianta viene selezionata, se viene generato un errore o in caso di completamento dell'emmissione dei dati.
+La lista di piante rappresenta un elemento osservabile dal Controller: infatti, ogni qual volta viene aggiunto o rimosso un elemento a questa lista, il Controller viene notificato e si occupa di propagare tale informazione alla View. Il Controller, richiamando il metodo `registerCallbackPlantSelection`, si registra all'`Observable` della lista delle piante e specifica quali siano le azioni che devono essere intraprese quando: 
+- una nuova pianta viene selezionata;
+- viene generato un errore;
+- viene completata l'emmissione dei dati.
 
-Infine, il Model, una volta che l'utente ha terminato la selezione delle piante che intende coltivare all'interno della serra e richiede di dare il via alla simulazione, si occupa di istanziare gli oggetti `Plant`, rappresentanti le piante scelte e contenenti tutte le diverse informazioni utili per la loro gestione.
+Infine, il Model, una volta che l'utente di dare il via alla simulazione, si occupa di istanziare gli oggetti `Plant`, rappresentanti le piante scelte e contenenti tutte le diverse informazioni utili per la loro gestione.
 
 #### View per la selezione delle piante
 
