@@ -761,10 +761,8 @@ Nello specifico, abbiamo detto nella precedente sezione [Sec. 4.8](#48-sensori) 
 
 
 ### 4.8.2 Sensore per la temperatura
-Il sensore della temperatura, è un sensore dotato di timer, pertanto ha la possibilità di fornire periodicamente l'infomrazione del valore rilevato. 
 
 Il sensore della temperatura è un sensore dotato di timer, pertanto si occupa di aggiornare periodicamente il valore rilevato. 
-
 
 Come si può vedere dalla figura [Fig. 4.8.2.1], il sensore implementa l'interfaccia `SensorWithTimer` tramite la classe astratta `AbstractSensorWithTimer`. 
 
@@ -833,7 +831,7 @@ Queste azioni sono istantanee, ovvero il valore dell’umidità viene aggiornato
 
 Per quanto riguarda le funzioni da applicare al calcolo del nuovo valore, è stato utilizzato l’oggetto _factory_ `FactoryFunctionsSoilHumidity`. 
 
-## 4.7 Fine simulazione
+## 4.9 Fine simulazione
 
 Nel caso in cui l'utente decida di fermare la simulazione in anticipo o nel caso in cui il tempo virtuale sia interamente trascorso, egli verrà reinderizzatto alla schermata di fine simulazione in cui gli verrà data la possibilità di iniziarne una nuova.
 
@@ -841,16 +839,16 @@ Gli elementi grafici della schermata di fine simulazione sono contenuti all'inte
 
 <div align="center">
   <img src="img/finish_simulation_view.png" />
-  <p>Fig. 4.7.1 - View fine simulazione</p>
+  <p>Fig. 4.9.1 - View fine simulazione</p>
 </div>
 
-[Fig. 4.7.1]: img/finish_simulation_view.png
+[Fig. 4.9.1]: img/finish_simulation_view.png
 
-Come si può vedere dalla figura [Fig. 4.7.1], per poter realizzare la View di fine simulazione è stata definita l'interfaccia `FinishSimulationView`, la quale estende l'interfaccia `ViewComponent`, dichiarando che il pannello principale, contenente tutti i diversi elementi di questa scena, è un `BorderPane`. 
+Come si può vedere dalla figura [Fig. 4.9.1], per poter realizzare la View di fine simulazione è stata definita l'interfaccia `FinishSimulationView`, la quale estende l'interfaccia `ViewComponent`, dichiarando che il pannello principale, contenente tutti i diversi elementi di questa scena, è un `BorderPane`. 
 
 La scena di fine simulazione, quindi, verrà mostrata all'interno della scena madre e, grazie alle relazione che vi sono fra i diversi elementi dell'architettura, `FinishSimulationView` è in grado di accedere alle proprietà di `SimulationView` per specificare quale dovrà essere l'azione che dove essere compiuta nel caso in cui l'utente clicchi sul pulsante "_Start a new simulation_". In tal caso, verrà istanziato di nuovo l'elemento `SelectCityMVC` e l'applicazione riprenderà dalla schermata di selezione della città.
 
-## 4.8 Pattern utilizzati
+## 4.10 Pattern utilizzati
 
 Per la realizzazione di questo progetto sono stati adoperati i pattern creazionali e comportamentali descritti nelle seguenti sottosezioni.
 
@@ -885,7 +883,7 @@ All'interno del progetto è stato ampiamente utilizzato il _pattern Strategy_, o
 
 Questo pattern è direttamente supportato nel linguaggio mediante il passaggio di funzioni _higher-order_, facendo sì che le classi che lo utilizzano rendano dinamico il proprio comportamento e utilizzino in modo intercambiabile le diverse implementazioni degli algoritmi definiti nell'interfaccia generica.
 
-## 4.9 Organizzazione del codice
+## 4.11 Organizzazione del codice
 
 Il sistema è stato organizzato in 5 package principali: 
 - **mvc**, che contiene gli oggetti _MVC_ relativi ai componenti principali della simulazione precedentemente descritti;
@@ -896,7 +894,7 @@ Il sistema è stato organizzato in 5 package principali:
 
 <div align="center">
   <img src="img/package.png" />
-  <p>Fig. 4.9.1 - Organizzazione dei package del progetto</p>
+  <p>Fig. 4.11.1 - Organizzazione dei package del progetto</p>
 </div>
 
-[Fig. 4.9.1]: img/package.png
+[Fig. 4.11.1]: img/package.png
