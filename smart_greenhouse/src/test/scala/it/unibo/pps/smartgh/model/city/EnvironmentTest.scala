@@ -33,7 +33,9 @@ class EnvironmentTest extends AnyFunSuite with Matchers with BeforeAndAfter:
     }
   }
 
-  test("For all cities we are able to get their environmental values"){
+ /*
+  // è molto lento, quindi per eseguirlo devi modificare environment affinchè il valore sia tornato in modo asincrono
+ test("For all cities we are able to get their environmental values"){
     import it.unibo.pps.smartgh.model.greenhouse.Environment
     import scala.io.{Codec, Source}
     import requests.Response
@@ -45,7 +47,6 @@ class EnvironmentTest extends AnyFunSuite with Matchers with BeforeAndAfter:
     Source.fromResource("cities.txt")(Codec.UTF8).getLines() foreach (l =>
       val splitted: Array[String] = l.split(",")
       val e = Environment(splitted(0), splitted(1), splitted(2))
-      eventually(timeout(Span(1000, Milliseconds))) {
-        e.environmentValues should not equal Map()
-      })
-  }
+      e.environmentValues should not equal Map()
+      )
+  }*/

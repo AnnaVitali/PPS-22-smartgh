@@ -77,23 +77,23 @@ class GreenHouseDivisionViewTest extends AbstractViewTest:
     val initial =
       if areaModel.sensors.forall(_.status === SensorStatus.NORMAL) then normalStateClassStyle
       else alarmStateClassStyle
-    eventually(timeout(Span(5000, Milliseconds))) {
+    eventually(timeout(Span(10000, Milliseconds))) {
       assertTrue(robot.lookup(areaBt).queryButton.getStyleClass.contains(initial))
     }
 
   @Test def testChangeAreaColor(robot: FxRobot): Unit =
     ghMVC.ghDivisionModel.areas.foreach(_.areaModel.status = AreaModelModule.AreaStatus.ALARM)
-    eventually(timeout(Span(5000, Milliseconds))) {
+    eventually(timeout(Span(10000, Milliseconds))) {
       assertFalse(robot.lookup(areaBt).queryButton.getStyleClass.contains(normalStateClassStyle))
     }
 
   @Test def testChangeAreaColorMultiple(robot: FxRobot): Unit =
     ghMVC.ghDivisionModel.areas.foreach(_.areaModel.status = AreaModelModule.AreaStatus.ALARM)
-    eventually(timeout(Span(5000, Milliseconds))) {
+    eventually(timeout(Span(10000, Milliseconds))) {
       assertTrue(robot.lookup(areaBt).queryButton.getStyleClass.contains(alarmStateClassStyle))
     }
     ghMVC.ghDivisionModel.areas.foreach(_.areaModel.status = AreaModelModule.AreaStatus.NORMAL)
-    eventually(timeout(Span(5000, Milliseconds))) {
+    eventually(timeout(Span(10000, Milliseconds))) {
       assertTrue(robot.lookup(areaBt).queryButton.getStyleClass.contains(normalStateClassStyle))
     }
 
@@ -103,7 +103,7 @@ class GreenHouseDivisionViewTest extends AbstractViewTest:
     ghMVC.ghDivisionController.stopListening()
     Thread.sleep(5000)
     ghMVC.ghDivisionModel.areas.foreach(_.areaModel.status = AreaModelModule.AreaStatus.NORMAL)
-    eventually(timeout(Span(5000, Milliseconds))) {
+    eventually(timeout(Span(10000, Milliseconds))) {
       assertFalse(robot.lookup(areaBt).queryButton.getStyleClass.contains(normalStateClassStyle))
     }
 
@@ -127,19 +127,19 @@ class GreenHouseDivisionViewTest extends AbstractViewTest:
     areaModel.updGateState(AreaGatesState.Close)
     areaModel.updBrightnessOfLamp(5000)
     Thread.sleep(3000)
-    eventually(timeout(Span(8000, Milliseconds))) {
+    eventually(timeout(Span(10000, Milliseconds))) {
       areaStateWithAllOtherNORMAL()
       assertTrue(robot.lookup(areaBt).queryButton.getStyleClass.contains(normalStateClassStyle)) //INITIAL STATUS
     }
 
     areaModel.updBrightnessOfLamp(0)
-    eventually(timeout(Span(8000, Milliseconds))) {
+    eventually(timeout(Span(10000, Milliseconds))) {
       areaStateWithAllOtherNORMAL()
       assertTrue(robot.lookup(areaBt).queryButton.getStyleClass.contains(alarmStateClassStyle)) //ALARM STATUS
     }
 
     areaModel.updBrightnessOfLamp(5000)
-    eventually(timeout(Span(8000, Milliseconds))) {
+    eventually(timeout(Span(10000, Milliseconds))) {
       areaStateWithAllOtherNORMAL()
       assertTrue(robot.lookup(areaBt).queryButton.getStyleClass.contains(normalStateClassStyle)) //NORMAL STATUS
     }
