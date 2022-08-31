@@ -1,6 +1,5 @@
 package it.unibo.pps.smartgh.model.greenhouse
 
-import it.unibo.pps.smartgh.mvc.SimulationMVC
 import monix.execution.Scheduler.Implicits.global
 import monix.execution.{Ack, Cancelable}
 import monix.reactive.MulticastStrategy
@@ -44,17 +43,14 @@ object EnvironmentModelModule:
     /** The environment model. */
     val environmentModel: EnvironmentModel
 
-  /** The model requirements. */
-  type Requirements = SimulationMVC.Provider
-
   /** Trait that represents the components of the model for environment values and time management. */
   trait Component:
-    context: Requirements =>
 
-    /** Class that contains the [[EnvironmentModel]] implementation.*/
-    class EnvironmentModelImpl() extends EnvironmentModel:
-      
-      private val environment = simulationMVC.simulationController.environment
+    /** Class that contains the [[EnvironmentModel]] implementation.
+      * @param environment
+      *   environment's object of the selected city.
+      * */
+    class EnvironmentModelImpl(val environment: Environment) extends EnvironmentModel:
       
       override var currentEnvironmentValues: EnvironmentValues = _
 
@@ -100,5 +96,4 @@ object EnvironmentModelModule:
         lux.max(0).toInt
 
   /** Trait that encloses the model for environment values and time management. */
-  trait Interface extends Provider with Component:
-    self: Requirements =>
+  trait Interface extends Provider with Component
