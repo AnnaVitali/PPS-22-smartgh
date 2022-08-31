@@ -1,7 +1,7 @@
 package it.unibo.pps.smartgh.model.sensor
 
 import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
-import it.unibo.pps.smartgh.model.area.AreaGatesState.Close
+import it.unibo.pps.smartgh.model.area.AreaGatesState.{Close, Open}
 import it.unibo.pps.smartgh.model.area.AreaHumidityState.{MovingSoil, None, Watering}
 import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsSoilHumidity
 import monix.eval.Task
@@ -55,8 +55,8 @@ object SoilHumiditySensor:
           case MovingSoil => updateMovingSoilValue(currentValue)
           case _ =>
             areaComponentsState.gatesState match
-              case Close => updateEvaporationValue(currentValue)
-              case _ => updateGatesOpenValue(currentValue, currentEnvironmentValue)
+              case Open if currentEnvironmentValue > 0.0 => updateGatesOpenValue(currentValue, currentEnvironmentValue)
+              case _ => updateEvaporationValue(currentValue)
         )
         areaComponentsState.humidityActions = None
         subject.onNext(currentValue)
