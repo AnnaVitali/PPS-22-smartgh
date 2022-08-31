@@ -740,25 +740,33 @@ Le classi `Sensor` e `SensorWithTimer` vengono inizialmente implementate dalle c
 
 [Fig. 4.8.1.1]: img/sensor_luminosity.png
 
-Il sensore della luminosità ([Fig. 4.8.1.1]) non è un sensore periodico, di fatti egli implementa solamente l'interfaccia `Sensor` estendendo la classe astratta `AbstractSensor`, la quale racchiude già l'implementazione comune di alcuni metodi dell'interfaccia.
 
-Il sensore della luminosità, quindi, è un sensore istantaneo, il che significa che non appena ha luogo un cambiamento della luminosità o viene compiuta un'azione da parte dell'utente che la influenza, il sensore cambierà subito il suo valore, senza aspettare un aggiornamento periodico, questo perchè la velocità con cui la luce cambia all'interno di un ambiente e molto rapida rispetto, invece, a quella che può essere la velocità di aggiornamento della temperatura. Ad esempio, se immaginiamo di trovarci in una stanza buia in cui vi è una temperatura più bassa rispetto a quella esterna, se decidiamo di aprire la finestra, la luce entrerà subito, mentre la temperatura interna impiegerà diverso tempo per avvicinarsi a quella dell'ambiente.
+Il sensore della luminosità ([Fig. 4.8.1.1]) non è un sensore periodico: difatti, esso implementa solamente l'interfaccia `Sensor` ed estende la classe astratta `AbstractSensor`, la quale racchiude già l'implementazione di alcuni metodi dell'interfaccia.
 
-Per poter calcolare correttamente il valore della luminosita, bisogna tenere conto delle azioni che l'utente può compiere, che possono influenzarla, le quali sono: 
 
-- **l'apertura o chiusura delle porte dell'area**, in particolare se le porte della serra sono chiuse la luce presente all'interno dell'area sarà leggermente minore rispetto a quella ambientale, in quanto le pareti della serra la filtreranno, se invece le porte della serra sono aperte ,la luce dell'ambiente non verrà più filtrata  ed entrerà completamente;
-- **la regolazione dell'intensità delle lampade**, l'utente ha la possibilità di regolare la luminosità delle lampade, poste all'interno dell'area. La luce prodotta dalle lampade sommata alla luminosità dell'ambiente, contribuisocono alla determinazione del valore rilevato dal sensore.
+Il sensore della luminosità, quindi, è un sensore istantaneo: non appena ha luogo un cambiamento della luminosità esterna o viene compiuta un'azione da parte dell'utente, il sensore cambierà subito il suo valore, senza aspettare un aggiornamento periodico, in quanto la velocità con cui la luce cambia all'interno di un ambiente è molto rapida rispetto a quella che può essere la velocità di aggiornamento della temperatura. Ad esempio, se immaginassimo di trovarci in una stanza buia in cui vi è una temperatura più bassa rispetto a quella esterna e decidessimo di aprire la finestra, la luce entrerà subito mentre la temperatura interna impiegherà diverso tempo per alzarsi.
 
-Per poter determinare il valore del parametro rilevato rispetto allo stato dell'area, è stato definito l'oggetto `FactoryFunctionsLuminosity` visibile in figura [Fig. 4.8.1.1], il quale rappresenta una _factory_ di funzioni, che possono essere utilizzate per poter deterimanare il nuovo valore rilevato dal sensore. 
+Per poter calcolare correttamente il valore della luminosità, bisogna tenere conto delle azioni che l'utente può compiere, come: 
 
-Ogni qual volta l'utente compie una nuova azione o viene rilevato un nuovo parametro ambientale, a seconda dello stato in cui si trovano i comonenti della serra, si richiama la funzione della _factory_ corrispondente, in modo da determinare il nuovo valore rilevato.
+- **l'apertura o chiusura delle porte dell'area**. In particolare, se le porte della serra sono chiuse la luce presente all'interno dell'area sarà leggermente minore rispetto a quella esterna in quanto le pareti della serra la filtreranno; se, invece, le porte della serra sono aperte, la luce dell'ambiente non verrà filtrata ed entrerà completamente.
+- **la regolazione dell'intensità delle lampade** per cui l'utente ha la possibilità di regolare la luminosità delle lampade, poste all'interno dell'area. La luce prodotta dalle lampade, sommata alla luminosità dell'ambiente, contribuisocono alla determinazione del valore rilevato dal sensore.
 
-Nello specifico, abbiamo detto nella precedente sezione [Sec. 4.8](#48-sensori), che ogni sensore presenta due `observer`, uno che viene notificato ogni qual volta un nuovo valore ambientale viene rilevato e l'altro che viene invece notificato, ogni qual volta l'utente compie una nuova aizone sull'area. Quando uno di questi due eventi si verifica, in ogni caso, il sensore controlla lo stato attuale dei componenti dell'area e poi sceglie la funzione da applicare per calcolare il nuovo valore, infine, emette questo nuovo valore sul flusso dell'`observable`, dedicato alle rilevazioni.
+
+Per poter determinare il valore del parametro rilevato rispetto all'attuale stato dell'area, è stato definito l'oggetto `FactoryFunctionsLuminosity` (vedi figura [Fig. 4.8.1.1]), il quale rappresenta una _factory_ di funzioni che possono essere utilizzate per determinare il nuovo valore rilevato dal sensore. 
+
+
+Ogni qual volta l'utente compie una nuova azione o viene rilevato un nuovo parametro ambientale, a seconda dello stato in cui si trovano i componenti della serra, si richiama la funzione della _factory_ corrispondente, in modo da determinare il nuovo valore rilevato.
+
+Nello specifico, abbiamo detto nella precedente sezione [Sec. 4.8](#48-sensori) che ogni sensore presenta due `Observer`: uno che viene notificato ogni qual volta un nuovo valore ambientale viene rilevato e l'altro che viene notificato ogni qual volta l'utente compie una nuova aizone sull'area. Quando uno di questi due eventi si verifica, il sensore controlla lo stato attuale dei componenti dell'area e, successivamente, sceglie la funzione da applicare per calcolare il nuovo valore; infine, emette questo nuovo valore sul flusso dell'`Observable`.
+
 
 ### 4.8.2 Sensore per la temperatura
 Il sensore della temperatura, è un sensore dotato di timer, pertanto ha la possibilità di fornire periodicamente l'infomrazione del valore rilevato. 
 
-Come si può vedere dalla figura [Fig. 4.8.2.1], il sensore, implementa l'interfaccia `SensorWithTimer` tramite la classe astratta `AbstractSensorWithTimer`. 
+Il sensore della temperatura è un sensore dotato di timer, pertanto si occupa di aggiornare periodicamente il valore rilevato. 
+
+
+Come si può vedere dalla figura [Fig. 4.8.2.1], il sensore implementa l'interfaccia `SensorWithTimer` tramite la classe astratta `AbstractSensorWithTimer`. 
 
 <div align="center">
   <img src="img/sensor_temperature.png" />
@@ -767,20 +775,21 @@ Come si può vedere dalla figura [Fig. 4.8.2.1], il sensore, implementa l'interf
 
 [Fig. 4.8.2.1]: img/sensor_temperature.png
 
-L'utente all'intenro dell'area monitorata dal sensore, ha la possibilità di regolare la temperatura, questa operazione chiaramente influisce sulle rilevazioni del parametro, inoltre, anche l'apertura o la chiusura delle porte dell'area possono influenzare il valore della temperatura.
+L'utente, che regola la temperatura interna dell'area, influisce sulle rilevazioni del parametro, ma anche l'apertura o la chiusura delle porte dell'area possono influenzarne il valore.
 
-In particolare, nel caso in cui le porte dell'area siano aperte, la temperatura verrà completamente influenzata da quella esterna e il valore rilevato dal sensore si aviccineraà periodicamente a quello ambientale, quando invece, le porte dell'area sono chiuse, la temperatura verrà completamente influenzata da quella interna, regolata dall'utente e le rilevazioni effettuate dal sensore cercheranno di avvicinarsi periodicamente a questo valore, fino a quando non lo avranno raggiunto.
+In particolare, nel caso in cui le porte dell'area fossero aperte, la temperatura verrà completamente influenzata da quella esterna e il valore rilevato dal sensore si aviccineraà periodicamente a quello ambientale. Quando, invece, le porte dell'area sono chiuse, la temperatura verrà completamente influenzata da quella interna regolata dall'utente e le rilevazioni effettuate dal sensore si avvicineranno periodicamente a questo valore, fino a quando non lo avranno raggiunto.
 
-Per poter calcolare le rilevazioni del sensore della temperatura, è stato realizzato l'oggetto `FactoryFunctionsTemperature`, il quele rappresenta una _factory_ di funzioni che possono essere applicate per poter calcolare il nuovo valore della temperatura.
+Per poter calcolare le rilevazioni del sensore della temperatura, è stato realizzato l'oggetto `FactoryFunctionsTemperature`, il quale rappresenta una _factory_ di funzioni che possono essere applicate per poter calcolare il nuovo valore della temperatura.
 
-Specificatamente, il sensore della temperatura effettua un aggiornamento del valore rilevato: ogni qual volta l'utente compie una nuova azione che influenzi il parametro, nel caso in cui venga rilevato un nuovo valore della temperatura esterna o nel caso in cui il timer, abbia emesso l'evento indicante lo scadere del tempo per le rilevazioni periodiche. Quindi, ogni qual volta si verifica una di queste condizioni, il sensore della temperatura utilizza la _factory_, per poter calcolare il nuovo valore della rilevazione. 
+Più precisamente, il sensore della temperatura effettua un aggiornamento del valore rilevato:
+- ogni qual volta l'utente compie una nuova azione che influenza il parametro;
+- nel caso in cui venga rilevato un nuovo valore della temperatura esterna; - nel caso in cui il timer abbia emesso l'evento che indica al sensore di effettuare una nuova rilevazione.
 
 ### 4.8.3 Sensore per l'umiditià dell'aria
 
-Il sensore della l’umidità dell’aria, è un sensore in grado di aggiornare periodicamente fornendo, ai componenti interessati, il valore corrente rilevato.
+Il sensore della l’umidità dell’aria è un sensore in grado di aggiornare periodicamente il valore rilevato.
 
-Come rappresentato nella figura [Fig. 4.8.3.1], il sensore implementa l’interfaccia `SensorWithTimer` estendendo la classe astratto `AbstractSensorWithTimer`.
-
+Come rappresentato nella figura [Fig. 4.8.3.1], il sensore implementa l’interfaccia `SensorWithTimer`, estendendo la classe astratta `AbstractSensorWithTimer`.
 
 <div align="center">
   <img src="img/sensor_air_humidity.png" />
@@ -789,15 +798,23 @@ Come rappresentato nella figura [Fig. 4.8.3.1], il sensore implementa l’interf
 
 [Fig. 4.8.3.1]: img/sensor_air_humidity.png
 
-I valori rilevati dal sensore dipendono dall’umidità dell’aria dell’ambiente, in particolare, se le porte dell’area sono aperte, allora il valore si avvicinerà periodicamente a quello ambientale, se invece, le porte dell’area sono chiuse, allora il valore dell’umidità sarà inferiore a quello ambientale.
 
-Le azioni che possono fare l’utente per regolare i parametri sono: l’attivazione della ventilazione dell’aria per diminuire il valore, oppure l’attivazione del sistema di nebulizzatore, il quale aumenterà il valore.
+Se le porte dell'area sono aperte, i valori rilevati dal sensore si avvicineranno periodicamente a quello ambientale; se, invece, le porte dell’area sono chiuse, il valore dell’umidità sarà inferiore a quello ambientale.
 
-Anche qui, è stato realizzato un oggetto _factory_ per calcolare le funzioni da applicare ai valori in base allo stato, chiamato `FactoryFunctionsAirHumidity`. Ogni volta che: l’utente compie una nuova azione o nel caso in cui venga aggiornato l'umidità ambientale oppure quando il timer abbia emesso un evento, allora il sensore dell’umidità dell’aria procederà al calcolo del nuovo valore.
+Le azioni che può intraprendere l’utente per regolare l'umidità sono: 
+- attivare la ventilazione dell’ambiente per diminuirne il valore; 
+- attivare il sistema di nebulizzazione, il quale ne aumenterà il valore.
+
+Anche qui, è stato realizzato un oggetto _factory_, chiamato `FactoryFunctionsAirHumidity`, per selezionare la funzione da applicare al valore in base allo stato dell'area. 
+
+Il sensore procederà al calcolo del nuovo valore ogni qual volta:
+- l'utente compia una azione che regola tale parametro;
+- venga aggiornato il valore dell'umidità esterna;
+- il timer abbia emesso un evento.
 
 ### 4.8.4 Sensore per l'umidità del suolo
 
-Il sensore dell’umidità del suolo estende da `AbstractSensorWithTimer`, con già i metodi necessari all’aggiornamento periodico dei valori [Fig. 4.8.4.1].
+Il sensore dell’umidità del suolo estende da `AbstractSensorWithTimer`, che detiene già al suo interno i metodi necessari all’aggiornamento periodico dei valori (vedi [Fig. 4.8.4.1]).
 
 <div align="center">
   <img src="img/sensor_soil_humidity.png" />
@@ -806,67 +823,76 @@ Il sensore dell’umidità del suolo estende da `AbstractSensorWithTimer`, con g
 
 [Fig. 4.8.4.1]: img/sensor_soil_humidity.png
 
-Se nella località di ubicazione della serra sta piovendo e se le porte dell'area sono aperte, allora il valore del sensore è influenzato dalla quantità di precipitazione della pioggia, se invece non sta piovendo, oppure se le porte dell'area sono chiuse, allora il valore diminuisce a mano a mano che passa il tempo, perché l’acqua tende ad evaporare.
+Se nella località di ubicazione della serra sta piovendo e se le porte dell'area sono aperte, il valore del sensore sarà influenzato dalla quantità di precipitazioni; se, invece, non sta piovendo oppure se le porte dell'area sono chiuse, il valore diminuirà mano a mano che passa il tempo in quanto l’acqua tende ad evaporare.
 
-L’utente, per regolare l'umidità del suolo, potrà innaffiare, aumentando il valore del parametro, oppure smuovere il terreno per diminuire il valore. Queste azioni sono istantanee, ovvero il valore dell’umidità viene aggiornato immediatamente in base all’azione intrapresa.
+L’utente, per regolare l'umidità del suolo, potrà:
+- innaffiare, aumentando il valore del parametro;
+- smuovere il terreno per diminuirne il valore. 
 
-Per quanto riguarda le funzioni da applicare al calcolo del nuovo valore, è stato utilizzato l’oggetto _factory_ `FactoryFunctionsSoilHumidity`. Il valore viene aggiornato ogni volta che venga emesso un valore dell’ambiente o del timer, oppure un evento dall’utente.
+Queste azioni sono istantanee, ovvero il valore dell’umidità viene aggiornato immediatamente a seguito dell'azione intrapresa.
 
+Per quanto riguarda le funzioni da applicare al calcolo del nuovo valore, è stato utilizzato l’oggetto _factory_ `FactoryFunctionsSoilHumidity`. 
 
 ## 4.7 Fine simulazione
-Nel caso in cui l'utente, una volta nella schermata principale della simulazione decida di fermarla in anticipo, o nel caso in cui il tempo virtuale sia interamente trascorso, egli verrà reinderizzatto alla schermata di fine simulazione, in cui li verrà data la possibilità di iniziarne una nuova.
 
-Gli elementi grafici della schermata di fine simulazione, sono contenuti all'interno del relativo `.fxml` e `FinishSimulationView` rappresenta il Controller FXML, associato a tale schermata.
+Nel caso in cui l'utente decida di fermare la simulazione in anticipo o nel caso in cui il tempo virtuale sia interamente trascorso, egli verrà reinderizzatto alla schermata di fine simulazione in cui gli verrà data la possibilità di iniziarne una nuova.
+
+Gli elementi grafici della schermata di fine simulazione sono contenuti all'interno del rispettivo file _FXML_ e `FinishSimulationView` ne rappresenta il Controller.
 
 <div align="center">
   <img src="img/finish_simulation_view.png" />
-  <p>Fig. 4.5.1 - View fine simulazione</p>
+  <p>Fig. 4.7.1 - View fine simulazione</p>
 </div>
 
-[Fig. 4.5.1]: img/finish_simulation_view.png
+[Fig. 4.7.1]: img/finish_simulation_view.png
 
-Come si può vedere dalla figura [Fig. 4.5.1], per poter realizzare la View di fine simulazione è stata definita l'interfaccia `FinishSimulationView`, la quale estende l'interfaccia `ViewComponent`, dichiarando che il pannello principale, contenente tutti i diversi elementi di questa scena, è un `BorderPane`. 
+Come si può vedere dalla figura [Fig. 4.7.1], per poter realizzare la View di fine simulazione è stata definita l'interfaccia `FinishSimulationView`, la quale estende l'interfaccia `ViewComponent`, dichiarando che il pannello principale, contenente tutti i diversi elementi di questa scena, è un `BorderPane`. 
 
-La scena di fine simulazione, quindi, verrà mostrata all'interno della scena madre e grazie alle relazione che vi sono fra i diversi elementi dell'architettura, `FinishSimulationView`, è in grado di accedere alle proprietà di `SimulationView`, riuscendo a specificare quale dovrà essere l'azione che dove essere compiuta nel caso in cui l'utente, clicchi sul pulsante "Start a new simulation".
-
-In particolare, Se l'utente decida di premere il pulsante presente sulla scena, che li consente di iniziare una nuova simulazione, verrà istanziato l'elemento `SelectCityMVC` e l'applicazione riprenderà dalla schermata si selezione della città.
-
+La scena di fine simulazione, quindi, verrà mostrata all'interno della scena madre e, grazie alle relazione che vi sono fra i diversi elementi dell'architettura, `FinishSimulationView` è in grado di accedere alle proprietà di `SimulationView` per specificare quale dovrà essere l'azione che dove essere compiuta nel caso in cui l'utente clicchi sul pulsante "_Start a new simulation_". In tal caso, verrà istanziato di nuovo l'elemento `SelectCityMVC` e l'applicazione riprenderà dalla schermata di selezione della città.
 
 ## 4.8 Pattern utilizzati
 
 Per la realizzazione di questo progetto sono stati adoperati i pattern creazionali e comportamentali descritti nelle seguenti sottosezioni.
 
 ### Factory
-Il _pattern Factory_ è un pattern creazionale e ci da la possibilità di poter creare degli oggetti senza dover specificare la loro classe, consentendoci di poter cambiare in modo abbastanza aegvole l'oggetto creato. Le _factories_, quindi, come dice il nome, ci rappresentano delle vere e proprie "fabbirche di oggetti", che possiamo utilizzare per istanziare gli oggetti di cui abbiamo bisogno e con determinate caratteristiche.
 
-Per il progetto si è fatto utilizzo del _pattern Factory_, in particolare di _StaticFactory_, per produrre le funzioni necessarie ai sensori, per poter calcolare l'aggiornamento del loro parametro di riferimento. 
+Il _pattern Factory_ è un pattern creazionale che ci dà la possibilità di creare degli oggetti senza dover specificare la loro classe e ci consente di cambiare in modo abbastanza agevole l'oggetto creato. 
 
-Nella programmazione funzionale, infatti, è possibile specificare dei metodi che abbiano come tipo di ritorno delle funzioni, si è sfruttata quindi questa possibilità, per poter realizzare delle _factories_, che restituissero la funzione da applicare, per poter determinare l'aggiornamento del valore rilevato.
+Le _factories_, come dice il nome, rappresentano delle vere e proprie "fabbirche di oggetti" che possiamo utilizzare per istanziare gli oggetti di cui abbiamo bisogno e con determinate caratteristiche.
+
+All'interno del progetto si è fatto utilizzo, in particolare, del pattern _StaticFactory_, per produrre le funzioni necessarie a calcolare l'aggiornamento dei parametri rilevati dai sensori. 
+
+Nella programmazione funzionale, infatti, è possibile specificare dei metodi che abbiano come tipo di ritorno delle funzioni, come le _factories_ che restituiscono la funzione da applicare.
 
 ### Singleton
-Per lo sviluppo del progetto si è fatto largo uso di questo design pattern creazionale, il quale garantisce che di una determinata classe venga creata una e una sola istanza e fornisce un punto di accesso globale ad essa.
 
-In Scala è particolarmente semplice implementare tale pattern in quanto gli object sono classi con esattamente una istanza che viene inizializzata in modo lazy (su richiesta) quando ci riferiamo ad essa: prima di ciò nessuna istanza dell’object sarà presente nello heap.
+Per lo sviluppo del progetto si è fatto largo uso di questo pattern creazionale, il quale garantisce che di una determinata classe venga creata una sola istanza, fornendo un punto di accesso globale ad essa.
+
+In Scala è particolarmente semplice implementare tale pattern in quanto gli _object_ sono classi con esattamente una istanza che viene inizializzata in modo _lazy_ (su richiesta) quando ci riferiamo ad essa: prima di ciò, nessuna istanza dell’_object_ sarà presente nello _heap_.
 
 ### Template method
-Il pattern _Template Method_ è un pattern comportamentale basato sulle classi. Permette di catturare il _template_ dell’algoritmo attraverso dei metodi astratti che verranno poi implementati nelle sottoclassi. Grazie a questo pattern è possibile fattorizzare in una classe la parte invariante di un algoritmo e di lasciare alle sottoclassi di implementare il comportamento che può variare, favorendo un maggiore riuso del codice.
 
-Questo pattern è utilizzato all’interno del progetto definendo le seguenti classi astratte:
-- `AbstractViewComponent`, pe rappresentare i componenti della view
-- `AbstractSensor`, utilizzato per la definizione dei sensori
-- `AbstractParameterView` e `AbstractParameterController` per i componenti view e controller dei parametri nel dettaglio dell’area.
+Il pattern _Template Method_ è un pattern comportamentale basato sulle classi. Permette di catturare il _template_ dell’algoritmo attraverso dei metodi astratti che verranno poi implementati nelle sottoclassi. Grazie a questo pattern, è possibile fattorizzare in una classe la parte invariante di un algoritmo e di lasciare alle sottoclassi il compito di implementare il comportamento che può variare, favorendo un maggiore riuso del codice.
+
+Questo pattern è stato utilizzato all’interno del progetto per definire le seguenti classi astratte:
+- `AbstractViewComponent` che rappresenta i componenti della View;
+- `AbstractSensor`, utilizzato per la definizione dei sensori;
+- `AbstractParameterView` e `AbstractParameterController` per i componenti View e Controller dei parametri nel dettaglio dell’area.
 
 ### Strategy
-All'interno del progetto è stato ampiamente utilizzato il _pattern Strategy_, ossia l'incapapsulamento di un algoritmo all'interno di una classe, mantenendo un'interfaccia generica, in quanto direttamente supportato nel linguaggio come passaggio di funzioni _higher-order_ e per fare si che le classi che lo utilizzano rendano dinamico il proprio comportamento utilizzando in modo intercambiabile le diverse implementazioni degli algoritmi definiti nell'interfaccia generica.
+
+All'interno del progetto è stato ampiamente utilizzato il _pattern Strategy_, ossia l'incapapsulamento di un algoritmo all'interno di una classe, permettendo di mantenere un'interfaccia generica.
+
+Questo pattern è direttamente supportato nel linguaggio mediante il passaggio di funzioni _higher-order_, facendo sì che le classi che lo utilizzano rendano dinamico il proprio comportamento e utilizzino in modo intercambiabile le diverse implementazioni degli algoritmi definiti nell'interfaccia generica.
 
 ## 4.9 Organizzazione del codice
 
 Il sistema è stato organizzato in 5 package principali: 
-- **mvc**, contiene gli oggetti MVC relativi ai componenti principali della simulazione precedentemente descritti;
-- **prolog**, contiene un oggetto necessario all'interazione fra il linguaggio Scala e Prolog;
-- **controller**, contiene gli elementi controller necessari a gestire le interazioni fra i componenti view e model;
-- **model**, contiene gli elementi model che racchiudono la logica di business dell'applicazione;
-- **view**, contiene gli elementi view che detengono le componenti delle diverse interfacce grafiche e gestiscono le interazioni con l'utente.
+- **mvc**, che contiene gli oggetti _MVC_ relativi ai componenti principali della simulazione precedentemente descritti;
+- **prolog**, che contiene un oggetto necessario all'interazione fra il linguaggio _Scala_ e _Prolog_;
+- **controller**, che contiene gli elementi Controller necessari a gestire le interazioni fra i componenti View e Model;
+- **model**, che contiene gli elementi Model che racchiudono la logica di business dell'applicazione;
+- **view**, che contiene gli elementi View che detengono le componenti delle diverse interfacce grafiche e gestiscono le interazioni con l'utente.
 
 <div align="center">
   <img src="img/package.png" />
@@ -874,4 +900,3 @@ Il sistema è stato organizzato in 5 package principali:
 </div>
 
 [Fig. 4.9.1]: img/package.png
-
