@@ -363,6 +363,7 @@ Per quanto riguarda la parte di testing, ho realizzato le seguenti classi di tes
 -	`PlantTest`
 -	`UploadPlantTest`
 -	`EnvironmentViewModuleTest`
+- `EnvironmentModelTest`
 
 
 ### 5.7.2 Mengozzi Maria
