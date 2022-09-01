@@ -1,22 +1,21 @@
 # 5. Implementazione
-Il seguente capitolo, motiva e dettaglia aspetti implementativi ritenuti rilevanti,
-per una corretta comprensione del progetto. 
+Il seguente capitolo motiva e dettaglia aspetti implementativi ritenuti rilevanti per una corretta comprensione del progetto. 
 
-Va inoltre sottolineato, che il codice realizzato, è stato opportunamente documentato mediante la `Scaladoc`, la quale può essere utilizzata come un ulteriore riferimento per meglio comprendere l'implementazione del programma e il suo comportamento.
+Va inoltre sottolineato che il codice realizzato è stato opportunamente documentato mediante la `Scaladoc`, la quale può essere utilizzata come ulteriore riferimento per meglio comprendere l'implementazione del programma e il suo comportamento.
 
 ## 5.1 Utilizzo del paradigma funzionale
-Durante lo sviluppo del progetto, si è cercato di utilizzare il più possibile il paradigma funzionale, cercando di raffinare sempre di più la soluzione adottata per poter sfruttare al meglio i vantaggi che questo paradigma offre. 
+Durante lo sviluppo del progetto, si è cercato di utilizzare il più possibile il paradigma funzionale e di raffinare sempre di più la soluzione adottata, per poter sfruttare al meglio i vantaggi che questo paradigma offre. 
 
-Se infatti durante la realizzazione di una determinata funzionalità, ci si rendeva conto di aver utilizzato un approccio più legato all'_object-oriented_ che a al paradigma funzionale, dopo aver valutato i diversi aspetti della soluzione, che potevano essere migliorati e modificati adottando, invece, elementi del paradigma funzionale, si procedeva con il _refactoring_ del codice e all'effettuazione di queste modifiche.
+Se, durante la realizzazione di una determinata funzionalità, ci si rendeva conto di aver utilizzato un approccio più legato all'_object-oriented_ che a al paradigma funzionale, dopo aver valutato i diversi aspetti di una possibile soluzione più funzionale, si procedeva con il _refactoring_ del codice.
 
-Nelle seguenti sezioni, verranno descritti con maggiore dettaglio alcuni elementi della programmazione funzionale, che sono stati utilizzati all'interno del progetto e alcuni esempi del loro utilizzo.
+Nelle seguenti sezioni verranno descritti con maggiore dettaglio alcuni elementi della programmazione funzionale che sono stati utilizzati all'interno del progetto, riportando alcuni esempi del loro utilizzo.
 
 ### 5.1.1 Higher-order functions
-Un meccanismo efficace spesso utilizzato nella programmazione funzionale è quello delle _funzioni higher order_. Sono delle funzioni che accettano altre funzioni come parametri e/o restituiscono una funzione come risultato. 
+Un meccanismo efficace, spesso utilizzato nella programmazione funzionale, è quello delle _funzioni higher order_. Queste sono delle funzioni che accettano altre funzioni come parametri e/o restituiscono una funzione come risultato. 
 
-L’utilizzo di queste funzioni, ha permesso di rendere il codice riusabile e di permettere una facile ed immediata realizzazione del _pattern Strategy_, in quanto consente di passare alle funzioni delle strategie esterne.
+L’utilizzo di queste funzioni ha permesso di rendere il codice riusabile e di adoperare facilmente il _pattern Strategy_, in quanto consente di passare alle funzioni delle strategie esterne.
 
-Esse sono state utilizzate in molte parti del progetto e in particolare, un esempio di utilizzo, si può trovare negli oggetti `Factory` delle funzioni per il calcolo di nuovi valori dei sensori, di cui di seguito è possibile visualizzare un estratto di codice:
+Esse sono state utilizzate in molte parti del progetto: un esempio del loro utilizzo si può trovare negli oggetti `Factory` delle funzioni per il calcolo dei nuovi valori dei sensori (vedi codice riportato di seguito).
 
 ```scala
 /** Updates the current soil moisture value according to the precipitation value when gates are open. */
@@ -25,21 +24,21 @@ val updateGatesOpenValue: (Double, Double) => Double = _ - _ * RainFactor
 
 In particolare, si tratta di una funzione utilizzata per calcolare il valore dell’umidità del suolo nel caso in cui la porta dell’area sia aperta. 
 
-La funzione prende in ingresso due valori: il valore corrente dell’umidità e il valore della precipitazione. Nell’esempio, l’implementazione della funzione è stata specificata attraverso l’utilizzo delle funzioni _literal_ (funzioni _lambda_ in _Java_) e grazie alla sintassi di _Scala_ e all’inferenza del tipo, è possibile semplificare la funzione utilizzando il _placeholder_ underscore_ rendendo il codice il più idiomatico possibile.
+La funzione prende in ingresso due valori: il valore corrente dell’umidità e il valore delle precipitazioni. Nell’esempio l’implementazione della funzione è stata specificata attraverso l’utilizzo delle funzioni _literal_ (funzioni _lambda_ in _Java_) e, grazie alla sintassi di _Scala_ e all’inferenza dei tipi, è possibile semplificare la funzione utilizzando il _placeholder_ underscore_, rendendo il codice il più idiomatico possibile.
 
 ### 5.1.2 Currying
-In _Scala_ è possibile definire funzioni _curried_, ossia la valutazione di una funzione che assuma parametri multipli può essere tradotta nella valutazione di una sequenza di funzioni.
+In _Scala_ è possibile definire funzioni _curried_, per cui la valutazione di una funzione che assume parametri multipli può essere tradotta nella valutazione di una sequenza di funzioni.
 
-È un meccanismo che consente l'applicazione del principio _DRY (Don't repeat yourself)_, favorendo quindi il riuso di codice. Infatti, quando una funzione è _curried_, è possibile applicare parzialmente la funzione per poterla utilizzarla in più punti del codice.
+È un meccanismo che consente l'applicazione del principio _DRY (Don't repeat yourself)_, favorendo quindi il riuso di codice. Infatti, quando una funzione è _curried_, è possibile applicare parzialmente la funzione per poterla utilizzare in più punti del codice.
 
-Nel seguente estratto di codice è possibile vedere un esempio di definizione di funzione _currying_.
+Nel seguente estratto di codice è possibile vedere un esempio dell'utilizzo di questo meccanismo.
 
 ```scala
 private def extractTerm(solveInfo: SolveInfo)(term: String) =
   extractTermToString(solveInfo, term).replace("'", "")
 ```
 
-Tale funzione, in particolare, si occupa di estrarre il termine dalla soluzione ottenuta da _Prolog_, rimuovendo poi gli apici.
+La funzione `extractTerm` si occupa di estrarre il termine dalla soluzione ottenuta da _Prolog_, rimuovendo gli apici.
 
 ```scala
 override def getCityInfo(city: String): Option[(String, String, String)] =
@@ -48,7 +47,7 @@ override def getCityInfo(city: String): Option[(String, String, String)] =
     case _ => None
 ```
 
-La funzione viene utilizzata all'interno del Model di select city per estrarre le informazioni associate alla città selezionata. Per chiamare la funzione si deve mantenere la stessa notazione _currying_. Nell'esempio, la funzione viene applicata parzialmente passando un solo argomento, in questo modo ritorna una nuova funzione che può essere consumata in seguito specificando il secondo argomento. 
+La funzione viene utilizzata all'interno del Model di select city per estrarre le informazioni associate alla città selezionata. Per chiamare la funzione si deve mantenere la stessa notazione _currying_. Nell'esempio la funzione viene applicata parzialmente passando un solo argomento e, in questo modo, ritorna una nuova funzione che può essere consumata in seguito specificando il secondo argomento. 
 
 ### 5.1.3 Type members
 
@@ -76,9 +75,9 @@ type OptimalValues = Map[String, Any]
 ```
 
 ### 5.1.4 For-comprehension
-Al fine di rendere il codice meno imperativo, si è fatto uso della _for-comprehension_, un costrutto funzionale basato sulle "monadi" per operare sulle collezioni. 
+Al fine di rendere il codice meno imperativo, si è fatto uso della _for-comprehension_: un costrutto funzionale per operare sulle collezioni e basato sulle _monadi_. 
 
-Oltre a rendere il codice più funzionale, la scelta dell'utilizzo della _for-comprehension_ è supportato dall'incremento della leggibilità del codice, come si può vedere nel seguente estratto di programma, utilizzato per la creazione degli oggetti `ManageSensor`, il cui compito è racchiudere tutte le informazioni utili riguardati un sensore.
+Oltre a rendere il codice più funzionale, la scelta dell'utilizzo della _for-comprehension_ è supportata dall'incremento della leggibilità del codice, come si può vedere nel seguente estratto di programma. Il costrutto viene utilizzato per la creazione degli oggetti `ManageSensor`, il cui compito è racchiudere tutte le informazioni utili riguardati un sensore.
 
 ```scala
 for
@@ -101,46 +100,46 @@ yield ManageSensorImpl(
     )
 )
 ```
-Nell'esempio si itera sulla mappa contenete le costanti riguardanti i sensori, come il nome del sensore, l'unità di misura e il messaggio di errore associato ad esso. Questi valori vengono poi impiegati nella costruzione dell'oggetto `ManageSensor` in modo da reperire le informazioni relative ad un sensore per una specifica pianta, creare e memorizzare l'istanza del relativo sensore, inizializzare il suo stato e tenere traccia del valore corrente rilevato da esso. 
+Nell'esempio si itera sulla mappa contenete le costanti come il nome del sensore, l'unità di misura e il messaggio di errore associato ad esso. Questi valori vengono poi impiegati nella costruzione dell'oggetto `ManageSensor`, in modo da reperire le informazioni rispetto al sensore per uno specifico parametro, crearne e memorizzarne l'istanza, inizializzare il suo stato e tenere traccia del valore corrente rilevato da esso. 
 
 ### 5.1.5 Trait mixins
-In _Scala_, le classi possono avere un unica superclasse ma molti _mixins_, attraverso l'utilizzo delle _keywords_ `extends` e `with`.
+In _Scala_ le classi possono avere un'unica superclasse ma molti _mixins_, attraverso l'utilizzo delle _keywords_ `extends` e `with`.
 
-Un _mixin_ è una classe o un interfaccia in cui alcuni o tutti i suoi metodi e/o proprietà non sono implementati, richiedendo che un'altra classe o interfaccia fornisca le implementazioni mancanti. Gli elementi _mixins_, sono spesso descritti come "inclusi" o "impilati in", piuttosto che "ereditati".
+Un _mixin_ è una classe o un interfaccia in cui alcuni o tutti i suoi metodi e/o proprietà non sono implementati, richiedendo che un'altra classe o interfaccia fornisca le implementazioni mancanti. Gli elementi _mixins_ sono spesso descritti come "inclusi" o "impilati in", piuttosto che "ereditati".
 
-Il _mixins_, utilizzato con le interfaccie, consente ai `traits`, di poter essere concatenati utilizzando la composizione piuttosto che l'ereditarietà.
+Il _mixins_, utilizzato con le interfacce, consente ai `traits` di poter essere concatenati utilizzando la composizione piuttosto che l'ereditarietà.
 
-Per il progetto, in particolare nella realizzazione dei diversi _Cake pattern_, si è fatto utilizzo dei _mixins_, infatti ad esempio, al termine di ogni modulo: Model, View o Controller, troviamo il `trait Interface` dichiarato nel seguente modo:
+Per il progetto, in particolare nella realizzazione dei diversi _Cake pattern_, si è fatto utilizzo di questo meccanismo. Ad esempio, al termine di ogni modulo Model, View o Controller troviamo il `trait Interface` dichiarato nel seguente modo:
 
 ```scala
 trait Interface extends Provider with Component
 ```
 
-Tale dichiarazione indica che l'elemento `Interface`, ha come supertipo `Provider` e un _mixin_ con `Component`, che li consente di utilizzare le sue proprietà.
+Tale dichiarazione indica che l'elemento `Interface` ha come supertipo `Provider` e un _mixin_ con `Component`, che gli consente di utilizzare le relative proprietà.
 
 ## 5.2 Utilizzo del paradigma logico
-Il team di sviluppo, inizialmente, si è posto come obiettivo per la realizzazione del progetto, l'utilizzo del paradigma logico. In fase di progettazione, quindi, ci si è interrogati su come poter utilizzare la programmazione logica all'interno del progetto, giungendo alla conclusione che il modo migliore per poterlo fare, nel caso della nostra applicazione, consisteva nell'utilizzo di _Prolog_ come database, sul quale effettuare delle interrogazioni per poter ottene informazioni relative alle piante e alle città.
+Il team di sviluppo si è posto, come obiettivo per la realizzazione del progetto, l'utilizzo del paradigma logico. In fase di progettazione ci si è interrogati su come poter sfruttare la programmazione logica all'interno del progetto, giungendo alla conclusione di utilizzare _Prolog_ come database sul quale effettuare delle interrogazioni, per poter ottenere informazioni relative alle piante e alle città.
 
-Nello specifico, sono stati realizzati due file `.txt`, uno contenente l'elenco delle città in cui può essere ubicata la serra e l'altro contenente l'elenco dei nomi delle piante assieme ai loro identificativi.
+Nello specifico, sono stati realizzati due file `.txt`: uno contenente l'elenco delle città in cui può essere ubicata la serra e l'altro contenente l'elenco dei nomi delle piante assieme ai loro identificativi.
 
 ### 5.2.1 Utilizzo di Prolog per la selezione della città
-All'inizio, quando l'utente si trova nella schermata iniziale dell'applicazione, deve effettuare l'inserimento del nome della città nella quale verrà ubicata la serra.
+All'inizio l'utente, quando si trova nella schermata iniziale dell'applicazione, deve effettuare l'inserimento del nome della città nella quale verrà ubicata la serra.
 
-Per consentire quest'operazione, la classe `UploadCities`, si occupa di convertire il file `cities.txt`, in un file _Prolog_: `cities.pl`, che verrà inserito all'interno della _home directory_ dell'utente, all'interno della cartella `pps`.
+Per consentire quest'operazione, la classe `UploadCities` si occupa di convertire il file `cities.txt` in un file _Prolog_ `cities.pl`, che verrà inserito all'interno della _home directory_ dell'utente, all'interno della cartella `pps`.
 
-Questo file, `cities.pl`, contiene le regole sulle città, scritte in questo modo:
+Il file `cities.pl` contiene le regole sulle città, scritte in questo modo:
 
 ```prolog
 city('Bologna', '44.4939', '11.3428').
 city('Cesena', '44.1333', '12.2333').
 ``` 
-Il file `cities.pl` contiene, inoltre, una regola `search_city` che consente di convertire i nomi delle città in array di caratteri, in modo da facilitare il meccanismo di ricerca.
+Tale file contiene, inoltre, una regola `search_city` che consente di convertire i nomi delle città in array di caratteri, in modo da facilitare il meccanismo di ricerca.
 
 ```prolog
 search_city([H|T], X, Y, Z) :- city(X, Y, Z), atom_chars(X, [H|T]).
 ```
 
-Infine, `SelectCityModelModule`, utilizza questo file e la libreria [_TuProlog_](https://apice.unibo.it/xwiki/bin/view/Tuprolog/), per poter visualizzare i diversi nomi delle città e implementare il _live search_. Infatti, ogni qual volta l'utente inserisce dei caratteri nel `TextField`, della schermata, questi caratteri vengono utilizzati, per definire il _goal_ che si intende risolvere e determinare la città che l'utente vuole selezionare.
+Infine, `SelectCityModelModule` utilizza questo file e la libreria [_TuProlog_](https://apice.unibo.it/xwiki/bin/view/Tuprolog/) per poter visualizzare i diversi nomi delle città e implementare il _live search_. Infatti, ogni qual volta l'utente inserisce dei caratteri nel `TextField` della schermata, questi vengono utilizzati per definire il _goal_ che si intende risolvere, al fine di determinare la città che l'utente intende selezionare.
 
 ```scala
 private def searchCity(city: String, start: String = "['", sep: String = "','", end: String = "']"): Iterable[SolveInfo] =
@@ -148,14 +147,14 @@ private def searchCity(city: String, start: String = "['", sep: String = "','", 
 ``` 
 
 ### 5.2.2 Utilizzo di Prolog per la selezione delle piante
-Per consentire all'utente la selezione delle piante, che si intende coltivare all'interno della serra, la classe `UploadPlants`, prima che venga mostrata la schermata di selezione delle piante all'utente, si occupa di convertire il file `plants.txt`, in un file _Prolog_: `plants.pl`, contenente i records che detengono le informazioni sulle piante, i quali risultano essere scritti nel seguente modo:
+Per consentire all'utente la selezione delle piante che si intende coltivare all'interno della serra, la classe `UploadPlants`, prima che venga mostrata l'apposita schermata, si occupa di convertire il file `plants.txt` in un file _Prolog_ `plants.pl`, contenente i records che detengono le informazioni sulle piante. Quest'ultimi risultano essere scritti nel seguente modo:
 
 ```prolog
 plant('Alcea rosea', 'alcea rosea').
 plant('Basil', 'ocimum basilicum').
 ```
 
-Una volta che il file `plants.pl` è stato scritto e inserito all'interno della _home directory_ dell'utente, `PlantSelectorModelModule`, si occupa di utilizzare questo file tramite la libreria _TuProlog_, per poter mostrare le piante selezionabili all'utente e in seguito, una volta selezionate le piante, per poter prendere il loro identificativo e istanziare gli oggetti `Plant`.
+Una volta che il file `plants.pl` è stato scritto e inserito all'interno della _home directory_ dell'utente, `PlantSelectorModelModule` utilizza questo file, tramite la libreria _TuProlog_, per poter mostrare le piante selezionabili dall'utente e in seguito per poter prendere il loro identificativo e istanziare gli oggetti `Plant`.
 
 ```scala
 override def getAllAvailablePlants: List[String] =
@@ -173,7 +172,7 @@ override def getPlantsSelectedIdentifier: List[String] =
 
 Per lo sviluppo del progetto si è fatto uso sia della programmazione reattiva (di tipo event-based) che di quella asincrona, scegliendo di sfruttare i metodi forniti dalla libreria [_monix.io_](https://monix.io/).
 
-I meccanismi di programmazione asincrona, come `Task`, sono stati utilizzati per effettuare operazioni in modo asincrono, che possono richiedere un periodo di tempo considerevole per poter essere completate e pertanto possono risultare bloccanti per il flusso di controllo dell'applicazione, come ad esempio, l'impostazione della velocità del tempo virtuale della simulazione:
+I meccanismi di programmazione asincrona, come `Task`, sono stati utilizzati per effettuare operazioni che possono richiedere un periodo di tempo considerevole per poter essere completate e, pertanto, possono risultare bloccanti per il flusso di controllo dell'applicazione. Ad esempio, l'impostazione della velocità del tempo virtuale della simulazione:
 
 ```scala
 override def setSpeed(speed: Double): Unit =
@@ -182,9 +181,9 @@ override def setSpeed(speed: Double): Unit =
   }.executeAsync.runToFuture
 ```
 
-Per quanto riguarda la programmazione reattiva, sono stati sfruttati meccanismi come il data type `Observable` e la classe astratta `ConcurrentSubject` che sono stati impiegati in diversi aspetti, come ad esempio per: 
+Per quanto riguarda la programmazione reattiva, sono stati sfruttati meccanismi come il data type `Observable` e la classe astratta `ConcurrentSubject` che sono stati impiegati, ad esempio, per: 
 
--	la gestione della logica del `Timer`
+-	la gestione della logica del `Timer`;
 
 ```scala
 private def timer(from: FiniteDuration, period: FiniteDuration): Unit =
@@ -197,7 +196,7 @@ private def timer(from: FiniteDuration, period: FiniteDuration): Unit =
     .runToFuture
 ```
 
-- aggiornare periodicamente la visualizzazione dello scorrere del tempo nelle varie schermate
+- aggiornare periodicamente la visualizzazione dello scorrere del tempo nelle varie schermate;
 
 ```scala
 private val subjectTimerValue = ConcurrentSubject[String](MulticastStrategy.publish)
@@ -228,14 +227,14 @@ override def computeNextSensorValue(): Unit =
   }.executeAsync.runToFuture
 ```
 
--	notificare i sensori dello scorrere del tempo col fine di ricalcolare periodicamente i valori rilevati all’interno delle aree
+-	notificare i sensori dello scorrere del tempo, col fine di ricalcolare periodicamente i valori rilevati all’interno delle aree;
 
 ```scala
 override protected def registerTimerCallback(verifyTimePass: String => Boolean): Unit =
   addTimerCallback(s => if verifyTimePass(s) then computeNextSensorValue())
 ```
 
--   aggiornare periodicamente la View relativa alla suddivisione in aree
+-   aggiornare periodicamente la View relativa alla suddivisione in aree;
 
 ```scala
 override def updateView(): Unit =
@@ -256,7 +255,7 @@ override def updateView(): Unit =
   subscriptionTimeout = timeoutUpd.subscribe()
 ```
 
--	mantenere reattiva l’applicazione a seguito di richieste HTTP che possono inficiare sulla _user experience_ (es: caricamento dati nei componenti `Plant` ed `Environment`)
+-	mantenere reattiva l’applicazione a seguito di richieste HTTP che possono inficiare sulla _user experience_ (es: caricamento dati nei componenti `Plant` ed `Environment`);
 
 ```scala
 override def startEmittingPlantsSelected(): Unit =
