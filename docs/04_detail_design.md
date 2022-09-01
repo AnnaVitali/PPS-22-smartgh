@@ -866,6 +866,8 @@ Per lo sviluppo del progetto si è fatto largo uso di questo pattern creazionale
 
 In Scala è particolarmente semplice implementare tale pattern in quanto gli _object_ sono classi con esattamente una istanza che viene inizializzata in modo _lazy_ (su richiesta) quando ci riferiamo ad essa: prima di ciò, nessuna istanza dell’_object_ sarà presente nello _heap_.
 
+Infine, si è anche utilizzato il pattern _factory_ tramite i _companion object_ associati alle classi, i quali danno la possibilità di istanziare la classe corrispondente mantenendo privata la sua implementazione.
+
 ### Template method
 
 Il pattern _Template Method_ è un pattern comportamentale basato sulle classi. Permette di catturare il _template_ dell’algoritmo attraverso dei metodi astratti che verranno poi implementati nelle sottoclassi. Grazie a questo pattern, è possibile fattorizzare in una classe la parte invariante di un algoritmo e lasciare alle sottoclassi il compito di implementare il comportamento che può variare, favorendo un maggiore riuso del codice.
