@@ -781,7 +781,7 @@ Più precisamente, il sensore della temperatura effettua un aggiornamento del va
 - nel caso in cui venga rilevato un nuovo valore della temperatura esterna; 
 - nel caso in cui il timer abbia emesso l'evento che indica al sensore di effettuare una nuova rilevazione.
 
-### 4.8.3 Sensore per l'umiditià dell'aria
+### 4.8.3 Sensore per l'umidità dell'aria
 
 Il sensore della l’umidità dell’aria è un sensore in grado di aggiornare periodicamente il valore rilevato.
 
