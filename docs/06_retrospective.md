@@ -31,7 +31,7 @@ Pertanto, i _product backlog_ che sono stati individuati sono i seguenti:
 
 Al termine di questo sprint, l'utente ha la possibilita di visualizzare e interagire con le diverse schermate dell'applicazione singolarmente ed ha, inoltre, la possibilità di lanciare l'avvio della simulazione tramite dei parametri di default, potendo osservare lo scorrere del tempo e modificarne la velocità d'esecuzione.
 
-Infine, alla conclusione dello sprint, sommando i diversi costi per i task che sono stati svolti, si ottiene che il costo totale richiesto per realizzare i diversi _product backlog_ è di 52.
+In conclusione, sommando i diversi costi per i task che sono stati svolti, si ottiene che il costo totale richiesto per realizzare i diversi _product backlog_ è di 52.
 
 ### 6.2.2 Sprint 2 - 02/08/2022
 
@@ -45,7 +45,7 @@ Pertanto, i _product backlog_ che sono stati individuati sono i seguenti:
 
 Al termine di questo sprint, è possibile interagire con le schermate principali che riguardano la personalizzazione dei parametri scelti dall'utente e la visualizzazione dell'andamento della simulazione. Quest'ultima consiste nell'aggiornamento periodico (diretto dal tempo virtuale) dei parametri rilevati dai sensori nelle diverse aree, sulla base di quelli ottenuti rispetto alla località selezionata.
 
-Infine, alla conclusione dello sprint, sommando i diversi costi per i task che sono stati svolti, si ottiene che il costo totale richiesto per realizzare i diversi _product backlog_ è di 68.
+In conclusione, sommando i diversi costi per i task che sono stati svolti, si ottiene che il costo totale richiesto per realizzare i diversi _product backlog_ è di 68.
 
 ### 6.2.3 Sprint 3 - 10/08/2022
 
@@ -57,9 +57,9 @@ I _product backlog_ che sono stati individuati per questo sprint sono i seguenti
 - miglioramento dell'esperienza utente;
 - guida utente per l'applicazione.
 
-Al termine dello sprint, l'utente è in grado di visualizzare il dettaglio di un area potendo gestire situazioni di allarme, accedere a una guida utente per poter meglio comprendere il funzionamento dell'applicazione e potendo interagire con un'interfaccia grafica maggiormante reattiva e stilisticamente migliorata rispetto alla precedente.
+Al termine dello sprint, l'utente è in grado di visualizzare il dettaglio di un'area, di gestire situazioni di allarme, di accedere a una guida utente per poter meglio comprendere il funzionamento dell'applicazione e di interagire con un'interfaccia grafica maggiormante reattiva e stilisticamente migliorata.
 
-Infine, alla conclusione dello sprint, sommando i diversi costi per i task che sono stati svolti, si ottiene che il costo totale richiesto per realizzare i diversi _product backlog_ è di 46.
+In conclusione, sommando i diversi costi per i task che sono stati svolti, si ottiene che il costo totale richiesto per realizzare i diversi _product backlog_ è di 46.
 
 ### 6.2.4 Sprint 4 - 21/08/2022
 
@@ -72,7 +72,7 @@ Pertanto, i _product backlog_ che sono stati individuati sono i seguenti:
 
 Al termine di questo sprint, il team di svilippo consegna l'applicazione finale, ottimizzata rispetto all'esperienza utente e alla qualità del codice. Inoltre, viene consegnato il report che documenta le fasi di sviluppo del progetto.
 
-Infine, alla conclusione dello sprint, sommando i diversi costi per i task che sono stati svolti, si ottiene che il costo totale richiesto per realizzare i diversi _product backlog_ è di 41.
+In conclusione, sommando i diversi costi per i task che sono stati svolti, si ottiene che il costo totale richiesto per realizzare i diversi _product backlog_ è di 41.
 
 ## 6.3 Commenti finali
 
