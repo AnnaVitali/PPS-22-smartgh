@@ -49,7 +49,7 @@ object SelectCityModelModule:
 
       override def getCityInfo(city: String): Option[(String, String, String)] =
         searchCity(city).headOption match
-          case Some(s) => val t = extractTerm(s); Some(t("X"), t("Y"), t("Z"))
+          case Some(s) => val e = extractTerm(s); Some(e("X"), e("Y"), e("Z"))
           case _ => None
 
       private def searchCity(city: String, start: String = "['", sep: String = "','", end: String = "']") =
