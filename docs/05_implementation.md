@@ -81,25 +81,25 @@ Al fine di rendere il codice meno imperativo, si è fatto uso della _for-compreh
 Oltre a rendere il codice più funzionale, la scelta dell'utilizzo della _for-comprehension_ è supportato dall'incremento della leggibilità del codice, come si può vedere nel seguente estratto di programma, utilizzato per la creazione degli oggetti `ManageSensor`, il cui compito è racchiudere tutte le informazioni utili riguardati un sensore.
 
 ```scala
-    for
-        (key, m) <- mapSensorNamesAndMessages.toList
-        optK = m.getOrElse("name", "")
-        um = m.getOrElse("um", "")
-        msg = m.getOrElse("message", "")
-    yield ManageSensorImpl(
-        key,
-        optimalValueToDouble.getOrElse("min_" + optK, 0.0),
-        optimalValueToDouble.getOrElse("max_" + optK, 0.0),
-        um,
-        sensorsMap(key),
+for
+    (key, m) <- mapSensorNamesAndMessages.toList
+    optK = m.getOrElse("name", "")
+    um = m.getOrElse("um", "")
+    msg = m.getOrElse("message", "")
+yield ManageSensorImpl(
+    key,
+    optimalValueToDouble.getOrElse("min_" + optK, 0.0),
+    optimalValueToDouble.getOrElse("max_" + optK, 0.0),
+    um,
+    sensorsMap(key),
+    BigDecimal(sensorsMap(key).getCurrentValue).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble,
+    msg,
+    firstSensorStatus(
         BigDecimal(sensorsMap(key).getCurrentValue).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble,
-        msg,
-        firstSensorStatus(
-            BigDecimal(sensorsMap(key).getCurrentValue).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble,
-            optimalValueToDouble.getOrElse("min_" + optK, 0.0),
-            optimalValueToDouble.getOrElse("max_" + optK, 0.0)
-        )
+        optimalValueToDouble.getOrElse("min_" + optK, 0.0),
+        optimalValueToDouble.getOrElse("max_" + optK, 0.0)
     )
+)
 ```
 Nell'esempio si itera sulla mappa contenete le costanti riguardanti i sensori, come il nome del sensore, l'unità di misura e il messaggio di errore associato ad esso. Questi valori vengono poi impiegati nella costruzione dell'oggetto `ManageSensor` in modo da reperire le informazioni relative ad un sensore per una specifica pianta, creare e memorizzare l'istanza del relativo sensore, inizializzare il suo stato e tenere traccia del valore corrente rilevato da esso. 
 
@@ -144,8 +144,8 @@ search_city([H|T], X, Y, Z) :- city(X, Y, Z), atom_chars(X, [H|T]).
 Infine, `SelectCityModelModule`, utilizza questo file e la libreria [_TuProlog_](https://apice.unibo.it/xwiki/bin/view/Tuprolog/), per poter visualizzare i diversi nomi delle città e implementare il _live search_. Infatti, ogni qual volta l'utente inserisce dei caratteri nel `TextField`, della schermata, questi caratteri vengono utilizatti, per definire il _goal_ che si intende risolvere e determinare la città che l'utente vuole selezionare.
 
 ```scala
-  private def searchCity(city: String, start: String = "['", sep: String = "','", end: String = "']"): Iterable[SolveInfo] =
-    engine("search_city(" + city.mkString(start, sep, end) + ", X, Y, Z)")
+private def searchCity(city: String, start: String = "['", sep: String = "','", end: String = "']"): Iterable[SolveInfo] =
+  engine("search_city(" + city.mkString(start, sep, end) + ", X, Y, Z)")
 ``` 
 
 ### 5.2.2 Utilizzo di Prolog per la selezione delle piante
@@ -160,13 +160,13 @@ Una volta che il file `plants.pl` è stato scritto e inserito all'interno della 
 
 ```scala
 override def getAllAvailablePlants: List[String] =
-    engine("plant(X, Y).").map(extractTermToString(_, "X").replace("'", "")).toList
+  engine("plant(X, Y).").map(extractTermToString(_, "X").replace("'", "")).toList
 
 override def getPlantsSelectedIdentifier: List[String] =
-    selectedPlants
-        .map(s => "\'" + s + "\'")
-        .flatMap(s => engine("plant(" + s + ", Y).").map(extractTermToString(_, "Y")))
-        .toList
+  selectedPlants
+      .map(s => "\'" + s + "\'")
+      .flatMap(s => engine("plant(" + s + ", Y).").map(extractTermToString(_, "Y")))
+      .toList
 
 ``` 
 
@@ -177,10 +177,10 @@ Per lo sviluppo del progetto si è fatto uso sia della programmazione reattiva (
 I meccanismi di programmazione asincrona, come `Task`, sono stati utilizzati per effettuare operazioni in modo asincrono, che possono richiedere un periodo di tempo considerevole per poter essere completate e pertanto possono risultare bloccanti per il flusso di controllo dell'applicazione, come ad esempio, l'impostazione della velocità del tempo virtuale della simulazione:
 
 ```scala
-    override def setSpeed(speed: Double): Unit =
-      Task {
-        timer.changeTickPeriod(timeSpeed(speed))
-      }.executeAsync.runToFuture
+override def setSpeed(speed: Double): Unit =
+  Task {
+    timer.changeTickPeriod(timeSpeed(speed))
+  }.executeAsync.runToFuture
 ```
 
 Per quanto riguarda la programmazione reattiva, sono stati sfruttati meccanismi come il data type `Observable` e la classe astratta `ConcurrentSubject` che sono stati impiegati in diversi aspetti, come ad esempio per: 
@@ -188,14 +188,14 @@ Per quanto riguarda la programmazione reattiva, sono stati sfruttati meccanismi 
 -	la gestione della logica del `Timer`
 
 ```scala
-    private def timer(from: FiniteDuration, period: FiniteDuration): Unit =
-      cancelable = Observable
-        .fromIterable(from.toSeconds to duration.toSeconds)
-        .throttle(period, 1)
-        .map(Duration(_, TimeUnit.SECONDS))
-        .foreachL(consumer)
-        .doOnFinish(onFinishTask)
-        .runToFuture
+private def timer(from: FiniteDuration, period: FiniteDuration): Unit =
+  cancelable = Observable
+    .fromIterable(from.toSeconds to duration.toSeconds)
+    .throttle(period, 1)
+    .map(Duration(_, TimeUnit.SECONDS))
+    .foreachL(consumer)
+    .doOnFinish(onFinishTask)
+    .runToFuture
 ```
 
 - aggiornare periodicamente la visualizzazione dello scorrere del tempo nelle varie schermate
@@ -206,9 +206,9 @@ private val subjectTimerValue = ConcurrentSubject[String](MulticastStrategy.publ
 
 ```scala
 override def notifyTimeValueChange(timeValue: String): Unit =
-        Task {
-          subjectTimerValue.onNext(timeValue)
-        }.executeAsync.runToFuture
+  Task {
+    subjectTimerValue.onNext(timeValue)
+  }.executeAsync.runToFuture
 ```
 
 -	notificare i sensori della disponibilità di un nuovo valore ambientale tra temperatura, umidità e luminosità;
@@ -234,35 +234,35 @@ override protected def registerTimerCallback(verifyTimePass: String => Boolean):
 -   aggiornare periodicamente la View relativa alla suddivisione in aree
 
 ```scala
-      override def updateView(): Unit =
-        ghDivisionModel.areas.foreach(a =>
-          a.areaModel
-            .changeStatusObservable()
-            .subscribe(
-              (s: AreaStatus) => {
-                s match
-                  case AreaStatus.ALARM => drawView()
-                  case _ =>
-                Continue
-              },
-              (ex: Throwable) => ex.printStackTrace(),
-              () => {}
-            ) :: subscriptionAlarm
-        )
+override def updateView(): Unit =
+  ghDivisionModel.areas.foreach(a =>
+    a.areaModel
+      .changeStatusObservable()
+      .subscribe(
+        (s: AreaStatus) => {
+          s match
+            case AreaStatus.ALARM => drawView()
+            case _ =>
+          Continue
+        },
+        (ex: Throwable) => ex.printStackTrace(),
+        () => {}
+      ) :: subscriptionAlarm
+  )
 
-        subscriptionTimeout = timeoutUpd.subscribe()
+  subscriptionTimeout = timeoutUpd.subscribe()
 ```
 
 -	mantenere reattiva l’applicazione a seguito di richieste HTTP che possono inficiare sulla _user experience_ (es: caricamento dati nei componenti `Plant` ed `Environment`)
 
 ```scala
-      override def startEmittingPlantsSelected(): Unit =
-        Task {
-          selectedPlants
-            .zip(getPlantsSelectedIdentifier)
-            .foreach((name, identifier) => subjectPlantInfo.onNext(Plant(name, identifier)))
-          subjectPlantInfo.onComplete()
-        }.executeAsync.runToFuture
+override def startEmittingPlantsSelected(): Unit =
+  Task {
+    selectedPlants
+      .zip(getPlantsSelectedIdentifier)
+      .foreach((name, identifier) => subjectPlantInfo.onNext(Plant(name, identifier)))
+    subjectPlantInfo.onComplete()
+  }.executeAsync.runToFuture
 
 ```
 
@@ -271,10 +271,10 @@ Tale metodo prende in input un oggetto di tipo `Runnable` che verrà eseguito da
 
 ```scala
 override def updateState(state: String): Unit =
-        Platform.runLater { () =>
-          statusLabel.setText(state)
-          statusLabel.getStyleClass.setAll(state)
-        }
+  Platform.runLater { () =>
+    statusLabel.setText(state)
+    statusLabel.getStyleClass.setAll(state)
+  }
 ```
 
 ## 5.4 Richieste dei dati
@@ -295,11 +295,11 @@ Al fine di valutare l'esito della risposta, si è fatto uso del `Try match` per 
 
 ```scala
 Try(requests.post(url = url, data = data)) match {
-    case Success(r: Response) =>
-        implicit val formats: DefaultFormats.type = org.json4s.DefaultFormats
-        parse(r.text()).extract[RequestResult].get("access_token").fold[String]("")(res => res.toString)
-    case Failure(_) => ""
-    }
+  case Success(r: Response) =>
+      implicit val formats: DefaultFormats.type = org.json4s.DefaultFormats
+      parse(r.text()).extract[RequestResult].get("access_token").fold[String]("")(res => res.toString)
+  case Failure(_) => ""
+  }
 ```
 
 Il _JSON_ ottenuto in caso di successo, è stato poi utilizzato per l'implementazione del `type` definito nell'interfaccia della classe `Environment`, nel caso della città e `Plant`, nel caso delle informazioni relative alla pianta.
@@ -348,12 +348,12 @@ Per verificare determinate condizioni, come ad esempio di uguaglianza, minoranza
 Infine, per testare il verificarsi di determinati risultati o condizioni, che però possono impiegare un certo tempo per avvenire, da quando è stato generato l'evento che ne è la causa, si è fatto uso di `eventually`. In particolare, se la classe di test estende il `trait Eventually`, ha la possibilità di definire dei test, che presentano una condizione che prima o poi si deve verificare entro un lasso di tempo predefinito.
 ```scala
 test("The air humidity value should decrease because the ventilation and the humidity are inactive") {
-    setupTimer(500 microseconds)
-    initialValueTest()
+  setupTimer(500 microseconds)
+  initialValueTest()
 
-    eventually(timeout(Span(1000, Milliseconds))) {
-        humiditySensor.getCurrentValue should be < initialHumidity
-    }
+  eventually(timeout(Span(1000, Milliseconds))) {
+      humiditySensor.getCurrentValue should be < initialHumidity
+  }
 }
 ```
 
@@ -366,19 +366,19 @@ Nello specifico, i diversi _Unit tests_ che si vogliono realizzare devono prende
 
 ```scala
 @Test def testAfterPlantSelection(robot: FxRobot): Unit =
-    //...
-    val checkBox = robot.lookup(selectablePlantsBoxId)
-                        .queryAs(classOf[VBox])
-                        .getChildren
-                        .get(plantIndex)
-    //when:
-    robot.clickOn(checkBox)
+  //...
+  val checkBox = robot.lookup(selectablePlantsBoxId)
+                      .queryAs(classOf[VBox])
+                      .getChildren
+                      .get(plantIndex)
+  //when:
+  robot.clickOn(checkBox)
 
-    //then:
-    assertEquals(robot.lookup(selectedPlantBoxId)
-                .queryAs(classOf[VBox])
-                .getChildren.size, selectedPlantNumber)
-    verifyThat(numberPlantsSelectedId, hasText(selectedPlantNumber.toString))
+  //then:
+  assertEquals(robot.lookup(selectedPlantBoxId)
+              .queryAs(classOf[VBox])
+              .getChildren.size, selectedPlantNumber)
+  verifyThat(numberPlantsSelectedId, hasText(selectedPlantNumber.toString))
 ```
 Come si può vedere sempre dall'esempio, per verificare le proprietà degli elementi dell'interfaccia, è stata utilizzata la clase `FxAssert` e il metodo `verifyThat`, il quale consente, una volta passato l'id del componente _FXML_, di verificare una determinata proprietà su di esso. Le proprietà possono essere definite tramite i `matchers` di TestFX.
 
