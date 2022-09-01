@@ -83,4 +83,3 @@ class SelectCityViewModuleTest extends AbstractViewTest:
     eventually(timeout(Span(1000, Milliseconds))) {
       assertEquals(city.environmentValues, simulationMVC.simulationController.environment.environmentValues)
     }
-

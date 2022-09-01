@@ -11,13 +11,13 @@ object SelectCityControllerModule:
   /** A trait that represents the controller for the scene of city selection. */
   trait SelectCityController:
 
-    /** Method for searching cities beginning with the given characters.
-      * @param charSequence
-      *   a sequence of characters that the name of the city begins with.
+    /** Method for searching cities beginning with the given name.
+      * @param name
+      *   the name of the city to search.
       * @return
       *   a sequence of city names.
       */
-    def searchCities(charSequence: Seq[Char]): Seq[String]
+    def searchCities(name: String): Seq[String]
 
     /** Check whether all cities contain a given city.
       * @param city
@@ -47,12 +47,12 @@ object SelectCityControllerModule:
         simulationMVC.simulationController.environment = Environment(city, latitude, longitude)
         selectCityView.showNextScene()
 
-      override def searchCities(charSequence: Seq[Char]): Seq[String] = selectCityModel.searchCities(charSequence)
+      override def searchCities(name: String): Seq[String] = selectCityModel.searchCities(name)
       override def checkCity(city: String): Unit = city match
         case c if c.isBlank => selectCityView.setErrorText("Please select a city")
         case c =>
-          selectCityModel.containCity(c) match
-            case Some((x, y, z)) => saveCity(x, y, z)
+          selectCityModel.getCityInfo(c) match
+            case Some(city) => saveCity.tupled(city)
             case _ => selectCityView.setErrorText("The selected city is not valid")
 
   /** Trait that combine provider and component for city selection. */
