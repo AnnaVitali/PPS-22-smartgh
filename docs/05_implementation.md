@@ -210,17 +210,22 @@ override def notifyTimeValueChange(timeValue: String): Unit =
   }.executeAsync.runToFuture
 ```
 
--	notificare i sensori della disponibilità di un nuovo valore ambientale tra temperatura, umidità e luminosità;
+-	notificare l'area che il sensore relativo a un determinato parametro ha effettuato una nuova rilevazione;
 
 ```scala
-def setSensorSubjects(subjects: Map[String, ConcurrentSubject[Double, Double]]): Unit =
-  subjects.foreach((k, v) =>
-    k match
-      case "temp" => sensorsMap(TemperatureKey).setObserverEnvironmentValue(v)
-      case "hum" => sensorsMap(AirHumidityKey).setObserverEnvironmentValue(v)
-      case "lux" => sensorsMap(BrightnessKey).setObserverEnvironmentValue(v)
-      case "soilMoist" => sensorsMap(SoilHumidityKey).setObserverEnvironmentValue(v)
-  )
+override def computeNextSensorValue(): Unit =
+  Task {
+    currentValue = checkInRange(areaComponentsState.humidityActions match
+      case Watering => updateWateringValue(currentValue)
+      case MovingSoil => updateMovingSoilValue(currentValue)
+      case _ =>
+        areaComponentsState.gatesState match
+          case Open if currentEnvironmentValue > 0.0 => updateGatesOpenValue(currentValue, currentEnvironmentValue)
+          case _ => updateEvaporationValue(currentValue)
+    )
+    areaComponentsState.humidityActions = None
+    subject.onNext(currentValue)
+  }.executeAsync.runToFuture
 ```
 
 -	notificare i sensori dello scorrere del tempo col fine di ricalcolare periodicamente i valori rilevati all’interno delle aree
