@@ -228,7 +228,7 @@ def setSensorSubjects(subjects: Map[String, ConcurrentSubject[Double, Double]]):
 
 ```scala
 override protected def registerTimerCallback(verifyTimePass: String => Boolean): Unit =
-  addTimerCallback((s: String) => if verifyTimePass(s) then computeNextSensorValue())
+  addTimerCallback(s => if verifyTimePass(s) then computeNextSensorValue())
 ```
 
 -   aggiornare periodicamente la View relativa alla suddivisione in aree
