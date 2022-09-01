@@ -382,11 +382,11 @@ Nello specifico, i diversi _Unit tests_ che si vogliono realizzare devono prende
               .getChildren.size, selectedPlantNumber)
   verifyThat(numberPlantsSelectedId, hasText(selectedPlantNumber.toString))
 ```
-Come si può vedere sempre dall'esempio, per verificare le proprietà degli elementi dell'interfaccia, è stata utilizzata la clase `FxAssert` e il metodo `verifyThat`, il quale consente, una volta passato l'id del componente _FXML_, di verificare una determinata proprietà su di esso. Le proprietà possono essere definite tramite i `matchers` di TestFX.
+Come si può vedere sempre dall'esempio, per verificare le proprietà degli elementi dell'interfaccia, è stata utilizzata la classe `FxAssert` e il metodo `verifyThat`, il quale consente, una volta passato l'id del componente _FXML_, di verificare una determinata proprietà su di esso. Le proprietà possono essere definite tramite i `matchers` di TestFX.
 
 In questo modo, quindi, è stato possibile per il team di sviluppo effettuare dei test automatici sull'interfaccia grafica che si intende mostrare all'utente. 
 
-Va comunque sottolineato che per testare gli aspetti di View, sono stati svolti anche numerosi test manuali, anche perchè molto spesso, risultava essere complicato tramite test automatici, verificare determinate condizioni, questi di fatti non possono essere considerati completamente esaustivi nella verifica degli aspetti di interazione con l'utente.
+Va comunque sottolineato che per testare gli aspetti di View, sono stati svolti anche numerosi test manuali, anche perché molto spesso, risultava essere complicato tramite test automatici, verificare determinate condizioni, questi di fatti non possono essere considerati completamente esaustivi nella verifica degli aspetti di interazione con l'utente.
 
 ### 5.6.3 Coverage
 Come detto in precedenza, il team di sviluppo ha realizzato anche un flusso di lavoro dedicato alla _coverage_, in modo tale da poter analizzare la copertura ottenuta, ogni qual volta vengono inseriti dei nuovi tests o modificati quelli precedenti.
@@ -486,7 +486,7 @@ Nelle fasi iniziali di implementazione del progetto, mi sono impegnata nella rea
 - `PlantSelectorControllerModule`, il quale rappresenta il modulo che detiene il Controller per il meccanismo di selezione delle piante, che svolge la funzione di intermediario fra View e Model;
 - `PlantSelectorMVC`, che rappresenta il componente che detiene tutti gli elementi del _pattern MVC_, per la selezione delle piante.
 
-Dopodichè, mi sono dedicata alla realizzazione della View di fine simulazione, realizzando la classe `FinishSimulationView`.
+Dopodiché, mi sono dedicata alla realizzazione della View di fine simulazione, realizzando la classe `FinishSimulationView`.
 
 Nel secondo sprint, invece, mi sono concentrata maggiormente sulla realizzazione dei sensori, dei loro meccanismi di aggiornamento e notifica, definendo inizialmente assieme ad _Elena_, l'architettura generale dei sensori, in particolare abbiamo realizzato: le'interfacce `Sensor` e `SensorWithTimer`, le classi astratte `AbstractSensor` e `AbstractSensorWithTimer` e la classe `AreaComponentsState`. 
 
@@ -504,7 +504,7 @@ Infine, siccome durante l'utilizzo dell'applicazione, si è visto che i dati del
 - `loadingPlantControllerModule`, il quale si occupa di gestire l'interazione fra la View e il Model, che in questo caso è rappresentato sempre da `PlantSelectorModelModule`;
 - `loadingPlantViewModule`, che si occupa di gestire gli elementi dell'interfaccia grafica che occorre mostrare all'utente, per il caricamento dei dati.
 
-Una volta che tutti gli MVC sono stati implementati, assieme alle altre compagne di progetto, abbiamo provveduto alla rifattorizzazione di `SimulatioinView` e alla definizione di `SimulationController`, nonchè alla realizzazione di `SimulationMVC`. Infine, mi sono occupata di raccogliere gli elementi comuni relativi ai diversi Controller dell'applicazione, realizzando l'interfaccia `SceneController`.
+Una volta che tutti gli MVC sono stati implementati, assieme alle altre compagne di progetto, abbiamo provveduto alla rifattorizzazione di `SimulatioinView` e alla definizione di `SimulationController`, nonché alla realizzazione di `SimulationMVC`. Infine, mi sono occupata di raccogliere gli elementi comuni relativi ai diversi Controller dell'applicazione, realizzando l'interfaccia `SceneController`.
 
 Nell'ultimo sprint, mi sono dedicata assieme agli altri membri del gruppo, ad operazioni di _refactoring_ e di ottimizzazione del codice, per poter raffinare e migliorare ulteriormente la soluzione proposta.
 
@@ -513,9 +513,9 @@ Per quanto concerne l'attività di testing, invece, ho effettuato la realizzazio
 - `PlantSelectorModelModuleTest`;
 - `AreaComponentsStateTest`;
 - `FactoryFunctionsLuminosityTest`;
-- `FactoryFunctionsTemperaturetest`;
+- `FactoryFunctionsTemperatureTest`;
 - `LuminositySensorTest`;
-- `TemperatureSensortest`;
+- `TemperatureSensorTest`;
 - `FinishSimulationViewTest`;
 - `SelectPlantViewModuleTest`.
 
