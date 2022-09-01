@@ -76,7 +76,9 @@ object AreaLuminosityViewModule:
         areaLuminosityController.updLampValue(lampBrightnessSlider.getValue * LampFactor)
       )
 
-      lampBrightnessSlider.setLabelFormatter(sfxStringConverter2jfx(StringConverter(_.dropRight(1).toDouble, _ + "k")))
+      lampBrightnessSlider.setLabelFormatter(
+        sfxStringConverter2jfx(StringConverter(_.dropRight(1).toDouble, _.toString + "k"))
+      )
 
       override def setUpActions(isGatesOpen: Boolean): Unit =
         if isGatesOpen then
