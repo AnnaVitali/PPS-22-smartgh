@@ -231,7 +231,7 @@ L'obiettivo di questo sprint, consiste nel revisionare quanto prodotto fino ad o
 
 ## Sprint result
 
-Al termine di questo sprint, il team di svilippo consegna l'applicazione finale ottimizzata rispetto all'esperienza utente e alla qualità del codice. Inoltre, viene consegnato il report che documenta le fasi di sviluppo del progetto.
+Al termine di questo sprint, il team di svilippo consegna l'applicazione finale, ottimizzata rispetto all'esperienza utente e alla qualità del codice. Inoltre, viene consegnato il report che documenta le fasi di sviluppo del progetto.
 
 #### Note:
 Gli sprint tasks marcati con (*), derivano dal precedente sprint.
