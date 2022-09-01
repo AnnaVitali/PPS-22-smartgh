@@ -51,9 +51,9 @@ I componenti, descritti nelle successive sottosezioni, fattorizzano elementi com
 ### ViewComponent
 `ViewComponent` è un’interfaccia generica che rappresenta un componente della View e, come si può vedere dalla figura (vedi [Fig. 4.1.1]), richiede che il tipo generico `A` sia sottotipo di `Parent`. Quest'ultimo è la classe base dei nodi con figli di _JavaFx_. 
 
-Per l’implementazione di `ViewComponent` si è rispettato il pattern _Template Method_, definendo una classe astratta `AbstractViewComponent` dove è contenuto il template dei componenti. In tale classe viene incapsulata la logica necessaria per il caricamento dei layout e per la loro inizializzazione, lasciando alle sottoclassi la definizione del rispettivo componente interno associato al file _FXML_.
+Per l’implementazione di `ViewComponent` si è rispettato il pattern _Template Method_, definendo una classe astratta `AbstractViewComponent` dove è contenuto il template dei componenti. In tale classe viene incapsulata la logica necessaria per il caricamento dei layout e per la loro inizializzazione, lasciando alle sottoclassi la definizione del file _FXML_ associato.
 
-Tutte le View estenderanno da tale classe, in modo da creare componenti modulari ed evitare ripetizioni del codice nell’inizializzazione dei layout.
+Tutte le View estenderanno da tale classe, in modo da creare componenti modulari ed evitare ripetizioni del codice nel caricamento dei layout.
 
 <div align="center">
   <img src="img/view_component.png" />
