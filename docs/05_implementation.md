@@ -131,7 +131,6 @@ Per consentire quest'operazione, la classe `UploadCities`, si occupa di converti
 Questo file, `cities.pl`, contiene le regole sulle città, scritte in questo modo:
 
 ```prolog
-% city('city', 'latitude', 'longitude').
 city('Bologna', '44.4939', '11.3428').
 city('Cesena', '44.1333', '12.2333').
 ``` 
@@ -164,9 +163,9 @@ override def getAllAvailablePlants: List[String] =
 
 override def getPlantsSelectedIdentifier: List[String] =
   selectedPlants
-      .map(s => "\'" + s + "\'")
-      .flatMap(s => engine("plant(" + s + ", Y).").map(extractTermToString(_, "Y")))
-      .toList
+    .flatMap(s => engine("plant(\'" + s + "\', Y).")
+    .map(extractTermToString(_, "Y")))
+    .toList
 
 ``` 
 
@@ -235,21 +234,20 @@ override protected def registerTimerCallback(verifyTimePass: String => Boolean):
 
 ```scala
 override def updateView(): Unit =
-  ghDivisionModel.areas.foreach(a =>
-    a.areaModel
+  ghDivisionModel.areas.foreach(
+    _.areaModel
       .changeStatusObservable()
       .subscribe(
-        (s: AreaStatus) => {
+        s => {
           s match
             case AreaStatus.ALARM => drawView()
             case _ =>
           Continue
         },
-        (ex: Throwable) => ex.printStackTrace(),
+        _.printStackTrace(),
         () => {}
       ) :: subscriptionAlarm
   )
-
   subscriptionTimeout = timeoutUpd.subscribe()
 ```
 
@@ -296,10 +294,10 @@ Al fine di valutare l'esito della risposta, si è fatto uso del `Try match` per 
 ```scala
 Try(requests.post(url = url, data = data)) match {
   case Success(r: Response) =>
-      implicit val formats: DefaultFormats.type = org.json4s.DefaultFormats
-      parse(r.text()).extract[RequestResult].get("access_token").fold[String]("")(res => res.toString)
+    implicit val formats: DefaultFormats.type = org.json4s.DefaultFormats
+    parse(r.text()).extract[RequestResult].get("access_token").fold[String]("")(_.toString)
   case Failure(_) => ""
-  }
+}
 ```
 
 Il _JSON_ ottenuto in caso di successo, è stato poi utilizzato per l'implementazione del `type` definito nell'interfaccia della classe `Environment`, nel caso della città e `Plant`, nel caso delle informazioni relative alla pianta.
