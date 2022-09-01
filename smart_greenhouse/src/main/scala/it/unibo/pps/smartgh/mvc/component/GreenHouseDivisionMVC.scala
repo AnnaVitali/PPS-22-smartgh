@@ -10,9 +10,10 @@ import it.unibo.pps.smartgh.view.component.GHViewModule
 import monix.reactive.subjects.ConcurrentSubject
 
 /** A trait that represents the MVC component for greenhouse division. */
-trait GreenHouseDivisionMVC extends GHModelModule.Interface
-  with GHViewModule.Interface
-  with GHControllerModule.Interface:
+trait GreenHouseDivisionMVC
+    extends GHModelModule.Interface
+    with GHViewModule.Interface
+    with GHControllerModule.Interface:
   /** Create and set the greenhouse division areas.
     * @param subjects
     *   for the sensors
@@ -34,8 +35,9 @@ object GreenHouseDivisionMVC:
     */
   def apply(plants: List[Plant], simulationMVC: SimulationMVC): GreenHouseDivisionMVC =
     GreenHouseDivisionMVCImpl(plants, simulationMVC)
-  
-  private class GreenHouseDivisionMVCImpl(plants: List[Plant], simulationMVC: SimulationMVC) extends GreenHouseDivisionMVC:
+
+  private class GreenHouseDivisionMVCImpl(plants: List[Plant], simulationMVC: SimulationMVC)
+      extends GreenHouseDivisionMVC:
     override val ghDivisionModel: GHModelModule.GreenHouseModel = GreenHouseDivisionModelImpl()
     override val ghDivisionController: GHControllerModule.GreenHouseController = GreenHouseDivisionControllerImpl()
     override val ghDivisionView: GHViewModule.GreenHouseView = GreenHouseDivisionViewImpl()

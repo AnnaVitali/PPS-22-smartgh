@@ -72,7 +72,7 @@ object Plant:
       Try(requests.post(url = url, data = data)) match {
         case Success(r: Response) =>
           implicit val formats: DefaultFormats.type = org.json4s.DefaultFormats
-          parse(r.text()).extract[RequestResult].get("access_token").fold[String]("")(res => res.toString)
+          parse(r.text()).extract[RequestResult].get("access_token").fold[String]("")(_.toString)
         case Failure(_) => ""
       }
 
@@ -89,7 +89,7 @@ object Plant:
       }
 
     private def getImageUrl(info: RequestResult): String =
-      info.get("image_url").fold[String]("images/plantIcon.png")(res => res.toString)
+      info.get("image_url").fold[String]("images/plantIcon.png")(_.toString)
 
     private def getOptimalValues(info: RequestResult): RequestResult =
       info.filter((f, _) => detectedParameters contains f)

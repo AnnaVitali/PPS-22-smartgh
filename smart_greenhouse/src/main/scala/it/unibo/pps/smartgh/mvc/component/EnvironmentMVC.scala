@@ -6,10 +6,11 @@ import it.unibo.pps.smartgh.model.greenhouse.EnvironmentModelModule
 import it.unibo.pps.smartgh.mvc.SimulationMVC
 import it.unibo.pps.smartgh.view.component.EnvironmentViewModule
 /** A trait that represents the MVC component for the environment. */
-trait EnvironmentMVC extends EnvironmentModelModule.Interface
-  with EnvironmentViewModule.Interface
-  with EnvironmentControllerModule.Interface
-  with SimulationMVC.Interface
+trait EnvironmentMVC
+    extends EnvironmentModelModule.Interface
+    with EnvironmentViewModule.Interface
+    with EnvironmentControllerModule.Interface
+    with SimulationMVC.Interface
 
 /** Object that encloses the MVC structure for environment values management and time visualization. */
 object EnvironmentMVC:
@@ -22,9 +23,8 @@ object EnvironmentMVC:
     */
   def apply(simulationMVC: SimulationMVC): EnvironmentMVC =
     EnvironmentMVCImpl(simulationMVC)
-  
-  private class EnvironmentMVCImpl(override val simulationMVC: SimulationMVC)
-      extends EnvironmentMVC:
+
+  private class EnvironmentMVCImpl(override val simulationMVC: SimulationMVC) extends EnvironmentMVC:
 
     override val environmentModel: EnvironmentModelModule.EnvironmentModel = EnvironmentModelImpl(
       simulationMVC.simulationController.environment

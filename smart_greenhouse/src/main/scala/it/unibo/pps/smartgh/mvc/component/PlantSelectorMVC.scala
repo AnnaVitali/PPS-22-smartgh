@@ -10,10 +10,11 @@ import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.SelectPlantView
 import it.unibo.pps.smartgh.view.component.SelectPlantViewModule
 
 /** A trait that represents the MVC component for the plant selector. */
-trait PlantSelectorMVC extends PlantSelectorModelModule.Interface
-  with PlantSelectorControllerModule.Interface
-  with SelectPlantViewModule.Interface
-  with SimulationMVC.Interface
+trait PlantSelectorMVC
+    extends PlantSelectorModelModule.Interface
+    with PlantSelectorControllerModule.Interface
+    with SelectPlantViewModule.Interface
+    with SimulationMVC.Interface
 
 /** Object that encloses the MVC structure for the plant selection. */
 object PlantSelectorMVC:
@@ -25,7 +26,7 @@ object PlantSelectorMVC:
     *   the implementation of the plant selection MVC.
     */
   def apply(simulationMVC: SimulationMVC): PlantSelectorMVC = PlantSelectorMVCImpl(simulationMVC)
-  
+
   private class PlantSelectorMVCImpl(override val simulationMVC: SimulationMVC) extends PlantSelectorMVC:
 
     override val plantSelectorModel: PlantSelectorModel = PlantSelectorModelImpl(Config.Path + Config.PlantsOutputFile)

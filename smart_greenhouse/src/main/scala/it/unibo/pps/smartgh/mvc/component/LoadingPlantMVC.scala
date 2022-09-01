@@ -9,10 +9,11 @@ import it.unibo.pps.smartgh.view.component.LoadingPlantViewModule.LoadingPlantVi
 import it.unibo.pps.smartgh.view.component.LoadingPlantViewModule
 
 /** A trait that represents the MVC component for the plant selector. */
-trait LoadingPlantMVC extends PlantSelectorModelModule.Interface
-  with LoadingPlantControllerModule.Interface
-  with LoadingPlantViewModule.Interface
-  with SimulationMVC.Interface
+trait LoadingPlantMVC
+    extends PlantSelectorModelModule.Interface
+    with LoadingPlantControllerModule.Interface
+    with LoadingPlantViewModule.Interface
+    with SimulationMVC.Interface
 
 /** Object that encloses the MVC structure for loading the plants data. */
 object LoadingPlantMVC:
@@ -28,7 +29,8 @@ object LoadingPlantMVC:
   def apply(simulationMVC: SimulationMVC, model: PlantSelectorModel): LoadingPlantMVC =
     LoadingPlantMVCImpl(simulationMVC, model)
 
-  private class LoadingPlantMVCImpl(override val simulationMVC: SimulationMVC, model: PlantSelectorModel) extends LoadingPlantMVC:
+  private class LoadingPlantMVCImpl(override val simulationMVC: SimulationMVC, model: PlantSelectorModel)
+      extends LoadingPlantMVC:
 
     override val plantSelectorModel: PlantSelectorModel = model
     override val loadingPlantView: LoadingPlantView = LoadingPlantViewImpl()

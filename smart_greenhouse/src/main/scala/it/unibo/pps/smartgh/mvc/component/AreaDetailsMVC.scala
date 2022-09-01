@@ -9,10 +9,11 @@ import it.unibo.pps.smartgh.view.component.AreaDetailsViewModule.AreaDetailsView
 import it.unibo.pps.smartgh.view.component.AreaDetailsViewModule
 
 /** A trait that represents the MVC component for the area detail. */
-trait AreaDetailsMVC extends AreaModelModule.Interface
-  with AreaDetailsViewModule.Interface
-  with AreaDetailsControllerModule.Interface
-  with SimulationMVC.Interface
+trait AreaDetailsMVC
+    extends AreaModelModule.Interface
+    with AreaDetailsViewModule.Interface
+    with AreaDetailsControllerModule.Interface
+    with SimulationMVC.Interface
 
 /** Object that incapsulate the model view and controller module for the area details. */
 object AreaDetailsMVC:
@@ -28,7 +29,8 @@ object AreaDetailsMVC:
   def apply(simulationMVC: SimulationMVC, areaModel: AreaModel): AreaDetailsMVC =
     AreaDetailsMVCImpl(simulationMVC, areaModel)
 
-  private class AreaDetailsMVCImpl(override val simulationMVC: SimulationMVC, override val areaModel: AreaModel) extends AreaDetailsMVC:
+  private class AreaDetailsMVCImpl(override val simulationMVC: SimulationMVC, override val areaModel: AreaModel)
+      extends AreaDetailsMVC:
 
     override val areaDetailsView: AreaDetailsView = AreaDetailsViewImpl()
     override val areaDetailsController: AreaDetailsController = AreaDetailsControllerImpl()

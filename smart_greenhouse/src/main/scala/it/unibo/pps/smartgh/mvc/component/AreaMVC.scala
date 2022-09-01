@@ -9,10 +9,11 @@ import it.unibo.pps.smartgh.mvc.component.GreenHouseDivisionMVC
 import it.unibo.pps.smartgh.view.component.AreaViewModule
 
 /** A trait that represents the MVC component for an area. */
-trait AreaMVC extends AreaModelModule.Interface
-  with AreaViewModule.Interface
-  with AreaControllerModule.Interface
-  with SimulationMVC.Interface:
+trait AreaMVC
+    extends AreaModelModule.Interface
+    with AreaViewModule.Interface
+    with AreaControllerModule.Interface
+    with SimulationMVC.Interface:
 
   /** Paint the area. */
   def paintArea(): Unit
@@ -35,7 +36,7 @@ object AreaMVC:
       greenHouseDivisionMVC: GreenHouseDivisionMVC
   ): AreaMVC =
     AreaMVCImpl(plant, simulationMVC, greenHouseDivisionMVC)
-  
+
   private class AreaMVCImpl(
       plant: Plant,
       override val simulationMVC: SimulationMVC,

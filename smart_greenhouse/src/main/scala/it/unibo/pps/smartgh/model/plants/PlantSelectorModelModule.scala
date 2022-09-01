@@ -155,8 +155,7 @@ object PlantSelectorModelModule:
 
       override def getPlantsSelectedIdentifier: List[String] =
         selectedPlants
-          .map(s => "\'" + s + "\'")
-          .flatMap(s => engine("plant(" + s + ", Y).").map(extractTermToString(_, "Y")))
+          .flatMap(s => engine("plant(\'" + s + "\', Y).").map(extractTermToString(_, "Y")))
           .toList
 
       override def startEmittingPlantsSelected(): Unit =

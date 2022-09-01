@@ -45,21 +45,20 @@ object GHControllerModule:
       private val subscriptionAlarm: List[Cancelable] = List.empty
 
       override def updateView(): Unit =
-        ghDivisionModel.areas.foreach(a =>
-          a.areaModel
+        ghDivisionModel.areas.foreach(
+          _.areaModel
             .changeStatusObservable()
             .subscribe(
-              (s: AreaStatus) => {
+              s => {
                 s match
                   case AreaStatus.ALARM => drawView()
                   case _ =>
                 Continue
               },
-              (ex: Throwable) => ex.printStackTrace(),
+              _.printStackTrace(),
               () => {}
             ) :: subscriptionAlarm
         )
-
         subscriptionTimeout = timeoutUpd.subscribe()
 
       override def stopListening(): Unit =
