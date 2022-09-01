@@ -51,9 +51,9 @@ object SelectCityControllerModule:
       override def checkCity(city: String): Unit = city match
         case c if c.isBlank => selectCityView.setErrorText("Please select a city")
         case c =>
-          selectCityModel.getCityInfo(c) match
-            case Some(city) => saveCity.tupled(city)
-            case _ => selectCityView.setErrorText("The selected city is not valid")
+          selectCityModel
+            .getCityInfo(c)
+            .fold(selectCityView.setErrorText("The selected city is not valid"))(saveCity.tupled(_))
 
   /** Trait that combine provider and component for city selection. */
   trait Interface extends Provider with Component:

@@ -48,9 +48,10 @@ object SelectCityModelModule:
         searchCity(name, end = "'|_]").map(extractTerm(_)("X")).toSeq
 
       override def getCityInfo(city: String): Option[(String, String, String)] =
-        searchCity(city).headOption match
-          case Some(s) => val e = extractTerm(s); Some(e("X"), e("Y"), e("Z"))
-          case _ => None
+        searchCity(city).headOption.fold(None) { s =>
+          val e = extractTerm(s)
+          Some(e("X"), e("Y"), e("Z"))
+        }
 
       private def searchCity(city: String, start: String = "['", sep: String = "','", end: String = "']") =
         engine("search_city(" + city.mkString(start, sep, end) + ", X, Y, Z)")

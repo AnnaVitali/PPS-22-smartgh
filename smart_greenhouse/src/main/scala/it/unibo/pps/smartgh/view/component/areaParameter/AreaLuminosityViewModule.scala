@@ -49,15 +49,15 @@ object AreaLuminosityViewModule:
 
       //noinspection VarCouldBeVal
       @FXML
-      var upShieldingBtn: ToggleButton = _
+      protected var upShieldingBtn: ToggleButton = _
 
       //noinspection VarCouldBeVal
       @FXML
-      var downShieldingBtn: ToggleButton = _
+      protected var downShieldingBtn: ToggleButton = _
 
       //noinspection VarCouldBeVal
       @FXML
-      var lampBrightnessSlider: Slider = _
+      protected var lampBrightnessSlider: Slider = _
 
       lampBrightnessSlider.setValue(areaLuminosityController.getLampValue / LampFactor)
       initShieldingBtn(areaLuminosityController.isShielded)

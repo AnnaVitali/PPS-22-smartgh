@@ -39,11 +39,11 @@ object AreaSoilMoistureViewModule:
 
       //noinspection VarCouldBeVal
       @FXML
-      var movingSoilBtn: Button = _
+      protected var movingSoilBtn: Button = _
 
       //noinspection VarCouldBeVal
       @FXML
-      var wateringBtn: Button = _
+      protected var wateringBtn: Button = _
 
       movingSoilBtn.setOnMouseClicked(_ => areaSoilMoistureController.movingSoil())
       wateringBtn.setOnMouseClicked(_ => areaSoilMoistureController.watering())

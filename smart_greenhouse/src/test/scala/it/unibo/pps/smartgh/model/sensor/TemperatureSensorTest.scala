@@ -72,7 +72,7 @@ class TemperatureSensorTest extends AnyFunSuite with Matchers with BeforeAndAfte
 
     subjectEnvironment.onNext(environmentValue)
 
-    eventually(timeout(Span(5000, Milliseconds))) {
+    eventually(timeout(Span(10000, Milliseconds))) {
       firstApproach = temperatureSensor.getCurrentValue
       firstApproach should be <= environmentValue
     }
@@ -80,7 +80,7 @@ class TemperatureSensorTest extends AnyFunSuite with Matchers with BeforeAndAfte
     areaComponentsState.gatesState = AreaGatesState.Open
     subjectActions.onNext(areaComponentsState)
 
-    eventually(timeout(Span(5000, Milliseconds))) {
+    eventually(timeout(Span(10000, Milliseconds))) {
       temperatureSensor.getCurrentValue should (be >= firstApproach and be <= environmentValue)
     }
   }
@@ -94,7 +94,7 @@ class TemperatureSensorTest extends AnyFunSuite with Matchers with BeforeAndAfte
     areaComponentsState.gatesState = AreaGatesState.Close
     subjectActions.onNext(areaComponentsState)
 
-    eventually(timeout(Span(5000, Milliseconds))) {
+    eventually(timeout(Span(10000, Milliseconds))) {
       firstApproach = temperatureSensor.getCurrentValue
       firstApproach should be <= environmentValue
     }
@@ -102,7 +102,7 @@ class TemperatureSensorTest extends AnyFunSuite with Matchers with BeforeAndAfte
     areaComponentsState.temperature = 27.0
     subjectEnvironment.onNext(environmentValue)
 
-    eventually(timeout(Span(5000, Milliseconds))) {
+    eventually(timeout(Span(10000, Milliseconds))) {
       temperatureSensor.getCurrentValue should (be <= firstApproach and be >= areaComponentsState.temperature and be <= environmentValue)
     }
   }

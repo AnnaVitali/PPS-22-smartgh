@@ -59,11 +59,11 @@ object AreaAirHumidityViewModule:
 
       //noinspection VarCouldBeVal
       @FXML
-      var ventilationBtn: ToggleButton = _
+      protected var ventilationBtn: ToggleButton = _
 
       //noinspection VarCouldBeVal
       @FXML
-      var atomiserBtn: ToggleButton = _
+      protected var atomiserBtn: ToggleButton = _
 
       ventilationBtn.setSelected(areaAirHumidityController.isVentilationActivated)
       setVentilationText(areaAirHumidityController.isVentilationActivated)
@@ -95,9 +95,6 @@ object AreaAirHumidityViewModule:
       private def handleAtomiserStatus(active: Boolean): Unit =
         if active then areaAirHumidityController.atomiseArea() else areaAirHumidityController.disableAtomiseArea()
         setAtomiserText(active)
-
-      private def notifyStatus(active: Boolean)(thenFunc: () => Unit)(elseFunc: () => Unit) =
-        if active then thenFunc else elseFunc
 
   /** Trait that encloses the view for area air humidity parameter. */
   trait Interface extends Provider with Component:
