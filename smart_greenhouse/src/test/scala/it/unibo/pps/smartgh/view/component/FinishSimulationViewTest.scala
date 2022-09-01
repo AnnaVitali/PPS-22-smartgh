@@ -43,4 +43,3 @@ class FinishSimulationViewTest extends AbstractViewTest:
       verifyThat(startNewSimulationButtonId, isVisible)
       verifyThat(startNewSimulationButtonId, hasText(startNewSimulationText))
     }
-//TODO verify button click with robot
