@@ -28,7 +28,7 @@ Il Model, nello specifico è costituito dai componenti:
 
 Per realizzare la simulazione si è deciso di utilizzare il pattern architetturale _MVC (Model, View, Controller)_, il quale consente di separare la logica di presentazione dei dati dalla logica di business, al fine di rendere quanto più possibile indipendenti i diversi moduli che lo costituiscono.
 
-Nello specifico, il funzionamento del pattern _MVC_ è il seguente:
+Nello specifico, il funzionamento del _pattern MVC_ è il seguente:
 
 - il Model cattura il comportamento dell'applicazione, indipendentemente dall'interfaccia utente, e fornisce i metodi per poter accedere ai dati;
 - il Controller riceve i comandi dell'utente attraverso la View e reagisce modificando lo stato dei componenti View e Model;
