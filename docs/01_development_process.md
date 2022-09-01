@@ -1,59 +1,61 @@
 # 1. Processo di sviluppo
 
-Per il processo di sviluppo, il team di lavoro, ha deciso di utilizzare un apporcio _SCRUM-inspired_. In particolare,  [_SCRUM_](https://www.scrum.org/) è un _framework_ di sviluppo software: agile, iterativo e incrementale, che consente la gestione dello sviluppo del prodotto.
+Per il processo di sviluppo, il team di lavoro ha deciso di utilizzare un approccio _SCRUM-inspired_. In particolare,  [_SCRUM_](https://www.scrum.org/) è un _framework_ di sviluppo software agile, iterativo e incrementale, che consente la gestione dello sviluppo del prodotto.
 
-Specificatamente, il porcesso _SCRUM-inspired_ seguito, prevede di:
-1. nominare uno studente (ad esempio, chi ha l'idea del progetto), il quale fungerà da sorta di committente o esperto del dominio, il quale cercherà di garantire l'usabilità/qualità del risultato;
+Specificatamente, tale processo prevede di:
+1. nominare uno studente (ad esempio, chi ha l'idea del progetto) che fungerà da _committente_ o esperto del dominio, e che cercherà di garantire l'usabilità e la qualità del risultato;
 2. designare uno studente (ad esempio, chi pensa di avere doti di coordinamento) che ricoprirà il ruolo di _product owner_;
-3. effettuare un meeting iniziale, in cui redigere un _product backlog_ e definire un primo sprint organizzativo;
-4. utilizzare sprint corti, da 15-20 ore di lavoro, con l'obiettivo di ottenere, ad ogni sprint, dei risultati "tangibili", con già un valore per gli _stakeholder_;
-5. fare meeting frequenti e a inizio/fine sprint (con brevissimo report del risultato, anch'esso da tenere in versione), realizzando anche uno _sprint backlog_ per mantenere traccia dell'organizzazione dei lavori.
+3. effettuare un meeting iniziale in cui redigere un _product backlog_ e definire un primo sprint organizzativo;
+4. utilizzare sprint corti, da 15-20 ore di lavoro, con l'obiettivo di ottenere ad ogni sprint dei risultati "tangibili", ossia con un valore per gli _stakeholder_;
+5. fare meeting frequenti ed a inizio/fine sprint (opportunamente documentati da un brevissimo report del risultato, anch'esso da tenere in versione), realizzando uno _sprint backlog_ per mantenere traccia dell'organizzazione dei lavori.
 
 ## 1.1 Meetings
 
-I meetings sono stati realizzati definendo, inizialmente, un ordine del giorno redatto principalmente dal _product owner_, a cui anche gli altri membri del gruppo possono contribuire, suggerendo nuovi aspetti da discutere, o modifiche rispetto agli argomenti di discussione individuati.
+I meetings sono stati realizzati definendo, inizialmente, un ordine del giorno redatto principalmente dal _product owner_, in collaborazione con gli altri membri del gruppo che possono suggerire modifiche o nuovi aspetti da discutere.
 
-Sono stati svolti incontri brevi e frequenti, pressoché quotidiani, in modo da mantenere aggiornati i diversi membri del gruppo, sullo stato di avanzamento del progetto.
+Sono stati svolti incontri brevi e frequenti, pressoché quotidiani, in modo da mantenere aggiornati i diversi membri del gruppo sullo stato di avanzamento del progetto.
 
-Per quanto riguarda gli sprint, come specificato precedentemente, essi sono stati svolti settimanalmente, con incontri di inizio e di fine. In particolare, durante l’incontro di inizio sprint, viene definito il _product backlog_ relativo, mentre durante quello di fine Sprint, vengono discussi i risultati ottenuti e revisionato il lavoro che è stato svolto.
+Per quanto riguarda gli sprint, come specificato precedentemente, essi sono stati svolti nell'arco di una settimana lavorativa e discussi in incontri a inizio e fine periodo. 
 
-I diversi meetings, sono stati tenuti in modalità _smart-working_, attraverso l’utilizzo di piattaforme per videoconferenze.
+In particolare, durante l’incontro di inizio sprint, viene definito il _product backlog_ relativo mentre, durante quello di fine Sprint, vengono discussi i risultati ottenuti e viene revisionato il lavoro svolto.
 
-Ogni meeting con il rispettivo ordine del giorno, è stato tracciato in un apposito file di riferimento, che è possibile trovare fra gli artefatti del progetto.
+I diversi meetings sono stati tenuti in modalità _smart-working_, attraverso l’utilizzo di piattaforme per videoconferenze.
+
+Ogni meeting e il rispettivo ordine del giorno sono stati tracciati in un apposito file, che è possibile trovare fra gli artefatti del progetto.
 
 ### 1.1.1 Sprint planning
 
-Lo _sprint planning_, è un meeting in cui il team pianifica il lavoro che deve essere svolto e portato a termine durante lo sprint, esso prevede di individuare i diversi elementi del _product backlog_ e i differenti _sprint tasks_ che devono essere effettuati per poter raggiungere gli obiettivi prefissati. Di conseguenza, durante i diversi _sprint planning_ sono stati discussi i seguenti punti:
+Lo _sprint planning_ è un meeting in cui il team pianifica il lavoro che deve essere svolto e portato a termine durante lo sprint. Questo prevede di individuare i diversi elementi del _product backlog_ e i differenti _sprint tasks_ che devono essere effettuati per poter raggiungere gli obiettivi prefissati. Di conseguenza, durante i diversi _sprint planning_ sono stati discussi i seguenti punti:
 
 1.	definizione dell’obiettivo principale dello sprint;
-2.	stato di sviluppo da raggiungere, alla fine dello sprint, tramite il raffinamento del _product backlog_;
-3.	definizione dei diversi tasks da svolgere, per il raggiungimento degli obiettivi preposti;
+2.	stato di sviluppo da raggiungere alla fine dello sprint, tramite il raffinamento del _product backlog_;
+3.	definizione dei diversi tasks da svolgere per il raggiungimento degli obiettivi preposti;
 4.	assegnazione dei task ai diversi membri del gruppo.
 
 ### 1.1.2 Sprint review
 
-Lo _sprint review_, è un meeting che ha luogo alla fine dello sprint, avente l’obiettivo di revisionare e valutare il lavoro svolto dal team di sviluppo. Pertanto, durante i differenti _sprint review_ sono stati discussi i seguenti punti:
+Lo _sprint review_ è un meeting che ha luogo alla fine dello sprint e che ha l’obiettivo di revisionare e valutare il lavoro svolto dal team di sviluppo. 
 
-1.	analisi dell’incremento ottenuto, valutando il lavoro che è stato svolto;
+Pertanto, durante i differenti _sprint review_ sono stati discussi i seguenti punti:
+
+1.	analisi dell’incremento ottenuto rispetto al risultato precedente, valutando il lavoro che è stato svolto;
 2.	aggiornamento e adattamento del _product backlog_;
 3.	valutazione di eventuali ritardi rispetto ai tempi definiti in precedenza;
 4.	formalizzazione del risultato ottenuto, riportandolo nello _sprint result_ del relativo _product backlog_.
 
 ### 1.1.3 Daily SCRUM
 
-Il _daily SCRUM_, rappresenta un momento in cui il team si riunisce e ogni membro, mette al corrente i collaboratori del proprio operato. Il meeting è breve circa 15-20 minuti e durante questi incontri ogni membro del gruppo ha esposto i seguenti punti:
+Il _daily SCRUM_ rappresenta un momento in cui il team si riunisce e ogni membro mette al corrente i collaboratori del proprio operato. Il meeting è breve (circa 15-20 minuti) e durante questo tipo di incontro ogni membro del gruppo espone i seguenti punti:
 
 1.	il lavoro svolto nella giornata corrente;
-2.	le eventuali problematiche riscontrate durante lo sviluppo, chiedendo consigli agli altri membri del team, su come poterle risolvere;
-3.	la pianificazione dei successivi compiti che si intende svolgere, a fronte di quanto emerso dai precedenti punti.
+2.	le eventuali problematiche riscontrate durante lo sviluppo, chiedendo consigli agli altri membri del team su come poterle risolvere;
+3.	la pianificazione dei successivi compiti che si intende svolgere, a fronte di quanto emerso nei precedenti punti.
 
-Va specificato che questi meetings, non necessariamente, sono stati svolti tutti in videoconferenza, ma anche tramite una discussione via chat tra i diversi membri del gruppo. Inoltre, questi incontri, inquanto giornalieri e di breve durata, non sono stati registrati nel file di riferimento, dove invece si è tenuto traccia dei diversi meeting effettuati per discutere e sistemare aspetti importanti del progetto, degli _sprint planning_ e degli _sprint review_.
+Va specificato che questi meetings non sono stati svolti necessariamente tutti in videoconferenza, ma anche via chat.. Inoltre, queste occasioni di discussione, in quanto giornaliere e di breve durata, non sono state documentate.
 
 ## 1.2 Divisione dei tasks
 
-All’avvio di ciascuno sprint settimanale, mediante il _product backlog_ sono stati assegnati, a ciascun membro del team, una serie di tasks da svolgere durante lo sprint.
-
-Nel momento successivo alla suddivisione dei tasks fra i diversi membri del gruppo, ogni sviluppatore ha la possibilità di iniziare a svolgere i diversi lavori che li sono stati affidati, nell’ ordine che ritiene più opportuno. 
+All’avvio di ciascuno sprint settimanale, mediante il _product backlog_,  sono stati assegnati a ciascun membro del team una serie di tasks da svolgere.
 
 In particolare, ogni componente del team ha contribuito al progetto realizzando i tasks descritti di seguito.
 
@@ -493,38 +495,39 @@ In particolare, ogni componente del team ha contribuito al progetto realizzando 
   
 </table>
 
-\* questi task sono stati completati a seguito di una collaborazione fra più componenti del gruppo, vedere i diversi _product backlog_ relativi al progetto, per maggiori dettagli.
+\* questi task sono stati completati a seguito di una collaborazione fra più componenti del gruppo (vedere i diversi _product backlog_ relativi al progetto per maggiori dettagli).
 
 ### 1.2.1 Aggregazione dei risultati
 
 Il progetto è stato realizzato attraverso l'utilizzo di un _repository_ GitHub.
 
-Dopo che ad ogni membro del gruppo, sono stati affidati i diversi compiti da svolgere per lo sprint corrente, a seguito dell'incontro di _sprint preview_, è possibile per ogni  sviluppatore procedere nell'esecuzione dei tasks che li sono stati assegnati, in modo indipendente rispetto agli altri, aprendo un proprio _branch_ di lavoro sul _repository_ del progetto.
+In questo modo, dopo che ad ogni membro del gruppo sono stati affidati i diversi compiti da svolgere, è possibile procedere all'esecuzione dei tasks in modo indipendente, aprendo un proprio _branch_ di lavoro sul _repository_ del progetto.
 
-Al termine dello sprint, i diversi _branches_ su cui sono stati svolti i diversi lavori vengono chiusi e uniti tramite l'operazione di `merge`, al _branch_ di sviluppo principale (`develop`). Tuttavia, nel caso in cui alcuni lavori che devono essere svolti, dipendano da altri, i diversi membri del gruppo coinvolti nella loro realizzazione, collaborano insieme per poter unire i diversi _branches_ di lavoro realizzati, o per poterne creare di nuovi da cui partire, in modo da proseguire e completare i tasks successivi.
+Al termine dello sprint, i diversi _branches_ vengono chiusi e uniti, tramite l'operazione di `merge`, al _branch_ di sviluppo principale (`develop`). 
 
-Una volta che tutti i lavori per il progetto sono stati terminati e si è quindi pronti per la prima _release_ dell'aplicazione, si provvederà all'unione del _branch_ `develop`, contenente tutti i risultati raggiunti fino a questo momento, con il _branch_ `master`, che invece contiene le diverse versioni aggiornate e rilasciate del progetto realizzato.
+Tuttavia, nel caso in cui il completamente del lavoro di uno dipenda dall'esecuzione di quello di altri, i membri coinvolti collaborano al fine di unire i diversi _branches_ o ne creano di nuovi da cui partire, in modo da proseguire e completare i tasks successivi.
 
+Una volta che tutti i lavori per il progetto sono stati terminati e si è quindi pronti per la prima _release_ dell'aplicazione, si provvederà all'unione del _branch_ `develop` con il _branch_ `master`, che contiene le versioni rilasciate del progetto.
 
 ### 1.2.2 Revisione dei task
 
-Al termine di ogni sprint e durante l'incontro di _sprint review_, si procede nella revisione del lavoro che è stato eseguito durante la settimana. In particolare, si verifica la realizzazione dei diversi tasks affidati a ogni membro del gruppo, analizzandone la loro completezza, in base alla _definition of done_ stabilita all'inizio del progetto.
+Al termine di ogni sprint, si procede alla revisione del lavoro svolto  durante la settimana. In particolare, si verifica la realizzazione dei tasks affidati a ogni membro del gruppo, analizzandone la loro completezza in base alla _definition of done_ stabilita all'inizio del progetto.
 
-Se durante l'incontro, ci si rende conto che alcuni aspetti del lavoro svolto potrebbero essere migliorati o di incompletezze nel risultato ottenuto, si richiede al membro del gruppo responsabile, di correggere o completare i lavori che li sono stati affidati,  prima di proseguire con i lavori del prossimo sprint, in base agli elementi emersi durante la revisione.
+Se durante l'incontro ci si rende conto di alcuni aspetti del lavoro svolto che potrebbero essere migliorati o di incompletezze nel risultato ottenuto, si richiede al rispettivo membro responsabile di correggere o completare i lavori che gli sono stati affidati,  prima di proseguire con il successivo sprint.
 
 Infine, a seguito dell'incontro di _sprint review_, si può decidere di effettuare il _refactoring_ di elementi già realizzati, dando luogo a nuovi tasks che dovranno essere realizzati nello sprint successivo.
 
 ## 1.3 Strumenti utilizzati
 
-Per la realizzazione del progetto, sono stati utilizzati differenti _tool_ a supporto del processo di sviluppo. Tali strumenti, hanno come obiettivo quello di agevolare gli sviluppatori, durante tutta la realizzazone del progetto, cercando di automatizzare i diversi aspetti di questo, che possono essere svolti automaticamente.
+Per la realizzazione del progetto sono stati utilizzati differenti _tool_ a supporto del processo di sviluppo. Tali strumenti hanno come obiettivo quello di agevolare gli sviluppatori durante tutta la realizzazone del progetto, cercando di automatizzarne i diversi aspetti.
 
-Pertanto, gli strumenti impiegati per il progetto, sono di seguito riportati:
+Pertanto, gli strumenti impiegati per il progetto sono riportati di seguito:
 
--	**SBT**,  per la build automation;
+-	**SBT**, per la _build automation_;
 -	**Wartremover**, per valutare la qualità del codice prodotto, individuando possibili pattern problematici;
--	**Scalastyle**, per formattare correttamente il codice in conformità alle convenzioni di Scala;
--	**ScalaTest**, per la scrittura ed esecuzione dei test automatizzati sul codice di produzione;
--	**UnitTest**, per la verifica delle funzionalità della UI;
--	**GitHub**, come servizio di hosting per il codice sorgente e i files utilizzati, durante il processo di sviluppo;
--	**GitHub Actions**, per promuovere la continuous integration;
+-	**Scalastyle**, per formattare correttamente il codice in conformità alle convenzioni di _Scala_;
+-	**ScalaTest**, per la scrittura ed esecuzione di test automatizzati sul codice di produzione;
+-	**UnitTest**, per la verifica delle funzionalità della _UI_;
+-	**GitHub**, come servizio di hosting per il codice sorgente e i files utilizzati durante il processo di sviluppo;
+-	**GitHub Actions**, per promuovere la _continuous integration_;
 -	**Trello**, come tool collaborativo per la gestione degli sprint tasks.
