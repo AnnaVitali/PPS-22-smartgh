@@ -51,7 +51,7 @@ Il _daily SCRUM_ rappresenta un momento in cui il team si riunisce e ogni membro
 2.	le eventuali problematiche riscontrate durante lo sviluppo, chiedendo consigli agli altri membri del team su come poterle risolvere;
 3.	la pianificazione dei successivi compiti che si intende svolgere, a fronte di quanto emerso nei precedenti punti.
 
-Va specificato che questi meetings non sono stati svolti necessariamente tutti in videoconferenza, ma anche via chat.. Inoltre, queste occasioni di discussione, in quanto giornaliere e di breve durata, non sono state documentate.
+Va specificato che questi meetings non sono stati svolti necessariamente tutti in videoconferenza, ma anche via chat. Inoltre, queste occasioni di discussione, in quanto giornaliere e di breve durata, non sono state documentate.
 
 ## 1.2 Divisione dei tasks
 
@@ -505,7 +505,7 @@ In questo modo, dopo che ad ogni membro del gruppo sono stati affidati i diversi
 
 Al termine dello sprint, i diversi _branches_ vengono chiusi e uniti, tramite l'operazione di `merge`, al _branch_ di sviluppo principale (`develop`). 
 
-Tuttavia, nel caso in cui il completamente del lavoro di uno dipenda dall'esecuzione di quello di altri, i membri coinvolti collaborano al fine di unire i diversi _branches_ o ne creano di nuovi da cui partire, in modo da proseguire e completare i tasks successivi.
+Tuttavia, nel caso in cui il completamento del lavoro di uno dipenda dall'esecuzione di quello di altri, i membri coinvolti collaborano al fine di unire i diversi _branches_ o ne creano di nuovi da cui partire, in modo da proseguire e completare i tasks successivi.
 
 Una volta che tutti i lavori per il progetto sono stati terminati e si è quindi pronti per la prima _release_ dell'aplicazione, si provvederà all'unione del _branch_ `develop` con il _branch_ `master`, che contiene le versioni rilasciate del progetto.
 
