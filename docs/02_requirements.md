@@ -5,7 +5,7 @@ In questa sezione verranno discussi i requisiti dell'applicazione che verrà rea
 I requisiti verranno numerati in modo tale che, nel seguito, potranno essere ricondotti alle rispettive sottosezioni.
 
 ## 2.1 Requisiti di business
-I requisiti di business previsiti dall'applicazione sono:
+I requisiti di business previsti dall'applicazione sono:
 
 1. simulare una serra intelligente in cui sono posti dei sensori per il monitoraggio delle coltivazioni;
 2. ricevere una segnalazione ogni qual volta venga rilevato un valore critico;

@@ -85,7 +85,7 @@ In particolare, ogni componente del team ha contribuito al progetto realizzando 
   
   <tr>
     <td rowspan="3">Consentire lo scorrimento fra le diverse pagine dell'applicazione</td>
-    <td>Realizzazione architettura MVC tramite cake pattern per la visualizzazoine dello stato globale della serra</td>
+    <td>Realizzazione architettura MVC tramite cake pattern per la visualizzazione dello stato globale della serra</td>
   </tr>
   <tr>
     <td>Realizzazione MVC globale della simulazione*</td>
@@ -507,7 +507,7 @@ Al termine dello sprint, i diversi _branches_ vengono chiusi e uniti, tramite l'
 
 Tuttavia, nel caso in cui il completamento del lavoro di uno dipenda dall'esecuzione di quello di altri, i membri coinvolti collaborano al fine di unire i diversi _branches_ o ne creano di nuovi da cui partire, in modo da proseguire e completare i tasks successivi.
 
-Una volta che tutti i lavori per il progetto sono stati terminati e si è quindi pronti per la prima _release_ dell'aplicazione, si provvederà all'unione del _branch_ `develop` con il _branch_ `master`, che contiene le versioni rilasciate del progetto.
+Una volta che tutti i lavori per il progetto sono stati terminati e si è quindi pronti per la prima _release_ dell'applicazione, si provvederà all'unione del _branch_ `develop` con il _branch_ `master`, che contiene le versioni rilasciate del progetto.
 
 ### 1.2.2 Revisione dei task
 
@@ -519,7 +519,7 @@ Infine, a seguito dell'incontro di _sprint review_, si può decidere di effettua
 
 ## 1.3 Strumenti utilizzati
 
-Per la realizzazione del progetto sono stati utilizzati differenti _tool_ a supporto del processo di sviluppo. Tali strumenti hanno come obiettivo quello di agevolare gli sviluppatori durante tutta la realizzazone del progetto, cercando di automatizzarne i diversi aspetti.
+Per la realizzazione del progetto sono stati utilizzati differenti _tool_ a supporto del processo di sviluppo. Tali strumenti hanno come obiettivo quello di agevolare gli sviluppatori durante tutta la realizzazione del progetto, cercando di automatizzarne i diversi aspetti.
 
 Pertanto, gli strumenti impiegati per il progetto sono riportati di seguito:
 

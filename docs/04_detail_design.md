@@ -95,7 +95,7 @@ La struttura articolata dell'applicazione ha introdotto la necessità di svilupp
 -	detenere i riferimenti ad istanze inizializzate da altri componenti, al fine di poter essere accedute da coloro che ne necessitano;
 -	inizializzare e modificare la schermata visualizzata in ogni momento dell’esecuzione dell’applicazione.
 
-L'`Interface` di  `SimulationMVC` sarà estesa dalla maggiorparte dei componenti MVC del progetto.
+L'`Interface` di  `SimulationMVC` sarà estesa dalla maggior parte dei componenti MVC del progetto.
 
 In particolare, la classe `SimulationMVC` racchiude i sottocomponenti `SimulationView` e `SimulationController`, derivanti dai rispettivi moduli. Come si può vedere dalla rappresentazione, `SimulationMVC` non racchiude un componente di tipo Model in quanto questo aspetto viene gestito da altri componenti _MVC_.
 
@@ -241,7 +241,7 @@ Il Model ha come obiettivo principale quello di mantenere sempre aggiornata la l
 La lista di piante rappresenta un elemento osservabile dal Controller: infatti, ogni qual volta viene aggiunto o rimosso un elemento a questa lista, il Controller viene notificato e si occupa di propagare tale informazione alla View. Il Controller, richiamando il metodo `registerCallbackPlantSelection`, si registra all'`Observable` della lista delle piante e specifica quali siano le azioni che devono essere intraprese quando: 
 - una nuova pianta viene selezionata;
 - viene generato un errore;
-- viene completata l'emmissione dei dati.
+- viene completata l'emissione dei dati.
 
 Infine, il Model, una volta che l'utente decide di dare il via alla simulazione, si occupa di istanziare gli oggetti `Plant`, rappresentanti le piante scelte e contenenti tutte le diverse informazioni utili per la loro gestione.
 
@@ -258,7 +258,7 @@ Tale trait rappresenta il Controller dell'_FXML_ per la rispettiva schermata ed,
 
 [Fig. 4.3.2.3]: img/select_plant_view.png
 
-La View per la selezione delle piante, inizialmente, si occuperà di mostrare le piante selezionabili dall'utente, ottenendole dal Controller; dopodichè, si occuperà di notificare il Controller ogni qual volta l'utente compirà un'azione di selezione o di deselezione. Nel caso in cui il Controller notifichi un errore, la View si occuperà di mostrare un messaggio all'utente.
+La View per la selezione delle piante, inizialmente, si occuperà di mostrare le piante selezionabili dall'utente, ottenendole dal Controller; dopodiché, si occuperà di notificare il Controller ogni qual volta l'utente compirà un'azione di selezione o di deselezione. Nel caso in cui il Controller notifichi un errore, la View si occuperà di mostrare un messaggio all'utente.
 
 #### Controller per la selezione delle piante
 
@@ -275,7 +275,7 @@ Tale `trait` estende l'interfaccia `SceneController`, contenente i metodi comuni
 
 Inizialmente, il Controller si occupa di impostare la schermata di selezione delle piante richiedendo al Model la lista di piante selezionabili e alla View di mostrarle all'utente.
 
-Dopodichè, il suo compito principale consiste nel notificare il Model ogni qual volta l'utente compia un'azione di selezione o deselezione per una specifica pianta e, nel caso in cui si verifichi una situazione di errore, nel richiedere alla View di mostrare all'utente un apposito messaggio.
+Dopodiché, il suo compito principale consiste nel notificare il Model ogni qual volta l'utente compia un'azione di selezione o deselezione per una specifica pianta e, nel caso in cui si verifichi una situazione di errore, nel richiedere alla View di mostrare all'utente un apposito messaggio.
 
 #### Plant
 
@@ -312,7 +312,7 @@ Dato che il Model è già stato discusso nel precedente paragrafo ([Model per la
 
 La View per il caricamento dei dati delle piante (vedi [Fig. 4.4.2]) si trova all'interno del modulo `LoadingPlantViewModule` al cui interno troviamo il `trait LoadingPlantView`, che contiene i metodi della View che possono essere richiamati per gestire l'interazione con l'utente. 
 
-`LoadingPlantView` estende sia l'interfaccia `ViewComponent` che l'interfaccia `ContigusSceneView`, in quanto rappresenta una scena che viene inserita all'interno di quella madre e consente il proseguimento alla scena successiva. Inoltre, la View per poter svolgere le proprie funzioni necessita anche di accedere alle proprietà di `SimulationMVC`.
+`LoadingPlantView` estende sia l'interfaccia `ViewComponent` che l'interfaccia `ContiguousSceneView`, in quanto rappresenta una scena che viene inserita all'interno di quella madre e consente il proseguimento alla scena successiva. Inoltre, la View per poter svolgere le proprie funzioni necessita anche di accedere alle proprietà di `SimulationMVC`.
 <div align="center">
   <img src="img/loading_plant_view.png" />
   <p> Fig. 4.4.2 - View per il caricamento dei dati delle piante </p>
@@ -384,7 +384,7 @@ La View viene racchiusa nel `EnvironmentViewModule` (vedi [Fig. 4.5.1.3]), al cu
 
 Tale trait estende `ViewComponent` in quanto rappresenta una scena inserita all’interno di quella madre.
 
-Invece, l’oggetto `context` di tipo `Requirements` specifica quali siano le dipendenze che devono essere soddisfatte affinchè la View possa lavorare correttamente. Nello specifico, ha bisogno dell’`EnvironmentController` per notificarlo delle interazioni dell’utente (es: modifica della velocità della simulazione), e del `SimulationMVC` per accedere al suo elemento View e notificarlo di passare ad una nuova scena (es: scena di fine simulazione) oppure di modificare lo stile di un elemento grafico comune (es: pulsante comune a tutte le View).
+Invece, l’oggetto `context` di tipo `Requirements` specifica quali siano le dipendenze che devono essere soddisfatte affinché la View possa lavorare correttamente. Nello specifico, ha bisogno dell’`EnvironmentController` per notificarlo delle interazioni dell’utente (es: modifica della velocità della simulazione), e del `SimulationMVC` per accedere al suo elemento View e notificarlo di passare ad una nuova scena (es: scena di fine simulazione) oppure di modificare lo stile di un elemento grafico comune (es: pulsante comune a tutte le View).
 
 <div align="center">
   <img src="img/environmentViewModule.png" />
@@ -404,7 +404,7 @@ Il Controller è racchiuso all’interno del modulo `EnvironmentControllerModule
   - recuperare l’elemento View associato ad esso;
   - ripristinare la visualizzazione dello stato globale della simulazione quando si esce dalla visualizzazione del dettaglio di un’area.
 
-L’oggetto `context` di tipo `Requirements` specifica quali siano le dipendenze che devono essere soddisfatte affinchè il controller possa lavorare correttamente (es: `EnvironmentView` per richiedere la visualizzazione del tempo trascorso, `EnvironmentModel` per richiedere l’aggiornamento dei valori ambientali, `SimulationMVC` per controllare la componente tempo).
+L’oggetto `context` di tipo `Requirements` specifica quali siano le dipendenze che devono essere soddisfatte affinché il controller possa lavorare correttamente (es: `EnvironmentView` per richiedere la visualizzazione del tempo trascorso, `EnvironmentModel` per richiedere l’aggiornamento dei valori ambientali, `SimulationMVC` per controllare la componente tempo).
 
 <div align="center">
   <img src="img/environmentControllerModule.png" />
@@ -470,7 +470,7 @@ Il Model, quindi, ha l'obiettivo di memorizzare la lista dei singoli _MVC_ di cu
 
 #### View per la suddivisione in aree
 
-La View viene racchiusa nel modulo `GHViewodule` (vedi [Fig. 4.6.1.3]), al cui interno troviamo il `trait GHDivisionView`, che definisce i metodi che possono essere richiamati sulla View e, nello specifico, quello per richiedere di ripulire e disegnare lo spazio di interfaccia relativa alla visualizzazione della composizione della serra. 
+La View viene racchiusa nel modulo `GHViewModule` (vedi [Fig. 4.6.1.3]), al cui interno troviamo il `trait GHDivisionView`, che definisce i metodi che possono essere richiamati sulla View e, nello specifico, quello per richiedere di ripulire e disegnare lo spazio di interfaccia relativa alla visualizzazione della composizione della serra. 
 
 Questa interfaccia rappresenta inoltre il Controller dell'_FXML_ per la relativa sezione: infatti, bisogna ricordare che la `ghDivisionView` è racchiusa all'interno della più ampia View che è `EnvironmentView`. 
 
@@ -491,7 +491,7 @@ Il Controller viene racchiuso all'interno del modulo `GHControllerModule` (vedi 
   - richiedere l'aggiornamento della View;
   - stoppare l'aggiornamento periodico e ad eventi della View.
 
-Il compito principale del Controller è quello di richiedere l'aggiornamento della View affinchè questa mostri lo stato delle aree e i rispettivi valori rilevati all'interno.
+Il compito principale del Controller è quello di richiedere l'aggiornamento della View affinché questa mostri lo stato delle aree e i rispettivi valori rilevati all'interno.
 
 <div align="center">
   <img src="img/greenhouseDivision_controller.png" />
@@ -541,7 +541,7 @@ Questa interfaccia rappresenta, inoltre, il Controller dell'_FXML_ per la relati
 
 Questo trait, come gli altri, per poter essere inseriti all'interno della scena principale, implementa `ViewComponent `. Oltre a ciò, implementa anche `ContiguousSceneView` per permettere di passare alla scena incaricata di mostrare il dettaglio dell'area.
 
-La View ha come ruolo principale quello di mostrare lo stato di un'area, il nome della pianta e i valori dei parametri rilevati all'interno di essa; inoltre, dà la possibiltà all'utente di accedere al dettaglio dell'area selezionata.
+La View ha come ruolo principale quello di mostrare lo stato di un'area, il nome della pianta e i valori dei parametri rilevati all'interno di essa; inoltre, dà la possibilità all'utente di accedere al dettaglio dell'area selezionata.
 
 <div align="center">
   <img src="img/area_view.png" />
@@ -556,7 +556,7 @@ Il Controller viene racchiuso all'interno del modulo `AreaControllerModule` (ved
 
 Il trait estende `SceneController`, necessario per poter accedere alla scena che mostra il dettaglio dell'area.
 
-Il compito principale del Controller è quello di richiamare la creazione dell'interfaccia grafica delegata alla View affinchè questa mostri lo stato delle aree e i rispettivi valori rilevati al loro interno, oltre a gestire il cambio di scena da quella generale a quella specifica della singola area.
+Il compito principale del Controller è quello di richiamare la creazione dell'interfaccia grafica delegata alla View affinché questa mostri lo stato delle aree e i rispettivi valori rilevati al loro interno, oltre a gestire il cambio di scena da quella generale a quella specifica della singola area.
 
 <div align="center">
   <img src="img/area_controller.png" />
@@ -584,7 +584,7 @@ Tale classe verrà istanziata nel momento in cui un utente decide di visionare i
 
 #### Model del dettaglio area
 
-Come si può vedere nella [Fig. 4.7.1.1], il Model è lo stesso implementato per le singole aree poichè risulta necessario che vengano memorizzate le operazioni effettuate dull'utente. In questo modo sarà possibile aggiornare, con una determinata frequenza, il valore rilevato dai sensori. 
+Come si può vedere nella [Fig. 4.7.1.1], il Model è lo stesso implementato per le singole aree poiché risulta necessario che vengano memorizzate le operazioni effettuate dull'utente. In questo modo sarà possibile aggiornare, con una determinata frequenza, il valore rilevato dai sensori. 
 
 Per questo motivo si rimanda al paragrafo [Aree](#aree) per i dettagli.
 
@@ -704,7 +704,7 @@ In particolare, il codice dei sensori rientra nel package `model` del progetto i
 
 <div align="center">
   <img src="img/sensor.png" />
-  <p>Fig. 4.8.1 - Interfaccie Sensor e SensorWithTimer </p>
+  <p>Fig. 4.8.1 - Interfacce Sensor e SensorWithTimer </p>
 </div>
 
 [Fig. 4.8.1]: img/sensor.png
@@ -726,7 +726,7 @@ A tal fine, `SensorWithTimer` richiede l'implementazione di un unico metodo `reg
 
 Ogni qual volta il sensore riceve l'evento dal timer, che lo informa del fatto che il tempo specificato è trascorso, esso si occuperà di rilevare il nuovo valore e di emetterlo sul flusso dell'`Observable` dedicato, in modo tale da informare l'area del nuovo parametro rilevato.
 
-Le classi `Sensor` e `SensorWithTimer` vengono inizialmente implementate dalle classi astratte `AbstractSensor` e `AbstractSensorWithTimer`. Conseguentemente, viene lasciato alle classi dei sensori solamente l'implemendatione del metodo ` protected computeNextSensorValue`. Questa implementazione utilizza, quindi, il pattern _template method_ in quanto le classi astratte rappresentano il template dei sensori e il metodo `computeNextSensorValue` contiene il comportamento che le sottoclassi devono implementare.
+Le classi `Sensor` e `SensorWithTimer` vengono inizialmente implementate dalle classi astratte `AbstractSensor` e `AbstractSensorWithTimer`. Conseguentemente, viene lasciato alle classi dei sensori solamente l'implementazione del metodo ` protected computeNextSensorValue`. Questa implementazione utilizza, quindi, il pattern _template method_ in quanto le classi astratte rappresentano il template dei sensori e il metodo `computeNextSensorValue` contiene il comportamento che le sottoclassi devono implementare.
 
 ### 4.8.1 Sensore per la luminosità
 
@@ -746,7 +746,7 @@ Il sensore della luminosità, quindi, è un sensore istantaneo: non appena ha lu
 Per poter calcolare correttamente il valore della luminosità, bisogna tenere conto delle azioni che l'utente può compiere, come: 
 
 - **l'apertura o chiusura delle porte dell'area**. In particolare, se le porte della serra sono chiuse la luce presente all'interno dell'area sarà leggermente minore rispetto a quella esterna in quanto le pareti della serra la filtreranno; se, invece, le porte della serra sono aperte, la luce dell'ambiente non verrà filtrata ed entrerà completamente.
-- **la regolazione dell'intensità delle lampade** per cui l'utente ha la possibilità di regolare la luminosità delle lampade, poste all'interno dell'area. La luce prodotta dalle lampade, sommata alla luminosità dell'ambiente, contribuisocono alla determinazione del valore rilevato dal sensore.
+- **la regolazione dell'intensità delle lampade** per cui l'utente ha la possibilità di regolare la luminosità delle lampade, poste all'interno dell'area. La luce prodotta dalle lampade, sommata alla luminosità dell'ambiente, contribuiscono alla determinazione del valore rilevato dal sensore.
 
 
 Per poter determinare il valore del parametro rilevato rispetto all'attuale stato dell'area, è stato definito l'oggetto `FactoryFunctionsLuminosity` (vedi [Fig. 4.8.1.1]), il quale rappresenta una _factory_ di funzioni che possono essere utilizzate per determinare il nuovo valore rilevato dal sensore. 
@@ -754,7 +754,7 @@ Per poter determinare il valore del parametro rilevato rispetto all'attuale stat
 
 Ogni qual volta l'utente compie una nuova azione o viene rilevato un nuovo parametro ambientale, a seconda dello stato in cui si trovano i componenti della serra, si richiama la funzione della _factory_ corrispondente, in modo da determinare il nuovo valore rilevato.
 
-Nello specifico, abbiamo detto nella precedente sezione [Sec. 4.8](#48-sensori) che ogni sensore presenta due `Observer`: uno che viene notificato ogni qual volta un nuovo valore ambientale viene rilevato e l'altro che viene notificato ogni qual volta l'utente compie una nuova aizone sull'area. Quando uno di questi due eventi si verifica, il sensore controlla lo stato attuale dei componenti dell'area e, successivamente, sceglie la funzione da applicare per calcolare il nuovo valore; infine, emette questo nuovo valore sul flusso dell'`Observable`.
+Nello specifico, abbiamo detto nella precedente sezione [Sec. 4.8](#48-sensori) che ogni sensore presenta due `Observer`: uno che viene notificato ogni qual volta un nuovo valore ambientale viene rilevato e l'altro che viene notificato ogni qual volta l'utente compie una nuova azione sull'area. Quando uno di questi due eventi si verifica, il sensore controlla lo stato attuale dei componenti dell'area e, successivamente, sceglie la funzione da applicare per calcolare il nuovo valore; infine, emette questo nuovo valore sul flusso dell'`Observable`.
 
 
 ### 4.8.2 Sensore per la temperatura
@@ -772,7 +772,7 @@ Come si può vedere dalla figura [Fig. 4.8.2.1], il sensore implementa l'interfa
 
 L'utente, che regola la temperatura interna dell'area, influisce sulle rilevazioni del parametro, ma anche l'apertura o la chiusura delle porte dell'area possono influenzarne il valore.
 
-In particolare, nel caso in cui le porte dell'area fossero aperte, la temperatura verrà completamente influenzata da quella esterna e il valore rilevato dal sensore si aviccineraà periodicamente a quello ambientale. Quando, invece, le porte dell'area sono chiuse, la temperatura verrà completamente influenzata da quella interna regolata dall'utente e le rilevazioni effettuate dal sensore si avvicineranno periodicamente a questo valore, fino a quando non lo avranno raggiunto.
+In particolare, nel caso in cui le porte dell'area fossero aperte, la temperatura verrà completamente influenzata da quella esterna e il valore rilevato dal sensore si avvicinerà periodicamente a quello ambientale. Quando, invece, le porte dell'area sono chiuse, la temperatura verrà completamente influenzata da quella interna regolata dall'utente e le rilevazioni effettuate dal sensore si avvicineranno periodicamente a questo valore, fino a quando non lo avranno raggiunto.
 
 Per poter calcolare le rilevazioni del sensore della temperatura, è stato realizzato l'oggetto `FactoryFunctionsTemperature`, il quale rappresenta una _factory_ di funzioni che possono essere applicate per poter calcolare il nuovo valore della temperatura.
 
@@ -831,7 +831,7 @@ Per quanto riguarda le funzioni da applicare al calcolo del nuovo valore, è sta
 
 ## 4.9 Fine simulazione
 
-Nel caso in cui l'utente decida di fermare la simulazione in anticipo o nel caso in cui il tempo virtuale sia interamente trascorso, egli verrà reinderizzatto alla schermata di fine simulazione in cui gli verrà data la possibilità di iniziarne una nuova.
+Nel caso in cui l'utente decida di fermare la simulazione in anticipo o nel caso in cui il tempo virtuale sia interamente trascorso, egli verrà reindirizzato alla schermata di fine simulazione in cui gli verrà data la possibilità di iniziarne una nuova.
 
 Gli elementi grafici della schermata di fine simulazione sono contenuti all'interno del rispettivo file _FXML_ e `FinishSimulationView` ne rappresenta il Controller.
 
@@ -854,7 +854,7 @@ Per la realizzazione di questo progetto sono stati adoperati i pattern creaziona
 
 Il _pattern Factory_ è un pattern creazionale che ci dà la possibilità di creare degli oggetti senza dover specificare la loro classe e ci consente di cambiare in modo abbastanza agevole l'oggetto creato. 
 
-Le _factories_, come dice il nome, rappresentano delle vere e proprie "fabbirche di oggetti" che possiamo utilizzare per istanziare gli oggetti di cui abbiamo bisogno e con determinate caratteristiche.
+Le _factories_, come dice il nome, rappresentano delle vere e proprie "fabbriche di oggetti" che possiamo utilizzare per istanziare gli oggetti di cui abbiamo bisogno e con determinate caratteristiche.
 
 All'interno del progetto si è fatto utilizzo, in particolare, del pattern _StaticFactory_, per produrre le funzioni necessarie a calcolare l'aggiornamento dei parametri rilevati dai sensori. 
 
@@ -877,7 +877,7 @@ Questo pattern è stato utilizzato all’interno del progetto per definire le se
 
 ### Strategy
 
-All'interno del progetto è stato ampiamente utilizzato il _pattern Strategy_, ossia l'incapapsulamento di un algoritmo all'interno di una classe, permettendo di mantenere un'interfaccia generica.
+All'interno del progetto è stato ampiamente utilizzato il _pattern Strategy_, ossia l'incapsulamento di un algoritmo all'interno di una classe, permettendo di mantenere un'interfaccia generica.
 
 Questo pattern è direttamente supportato nel linguaggio mediante il passaggio di funzioni _higher-order_, facendo sì che le classi che lo utilizzano rendano dinamico il proprio comportamento e utilizzino in modo intercambiabile le diverse implementazioni degli algoritmi definiti nell'interfaccia generica.
 
