@@ -14,16 +14,18 @@ Nelle seguenti sezioni, verranno descritti con maggiore dettaglio alcuni element
 ### 5.1.1 Higher-order functions
 Un meccanismo efficace spesso utilizzato nella programmazione funzionale è quello delle _funzioni higher order_. Sono delle funzioni che accettano altre funzioni come parametri e/o restituiscono una funzione come risultato. 
 
-L’utilizzo di queste funzioni ha permesso di rendere il codice riusabile e di permettere una facile ed immediata realizzazione del pattern _Strategy_, in quanto consente di passare alle funzioni delle strategie esterne.
+L’utilizzo di queste funzioni, ha permesso di rendere il codice riusabile e di permettere una facile ed immediata realizzazione del _pattern Strategy_, in quanto consente di passare alle funzioni delle strategie esterne.
 
-Sono stati utilizzati in molti parti del progetto, un esempio di utilizzo si può trovare negli oggetti factory delle funzioni per il calcolo di nuovi valori dei sensori. Di seguito è possibile visualizzare un estratto del codice:
+Esse sono state utilizzate in molte parti del progetto e in particolare, un esempio di utilizzo, si può trovare negli oggetti `Factory` delle funzioni per il calcolo di nuovi valori dei sensori, di cui di seguito è possibile visualizzare un estratto di codice:
 
 ```scala
 /** Updates the current soil moisture value according to the precipitation value when gates are open. */
 val updateGatesOpenValue: (Double, Double) => Double = _ - _ * RainFactor
 ```
 
-In particolare, si tratta di una funzione utilizzato per calcolare il valore dell’umidità del suolo nel caso in cui la porta dell’area è aperta. La funzione prende in ingresso due valori: il valore corrente dell’umidità e il valore della precipitazione. Nell’esempio, l’implementazione della funzione è stata specificata attraverso l’utilizzo delle funzioni _literal_ (funzioni _lambda_ in Java) e grazie alla sintassi di Scala e all’inferenza del tipo, è possibile semplificare la funzione utilizzando il placeholder _underscore_ rendendo il codice più idiomatico possibile.
+In particolare, si tratta di una funzione utilizzata per calcolare il valore dell’umidità del suolo nel caso in cui la porta dell’area sia aperta. 
+
+La funzione prende in ingresso due valori: il valore corrente dell’umidità e il valore della precipitazione. Nell’esempio, l’implementazione della funzione è stata specificata attraverso l’utilizzo delle funzioni _literal_ (funzioni _lambda_ in _Java_) e grazie alla sintassi di _Scala_ e all’inferenza del tipo, è possibile semplificare la funzione utilizzando il _placeholder_ underscore_ rendendo il codice il più idiomatico possibile.
 
 
 ### 5.1.2 Type members
@@ -110,7 +112,7 @@ Questo file, `cities.pl`, contiene le regole sulle città, scritte in questo mod
 city("Bologna").
 city("Cesena").
 ``` 
-Il file `cities.pl` contiene, inoltre, una regola `search_city` che consente di convertire i nomi delle città in array di caratteri, in modo da facilitare il meccanismo dei ricerca.
+Il file `cities.pl` contiene, inoltre, una regola `search_city` che consente di convertire i nomi delle città in array di caratteri, in modo da facilitare il meccanismo di ricerca.
 
 ```prolog
 search_city([H|T], X) :- city(X), atom_chars(X, [H|T]).
@@ -160,7 +162,7 @@ I meccanismi di programmazione asincrona, come `Task`, sono stati utilizzati per
       }.executeAsync.runToFuture
 ```
 
-Per quanto riguarda la programmazione reattiva, sono stati sfruttati meccanismi come il data type `Observable` e la classe astratta `ConcurrentSubject` che sono stati impiegati in diversi aspetti. Ad esempio, per: 
+Per quanto riguarda la programmazione reattiva, sono stati sfruttati meccanismi come il data type `Observable` e la classe astratta `ConcurrentSubject` che sono stati impiegati in diversi aspetti, come ad esempio per: 
 
 -	la gestione della logica del `Timer`
 
@@ -208,7 +210,7 @@ override protected def registerTimerCallback(verifyTimePass: String => Boolean):
   addTimerCallback((s: String) => if verifyTimePass(s) then computeNextSensorValue())
 ```
 
--   aggiornare periodicamente la view relativa alla suddivisione in aree
+-   aggiornare periodicamente la View relativa alla suddivisione in aree
 
 ```scala
       override def updateView(): Unit =
@@ -268,7 +270,7 @@ val r: Response = requests.get(query)
 ```
 Ottenuta la risposta dal web Server, qualora questa abbia dato esito positivo, si è proceduto ad effettuare il _parsing_ per poter ottenere il _JSON_, mediante la libreria [_json4s_](https://github.com/json4s/json4s). Qualora, invece, l'esito della risposta fosse negativo, si è deciso di impostare un valore di default. 
 
-Al fine di valutare l'esito della risposta, si è fatto uso del `Try match` per identificare se la richiesta va a buon fine: caso di `Success`, o meno, caso `Failure`.
+Al fine di valutare l'esito della risposta, si è fatto uso del `Try match` per identificare se la richiesta va a buon fine: caso di `Success`, o meno, caso di `Failure`.
 
 ```scala
 Try(requests.post(url = url, data = data)) match {
@@ -281,29 +283,31 @@ Try(requests.post(url = url, data = data)) match {
 
 Il _JSON_ ottenuto in caso di successo, è stato poi utilizzato per l'implementazione del `type` definito nell'interfaccia della classe `Environment`, nel caso della città e `Plant`, nel caso delle informazioni relative alla pianta.
 
-Per entrambe le implementazioni, si è deciso di assengare a `type` il tipo concreto `Map[String, Any]` in quanto il _JSON_ ottenuto come risposta, conteneva valori anche complessi, ad esempio _sub-json_.
+Per entrambe le implementazioni, si è deciso di assengare a `type` il tipo concreto `Map[String, Any]` in quanto il _JSON_ ottenuto come risposta, contiene valori anche complessi, ad esempio _sub-json_.
 
 A partire dall'oggetto contenente l'implementazione del `type,` sono state estrapolate le informazioni utili alla simulazione. 
 
-Nel caso delle città questo è rappresentato dalle previsioni meteorologiche orarie, che vengono successivamente filtrate in base all'orario richiesto, mentre nel caso delle piante è rappresentato da: nome della pianta, valori ottimali dei sensori (temperatura, luminosità ed umidità del suolo e dell'aria) e l'url per reperire l'immagine. A partire dal nome è stata effettuata inoltre la richiesta al sito [wikipedia](https://it.wikipedia.org/wiki/Pagina_principale) per ottenere la descrizione della pianta.
+Nel caso delle città questo è rappresentato dalle previsioni meteorologiche orarie, che vengono successivamente filtrate in base all'orario richiesto, mentre nel caso delle piante è rappresentato da: nome della pianta, valori ottimali dei sensori (temperatura, luminosità ed umidità del suolo e dell'aria) e l'_url_ per reperire l'immagine. A partire dal nome è stata effettuata inoltre la richiesta al sito [wikipedia](https://it.wikipedia.org/wiki/Pagina_principale) per ottenere la descrizione della pianta.
 
 ## 5.5 Utilizzo di ScalaFX e JavaFX
-Per l’implementazione dell’interfaccia grafica sono state utilizzate le librerie: [_ScalaFX_](https://www.scalafx.org/), un _DSL_ scritto in _Scala_ che fa da _wrapper_ agli elementi di _JavaFx_ e [_JavaFX_](https://openjfx.io/). Nello specifico, si è deciso di gestire le parti statiche dell’applicazione attraverso la creazione dei _layout_ in formato _FXML_. Siccome nella libreria _ScalaFX_ non è prevista la gestione di questa funzionalità, si è deciso di integrare quest'ultima con la libreria _JavaFX_.
+Per l’implementazione dell’interfaccia grafica sono state utilizzate le librerie: [_ScalaFX_](https://www.scalafx.org/), un _DSL_ scritto in _Scala_ che fa da _wrapper_ agli elementi di _JavaFx_ e [_JavaFX_](https://openjfx.io/). 
+
+Nello specifico, si è deciso di gestire le parti statiche dell’applicazione attraverso la creazione dei _layout_ in formato _FXML_. Siccome nella libreria _ScalaFX_ non è prevista la gestione di questa funzionalità, si è deciso di integrare quest'ultima con la libreria _JavaFX_.
 
 _FXML_ è un formato _XML_ che permette di comporre applicazioni _JavaFX_, separando il codice per la gestione degli elementi dalla parte di visualizzazione dei _layout_. Inoltre, l’utilizzo di [_SceneBuilder_](https://gluonhq.com/products/scene-builder/) ha facilitato la creazione delle pagine fornendo una renderizzazione visiva e intuitiva, attraverso il suo ambiente grafico.
 
-La logica di caricamento del file _FXML_ viene racchiusa nella classe astratta `AbstractViewComponent`, tutti i componenti della view estendono da tale classe specificando il file _FXML_ associato e possono ottenere già in automatico il _layout_ caricato.
+La logica di caricamento del file _FXML_ viene racchiusa nella classe astratta `AbstractViewComponent`, tutti i componenti della View estendono da tale classe specificando il file _FXML_ associato e possono ottenere già in automatico il _layout_ caricato.
 
-Di fatto, il componente view, rappresenta il Controller associato al _layout_. Il Controller può ottenere il riferimento agli elementi dell’interfaccia attraverso gli `id` specificati nell’_FXML_ e il caricatore, ossia `FXMLLoader`, il quale cercherà di istanziarli e di renderli accessibili. Il Controller ha il compito di inizializzare gli elementi dell’interfaccia utente e di gestirne il loro comportamento dinamico.
+Di fatto, il componente View, rappresenta il Controller associato al _layout_. Il Controller può ottenere il riferimento agli elementi dell’interfaccia attraverso gli `id` specificati nell’_FXML_ e il caricatore, ossia `FXMLLoader`, il quale cercherà di istanziarli e di renderli accessibili. Il Controller ha il compito di inizializzare gli elementi dell’interfaccia utente e di gestirne il loro comportamento dinamico.
 
 ## 5.6 Testing
 Per testare le funzinalità principali del porgramma, si è deciso di utilizzare la modalità _Test Driven Development (TDD)_. Questa strategia, prevede di scrivere per prima cosa il codice di testing, indicando il compoertamento corretto della funzionalità che si vuole testare e successivamente scrivere il codice di produzione, affinchè i test individuati passino correttamente. Una volta scritto il codice di produzione e aver passato i test si può procedere al _refactoring_ e al miglioramento della soluzione ottenuta. 
 
-Il _TDD_, quindi, si compone di tre diverse fasi che si susseguono: red, green e refactor. Nella fase red si ha solo il codice di testing e i test che sono stati scritti, pertanto non passerano, in quanto il codice di produzione risulta essere mancante, nella fase green, invece, si procede alla scrittura del codice di produzione in modo da poter superare i test precedentemente definiti e infine nella fase di refactor, il codice di produzione scritto viene migliorato.
+Il _TDD_, quindi, si compone di tre diverse fasi che si susseguono: red, green e refactor. Nella fase red si ha solo il codice di testing e di conseguenza, i test che sono stati scritti, non passerano, in quanto il codice di produzione risulta essere mancante, nella fase green, invece, si procede alla scrittura del codice di produzione in modo da poter superare i test precedentemente definiti e infine nella fase di refactor, il codice di produzione scritto viene migliorato.
 
 Il team di lavoro, per lo sviluppo dell'applicazione, ha inoltre deciso di adottare la pratica di _Continuous Integration_, decidendo di realizzare due flussi di lavoro sul relativo _repository_, il primo dedicato all'esecuzione dei test sui diversi sistemi operativi: Windows, Linux, Mac e il secondo diretto a deterimnare la _coverage_ ottenuta, mediante i test effettuati.
 
-Per questo progetto le funzionalità del modello, che racchiudono la logica di business, sono state testate mediante l'utilizzo di _ScalaTest_, mentre per testare gli elementi della View, siccome è stata utilizzata la libreria ScalaFX, si è deciso di utilizzare, per il testing, la libreria _TestFx_.
+Per questo progetto le funzionalità del modello, che racchiudono la logica di business, sono state testate mediante l'utilizzo di _ScalaTest_, mentre per testare gli elementi della View, siccome è stata utilizzata la libreria _ScalaFX_, si è deciso di utilizzare, per il testing, la libreria _TestFx_.
 
 Nelle seguenti sezioni, è possibile trovare una descrizione maggiormente dettagliata relativa ai test effettuati, le modalità utilizzate e la _coverage_ ottenuta.
 
@@ -337,7 +341,7 @@ Per poter testare gli aspetti relativi alla visualizzazione dei dati e all'inter
 
 _TestFx_, richiede che per poter scrivere dei test, che vadano a verificare degli elementi di _JavaFX_, la classe di testing estenda la classe `ApplicationExtension`, dopodiché è necessario definire un metodo contrassegnato dalla notazione `@Start`, per impostare la schermata che si vuole testare; una volta fatto questo si ha la possibilità di definire i test per la GUI.
 
-Nello specifico, i diversi _Unit tests_ che si vogliono realizzare devono prendere tutti come argomenti `FxRobot`, il quale rappresenta un oggetto che può essere utilizzato per poter simulare i comportamenti dell'utente sull'interfaccia grafica, come mostrato nel seguente esempio.
+Nello specifico, i diversi _Unit tests_ che si vogliono realizzare devono prendere tutti come argomento `FxRobot`, il quale rappresenta un oggetto che può essere utilizzato per poter simulare i comportamenti dell'utente sull'interfaccia grafica, come mostrato nel seguente esempio.
 
 ```scala
 @Test def testAfterPlantSelection(robot: FxRobot): Unit =
@@ -350,9 +354,9 @@ Nello specifico, i diversi _Unit tests_ che si vogliono realizzare devono prende
     robot.clickOn(checkBox)
 
     //then:
-    assert(robot.lookup(selectedPlantBoxId)
+    assertEquals(robot.lookup(selectedPlantBoxId)
                 .queryAs(classOf[VBox])
-                .getChildren.size == selectedPlantNumber)
+                .getChildren.size, selectedPlantNumber)
     verifyThat(numberPlantsSelectedId, hasText(selectedPlantNumber.toString))
 ```
 Come si può vedere sempre dall'esempio, per verificare le proprietà degli elementi dell'interfaccia, è stata utilizzata la clase `FxAssert` e il metodo `verifyThat`, il quale consente, una volta passato l'id del componente _FXML_, di verificare una determinata proprietà su di esso. Le proprietà possono essere definite tramite i `matchers` di TestFX.
