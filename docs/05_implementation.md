@@ -42,9 +42,10 @@ La funzione `extractTerm` si occupa di estrarre il termine dalla soluzione otten
 
 ```scala
 override def getCityInfo(city: String): Option[(String, String, String)] =
-  searchCity(city).headOption match
-    case Some(s) => val e = extractTerm(s); Some(e("X"), e("Y"), e("Z"))
-    case _ => None
+  searchCity(city).headOption.fold(None) { s =>
+    val e = extractTerm(s)
+    Some(e("X"), e("Y"), e("Z"))
+  }
 ```
 
 La funzione viene utilizzata all'interno del Model di select city per estrarre le informazioni associate alla città selezionata. Per chiamare la funzione si deve mantenere la stessa notazione _currying_. Nell'esempio la funzione viene applicata parzialmente passando un solo argomento e, in questo modo, ritorna una nuova funzione che può essere consumata in seguito specificando il secondo argomento. 
