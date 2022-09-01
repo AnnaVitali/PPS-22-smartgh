@@ -27,8 +27,30 @@ In particolare, si tratta di una funzione utilizzata per calcolare il valore del
 
 La funzione prende in ingresso due valori: il valore corrente dell’umidità e il valore della precipitazione. Nell’esempio, l’implementazione della funzione è stata specificata attraverso l’utilizzo delle funzioni _literal_ (funzioni _lambda_ in _Java_) e grazie alla sintassi di _Scala_ e all’inferenza del tipo, è possibile semplificare la funzione utilizzando il _placeholder_ underscore_ rendendo il codice il più idiomatico possibile.
 
+### 5.1.2 Currying
+In _Scala_ è possibile definire funzioni _curried_, ossia la valutazione di una funzione che assuma parametri multipli può essere tradotta nella valutazione di una sequenza di funzioni.
 
-### 5.1.2 Type members
+È un meccanismo che consente di applicare il DRY (_Don't repeat yourself_), favorendo quindi il riuso del codice. Infatti quando una funzione è _curried_, è possibile applicare parzialmente la funzione per poterla utilizzarla in più punti del codice.
+
+Nel seguente estratto di codice è possibile vedere un esempio di definizione di funzione _currying_.
+
+```scala
+private def extractTerm(solveInfo: SolveInfo)(term: String) =
+  extractTermToString(solveInfo, term).replace("'", "")
+```
+
+Tale funzione, in particolare, si occupa di estrarre il termine dalla soluzione ottenuta da _Prolog_, rimuovendo poi gli apici.
+
+```scala
+override def getCityInfo(city: String): Option[(String, String, String)] =
+  searchCity(city).headOption match
+    case Some(s) => val e = extractTerm(s); Some(e("X"), e("Y"), e("Z"))
+    case _ => None
+```
+
+La funzione viene utilizzata all'interno del Mdel di select city per estrarre le informazioni associate alla città selezionata. Per chiamare la funzione si deve mantenere la stessa notazione _currying_. Nell'esempio, la funzione viene applicata parzialmente passando un solo argomento, in questo modo ritorna una nuova funzione che può essere consumata specificando il secondo argomento. 
+
+### 5.1.3 Type members
 
 La keyword `type` in _Scala_ introduce il concetto di _type members_ all'interno di una classe, oltre ai _field_ e _method members_ che, solitamente, già troviamo.
 Viene impiegata principalmente per creare l'alias di un tipo più complicato: il _type system_ sostituirà l'alias con l'_actual type_ quando effettuerà il _type checking_.
@@ -53,7 +75,7 @@ type OptimalValues = Map[String, Any]
   type Requirements = EnvironmentViewModule.Provider with EnvironmentModelModule.Provider with SimulationMVC.Provider
 ```
 
-### 5.1.3 For-comprehension
+### 5.1.4 For-comprehension
 Al fine di rendere il codice meno imperativo, si è fatto uso della _for-comprehension_, un costrutto funzionale basato sulle "monadi" per operare sulle collezioni. 
 
 Oltre a rendere il codice più funzionale, la scelta dell'utilizzo della _for-comprehension_ è supportato dall'incremento della leggibilità del codice, come si può vedere nel seguente estratto di programma, utilizzato per la creazione degli oggetti `ManageSensor`, il cui compito è racchiudere tutte le informazioni utili riguardati un sensore.
@@ -81,7 +103,7 @@ Oltre a rendere il codice più funzionale, la scelta dell'utilizzo della _for-co
 ```
 Nell'esempio si itera sulla mappa contenete le costanti riguardanti i sensori, come il nome del sensore, l'unità di misura e il messaggio di errore associato ad esso. Questi valori vengono poi impiegati nella costruzione dell'oggetto `ManageSensor` in modo da reperire le informazioni relative ad un sensore per una specifica pianta, creare e memorizzare l'istanza del relativo sensore, inizializzare il suo stato e tenere traccia del valore corrente rilevato da esso. 
 
-### 5.1.4 Trait mixins
+### 5.1.5 Trait mixins
 In _Scala_, le classi possono avere un unica superclasse ma molti _mixins_, attraverso l'utilizzo delle _keywords_ `extends` e `with`.
 
 Un _mixin_ è una classe o un interfaccia in cui alcuni o tutti i suoi metodi e/o proprietà non sono implementati, richiedendo che un'altra classe o interfaccia fornisca le implementazioni mancanti. Gli elementi _mixins_, sono spesso descritti come "inclusi" o "impilati in", piuttosto che "ereditati".
@@ -109,22 +131,21 @@ Per consentire quest'operazione, la classe `UploadCities`, si occupa di converti
 Questo file, `cities.pl`, contiene le regole sulle città, scritte in questo modo:
 
 ```prolog
-city("Bologna").
-city("Cesena").
+% city('city', 'latitude', 'longitude').
+city('Bologna', '44.4939', '11.3428').
+city('Cesena', '44.1333', '12.2333').
 ``` 
 Il file `cities.pl` contiene, inoltre, una regola `search_city` che consente di convertire i nomi delle città in array di caratteri, in modo da facilitare il meccanismo di ricerca.
 
 ```prolog
-search_city([H|T], X) :- city(X), atom_chars(X, [H|T]).
+search_city([H|T], X, Y, Z) :- city(X, Y, Z), atom_chars(X, [H|T]).
 ```
 
 Infine, `SelectCityModelModule`, utilizza questo file e la libreria [_TuProlog_](https://apice.unibo.it/xwiki/bin/view/Tuprolog/), per poter visualizzare i diversi nomi delle città e implementare il _live search_. Infatti, ogni qual volta l'utente inserisce dei caratteri nel `TextField`, della schermata, questi caratteri vengono utilizatti, per definire il _goal_ che si intende risolvere e determinare la città che l'utente vuole selezionare.
 
 ```scala
-override def searchCities(charSequence: Seq[Char]): Seq[String] =
-    engine("search_city(" + charSequence.mkString("['", "','", "'|_]") + ", X)")
-        .map(extractTerm)
-        .toSeq
+  private def searchCity(city: String, start: String = "['", sep: String = "','", end: String = "']"): Iterable[SolveInfo] =
+    engine("search_city(" + city.mkString(start, sep, end) + ", X, Y, Z)")
 ``` 
 
 ### 5.2.2 Utilizzo di Prolog per la selezione delle piante
