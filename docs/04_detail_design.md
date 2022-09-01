@@ -8,12 +8,12 @@ Tramite il _Pattern MVC_, come già descritto nella sezione [Sec. 3.2](#32-patte
 Il _Cake pattern_, invece, ci dá la possibilità di risolvere in modo agevole le dipendenze che legano gli elementi dell'_MVC_ tramite l'utilizzo di meccanismi della programmazione funzionale come: _mix-in_, _self-type_, _type members_, ecc... 
 
 Questa strategia, sostanzialmente, prevede di implementare il _pattern MVC_ come una composizione di tre elementi: Model (M), View (V) e Controller (C), i quali presentano le seguenti dipendenze: C->V, V->C e C->M. 
-Più precisamente, possiamo realizzare questi tre elementi incapsulando già al loro interno la risoluzione delle dipendenze precedentemente citate: alla fine, potremo istanziare un oggetto _MVC_ che li detiene tutti e tre e che è in grado di di accedere alle rispettive proprietà, senza doversi preoccupare del loro collegamento.
+Più precisamente, possiamo realizzare questi tre elementi incapsulando già al loro interno la risoluzione delle dipendenze precedentemente citate: alla fine, potremo istanziare un oggetto _MVC_ che li detiene tutti e tre e che è in grado di accedere alle rispettive proprietà, senza doversi preoccupare del loro collegamento.
 
 Gli elementi Model, View e Controller vengono racchiusi in moduli, composti da:
 - un `trait` (`Model`, `View` o `Controller`), il quale definisce l'interfaccia del rispettivo elemento;
 -	una classe `ModelImpl`, `ViewImpl` o `ControllerImpl`, che rappresenta l'implementazione dell’interfaccia;
-- un `trait Component`, il quale racchiude la classe implementativa. Tale trait assume forme differenti in base al modulo nel quale è racchiuso:
+- un `trait Component`, il quale racchiude la classe implementativa. Tale `trait` assume forme differenti in base al modulo nel quale è racchiuso:
   - nel caso del Model si compone esclusivamente della classe implementativa [Fig. 4.1];
   - nel caso della View contiene il campo `context` di tipo `Requirements`, il quale viene utilizzato per specificare le dipendenze che legano la View al Controller [Fig. 4.2];
   - nel caso del Controller contiene sempre il capo `context` di tipo `Requirements` che viene, però, utilizzato per specificare le dipendenze che legano il Controller al Model e alla View [Fig. 4.3];
@@ -49,7 +49,7 @@ Tutti gli elementi principali dell'applicazione, che richiedono di eseguire oper
 I componenti, descritti nelle successive sottosezioni, fattorizzano elementi comuni del codice e permettono di evitarne la ripetizione.
 
 ### ViewComponent
-`ViewComponent` è un’interfaccia generica che rappresenta un componente della View e, come si può vedere dalla figura (vedi [Fig. 4.1.1]), richiede che il tipo generico `A` sia sottotipo di `Parent`, ossia la classe base dei nodi con figli di _JavaFX_. 
+`ViewComponent` è un’interfaccia generica che rappresenta un componente della View e, come si può vedere dalla figura (vedi [Fig. 4.1.1]), richiede che il tipo generico `A` sia sottotipo di `Parent`. Quest'ultimo è la classe base dei nodi con figli di _JavaFx_. 
 
 Per l’implementazione di `ViewComponent` si è rispettato il pattern _Template Method_, definendo una classe astratta `AbstractViewComponent` dove è contenuto il template dei componenti. In tale classe viene incapsulata la logica necessaria per il caricamento dei layout e per la loro inizializzazione, lasciando alle sottoclassi la definizione del rispettivo componente interno associato al file _FXML_.
 
@@ -76,7 +76,7 @@ Tale interfaccia richiede che il nuovo elemento View da impostare sia di un tipo
 [Fig. 4.1.2]: img/contiguousSceneView.png
 
 ### SceneController
-Gli elementi comuni ai diversi Controller sono stati racchiusi all'interno dell'interfaccia `SceneController` (vedi [Fig. 4.1.3]), contenente il metodo `beforeNextScene` che si occupa di eseguire le operazioni che devono essere effettuate prima di poter cambiare scena.
+Gli elementi comuni ai diversi Controller sono stati racchiusi all'interno dell'interfaccia `SceneController` (vedi [Fig. 4.1.3]), contenente il metodo `beforeNextScene` che si occupa di eseguire le operazioni che devono essere effettuate, prima di poter effettuare il cambio di scena.
 
 <div align="center">
   <img src="img/contiguousSceneView.png" />
@@ -129,7 +129,7 @@ Il controller della simulazione (vedi [Fig. 4.2.3]) è stato racchiuso nel `Simu
   - campi dove verranno salvate l’istanza `Environment` della località e le istanze `Plant` delle piante selezionate dall’utente;
   - metodi per gestire il tempo virtuale della simulazione, che richiamano il `TimeModel`;
   - metodi per notificare l’`EnvironmentController`, di cui detiene il riferimento, di un cambiamento del `timeValue` e dello scoccare di una nuova ora, al fine di aggiornare la rispettiva View;
-  - metodo per sottoscrive _callback_ da eseguire quando vi è un nuovo valore del `Timer` disponibile (es: `AreaDetailsController` richiede l’aggiornamento del timer visualizzato all’interno delle aree).
+  - il metodo `subscribeTimerValue` per sottoscrive _callback_ da eseguire quando vi è un nuovo valore del `Timer` disponibile (es: `AreaDetailsController` richiede l’aggiornamento del timer visualizzato all’interno delle aree).
 
 <div align="center">
   <img src="img/simulationController.png" />
@@ -160,7 +160,7 @@ Considerando che la realizzazione di questa funzionalità richiede sia una View 
 
 #### Model per la selezione della città
 
-Il Model per la selezione della città viene racchiuso all'interno del modulo `SelectCityModelModule`, costituito, in particolare, dal `trait SelectCityModel` che espone i diversi metodi utili per effettuare la ricerca delle città e per la verifica.
+Il Model per la selezione della città viene racchiuso all'interno del modulo `SelectCityModelModule`, costituito, in particolare, dal `trait SelectCityModel` che espone i diversi metodi utili per effettuare la ricerca delle città e per la verifica della sua esistenza.
 
 <div align="center">
   <img src="img/select_city_model.png" />
@@ -243,7 +243,7 @@ La lista di piante rappresenta un elemento osservabile dal Controller: infatti, 
 - viene generato un errore;
 - viene completata l'emmissione dei dati.
 
-Infine, il Model, una volta che l'utente di dare il via alla simulazione, si occupa di istanziare gli oggetti `Plant`, rappresentanti le piante scelte e contenenti tutte le diverse informazioni utili per la loro gestione.
+Infine, il Model, una volta che l'utente decide di dare il via alla simulazione, si occupa di istanziare gli oggetti `Plant`, rappresentanti le piante scelte e contenenti tutte le diverse informazioni utili per la loro gestione.
 
 #### View per la selezione delle piante
 
@@ -264,9 +264,7 @@ La View per la selezione delle piante, inizialmente, si occuperà di mostrare le
 
 Il Controller per la selezione delle piante (vedi [Fig. 4.3.2.4]) è stato racchiuso all'interno del modulo `PlantSelectorControllerModule`, al cui interno troviamo il `trait PlantSelectorController`. 
 
-Tale trait estende l'interfaccia `SceneController`, contenente i metodi comuni a tutti i Controller, e detiene i diversi metodi che potranno essere richiamati per la gestione della selezione delle piante.
-
-Si sottolinea come il Controller, per poter svolgere correttamente le sue funzioni, necessiti di accedere alle proprietà di `SimulationMVC`.
+Tale `trait` estende l'interfaccia `SceneController`, contenente i metodi comuni a tutti i Controller, e detiene i diversi metodi che potranno essere richiamati per la gestione della selezione delle piante.
 
 <div align="center">
   <img src="img/plant_selector_controller.png" />
@@ -281,7 +279,7 @@ Dopodichè, il suo compito principale consiste nel notificare il Model ogni qual
 
 #### Plant
 
-Il trait `Plant` (vedi [Fig. 4.3.2.5]) espone dei metodi per ottenere le informazioni principali rispetto alle piante selezionate dall’utente: queste verranno visualizzate all’interno delle aree e verranno utilizzate per monitorare i parametri vitali delle stesse. 
+Il `trait Plant` (vedi [Fig. 4.3.2.5]) espone dei metodi per ottenere le informazioni principali rispetto alle piante selezionate dall’utente: queste verranno visualizzate all’interno delle aree e verranno utilizzate per monitorare i parametri vitali delle stesse. 
 
 Il companion object `Plant` permette di creare un'istanza della pianta che verrà salvata all’interno del `SimulationController`, col fine di renderla accessibile ai componenti del sistema che necessitano delle informazioni relative alle piante scelte.
 
@@ -308,14 +306,13 @@ Di conseguenza, risulta che il Model del `LoadingPlantMVC` è lo stesso di `Plan
 
 [Fig. 4.4.1]: img/loading_plant_MVC.png
 
-Dato che il Model è già stato discusso nel precedente [paragrafo](#model-per-la-selezione-delle-piante), di seguito verranno discussi solamente i componenti View e Controller per il caricamento dei dati.
+Dato che il Model è già stato discusso nel precedente paragrafo ([Model per la selezione delle piante](#model-per-la-selezione-delle-piante)), di seguito verranno discussi solamente i componenti View e Controller per il caricamento dei dati.
 
 #### View per il caricamento dei dati delle piante
 
 La View per il caricamento dei dati delle piante (vedi [Fig. 4.4.2]) si trova all'interno del modulo `LoadingPlantViewModule` al cui interno troviamo il `trait LoadingPlantView`, che contiene i metodi della View che possono essere richiamati per gestire l'interazione con l'utente. 
 
-`LoadingPlantView` estende sia l'interfaccia `ViewComponent` che l'interfaccia `ContigusSceneView`, in quanto rappresenta una scena che viene inserita all'interno di quella madre e consente il proseguimento alla scena successiva. Inoltre, la View per poter svolgere le proprie funzioni necessita anche di accedere alle proprietà di `SimulationMVC` e, di conseguenza, anche il `Provider` di `SimulationMVC` contribuisce alla definizione di `Requirements`.
-
+`LoadingPlantView` estende sia l'interfaccia `ViewComponent` che l'interfaccia `ContigusSceneView`, in quanto rappresenta una scena che viene inserita all'interno di quella madre e consente il proseguimento alla scena successiva. Inoltre, la View per poter svolgere le proprie funzioni necessita anche di accedere alle proprietà di `SimulationMVC`.
 <div align="center">
   <img src="img/loading_plant_view.png" />
   <p> Fig. 4.4.2 - View per il caricamento dei dati delle piante </p>
@@ -328,8 +325,6 @@ Questa View presenta un `ProgressIndicator` che viene incrementato di volta in v
 #### Controller per il caricamento dei dati delle piante
 
 Il Controller per il caricamento dei dati delle piante si trova all'interno del modulo `LoadingPlantControllerModule` e, nello specifico, all'interno del suddetto modulo troviamo il `trait LoadingPlantController`, il quale estende l'interfaccia `SceneController` e detiene i diversi metodi che potranno essere richiamati per svolgere le funzioni intermediarie fra View e Model.
-
-Inoltre, per poter funzionare correttamente, necessita di accedere alle proprietà di `SimulationMVC` e, di conseguenza, anche il `Provider` di `SimulationMVC` contribuisce alla definizione di `Requirements`.
 
 <div align="center">
   <img src="img/loading_plant_controller.png" />
@@ -349,7 +344,7 @@ Ne risulta che quando verrà prodotta una nuova pianta il Controller richiamerà
 
 Una volta che l’utente ha personalizzato i parametri della simulazione e sono state caricate le informazioni relative alle piante, viene avviata la simulazione e, in particolare, vengono inizializzati gli elementi utili alla visualizzazione dello stato globale della serra, delle variazioni ambientali esterne e dello scorrere del tempo.
 
-In particolare, in questa sezione verranno discussi gli elementi architetturali che soddisfano il requisito utente n°2 (vedi [Sec. 2.2](#22-requisiti-utente)).
+Nello specifico, in questa sezione verranno discussi gli elementi architetturali che soddisfano il requisito utente n°2 (vedi [Sec. 2.2](#22-requisiti-utente)).
 
 ### 4.5.1 Variazioni ambientali
 
@@ -385,7 +380,7 @@ La View viene racchiusa nel `EnvironmentViewModule` (vedi [Fig. 4.5.1.3]), al cu
   - visualizzare il tempo virtuale aggiornato;
   - visualizzare lo stato globale della serra, quindi la sua suddivisione in aree;
   - richiedere alla view principale di cambiare scena al concludersi della simulazione;
-  - settare lo stile e la behaviour del pulsante comune a tutte le View, rispettando il layout stabilito nei mockup dell’applicazione.
+  - settare lo stile e il _behaviour_ del pulsante comune a tutte le View, rispettando il layout stabilito nei mockup dell’applicazione.
 
 Tale trait estende `ViewComponent` in quanto rappresenta una scena inserita all’interno di quella madre.
 
@@ -421,7 +416,7 @@ L’oggetto `context` di tipo `Requirements` specifica quali siano le dipendenze
 
 ### 4.5.2 Tempo virtuale
 
-`TimeModel` (vedi [Fig. 4.5.2.1]) è un trait che espone metodi per gestire il tempo virtuale della simulazione, il quale è modellato, a sua volta, dal trait `Timer`. 
+`TimeModel` (vedi [Fig. 4.5.2.1]) è un `trait` che espone metodi per gestire il tempo virtuale della simulazione, il quale è modellato, a sua volta, dal `trait Timer`. 
 
 `TimeModel` e `Timer` rappresentano anche due companion object che racchiudono l’implementazione delle rispettive interfacce e possono essere utilizzati per inizializzarne un’istanza.
 
@@ -479,7 +474,7 @@ La View viene racchiusa nel modulo `GHViewodule` (vedi [Fig. 4.6.1.3]), al cui i
 
 Questa interfaccia rappresenta inoltre il Controller dell'_FXML_ per la relativa sezione: infatti, bisogna ricordare che la `ghDivisionView` è racchiusa all'interno della più ampia View che è `EnvironmentView`. 
 
-Inoltre, per poter essere inserita all'interno della scena principale come le altre View, il trait implementa `ViewComponent`.
+Inoltre, per poter essere inserita all'interno della scena principale come le altre View, il `trait` implementa `ViewComponent`.
 
 La View ha come ruolo principale quello di mostrare e mantenere aggiornata la suddivisione della serra in aree. Questo obiettivo viene raggiunto mediante il metodo `printDivision`. Quest'ultimo verrà richiamato sia all'avvio della schermata dell'`EnvironmentMVC` che ad ogni intervallo di tempo (per aggiornare i valori rilevati all'interno delle aree o quando lo stato di un'area cambia e passa da NORMALE ad ALLARME).
 
@@ -511,7 +506,7 @@ Per realizzare le singole aree che compongono la serra si è deciso di implement
 
 In particolare, come si può vedere nella [Fig. 4.6.1.5] , la classe `AreaMVC` racchiude i  componenti: `AreaModel`, `AreaController` e `AreaView` derivanti dai rispettivi moduli; inoltre, racchiude all'interno del proprio contesto l'istanza corrente del `SimulationMVC` in modo tale che questa sia accessibile sia dalla View che dal Controller.
 
-Tale classe verrà istanziata durante il setup della divisione della serra e memorizzata all'interno del `greenHouseModel`.
+Tale classe verrà istanziata durante il _setup_ della divisione della serra e memorizzata all'interno del `greenHouseModel`.
 
 <div align="center">
   <img src="img/areaMVC.png" />
@@ -591,15 +586,15 @@ Tale classe verrà istanziata nel momento in cui un utente decide di visionare i
 
 Come si può vedere nella [Fig. 4.7.1.1], il Model è lo stesso implementato per le singole aree poichè risulta necessario che vengano memorizzate le operazioni effettuate dull'utente. In questo modo sarà possibile aggiornare, con una determinata frequenza, il valore rilevato dai sensori. 
 
-Per questo motivo si rimanda alla [Sec. Aree](#aree) per i dettagli.
+Per questo motivo si rimanda al paragrafo [Aree](#aree) per i dettagli.
 
-Il Model in questione risulterà essere condiviso anche con gli _MVC_ che gestiscono la parte visuale dei sensori presenti all'interno delle aree ([Sec. Area parameter](#472-parametri-dellarea)).
+Il Model in questione risulterà essere condiviso anche con gli _MVC_ che gestiscono la parte visuale dei sensori presenti all'interno delle aree ([Sec. 4.7.2](#472-parametri-dellarea)).
 
 #### View del dettaglio di un'area
 
 La View del dettaglio di un'area viene racchiusa nell’`AreaDetailsViewModule`, come raffigurato nella figura [Fig. 4.7.1.2].
 
-Oltre agli elementi necessari al _Cake pattern_, all’interno troviamo il `trait AreaDetailsView`, il quale estende da `ViewComponent` e anche da `ContiguousSceneView` in quanto richiede delle operazioni specifiche prima di passare alla scena successiva, come verrà descritto nel paragrafo successivo sul modulo del controller. Inoltre, espone metodi per consentire l’aggiornamento delle informazioni della View relative:
+Oltre agli elementi necessari al _Cake pattern_, all’interno troviamo il `trait AreaDetailsView`, il quale estende da `ViewComponent` e anche da `ContiguousSceneView` in quanto richiede delle operazioni specifiche prima di passare alla scena successiva, come verrà descritto nel paragrafo successivo relativo al modulo del Controller. Inoltre, espone metodi per consentire l’aggiornamento delle informazioni della View relative:
   - alle piante (nome della pianta, descrizione e immagine); 
   - al tempo virtuale;
   - allo stato dell’area;
@@ -616,7 +611,7 @@ Oltre agli elementi necessari al _Cake pattern_, all’interno troviamo il `trai
 
 Il Controller viene racchiuso all'interno del modulo `AreaDetailsControllerModule` ([Fig. 4.7.1.3]), il quale include il `trait AreaDetailsController` che definisce i metodi che possono essere richiamati sul Controller ed, in particolare, quello per inizializzare la View. 
 
-Il trait estende `SceneController`, necessario per poter ritornare alla schermata principale dell'applicazione e per terminare l'aggiornamento delle informazioni alla View.
+Il `trait` estende `SceneController`, necessario per poter ritornare alla schermata principale dell'applicazione e per terminare l'aggiornamento delle informazioni alla View.
 
 Il compito principale del Controller è quello di richiamare la creazione dell'interfaccia grafica rappresentante il dettaglio dell'area. Per assolvere a tale compito il Controller provvede, mediante la classe di utility `AreaSensorHelper`, alla creazione degli _MVC_ incaricati della gestione dei sensori presenti all'interno dell'area e specificatamente:
 - `AreaAirHumidityMVC`, che gestisce le azioni riguardo al sensore che rileva l'umidità dell'aria all'interno dell'area;
@@ -635,7 +630,7 @@ Il compito principale del Controller è quello di richiamare la creazione dell'i
 
 Con l’obiettivo di rendere l’applicazione modulare e scalabile all'aggiunta di nuovi sensori, si è deciso di separare il componente per la gestione del dettaglio di un’area dalla visualizzazione dei valori ottenuti dai sensori e le rispettive azioni che possono essere compiute.
 
-Ciascun componente è rappresentato da un modulo _MVC_ separato, composto da una propria View e un proprio Controller. Il Model rimane quello implementato per le singole aree e per il dettaglio dell’area descritto nella [Sec. Aree](#aree).
+Ciascun componente è rappresentato da un modulo _MVC_ separato, composto da una propria View e un proprio Controller. Il Model rimane quello implementato per le singole aree e per il dettaglio dell’area descritto nel paragrafo [Aree](#aree).
 
 I comportamenti dei vari parametri sono stati raccolti in interfacce comuni: 
 -	`AreaParameterMVC`, per i componenti _MVC_;
@@ -644,7 +639,7 @@ I comportamenti dei vari parametri sono stati raccolti in interfacce comuni:
 
 #### MVC dei parametri
 
-Il trait `AreaParameterMVC`, come mostrato in figura [Fig. 4.7.2.1], rappresenta l’interfaccia generale dei componenti _MVC_ dei parametri. In particolare, contiene tre campi che sono necessari alla composizione dell’elemento: 
+Il `trait AreaParameterMVC`, come mostrato in figura [Fig. 4.7.2.1], rappresenta l’interfaccia generale dei componenti _MVC_ dei parametri. In particolare, contiene tre campi che sono necessari alla composizione dell’elemento: 
 -	`areaModel`, ossia il model associato alla singola area;
 -	`areaParameterView`, ossia la view associata al parametro;
 -	`areaParameterController`, ossia il controller associato al parametro.
@@ -725,7 +720,7 @@ Il `trait Sensor` ([Fig. 4.8.1]) rappresenta proprio l'interfaccia che assolve a
 Una volta racchiusi gli aspetti comuni dei sensori all'interno dell'interfaccia `Sensor`, ci si è interrogati su come l'aggiornamento e l'emissione dei valori rilevati dai sensori dovesse avvenire.
 Si è giunti alla conclusione che esistono due tipologie di sensori: quelli che effettuano un'aggiornamento periodico del valore rilevato, rappresentati dall'interfaccia `SensorWithTimer`, e quelli che cambiano il valore rilevato istantaneamente, al verificarsi di determinate condizioni.
 
-L'interfaccia `SensorWithTimer` estende l'interfaccia `Sensor` e, di conseguenza è un suo sottotipo. Rispetto al sensore normale, effettua l'aggiornamento del parametro rilevato periodicamente, emettendo di volta in volta un nuovo valore. 
+L'interfaccia `SensorWithTimer` estende l'interfaccia `Sensor` e rispetto al sensore normale, effettua l'aggiornamento del parametro rilevato periodicamente, emettendo di volta in volta un nuovo valore. 
 
 A tal fine, `SensorWithTimer` richiede l'implementazione di un unico metodo `registerTimerCallback`, il quale consente al sensore di specificare al timer della simulazione il tempo virtuale che deve trascorrere tra un aggiornamento e l'altro.
 
@@ -759,7 +754,7 @@ Per poter determinare il valore del parametro rilevato rispetto all'attuale stat
 
 Ogni qual volta l'utente compie una nuova azione o viene rilevato un nuovo parametro ambientale, a seconda dello stato in cui si trovano i componenti della serra, si richiama la funzione della _factory_ corrispondente, in modo da determinare il nuovo valore rilevato.
 
-Nello specifico, abbiamo detto nella precedente sezione [4.8](#48-sensori) che ogni sensore presenta due `Observer`: uno che viene notificato ogni qual volta un nuovo valore ambientale viene rilevato e l'altro che viene notificato ogni qual volta l'utente compie una nuova aizone sull'area. Quando uno di questi due eventi si verifica, il sensore controlla lo stato attuale dei componenti dell'area e, successivamente, sceglie la funzione da applicare per calcolare il nuovo valore; infine, emette questo nuovo valore sul flusso dell'`Observable`.
+Nello specifico, abbiamo detto nella precedente sezione [Sec. 4.8](#48-sensori) che ogni sensore presenta due `Observer`: uno che viene notificato ogni qual volta un nuovo valore ambientale viene rilevato e l'altro che viene notificato ogni qual volta l'utente compie una nuova aizone sull'area. Quando uno di questi due eventi si verifica, il sensore controlla lo stato attuale dei componenti dell'area e, successivamente, sceglie la funzione da applicare per calcolare il nuovo valore; infine, emette questo nuovo valore sul flusso dell'`Observable`.
 
 
 ### 4.8.2 Sensore per la temperatura
@@ -783,7 +778,8 @@ Per poter calcolare le rilevazioni del sensore della temperatura, è stato reali
 
 Più precisamente, il sensore della temperatura effettua un aggiornamento del valore rilevato:
 - ogni qual volta l'utente compie una nuova azione che influenza il parametro;
-- nel caso in cui venga rilevato un nuovo valore della temperatura esterna; - nel caso in cui il timer abbia emesso l'evento che indica al sensore di effettuare una nuova rilevazione.
+- nel caso in cui venga rilevato un nuovo valore della temperatura esterna; 
+- nel caso in cui il timer abbia emesso l'evento che indica al sensore di effettuare una nuova rilevazione.
 
 ### 4.8.3 Sensore per l'umiditià dell'aria
 
@@ -862,7 +858,7 @@ Le _factories_, come dice il nome, rappresentano delle vere e proprie "fabbirche
 
 All'interno del progetto si è fatto utilizzo, in particolare, del pattern _StaticFactory_, per produrre le funzioni necessarie a calcolare l'aggiornamento dei parametri rilevati dai sensori. 
 
-Nella programmazione funzionale, infatti, è possibile specificare dei metodi che abbiano come tipo di ritorno delle funzioni, come le _factories_ che restituiscono la funzione da applicare.
+Nella programmazione funzionale, infatti, è possibile specificare dei metodi che abbiano come tipo di ritorno delle funzioni, si è sfruttata quindi questa possibilità, per poter realizzare delle _factories_, che restituissero la funzione da applicare, per determinare l'aggiornamento del valore rilevato.
 
 ### Singleton
 
@@ -872,7 +868,7 @@ In Scala è particolarmente semplice implementare tale pattern in quanto gli _ob
 
 ### Template method
 
-Il pattern _Template Method_ è un pattern comportamentale basato sulle classi. Permette di catturare il _template_ dell’algoritmo attraverso dei metodi astratti che verranno poi implementati nelle sottoclassi. Grazie a questo pattern, è possibile fattorizzare in una classe la parte invariante di un algoritmo e di lasciare alle sottoclassi il compito di implementare il comportamento che può variare, favorendo un maggiore riuso del codice.
+Il pattern _Template Method_ è un pattern comportamentale basato sulle classi. Permette di catturare il _template_ dell’algoritmo attraverso dei metodi astratti che verranno poi implementati nelle sottoclassi. Grazie a questo pattern, è possibile fattorizzare in una classe la parte invariante di un algoritmo e lasciare alle sottoclassi il compito di implementare il comportamento che può variare, favorendo un maggiore riuso del codice.
 
 Questo pattern è stato utilizzato all’interno del progetto per definire le seguenti classi astratte:
 - `AbstractViewComponent` che rappresenta i componenti della View;
