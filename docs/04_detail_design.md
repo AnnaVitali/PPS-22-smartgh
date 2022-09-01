@@ -858,7 +858,7 @@ Le _factories_, come dice il nome, rappresentano delle vere e proprie "fabbirche
 
 All'interno del progetto si è fatto utilizzo, in particolare, del pattern _StaticFactory_, per produrre le funzioni necessarie a calcolare l'aggiornamento dei parametri rilevati dai sensori. 
 
-Nella programmazione funzionale, infatti, è possibile specificare dei metodi che abbiano come tipo di ritorno delle funzioni, si è sfruttata quindi questa possibilità, per poter realizzare delle _factories_, che restituissero la funzione da applicare, per determinare l'aggiornamento del valore rilevato.
+Nella programmazione funzionale, infatti, è possibile specificare dei metodi che abbiano come tipo di ritorno delle funzioni. Si è sfruttata, quindi, questa possibilità per poter realizzare delle _factories_ che restituissero la funzione da applicare per determinare l'aggiornamento del valore rilevato.
 
 ### Singleton
 
