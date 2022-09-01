@@ -42,7 +42,7 @@ Gli elementi Model, View e Controller vengono racchiusi in moduli, composti da:
 [Fig. 4.3]: img/cake_controller.png
 
 
-Tutti gli elementi principali dell'applicazione, che richiedono di eseguire operazioni o di elaborare informazioni e fornire risultati, a seguito delle azioni compiute dall'utente, sono state realizzate seguendo questa strategia e nelle seguenti sezioni, verranno descritti con maggiore dettaglio.
+Tutti gli elementi principali dell'applicazione, che richiedono di eseguire operazioni o di elaborare informazioni e fornire risultati a seguito delle azioni compiute dall'utente, sono state realizzate seguendo questa strategia e nelle seguenti sezioni verranno descritti con maggiore dettaglio.
 
 ## 4.1 View e Controller: elementi comuni
 
