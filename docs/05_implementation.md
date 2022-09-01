@@ -48,7 +48,7 @@ override def getCityInfo(city: String): Option[(String, String, String)] =
     case _ => None
 ```
 
-La funzione viene utilizzata all'interno del Mdel di select city per estrarre le informazioni associate alla città selezionata. Per chiamare la funzione si deve mantenere la stessa notazione _currying_. Nell'esempio, la funzione viene applicata parzialmente passando un solo argomento, in questo modo ritorna una nuova funzione che può essere consumata specificando il secondo argomento. 
+La funzione viene utilizzata all'interno del Model di select city per estrarre le informazioni associate alla città selezionata. Per chiamare la funzione si deve mantenere la stessa notazione _currying_. Nell'esempio, la funzione viene applicata parzialmente passando un solo argomento, in questo modo ritorna una nuova funzione che può essere consumata in seguito specificando il secondo argomento. 
 
 ### 5.1.3 Type members
 
