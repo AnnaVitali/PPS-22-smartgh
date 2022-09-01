@@ -97,7 +97,7 @@ object EnvironmentControllerModule:
         simulationMVC.simulationController.updateVelocityTimer(value)
 
       override def notifyTimeValueChange(timeValue: String): Unit =
-          environmentView.displayElapsedTime(timeValue)
+        environmentView.displayElapsedTime(timeValue)
 
       override def finishSimulation(): Unit =
         environmentView.finishSimulation()
