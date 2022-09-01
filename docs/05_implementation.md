@@ -30,7 +30,7 @@ La funzione prende in ingresso due valori: il valore corrente dell’umidità e 
 ### 5.1.2 Currying
 In _Scala_ è possibile definire funzioni _curried_, ossia la valutazione di una funzione che assuma parametri multipli può essere tradotta nella valutazione di una sequenza di funzioni.
 
-È un meccanismo che consente di applicare il DRY (_Don't repeat yourself_), favorendo quindi il riuso del codice. Infatti quando una funzione è _curried_, è possibile applicare parzialmente la funzione per poterla utilizzarla in più punti del codice.
+È un meccanismo che consente l'applicazione del principio _DRY (Don't repeat yourself)_, favorendo quindi il riuso di codice. Infatti, quando una funzione è _curried_, è possibile applicare parzialmente la funzione per poterla utilizzarla in più punti del codice.
 
 Nel seguente estratto di codice è possibile vedere un esempio di definizione di funzione _currying_.
 
