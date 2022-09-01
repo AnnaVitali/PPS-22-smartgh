@@ -5,9 +5,9 @@ per una corretta comprensione del progetto.
 Va inoltre sottolineato, che il codice realizzato, è stato opportunamente documentato mediante la `Scaladoc`, la quale può essere utilizzata come un ulteriore riferimento per meglio comprendere l'implementazione del programma e il suo comportamento.
 
 ## 5.1 Utilizzo del paradigma funzionale
-Durante lo sviluppo del progetto, si è cercato di utilizzare il più possibile il paradigma funzionale, cercando di raffinare sempre di più la soluzione adottata per poter sfruttare al meglio i vantaggi che questo pardigma offre. 
+Durante lo sviluppo del progetto, si è cercato di utilizzare il più possibile il paradigma funzionale, cercando di raffinare sempre di più la soluzione adottata per poter sfruttare al meglio i vantaggi che questo paradigma offre. 
 
-Se infatti durante la realizzazione di una detemrinata funzionalità, ci si rendeva conto di aver utilizzato un'approcio più legato all'_object-oriented_ che a al paradigma funzionale, dopo aver valutato i diversi aspetti della soluzione, che potevano essere migliorati e modificati adottando, invece, elementi del paradigma funzinoale, si procedeva con il _refactoring_ del codice e all'effettuazione di queste modifiche.
+Se infatti durante la realizzazione di una determinata funzionalità, ci si rendeva conto di aver utilizzato un approccio più legato all'_object-oriented_ che a al paradigma funzionale, dopo aver valutato i diversi aspetti della soluzione, che potevano essere migliorati e modificati adottando, invece, elementi del paradigma funzionale, si procedeva con il _refactoring_ del codice e all'effettuazione di queste modifiche.
 
 Nelle seguenti sezioni, verranno descritti con maggiore dettaglio alcuni elementi della programmazione funzionale, che sono stati utilizzati all'interno del progetto e alcuni esempi del loro utilizzo.
 
@@ -140,7 +140,7 @@ Il file `cities.pl` contiene, inoltre, una regola `search_city` che consente di 
 search_city([H|T], X, Y, Z) :- city(X, Y, Z), atom_chars(X, [H|T]).
 ```
 
-Infine, `SelectCityModelModule`, utilizza questo file e la libreria [_TuProlog_](https://apice.unibo.it/xwiki/bin/view/Tuprolog/), per poter visualizzare i diversi nomi delle città e implementare il _live search_. Infatti, ogni qual volta l'utente inserisce dei caratteri nel `TextField`, della schermata, questi caratteri vengono utilizatti, per definire il _goal_ che si intende risolvere e determinare la città che l'utente vuole selezionare.
+Infine, `SelectCityModelModule`, utilizza questo file e la libreria [_TuProlog_](https://apice.unibo.it/xwiki/bin/view/Tuprolog/), per poter visualizzare i diversi nomi delle città e implementare il _live search_. Infatti, ogni qual volta l'utente inserisce dei caratteri nel `TextField`, della schermata, questi caratteri vengono utilizzati, per definire il _goal_ che si intende risolvere e determinare la città che l'utente vuole selezionare.
 
 ```scala
 private def searchCity(city: String, start: String = "['", sep: String = "','", end: String = "']"): Iterable[SolveInfo] =
@@ -148,7 +148,7 @@ private def searchCity(city: String, start: String = "['", sep: String = "','", 
 ``` 
 
 ### 5.2.2 Utilizzo di Prolog per la selezione delle piante
-Per consentire all'utente la selezione delle piante, che si intende coltivare all'interno della serra, la classe `UploadPlants`, prima che venga mostrata la schermata di selezione delle piante all'utente, si occupa di convertire il file `plants.txt`, in un file _Prolog_: `plants.pl`, contenente i records che detengono le infromazioni sulle piante, i quali risultano essere scritti nel seguente modo:
+Per consentire all'utente la selezione delle piante, che si intende coltivare all'interno della serra, la classe `UploadPlants`, prima che venga mostrata la schermata di selezione delle piante all'utente, si occupa di convertire il file `plants.txt`, in un file _Prolog_: `plants.pl`, contenente i records che detengono le informazioni sulle piante, i quali risultano essere scritti nel seguente modo:
 
 ```prolog
 plant('Alcea rosea', 'alcea rosea').
@@ -307,11 +307,11 @@ Try(requests.post(url = url, data = data)) match {
 
 Il _JSON_ ottenuto in caso di successo, è stato poi utilizzato per l'implementazione del `type` definito nell'interfaccia della classe `Environment`, nel caso della città e `Plant`, nel caso delle informazioni relative alla pianta.
 
-Per entrambe le implementazioni, si è deciso di assengare a `type` il tipo concreto `Map[String, Any]` in quanto il _JSON_ ottenuto come risposta, contiene valori anche complessi, ad esempio _sub-json_.
+Per entrambe le implementazioni, si è deciso di assegnare a `type` il tipo concreto `Map[String, Any]` in quanto il _JSON_ ottenuto come risposta, contiene valori anche complessi, ad esempio _sub-json_.
 
 A partire dall'oggetto contenente l'implementazione del `type,` sono state estrapolate le informazioni utili alla simulazione. 
 
-Nel caso delle città questo è rappresentato dalle previsioni meteorologiche orarie, che vengono successivamente filtrate in base all'orario richiesto, mentre nel caso delle piante è rappresentato da: nome della pianta, valori ottimali dei sensori (temperatura, luminosità ed umidità del suolo e dell'aria) e l'_url_ per reperire l'immagine. A partire dal nome è stata effettuata inoltre la richiesta al sito [wikipedia](https://it.wikipedia.org/wiki/Pagina_principale) per ottenere la descrizione della pianta.
+Nel caso delle città questo è rappresentato dalle previsioni meteorologiche orarie, che vengono successivamente filtrate in base all'orario richiesto, mentre nel caso delle piante è rappresentato da: nome della pianta, valori ottimali dei sensori (temperatura, luminosità ed umidità del suolo e dell'aria) e l'_url_ per reperire l'immagine. A partire dal nome è stata effettuata inoltre la richiesta al sito [Wikipedia](https://it.wikipedia.org/wiki/Pagina_principale) per ottenere la descrizione della pianta.
 
 ## 5.5 Utilizzo di ScalaFX e JavaFX
 Per l’implementazione dell’interfaccia grafica sono state utilizzate le librerie: [_ScalaFX_](https://www.scalafx.org/), un _DSL_ scritto in _Scala_ che fa da _wrapper_ agli elementi di _JavaFx_ e [_JavaFX_](https://openjfx.io/). 
@@ -325,11 +325,11 @@ La logica di caricamento del file _FXML_ viene racchiusa nella classe astratta `
 Di fatto, il componente View, rappresenta il Controller associato al _layout_. Il Controller può ottenere il riferimento agli elementi dell’interfaccia attraverso gli `id` specificati nell’_FXML_ e il caricatore, ossia `FXMLLoader`, il quale cercherà di istanziarli e di renderli accessibili. Il Controller ha il compito di inizializzare gli elementi dell’interfaccia utente e di gestirne il loro comportamento dinamico.
 
 ## 5.6 Testing
-Per testare le funzinalità principali del porgramma, si è deciso di utilizzare la modalità _Test Driven Development (TDD)_. Questa strategia, prevede di scrivere per prima cosa il codice di testing, indicando il compoertamento corretto della funzionalità che si vuole testare e successivamente scrivere il codice di produzione, affinchè i test individuati passino correttamente. Una volta scritto il codice di produzione e aver passato i test si può procedere al _refactoring_ e al miglioramento della soluzione ottenuta. 
+Per testare le funzionalità principali del programma, si è deciso di utilizzare la modalità _Test Driven Development (TDD)_. Questa strategia, prevede di scrivere per prima cosa il codice di testing, indicando il comportamento corretto della funzionalità che si vuole testare e successivamente scrivere il codice di produzione, affinché i test individuati passino correttamente. Una volta scritto il codice di produzione e aver passato i test si può procedere al _refactoring_ e al miglioramento della soluzione ottenuta. 
 
-Il _TDD_, quindi, si compone di tre diverse fasi che si susseguono: red, green e refactor. Nella fase red si ha solo il codice di testing e di conseguenza, i test che sono stati scritti, non passerano, in quanto il codice di produzione risulta essere mancante, nella fase green, invece, si procede alla scrittura del codice di produzione in modo da poter superare i test precedentemente definiti e infine nella fase di refactor, il codice di produzione scritto viene migliorato.
+Il _TDD_, quindi, si compone di tre diverse fasi che si susseguono: red, green e refactor. Nella fase red si ha solo il codice di testing e di conseguenza, i test che sono stati scritti, non passeranno, in quanto il codice di produzione risulta essere mancante, nella fase green, invece, si procede alla scrittura del codice di produzione in modo da poter superare i test precedentemente definiti e infine nella fase di refactor, il codice di produzione scritto viene migliorato.
 
-Il team di lavoro, per lo sviluppo dell'applicazione, ha inoltre deciso di adottare la pratica di _Continuous Integration_, decidendo di realizzare due flussi di lavoro sul relativo _repository_, il primo dedicato all'esecuzione dei test sui diversi sistemi operativi: Windows, Linux, Mac e il secondo diretto a deterimnare la _coverage_ ottenuta, mediante i test effettuati.
+Il team di lavoro, per lo sviluppo dell'applicazione, ha inoltre deciso di adottare la pratica di _Continuous Integration_, decidendo di realizzare due flussi di lavoro sul relativo _repository_, il primo dedicato all'esecuzione dei test sui diversi sistemi operativi: Windows, Linux, Mac e il secondo diretto a determinare la _coverage_ ottenuta, mediante i test effettuati.
 
 Per questo progetto le funzionalità del modello, che racchiudono la logica di business, sono state testate mediante l'utilizzo di _ScalaTest_, mentre per testare gli elementi della View, siccome è stata utilizzata la libreria _ScalaFX_, si è deciso di utilizzare, per il testing, la libreria _TestFx_.
 
@@ -385,7 +385,7 @@ Nello specifico, i diversi _Unit tests_ che si vogliono realizzare devono prende
 ```
 Come si può vedere sempre dall'esempio, per verificare le proprietà degli elementi dell'interfaccia, è stata utilizzata la clase `FxAssert` e il metodo `verifyThat`, il quale consente, una volta passato l'id del componente _FXML_, di verificare una determinata proprietà su di esso. Le proprietà possono essere definite tramite i `matchers` di TestFX.
 
-In questo modo, quindi, è stato possible per il team di sviluppo effettuare dei test automatici sull'interfaccia grafica che si intende mostrare all'utente. 
+In questo modo, quindi, è stato possibile per il team di sviluppo effettuare dei test automatici sull'interfaccia grafica che si intende mostrare all'utente. 
 
 Va comunque sottolineato che per testare gli aspetti di View, sono stati svolti anche numerosi test manuali, anche perchè molto spesso, risultava essere complicato tramite test automatici, verificare determinate condizioni, questi di fatti non possono essere considerati completamente esaustivi nella verifica degli aspetti di interazione con l'utente.
 
@@ -408,7 +408,7 @@ Come si può vedere dalla [Fig. 5.6.3.1], la coverage finale ottenuta è del 79%
 Gli elementi per cui si ha una _coverage_ più elevata sono quelli che fanno riferimento al Model dell'applicazione, mentre quelli per cui si ha una _coverage_ più bassa fanno riferimento agli elementi della View, che come spiegato nella precedente sezione [Sec. 5.6.2](#562-utilizzo-di-unit-test-e-testfx), sono stati testati sia tramite test automatici che tramite test manuali.
 
 ## 5.7 Suddivisione del lavoro
-Durante lo _sprint preview_, una volta determinati i dviersi prodotti che si vuole realizzare e i dversi tasks necessari per il loro completamento, questi vengono poi assegnati a uno o più membri del gruppo, incaricati della loro esecuzione.
+Durante lo _sprint preview_, una volta determinati i diversi prodotti che si vuole realizzare e i diversi tasks necessari per il loro completamento, questi vengono poi assegnati a uno o più membri del gruppo, incaricati della loro esecuzione.
 
 Il completamento di uno o più tasks, individuati nel _product backlog_, può dare luogo alla stesura di diversi elementi del codice di produzione. 
 
@@ -462,10 +462,10 @@ Per quanto riguarda l’identificazione di una sezione di progetto pienamente ri
 - il modulo `GreenHouseDivisionMVC` e i rispettivi sottomoduli `GHModelModule`, `GHControllerModule` e `GHViewModule`. Tale modulo si occupa di gestire la parte di suddivisione della serra in aree e il suo continuo aggiornamento durante tutto lo svolgimento della simulazione, mediante la sottoscrizione di un evento di tipo `interval` e all'evento di cambio di stato di un'area. 
 
   La sottoscrizione a questi due eventi è stata scelta al fine di non sovraccaricare l'_EDT (Event Dispatch Thread)_ con richieste di aggiornamento della view, le quali avrebbero reso meno reattiva l'interfaccia.
-- il modulo `AreaMVC` e i rispettivi sottomoduli `AreaModelModule`, `AreaControllerModule` e `AreaViewModule`. Il seguente modulo si occupa di implementare le singole aree che compongono le serra, per farlo interagisce con i sensori presenti al suo interno affinchè, possa mantenere aggiornati e mostrare all'utente i valori rilevati da questi ultimi. 
+- il modulo `AreaMVC` e i rispettivi sottomoduli `AreaModelModule`, `AreaControllerModule` e `AreaViewModule`. Il seguente modulo si occupa di implementare le singole aree che compongono le serra, per farlo interagisce con i sensori presenti al suo interno affinché, possa mantenere aggiornati e mostrare all'utente i valori rilevati da questi ultimi. 
 
   In particolare, il Model oltre a tenere traccia dei valori rilevati dai parametri, si occupa anche di memorizzare le operazioni effettuate dall'utente per riportare e mantenere i parametri nei range ottimali e notificare il cambio di stato dell'area. 
-- le classi `ManageSensor`e `AreaSensorHelper`, le quali vengno utilizzate dal modulo `AreaModelModule` per assolvere al suo compito e in particolare, per tutte quelle operazioni che coinvolgono i sensori.
+- le classi `ManageSensor`e `AreaSensorHelper`, le quali vengono utilizzate dal modulo `AreaModelModule` per assolvere al suo compito e in particolare, per tutte quelle operazioni che coinvolgono i sensori.
 
 
 Per la parte di testing mi sono occupata della realizzazione delle seguenti classi di test:
@@ -482,14 +482,14 @@ Nelle fasi iniziali di implementazione del progetto, mi sono impegnata nella rea
 
 - `PlantSelectorModelModule`, il quale rappresenta il modulo che detiene il Model per la selezione delle piante, presenti nel file _Prolog_ generato dalla classe _utility_, sviluppata da _Veronika_. 
 
-    Dopo aver sviluppato questa parte, insieme alla collega _Elena_, abbiamo provveduto ad effettuare il _refactoring_ delle parti in comune relative dell'utilizzo di _Prolog_, sia per la seslezione delle piante, che per la selezione delle città;
+    Dopo aver sviluppato questa parte, insieme alla collega _Elena_, abbiamo provveduto ad effettuare il _refactoring_ delle parti in comune relative dell'utilizzo di _Prolog_, sia per la selezione delle piante, che per la selezione delle città;
 - `SelectPlantViewModule`, rappresentante il modulo che detiene la View per la selezione delle piante, che si occupa di gestire i componenti dell'interfaccia grafica e dell'interazione con l'utente;
 - `PlantSelectorControllerModule`, il quale rappresenta il modulo che detiene il Controller per il meccanismo di selezione delle piante, che svolge la funzione di intermediario fra View e Model;
-- `PlantSelectorMVC`, che rappresenta il compoenente che detiene tutti gli elementi del _pattern MVC_, per la selezione delle piante.
+- `PlantSelectorMVC`, che rappresenta il componente che detiene tutti gli elementi del _pattern MVC_, per la selezione delle piante.
 
 Dopodichè, mi sono dedicata alla realizzazione della View di fine simulazione, realizzando la classe `FinishSimulationView`.
 
-Nel secondo sprint, invece, mi sono concentrata maggiromente sulla realizzazione dei sensori, dei loro meccanismi di aggiornamento e notifica, definendo inizialmente assieme ad _Elena_, l'architettura generale dei sensori, in particolare abbiamo realizzato: le'interfacce `Sensor` e `SensorWithTimer`, le classi astratte `AbstractSensor` e `AbstractSensorWithTimer` e la classe `AreaComponentsState`. 
+Nel secondo sprint, invece, mi sono concentrata maggiormente sulla realizzazione dei sensori, dei loro meccanismi di aggiornamento e notifica, definendo inizialmente assieme ad _Elena_, l'architettura generale dei sensori, in particolare abbiamo realizzato: le'interfacce `Sensor` e `SensorWithTimer`, le classi astratte `AbstractSensor` e `AbstractSensorWithTimer` e la classe `AreaComponentsState`. 
 
 Successivamente, mi sono dedicata all'implementazione dei sensori relativi alla luminosità e alla temperatura, realizzando le classi:
 
@@ -498,16 +498,16 @@ Successivamente, mi sono dedicata all'implementazione dei sensori relativi alla 
 - `TemperatureSensor`, rappresentante il sensore dedicato alla temperatura;
 - `FactoryFunctionsTemperature`, che contiene le funzioni che possono essere applicate, per poter determinare il valore attuale della temperatura all'interno dell'area, in base a specifiche condizioni.
 
-Quando tutti i sensori sono stati completati, assieme alle colleghe _Veronika_ ed _Elena_, abbiamo provveduto a collegare questi ultimi all'`EnvironmentModelModule` e successivamente asieme a _Maria_, all'`AreaModelModule`.
+Quando tutti i sensori sono stati completati, assieme alle colleghe _Veronika_ ed _Elena_, abbiamo provveduto a collegare questi ultimi all'`EnvironmentModelModule` e successivamente assieme a _Maria_, all'`AreaModelModule`.
 
-Infine, siccome durante l'utilizzo dell'applicazione, si è visto che i dati delle piante impiegavano un discreto tempo per venire caricati completamente, per mantenere l'applicazione reattiva e fornire informazioni all'utente, ho provveduto a realizzare il compoenente `LoadingPlantMVC` e i suoi elementi:
+Infine, siccome durante l'utilizzo dell'applicazione, si è visto che i dati delle piante impiegavano un discreto tempo per venire caricati completamente, per mantenere l'applicazione reattiva e fornire informazioni all'utente, ho provveduto a realizzare il componente `LoadingPlantMVC` e i suoi elementi:
 
 - `loadingPlantControllerModule`, il quale si occupa di gestire l'interazione fra la View e il Model, che in questo caso è rappresentato sempre da `PlantSelectorModelModule`;
 - `loadingPlantViewModule`, che si occupa di gestire gli elementi dell'interfaccia grafica che occorre mostrare all'utente, per il caricamento dei dati.
 
 Una volta che tutti gli MVC sono stati implementati, assieme alle altre compagne di progetto, abbiamo provveduto alla rifattorizzazione di `SimulatioinView` e alla definizione di `SimulationController`, nonchè alla realizzazione di `SimulationMVC`. Infine, mi sono occupata di raccogliere gli elementi comuni relativi ai diversi Controller dell'applicazione, realizzando l'interfaccia `SceneController`.
 
-Nell' ultimo sprint, mi sono dedicata assieme agli altri membri del gruppo, ad operazioni di _refactoring_ e di ottimizzazione del codice, per poter raffinare e migliorare ulteriormente la soluzione proposta.
+Nell'ultimo sprint, mi sono dedicata assieme agli altri membri del gruppo, ad operazioni di _refactoring_ e di ottimizzazione del codice, per poter raffinare e migliorare ulteriormente la soluzione proposta.
 
 Per quanto concerne l'attività di testing, invece, ho effettuato la realizzazione dei seguenti tests:
 
@@ -563,4 +563,3 @@ Per quanto riguarda la parte di testing, ho realizzato i seguenti test:
 - `AreaLuminosityViewModuleTest.scala`
 - `AreaSoilMoistureViewModuleTest.scala`
 - `AreaTemperatureViewModuleTest.scala`
-
