@@ -292,7 +292,10 @@ val query =
           ) + "&days=1&aqi=no&alerts=no"
 val r: Response = requests.get(query)
 ```
-Ottenuta la risposta dal web Server, qualora questa abbia dato esito positivo, si è proceduto ad effettuare il _parsing_ per poter ottenere il _JSON_, mediante la libreria [_json4s_](https://github.com/json4s/json4s). Qualora, invece, l'esito della risposta abbia dato esito negativo, si è deciso di impostare un valore di default. 
+
+Ottenuta la risposta dal web Server, si procede nei seguenti due modi: 
+  1. con esito positivo si effettua il _parsing_ per ottenere il _JSON_, mediante la libreria [_json4s_](https://github.com/json4s/json4s); 
+  2. con esito negativo si imposta un valore di default. 
 
 Al fine di valutare l'esito della risposta, si è fatto uso del `Try match` per identificare se la richiesta è andata a buon fine, caso di `Success`, o meno, caso di `Failure`.
 
