@@ -67,7 +67,7 @@ object EnvironmentControllerModule:
     /** Class that contains the [[EnvironmentController]] implementation. */
     class EnvironmentControllerImpl() extends EnvironmentController:
 
-      private val ghMVC: GreenHouseDivisionMVC.GreenHouseDivisionMVCImpl = GreenHouseDivisionMVC(
+      private val ghMVC: GreenHouseDivisionMVC = GreenHouseDivisionMVC(
         simulationMVC.simulationController.plantsSelected,
         simulationMVC
       )
@@ -97,7 +97,7 @@ object EnvironmentControllerModule:
         simulationMVC.simulationController.updateVelocityTimer(value)
 
       override def notifyTimeValueChange(timeValue: String): Unit =
-          environmentView.displayElapsedTime(timeValue)
+        environmentView.displayElapsedTime(timeValue)
 
       override def finishSimulation(): Unit =
         environmentView.finishSimulation()

@@ -12,6 +12,12 @@ import it.unibo.pps.smartgh.view.component.areaParameter.AreaParameterView.AreaP
 import it.unibo.pps.smartgh.view.component.areaParameter.AreaSoilMoistureViewModule.AreaSoilMoistureView
 import it.unibo.pps.smartgh.view.component.areaParameter.{AreaParameterView, AreaSoilMoistureViewModule}
 
+/** A trait that represents the MVC component for the area soil moisture section. */
+trait AreaSoilMoistureMVC extends AreaModelModule.Interface
+  with AreaSoilMoistureViewModule.Interface
+  with AreaSoilMoistureControllerModule.Interface
+  with AreaParameterMVC
+
 /** Object that incapsulate the model view and controller module for area soil humidity. */
 object AreaSoilMoistureMVC:
 
@@ -21,22 +27,12 @@ object AreaSoilMoistureMVC:
     * @param updateStateMessage
     *   a function for update the area status and messages
     * @return
-    *   a new instance of [[AreaSoilMoistureMVCImpl]].
+    *   a new instance of [[AreaSoilMoistureMVC]].
     */
-  def apply(areaModel: AreaModel, updateStateMessage: (String, Boolean) => Unit): AreaSoilMoistureMVCImpl =
+  def apply(areaModel: AreaModel, updateStateMessage: (String, Boolean) => Unit): AreaSoilMoistureMVC =
     AreaSoilMoistureMVCImpl(areaModel, updateStateMessage)
 
-  /** Implementation of the area soil moisture MVC.
-    * @param areaModel
-    *   the model of the area
-    * @param updateStateMessage
-    *   a function for update the area status and messages
-    */
-  class AreaSoilMoistureMVCImpl(override val areaModel: AreaModel, updateStateMessage: (String, Boolean) => Unit)
-      extends AreaModelModule.Interface
-      with AreaSoilMoistureViewModule.Interface
-      with AreaSoilMoistureControllerModule.Interface
-      with AreaParameterMVC:
+  private class AreaSoilMoistureMVCImpl(override val areaModel: AreaModel, updateStateMessage: (String, Boolean) => Unit) extends AreaSoilMoistureMVC:
 
     override val parameterController: AreaParameterController = AreaSoilMoistureControllerImpl(updateStateMessage)
     override val parameterView: AreaParameterView = AreaSoilMoistureViewImpl()

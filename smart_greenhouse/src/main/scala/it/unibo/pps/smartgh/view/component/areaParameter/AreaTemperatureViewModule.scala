@@ -38,28 +38,27 @@ object AreaTemperatureViewModule:
         extends AbstractAreaParameterView("area_temperature.fxml", "Temperature")
         with AreaTemperatureView:
 
-      override val component: GridPane = loader.load[GridPane]
       private val areaTemperatureController = parameterController.asInstanceOf[AreaTemperatureController]
 
       //noinspection VarCouldBeVal
       @FXML
-      var openStructureBtn: ToggleButton = _
+      protected var openStructureBtn: ToggleButton = _
 
       //noinspection VarCouldBeVal
       @FXML
-      var closeStructureBtn: ToggleButton = _
+      protected var closeStructureBtn: ToggleButton = _
 
       //noinspection VarCouldBeVal
       @FXML
-      var regulateTempLabel: Label = _
+      protected var regulateTempLabel: Label = _
 
       //noinspection VarCouldBeVal
       @FXML
-      var minusTempBtn: Button = _
+      protected var minusTempBtn: Button = _
 
       //noinspection VarCouldBeVal
       @FXML
-      var plusTempBtn: Button = _
+      protected var plusTempBtn: Button = _
 
       regulateTempLabel.setText(areaTemperatureController.temperature.toString)
       initGatesBtn(areaTemperatureController.isGatesOpen)

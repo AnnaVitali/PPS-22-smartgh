@@ -42,11 +42,11 @@ object AreaParameterView:
 
     //noinspection VarCouldBeVal
     @FXML
-    var descriptionLabel: Label = _
+    protected var descriptionLabel: Label = _
 
     //noinspection VarCouldBeVal
     @FXML
-    var currentValueLabel: Label = _
+    protected var currentValueLabel: Label = _
 
     override def updateDescription(optimalValue: String): Unit =
       Platform.runLater(() => descriptionLabel.setText(parameter + " " + optimalValue))

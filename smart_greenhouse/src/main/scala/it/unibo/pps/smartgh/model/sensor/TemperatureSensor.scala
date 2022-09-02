@@ -2,7 +2,6 @@ package it.unibo.pps.smartgh.model.sensor
 
 import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
 import it.unibo.pps.smartgh.model.area.{AreaComponentsState, AreaGatesState}
-import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsTemperature
 import it.unibo.pps.smartgh.model.time.Timer
 import monix.eval.Task
 import monix.execution.Ack
@@ -15,7 +14,7 @@ import scala.util.Random
 /** Object that enclose the implementation of the temperature sensor. */
 object TemperatureSensor:
 
-  private val TimeMustPass: Int = 5
+  private val TimeMustPass = "0:00"
 
   /** Apply method for the [[TemperatureSensorImpl]]
     * @param areaComponentsStateImpl
@@ -43,21 +42,16 @@ object TemperatureSensor:
   ) extends AbstractSensorWithTimer(areaComponentsState, addTimerCallback):
 
     currentValue = areaComponentsState.temperature
-    registerTimerCallback(_.takeRight(2).toInt % TimeMustPass == 0)
+    registerTimerCallback(_.takeRight(4).contentEquals(TimeMustPass))
 
     override def computeNextSensorValue(): Unit =
+      import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsTemperature.*
       Task {
         currentValue = areaComponentsState.gatesState match
           case AreaGatesState.Open if currentValue != currentEnvironmentValue =>
-            FactoryFunctionsTemperature.updateTemperatureApproachingTemperatureToReach(
-              currentValue,
-              currentEnvironmentValue
-            )
+            updateTemperatureApproachingTemperatureToReach(currentValue, currentEnvironmentValue)
           case AreaGatesState.Close if currentValue != areaComponentsState.temperature =>
-            FactoryFunctionsTemperature.updateTemperatureApproachingTemperatureToReach(
-              currentValue,
-              areaComponentsState.temperature
-            )
+            updateTemperatureApproachingTemperatureToReach(currentValue, areaComponentsState.temperature)
           case _ => currentValue
         subject.onNext(currentValue)
       }.executeAsync.runToFuture

@@ -1,7 +1,6 @@
 package it.unibo.pps.smartgh.view.component
 
 import it.unibo.pps.smartgh.mvc.SimulationMVC
-import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.view.SimulationViewModule
 import javafx.scene.Parent
 import javafx.stage.Stage
