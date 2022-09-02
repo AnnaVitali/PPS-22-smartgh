@@ -6,3 +6,4 @@ addDependencyTreePlugin
 
 resolvers += Resolver.jcenterRepo
 addSbtPlugin("net.aichler" % "sbt-jupiter-interface" % "0.9.0")
+addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "1.2.0")

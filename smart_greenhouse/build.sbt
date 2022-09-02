@@ -1,3 +1,4 @@
+import sbt.Keys.libraryDependencies
 ThisBuild / resolvers += Resolver.jcenterRepo
 
 val junitJupiterVersion = "5.7.1"
@@ -10,10 +11,18 @@ lazy val osName = System.getProperty("os.name") match {
   case _ => throw new Exception("Unknown platform!")
 }
 
+assembly / mainClass := Some("it.unibo.pps.smartgh.Main")
+
+ThisBuild / assemblyMergeStrategy := {
+  case PathList("META-INF", _*) => MergeStrategy.discard
+  case _ => MergeStrategy.first
+}
+
 lazy val root = (project in file("."))
   .settings(
     scalaVersion := "3.1.2",
     name := "smart_greenhouse",
+    assembly / assemblyJarName := "smartgh.jar",
     libraryDependencies ++= Seq(
       "org.junit.jupiter" % "junit-jupiter-api" % junitJupiterVersion % Test, // aggregator of junit-jupiter-api and junit-jupiter-engine (runtime)
       "org.junit.jupiter" % "junit-jupiter-engine" % junitJupiterVersion % Test, // for org.junit.platform
