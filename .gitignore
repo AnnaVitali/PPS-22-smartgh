@@ -17,6 +17,7 @@
 */test/files/lib/*.jar
 */test/files/speclib/instrumented.jar
 */tools/*.jar
+*/src/main/scala/META-INF/
 
 # Developer specific properties
 */build.properties
@@ -70,4 +71,3 @@
 
 # prolog folder generated
 */prolog/
-*/META-INF/
