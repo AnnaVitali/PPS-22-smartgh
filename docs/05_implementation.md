@@ -282,7 +282,7 @@ override def updateState(state: String): Unit =
 
 ## 5.4 Richieste dei dati
 
-Per reperire i dati relativi alle previsioni metereologiche della città in cui è ubicata la serra e quelli relativi alle piante si è fatto uso di richieste HTTP. A tal fine si è deciso di utilizzare la libreria [_requests_](https://github.com/com-lihaoyi/requests-scala) per permettere di effettuare la richiesta al rispettivo url: [weatherapi](https://www.weatherapi.com/api-explorer.aspx), per le previsioni meteorologiche e [open.plantbook](https://open.plantbook.io/), per le piante. 
+Per reperire i dati relativi alle previsioni metereologiche della città in cui è ubicata la serra e quelli relativi alle piante, si è fatto uso di richieste HTTP. A tal fine, si è deciso di utilizzare la libreria [_requests_](https://github.com/com-lihaoyi/requests-scala) per permettere di effettuare la richiesta ai rispettivi url: [weatherapi](https://www.weatherapi.com/api-explorer.aspx), per le previsioni meteorologiche e [open.plantbook](https://open.plantbook.io/), per le piante. 
 
 ```scala
 val query =
@@ -292,9 +292,9 @@ val query =
           ) + "&days=1&aqi=no&alerts=no"
 val r: Response = requests.get(query)
 ```
-Ottenuta la risposta dal web Server, qualora questa abbia dato esito positivo, si è proceduto ad effettuare il _parsing_ per poter ottenere il _JSON_, mediante la libreria [_json4s_](https://github.com/json4s/json4s). Qualora, invece, l'esito della risposta fosse negativo, si è deciso di impostare un valore di default. 
+Ottenuta la risposta dal web Server, qualora questa abbia dato esito positivo, si è proceduto ad effettuare il _parsing_ per poter ottenere il _JSON_, mediante la libreria [_json4s_](https://github.com/json4s/json4s). Qualora, invece, l'esito della risposta abbia dato esito negativo, si è deciso di impostare un valore di default. 
 
-Al fine di valutare l'esito della risposta, si è fatto uso del `Try match` per identificare se la richiesta va a buon fine: caso di `Success`, o meno, caso di `Failure`.
+Al fine di valutare l'esito della risposta, si è fatto uso del `Try match` per identificare se la richiesta è andata a buon fine, caso di `Success`, o meno, caso di `Failure`.
 
 ```scala
 Try(requests.post(url = url, data = data)) match {
@@ -305,40 +305,41 @@ Try(requests.post(url = url, data = data)) match {
 }
 ```
 
-Il _JSON_ ottenuto in caso di successo, è stato poi utilizzato per l'implementazione del `type` definito nell'interfaccia della classe `Environment`, nel caso della città e `Plant`, nel caso delle informazioni relative alla pianta.
+Il _JSON_ ottenuto in caso di successo è stato poi utilizzato per l'implementazione del `type` definito nell'interfaccia della classe `Environment`, nel caso della città, e `Plant`, nel caso delle informazioni relative alla pianta.
 
-Per entrambe le implementazioni, si è deciso di assegnare a `type` il tipo concreto `Map[String, Any]` in quanto il _JSON_ ottenuto come risposta, contiene valori anche complessi, ad esempio _sub-json_.
+Per entrambe le implementazioni, si è deciso di assegnare a `type` il tipo concreto `Map[String, Any]` in quanto il _JSON_ ottenuto come risposta, contiene valori anche complessi (ad esempio, _sub-json_).
 
 A partire dall'oggetto contenente l'implementazione del `type,` sono state estrapolate le informazioni utili alla simulazione. 
 
-Nel caso delle città questo è rappresentato dalle previsioni meteorologiche orarie, che vengono successivamente filtrate in base all'orario richiesto, mentre nel caso delle piante è rappresentato da: nome della pianta, valori ottimali dei sensori (temperatura, luminosità ed umidità del suolo e dell'aria) e l'_url_ per reperire l'immagine. A partire dal nome è stata effettuata inoltre la richiesta al sito [Wikipedia](https://it.wikipedia.org/wiki/Pagina_principale) per ottenere la descrizione della pianta.
+Nel caso delle città, questo è rappresentato dalle previsioni meteorologiche orarie, che vengono successivamente filtrate in base all'orario richiesto,. Nel caso delle piante, è rappresentato da: nome della pianta, valori ottimali dei sensori (temperatura, luminosità ed umidità del suolo e dell'aria) e l'_url_ per reperire l'immagine. Inoltre, a partire dal nome, è stata effettuata la richiesta al sito [Wikipedia](https://it.wikipedia.org/wiki/Pagina_principale) per ottenere la descrizione della pianta.
 
 ## 5.5 Utilizzo di ScalaFX e JavaFX
-Per l’implementazione dell’interfaccia grafica sono state utilizzate le librerie: [_ScalaFX_](https://www.scalafx.org/), un _DSL_ scritto in _Scala_ che fa da _wrapper_ agli elementi di _JavaFx_ e [_JavaFX_](https://openjfx.io/). 
+Per l’implementazione dell’interfaccia grafica sono state utilizzate le librerie: [_ScalaFX_](https://www.scalafx.org/), un _DSL_ scritto in _Scala_ che fa da _wrapper_ agli elementi di _JavaFx_, e [_JavaFX_](https://openjfx.io/). 
 
-Nello specifico, si è deciso di gestire le parti statiche dell’applicazione attraverso la creazione dei _layout_ in formato _FXML_. Siccome nella libreria _ScalaFX_ non è prevista la gestione di questa funzionalità, si è deciso di integrare quest'ultima con la libreria _JavaFX_.
+Nello specifico, si è deciso di gestire le parti statiche dell’applicazione attraverso la creazione di _layout_ in formato _FXML_. Siccome nella libreria _ScalaFX_ non è prevista la gestione di questa funzionalità, si è deciso di integrare quest'ultima con la libreria _JavaFX_.
 
-_FXML_ è un formato _XML_ che permette di comporre applicazioni _JavaFX_, separando il codice per la gestione degli elementi dalla parte di visualizzazione dei _layout_. Inoltre, l’utilizzo di [_SceneBuilder_](https://gluonhq.com/products/scene-builder/) ha facilitato la creazione delle pagine fornendo una renderizzazione visiva e intuitiva, attraverso il suo ambiente grafico.
+_FXML_ è un formato _XML_ che permette di comporre applicazioni _JavaFX_, separando il codice per la gestione degli elementi dalla parte di visualizzazione dei _layout_. Inoltre, l’utilizzo di [_SceneBuilder_](https://gluonhq.com/products/scene-builder/) ha facilitato la creazione delle pagine attraverso il suo ambiente grafico, fornendo una renderizzazione visiva e intuitiva.
 
-La logica di caricamento del file _FXML_ viene racchiusa nella classe astratta `AbstractViewComponent`, tutti i componenti della View estendono da tale classe specificando il file _FXML_ associato e possono ottenere già in automatico il _layout_ caricato.
+La logica di caricamento del file _FXML_ viene racchiusa nella classe astratta `AbstractViewComponent`: tutti i componenti della View estendono da tale classe, specificando il file _FXML_ associato, e possono ottenere in automatico il _layout_ caricato.
 
-Di fatto, il componente View, rappresenta il Controller associato al _layout_. Il Controller può ottenere il riferimento agli elementi dell’interfaccia attraverso gli `id` specificati nell’_FXML_ e il caricatore, ossia `FXMLLoader`, il quale cercherà di istanziarli e di renderli accessibili. Il Controller ha il compito di inizializzare gli elementi dell’interfaccia utente e di gestirne il loro comportamento dinamico.
+Di fatto, il componente View rappresenta il Controller associato al _layout_. Il Controller può ottenere il riferimento agli elementi dell’interfaccia attraverso gli `id` specificati nell’_FXML_ e mediante il caricatore, ossia `FXMLLoader` che cercherà di istanziarli e di renderli accessibili. Tale Controller ha il compito di inizializzare gli elementi dell’interfaccia utente e di gestirne il loro comportamento dinamico.
 
 ## 5.6 Testing
-Per testare le funzionalità principali del programma, si è deciso di utilizzare la modalità _Test Driven Development (TDD)_. Questa strategia, prevede di scrivere per prima cosa il codice di testing, indicando il comportamento corretto della funzionalità che si vuole testare e successivamente scrivere il codice di produzione, affinché i test individuati passino correttamente. Una volta scritto il codice di produzione e aver passato i test si può procedere al _refactoring_ e al miglioramento della soluzione ottenuta. 
+Per testare le funzionalità principali del programma, si è deciso di utilizzare la modalità _Test Driven Development (TDD)_. Questa strategia prevede di scrivere per prima cosa il codice di testing, indicando il comportamento corretto della funzionalità che si vuole testare, e successivamente di scrivere il codice di produzione, affinché i test individuati passino correttamente. Una volta scritto il codice di produzione e passato i test, si può procedere al _refactoring_ e al miglioramento della soluzione ottenuta. 
 
-Il _TDD_, quindi, si compone di tre diverse fasi che si susseguono: red, green e refactor. Nella fase red si ha solo il codice di testing e di conseguenza, i test che sono stati scritti, non passeranno, in quanto il codice di produzione risulta essere mancante, nella fase green, invece, si procede alla scrittura del codice di produzione in modo da poter superare i test precedentemente definiti e infine nella fase di refactor, il codice di produzione scritto viene migliorato.
+Il _TDD_, quindi, si compone di tre diverse fasi che si susseguono: red, green e refactor. Nella fase red si ha solo il codice di testing e, di conseguenza, i test che sono stati scritti non passeranno in quanto il codice di produzione risulta essere mancante. Nella fase green, invece, si procede alla scrittura del codice di produzione, in modo da poter superare i test precedentemente definiti. Infine, nella fase di refactor, il codice di produzione scritto viene migliorato.
 
-Il team di lavoro, per lo sviluppo dell'applicazione, ha inoltre deciso di adottare la pratica di _Continuous Integration_, decidendo di realizzare due flussi di lavoro sul relativo _repository_, il primo dedicato all'esecuzione dei test sui diversi sistemi operativi: Windows, Linux, Mac e il secondo diretto a determinare la _coverage_ ottenuta, mediante i test effettuati.
+Il team di lavoro, per lo sviluppo dell'applicazione, ha inoltre deciso di adottare la pratica di _Continuous Integration_, decidendo di realizzare due flussi di lavoro sul relativo _repository_: il primo dedicato all'esecuzione dei test sui diversi sistemi operativi (Windows, Linux e MacOS); il secondo diretto a determinare la _coverage_ ottenuta mediante i test effettuati.
 
-Per questo progetto le funzionalità del modello, che racchiudono la logica di business, sono state testate mediante l'utilizzo di _ScalaTest_, mentre per testare gli elementi della View, siccome è stata utilizzata la libreria _ScalaFX_, si è deciso di utilizzare, per il testing, la libreria _TestFx_.
+Per questo progetto, le funzionalità del modello che racchiudono la logica di business sono state testate mediante l'utilizzo di _ScalaTest_ mentre, per testare gli elementi della View e siccome è stata utilizzata la libreria _ScalaFX_, si è deciso di utilizzare la libreria di testing _TestFx_.
 
 Nelle seguenti sezioni, è possibile trovare una descrizione maggiormente dettagliata relativa ai test effettuati, le modalità utilizzate e la _coverage_ ottenuta.
 
 ### 5.6.1 Utilizzo di ScalaTest
-Per testare le funzionalità legate alla logica di business dell'applicazione, si è deciso di utilizzare la libreria [_ScalaTest_](https://www.scalatest.org/), realizzando diverse _suits_ di testing.
+Per testare le funzionalità legate alla logica di business dell'applicazione, sono state realizzate diverse _suits_ mediante la libreria [_ScalaTest_](https://www.scalatest.org/).
 
-In particolare, tutte le diverse classi di testing realizzate che utilizzano _ScalaTest_, estendono la classe `AnyFunSuite` e i test sono stati scritti seguendo il seguente stile:
+Tutte le diverse classi realizzate estendono `AnyFunSuite` e i test sono stati scritti seguendo questo stile:
+
 ```scala
 test("At the beginning the temperature should be initialized with the default value") {
     val defaultTemperatureValue = 27
@@ -346,9 +347,10 @@ test("At the beginning the temperature should be initialized with the default va
 }
 ```
 
-Per verificare determinate condizioni, come ad esempio di uguaglianza, minoranza o maggioranza, si è fatto utilizzo dei `matchers` di _ScalaTest_. Nello specifico, se la classe di testing estende il `trait Matchers`, ha la possibilità di utilizzare all'interno dei test, delle _keywords_ come: `should be`, `equal`, `shouldEqual` ecc. che consentono di verificare le condizioni espresse. 
+Per verificare determinate condizioni come, ad esempio, di uguaglianza, minoranza o maggioranza, si è fatto utilizzo dei `matchers` di _ScalaTest_. Nello specifico, se la classe di testing estende il `trait Matchers`, ha la possibilità di utilizzare all'interno dei test delle _keywords_ come `should be`, `equal`, `shouldEqual`, ecc... che consentono di verificare le condizioni espresse. 
 
-Infine, per testare il verificarsi di determinati risultati o condizioni, che però possono impiegare un certo tempo per avvenire, da quando è stato generato l'evento che ne è la causa, si è fatto uso di `eventually`. In particolare, se la classe di test estende il `trait Eventually`, ha la possibilità di definire dei test, che presentano una condizione che prima o poi si deve verificare entro un lasso di tempo predefinito.
+Infine, per testare il verificarsi di determinati risultati o condizioni che, però, possono impiegare un certo tempo per avvenire da quando è stato generato l'evento che ne è la causa, si è fatto uso di `eventually`. In particolare, se la classe di test estende il `trait Eventually`, ha la possibilità di definire dei test che presentano una condizione che prima o poi si deve verificare entro un lasso di tempo predefinito.
+
 ```scala
 test("The air humidity value should decrease because the ventilation and the humidity are inactive") {
   setupTimer(500 microseconds)
@@ -363,9 +365,9 @@ test("The air humidity value should decrease because the ventilation and the hum
 ### 5.6.2 Utilizzo di Unit test e TestFx
 Per poter testare gli aspetti relativi alla visualizzazione dei dati e all'interfaccia utente, si è deciso di utilizzare le librerie [_TestFx_](https://github.com/TestFX/TestFX/wiki) e [_JUnit_](https://junit.org/junit5/docs/current/user-guide/).
 
-_TestFx_, richiede che per poter scrivere dei test, che vadano a verificare degli elementi di _JavaFX_, la classe di testing estenda la classe `ApplicationExtension`, dopodiché è necessario definire un metodo contrassegnato dalla notazione `@Start`, per impostare la schermata che si vuole testare; una volta fatto questo si ha la possibilità di definire i test per la GUI.
+_TestFx_ richiede che, per poter scrivere dei test che vadano a verificare degli elementi di _JavaFX_, la classe di testing estenda la classe `ApplicationExtension`. Dopodiché, è necessario definire un metodo contrassegnato dalla notazione `@Start` per impostare la schermata che si vuole testare: una volta fatto questo, si ha la possibilità di definire i test per la GUI.
 
-Nello specifico, i diversi _Unit tests_ che si vogliono realizzare devono prendere tutti come argomento `FxRobot`, il quale rappresenta un oggetto che può essere utilizzato per poter simulare i comportamenti dell'utente sull'interfaccia grafica, come mostrato nel seguente esempio.
+Nello specifico, i diversi _Unit tests_ che si vogliono realizzare devono prendere come argomento `FxRobot`, il quale rappresenta un oggetto che può essere utilizzato per poter simulare i comportamenti dell'utente sull'interfaccia grafica, come mostrato nel seguente esempio.
 
 ```scala
 @Test def testAfterPlantSelection(robot: FxRobot): Unit =
@@ -383,18 +385,18 @@ Nello specifico, i diversi _Unit tests_ che si vogliono realizzare devono prende
               .getChildren.size, selectedPlantNumber)
   verifyThat(numberPlantsSelectedId, hasText(selectedPlantNumber.toString))
 ```
-Come si può vedere sempre dall'esempio, per verificare le proprietà degli elementi dell'interfaccia, è stata utilizzata la classe `FxAssert` e il metodo `verifyThat`, il quale consente, una volta passato l'id del componente _FXML_, di verificare una determinata proprietà su di esso. Le proprietà possono essere definite tramite i `matchers` di TestFX.
+Come si può vedere sempre dall'esempio, per verificare le proprietà degli elementi dell'interfaccia, è stata utilizzata la classe `FxAssert` e il metodo `verifyThat`, il quale consente, una volta passato l'id del componente _FXML_, di verificare una determinata proprietà su di esso. Le proprietà possono essere definite tramite i `matchers` di _TestFX_.
 
-In questo modo, quindi, è stato possibile per il team di sviluppo effettuare dei test automatici sull'interfaccia grafica che si intende mostrare all'utente. 
+In questo modo è stato possibile effettuare dei test automatici sull'interfaccia grafica che si intende mostrare all'utente. 
 
-Va comunque sottolineato che per testare gli aspetti di View, sono stati svolti anche numerosi test manuali, anche perché molto spesso, risultava essere complicato tramite test automatici, verificare determinate condizioni, questi di fatti non possono essere considerati completamente esaustivi nella verifica degli aspetti di interazione con l'utente.
+Va comunque sottolineato che, per testare gli aspetti di View, sono stati svolti anche numerosi test manuali. Molto spesso risultava essere complicato, tramite i soli test automatici, verificare determinate condizioni perciò questo tipo di test, di fatto, non può essere considerato completamente esaustivo nella verifica degli aspetti di interazione con l'utente.
 
 ### 5.6.3 Coverage
-Come detto in precedenza, il team di sviluppo ha realizzato anche un flusso di lavoro dedicato alla _coverage_, in modo tale da poter analizzare la copertura ottenuta, ogni qual volta vengono inseriti dei nuovi tests o modificati quelli precedenti.
+Come detto in precedenza, il team di sviluppo ha realizzato anche un flusso di lavoro dedicato alla _coverage_, in modo tale da poter analizzare la copertura ottenuta ogni qual volta vengono inseriti dei nuovi tests o modificati quelli precedenti.
 
-La _code coverage_ fa riferimento, sostanzialmente, alla quantità di istruzioni di codice che vengono eseguite durante l'esecuzione dei tests, tuttavia ottenere una _coverage_ del 100% non significa che il testing effettuato riesca a ricoprire tutti gli scenari, infatti l'obiettivo che ci si è dati, non è stato quello di raggiungere il 100% della copertura ma di testare le cose giuste.
+La _code coverage_ fa riferimento, sostanzialmente, alla quantità di istruzioni di codice che vengono eseguite durante l'esecuzione dei tests. Tuttavia, ottenere una _coverage_ del 100% non significa che il testing effettuato riesca a ricoprire tutti gli scenari: infatti, l'obiettivo che ci si è dati non è stato quello di raggiungere il 100% della copertura ma di testare funzioni mirate.
 
-In particolare, per poter ottenere i risultati relativi alla _coverage_ si è fatto utilizzo del _tool_ [_JaCoCo_](https://www.eclemma.org/jacoco/), ottenendo alla fine il risultato illustrato in figura [Fig. 5.6.3.1].
+In particolare, per poter ottenere i risultati relativi alla _coverage_, si è fatto utilizzo del _tool_ [_JaCoCo_](https://www.eclemma.org/jacoco/).
 
 <div align="center">
   <img src="img/coverage.png" />
@@ -405,10 +407,10 @@ In particolare, per poter ottenere i risultati relativi alla _coverage_ si è fa
 
 Come si può vedere dalla [Fig. 5.6.3.1], la coverage finale ottenuta è del 79% su un totale di 129 test effettuati.
 
-Gli elementi per cui si ha una _coverage_ più elevata sono quelli che fanno riferimento al Model dell'applicazione, mentre quelli per cui si ha una _coverage_ più bassa fanno riferimento agli elementi della View, che come spiegato nella precedente sezione [Sec. 5.6.2](#562-utilizzo-di-unit-test-e-testfx), sono stati testati sia tramite test automatici che tramite test manuali.
+Gli elementi per cui si ha una _coverage_ più elevata sono quelli che fanno riferimento al Model dell'applicazione, mentre quelli per cui si ha una _coverage_ più bassa fanno riferimento agli elementi della View che, come spiegato nella precedente sezione [Sec. 5.6.2](#562-utilizzo-di-unit-test-e-testfx), sono stati testati sia tramite test automatici che tramite test manuali.
 
 ## 5.7 Suddivisione del lavoro
-Durante lo _sprint preview_, una volta determinati i diversi prodotti che si vuole realizzare e i diversi tasks necessari per il loro completamento, questi vengono poi assegnati a uno o più membri del gruppo, incaricati della loro esecuzione.
+Durante lo _sprint preview_, una volta determinati i diversi prodotti che si vogliono realizzare e i diversi tasks necessari per il loro completamento, questi vengono poi assegnati a uno o più membri del gruppo, incaricati della loro esecuzione.
 
 Il completamento di uno o più tasks, individuati nel _product backlog_, può dare luogo alla stesura di diversi elementi del codice di produzione. 
 
@@ -418,7 +420,7 @@ Nelle seguenti sezioni, ogni membro del gruppo si è impegnato nel descrivere le
 
 Inizialmente mi sono occupata della selezione delle piante da coltivare all’interno della serra e, in particolare, ho sviluppato:
 -	l’oggetto di utility `UploadPlants`, che si occupa di convertire un file testuale (contenente i nomi e gli id delle piante selezionabili) in un file _Prolog_ che verrà utilizzato dal modulo `PlantSelectorModelModule` per visualizzare le tipologie di coltivazioni disponibili;
--	la classe `Plant` che si compone dell’interfaccia che rappresenta la pianta selezionata dall’utente e che racchiude, oltre al nome e all’identificatore, le informazioni ottenute mediante una richiesta HTTP come l’immagine, la descrizione e i valori ambientali ottimali per la crescita della stessa.
+-	la classe `Plant`, che si compone dell’interfaccia che rappresenta la pianta selezionata dall’utente e che racchiude, oltre al nome e all’identificatore, le informazioni ottenute mediante una richiesta HTTP come l’immagine, la descrizione e i valori ambientali ottimali per la crescita della stessa.
 
 All’interno del modulo `Environment`, ho gestito tramite _reactive programming_ (sfruttando la libreria _monix.io_) la richiesta per reperire le previsioni metereologiche in quanto questa operazione può richiedere diverso tempo e può influire sulla reattività dell’applicazione.
 
@@ -426,7 +428,7 @@ Dopodiché mi sono occupata della realizzazione dei componenti per la visualizza
 -	del modulo `EnvironmentMVC` e dei rispettivi sottomoduli `EnvironmentModelModule`, `EnvironmentViewModule` ed `EnvironmentControllerModule`;
 -	di `TimeModel`, la cui interfaccia espone metodi per controllare il `Timer` sviluppato da _Elena_. La realizzazione di questo componente ha richiesto l’utilizzo di elementi della programmazione asincrona, forniti dalla libreria _monix.io_.
 
-L’introduzione di `EnvironmentMVC` ha richiesto la collaborazione con gli altri membri del gruppo per collegare l’elemento ai seguenti componenti:
+L’introduzione di `EnvironmentMVC` ha richiesto la collaborazione degli altri membri del gruppo per collegare l’elemento ai seguenti componenti:
 -	`Sensor`, al fine di notificarli quando è disponibile un aggiornamento dei valori ambientali. A tale scopo si sono sfruttati elementi della programmazione reattiva;
 -	`GreenHouseDivisionMVC`, al fine di inizializzare la visualizzazione delle aree.
 
@@ -434,7 +436,7 @@ Successivamente, insieme al resto del gruppo, mi sono dedicata allo sviluppo del
 -	`SimulationMVC`;
 -	`SimulationController`, che si occupa di detenere i riferimenti ad istanze inizializzate da altri componenti e di mantenere aggiornati i vari componenti della simulazione (es: `EnvironmentMVC`, `AreaDetailsMVC`) in base allo scorrere del tempo, anche attraverso l’utilizzo della programmazione reattiva. 
 
-Nel terzo sprint mi sono occupata di raccogliere gli elementi comuni relativi alle diverse view dell'applicazione, realizzando l'interfaccia `ContiguousSceneView`.
+Nel terzo sprint mi sono occupata di raccogliere gli elementi comuni relativi alle diverse View dell'applicazione, realizzando l'interfaccia `ContiguousSceneView`.
 
 Come gli altri membri del gruppo, nell'ultimo sprint ho compiuto operazioni di refactoring e di ottimizzazione del codice per poter migliorare ulteriormente la soluzione proposta.
 
