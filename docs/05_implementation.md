@@ -408,7 +408,7 @@ In particolare, per poter ottenere i risultati relativi alla _coverage_, si è f
 
 [Fig. 5.6.3.1]: img/coverage.png
 
-Come si può vedere dalla [Fig. 5.6.3.1], la coverage finale ottenuta è del 79% su un totale di 129 test effettuati.
+Come si può vedere dalla [Fig. 5.6.3.1], la coverage finale ottenuta è del 80% su un totale di 126 test effettuati.
 
 Gli elementi per cui si ha una _coverage_ più elevata sono quelli che fanno riferimento al Model dell'applicazione, mentre quelli per cui si ha una _coverage_ più bassa fanno riferimento agli elementi della View che, come spiegato nella precedente sezione [Sec. 5.6.2](#562-utilizzo-di-unit-test-e-testfx), sono stati testati sia tramite test automatici che tramite test manuali.
 
