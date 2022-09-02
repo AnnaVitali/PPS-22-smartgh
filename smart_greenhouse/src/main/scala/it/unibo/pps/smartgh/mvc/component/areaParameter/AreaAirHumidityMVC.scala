@@ -12,6 +12,12 @@ import it.unibo.pps.smartgh.view.component.areaParameter.AreaAirHumidityViewModu
 import it.unibo.pps.smartgh.view.component.areaParameter.AreaParameterView.AreaParameterView
 import it.unibo.pps.smartgh.view.component.areaParameter.{AreaAirHumidityViewModule, AreaParameterView}
 
+/** A trait that represents the MVC component for the area air humidity section. */
+trait AreaAirHumidityMVC extends AreaModelModule.Interface
+  with AreaAirHumidityViewModule.Interface
+  with AreaAirHumidityControllerModule.Interface
+  with AreaParameterMVC
+
 /** Object that incapsulate the model view and controller module for area air humidity. */
 object AreaAirHumidityMVC:
 
@@ -21,24 +27,15 @@ object AreaAirHumidityMVC:
     * @param updateStateMessage
     *   a function for update the area status and messages
     * @return
-    *   a new instance of [[AreaAirHumidityMVCImpl]].
+    *   a new instance of [[AreaAirHumidityMVC]].
     */
-  def apply(areaModel: AreaModel, updateStateMessage: (String, Boolean) => Unit): AreaAirHumidityMVCImpl =
+  def apply(areaModel: AreaModel, updateStateMessage: (String, Boolean) => Unit): AreaAirHumidityMVC =
     AreaAirHumidityMVCImpl(areaModel, updateStateMessage)
-
-  /** Implementation of the area air humidity MVC.
-    * @param areaModel
-    *   the model of the area
-    * @param updateStateMessage
-    *   a function for update the area status and messages
-    */
-  class AreaAirHumidityMVCImpl(
+    
+  private class AreaAirHumidityMVCImpl(
       override val areaModel: AreaModel,
       private val updateStateMessage: (String, Boolean) => Unit
-  ) extends AreaModelModule.Interface
-      with AreaAirHumidityViewModule.Interface
-      with AreaAirHumidityControllerModule.Interface
-      with AreaParameterMVC:
+  ) extends AreaAirHumidityMVC:
 
     override val parameterController: AreaParameterController = AreaAirHumidityControllerImpl(updateStateMessage)
     override val parameterView: AreaParameterView = AreaAirHumidityViewImpl()

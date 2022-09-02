@@ -6,30 +6,28 @@ import it.unibo.pps.smartgh.controller.component.SelectCityControllerModule.Sele
 import it.unibo.pps.smartgh.model.city.SelectCityModelModule
 import it.unibo.pps.smartgh.model.city.SelectCityModelModule.SelectCityModel
 import it.unibo.pps.smartgh.mvc.SimulationMVC
-import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.view.component.SelectCityViewModule.SelectCityView
 import it.unibo.pps.smartgh.view.component.SelectCityViewModule
 
-/** Object that encapsulates the model view and controller module for the plant selection. */
+/** A trait that represents the MVC component for select city. */
+trait SelectCityMVC
+    extends SelectCityModelModule.Interface
+    with SelectCityViewModule.Interface
+    with SelectCityControllerModule.Interface
+    with SimulationMVC.Interface
+
+/** Object that encapsulates the model view and controller module for the city selection. */
 object SelectCityMVC:
 
   /** Create a new [[SelectCityMVCImpl]].
     * @param simulationMVC
-    *   the [[SimulationMVCImpl]] of the application.
+    *   the [[SimulationMVC]] of the application.
     * @return
-    *   a new instance of [[SelectCityMVCImpl]].
+    *   a new instance of [[SelectCityMVC]].
     */
-  def apply(simulationMVC: SimulationMVCImpl): SelectCityMVCImpl = SelectCityMVCImpl(simulationMVC)
+  def apply(simulationMVC: SimulationMVC): SelectCityMVC = SelectCityMVCImpl(simulationMVC)
 
-  /** Implementation of the select city MVC.
-    * @param simulationMVC
-    *   the current [[SimulationMVCImpl]] of the application.
-    */
-  class SelectCityMVCImpl(override val simulationMVC: SimulationMVCImpl)
-      extends SelectCityModelModule.Interface
-      with SelectCityViewModule.Interface
-      with SelectCityControllerModule.Interface
-      with SimulationMVC.Interface:
+  private class SelectCityMVCImpl(override val simulationMVC: SimulationMVC) extends SelectCityMVC:
 
     override val selectCityModel: SelectCityModel = SelectCityModelImpl(Config.Path + Config.CitiesOutputFile)
     override val selectCityView: SelectCityView = SelectCityViewViewImpl()

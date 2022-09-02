@@ -2,7 +2,6 @@ package it.unibo.pps.smartgh.view.component
 
 import it.unibo.pps.smartgh.model.greenhouse.Environment
 import it.unibo.pps.smartgh.mvc.SimulationMVC
-import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.mvc.component.SelectCityMVC
 import it.unibo.pps.smartgh.view.component.SelectCityViewModule
 import it.unibo.pps.smartgh.view.component.SelectCityViewModule.SelectCityView
@@ -28,7 +27,7 @@ import org.scalatest.concurrent.Eventually.eventually
 class SelectCityViewModuleTest extends AbstractViewTest:
 
   private var selectCityView: SelectCityView = _
-  private var simulationMVC: SimulationMVCImpl = _
+  private var simulationMVC: SimulationMVC = _
   private val textFieldId = "#selectCityTextField"
   private val nextButtonId = "#changeSceneButton"
   private val errorLabel = "#errorLabel"
@@ -83,4 +82,3 @@ class SelectCityViewModuleTest extends AbstractViewTest:
     eventually(timeout(Span(1000, Milliseconds))) {
       assertEquals(city.environmentValues, simulationMVC.simulationController.environment.environmentValues)
     }
-

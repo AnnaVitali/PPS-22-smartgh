@@ -2,7 +2,6 @@ package it.unibo.pps.smartgh.model.sensor
 
 import it.unibo.pps.smartgh.model.area.AreaComponentsState.AreaComponentsStateImpl
 import it.unibo.pps.smartgh.model.area.{AreaComponentsState, AreaGatesState}
-import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsTemperature
 import it.unibo.pps.smartgh.model.time.Timer
 import monix.eval.Task
 import monix.execution.Ack
@@ -46,18 +45,13 @@ object TemperatureSensor:
     registerTimerCallback(_.takeRight(2).toInt % TimeMustPass == 0)
 
     override def computeNextSensorValue(): Unit =
+      import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsTemperature.*
       Task {
         currentValue = areaComponentsState.gatesState match
           case AreaGatesState.Open if currentValue != currentEnvironmentValue =>
-            FactoryFunctionsTemperature.updateTemperatureApproachingTemperatureToReach(
-              currentValue,
-              currentEnvironmentValue
-            )
+            updateTemperatureApproachingTemperatureToReach(currentValue, currentEnvironmentValue)
           case AreaGatesState.Close if currentValue != areaComponentsState.temperature =>
-            FactoryFunctionsTemperature.updateTemperatureApproachingTemperatureToReach(
-              currentValue,
-              areaComponentsState.temperature
-            )
+            updateTemperatureApproachingTemperatureToReach(currentValue, areaComponentsState.temperature)
           case _ => currentValue
         subject.onNext(currentValue)
       }.executeAsync.runToFuture

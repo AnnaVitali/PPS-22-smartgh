@@ -6,9 +6,15 @@ import it.unibo.pps.smartgh.controller.component.PlantSelectorControllerModule.P
 import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule
 import it.unibo.pps.smartgh.model.plants.PlantSelectorModelModule.PlantSelectorModel
 import it.unibo.pps.smartgh.mvc.SimulationMVC
-import it.unibo.pps.smartgh.mvc.SimulationMVC.SimulationMVCImpl
 import it.unibo.pps.smartgh.view.component.SelectPlantViewModule.SelectPlantView
 import it.unibo.pps.smartgh.view.component.SelectPlantViewModule
+
+/** A trait that represents the MVC component for the plant selector. */
+trait PlantSelectorMVC
+    extends PlantSelectorModelModule.Interface
+    with PlantSelectorControllerModule.Interface
+    with SelectPlantViewModule.Interface
+    with SimulationMVC.Interface
 
 /** Object that encloses the MVC structure for the plant selection. */
 object PlantSelectorMVC:
@@ -19,17 +25,9 @@ object PlantSelectorMVC:
     * @return
     *   the implementation of the plant selection MVC.
     */
-  def apply(simulationMVC: SimulationMVCImpl): PlantSelectorMVCImpl = PlantSelectorMVCImpl(simulationMVC)
+  def apply(simulationMVC: SimulationMVC): PlantSelectorMVC = PlantSelectorMVCImpl(simulationMVC)
 
-  /** Implementation of the [[PlantSelectorMVCImpl]].
-    * @param simulationMVC
-    *   [[SimulationMVCImpl]] of the simulation
-    */
-  class PlantSelectorMVCImpl(override val simulationMVC: SimulationMVCImpl)
-      extends PlantSelectorModelModule.Interface
-      with PlantSelectorControllerModule.Interface
-      with SelectPlantViewModule.Interface
-      with SimulationMVC.Interface:
+  private class PlantSelectorMVCImpl(override val simulationMVC: SimulationMVC) extends PlantSelectorMVC:
 
     override val plantSelectorModel: PlantSelectorModel = PlantSelectorModelImpl(Config.Path + Config.PlantsOutputFile)
     override val selectPlantView: SelectPlantView = SelectPlantViewImpl()
