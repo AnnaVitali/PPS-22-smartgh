@@ -21,17 +21,24 @@ You can find the project's report in the `docs` folder into the `doc` branch or 
 Futhermore, you can find the detailed description of the development process in the `process` folder into the `doc` branch.
 
 ## Usage
-You can find the latest `jar` of the application inside the [Releases section](https://github.com/AnnaVitali/PPS-22-smartgh/releases).
+You can find the latest `jar` for your OS inside the [Releases section](https://github.com/AnnaVitali/PPS-22-smartgh/releases).
 
 To execute the application:
 ```powershell
 $ java -jar `path-to-downloaded-jar`
 ```
 
-You can find the user guide [here](https://github.com/AnnaVitali/PPS-22-smartgh/blob/0029d57b2bab503469fd5467b558cc682f361ce9/docs/08_user_guide.md) (IT version) or within the application, when you start the simulation (EN version).
+Otherwise, you can clone the repository, move to the `smart_greenhouse` folder and execute the application with the following commands:
+
+```powershell
+$ sbt compile
+$ sbt run
+```
+
+You can find the user guide [here](https://annavitali.github.io/PPS-22-smartgh/08_user_guide.html) (IT version) or within the application, when you start the simulation (EN version).
 
 ## Test
-You can clone the repository, moved to the `smart_greenhouse` folder and execute tests with the command:
+You can clone the repository, move to the `smart_greenhouse` folder and execute tests with the command:
 ```powershell
 $ sbt test
 ```
