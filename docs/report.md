@@ -49,6 +49,8 @@
 - [7. Conclusioni](#7-conclusioni)
 - [Guida utente](#guida-utente)
 
+<div style="page-break-after: always;"></div>
+
 # Introduzione
 
 Per il progetto di _Paradigmi di Programmazione e Sviluppo_, si è pensato di realizzare un'applicazione che permetta di simulare la gestione di una serra intelligente, in grado di ricevere aggiornamenti periodici sulle condizioni ambientali e di generare, in automatico, suggerimenti per chi si occupa della sua manutenzione.
@@ -597,6 +599,8 @@ Pertanto, gli strumenti impiegati per il progetto sono riportati di seguito:
 -	**GitHub Actions**, per promuovere la _continuous integration_;
 -	**Trello**, come tool collaborativo per la gestione degli sprint tasks.
 
+<div style="page-break-after: always;"></div>
+
 # 2. Requisiti
 
 In questa sezione verranno discussi i requisiti dell'applicazione che verrà realizzata, a partire da quelli di business fino a quelli funzionali e non funzionali.
@@ -726,6 +730,8 @@ Di seguito vengono riportati i requisiti relativi all'implementazione del sistem
 - il sistema farà riferimento a _JDK 11_ ed eventuali librerie esterne utilizzate dovranno supportare, almeno, tale versione;
 - il testing del sistema sarà effettuato utilizzando _ScalaTest_ e, per i componenti che rappresentano la View, _JUnit_.
 
+<div style="page-break-after: always;"></div>
+
 # 3. Design architetturale
 
 Durante il primo meeting di avviamento del progetto, il team di sviluppo ha provveduto a definire ad alto livello il design architetturale dell'applicazione, il cui risultato verrà descritto nelle seguenti sezioni.
@@ -763,6 +769,8 @@ Nello specifico, il funzionamento del _pattern MVC_ è il seguente:
 - la View visualizza i dati contenuti nel Model e si occupa dell'interazione con gli utenti, notificando il Controller.
 
 In sintesi, si è deciso di utilizzare questo pattern in quanto favorisce il riuso del codice, facilità la manutenzione del software e ne agevola la scalabilità.
+
+<div style="page-break-after: always;"></div>
 
 # 4. Design dettagliato
 In questo capitolo verrà descritta nel dettaglio l'architettura del sistema, analizzandone i principali componenti e le rispettive caratteristiche.
@@ -1665,6 +1673,8 @@ Il sistema è stato organizzato in 5 package principali:
 
 [Fig. 4.11.1]: img/package.png
 
+<div style="page-break-after: always;"></div>
+
 # 5. Implementazione
 Il seguente capitolo motiva e dettaglia aspetti implementativi ritenuti rilevanti per una corretta comprensione del progetto. 
 
@@ -2236,6 +2246,7 @@ Per quanto riguarda la parte di testing, ho realizzato i seguenti test:
 - `AreaSoilMoistureViewModuleTest.scala`
 - `AreaTemperatureViewModuleTest.scala`
 
+<div style="page-break-after: always;"></div>
 
 # 6. Retrospettiva
 
@@ -2325,6 +2336,8 @@ Il terzo sprint si è rilevato meno impegnativo dei precedenti, pur introducendo
 
 Infine, nel quarto sprint il gruppo non ha sviluppato nuove funzionalità ma si è concentrato sulle migliorie rispetto all'esperienza utente e alla qualità del codice, al fine di rilasciare l'applicazione finale.
 
+<div style="page-break-after: always;"></div>
+
 # 7. Conclusioni
 
 Al termine del progetto, il gruppo si ritiene soddisfatto in quanto ha risposto in maniera completa ai requisiti prefissati. 
@@ -2341,6 +2354,8 @@ Riteniamo che la realizzazione di questo progetto abbia accresciuto le nostre co
 - ha consentito di lavorare con due nuovi paradigmi, quello logico e funzionale, e di integrarli, per la prima volta, in un'unica applicazione;
 - necessitava di una programmazione complessa, ma guidata da un processo di sviluppo più sofisticato rispetto a quelli adottati nel percorso triennale;
 - ha migliorato le capacità di collaborazione e di coordinazione all'interno del team.
+
+<div style="page-break-after: always;"></div>
 
 # Guida utente
 
