@@ -3,7 +3,6 @@ package it.unibo.pps.smartgh.model.sensor
 import it.unibo.pps.smartgh.model.area.AreaComponentsState.*
 import it.unibo.pps.smartgh.model.area.{AreaGatesState, AreaShieldState}
 import it.unibo.pps.smartgh.model.sensor.AbstractSensor
-import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsLuminosity
 import monix.eval.Task
 import monix.execution.Ack
 import monix.execution.Scheduler.Implicits.global
@@ -42,21 +41,17 @@ object LuminositySensor:
       .nextDouble() * (MaxPercentage - MinPercentage) + MinPercentage) * initialLuminosity
 
     override def computeNextSensorValue(): Unit =
+      import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsLuminosity.*
       Task {
         currentValue = areaComponentsState.gatesState match
           case AreaGatesState.Open =>
-            FactoryFunctionsLuminosity.updateLuminosityWithAreaGatesOpen(
-              currentEnvironmentValue,
-              areaComponentsState.brightnessOfTheLamps
-            )
+            updateLuminosityWithAreaGatesOpen(currentEnvironmentValue, areaComponentsState.brightnessOfTheLamps)
           case AreaGatesState.Close =>
             areaComponentsState.shieldState match
               case AreaShieldState.Down =>
-                FactoryFunctionsLuminosity.updateLuminosityWithAreaGatesCloseAndShielded(
-                  areaComponentsState.brightnessOfTheLamps
-                )
+                updateLuminosityWithAreaGatesCloseAndShielded(areaComponentsState.brightnessOfTheLamps)
               case AreaShieldState.Up =>
-                FactoryFunctionsLuminosity.updateLuminosityWithAreaGatesCloseAndUnshielded(
+                updateLuminosityWithAreaGatesCloseAndUnshielded(
                   currentEnvironmentValue,
                   areaComponentsState.brightnessOfTheLamps
                 )
