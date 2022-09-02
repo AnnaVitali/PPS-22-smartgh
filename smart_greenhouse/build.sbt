@@ -4,12 +4,7 @@ ThisBuild / resolvers += Resolver.jcenterRepo
 val junitJupiterVersion = "5.7.1"
 val junitPlatformVersion = "1.8.2"
 
-lazy val osName = System.getProperty("os.name") match {
-  case n if n.startsWith("Linux") => "linux"
-  case n if n.startsWith("Mac") => "mac"
-  case n if n.startsWith("Windows") => "win"
-  case _ => throw new Exception("Unknown platform!")
-}
+lazy val osNames = Seq("linux", "mac", "win")
 
 assembly / mainClass := Some("it.unibo.pps.smartgh.Main")
 
@@ -48,8 +43,9 @@ lazy val root = (project in file("."))
       "io.monix" %% "monix" % "3.4.0",
       "com.github.nscala-time" %% "nscala-time" % "2.30.0",
       "org.scalactic" %% "scalactic" % "3.2.13"
-    ) ++ Seq("base", "controls", "fxml", "graphics", "media", "swing", "web")
-      .map(m => "org.openjfx" % s"javafx-$m" % "16" classifier osName),
+    ) ++ osNames.flatMap(os =>
+      Seq("base", "controls", "fxml", "graphics", "media", "swing", "web")
+      .map(m => "org.openjfx" % s"javafx-$m" % "16" classifier os) ),
     crossPaths := false, // https://github.com/sbt/junit-interface/issues/35
     Test / parallelExecution := false
   )
