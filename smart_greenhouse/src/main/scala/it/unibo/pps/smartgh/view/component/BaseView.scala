@@ -28,8 +28,6 @@ object BaseView:
       extends AbstractViewComponent[BorderPane]("base.fxml")
       with BaseView:
 
-    override val component: BorderPane = loader.load[BorderPane]
-
     //noinspection VarCouldBeVal
     @FXML
     protected var titleLabel: Label = _

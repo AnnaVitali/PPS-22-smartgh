@@ -35,16 +35,15 @@ object AreaSoilMoistureViewModule:
         extends AbstractAreaParameterView("area_soil_moisture.fxml", "Soil moisture")
         with AreaSoilMoistureView:
 
-      override val component: GridPane = loader.load[GridPane]
       private val areaSoilMoistureController = parameterController.asInstanceOf[AreaSoilMoistureController]
 
       //noinspection VarCouldBeVal
       @FXML
-      var movingSoilBtn: Button = _
+      protected var movingSoilBtn: Button = _
 
       //noinspection VarCouldBeVal
       @FXML
-      var wateringBtn: Button = _
+      protected var wateringBtn: Button = _
 
       movingSoilBtn.setOnMouseClicked(_ => areaSoilMoistureController.movingSoil())
       wateringBtn.setOnMouseClicked(_ => areaSoilMoistureController.watering())

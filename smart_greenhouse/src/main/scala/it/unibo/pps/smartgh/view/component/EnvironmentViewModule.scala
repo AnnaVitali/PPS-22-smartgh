@@ -71,8 +71,6 @@ object EnvironmentViewModule:
     /** Class that contains the [[EnvironmentView]] implementation. */
     class EnvironmentViewImpl() extends AbstractViewComponent[BorderPane]("environment.fxml") with EnvironmentView:
 
-      override val component: BorderPane = loader.load[BorderPane]
-
       //noinspection VarCouldBeVal
       @FXML
       protected var timeSpeedSlider: Slider = _

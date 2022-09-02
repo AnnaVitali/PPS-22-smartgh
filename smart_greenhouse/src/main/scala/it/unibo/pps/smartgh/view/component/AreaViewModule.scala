@@ -39,17 +39,15 @@ object AreaViewModule:
     /** Implementation of the greenhouse division view. */
     class AreaViewImpl() extends AbstractViewComponent[VBox]("area.fxml") with AreaView:
 
-      override val component: VBox = loader.load[VBox]
-
       @FXML
       protected var params: VBox = _
-      
+
       @FXML
       protected var rect: VBox = _
-      
+
       @FXML
       protected var areaBt: Button = _
-      
+
       //noinspection VarCouldBeVal
       @FXML
       private var plant: Label = _

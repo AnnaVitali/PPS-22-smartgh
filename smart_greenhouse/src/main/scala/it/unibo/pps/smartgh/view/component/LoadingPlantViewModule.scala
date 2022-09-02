@@ -37,8 +37,6 @@ object LoadingPlantViewModule:
     /** Class that contains the [[LoadingPlantView]] implementation. */
     class LoadingPlantViewImpl() extends AbstractViewComponent[VBox]("loading_data.fxml") with LoadingPlantView:
 
-      override val component: VBox = loader.load[VBox]
-
       //noinspection VarCouldBeVal
       @FXML
       protected var textLabel: Label = _

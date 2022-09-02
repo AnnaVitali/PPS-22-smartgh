@@ -14,7 +14,7 @@ import scala.util.Random
 /** Object that enclose the implementation of the temperature sensor. */
 object TemperatureSensor:
 
-  private val TimeMustPass: Int = 5
+  private val TimeMustPass = "0:00"
 
   /** Apply method for the [[TemperatureSensorImpl]]
     * @param areaComponentsStateImpl
@@ -42,7 +42,7 @@ object TemperatureSensor:
   ) extends AbstractSensorWithTimer(areaComponentsState, addTimerCallback):
 
     currentValue = areaComponentsState.temperature
-    registerTimerCallback(_.takeRight(2).toInt % TimeMustPass == 0)
+    registerTimerCallback(_.takeRight(4).contentEquals(TimeMustPass))
 
     override def computeNextSensorValue(): Unit =
       import it.unibo.pps.smartgh.model.sensor.factoryFunctions.FactoryFunctionsTemperature.*

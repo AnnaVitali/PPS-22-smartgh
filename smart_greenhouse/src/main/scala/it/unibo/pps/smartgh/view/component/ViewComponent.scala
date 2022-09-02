@@ -33,6 +33,9 @@ object ViewComponent:
     *   the type of the FX component to wrap
     */
   abstract class AbstractViewComponent[A <: Parent](private val fxmlFileName: String) extends ViewComponent[A]:
-    protected val loader: FXMLLoader = FXMLLoader()
+    private val loader: FXMLLoader = FXMLLoader()
+
     loader.setController(this)
     loader.setLocation(getClass.getResource("/fxml/" + fxmlFileName))
+
+    override val component: A = loader.load[A]

@@ -36,7 +36,6 @@ object GHViewModule:
       *   the implementation of the [[GreenHouseDivisionViewImpl]].
       */
     class GreenHouseDivisionViewImpl() extends AbstractViewComponent[ScrollPane]("ghDivision.fxml") with GreenHouseView:
-      override val component: ScrollPane = loader.load[ScrollPane]
 
       //noinspection VarCouldBeVal
       @FXML

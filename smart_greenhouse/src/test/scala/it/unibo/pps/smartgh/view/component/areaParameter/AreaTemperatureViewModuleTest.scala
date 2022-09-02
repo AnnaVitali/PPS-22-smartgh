@@ -48,12 +48,6 @@ class AreaTemperatureViewModuleTest extends AbstractAreaParameterViewTest("Tempe
   @Test
   def minusTemperature(robot: FxRobot): Unit = testRegulateTemperature(robot, minusTempBtnId, _ < _)
 
-  @Test
-  def testPlusTempAction(robot: FxRobot): Unit = testActions(robot, plusTempBtnId, _ != _)
-
-  @Test
-  def testMinusTempAction(robot: FxRobot): Unit = testActions(robot, minusTempBtnId, _ != _)
-
   private def testRegulateTemperature(robot: FxRobot, buttonId: String, condition: (Double, Double) => Boolean): Unit =
     closeStructure(robot)
     Thread.sleep(2000)

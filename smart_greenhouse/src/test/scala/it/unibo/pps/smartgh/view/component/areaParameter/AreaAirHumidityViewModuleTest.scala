@@ -53,23 +53,3 @@ class AreaAirHumidityViewModuleTest extends AbstractAreaParameterViewTest("Air h
       assertTrue(button.isSelected)
       verifyThat(atomiserBtnId, hasText(AtomiserText.DEACTIVATE.text))
     }
-
-  @Test
-  def testNotSelectableBothActions(robot: FxRobot): Unit =
-    val ventilationBtn = getToggleButton(robot, ventilationBtnId)
-    val atomiserBtn = getToggleButton(robot, atomiserBtnId)
-
-    eventually(timeout(Span(20000, Milliseconds))) {
-      verifyThat(ventilationBtnId, isEnabled)
-      verifyThat(atomiserBtnId, isEnabled)
-    }
-
-    robot.clickOn(atomiserBtnId)
-    robot.clickOn(ventilationBtnId)
-
-    eventually(timeout(Span(20000, Milliseconds))) {
-      assertTrue(ventilationBtn.isSelected)
-      verifyThat(ventilationBtnId, hasText(VentilationText.DEACTIVATE.text))
-      assertFalse(atomiserBtn.isSelected)
-      verifyThat(atomiserBtnId, hasText(AtomiserText.ACTIVATE.text))
-    }
