@@ -745,12 +745,12 @@ Come si può osservare nella figura [Fig. 3.1.1], il componente `Simulation` vie
 - `SimulationView`, il quale è incaricato di mostrare i diversi elementi dell'interfaccia grafica e di gestire l'interazione con l'utente;
 - `SimulationController`, che ricopre il ruolo di intermediario fra View e Model e si occupa di gestire lo scambio di informazioni fra questi due elementi.
 
-<div align="center">
+<div id="3.1.1" align="center">
   <img src="img/architettura_alto_livello.png" />
   <p> Fig. 3.1.1 - Architettura ad alto livello </p>
 </div>
 
-[Fig. 3.1.1]:img/architettura_alto_livello.png
+[Fig. 3.1.1]:#3.1.1
 
 Il Model, nello specifico è costituito dai componenti:
 - `Time`, che rappresenta il tempo virtuale dell'applicazione;
@@ -794,26 +794,26 @@ Gli elementi Model, View e Controller vengono racchiusi in moduli, composti da:
 - un `trait Provider` che si occupa di detenere il rispettivo oggetto  di tipo `View`, `Model` o `Controller`;
 - un `trait Interface` che si occupa di completare e connettere tutti i componenti del modulo per renderli utilizzabili nell'oggetto _MVC_.
 
-<div align="center">
+<div id="4.1" align="center">
   <img src="img/cake_model.png" />
   <p> Fig. 4.1 - Model module </p>
 </div>
 
-[Fig. 4.1]: img/cake_model.png
+[Fig. 4.1]: #4.1
 
-<div align="center">
+<div id="4.2" align="center">
   <img src="img/cake_view.png" />
   <p> Fig. 4.2 - View module </p>
 </div>
 
-[Fig. 4.2]: img/cake_view.png
+[Fig. 4.2]: #4.2
 
-<div align="center">
+<div id="4.3" align="center">
   <img src="img/cake_controller.png" />
   <p> Fig. 4.3 - Controller module </p>
 </div>
 
-[Fig. 4.3]: img/cake_controller.png
+[Fig. 4.3]: #4.3
 
 
 Tutti gli elementi principali dell'applicazione, che richiedono di eseguire operazioni o di elaborare informazioni e fornire risultati a seguito delle azioni compiute dall'utente, sono stati realizzati seguendo questa strategia e nelle seguenti sezioni verranno descritti con maggiore dettaglio.
@@ -829,12 +829,12 @@ Per l’implementazione di `ViewComponent` si è rispettato il pattern _Template
 
 Tutte le View estenderanno da tale classe, in modo da creare componenti modulari ed evitare ripetizioni del codice nel caricamento dei layout.
 
-<div align="center">
+<div id="4.1.1" align="center">
   <img src="img/view_component.png" />
   <p> Fig. 4.1.1 - View Component </p>
 </div>
 
-[Fig. 4.1.1]: img/view_component.png
+[Fig. 4.1.1]: #4.1.1
 
 
 ### ContiguousSceneView
@@ -842,22 +842,22 @@ Tutte le View estenderanno da tale classe, in modo da creare componenti modulari
 
 Tale interfaccia richiede che il nuovo elemento View da impostare sia di un tipo generico `A` sottotipo di `Parent`, ossia la classe base dei nodi con figli di _JavaFX_. 
 
-<div align="center">
+<div id="4.1.2" align="center">
   <img src="img/contiguousSceneView.png" />
   <p> Fig. 4.1.2 - ContiguousSceneView </p>
 </div>
 
-[Fig. 4.1.2]: img/contiguousSceneView.png
+[Fig. 4.1.2]: #4.1.2
 
 ### SceneController
 Gli elementi comuni ai diversi Controller sono stati racchiusi all'interno dell'interfaccia `SceneController` (vedi [Fig. 4.1.3]), contenente il metodo `beforeNextScene` che si occupa di eseguire le operazioni che devono essere effettuate, prima di poter effettuare il cambio di scena.
 
-<div align="center">
+<div id="4.1.3" align="center">
   <img src="img/contiguousSceneView.png" />
   <p> Fig. 4.1.3 - SceneController</p>
 </div>
 
-[Fig. 4.1.3]: img/scene_controller.png
+[Fig. 4.1.3]: #4.1.3
 
 ## 4.2 Gestione della simulazione
 
@@ -873,12 +873,12 @@ L'`Interface` di  `SimulationMVC` sarà estesa dalla maggior parte dei component
 
 In particolare, la classe `SimulationMVC` racchiude i sottocomponenti `SimulationView` e `SimulationController`, derivanti dai rispettivi moduli. Come si può vedere dalla rappresentazione, `SimulationMVC` non racchiude un componente di tipo Model in quanto questo aspetto viene gestito da altri componenti _MVC_.
 
-<div align="center">
+<div id="4.2.1" align="center">
   <img src="img/simulationMVC.png" />
   <p> Fig. 4.2.1 - SimulationMVC </p>
 </div>
 
-[Fig. 4.2.1]: img/simulationMVC.png
+[Fig. 4.2.1]: #4.2.1
 
 
 ### View della simulazione
@@ -890,12 +890,12 @@ Al suo interno troviamo il `trait SimulationView`, il quale include i metodi uti
 Quando l'applicazione viene lanciata, viene creato prima di tutto il componente base dell’applicazione, rappresentato dall'elemento `BaseView`. 
 Quest'ultimo è il componente che funge da contenitore delle _sotto-view_, che racchiude gli elementi comuni a tutte le pagine e che fornisce i metodi per gestirli.
 
-<div align="center">
+<div id="4.2.2" align="center">
   <img src="img/simulation_view.png" />
   <p> Fig. 4.2.2 - SimulationViewModule </p>
 </div>
 
-[Fig. 4.2.2]: img/simulation_view.png
+[Fig. 4.2.2]: #4.2.2
 
 ### Controller della simulazione
 
@@ -905,12 +905,12 @@ Il controller della simulazione (vedi [Fig. 4.2.3]) è stato racchiuso nel `Simu
   - metodi per notificare l’`EnvironmentController`, di cui detiene il riferimento, di un cambiamento del `timeValue` e dello scoccare di una nuova ora, al fine di aggiornare la rispettiva View;
   - il metodo `subscribeTimerValue` per sottoscrive _callback_ da eseguire quando vi è un nuovo valore del `Timer` disponibile (es: `AreaDetailsController` richiede l’aggiornamento del timer visualizzato all’interno delle aree).
 
-<div align="center">
+<div id="4.2.3" align="center">
   <img src="img/simulationController.png" />
   <p> Fig. 4.2.3 - SimulationController </p>
 </div>
 
-[Fig. 4.2.3]: img/simulationController.png
+[Fig. 4.2.3]: #4.2.3
 
 ## 4.3 Impostazione dei parametri della simulazione
 
@@ -925,23 +925,23 @@ La prima schermata che viene presentata all’utente è quella per la selezione 
 
 Considerando che la realizzazione di questa funzionalità richiede sia una View che un Model con cui ottenere i dati delle città, si è deciso di seguire il _Pattern MVC_ e il _Cake pattern_, realizzando l’elemento `SelectCityMVC` con i rispettivi sotto moduli `SelectCityModelModule`, `SelectCityControllerModule`, `SelectCityViewModule`.
 
-<div align="center">
+<div id="4.3.1.1" align="center">
   <img src="img/select_city_MVC.png" />
   <p> Fig. 4.3.1.1 - MVC per la selezione della città </p>
 </div>
 
-[Fig. 4.3.1.1]: img/select_city_MVC.png
+[Fig. 4.3.1.1]: #4.3.1.1
 
 #### Model per la selezione della città
 
 Il Model per la selezione della città viene racchiuso all'interno del modulo `SelectCityModelModule`, costituito, in particolare, dal `trait SelectCityModel` che espone i diversi metodi utili per effettuare la ricerca delle città e per la verifica della sua esistenza.
 
-<div align="center">
+<div id="4.3.1.2" align="center">
   <img src="img/select_city_model.png" />
   <p> Fig. 4.3.1.2 - Model per la selezione della città </p>
 </div>
 
-[Fig. 4.3.1.2]: img/select_city_model.png
+[Fig. 4.3.1.2]: #4.3.1.2
 
 #### Controller per la selezione della città
 
@@ -951,12 +951,12 @@ Nello specifico, il Controller presenta metodi per:
 - effettuare la ricerca della città,
 - controllare se la città selezionata dall'utente è corretta o meno. Nel caso non fosse valida, verrà richiamata la View per gestire il caso; altrimenti si procederà alla creazione dell’oggetto `Environment`, che verrà poi salvato nel componente superiore `SimulationMVC`.
 
-<div align="center">
+<div id="4.3.1.3" align="center">
   <img src="img/select_city_controller.png" />
   <p> Fig. 4.3.1.3 - Controller per la selezione della città </p>
 </div>
 
-[Fig. 4.3.1.3]: img/select_city_controller.png
+[Fig. 4.3.1.3]: #4.3.1.3
 
 #### Environment
 
@@ -964,12 +964,12 @@ Nello specifico, il Controller presenta metodi per:
  
  Le informazioni così ottenute vengono poi messe a disposizione dell'applicazione al fine di aggiornare i parametri ambientali durante tutto lo svolgimento della stessa. I parametri ambientali influenzeranno i parametri rilevati all'interno di ogni area, secondo le formule implementate in ogni sensore.
 
-<div align="center">
+<div id="4.3.1.4" align="center">
   <img src="img/environment.png" />
   <p> Fig. 4.3.1.4 - Architettura del componente Environment </p>
 </div>
 
-[Fig. 4.3.1.4]: img/environment.png
+[Fig. 4.3.1.4]: #4.3.1.4
 
 #### View per la selezione delle città
 
@@ -979,12 +979,12 @@ Al suo interno troviamo il `trait SelectCityView`, il quale rappresenta l’inte
 
 La classe `SelectCityViewImpl`, invece, è l'implementazione dell’interfaccia, e rappresenta anche il Controller dell’_FXML_ associato. Infatti, estendendo da `AbstractViewComponent`, contiene già la logica necessaria al caricamento del file.
 
-<div align="center">
+<div id="4.3.1.5" align="center">
   <img src="img/select_city_view.png" />
   <p> Fig. 4.3.1.5 - View per la selezione della città </p>
 </div>
 
-[Fig. 4.3.1.5]: img/select_city_view.png
+[Fig. 4.3.1.5]: #4.3.1.5
 
 ### 4.3.2 Selezione delle piante
 
@@ -992,23 +992,23 @@ Per poter realizzare il meccanismo di selezione delle piante si è deciso di ado
 
 In particolare, come si può vedere dalla figura [Fig. 4.3.2.1], `PlantSelectorMVC` racchiude i componenti `plantSelectorModel`, `plantSelectorController` e `selectPlantView`, derivanti dai rispettivi moduli. 
 
-<div align="center">
+<div id="4.3.2.1" align="center">
   <img src="img/plant_selector_MVC.png" />
   <p> Fig. 4.3.2.1 - MVC per la selezione delle piante </p>
 </div>
 
-[Fig. 4.3.2.1]: img/plant_selector_MVC.png
+[Fig. 4.3.2.1]: #4.3.2.1
 
 #### Model per la selezione delle piante
 
 Il Model per la selezione delle piante (vedi [Fig. 4.3.2.2]) viene racchiuso all'interno di un modulo chiamato `PlantSelectorModelModule`, nello specifico all'interno del suddetto modulo troviamo il `trait PlantSelectorModel`, il quale espone i diversi metodi che potranno essere richiamati sul Model e che consentono la gestione del meccanismo di selezione delle piante.
 
-<div align="center">
+<div id="4.3.2.2" align="center">
   <img src="img/plant_selector_model.png" />
   <p> Fig. 4.3.2.2 - Model per la selezione delle piante </p>
 </div>
 
-[Fig. 4.3.2.2]: img/plant_selector_model.png
+[Fig. 4.3.2.2]: #4.3.2.2
 
 Il Model ha come obiettivo principale quello di mantenere sempre aggiornata la lista delle piante selezionate dall'utente. Per fare questo, è necessario che il Controller lo informi ogni qual volta l'utente compia un'azione relativa alla selezione delle piante. 
 
@@ -1025,12 +1025,12 @@ La View per la selezione delle piante (vedi [Fig. 4.3.2.3]) viene racchiusa all'
 
 Tale trait rappresenta il Controller dell'_FXML_ per la rispettiva schermata ed, inoltre, implementa le interfacce  `ViewComponent` e `ContiguousSceneView`. 
 
-<div align="center">
+<div id="4.3.2.3" align="center">
   <img src="img/select_plant_view.png" />
   <p> Fig. 4.3.2.3 - View per la selezione delle piante </p>
 </div>
 
-[Fig. 4.3.2.3]: img/select_plant_view.png
+[Fig. 4.3.2.3]: #4.3.2.3
 
 La View per la selezione delle piante, inizialmente, si occuperà di mostrare le piante selezionabili dall'utente, ottenendole dal Controller; dopodiché, si occuperà di notificare il Controller ogni qual volta l'utente compirà un'azione di selezione o di deselezione. Nel caso in cui il Controller notifichi un errore, la View si occuperà di mostrare un messaggio all'utente.
 
@@ -1040,12 +1040,12 @@ Il Controller per la selezione delle piante (vedi [Fig. 4.3.2.4]) è stato racch
 
 Tale `trait` estende l'interfaccia `SceneController`, contenente i metodi comuni a tutti i Controller, e detiene i diversi metodi che potranno essere richiamati per la gestione della selezione delle piante.
 
-<div align="center">
+<div id="4.3.2.4" align="center">
   <img src="img/plant_selector_controller.png" />
   <p> Fig. 4.3.2.4 - Controller per la selezione delle piante </p>
 </div>
 
-[Fig. 4.3.2.4]: img/plant_selector_controller.png
+[Fig. 4.3.2.4]: #4.3.2.4
 
 Inizialmente, il Controller si occupa di impostare la schermata di selezione delle piante richiedendo al Model la lista di piante selezionabili e alla View di mostrarle all'utente.
 
@@ -1057,12 +1057,12 @@ Il `trait Plant` (vedi [Fig. 4.3.2.5]) espone dei metodi per ottenere le informa
 
 Il companion object `Plant` permette di creare un'istanza della pianta che verrà salvata all’interno del `SimulationController`, col fine di renderla accessibile ai componenti del sistema che necessitano delle informazioni relative alle piante scelte.
 
-<div align="center">
+<div id="4.3.2.5" align="center">
   <img src="img/plant.png" />
   <p> Fig. 4.3.2.5 - Architettura del componente Plant </p>
 </div>
 
-[Fig. 4.3.2.5]: img/plant.png
+[Fig. 4.3.2.5]: #4.3.2.5
 
 ## 4.4 Caricamento dei dati delle piante
 
@@ -1073,12 +1073,12 @@ Per poter raccogliere tali informazioni, l'applicazione impiega un certo tempo: 
 A tal proposito, è stato realizzato l'elemento `LoadingPlantMVC`, il quale racchiude i componenti del _Pattern MVC_ dedicati al caricamento dei dati delle piante (vedi [Fig. 4.4.1]): `PlantSelectorModelModule`, `LoadingPlantControllerModule` e `LoadingPlantViewModule`. 
 Di conseguenza, risulta che il Model del `LoadingPlantMVC` è lo stesso di `PlantSelectorMVC` in quanto detiene già le informazioni relative alle piante selezionate dall'utente e può essere utilizzato per istanziare l'oggetto `Plant`.
 
-<div align="center">
+<div id="4.4.1" align="center">
   <img src="img/loading_plant_MVC.png" />
   <p> Fig. 4.4.1 - MVC per il caricamento dei dati delle piante </p>
 </div>
 
-[Fig. 4.4.1]: img/loading_plant_MVC.png
+[Fig. 4.4.1]: #4.4.1
 
 Dato che il Model è già stato discusso nel precedente paragrafo ([Model per la selezione delle piante](#model-per-la-selezione-delle-piante)), di seguito verranno discussi solamente i componenti View e Controller per il caricamento dei dati.
 
@@ -1087,12 +1087,13 @@ Dato che il Model è già stato discusso nel precedente paragrafo ([Model per la
 La View per il caricamento dei dati delle piante (vedi [Fig. 4.4.2]) si trova all'interno del modulo `LoadingPlantViewModule` al cui interno troviamo il `trait LoadingPlantView`, che contiene i metodi della View che possono essere richiamati per gestire l'interazione con l'utente. 
 
 `LoadingPlantView` estende sia l'interfaccia `ViewComponent` che l'interfaccia `ContiguousSceneView`, in quanto rappresenta una scena che viene inserita all'interno di quella madre e consente il proseguimento alla scena successiva. Inoltre, la View per poter svolgere le proprie funzioni necessita anche di accedere alle proprietà di `SimulationMVC`.
-<div align="center">
+
+<div id="4.4.2" align="center">
   <img src="img/loading_plant_view.png" />
   <p> Fig. 4.4.2 - View per il caricamento dei dati delle piante </p>
 </div>
 
-[Fig. 4.4.2]: img/loading_plant_view.png
+[Fig. 4.4.2]: #4.4.2
 
 Questa View presenta un `ProgressIndicator` che viene incrementato di volta in volta, a mano a mano che i diversi dati delle piante vengono caricati e i rispettivi oggetti `Plant` vengono istanziati. Una volta che il caricamento dei dati risulta essere completato, si può passare alla schermata successiva.
 
@@ -1100,12 +1101,12 @@ Questa View presenta un `ProgressIndicator` che viene incrementato di volta in v
 
 Il Controller per il caricamento dei dati delle piante si trova all'interno del modulo `LoadingPlantControllerModule` e, nello specifico, all'interno del suddetto modulo troviamo il `trait LoadingPlantController`, il quale estende l'interfaccia `SceneController` e detiene i diversi metodi che potranno essere richiamati per svolgere le funzioni intermediarie fra View e Model.
 
-<div align="center">
+<div id="4.4.3" align="center">
   <img src="img/loading_plant_controller.png" />
   <p>Fig. 4.4.3 - Controller per il caricamento dei dati delle piante </p>
 </div>
 
-[Fig. 4.4.3]: img/loading_plant_controller.png
+[Fig. 4.4.3]: #4.4.3
 
 Come possibile vedere dalla figura [Fig. 4.4.3], il `LoadingPlantController` presenta un unico metodo `setupBehaviour`, il quale si occupa di registrare la _callback_ sul Model relativa al caricamento dei dati delle piante. Difatti, all'interno di questo metodo viene richiamata la funzione `registerCallbackPlantInfo` di `PlantSelectorModel` in cui viene specificato quali siano le azioni da intraprendere quando: 
 - viene istanziata una nuova pianta; 
@@ -1124,12 +1125,12 @@ Nello specifico, in questa sezione verranno discussi gli elementi architetturali
 
 Per poter realizzare la visualizzazione delle variazioni ambientali esterne nell’arco della giornata si è introdotto l’elemento `EnvironmentMVC` (vedi [Fig. 4.5.1.1]), sviluppato mediante il _Cake Pattern_, che racchiude i componenti Model, View e Controller responsabili dell’aggiornamento dei valori ambientali.
 
-<div align="center">
+<div id="4.5.1.1" align="center">
   <img src="img/environmentMVC.png" />
   <p> Fig. 4.5.1.1 - Architettura di EnvironmentMVC </p>
 </div>
 
-[Fig. 4.5.1.1]: img/environmentMVC.png
+[Fig. 4.5.1.1]: #4.5.1.1
 
 
 #### Model per l'aggiornamento dei valori ambientali
@@ -1139,12 +1140,12 @@ Il Model viene racchiuso nel `EnvironmentModelModule` (vedi [Fig. 4.5.1.2]), al 
   - ottenere i singoli valori ambientali aggiornati per ogni tipologia di sensore che verrà installato all’interno delle aree;
   - notificare il Model di aggiornare i valori ambientali correnti, secondo l’ora segnalata dal `SimulationController` che gestisce l’interazione con il `TimeModel`.
 
-<div align="center">
+<div id="4.5.1.2" align="center">
   <img src="img/environmentModelModule.png" />
   <p> Fig. 4.5.1.2 - Architettura di EnvironmentModel </p>
 </div>
 
-[Fig. 4.5.1.2]: img/environmentModelModule.png
+[Fig. 4.5.1.2]: #4.5.1.2
 
 #### View per l'aggiornamento dei valori ambientali
 
@@ -1160,12 +1161,12 @@ Tale trait estende `ViewComponent` in quanto rappresenta una scena inserita all�
 
 Invece, l’oggetto `context` di tipo `Requirements` specifica quali siano le dipendenze che devono essere soddisfatte affinché la View possa lavorare correttamente. Nello specifico, ha bisogno dell’`EnvironmentController` per notificarlo delle interazioni dell’utente (es: modifica della velocità della simulazione), e del `SimulationMVC` per accedere al suo elemento View e notificarlo di passare ad una nuova scena (es: scena di fine simulazione) oppure di modificare lo stile di un elemento grafico comune (es: pulsante comune a tutte le View).
 
-<div align="center">
+<div id="4.5.1.3" align="center">
   <img src="img/environmentViewModule.png" />
   <p> Fig. 4.5.1.3 - Architettura di EnvironmentView </p>
 </div>
 
-[Fig. 4.5.1.3]: img/environmentViewModule.png
+[Fig. 4.5.1.3]: #4.5.1.3
 
 #### Controller per l'aggiornamento dei valori ambientali
 
@@ -1180,12 +1181,12 @@ Il Controller è racchiuso all’interno del modulo `EnvironmentControllerModule
 
 L’oggetto `context` di tipo `Requirements` specifica quali siano le dipendenze che devono essere soddisfatte affinché il controller possa lavorare correttamente (es: `EnvironmentView` per richiedere la visualizzazione del tempo trascorso, `EnvironmentModel` per richiedere l’aggiornamento dei valori ambientali, `SimulationMVC` per controllare la componente tempo).
 
-<div align="center">
+<div id="4.5.1.4" align="center">
   <img src="img/environmentControllerModule.png" />
   <p> Fig. 4.5.1.4 - Architettura di EnvironmentController </p>
 </div>
 
-[Fig. 4.5.1.4]: img/environmentControllerModule.png
+[Fig. 4.5.1.4]: #4.5.1.4
 
 
 ### 4.5.2 Tempo virtuale
@@ -1198,12 +1199,12 @@ In particolare, il Model si occupa di avviare e stoppare il `Timer`, oltre che d
 
 All’avvio del `Timer`, il `TimeModel` ha il compito di specificare i task da eseguire ad ogni _tick_ e al concludersi del tempo stabilito per la simulazione. A questo scopo, il Model detiene un riferimento al `SimulationController` che utilizzerà per notificarlo del valore `timeValue` aggiornato, dello scoccare di una nuova ora (al fine di aggiornare i `currentEnvironmentValues`) e dell’esaurimento del tempo della simulazione.
 
-<div align="center">
+<div id="4.5.2.1" align="center">
   <img src="img/time.png" />
   <p> Fig. 4.5.2.1 - Architettura per la gestione del tempo virtuale </p>
 </div>
 
-[Fig. 4.5.2.1]: img/time.png
+[Fig. 4.5.2.1]: #4.5.2.1
 
 
 ## 4.6 Serra
@@ -1222,12 +1223,12 @@ In particolare, come si può vedere nella figura [Fig. 4.6.1.1], la classe `Gree
 
 Tale classe verrà istanziata all'interno dell'`EnvironmentController` e si occuperà di creare gli _MVC_ delle singole aree, assegnando ad ognuno di esse una pianta tra quelle selezionate dall'utente.
 
-<div align="center">
+<div id="4.6.1.1" align="center">
   <img src="img/greenhouseDivisionMVC.png" />
   <p> Fig. 4.6.1.1 - MVC per la suddivisione in aree </p>
 </div>
 
-[Fig. 4.6.1.1]: img/greenhouseDivisionMVC.png
+[Fig. 4.6.1.1]: #4.6.1.1
 
 #### Model per la suddivisione in aree
 
@@ -1235,12 +1236,12 @@ Il Model viene racchiuso nel suo rispettivo modulo `GHModelModule` (vedi [Fig. 4
 
 Il Model, quindi, ha l'obiettivo di memorizzare la lista dei singoli _MVC_ di cui è composta la serra.
 
-<div align="center">
+<div id="4.6.1.2" align="center">
   <img src="img/greenhouseDivision_model.png" />
   <p>  Fig. 4.6.1.2 - Model per la suddivisione in aree </p>
 </div>
 
-[Fig. 4.6.1.2]: img/greenhouseDivision_model.png
+[Fig. 4.6.1.2]: #4.6.1.2
 
 #### View per la suddivisione in aree
 
@@ -1252,12 +1253,12 @@ Inoltre, per poter essere inserita all'interno della scena principale come le al
 
 La View ha come ruolo principale quello di mostrare e mantenere aggiornata la suddivisione della serra in aree. Questo obiettivo viene raggiunto mediante il metodo `printDivision`. Quest'ultimo verrà richiamato sia all'avvio della schermata dell'`EnvironmentMVC` che ad ogni intervallo di tempo (per aggiornare i valori rilevati all'interno delle aree o quando lo stato di un'area cambia e passa da NORMALE ad ALLARME).
 
-<div align="center">
+<div id="4.6.1.3" align="center">
   <img src="img/greenhouseDivision_view.png" />
   <p>  Fig. 4.6.1.3 - View per la suddivisione in aree </p>
 </div>
 
-[Fig. 4.6.1.3]: img/greenhouseDivision_view.png
+[Fig. 4.6.1.3]: #4.6.1.3
 
 #### Controller per la suddivisione in aree
 
@@ -1267,12 +1268,12 @@ Il Controller viene racchiuso all'interno del modulo `GHControllerModule` (vedi 
 
 Il compito principale del Controller è quello di richiedere l'aggiornamento della View affinché questa mostri lo stato delle aree e i rispettivi valori rilevati all'interno.
 
-<div align="center">
+<div id="4.6.1.4" align="center">
   <img src="img/greenhouseDivision_controller.png" />
   <p>  Fig. 4.6.1.4 - Controller per la suddivisione in aree </p>
 </div>
 
-[Fig. 4.6.1.4]: img/greenhouseDivision_controller.png
+[Fig. 4.6.1.4]: #4.6.1.4
 
 #### Aree
 
@@ -1282,12 +1283,12 @@ In particolare, come si può vedere nella [Fig. 4.6.1.5] , la classe `AreaMVC` r
 
 Tale classe verrà istanziata durante il _setup_ della divisione della serra e memorizzata all'interno del `greenHouseModel`.
 
-<div align="center">
+<div id="4.6.1.5" align="center">
   <img src="img/areaMVC.png" />
   <p>  Fig. 4.6.1.5 - Rappresentazione MVC di un'area </p>
 </div>
 
-[Fig. 4.6.1.5]: img/areaMVC.png
+[Fig. 4.6.1.5]: #4.6.1.5
 
 **Model della singola area**
 
@@ -1300,12 +1301,12 @@ Il Model dell'area ha come principale obiettivo quello di memorizzare lo stato d
 
 Il Model, come si può intuire, risulta essere condiviso con l'_MVC_ del dettaglio dell'area in quanto è necessario poter ricondurre le operazioni dell'utente all'area su cui le ha effettuate.
 
-<div align="center">
+<div id="4.6.1.6" align="center">
   <img src="img/area_model.png" />
   <p>  Fig. 4.6.1.6 - Model dell'area </p>
 </div>
 
-[Fig. 4.6.1.6]: img/area_model.png
+[Fig. 4.6.1.6]: #4.6.1.6
 
 **View della singola area**
 
@@ -1317,12 +1318,12 @@ Questo trait, come gli altri, per poter essere inseriti all'interno della scena 
 
 La View ha come ruolo principale quello di mostrare lo stato di un'area, il nome della pianta e i valori dei parametri rilevati all'interno di essa; inoltre, dà la possibilità all'utente di accedere al dettaglio dell'area selezionata.
 
-<div align="center">
+<div id="4.6.1.7" align="center">
   <img src="img/area_view.png" />
   <p>  Fig. 4.6.1.7 - View dell'area </p>
 </div>
 
-[Fig. 4.6.1.7]: img/area_model.png
+[Fig. 4.6.1.7]: #4.6.1.7
 
 **Controller della singola area**
 
@@ -1332,12 +1333,12 @@ Il trait estende `SceneController`, necessario per poter accedere alla scena che
 
 Il compito principale del Controller è quello di richiamare la creazione dell'interfaccia grafica delegata alla View affinché questa mostri lo stato delle aree e i rispettivi valori rilevati al loro interno, oltre a gestire il cambio di scena da quella generale a quella specifica della singola area.
 
-<div align="center">
+<div id="4.6.1.8" align="center">
   <img src="img/area_controller.png" />
   <p>  Fig. 4.6.1.8 - Controller dell'area </p>
 </div>
 
-[Fig. 4.6.1.8]: img/area_controller.png
+[Fig. 4.6.1.8]: #4.6.1.8
 
 ## 4.7 Visualizzazione del dettaglio di un'area
 
@@ -1349,12 +1350,12 @@ In particolare, come si può vedere nella [Fig. 4.7.1.1], la classe `AreaDetails
 
 Tale classe verrà istanziata nel momento in cui un utente decide di visionare il dettaglio di un'area, scelta tra quelle che compongono la serra. 
 
-<div align="center">
+<div id="4.7.1.1" align="center">
   <img src="img/areaDetailsMVC.png" />
   <p>  Fig. 4.7.1.1 - Rappresentazione MVC del dettaglio di un'area </p>
 </div>
 
-[Fig. 4.7.1.1]: img/areaDetailsMVC.png
+[Fig. 4.7.1.1]: #4.7.1.1
 
 #### Model del dettaglio area
 
@@ -1374,12 +1375,12 @@ Oltre agli elementi necessari al _Cake pattern_, all’interno troviamo il `trai
   - allo stato dell’area;
   - ai messaggi di aiuto all’utente in caso di allarme.
 
-<div align="center">
+<div id="4.7.1.2" align="center">
   <img src="img/area_details_view.png" />
   <p>  Fig. 4.7.1.2 - View del dettaglio di un'area </p>
 </div>
 
-[Fig. 4.7.1.2]: img/area_details_view.png
+[Fig. 4.7.1.2]: #4.7.1.2
 
 #### Controller del dettaglio area
 
@@ -1393,12 +1394,12 @@ Il compito principale del Controller è quello di richiamare la creazione dell'i
 - `AreaTemperatureMVC`, che gestisce le azioni riguardo al sensore che rileva la temperatura dell'area;
 - `AreaSoilMoistureMVC`, che gestisce le azioni riguardo al sensore che rileva l'umidità del suolo dell'area.
 
-<div align="center">
+<div id="4.7.1.3" align="center">
   <img src="img/area_details_controller.png" />
   <p>  Fig. 4.7.1.3 - Controller del dettaglio di un'area </p>
 </div>
 
-[Fig. 4.7.1.3]: img/area_details_controller.png
+[Fig. 4.7.1.3]: #4.7.1.3
 
 ### 4.7.2 Parametri dell'area
 
@@ -1418,12 +1419,12 @@ Il `trait AreaParameterMVC`, come mostrato in figura [Fig. 4.7.2.1], rappresenta
 -	`areaParameterView`, ossia la view associata al parametro;
 -	`areaParameterController`, ossia il controller associato al parametro.
 
-<div align="center">
+<div id="4.7.2.1" align="center">
   <img src="img/area_parameter_mvc.png" />
   <p>  Fig. 4.7.2.1 - Trait MVC dei parametri </p>
 </div>
 
-[Fig. 4.7.2.1]: img/area_parameter_mvc.png
+[Fig. 4.7.2.1]: #4.7.2.1
 
 **View dei parametri**
 
@@ -1431,12 +1432,12 @@ Il `trait AreaParameterView` (vedi [Fig. 4.7.2.2]) espone i metodi che consenton
 
 Di tale interfaccia è stata poi definita una classe astratta `AbstractAreaParameterView` che implementa i metodi comuni dei parametri. Dato l'utilizzo del _template method_, lascia la definizione delle variabili `descriptionLabel` e `currentValueLabel`, ovvero le _label_ dedicate alla descrizione e al valore corrente, alle sottoclassi che la estendono. La classe astratta si occuperà di aggiornare queste informazioni, incapsulandone la logica.
 
-<div align="center">
+<div id="4.7.2.2" align="center">
   <img src="img/area_parameter_view.png" />
   <p>  Fig. 4.7.2.2 - Trait view dei parametri </p>
 </div>
 
-[Fig. 4.7.2.2]: img/area_parameter_view.png
+[Fig. 4.7.2.2]: #4.7.2.2
 
 **Controller dei parametri**
 
@@ -1447,12 +1448,12 @@ Come è possibile vedere nella figura [Fig. 4.7.2.3], anche per questa interfacc
 -	`updateCurrentValue`, ossia la funzione che si occupa di aggiornare il valore corrente e il suo stato;
 -	`updateDescription`, ossia la funzione che si occupa di aggiornare la descrizione del parametro.
 
-<div align="center">
+<div id="4.7.2.3" align="center">
   <img src="img/area_parameter_controller.png" />
   <p>  Fig. 4.7.2.3 - Trait controller dei parametri </p>
 </div>
 
-[Fig. 4.7.2.3]: img/area_parameter_controller.png
+[Fig. 4.7.2.3]: #4.7.2.3
 
 **Singoli parametri**
 
@@ -1476,16 +1477,16 @@ Come detto precedentemente, ogni area è monitorata da dei sensori. Per il proge
 
 In particolare, il codice dei sensori rientra nel package `model` del progetto in quanto essi possono essere sfruttati dai diversi componenti Model dell'applicazione, racchiudendo la logica di aggiornamento e notifica dei nuovi valori rilevati.
 
-<div align="center">
+<div id="4.8.1" align="center">
   <img src="img/sensor.png" />
   <p>Fig. 4.8.1 - Interfacce Sensor e SensorWithTimer </p>
 </div>
 
-[Fig. 4.8.1]: img/sensor.png
+[Fig. 4.8.1]: #4.8.1
 
 Prima di tutto, per poter realizzare i sensori si è deciso di analizzare quali siano gli aspetti comuni che questi presentano e di raccoglierli all'interno di un interfaccia comune. 
 
-Il `trait Sensor` ([Fig. 4.8.1]) rappresenta proprio l'interfaccia che assolve a questo scopo e al suo interno troviamo la dichiarazione dei metodi:
+Il `trait Sensor` (vedi [Fig. 4.8.1]) rappresenta proprio l'interfaccia che assolve a questo scopo e al suo interno troviamo la dichiarazione dei metodi:
 - `setObserverEnvironmentValue`, il quale si occupa di registrare l'`Observer` del sensore interessato a ricevere aggiornamenti rispetto al parametro ambientale di riferimento. Ad esempio, al sensore della luminosità interesserà sapere ogni qual volta viene emesso un nuovo dato relativo al parametro _lux_, al fine di aggiornare il proprio valore. 
 - `setObserverActionArea`. Difatti, il valore rilevato da un sensore non dipende solamente dal parametro ambientale di riferimento, ma può essere influenzato anche dalle azioni correttive che vengono compiute dall'utente. Di conseguenza, per poter ricevere notifica di ogni nuova azione, il sensore registra un `observer` sul relativo `observable` dello stato dell'area. Il sensore si occuperà di analizzare l'azione che è stata compiuta e, nel caso in cui questa influenzi il parametro monitorato, aggiusterà il valore rilevato e lo emetterà.
 - `onNextAction`, ossia il metodo che racchiude i compiti che devono essere svolti ogni qual volta l'utente compie una nuova azione nell'area monitorata.
@@ -1504,12 +1505,12 @@ Le classi `Sensor` e `SensorWithTimer` vengono inizialmente implementate dalle c
 
 ### 4.8.1 Sensore per la luminosità
 
-<div align="center">
+<div id="4.8.1.1" align="center">
   <img src="img/sensor_luminosity.png" />
   <p>Fig. 4.8.1.1 - Sensore della luminosità</p>
 </div>
 
-[Fig. 4.8.1.1]: img/sensor_luminosity.png
+[Fig. 4.8.1.1]: #4.8.1.1
 
 
 Il sensore della luminosità (vedi [Fig. 4.8.1.1]) non è un sensore periodico: difatti, esso implementa solamente l'interfaccia `Sensor` ed estende la classe astratta `AbstractSensor`, la quale racchiude già l'implementazione di alcuni metodi dell'interfaccia.
@@ -1537,12 +1538,12 @@ Il sensore della temperatura è un sensore dotato di timer, pertanto si occupa d
 
 Come si può vedere dalla figura [Fig. 4.8.2.1], il sensore implementa l'interfaccia `SensorWithTimer` tramite la classe astratta `AbstractSensorWithTimer`. 
 
-<div align="center">
+<div id="4.8.2.1" align="center">
   <img src="img/sensor_temperature.png" />
   <p>Fig. 4.8.2.1 - Sensore della temperatura</p>
 </div>
 
-[Fig. 4.8.2.1]: img/sensor_temperature.png
+[Fig. 4.8.2.1]: #4.8.2.1
 
 L'utente, che regola la temperatura interna dell'area, influisce sulle rilevazioni del parametro, ma anche l'apertura o la chiusura delle porte dell'area possono influenzarne il valore.
 
@@ -1561,12 +1562,12 @@ Il sensore della l’umidità dell’aria è un sensore in grado di aggiornare p
 
 Come rappresentato nella figura [Fig. 4.8.3.1], il sensore implementa l’interfaccia `SensorWithTimer`, estendendo la classe astratta `AbstractSensorWithTimer`.
 
-<div align="center">
+<div id="4.8.3.1" align="center">
   <img src="img/sensor_air_humidity.png" />
   <p>Fig. 4.8.3.1 - Sensore per l'umidità dell'aria</p>
 </div>
 
-[Fig. 4.8.3.1]: img/sensor_air_humidity.png
+[Fig. 4.8.3.1]: #4.8.3.1
 
 
 Se le porte dell'area sono aperte, i valori rilevati dal sensore si avvicineranno periodicamente a quello ambientale; se, invece, le porte dell’area sono chiuse, il valore dell’umidità sarà inferiore a quello ambientale.
@@ -1586,12 +1587,12 @@ Il sensore procederà al calcolo del nuovo valore ogni qual volta:
 
 Il sensore dell’umidità del suolo estende da `AbstractSensorWithTimer`, che detiene già al suo interno i metodi necessari all’aggiornamento periodico dei valori (vedi [Fig. 4.8.4.1]).
 
-<div align="center">
+<div id="4.8.4.1" align="center">
   <img src="img/sensor_soil_humidity.png" />
   <p>Fig. 4.8.4.1 - Sensore per l'umidità del suolo</p>
 </div>
 
-[Fig. 4.8.4.1]: img/sensor_soil_humidity.png
+[Fig. 4.8.4.1]: #4.8.4.1
 
 Se nella località di ubicazione della serra sta piovendo e se le porte dell'area sono aperte, il valore del sensore sarà influenzato dalla quantità di precipitazioni; se, invece, non sta piovendo oppure se le porte dell'area sono chiuse, il valore diminuirà mano a mano che passa il tempo in quanto l’acqua tende ad evaporare.
 
@@ -1609,12 +1610,12 @@ Nel caso in cui l'utente decida di fermare la simulazione in anticipo o nel caso
 
 Gli elementi grafici della schermata di fine simulazione sono contenuti all'interno del rispettivo file _FXML_ e `FinishSimulationView` ne rappresenta il Controller.
 
-<div align="center">
+<div id="4.9.1" align="center">
   <img src="img/finish_simulation_view.png" />
   <p>Fig. 4.9.1 - View fine simulazione</p>
 </div>
 
-[Fig. 4.9.1]: img/finish_simulation_view.png
+[Fig. 4.9.1]: #4.9.1
 
 Come si può vedere dalla figura [Fig. 4.9.1], per poter realizzare la View di fine simulazione è stata definita l'interfaccia `FinishSimulationView`, la quale estende l'interfaccia `ViewComponent`, dichiarando che il pannello principale, contenente tutti i diversi elementi di questa scena, è un `BorderPane`. 
 
@@ -1666,12 +1667,12 @@ Il sistema è stato organizzato in 5 package principali:
 - **model**, che contiene gli elementi Model che racchiudono la logica di business dell'applicazione;
 - **view**, che contiene gli elementi View che detengono le componenti delle diverse interfacce grafiche e gestiscono le interazioni con l'utente.
 
-<div align="center">
+<div id="4.11.1" align="center">
   <img src="img/package.png" />
   <p>Fig. 4.11.1 - Organizzazione dei package del progetto</p>
 </div>
 
-[Fig. 4.11.1]: img/package.png
+[Fig. 4.11.1]: #4.11.1
 
 <div style="page-break-after: always;"></div>
 
@@ -2078,12 +2079,12 @@ La _code coverage_ fa riferimento, sostanzialmente, alla quantità di istruzioni
 
 In particolare, per poter ottenere i risultati relativi alla _coverage_, si è fatto utilizzo del _tool_ [_JaCoCo_](https://www.eclemma.org/jacoco/).
 
-<div align="center">
+<div id="5.6.3.1" align="center">
   <img src="img/coverage.png" />
   <p> Fig. 5.6.3.1 - Coverage finale ottenuta </p>
 </div>
 
-[Fig. 5.6.3.1]: img/coverage.png
+[Fig. 5.6.3.1]: #5.6.3.1
 
 Come si può vedere dalla [Fig. 5.6.3.1], la coverage finale ottenuta è del 80% su un totale di 126 test effettuati.
 
@@ -2361,19 +2362,19 @@ Riteniamo che la realizzazione di questo progetto abbia accresciuto le nostre co
 
 All’avvio dell’applicazione, l’utente dovrà selezionare il comune di ubicazione della serra ([Fig. 1]). Successivamente, dovrà  scegliere una o più piante da coltivare all’interno di essa, tra le 25 specie che verranno mostrate nell’apposita schermata ([Fig. 2]).
 
-<div align="center">
+<div id="1" align="center">
   <img src="img/userGuide_selectCity.png" />
   <p> Fig. 1 - Schermata per la selezione del comune di ubicazione </p>
 </div>
 
-[Fig. 1]: img/userGuide_selectCity.png
+[Fig. 1]: #1
 
-<div align="center">
+<div id="2" align="center">
   <img src="img/userGuide_selectPlants.png" />
   <p> Fig. 2 - Schermata per la selezione delle piante </p>
 </div>
 
-[Fig. 2]: img/userGuide_selectCity.png
+[Fig. 2]: #2
 
 Una volta scelte le piante, verrà visualizzata una schermata di loading in attesa di ottenere le informazioni richieste dal web.
 
@@ -2389,30 +2390,30 @@ Nella parte inferiore della schermata l’utente ha la possibilità di visualizz
 
 Nella parte sottostante alla visualizzazione del tempo virtuale, l’utente ha a disposizione uno slider con cui poter incrementare la velocità della simulazione. Alternativamente, mediante il pulsante "_Terminate simulation_", è possibile terminare in anticipo la simulazione.
 
-<div align="center">
+<div id="3" align="center">
   <img src="img/userGuide_mainView.png" />
   <p> Fig. 3 - Schermata principale della simulazione </p>
 </div>
 
-[Fig. 3]: img/userGuide_mainView.png
+[Fig. 3]: #3
 
 Cliccando su una specifica area, si potrà visualizzare la schermata di dettaglio ([Fig. 4]) in cui sarà possibile visionare: l’immagine e la descrizione della pianta coltivata; lo stato dell’area, se di allarme o normale; i valori ottimali e correnti per ogni parametro ambientale rilevato dai sensori posti all’interno dell’area e le azioni che possono essere intraprese per regolare i parametri rilevati al suo interno.
 
 In relazione ad ogni parametro, vi è l’indicazione se siano stati rilevati dei valori critici o meno. Nel caso in cui venga segnalata una situazione di allarme, all’utente verranno mostrati dei suggerimenti relativi alle azioni che possono essere intraprese per riportare l’area in una condizione ottimale.
 
-<div align="center">
+<div id="4" align="center">
   <img src="img/userGuide_detailArea.png" />
   <p> Fig. 4 - Schermata per la visualizzazione in dettaglio dell'area </p>
 </div>
 
-[Fig. 4]: img/userGuide_detailArea.png
+[Fig. 4]: #4
 
 
 Qualora l’utente abbia deciso di terminare in anticipo la simulazione oppure siano trascorse le 24 ore virtuali, l’utente verrà reindirizzato alla schermata di fine simulazione ([Fig. 5]) in cui avrà la possibilità di iniziarne una nuova, semplicemente cliccando sul pulsante “_Start a new simulation_”.
 
-<div align="center">
+<div id="5" align="center">
   <img src="img/userGuide_finishSimulation.png" />
   <p> Fig. 5 - Schermata finale </p>
 </div>
 
-[Fig. 5]: img/userGuide_finishSimulation.png
+[Fig. 5]: #5
