@@ -1629,11 +1629,13 @@ Per la realizzazione di questo progetto sono stati adoperati i pattern creaziona
 
 Il _pattern Factory_ è un pattern creazionale che ci dà la possibilità di creare degli oggetti senza dover specificare la loro classe e ci consente di cambiare in modo abbastanza agevole l'oggetto creato. 
 
-Le _factories_, come dice il nome, rappresentano delle vere e proprie "fabbriche di oggetti" che possiamo utilizzare per istanziare gli oggetti di cui abbiamo bisogno e con determinate caratteristiche.
+Le _factories_, come dice il nome, rappresentano delle vere e proprie "fabbriche di oggetti" che possiamo utilizzare per istanziare gli oggetti di cui abbiamo bisogno e con determinate caratteristiche. In generale questo pattern è stato utilizzato tramite i _companion object_ associati alle classi, i quali danno la possibilità di istanziare la classe corrispondente mantenendo privata la sua implementazione.
 
 All'interno del progetto si è fatto utilizzo, in particolare, del pattern _StaticFactory_, per produrre le funzioni necessarie a calcolare l'aggiornamento dei parametri rilevati dai sensori. 
 
 Nella programmazione funzionale, infatti, è possibile specificare dei metodi che abbiano come tipo di ritorno delle funzioni. Si è sfruttata, quindi, questa possibilità per poter realizzare delle _factories_ che restituissero la funzione da applicare per determinare l'aggiornamento del valore rilevato.
+
+
 
 ### Singleton
 
@@ -1641,7 +1643,6 @@ Per lo sviluppo del progetto si è fatto largo uso di questo pattern creazionale
 
 In Scala è particolarmente semplice implementare tale pattern in quanto gli _object_ sono classi con esattamente una istanza che viene inizializzata in modo _lazy_ (su richiesta) quando ci riferiamo ad essa: prima di ciò, nessuna istanza dell’_object_ sarà presente nello _heap_.
 
-Infine, si è anche utilizzato il pattern _factory_ tramite i _companion object_ associati alle classi, i quali danno la possibilità di istanziare la classe corrispondente mantenendo privata la sua implementazione.
 
 ### Template method
 
@@ -1756,7 +1757,7 @@ type OptimalValues = Map[String, Any]
 ### 5.1.4 For-comprehension
 Al fine di rendere il codice meno imperativo, si è fatto uso della _for-comprehension_: un costrutto funzionale per operare sulle collezioni e basato sulle _monadi_. 
 
-Oltre a rendere il codice più funzionale, la scelta dell'utilizzo della _for-comprehension_ è supportata dall'incremento della leggibilità del codice, come si può vedere nel seguente estratto di programma. Il costrutto viene utilizzato per la creazione degli oggetti `ManageSensor`, il cui compito è racchiudere tutte le informazioni utili riguardati un sensore.
+Oltre a rendere il codice più funzionale, la scelta dell'utilizzo della _for-comprehension_ è supportata dall'incremento della leggibilità del codice, come si può vedere nel seguente estratto di programma. Il costrutto viene ad esempio utilizzato per la creazione degli oggetti `ManageSensor`, il cui compito è racchiudere tutte le informazioni utili riguardati un sensore.
 
 ```scala
 for

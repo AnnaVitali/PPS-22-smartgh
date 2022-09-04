@@ -78,7 +78,7 @@ type OptimalValues = Map[String, Any]
 ### 5.1.4 For-comprehension
 Al fine di rendere il codice meno imperativo, si è fatto uso della _for-comprehension_: un costrutto funzionale per operare sulle collezioni e basato sulle _monadi_. 
 
-Oltre a rendere il codice più funzionale, la scelta dell'utilizzo della _for-comprehension_ è supportata dall'incremento della leggibilità del codice, come si può vedere nel seguente estratto di programma. Il costrutto viene utilizzato per la creazione degli oggetti `ManageSensor`, il cui compito è racchiudere tutte le informazioni utili riguardati un sensore.
+Oltre a rendere il codice più funzionale, la scelta dell'utilizzo della _for-comprehension_ è supportata dall'incremento della leggibilità del codice, come si può vedere nel seguente estratto di programma. Il costrutto viene ad esempio utilizzato per la creazione degli oggetti `ManageSensor`, il cui compito è racchiudere tutte le informazioni utili riguardati un sensore.
 
 ```scala
 for
