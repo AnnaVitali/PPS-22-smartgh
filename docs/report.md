@@ -853,7 +853,7 @@ Tale interfaccia richiede che il nuovo elemento View da impostare sia di un tipo
 Gli elementi comuni ai diversi Controller sono stati racchiusi all'interno dell'interfaccia `SceneController` (vedi [Fig. 4.1.3]), contenente il metodo `beforeNextScene` che si occupa di eseguire le operazioni che devono essere effettuate, prima di poter effettuare il cambio di scena.
 
 <div id="4.1.3" align="center">
-  <img src="img/contiguousSceneView.png" />
+  <img src="img/scene_controller.png" />
   <p> Fig. 4.1.3 - SceneController</p>
 </div>
 
